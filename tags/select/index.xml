@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>select on IT技术分享</title>
+    <link>https://www.51hint.com/tags/select/</link>
+    <description>Recent content in select on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 May 2014 11:42:55 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/select/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cake 下拉</title>
+      <link>https://www.51hint.com/posts/2014-05-27-cake-%E4%B8%8B%E6%8B%89/</link>
+      <pubDate>Tue, 27 May 2014 11:42:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-05-27-cake-%E4%B8%8B%E6%8B%89/</guid>
+      <description>add.ctp edit.ctp增加下拉，而数据还保持是vchar，就可以了； ========================= 脚本建立基本模型 localhost app]$ ../cake/console/cake bake 认证官方教程 http://book.cakephp.org/2.0/en/tutorials-and-examples/blog-auth-example/auth.html</description>
+    </item>
+    
+  </channel>
+</rss>

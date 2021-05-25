@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> ssh不仅仅是远程登录管理主机 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="ssh不仅仅是远程登录管理主机" />
+  <meta name="twitter:title" content="ssh不仅仅是远程登录管理主机" />
+  <meta name="description" content="建立 HTTP 隧道 如果你需要访问线上集群中某台内网主机，那么你可以这样 当运行完毕以后，打开本地浏览器访问 http://localhost:31609">
+  <meta property="og:description" content="建立 HTTP 隧道 如果你需要访问线上集群中某台内网主机，那么你可以这样 当运行完毕以后，打开本地浏览器访问 http://localhost:31609">
+  <meta name="twitter:description" content="建立 HTTP 隧道 如果你需要访问线上集群中某台内网主机，那么你可以这样 当运行完毕以后，打开本地浏览器访问 http://localhost:31609">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-02-10-ssh%E4%B8%8D%E4%BB%85%E4%BB%85%E6%98%AF%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E7%AE%A1%E7%90%86%E4%B8%BB%E6%9C%BA/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-02-10-ssh%E4%B8%8D%E4%BB%85%E4%BB%85%E6%98%AF%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E7%AE%A1%E7%90%86%E4%B8%BB%E6%9C%BA/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">ssh不仅仅是远程登录管理主机</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Feb 10, 2012</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#建立-http-隧道">建立 HTTP 隧道</a></li>
+    <li><a href="#反向-ssh-隧道">反向 ssh 隧道</a></li>
+    <li><a href="#直接运行远程脚本">直接运行远程脚本</a></li>
+    <li><a href="#压缩传送文件和目录">压缩传送文件和目录</a></li>
+    <li><a href="#自动登录-ssh">自动登录 ssh</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h2 id="建立-http-隧道">建立 HTTP 隧道</h2>
+<p>如果你需要访问线上集群中某台内网主机，那么你可以这样</p>
+<!-- raw HTML omitted -->
+<p>当运行完毕以后，打开本地浏览器访问 <!-- raw HTML omitted -->http://localhost:31609<!-- raw HTML omitted --> 端口，则可以获取 <!-- raw HTML omitted -->remotehost<!-- raw HTML omitted --> 访问 192.168.0.1 的 80 端口的数据。</p>
+<h2 id="反向-ssh-隧道">反向 ssh 隧道</h2>
+<p>如果本地局域网无法访问某些站点，那么你可以利用你的 ssh 主机通过它去访问。你可以使用</p>
+<!-- raw HTML omitted -->
+<p>然后设置代理为 <!-- raw HTML omitted -->localhost:8080<!-- raw HTML omitted --> 则可以通过 <!-- raw HTML omitted -->remotehost<!-- raw HTML omitted --> 访问制定的资源。</p>
+<p>PS，如果你使用 Mac，并经常会这样干，<!-- raw HTML omitted -->那么你会喜欢这个工具<!-- raw HTML omitted -->。</p>
+<h2 id="直接运行远程脚本">直接运行远程脚本</h2>
+<p>ssh 其实可以直接指定运行远程主机的命令。例如，每次登录并查看线上的日志是件非常繁琐的累活。其实你可以使用下面的命令</p>
+<!-- raw HTML omitted -->
+<p>它会 ssh 登录以后直接执行指定的命令。这样我们可以构建本地脚本让其接受远程服务器的输出，做更多的事情。</p>
+<h2 id="压缩传送文件和目录">压缩传送文件和目录</h2>
+<p>有时候不想开启 SFTP 工具传送文件，那么下面的命令会帮到你</p>
+<!-- raw HTML omitted -->
+<p>这个命令可以自动讲本地的文件或者目录打包压缩以后，通过 ssh 传输到 remotehost 主机，然后 remotehost 会自动将其解压缩。</p>
+<h2 id="自动登录-ssh">自动登录 ssh</h2>
+<p>最后个 ssh 技巧，上面的技巧的确是很实用，但是我们也受不了每次都要输入次密码。如果你的确厌烦了这些，那么尝试执行下面的命令：</p>
+<!-- raw HTML omitted -->
+<p>这样远程的主机就会保存你本地的公钥，你就可以自动 ssh 登录远程主机（<!-- raw HTML omitted -->详细<!-- raw HTML omitted -->）。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-02-09-ip%E6%95%B0%E6%8D%AE%E5%8C%85%E5%A4%B4%E9%95%BF%E5%BA%A6-ihl/" data-toggle="tooltip" data-placement="top" title="IP数据包头长度 IHL">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-02-11-better-bbedit-completion-with-ctags/" data-toggle="tooltip" data-placement="top" title="Better BBEdit Completion With ctags">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Feb 10, 2012</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

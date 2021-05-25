@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> cocos2d-x 一些编辑器 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="cocos2d-x 一些编辑器" />
+  <meta name="twitter:title" content="cocos2d-x 一些编辑器" />
+  <meta name="description" content="Action Editor SpriteHelper &amp; LevelHelper Author’s blog Download from Mac Store SpriteHelperFree SpriteHelper LevelHelper “Video” Youtube: http://www.youtube.com/watch?v=YoVMSuwsATk Youku: http://v.youku.com/v_show/id_XMjU2NjU1OTIw.html News on cocos2d-x: http://www.cocos2d-x.org/news/14 CocosBuilder: http://cocosbuilder.com/ (can only be used in ios games) SceneDesigner: https://github.com/andrew0/SceneDesigner CocoShop: http://www.cocos2d-iphone.org/forum/topic/15668 (can only be used in ios games) – Abandoned project Map Editor Tiled Map Editor , free, cross platform, based on">
+  <meta property="og:description" content="Action Editor SpriteHelper &amp; LevelHelper Author’s blog Download from Mac Store SpriteHelperFree SpriteHelper LevelHelper “Video” Youtube: http://www.youtube.com/watch?v=YoVMSuwsATk Youku: http://v.youku.com/v_show/id_XMjU2NjU1OTIw.html News on cocos2d-x: http://www.cocos2d-x.org/news/14 CocosBuilder: http://cocosbuilder.com/ (can only be used in ios games) SceneDesigner: https://github.com/andrew0/SceneDesigner CocoShop: http://www.cocos2d-iphone.org/forum/topic/15668 (can only be used in ios games) – Abandoned project Map Editor Tiled Map Editor , free, cross platform, based on">
+  <meta name="twitter:description" content="Action Editor SpriteHelper &amp; LevelHelper Author’s blog Download from Mac Store SpriteHelperFree SpriteHelper LevelHelper “Video” Youtube: http://www.youtube.com/watch?v=YoVMSuwsATk Youku: …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-11-05-cocos2d-x-%E4%B8%80%E4%BA%9B%E7%BC%96%E8%BE%91%E5%99%A8/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-11-05-cocos2d-x-%E4%B8%80%E4%BA%9B%E7%BC%96%E8%BE%91%E5%99%A8/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">cocos2d-x 一些编辑器</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Nov 5, 2012</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/coco2dx/">coco2dx</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/cocos2d/">cocos2d</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/cocos2d-x/">cocos2d-x</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <h2 id="action-editor">Action Editor</h2>
+<ul>
+<li>
+<p>SpriteHelper &amp; LevelHelper</p>
+<ul>
+<li><a href="http://spritehelper.wordpress.com/">Author’s blog</a></li>
+<li>Download from Mac Store
+<ul>
+<li><a href="http://itunes.apple.com/sg/app/spritehelperfree/id421369850?mt=12">SpriteHelperFree</a></li>
+<li><a href="http://itunes.apple.com/us/app/spritehelper/id416068717?mt=12">SpriteHelper</a></li>
+<li><a href="http://itunes.apple.com/us/app/levelhelper/id421740820?mt=12">LevelHelper</a></li>
+</ul>
+</li>
+<li>“Video”
+<ul>
+<li>Youtube: <a href="http://www.youtube.com/watch?v=YoVMSuwsATk">http://www.youtube.com/watch?v=YoVMSuwsATk</a></li>
+<li>Youku: <a href="http://v.youku.com/v_show/id_XMjU2NjU1OTIw.html">http://v.youku.com/v_show/id_XMjU2NjU1OTIw.html</a></li>
+</ul>
+</li>
+<li>News on cocos2d-x: <a href="http://www.cocos2d-x.org/news/14">http://www.cocos2d-x.org/news/14</a></li>
+</ul>
+</li>
+<li>
+<p>CocosBuilder: <a href="http://cocosbuilder.com/">http://cocosbuilder.com/</a> (can only be used in ios games)</p>
+</li>
+<li>
+<p>SceneDesigner: <a href="https://github.com/andrew0/SceneDesigner">https://github.com/andrew0/SceneDesigner</a></p>
+</li>
+<li>
+<p>CocoShop: <a href="http://www.cocos2d-iphone.org/forum/topic/15668">http://www.cocos2d-iphone.org/forum/topic/15668</a> (can only be used in ios games) – Abandoned project</p>
+</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="map-editor">Map Editor</h2>
+<ul>
+<li>
+<p><a href="http://www.mapeditor.org/">Tiled Map Editor</a> , free, cross platform, based on QT or Java, output TMX file</p>
+</li>
+<li>
+<p>“iTileMaps”</p>
+<ul>
+<li>iTunes link: <a href="http://itunes.apple.com/us/app/itilemaps/id432784227?mt=8">http://itunes.apple.com/us/app/itilemaps/id432784227?mt=8</a></li>
+<li>more info at: <a href="http://www.klemix.com/">http://www.klemix.com/</a></li>
+</ul>
+</li>
+<li>
+<p>CHN Tutorials</p>
+<ul>
+<li><a href="http://unclemao.orzstudio.com/programming/iphone/topic-375.html">译 – 在Tiled Map中使用碰撞检测(一) 创建基于Tiled Map的游戏</a></li>
+<li><a href="http://unclemao.orzstudio.com/programming/iphone/topic-403.html">译 – 在Tiled Map中使用碰撞检测(二) TMX地图中的碰撞检测</a></li>
+</ul>
+</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="spritesheet-editor">SpriteSheet Editor</h2>
+<ul>
+<li><a href="http://www.zwoptexapp.com/">Zwoptex v1.0</a> , free, OSX only, output .png &amp; .plist file</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="particle-editor">Particle Editor</h2>
+<ul>
+<li>Particle editor: <a href="http://particledesigner.71squared.com/">Particle Designer</a> , OSX only, $8 for license, output .png &amp; ,plist file</li>
+<li>Particle editor: <a href="http://code.google.com/p/cocos2d-windows-particle-editor/">cocos2d-windows-particle-editor</a> , win only, free, output .png &amp; ,plist file</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="font-editor">Font editor:</h2>
+<ul>
+<li>Hiero (cross-platform): <a href="http://slick.cokeandcode.com/demos/hiero.jnlp">http://slick.cokeandcode.com/demos/hiero.jnlp</a> (free)</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="texture-atlas-editor">Texture atlas editor:</h2>
+<ul>
+<li>TexturePacker (Windows, MacOSX): <a href="http://www.texturepacker.com/">http://www.texturepacker.com/</a> (basic version is free, full version is $19.95)</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="physics-object-editor">Physics object editor:</h2>
+<ul>
+<li>PhysicsEditor (Windows, MacOSX): <a href="http://www.physicseditor.de/">http://www.physicseditor.de/</a> (basic version is free, full version is $19.95)</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="font-editor-1">Font editor:</h2>
+<ul>
+<li>Bitmap Font Generator: <a href="http://www.angelcode.com/products/bmfont/">http://www.angelcode.com/products/bmfont/</a> (free)</li>
+<li></li>
+</ul>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-11-02-xcode-4-create-both-h-and-cpp-when-adding-a-new-file/" data-toggle="tooltip" data-placement="top" title="XCode 4: create both .h and .cpp when adding a new file">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-11-07-c%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%BE%A4%E8%8B%B1%E4%BC%9A/" data-toggle="tooltip" data-placement="top" title="C&#43;&#43;开发常用工具“群英会”">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Nov 5, 2012</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/coco2dx/">coco2dx</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/cocos2d/">cocos2d</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/cocos2d-x/">cocos2d-x</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

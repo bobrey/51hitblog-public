@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>struts2 tag on IT技术分享</title>
+    <link>https://www.51hint.com/tags/struts2-tag/</link>
+    <description>Recent content in struts2 tag on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Aug 2012 04:42:52 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/struts2-tag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>struts2 标签</title>
+      <link>https://www.51hint.com/posts/2012-08-08-struts2-%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Wed, 08 Aug 2012 04:42:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-08-struts2-%E6%A0%87%E7%AD%BE/</guid>
+      <description>1． Struts2页面开发中常用标签使用说明 1.1．往action里传值的使用方式： a. userName属性需要在访问的action中提供相应</description>
+    </item>
+    
+  </channel>
+</rss>

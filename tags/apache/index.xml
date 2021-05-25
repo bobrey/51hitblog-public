@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apache on IT技术分享</title>
+    <link>https://www.51hint.com/tags/apache/</link>
+    <description>Recent content in apache on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Mar 2013 05:17:02 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/apache/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ubuntu 一键安装lamp</title>
+      <link>https://www.51hint.com/posts/2013-03-19-ubuntu-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85lamp/</link>
+      <pubDate>Tue, 19 Mar 2013 05:17:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-03-19-ubuntu-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85lamp/</guid>
+      <description>打开终端 sudo apt-get install apache2 php5 libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql phpmyadmin 一键安装需要的组件. 期间会要求你输入mysql数据库的root用户密码，选择服务器类型［apache］,phpM</description>
+    </item>
+    
+    <item>
+      <title>centos6 快速安装LAMP</title>
+      <link>https://www.51hint.com/posts/2012-12-23-centos-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85lamp/</link>
+      <pubDate>Sun, 23 Dec 2012 02:07:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-23-centos-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85lamp/</guid>
+      <description>配置Apache、MySQL、Tomcat服务开机自启动： &amp;lt;br /&amp;gt; 重启Apache、MySQL、Tomcat服务： &amp;lt;br /&amp;gt; 说明： ** Apache的配置</description>
+    </item>
+    
+  </channel>
+</rss>

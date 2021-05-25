@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Code Push 热更新使用 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Code Push 热更新使用" />
+  <meta name="twitter:title" content="Code Push 热更新使用" />
+  <meta name="description" content="Code push CodePush是一个微软开发的云服务器。通过它，开发者可以直接在用户的设备上部署手机应用更新。 CodePush相当于一个中心仓库，开发">
+  <meta property="og:description" content="Code push CodePush是一个微软开发的云服务器。通过它，开发者可以直接在用户的设备上部署手机应用更新。 CodePush相当于一个中心仓库，开发">
+  <meta name="twitter:description" content="Code push CodePush是一个微软开发的云服务器。通过它，开发者可以直接在用户的设备上部署手机应用更新。 CodePush相当于一个中心仓库，开发">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/code-push-re-geng-xin-shi-yong/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/code-push-re-geng-xin-shi-yong/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Code Push 热更新使用</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Mar 6, 2017</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/react/">react</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/cordova/">cordova</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <h1 id="code-push">Code push</h1>
+<p>CodePush是一个微软开发的云服务器。通过它，开发者可以直接在用户的设备上部署手机应用更新。<br>
+CodePush相当于一个中心仓库，开发者可以推送当前的更新 <strong>(包括JS/HTML/CSS/IMAGE等)</strong> 到CoduPush，然后应用将会查询是否有更新<br>
+<strong>CodePush只能更新 js或图片，原生代码的改变（二进制打包）是不能通过它更新的</strong></p>
+<h4 id="code-pushhttpsmicrosoftgithubiocode-pushindexhtmlgetting_started"><a href="https://microsoft.github.io/code-push/index.html#getting_started">Code Push</a></h4>
+<h2 id="install-the-codepush-cli">Install the CodePush CLI</h2>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">npm</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">g</span> <span class="nx">code</span><span class="o">-</span><span class="nx">push</span><span class="o">-</span><span class="nx">cli</span>
+</code></pre></div><h2 id="create-a-codepush-account">Create a CodePush account</h2>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">code</span><span class="o">-</span><span class="nx">push</span> <span class="nx">register</span>
+</code></pre></div><h2 id="register-your-app-with-the-service">Register your app with the service</h2>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">code</span><span class="o">-</span><span class="nx">push</span> <span class="nx">app</span> <span class="nx">add</span> <span class="o">&lt;</span><span class="nx">appName</span><span class="o">&gt;</span>
+</code></pre></div><h2 id="codepush-ify-your-mobile-client">CodePush-ify your mobile client</h2>
+<ul>
+<li><a href="https://github.com/Microsoft/cordova-plugin-code-push#getting-started">Cordova</a></li>
+<li><a href="https://github.com/Microsoft/react-native-code-push#getting-started">React Native</a></li>
+</ul>
+<h2 id="release-an-app-update">Release an app update</h2>
+<ul>
+<li>React Native</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">code</span><span class="o">-</span><span class="nx">push</span> <span class="nx">release</span><span class="o">-</span><span class="nx">react</span> <span class="o">&lt;</span><span class="nx">appName</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">platform</span><span class="o">&gt;</span>
+</code></pre></div><ul>
+<li>Cordova</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">code</span><span class="o">-</span><span class="nx">push</span> <span class="nx">release</span><span class="o">-</span><span class="nx">cordova</span> <span class="o">&lt;</span><span class="nx">appName</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">platform</span><span class="o">&gt;</span>
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/redux-zhong-jian-jian/" data-toggle="tooltip" data-placement="top" title="Redux 中间件">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/react-reduxyong-fa/" data-toggle="tooltip" data-placement="top" title="React-Redux用法">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/redux/">redux</a></li>
+                    
+                    <li><a href="/posts/redux-zhong-jian-jian/">Redux 中间件</a></li>
+                    
+                    <li><a href="/posts/flux/">flux</a></li>
+                    
+                    <li><a href="/posts/react-nativexue-xi-zhi-nan/">React-Native学习指南</a></li>
+                    
+                    <li><a href="/posts/react-2/">react</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Mar 6, 2017</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/react/">react</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/cordova/">cordova</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

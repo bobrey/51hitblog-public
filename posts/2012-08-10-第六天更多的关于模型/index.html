@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第六天：更多的关于模型 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第六天：更多的关于模型" />
+  <meta name="twitter:title" content="第六天：更多的关于模型" />
+  <meta name="description" content="昨天，你学了如何创建漂亮的URL和如何用symfony框架来自动为你做许多事情。 今天，我们会调整代码加强Jobeet网站。在这个过程中，你会">
+  <meta property="og:description" content="昨天，你学了如何创建漂亮的URL和如何用symfony框架来自动为你做许多事情。 今天，我们会调整代码加强Jobeet网站。在这个过程中，你会">
+  <meta name="twitter:description" content="昨天，你学了如何创建漂亮的URL和如何用symfony框架来自动为你做许多事情。 今天，我们会调整代码加强Jobeet网站。在这个过程中，你会">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AD%E5%A4%A9%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%85%B3%E4%BA%8E%E6%A8%A1%E5%9E%8B/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AD%E5%A4%A9%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%85%B3%E4%BA%8E%E6%A8%A1%E5%9E%8B/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第六天：更多的关于模型</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">2800 Words|Read in about 6 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_06_the_doctrine_query_object"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.1 Doctrine查询对象</a></a></li>
+    <li><a href="#chapter_06_debugging_doctrine_generated_sql"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.2 调试Doctrine生成的SQL</a></a></li>
+    <li><a href="#chapter_06_object_serialization"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.3 对象序列化</a></a></li>
+    <li><a href="#chapter_06_more_with_fixtures"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.4 更多关于fixtures</a></a></li>
+    <li><a href="#chapter_06_custom_configuration"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.5 自定义配置</a></a></li>
+    <li><a href="#chapter_06_refactoring"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.6 重构</a></a></li>
+    <li><a href="#chapter_06_categories_on_the_homepage"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.7 在首页的分类</a></a></li>
+    <li><a href="#chapter_06_limit_the_results"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.8 限制结果</a></a></li>
+    <li><a href="#chapter_06_dynamic_fixtures"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.9 动态fixtures</a></a></li>
+    <li><a href="#chapter_06_secure_the_job_page"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.10 安全化职位页面</a></a></li>
+    <li><a href="#chapter_06_link_to_the_category_page"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.11 链接到分类页面</a></a></li>
+    <li><a href="#chapter_06_final_thoughts"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.12 结语</a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <!-- raw HTML omitted -->
+<p>昨天，你学了如何创建漂亮的URL和如何用symfony框架来自动为你做许多事情。</p>
+<p>今天，我们会调整代码加强Jobeet网站。在这个过程中，你会学习我们在本教程第一至五天介绍过得更多有关的所有功能。</p>
+<h2 id="chapter_06_the_doctrine_query_object"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.1 Doctrine查询对象</a></h2>
+<p>来自第二天的需求：</p>
+<p>“当一个用户来到Jobeet网站，他可以看到一列活跃的职位列表。”</p>
+<p>截止目前，无论它们是否活跃，所有职位都显示了：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>活跃的职位是发布时间不超过30天。<code>~Doctrine_Query~::execute()</code> 方法会查询数据库。在上面代码中，我们没有指定任何条件，这意味着从数据表中检索所有的记录。</p>
+<p>我们改一下，只检索活跃职位：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_06_debugging_doctrine_generated_sql"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.2 调试Doctrine生成的SQL</a></h2>
+<p>因为你不用手写SQL语句，Doctrine会兼容不同的数据库，并生成SQL语句。但有时，查看一下Dcotrine生成的SQL是有很大帮助的；例如，调试查询不按预期工作，在开发环境中，symfony把这些查询记录在 <code>log/</code> 目录中。每一个应用和每一个环境都有一个日志文件。我们来找到这个被命名为 <code>frontend_dev.log</code> 的文件：</p>
+<pre><code># log/frontend_dev.log
+Dec 04 13:58:33 symfony {sfDoctrineLogger} executeQuery : SELECT 
+j.id AS j__id, j.category_id AS j__category_id, j.type AS j__type, 
+j.company AS j__company, j.logo AS j__logo, j.url AS j__url, 
+j.position AS j__position, j.location AS j__location, 
+j.description AS j__description, j.how_to_apply AS j__how_to_apply, 
+j.token AS j__token, j.is_public AS j__is_public, 
+j.is_activated AS j__is_activated, j.email AS j__email, 
+j.expires_at AS j__expires_at, j.created_at AS j__created_at, 
+j.updated_at AS j__updated_at FROM jobeet_job j 
+WHERE j.created_at &gt; ? (2008-11-08 01:13:35)
+</code></pre>
+<p>你可以看见Doctrine有一个 <code>where</code> 子句对应 <code>created_at</code> 字段（<code>WHERE j.created_at &gt; ?</code>）。</p>
+<!-- raw HTML omitted -->
+<p>这点很好，但有一点恼人的是，你每次需要测试一个修改，必须在浏览器、IDE、日志文件之间切换。多亏了symfony的WEB调试工具栏，所有你需要的信息会内置在你的浏览器上：</p>
+<p><img src="res/web_debug_sql.png" alt="在浏览器中的SQL语句"></p>
+<h2 id="chapter_06_object_serialization"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.3 对象序列化</a></h2>
+<p>即使上面的职位查询SQL代码正常工作，但很不完善，因为它没有顾忌到我们在第二天提到的要求：</p>
+<p>“一个用户回过头重新激活职位帖子或延长30天”</p>
+<p>但上面的代码仅仅依赖于 <code>created_at</code> 值，而且因为这个字段是储存创建时间的，我们不能满足上面的要求。</p>
+<p>但如果你记的第三天我们讲过的数据库schema，我们还定义了一个 <code>expires_at</code> 字段。目前这个值没有设置在fixture文件中，它仍然总是空的。但当一个职位创建时，他可以自动的设置为30天后的时间。</p>
+<p>当在Doctrine对象序列化到数据库之前你需要自动的做一些事，你可以覆盖模型类的 <code>save()</code> 方法：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>当在数据库中对象还没序列化时，<code>isNew()</code> 方法返回 <code>true</code>，否则返回 <code>false</code>。</p>
+<p>现在，我们更改行为来用 <code>expires_at</code> 字段而不是 <code>created_at</code> 来检索活跃职位：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在以后我们用 <code>expires_at</code> 日期来限制查询职位。</p>
+<h2 id="chapter_06_more_with_fixtures"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.4 更多关于fixtures</a></h2>
+<p>在浏览器中刷新Jobeet首页，在数据库中的职位都是几天前才发布的，所以首页上没有任何变化。我们更改fixtures文件来增加一个已经过期的职位：</p>
+<pre><code># data/fixtures/jobs.yml
+JobeetJob:
+  # other jobs
+
+  expired_job:
+    JobeetCategory: programming
+    company:        Sensio Labs
+    position:       Web Developer
+    location:       Paris, France
+    description:    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    how_to_apply:   Send your resume to lorem.ipsum dolor.sit
+    is_public:      true
+    is_activated:   true
+    created_at:     '2005-12-01 00:00:00'
+    token:          job_expired
+    email:          &lt;a href=&quot;mailto:job@example.com&quot;&gt;job@example.com&lt;/a&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>正如你所看到的我们在装填文件中添加了一个职位，<code>created_at</code> 字段值即使是自动填充我们也可以定义个值。被定义的值会覆盖默认值。重新载入装填文件并刷新浏览器，则不会显示旧职位了：</p>
+<pre><code>$ php symfony doctrine:data-load
+</code></pre>
+<p>你也可以执行下面查询来确保 <code>expires_at</code> 字段是通过 <code>save()</code> 方法填充的，基于 <code>created_at</code> 值：</p>
+<pre><code>SELECT `position`, `created_at`, `expires_at` FROM `jobeet_job`;
+</code></pre>
+<h2 id="chapter_06_custom_configuration"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.5 自定义配置</a></h2>
+<p>在 <code>JobeetJob::save()</code> 方法中，对于职位过期天数我们做硬编码。最好为30天。对于应用的特定设置，symfony提供一个内置的配置文件，<code>app.yml</code> 文件。YAML文件可以包含一些你所要的配置：</p>
+<pre><code># apps/frontend/config/app.yml
+all:
+  active_days: 30
+</code></pre>
+<p>在应用中，这些配置通过 <code>sfConfig</code> 全局类访问到的：</p>
+<pre><code>sfConfig::get(&lt;span class=&quot;st0&quot;&gt;'app_active_days'&lt;/span&gt;)
+</code></pre>
+<p>其中一个 <code>app_</code> 前缀，是因为 <code>sfConfig</code> 类也可以访问到symfony的配置，我们稍后会看到。</p>
+<p>我们把刚配置好的新配置带到代码中去：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>对于你的应用，<code>app.yml</code>配置文件集中配置是一个非常棒的方法。</p>
+<p>最后，如果你需要以项目为范围的配置，只需要在你的symfony项目根目录中 <code>config</code> 文件夹里创建一个 <code>app.yml</code> 文件即可。</p>
+<h2 id="chapter_06_refactoring"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.6 重构</a></h2>
+<p>虽然我们写的代码可以正常工作了，但还不完全正确。你问可以找出问题吗？</p>
+<p><code>Doctrine_Query</code> 代码不属于行为（控制层），它属于模型层。在MVC模型中，模型定义所有的业务逻辑，还有控制器只调用模型来检索数据。正如代码返回一个职位的集合，我们来把代码移到 <code>JobeetJobTable</code> 类中，并创建一个 <code>getActiveJobs()</code> 方法：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>现在行为代码可以用这个新方法来检索活跃职位。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在上面的重构代码中有几个优点：</p>
+<ul>
+<li>现在的逻辑是在模型中来得到活跃职位；</li>
+<li>在控制器中的代码更少了并更容易阅读；</li>
+<li><code>getActiveJobs()</code> 方法是可以重复使用的（例如在其他行为里）；</li>
+<li>模型可以单元测试；</li>
+</ul>
+<p>我们用 <code>expires_at</code> 字段来排个序：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>orderBy</code> 方法代表 <code>ORDER BY</code> 语句（<code>addOrderBy()</code> 也同样可以）。</p>
+<h2 id="chapter_06_categories_on_the_homepage"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.7 在首页的分类</a></h2>
+<p>来自第二天的需求：</p>
+<p>“职位是通过分类来排序的，然后通过发布日期（新发布的职位在前面）。”</p>
+<p>到目前截止，我们还没有考虑到职位的分类。来自需求，首页必须以分类来显示职位。首先，我们需要取得所有分类至少有一个活跃的职位。</p>
+<p>打开 <code>JobeetCategoryTable</code> 类并添加一个 <code>getWidthJobs()</code> 方法：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>更改 <code>index</code> 行为：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在模板中，我们需要遍历所有分类并显示活跃职位：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>对于这项工作，我们需要增加 <code>getActiveJobs()</code> 方法到 <code>JobeetCategory</code> 类：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>对于一个给定的分类 <code>JobeetCategory::getActiveJobs()</code> 方法使用 <code>Doctrine_Core::getTable('JobeetJob')-&gt;getActiveJobs()</code> 方法来检索活跃职位。</p>
+<p>调用 <code>Doctrine_Core::getTable('JobeetJob')-&gt;getActiveJobs()</code> 时，我们要通过一个分类来限制查询条件。而不是传递分类对象，我们已决定传一个 <code>Doctrine_Query</code> 对象，因为这个是封装一个通用条件的最好方法。</p>
+<p><code>getActiveJobs()</code> 需要合并这个与自己的查询 <code>Doctrine_Query</code> 对象。因为 <code>Doctrine_Query</code> 是一个对象，这个很简单的：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_06_limit_the_results"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.8 限制结果</a></h2>
+<p>对于首页列表还有一个需求：</p>
+<p>“对每个分类，列表只显示前10个职位，还有分类上有一个链接可以列出所有的职位。”</p>
+<p>添加到 <code>getActiveJobs()</code> 方法很简单的：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>适当的 <code>LIMIT</code> 子句现在是硬编码到模型中，但这个值最好是可以配置。修改模板传一个在 <code>app.yml</code> 中设置的职位最大数：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>然后在 <code>app.yml</code> 中添加一个新设置：</p>
+<pre><code>all:
+  active_days:          30
+  max_jobs_on_homepage: 10
+</code></pre>
+<p><img src="res/homepage.png" alt="Homepage sorted by category"></p>
+<h2 id="chapter_06_dynamic_fixtures"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.9 动态fixtures</a></h2>
+<p>除非你降低 <code>max_jobs_on_homepage</code> 设置到1，你不会看到有什么区别。我们需要增加一堆职位到fixture。那么，你可以手动复制粘贴一个已存在的职位10或20次… 但有个更好的方法。重复的不太好，即使在fixture文件中。</p>
+<p>在symfony中YAML文件可以包含PHP代码，会在解析文件之前评估。编辑 <code>jobs.yml</code> fixture文件和添加下面的代码在末尾：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>要小心，如果搞乱了缩进，YAML解析器不会解析的。记住下面简单的小窍门，当增加PHP代码到YAML文件时：</p>
+<ul>
+<li>
+<!-- raw HTML omitted -->
+</li>
+<li>
+<!-- raw HTML omitted -->
+</li>
+</ul>
+<p>你可以现在用 <code>doctrine:data-load</code> 命令重载fixtures，然后看如果只有10个职位在首页的 <code>Programming</code> 分类上显示出来。在下面的截图中，我更改了职位的最大数为5来使截图变小：</p>
+<p><img src="res/pagination.png" alt="Pagination"></p>
+<h2 id="chapter_06_secure_the_job_page"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.10 安全化职位页面</a></h2>
+<p>当一个职位过期时，即使你知道URL，就不可能再访问了。尝试过期职位的URL（用数据库中实际的 <code>id</code> 替换 <code>id</code> – <code>SELECT id, token FROM jobeet_job WHERE expires_at &lt; NOW()</code> ）：</p>
+<pre><code>/frontend_dev.php/job/sensio-labs/paris-france/ID/web-developer-expired
+</code></pre>
+<p>而不是显示出职位页面，我们需要用户前进到一个404页面。但如何才可以做到这一点，正如职位是通过路由自动检索的？</p>
+<pre><code># apps/frontend/config/routing.yml
+job_show_user:
+  url:     /job/:company_slug/:location_slug/:id/:position_slug
+  class:   sfDoctrineRoute
+  options:
+    model: JobeetJob
+    type:  object
+    method_for_query: retrieveActiveJob
+  param:   { module: job, action: show }
+  requirements:
+    id: \d+
+    sf_method: 
+</code></pre>
+<p>通过路由 <code>retrieveActiveJob()</code> 方法会接收 <code>Doctrine_Query</code> 对象构建：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>现在，如果你尝试取得一个过期的职位，你会前进到404页面。</p>
+<p><img src="res/exception.png" alt="404 for expired job"></p>
+<h2 id="chapter_06_link_to_the_category_page"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.11 链接到分类页面</a></h2>
+<p>在首页来添加一个到分类页面的链接，还有创建分类页面。</p>
+<h2 id="chapter_06_final_thoughts"><a href="forum.php?mod=viewthread&amp;tid=22&amp;extra=page%3D1#">6.12 结语</a></h2>
+<p>明天我们会给你如何实施这个功能的解决方案。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%9B%9B%E5%A4%A9feed/" data-toggle="tooltip" data-placement="top" title="第十四天：Feed">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B9%9D%E5%A4%A9%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96/" data-toggle="tooltip" data-placement="top" title="第十九天：国际化和本地化">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">2800 Words|Read in about 6 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> UI自动化测试之Protractor - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="UI自动化测试之Protractor" />
+  <meta name="twitter:title" content="UI自动化测试之Protractor" />
+  <meta name="description" content="ProtractorWithPageObject Protractor with Page Object Protractor Protractor is an end-to-end test framework for AngularJS applications. Protractor runs tests against your application running in a real browser, interacting with it as a user would. 是什么 基于Node.js的程序 使用Jasmine测试框架测试接口,针对An">
+  <meta property="og:description" content="ProtractorWithPageObject Protractor with Page Object Protractor Protractor is an end-to-end test framework for AngularJS applications. Protractor runs tests against your application running in a real browser, interacting with it as a user would. 是什么 基于Node.js的程序 使用Jasmine测试框架测试接口,针对An">
+  <meta name="twitter:description" content="ProtractorWithPageObject Protractor with Page Object Protractor Protractor is an end-to-end test framework for AngularJS applications. Protractor runs tests against your application running in a real …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/uizi-dong-hua-ce-shi-zhi-protractor/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/uizi-dong-hua-ce-shi-zhi-protractor/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">UI自动化测试之Protractor</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">1800 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/nodejs/">nodejs</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#是什么">是什么</a></li>
+    <li><a href="#功能">功能</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#测试代码specjs">测试代码：<code>spec.js</code></a></li>
+    <li><a href="#启动webdriver">启动<code>webdriver</code></a></li>
+    <li><a href="#执行protractor">执行<code>Protractor</code></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h1 id="protractorwithpageobject">ProtractorWithPageObject</h1>
+<p>Protractor with Page Object</p>
+<h1 id="protractor">Protractor</h1>
+<pre><code>Protractor is an end-to-end test framework for AngularJS applications. 
+Protractor runs tests against your application running in a real browser, interacting with it as a user would.
+</code></pre><h2 id="是什么">是什么</h2>
+<ul>
+<li>基于<code>Node.js</code>的程序</li>
+<li>使用<code>Jasmine</code>测试框架测试接口,针对<code>AngularJS</code>的应用程序</li>
+<li>官网： <a href="http://angular.github.io/protractor/#/">http://angular.github.io/protractor/#/</a></li>
+<li>Github: <a href="https://github.com/angular/protractor">https://github.com/angular/protractor</a></li>
+</ul>
+<h2 id="功能">功能</h2>
+<ul>
+<li>模拟真实的用户操作行为</li>
+<li>针对<code>AngularJS</code>中的Element不需要做特殊的处理，普通HTML元素也同样支持</li>
+<li>智能等待，不需要为页面中的加载和同步显示做特殊的等待时间处理</li>
+</ul>
+<h2 id="安装">安装</h2>
+<ul>
+<li>安装<code>Node</code>和<code>JDK</code>
+<ul>
+<li>Protractor 3支持NodeJS v4以上</li>
+<li>使用NodeJS v0.12,需要使用Protractor 2</li>
+</ul>
+</li>
+<li>安装<code>Protractor</code>: <code>npm install -g protractor</code>
+<ul>
+<li>此命令会同时安装<code>protractor</code>和<code>webdriver-manager</code></li>
+<li><code>webdriver-manager</code>：为于管理所有的<code>webdriver</code></li>
+</ul>
+</li>
+<li>安装<code>webdriver</code>: <code>webdriver-manager update</code>
+<ul>
+<li>此命令会安装和更新<code>webdriver</code>,其它命令及用法</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Usage: webdriver-manager <!-- raw HTML omitted -->
+Commands:
+update: install or update selected binaries
+start: start up the selenium server
+status: list the current available drivers
+clean: removes all downloaded driver files from the out_dir</p>
+</blockquote>
+<pre><code>
+
+#  End To End Testing
+## 页面分析-[Page Object](http://martinfowler.com/bliki/PageObject.html)
+* 页面地址： [https://www.angularjs.org/](https://www.angularjs.org/)
+* 功能
+	
+</code></pre><p>页面中的&quot;The Basics&quot;部分，在右侧的<code>Name</code>输入框中输入<code>Julie</code>后，下方原有的<code>Hello !</code>会变更为<code>Hello Julie!</code></p>
+<ul>
+<li>元素分析
+<ul>
+<li><code>Name</code>输入框
+<ul>
+<li>元素页面源码：<code>&lt;input type=&quot;text&quot; ng-model=&quot;yourName&quot; placeholder=&quot;Enter a name here&quot; class=&quot;ng-valid ng-touched ng-dirty ng-valid-parse ng-empty&quot;&gt;</code>，元素<code>ng-model</code>可直接使用Protractor的元素定位方法：<code>element(by.model('yourName'))</code>,</li>
+</ul>
+</li>
+<li><code>文本显示</code>
+<ul>
+<li>元素源码：<code>&lt;h1 class=&quot;ng-binding&quot;&gt;Hello !&lt;/h1&gt;</code> ,元素<code>class=&quot;ng-binding&quot;</code>可直接使用Protractor的元素定位方法：<code>element(by.binding('yourName'))</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="http://martinfowler.com/bliki/PageObject.html">Page Object</a>设计:</li>
+</ul>
+<p><strong>AngularHomepage.js</strong></p>
+<pre><code>	  var AngularHomepage = function() {
+		  var nameInput = element(by.model('yourName'));
+		  var greeting = element(by.binding('yourName'));
+		
+		  this.get = function() {
+		    browser.get('http://www.angularjs.org');
+		  };
+		
+		  this.setName = function(name) {
+		    nameInput.sendKeys(name);
+		  };
+		
+		  this.getGreeting = function() {
+		    return greeting.getText();
+		  };
+	  };
+	  module.exports = AngularHomepage;
+</code></pre><h2 id="测试代码specjs">测试代码：<code>spec.js</code></h2>
+<pre><code>var pageObject = require('../pageObject/AngularHomepage.js');
+	
+describe('angularjs homepage', function() {
+  it('should greet the named user', function() {
+    var angularHomepage = new pageObject();
+    angularHomepage.get();
+	
+    angularHomepage.setName('Julie');
+	
+    expect(angularHomepage.getGreeting()).toEqual('Hello Julie!');
+  });
+});
+</code></pre><ul>
+<li><code>pageObject</code>: 加载Page Object</li>
+<li><code>var angularHomepage = new pageObject();</code>: 创建一个Page Object对象</li>
+<li><code>angularHomepage.get();</code>: 打问<code>AngularHomepage</code>首页，调用<code>browser.get('http://www.angularjs.org');</code></li>
+<li><code>angularHomepage.setName('Julie');</code>: 设置<code>nameInput</code>值为<code>Julie</code>，调用<code>nameInput.sendKeys(name);</code></li>
+<li><code>expect(angularHomepage.getGreeting()).toEqual('Hello Julie!');</code>: <code>测试greeting</code>的值与<code>Hello Julie!</code>是否相等，相等则测试<code>通过</code>,不相等，则测试<code>失败</code></li>
+</ul>
+<h2 id="启动webdriver">启动<code>webdriver</code></h2>
+<ul>
+<li>启动<code>webdriver</code>: <code>webdriver-manager start</code>
+<ul>
+<li>启动<code>Selenium Server</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+</blockquote>
+<pre><code>seleniumProcess.pid: 49863
+11:24:51.400 INFO - Launching a standalone Selenium Server
+Setting system property webdriver.chrome.driver to /usr/local/lib/node_modules/protractor/selenium/chromedriver_2.21
+11:24:51.452 INFO - Java: Oracle Corporation 25.60-b23
+11:24:51.452 INFO - OS: Mac OS X 10.11.2 x86_64
+11:24:51.467 INFO - v2.52.0, with Core v2.52.0. Built from revision 4c2593c
+11:24:51.549 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform MAC
+11:24:51.550 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform MAC
+11:24:51.550 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+11:24:51.550 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+11:24:51.656 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+11:24:51.656 INFO - Selenium Server is up and running
+</code></pre>
+<ul>
+<li>访问：<a href="http://127.0.0.1:4444/wd/hub">http://127.0.0.1:4444/wd/hub</a>，本地查看是否启动成功</li>
+</ul>
+<h2 id="执行protractor">执行<code>Protractor</code></h2>
+<ul>
+<li>执行<code>Protractor</code>: <code>protractor conf.js</code>
+<ul>
+<li>执行过程中，会<code>真实</code>的把浏览器挂起，并显示<code>真实的页面信息</code></li>
+<li>执行结束时，会<code>自动</code>把浏览器关闭,且<code>webdriver</code>日志会记录本次执行过程中的<code>日志信息</code></li>
+</ul>
+</li>
+<li><code>Protractoc</code>执行过程日志</li>
+</ul>
+<blockquote>
+</blockquote>
+<pre><code>[11:32:19] I/hosted - Using the selenium server at http://localhost:4444/wd/hub
+[11:32:19] I/launcher - Running 1 instances of WebDriver
+Started
+1 spec, 0 failures
+Finished in 5.401 seconds
+[11:32:27] I/launcher - 0 instance(s) of WebDriver still running
+[11:32:27] I/launcher - firefox #01 passed
+</code></pre>
+<ul>
+<li><code>webdriver</code>启动的<code>Selenium Server</code>中也会记录本次请求的相关日志</li>
+</ul>
+<h1 id="总结">总结</h1>
+<ul>
+<li>以上涉及的源码已提交到Git: <a href="https://github.com/aimer1124/protractorWithPageObject.git">https://github.com/aimer1124/protractorWithPageObject.git</a>,便于查阅</li>
+<li><code>Protractor</code>支持<code>E2E</code>测试，特别是针对<code>AngularJS</code>的项目</li>
+<li><code>Protractor的webdriver-manager</code>将<code>webdriver</code>统一管理，减少测试人员在使用过程中针对<code>webdriver</code>的管理操作，将主要精力集中于<code>ETE</code>的测试</li>
+</ul>
+<h1 id="参考">参考</h1>
+<ul>
+<li>Protractor Tutorial: <a href="http://angular.github.io/protractor/#/tutorial">http://angular.github.io/protractor/#/tutorial</a></li>
+<li>Page Object: <a href="http://martinfowler.com/bliki/PageObject.html">http://martinfowler.com/bliki/PageObject.html</a></li>
+<li>Protractor元素定位：<a href="http://angular.github.io/protractor/#/locators">http://angular.github.io/protractor/#/locators</a></li>
+<li>Protractor conf配制：<a href="https://github.com/angular/protractor/blob/master/docs/referenceConf.js">https://github.com/angular/protractor/blob/master/docs/referenceConf.js</a></li>
+<li>Protractor API: <a href="http://angular.github.io/protractor/#/api?view=ElementArrayFinder">http://angular.github.io/protractor/#/api?view=ElementArrayFinder</a></li>
+</ul>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/karma-ce-shi/" data-toggle="tooltip" data-placement="top" title="Karma 测试">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/untitled-3/" data-toggle="tooltip" data-placement="top" title="Yarn &#43; Webpack">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/karma-ce-shi/">Karma 测试</a></li>
+                    
+                    <li><a href="/posts/react/">React &#43; Webpack &#43; Babel</a></li>
+                    
+                    <li><a href="/posts/babel/">Babel</a></li>
+                    
+                    <li><a href="/posts/autoprefixer/">AutoPrefixer</a></li>
+                    
+                    <li><a href="/posts/aws-sns-js/">aws sns js</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">1800 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/nodejs/">nodejs</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

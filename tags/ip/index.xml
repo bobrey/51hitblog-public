@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ip on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ip/</link>
+    <description>Recent content in ip on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Jun 2014 01:36:58 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Get Client IP Using jQuery</title>
+      <link>https://www.51hint.com/posts/2014-06-02-get-client-ip-using-jquery/</link>
+      <pubDate>Mon, 02 Jun 2014 01:36:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-02-get-client-ip-using-jquery/</guid>
+      <description>1. One way This one gives you longitude/latitude and timezone.
+Try it! &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;$(document).ready( &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;function&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;() { $.getJSON( &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;&amp;quot;&amp;amp;lt;a href=&amp;quot;http://smart-ip.net/geoip-json?callback=?&amp;quot;&amp;gt;http://smart-ip.net/geoip-json?callback=?&amp;amp;lt;/a&amp;gt;&amp;quot;&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;, &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;function&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;(data){ alert( data.host); } );});&amp;lt;/code&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/table&amp;gt;  Returns:
+ &amp;lt;div&amp;gt; 2 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 3 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 4 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 5 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 6 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 7 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 8 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 9 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 10 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 11 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 12 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 13 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 14 &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;?</description>
+    </item>
+    
+  </channel>
+</rss>

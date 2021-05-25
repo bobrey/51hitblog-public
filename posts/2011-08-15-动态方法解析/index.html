@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 动态方法解析 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="动态方法解析" />
+  <meta name="twitter:title" content="动态方法解析" />
+  <meta name="description" content="&lt;div class=&quot;codesample&quot; style=&quot;font-size: 11px; margin: 1.5em 0px 1.5em 0px;&quot;&gt; &lt;table style=&quot;width: 816px; background-color: #f1f5f9; border-collapse: collapse; padding-bottom: 4px; border: 1px solid #c9d1d7;&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;6&quot; bgcolor=&quot;#F1F5F9&quot;&gt; &lt;tr style=&quot;border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: #ffffff;&quot;&gt; &lt;td style=&quot;padding: 0.5em;&quot; scope=&quot;row&quot;&gt; &lt;pre style=&quot;font-size: 11px; font-family: Courier,Consolas,monospace; color: #666666; line-height: 12px; white-space: pre-wrap; margin: -0.083em 0.333em 0px 0.5em;&quot;&gt;@dynamic propertyName;&lt;/pre&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;p style=&quot;margin-top: 0px; margin-bottom: 0.833em; font: normal normal normal 100%/normal &#39;Lucida Grande&#39;,Geneva,Helvetica,Arial,sans-serif;&quot;&gt;">
+  <meta property="og:description" content="&lt;div class=&quot;codesample&quot; style=&quot;font-size: 11px; margin: 1.5em 0px 1.5em 0px;&quot;&gt; &lt;table style=&quot;width: 816px; background-color: #f1f5f9; border-collapse: collapse; padding-bottom: 4px; border: 1px solid #c9d1d7;&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;6&quot; bgcolor=&quot;#F1F5F9&quot;&gt; &lt;tr style=&quot;border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: #ffffff;&quot;&gt; &lt;td style=&quot;padding: 0.5em;&quot; scope=&quot;row&quot;&gt; &lt;pre style=&quot;font-size: 11px; font-family: Courier,Consolas,monospace; color: #666666; line-height: 12px; white-space: pre-wrap; margin: -0.083em 0.333em 0px 0.5em;&quot;&gt;@dynamic propertyName;&lt;/pre&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;/div&gt; &lt;p style=&quot;margin-top: 0px; margin-bottom: 0.833em; font: normal normal normal 100%/normal &#39;Lucida Grande&#39;,Geneva,Helvetica,Arial,sans-serif;&quot;&gt;">
+  <meta name="twitter:description" content="&lt;div class=&quot;codesample&quot; style=&quot;font-size: 11px; margin: 1.5em 0px 1.5em 0px;&quot;&gt; &lt;table style=&quot;width: 816px; background-color: #f1f5f9; border-collapse: collapse; …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-08-15-%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-08-15-%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">动态方法解析</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Aug 15, 2011</h4>
+    </section>
+    <h5 id="wc">6200 Words|Read in about 13 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p> </p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;div class=&quot;codesample&quot; style=&quot;font-size: 11px; margin: 1.5em 0px 1.5em 0px;&quot;&gt;
+  &lt;table style=&quot;width: 816px; background-color: #f1f5f9; border-collapse: collapse; padding-bottom: 4px; border: 1px solid #c9d1d7;&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;6&quot; bgcolor=&quot;#F1F5F9&quot;&gt;
+    &lt;tr style=&quot;border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: #ffffff;&quot;&gt;
+      &lt;td style=&quot;padding: 0.5em;&quot; scope=&quot;row&quot;&gt;
+        &lt;pre style=&quot;font-size: 11px; font-family: Courier,Consolas,monospace; color: #666666; line-height: 12px; white-space: pre-wrap; margin: -0.083em 0.333em 0px 0.5em;&quot;&gt;@dynamic propertyName;&lt;/pre&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p style=&quot;margin-top: 0px; margin-bottom: 0.833em; font: normal normal normal 100%/normal 'Lucida Grande',Geneva,Helvetica,Arial,sans-serif;&quot;&gt;
+  表示编译器须动态地生成该属性对应地方法。
+&lt;/p&gt;
+
+&lt;p style=&quot;margin-top: 0px; margin-bottom: 0.833em; font: normal normal normal 100%/normal 'Lucida Grande',Geneva,Helvetica,Arial,sans-serif;&quot;&gt;
+  您可以通过实现&lt;code style=&quot;font-size: 12px; font-family: Courier,Consolas,monospace; color: #666666;&quot;&gt;resolveInstanceMethod:&lt;/code&gt;和&lt;code style=&quot;font-size: 12px; font-family: Courier,Consolas,monospace; color: #666666;&quot;&gt;resolveClassMethod&amp;lt;a style=&quot;color: #3366cc; text-decoration: none;&quot; href=&quot;http://www.apple.com.cn/developer/mac/library/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html#//apple_ref/occ/clm/NSObject/resolveClassMethod:&quot; target=&quot;_top&quot;&gt;:&amp;lt;/a&gt;&lt;/code&gt;来动态地实现给定选标的对象方法或者类方法。
+&lt;/p&gt;
+
+&lt;p&gt;
+  //======================================================================================================================//
+&lt;/p&gt;
+
+&lt;p&gt;
+  &amp;nbsp;
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  &lt;strong style=&quot;font-weight: bold; text-align: center;&quot;&gt;Objective-C&lt;/strong&gt;获取&lt;strong style=&quot;font-weight: bold; text-align: center;&quot;&gt;消息&lt;/strong&gt;工作机制是本文要介绍的内容，看name mangling的时候，也讲到了&lt;strong style=&quot;font-weight: bold; text-align: center;&quot;&gt;Objective-C&lt;/strong&gt;的name mangling，于是又重新读了一下&lt;strong style=&quot;font-weight: bold; text-align: center;&quot;&gt;Objective-C&lt;/strong&gt; 2.0&lt;br /&gt; programming Language以及&lt;strong style=&quot;font-weight: bold; text-align: center;&quot;&gt;Objective-C&lt;/strong&gt; 2.0 Runtime Reference里的相关内容,自己归纳一下。
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  先贴一段代码：
+&lt;/p&gt;
+
+&lt;ol class=&quot;dp-xml&quot; style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: initial; word-wrap: break-word; word-break: normal; background-color: #f7f7f7; padding: 5px 0px 5px 0px; margin: 0px!important 0px!important 1px!important 55px; border: initial none initial;&quot;&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   MyClass.h  &lt;/span&gt;&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   @interface MyClass : NSObject  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   {  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;    }  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   @end  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   MyClass.m  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   #import &lt;/span&gt;&lt;span style=&quot;color: #06699; background-color: inherit; width: 635px; line-height: 18px; font-weight: bold; padding: 7px 0px 4px 0px; margin: 0px 0px 10px 0px; border: initial none initial;&quot;&gt;&lt;/&lt;/span&gt;&lt;span style=&quot;color: #06699; background-color: inherit; font-weight: bold; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;usr&lt;/span&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;/include/objc/runtime.h&lt;/span&gt;&lt;span style=&quot;color: #06699; background-color: inherit; width: 635px; line-height: 18px; font-weight: bold; padding: 7px 0px 4px 0px; margin: 0px 0px 10px 0px; border: initial none initial;&quot;&gt;&gt;&lt;/span&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt; &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   #import “MyClass.h”  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   void myClassIMP(id _rec, SEL _cmd, int theInt)  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   {  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;      NSLog(@”dynamic added method:%d”,theInt);  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   }  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;&amp;#8211; (id)init  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;{  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;    if( ( &lt;/span&gt;&lt;span style=&quot;color: red; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;self&lt;/span&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt; = [super init]) != nil )  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;    {  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   class_addMethod([MyClass class], @selector(dynGeneratedMethod:),(IMP)myClassIMP,”v@:i”);  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;     }  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;    return self;  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;}  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt; &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;Main.c  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;#import “MyClass.h”  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;int main(int argc, char *argv[])  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;{  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;  MyClass &lt;/span&gt;&lt;span style=&quot;color: red; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;theInstance&lt;/span&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt; = [[MyClass alloc] init];  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;  [theInstance dynGeneratedMethod:10];  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt; return 0;  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;} &lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  这段代码执行的结果是在控制台上输出：
+&lt;/p&gt;
+
+&lt;ol class=&quot;dp-xml&quot; style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: initial; word-wrap: break-word; word-break: normal; background-color: #f7f7f7; padding: 5px 0px 5px 0px; margin: 0px!important 0px!important 1px!important 55px; border: initial none initial;&quot;&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;dynamic added method:10 &lt;/span&gt;&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  接着来详细分析一下上面的代码：
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  在ObjC的类中这样的一个声明 – (void)foo:(int)a；被称作方法(method),而在调用的地方: [theClass foo:10];则被称之为发送消息(send message),具体来说是给对象theClass 发送foo:消息,注意这里foo后面的”:”，它也是消息名称的一部分，最前面的&amp;#8217;-&amp;#8216;代表实例方法，&amp;#8217;+&amp;#8217;代表类方法。而类似的语句，在C或C++中，通常被称为呼叫函数（call function）,在ObjC中，函数(function)一词很少用到,不是它不存在，而是它被ObjC&lt;br /&gt; runtime给隐藏了起来。&lt;br style=&quot;clear: both; width: 0px; height: 0px;&quot; /&gt;&lt;br /&gt; &lt;br style=&quot;clear: both; width: 0px; height: 0px;&quot; /&gt;&lt;br /&gt; 如前所述，ObjC是以消息机制来工作的，但其实诸如-(void)foo:(int)a的语句在编译时被objc_msgSend(receiver,selector,arg1,arg2,….)替换了，所以其实每一条发送消息的代码本质上还是调用函数(call function),不过他们调用的都是同一个函数objc_msgSend（也可能是objc_msgSend_stret(返回值是结构体),objc_msgSend_fpret(返回值是浮点型)等)
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  分析objc_msgSend的参数，第一个receiver的类型是id,代表接受消息的对象,第二个是selector代表接收对象的方法，后面的是该方法的参数，之前那条语句的被编译器替换后就是：
+&lt;/p&gt;
+
+&lt;ol class=&quot;dp-xml&quot; style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: initial; word-wrap: break-word; word-break: normal; background-color: #f7f7f7; padding: 5px 0px 5px 0px; margin: 0px!important 0px!important 1px!important 55px; border: initial none initial;&quot;&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;[theClass foo:10]  &amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #06699; background-color: inherit; width: 635px; line-height: 18px; font-weight: bold; padding: 7px 0px 4px 0px; margin: 0px 0px 10px 0px; border: initial none initial;&quot;&gt;&gt;&lt;/span&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt; objc_msg(theClass,@selector(foo:),10); &lt;/span&gt;&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  因为&lt;strong style=&quot;font-weight: bold; text-align: center;&quot;&gt;消息&lt;/strong&gt;的接受对象和接受对象的方法都参数化，所以在运行时刻，接受对象和接受对象的方法都可以是动态的!
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  比如说程序里面可以这样写：
+&lt;/p&gt;
+
+&lt;ol class=&quot;dp-xml&quot; style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: initial; word-wrap: break-word; word-break: normal; background-color: #f7f7f7; padding: 5px 0px 5px 0px; margin: 0px!important 0px!important 1px!important 55px; border: initial none initial;&quot;&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;id &lt;/span&gt;&lt;span style=&quot;color: red; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;helper&lt;/span&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt; = &lt;/span&gt;&lt;span style=&quot;color: blue; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;getTheReceiver&lt;/span&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;();  &lt;/span&gt;&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;SEL &lt;/span&gt;&lt;span style=&quot;color: red; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;request&lt;/span&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt; = &lt;/span&gt;&lt;span style=&quot;color: blue; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;getTheSelector&lt;/span&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;();  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;[helper performSelector:request]; &lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  它的实现是基于ObjC runtime. NSObject类实现了这套机制，所以每一个继承于NSObject的类都能自动获得runtime的支持。在这样的一个类中，有一个isa指针，指向该类定义的数据结构体,这个结构体是由编译器编译时为类（须继承于NSObject）创建的.在这个结构体中有包括了指向其父类类定义的指针以及Dispatch table. Dispatch table是一张SEL和IMP的对应表。
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  对于名称相同的方法，他们都有相同的SEL,方法的名称不包括类名称，所以子类和父类中的同名方法拥有相同的SEL,但是他们的实现可以各不相同，因而在他们各自的Dispatch表中SEL所对应的IMP是不同的，IMP是一个函数指针，而虽然每一个SEL对应的是一个方法的名称，但考虑到效率，SEL本身是一个整型，编译器会另外生成一张SEL和方法名称对应的表。有了这样的结构，objc就可以实现多态了。还是这行代码：
+&lt;/p&gt;
+
+&lt;ol class=&quot;dp-xml&quot; style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: initial; word-wrap: break-word; word-break: normal; background-color: #f7f7f7; padding: 5px 0px 5px 0px; margin: 0px!important 0px!important 1px!important 55px; border: initial none initial;&quot;&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;[theClass foo:10]； &lt;/span&gt;&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  是向theClass发送了foo:消息,那么首先在theClass的类结构的Dispatch table里找有没有对应的SEL，如果有的话，就表示theClass有响应该消息的方法，程序就跳到该方法的代码地址头（由IMP指定），开始执行。如果在theClass的Dispatch table找不到对应的SEL,那么就会通过isa所指的结构体中包含的父类指针，到父类里面去寻找，如果到最后还是没有找到，就会出现runtime error.所以说，即使theClass以及它的父类都没有定义-(void) foo:(int)a方法，程序还是可以通过编译，但如果是用xcode的话，编译器会有警告，告知theClass可能无法响应该消息。不会报错的原因是类的方法也可以在执行时刻创建！上面的代码：
+&lt;/p&gt;
+
+&lt;ol class=&quot;dp-xml&quot; style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: initial; word-wrap: break-word; word-break: normal; background-color: #f7f7f7; padding: 5px 0px 5px 0px; margin: 0px!important 0px!important 1px!important 55px; border: initial none initial;&quot;&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;class_addMethod([MyClass class], @selector(dynGeneratedMethod:),(IMP)myClassIMP,”v@:i”); &lt;/span&gt;&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  就是给MyClass类在执行时刻增加了一个响应dynGeneratedMethod:消息的方法，这样之后对任何MyClass的instance类发送dynGeneratedMethod:消息，就会得到响应了.myClassIMP是类收到该消息时要调用的方法，其声明如下：
+&lt;/p&gt;
+
+&lt;ol class=&quot;dp-xml&quot; style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: initial; word-wrap: break-word; word-break: normal; background-color: #f7f7f7; padding: 5px 0px 5px 0px; margin: 0px!important 0px!important 1px!important 55px; border: initial none initial;&quot;&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;void myClassIMP(id _rec, SEL _cmd, int theInt) &lt;/span&gt;&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  这个方法的前面两个参数是必须的，之后的参数才是我们实际用到的参数，数目和@selector()中的冒号数一样,冒号数代表的就是参数个数。第一个参数是消息的接受对象，是MyClass的实例，第二个参数是由SEL代表的具体消息。
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  Class_addMethod的最后一个参数是表示dynGeneratedMethod:的返回值和参数信息，不过我自己试了一下，这个参数不起作用。
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  几个要点：
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  1、对于C中被称为函数(function)和函数调用(function call)的地方，在ObjC中被叫做方法(method)和发送消息(send message).试图调用未定义的方法会导致编译错误，而发送一条消息，即使没有任何类定义了响应该消息的方法，编译时也不会报错，从语义上讲这也是对的，发一条消息本来就不要求一定有人会响应，不过如果执行到发送消息的代码时真的没有类可以响应的话，是会发生runtime error,为了避免这种事情发生，可以先进行检测，这样写：
+&lt;/p&gt;
+
+&lt;ol class=&quot;dp-xml&quot; style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: initial; word-wrap: break-word; word-break: normal; background-color: #f7f7f7; padding: 5px 0px 5px 0px; margin: 0px!important 0px!important 1px!important 55px; border: initial none initial;&quot;&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;&lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;if( [myClass respondsToSelector:@selector(foo:)])  &lt;/span&gt;&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;{  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;alt&quot; style=&quot;color: inherit; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;   [myClass foo:10];  &lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;color: #5c5c5c; list-style-type: decimal; list-style-position: outside!important; word-wrap: break-word; word-break: normal; background-color: transparent; line-height: 18px; padding: 0px!important 3px!important 0px!important 10px!important; margin: 0px!important; border: initial none initial;&quot;&gt;
+    &lt;span style=&quot;color: black; background-color: inherit; padding: 0px; margin: 0px; border: initial none initial;&quot;&gt;} &lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  我感觉ObjC这样的一套sender receiver的定义更注重面向对象的概念。类是一个接收者(receiver)，如果定义了某个方法，就可以接收和这个方法名称相同的消息。而使用该类的client(sender),则尝试向该类发送消息.如果匹配了，就跳到类的方法里执行。
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  2、方法名称是诸如foo:，不包括返回类型，参数类型，而又因为一个foo:对应于一个SEL，所以说ObjC不支持相同的foo:有不同的返回类型，也不支持重载。不过类方法和实例方法可以有相同的名字，而又有不同类型的参数和返回类型,因为它们不是处在同一张dispatch table中。
+&lt;/p&gt;
+
+&lt;p style=&quot;margin: 10px 0px; padding: 0px; color: #333333; background-color: transparent; text-indent: 28px;&quot;&gt;
+  3、不仅类的方法可以运行时刻创建，类本身也可以在运行时刻创建，前面提到继承于NSObject的类,编译器会帮忙生成ObjC runtime所需要的类结构定义，只要我们在代码里也按照那个结构创建了自己的类，那一样可以获得ObjC runtime的支持。
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #333333; background-color: transparent; text-indent: 28px; padding: 0px; margin: 10px 0px 10px 0px;&quot;&gt;
+  小结：详解&lt;strong style=&quot;font-weight: bold; text-align: center;&quot;&gt;Objective-C&lt;/strong&gt;获取&lt;strong style=&quot;font-weight: bold; text-align: center;&quot;&gt;消息&lt;/strong&gt;工作机制的内容介绍完了，从&lt;strong style=&quot;font-weight: bold; text-align: center;&quot;&gt;Objective-C&lt;/strong&gt;的&lt;strong style=&quot;font-weight: bold; text-align: center;&quot;&gt;消息&lt;/strong&gt;机制可以看出，它是一门很灵活的语言。最后希望本文对你有所帮助！
+&lt;/p&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-08-15-%E9%94%AE-%E5%80%BC%E8%A7%82%E5%AF%9F%E7%BC%96%E7%A8%8B/" data-toggle="tooltip" data-placement="top" title="键-值观察编程">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-08-15-uipopovercontroller%E7%9A%84%E4%BD%BF%E7%94%A8/" data-toggle="tooltip" data-placement="top" title="UIPopoverController的使用">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-08-15-%E9%94%AE-%E5%80%BC%E8%A7%82%E5%AF%9F%E7%BC%96%E7%A8%8B/">键-值观察编程</a></li>
+                    
+                    <li><a href="/posts/2011-08-15-touch-%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%BB%B6%E8%BF%9F/">touch 事件的延迟</a></li>
+                    
+                    <li><a href="/posts/2011-08-15-catransaction-%E4%B8%80%E4%BA%9B%E5%8A%A8%E7%94%BB/">CATransaction 一些动画</a></li>
+                    
+                    <li><a href="/posts/2011-08-11-%E4%B8%8Etomcat-ssl-%E9%80%9A%E4%BF%A1/">与Tomcat SSL 通信</a></li>
+                    
+                    <li><a href="/posts/2011-08-10-ios%E5%BC%80%E5%8F%91%E4%B9%8Bobjective-c%E4%B8%8Ejavascript%E7%9A%84%E4%BA%A4%E4%BA%92/">iOS开发之Objective-C与JavaScript的交互</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Aug 15, 2011</h4>
+    </section>
+    <h5 id="wc">6200 Words|Read in about 13 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

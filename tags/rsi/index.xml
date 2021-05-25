@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rsi on IT技术分享</title>
+    <link>https://www.51hint.com/tags/rsi/</link>
+    <description>Recent content in rsi on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Jun 2012 07:53:33 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/rsi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RSI 指标 【1】</title>
+      <link>https://www.51hint.com/posts/2012-06-05-rsi-%E6%8C%87%E6%A0%87-1/</link>
+      <pubDate>Tue, 05 Jun 2012 07:53:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-05-rsi-%E6%8C%87%E6%A0%87-1/</guid>
+      <description>一般而言RSI的数值在80以上和20以下为超买超卖的分界线。 也符合8：2原则， 80以上则市场处于超买状态，后续行情有可能回调，此时，投资者可</description>
+    </item>
+    
+  </channel>
+</rss>

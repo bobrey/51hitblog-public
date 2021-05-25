@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>eslint on IT技术分享</title>
+    <link>https://www.51hint.com/tags/eslint/</link>
+    <description>Recent content in eslint on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Apr 2017 16:58:48 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/eslint/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>eslint</title>
+      <link>https://www.51hint.com/posts/eslint/</link>
+      <pubDate>Mon, 10 Apr 2017 16:58:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/eslint/</guid>
+      <description>eslint 程式碼的風格和規範問題 eslint-plugin-react Setup npm install --save-dev eslint eslint-plugin-react eslint-plugin-react-native eslint-config-airbnb .eslintrc eslint —init edit 加入 extends airbnb 和 react plugin 就可以了 /* .eslintrc.js */ module.exports = { &amp;#34;extends&amp;#34;: &amp;#34;airbnb&amp;#34;, &amp;#34;plugins&amp;#34;: [ &amp;#34;react&amp;#34;, &amp;#34;eslint-plugin-react-native&amp;#34; ], &amp;#34;parser&amp;#34;: &amp;#34;babel-eslint&amp;#34;, &amp;#34;rules&amp;#34;: { &amp;#34;strict&amp;#34;: 0 }, };</description>
+    </item>
+    
+  </channel>
+</rss>

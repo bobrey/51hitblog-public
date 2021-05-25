@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>html5 on IT技术分享</title>
+    <link>https://www.51hint.com/categories/html5/</link>
+    <description>Recent content in html5 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Jul 2014 04:50:43 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/html5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>font awesome 字体</title>
+      <link>https://www.51hint.com/posts/2014-07-30-font-awesome-%E5%AD%97%E4%BD%93/</link>
+      <pubDate>Wed, 30 Jul 2014 04:50:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-30-font-awesome-%E5%AD%97%E4%BD%93/</guid>
+      <description>Font Awesomeis a web font containing all the icons from the Twitter Bootstrap framework, and now many more. Whilst the implementation in Bootstrap is designed to be used with the &amp;lt;i&amp;gt;element (Bootstrap v2), you may find yourself wanting to use these icons on other elements. To do so, you’ll need to use the following CSS on the desired element, and then substitute in the content</description>
+    </item>
+    
+    <item>
+      <title>backbone入门</title>
+      <link>https://www.51hint.com/posts/2014-07-11-backbone%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Fri, 11 Jul 2014 04:34:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-11-backbone%E5%85%A5%E9%97%A8/</guid>
+      <description>the5fire-backbone-model Mark all as completeClear completed</description>
+    </item>
+    
+    <item>
+      <title>jquery widget组件开发,收缩的对话框</title>
+      <link>https://www.51hint.com/posts/2014-07-10-jquery-widget%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E6%94%B6%E7%BC%A9%E7%9A%84%E5%AF%B9%E8%AF%9D%E6%A1%86/</link>
+      <pubDate>Thu, 10 Jul 2014 04:34:01 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-10-jquery-widget%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E6%94%B6%E7%BC%A9%E7%9A%84%E5%AF%B9%E8%AF%9D%E6%A1%86/</guid>
+      <description>jquery widget组件开发, 可以收放dialog,自定义对话框； $.widget( “custom.superDialog”, $.ui.dialog, { blue: function() { this.element.css( “background”</description>
+    </item>
+    
+    <item>
+      <title>jquery插件开发</title>
+      <link>https://www.51hint.com/posts/2014-07-10-jquery%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Thu, 10 Jul 2014 04:31:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-10-jquery%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>popover css实现</title>
+      <link>https://www.51hint.com/posts/2014-07-04-popover-css%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Fri, 04 Jul 2014 01:00:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-04-popover-css%E5%AE%9E%E7%8E%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>end of jquery resize event</title>
+      <link>https://www.51hint.com/posts/2014-06-24-end-of-jquery-resize-event/</link>
+      <pubDate>Tue, 24 Jun 2014 01:18:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-24-end-of-jquery-resize-event/</guid>
+      <description>var rtime = new Date(1, 1, 2000, 12,00,00);
+var timeout = false;
+var delta = 200;
+$(window).resize(function() {
+rtime = new Date();
+if (timeout === false) {
+timeout = true;
+setTimeout(resizeend, delta);
+}
+});
+function resizeend() {
+if (new Date() – rtime &amp;lt; delta) {
+setTimeout(resizeend, delta);
+} else {
+timeout = false;
+alert(‘Done resizing’);
+}
+}</description>
+    </item>
+    
+    <item>
+      <title>html5 重新加载一次</title>
+      <link>https://www.51hint.com/posts/2013-09-23-html5-%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD%E4%B8%80%E6%AC%A1/</link>
+      <pubDate>Mon, 23 Sep 2013 13:09:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-09-23-html5-%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD%E4%B8%80%E6%AC%A1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Comet (web技术)</title>
+      <link>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Fri, 20 Jul 2012 01:57:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</guid>
+      <description>Comet是一种用于web的技术，能使服务器能实时地将更新的信息传送到客户端，而无须客户端发出请求，目前有两种实现方式，长轮询和流。 实现方式</description>
+    </item>
+    
+    <item>
+      <title>JET(Javascript Extension Tools – Javascript 扩展工具包)</title>
+      <link>https://www.51hint.com/posts/2012-04-24-jetjavascript-extension-tools-javascript-%E6%89%A9%E5%B1%95%E5%B7%A5%E5%85%B7%E5%8C%85/</link>
+      <pubDate>Tue, 24 Apr 2012 09:13:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-04-24-jetjavascript-extension-tools-javascript-%E6%89%A9%E5%B1%95%E5%B7%A5%E5%85%B7%E5%8C%85/</guid>
+      <description>JET(Javascript Extension Tools – Javascript 扩展工具包){#project_summary_link} http://code.google.com/p/j-et/w/list</description>
+    </item>
+    
+    <item>
+      <title>js 在线混淆</title>
+      <link>https://www.51hint.com/posts/2012-03-15-js-%E5%9C%A8%E7%BA%BF%E6%B7%B7%E6%B7%86/</link>
+      <pubDate>Thu, 15 Mar 2012 02:40:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-15-js-%E5%9C%A8%E7%BA%BF%E6%B7%B7%E6%B7%86/</guid>
+      <description>http://www.awflasher.com/jspacker/ http://www.moralsoft.com/jso-online/hdojso.htm 因为javascript是明文运行的，简单调试基本就可以看到原文。 所以加密基本没法，通过混淆代码，增加阅读难度倒是可以，好好</description>
+    </item>
+    
+    <item>
+      <title>div 弹出窗口，模拟popup 【window.open   window.showModalDialog】</title>
+      <link>https://www.51hint.com/posts/2012-03-15-div-%E5%BC%B9%E5%87%BA%E7%AA%97%E5%8F%A3%E6%A8%A1%E6%8B%9Fpopup-window-open-window-showmodaldialog/</link>
+      <pubDate>Thu, 15 Mar 2012 01:55:56 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-15-div-%E5%BC%B9%E5%87%BA%E7%AA%97%E5%8F%A3%E6%A8%A1%E6%8B%9Fpopup-window-open-window-showmodaldialog/</guid>
+      <description>要想完美实现DIV弹出层功能，这里推荐一个轻量级JavaScript工具：subModal（包括图片和样式仅8KB左右，JavaScript</description>
+    </item>
+    
+    <item>
+      <title>在一个包含iframe页面中如何得到iframe的document对象？</title>
+      <link>https://www.51hint.com/posts/2012-03-14-%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%8C%85%E5%90%ABiframe%E9%A1%B5%E9%9D%A2%E4%B8%AD%E5%A6%82%E4%BD%95%E5%BE%97%E5%88%B0iframe%E7%9A%84document%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Wed, 14 Mar 2012 08:36:04 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-14-%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%8C%85%E5%90%ABiframe%E9%A1%B5%E9%9D%A2%E4%B8%AD%E5%A6%82%E4%BD%95%E5%BE%97%E5%88%B0iframe%E7%9A%84document%E5%AF%B9%E8%B1%A1/</guid>
+      <description>当一个页面中包含有一个iframe框架，那么在这个页面中如何得到iframe的document对象呢？ document.getElement</description>
+    </item>
+    
+    <item>
+      <title>safari 模拟的 sourceindex</title>
+      <link>https://www.51hint.com/posts/2012-03-14-safari-%E6%A8%A1%E6%8B%9F%E7%9A%84-sourceindex/</link>
+      <pubDate>Wed, 14 Mar 2012 08:34:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-14-safari-%E6%A8%A1%E6%8B%9F%E7%9A%84-sourceindex/</guid>
+      <description>if(typeof document.documentElement.sourceIndex == “undefined”) HTMLElement.prototype.__defineGetter__(“sourceIndex”, (function(indexOf){ return</description>
+    </item>
+    
+    <item>
+      <title>基于html5的客户端图标生成</title>
+      <link>https://www.51hint.com/posts/2012-01-31-%E5%9F%BA%E4%BA%8Ehtml5%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%9B%BE%E6%A0%87%E7%94%9F%E6%88%90/</link>
+      <pubDate>Tue, 31 Jan 2012 08:28:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-31-%E5%9F%BA%E4%BA%8Ehtml5%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%9B%BE%E6%A0%87%E7%94%9F%E6%88%90/</guid>
+      <description>RGraph http://www.rgraph.net/ 首先需要引入js库： &amp;lt;!–[if IE]&amp;gt;&amp;lt;![endif]—&amp;gt; 然后，在html的body部分，需要展示图表的地方</description>
+    </item>
+    
+  </channel>
+</rss>

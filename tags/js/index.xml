@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>js on IT技术分享</title>
+    <link>https://www.51hint.com/tags/js/</link>
+    <description>Recent content in js on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Mar 2019 16:00:30 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Html5录音</title>
+      <link>https://www.51hint.com/posts/html5%E5%BD%95%E9%9F%B3/</link>
+      <pubDate>Sun, 10 Mar 2019 16:00:30 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/html5%E5%BD%95%E9%9F%B3/</guid>
+      <description>html5录音的实现方式 &amp;lt;script src=&amp;#34;recorder.mp3.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;src/recorder-core.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!--必须引入的录音核心--&amp;gt; &amp;lt;script src=&amp;#34;src/engine/mp3.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!--相应格式支持文件--&amp;gt; &amp;lt;script src=&amp;#34;src/engine/mp3-engine.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!--</description>
+    </item>
+    
+    <item>
+      <title>Js快速取整</title>
+      <link>https://www.51hint.com/posts/js%E5%BF%AB%E9%80%9F%E5%8F%96%E6%95%B4/</link>
+      <pubDate>Fri, 01 Mar 2019 14:52:24 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/js%E5%BF%AB%E9%80%9F%E5%8F%96%E6%95%B4/</guid>
+      <description>常用的直接取整 1. parseInt() 2. Math.trunc(); //将小数部分去掉，只保留整数部分 快速取整方法 1. ~~number //双按位非；常代替Math.trunc console.log(~~1.98989) 2. number|0 //(按位或) 对每一对</description>
+    </item>
+    
+    <item>
+      <title>Javascript数组随机乱序</title>
+      <link>https://www.51hint.com/posts/javascript%E6%95%B0%E7%BB%84%E9%9A%8F%E6%9C%BA%E4%B9%B1%E5%BA%8F/</link>
+      <pubDate>Mon, 18 Feb 2019 22:25:11 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/javascript%E6%95%B0%E7%BB%84%E9%9A%8F%E6%9C%BA%E4%B9%B1%E5%BA%8F/</guid>
+      <description>数组随机排序(shuffle) //ES6 function shuffle(arr){ let i = arr.length; while(i){ let j = Math.floor(Math.random() * i--) [arr[j], arr[i]] = [arr[i], arr[j]]; /* ES5 j = Math.floor(Math.random() * i--); t = arr[i]; arr[i] = arr[j]; arr[j] = t; */ } } ///以下并不能真正随机打乱数组 function</description>
+    </item>
+    
+    <item>
+      <title>chrome调试js</title>
+      <link>https://www.51hint.com/posts/2014-10-31-chrome%E8%B0%83%E8%AF%95js/</link>
+      <pubDate>Fri, 31 Oct 2014 01:18:18 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-10-31-chrome%E8%B0%83%E8%AF%95js/</guid>
+      <description>chrome下，引入的javascript每次都变更，VMｘｘｘ很难调试； 若在js中插入【debugger;】则很容易调试了；</description>
+    </item>
+    
+    <item>
+      <title>Java 调用 javascript</title>
+      <link>https://www.51hint.com/posts/2013-01-16-java-%E8%B0%83%E7%94%A8-javascript/</link>
+      <pubDate>Wed, 16 Jan 2013 02:33:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-16-java-%E8%B0%83%E7%94%A8-javascript/</guid>
+      <description>下载rhino jar包。 http://www.mozilla.org/rhino/download.html java文件 JSRunner.java StringUtil.java test.js</description>
+    </item>
+    
+  </channel>
+</rss>

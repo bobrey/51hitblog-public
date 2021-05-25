@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>android开发 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/android%E5%BC%80%E5%8F%91/</link>
+    <description>Recent content in android开发 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Nov 2015 14:38:05 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/android%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android开发</title>
+      <link>https://www.51hint.com/posts/2015-11-03-android%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Tue, 03 Nov 2015 14:38:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-03-android%E5%BC%80%E5%8F%91/</guid>
+      <description>Retrofit http://www.jianshu.com/p/87c36d8dabce https://bng86.gitbooks.io/android-third-party-/content/retrofit.html https://github.com/bboyfeiyu/android-tech-frontier/tree/master/issue-7/Retrofit%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97 http://malinkang.com/AndroidNote/net/retrofit.html http://blog.chengyunfeng.com/?p=491 Picasso Square公司开源的一个Android图形缓存库,可以实现图片下载和缓存功能 http://malinkang.com/AndroidNote/net/picasso.html http://xiazdong.me/2014/10/03/picasso-tutorial/ Otto Otto 是Android系统的一个Event Bu</description>
+    </item>
+    
+  </channel>
+</rss>

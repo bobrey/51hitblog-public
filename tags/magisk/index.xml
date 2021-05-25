@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>magisk on IT技术分享</title>
+    <link>https://www.51hint.com/tags/magisk/</link>
+    <description>Recent content in magisk on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Mar 2019 16:24:57 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/magisk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nexus6p_刷入magisk</title>
+      <link>https://www.51hint.com/posts/nexus6p_%E5%88%B7%E5%85%A5magisk/</link>
+      <pubDate>Wed, 13 Mar 2019 16:24:57 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/nexus6p_%E5%88%B7%E5%85%A5magisk/</guid>
+      <description>TWRP msgisk magisk manager magisckSU magisk Hide resetprop Magisk 主页 v18.0 https://forum.xda-developers.com/apps/magisk https://github.com/topjohnwu/Magisk/releases TWRP Nexus 6p https://dl.twrp.me/angler/ https://twrp.me/Devices/ 手动进入bootloaer adb reboot bootloaer 开启oem解锁 fastboot oem unlock //fastboot flashing unlock 开始root操作 [Magisk-v18.0.zip 拷贝到手机下载目录] fastboot flash recovery</description>
+    </item>
+    
+  </channel>
+</rss>

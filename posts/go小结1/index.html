@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Go小结1 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Go小结1" />
+  <meta name="twitter:title" content="Go小结1" />
+  <meta name="description" content="description">
+  <meta property="og:description" content="description">
+  <meta name="twitter:description" content="description">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%931/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%931/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Go小结1</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h3 id="内置函数">内置函数</h3>
+<blockquote>
+<p>imag    		&ndash; 返回complex的实部   （complex、real imag：用于创建和操作复数）</p>
+</blockquote>
+<blockquote>
+<p>real    		&ndash; 返回complex的虚部</p>
+</blockquote>
+<h3 id="import用法">import用法</h3>
+<blockquote>
+<p>import 用法:
+import &ldquo;shorturl/model 	加载gopath/src/shorturl/model模块（绝对路径）
+import f &ldquo;fmt&rdquo;		导入fmt，并给他启别名ｆ
+import . &ldquo;fmt&rdquo; 		将fmt启用别名&rdquo;.&quot;，这样就可以直接使用其内容，而不用再添加fmt。
+​		<em>如fmt.Println可以直接写成Println</em>
+import  _ &ldquo;fmt&rdquo; 	表示不使用该包，而是只是使用该包的init函数，并不显示的使用该包的其他内容。
+​		<em>注意：这种形式的import，当import时就执行了fmt包中的init函数，而不能够使用该包的其他函数</em></p>
+</blockquote>
+<h4 id="下划线在代码中使用">下划线在代码中使用</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;os&#34;</span>
+<span class="p">)</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="nx">buf</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+    <span class="nx">f</span><span class="p">,</span><span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="s">&#34;./text.txt&#34;</span><span class="p">)</span>
+    <span class="k">defer</span> <span class="nx">f</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+    <span class="k">for</span><span class="p">{</span>
+        <span class="nx">n</span><span class="p">,</span><span class="nx">_</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">{</span>
+            <span class="k">break</span>
+        <span class="p">}</span>
+        <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">buf</span><span class="p">[:</span><span class="nx">n</span><span class="p">])</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h5 id="简单位运算">简单位运算</h5>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="mo">0110</span> <span class="o">&amp;</span>  <span class="mi">1011</span> <span class="p">=</span> <span class="mo">0010</span> 	<span class="nx">AND</span>      <span class="o">-</span><span class="p">&gt;[</span><span class="nx">按位与</span><span class="p">]</span>
+<span class="mo">0110</span> <span class="p">|</span>  <span class="mi">1011</span> <span class="p">=</span> <span class="mi">1111</span>     <span class="nx">OR</span>       <span class="o">-</span><span class="p">&gt;[</span><span class="nx">按位或</span><span class="p">]</span>
+<span class="mo">0110</span> <span class="p">^</span>  <span class="mi">1011</span> <span class="p">=</span> <span class="mi">1101</span> 	<span class="nx">XOR</span>      <span class="o">-</span><span class="p">&gt;[</span><span class="nx">按位异或</span><span class="p">]</span>
+<span class="mo">0110</span> <span class="o">&amp;^</span> <span class="mi">1011</span> <span class="p">=</span> <span class="mo">0100</span> 	<span class="nx">AND</span> <span class="nx">NOT</span>  <span class="o">-</span><span class="p">&gt;[</span><span class="nx">位清空</span><span class="p">]</span>
+
+<span class="o">&amp;^</span><span class="nx">作用</span><span class="err">：</span><span class="nx">将运算符左边数据相异的位保留</span><span class="err">，</span><span class="nx">相同位清零</span>
+ <span class="mi">1</span><span class="o">&amp;^</span><span class="mi">1</span>  <span class="nx">得0</span>
+ <span class="mi">1</span><span class="o">&amp;^</span><span class="mi">0</span>  <span class="nx">得1</span>
+ <span class="mi">0</span><span class="o">&amp;^</span><span class="mi">1</span>  <span class="nx">得0</span>
+ <span class="mi">0</span><span class="o">&amp;^</span><span class="mi">0</span>  <span class="nx">得0</span>
+</code></pre></div><h5 id="标志位操作">标志位操作</h5>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">a</span> <span class="o">:=</span> <span class="mi">0</span>
+<span class="nx">a</span> <span class="o">|=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span> 		<span class="c1">// 0000100: 在 bit2 设置标志位。
+</span><span class="c1"></span><span class="nx">a</span> <span class="o">|=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span> 		<span class="c1">// 1000100: 在 bit6 设置标志位 
+</span><span class="c1"></span><span class="nx">a</span> <span class="p">=</span> <span class="nx">a</span> <span class="o">&amp;^</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span> 	<span class="c1">// 0000100: 清除 bit6 标志位。
+</span></code></pre></div><h5 id="没有-取反运算也-">没有 &ldquo;~&quot;，取反运算也 &ldquo;^&quot;。</h5>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">x</span> <span class="o">:=</span> <span class="mi">1</span>
+<span class="nx">x</span><span class="p">,</span> <span class="p">^</span><span class="nx">x</span>        <span class="c1">// 0001, -0010
+</span></code></pre></div><h5 id="命令">命令</h5>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">go env用于打印Go语言的环境信息。
+go run命令可以编译并运行命令源码文件。
+go get可以根据要求和实际情况从互联网上下载或更新指定的代码包及其依赖包，并对它们进行编译和安装。
+
+
+go build命令用于编译我们指定的源码文件或代码包以及它们的依赖包。
+go install用于编译并安装指定的代码包及它们的依赖包。
+go clean命令会删除掉执行其它命令时产生的一些文件和目录。
+
+
+go doc命令可以打印附于Go语言程序实体上的文档。我们可以通过把程序实体的标识符作为该命令的参数来达到查看其文档的目的。
+go test命令用于对Go语言编写的程序进行测试。
+go list命令的作用是列出指定的代码包的信息。
+go fix会把指定代码包的所有Go语言源码文件中的旧版本代码修正为新版本的代码。
+go vet是一个用于检查Go语言源码中静态错误的简单工具。
+go tool pprof命令来交互式的访问概要文件的内容。
+</code></pre></div><h6 id="变量">变量</h6>
+<ul>
+<li>
+<p>一次性定义多个变量</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<span class="kd">var</span> <span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">z</span> <span class="kt">int</span>
+<span class="kd">var</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">n</span> <span class="p">=</span> <span class="s">&#34;abc&#34;</span><span class="p">,</span> <span class="mi">123</span>
+<span class="kd">var</span> <span class="p">(</span>
+  <span class="nx">a</span> <span class="kt">int</span>
+  <span class="nx">b</span> <span class="kt">float32</span>  
+<span class="p">)</span>
+  
+<span class="kd">func</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="nx">n</span><span class="p">,</span> <span class="nx">s</span> <span class="o">:=</span> <span class="mh">0x1234</span><span class="p">,</span> <span class="s">&#34;Hello&#34;</span>
+    <span class="nb">println</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">s</span> <span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
+<span class="p">}</span>
+  
+</code></pre></div></li>
+<li>
+<p>&ldquo;:=&rdquo; 简洁赋值语句在明确类型的地方，可以用于替代 var 定义 <code>k := 3</code></p>
+</li>
+</ul>
+<h5 id="常量">常量</h5>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">const</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="p">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+
+<span class="o">------</span>
+<span class="nx">在常量组中</span><span class="err">，</span><span class="nx">如不提供类型和初始化值</span><span class="err">，</span><span class="nx">那么视为与上一个常量相同</span>
+<span class="nx">eg</span><span class="p">:</span> 
+  <span class="kd">const</span><span class="p">(</span>
+  	<span class="nx">s</span> <span class="p">=</span> <span class="s">&#34;abc&#34;</span>
+    <span class="nx">x</span>  
+  <span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="c1">//abc
+</span><span class="c1"></span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>  <span class="c1">//abc
+</span><span class="c1"></span>
+<span class="o">-------</span>
+
+<span class="nx">iota可以被视为枚举值</span><span class="err">；</span> <span class="nx">在每一个const关键字出现时</span><span class="err">，</span><span class="nx">被重置为0</span><span class="err">，</span><span class="nx">所代表的数字自动增加1</span><span class="p">.</span>
+<span class="kd">const</span><span class="p">(</span>
+  <span class="nx">Sunday</span> <span class="p">=</span> <span class="kc">iota</span>
+  <span class="nx">Monday</span>
+  <span class="nx">Tuesday</span>  
+<span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">Sunday</span><span class="p">,</span> <span class="nx">Monday</span><span class="p">,</span> <span class="nx">Tuesday</span><span class="p">)</span> <span class="c1">//0   1  2
+</span></code></pre></div><h4 id="基本类型">基本类型</h4>
+<table>
+<thead>
+<tr>
+<th>rune</th>
+<th>4</th>
+<th>0</th>
+<th>Unicode Code Point, int32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int, uint</td>
+<td>4或8</td>
+<td>0</td>
+<td>32 或 64 位</td>
+</tr>
+</tbody>
+</table>
+<pre><code>byte // uint8 的别名 ：字符类型
+rune // int32 的别名，代表一个Unicode码，用UTF-8 进行编码。
+</code></pre><blockquote>
+<p>string存储unicode的话，如果有中文，按下标是访问不到的，因为你只能得到一个byte。 要想访问中文的话，还是要用rune切片</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go">	<span class="nx">s</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nb">rune</span><span class="p">(</span><span class="sc">&#39;编&#39;</span><span class="p">))</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+	
+	
+	<span class="nx">ss</span> <span class="o">:=</span><span class="nb">rune</span><span class="p">(</span><span class="sc">&#39;编&#39;</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">ss</span><span class="p">)</span>
+	
+	
+	<span class="nx">sss</span> <span class="o">:=</span> <span class="s">&#34;Go编程&#34;</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">([]</span><span class="nb">rune</span><span class="p">(</span><span class="nx">sss</span><span class="p">))</span>
+	
+	
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="mi">32534</span><span class="p">))</span><span class="c1">//编
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><h4 id="字符串">字符串</h4>
+<p>要修改字符串，可先将其转换成 []rune 或 []byte，完成后再转换为 string。无论哪种转换，都会重新分配内存，并复制字节数组。</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go">	<span class="nx">s</span> <span class="o">:=</span> <span class="s">&#34;abcd&#34;</span>
+	<span class="nx">bs</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+
+	<span class="nx">bs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="sc">&#39;B&#39;</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">bs</span><span class="p">))</span>
+
+<span class="o">--------</span>
+	<span class="nx">u</span> <span class="o">:=</span> <span class="s">&#34;电脑&#34;</span>
+	<span class="nx">us</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">rune</span><span class="p">(</span><span class="nx">u</span><span class="p">)</span>
+
+	<span class="nx">us</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="sc">&#39;话&#39;</span>
+	<span class="nb">println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">us</span><span class="p">))</span>
+
+
+<span class="o">---</span><span class="err">~~~~~~~~~~~~~~~~~~~~</span>
+<span class="k">for</span> <span class="nx">循环遍历字符串时</span><span class="err">，</span><span class="nx">也有</span> <span class="kt">byte</span> <span class="nx">和</span> <span class="kt">rune</span> <span class="nx">两种方式</span>
+	<span class="nx">s</span> <span class="o">:=</span> <span class="s">&#34;abc汉字&#34;</span>
+
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span> <span class="c1">// byte
+</span><span class="c1"></span>		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c,&#34;</span><span class="p">,</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
+
+
+	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">r</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span> <span class="p">{</span> <span class="c1">// rune
+</span><span class="c1"></span>		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%c,&#34;</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
+</code></pre></div><h4 id="数组">数组</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go">	<span class="nx">a</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>           <span class="c1">// 未初始化元素值为 0。
+</span><span class="c1"></span>	<span class="nx">b</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>   <span class="c1">// 通过初始化值确定数组长度。
+</span><span class="c1"></span>	<span class="nx">c</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">200</span><span class="p">}</span> <span class="c1">// 使用引号初始化元素。
+</span><span class="c1"></span>	<span class="nx">d</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kd">struct</span> <span class="p">{</span>
+		<span class="nx">name</span> <span class="kt">string</span>
+		<span class="nx">age</span>  <span class="kt">uint8</span>
+	<span class="p">}{</span>
+		<span class="p">{</span><span class="s">&#34;user1&#34;</span><span class="p">,</span> <span class="mi">10</span><span class="p">},</span> <span class="c1">// 可省略元素类型。
+</span><span class="c1"></span>		<span class="p">{</span><span class="s">&#34;user2&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">},</span> <span class="c1">// 别忘了最后一行的逗号。
+</span><span class="c1"></span>	<span class="p">}</span>
+</code></pre></div><h4 id="类型转换">类型转换</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">n</span> <span class="kt">int</span> <span class="p">=</span> <span class="nb">int</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// 显式转换
+</span><span class="c1"></span>
+<span class="kd">var</span> <span class="nx">i</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">42</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;i value is : %v , type is : %v \n&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">reflect</span><span class="p">.</span><span class="nf">TypeOf</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span><span class="c1">//i value is : 42 , type is : int 
+</span><span class="c1"></span>
+<span class="nx">将字符串转换为</span> <span class="kt">int</span> <span class="nx">类型</span> 
+<span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="s">&#34;100&#34;</span><span class="p">)</span> <span class="c1">//Atoi 相当于 ParseInt(s, 10, 0)
+</span><span class="c1"></span>
+<span class="nx">整形转字符串</span>
+<span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="c1">//Itoa 相当于 FormatInt(i, 10)
+</span></code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/%E6%9B%B4%E6%94%B9gvm%E9%BB%98%E8%AE%A4gopath/" data-toggle="tooltip" data-placement="top" title="更改gvm默认GoPATH">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%932/" data-toggle="tooltip" data-placement="top" title="Go小结2">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/%E6%9B%B4%E6%94%B9gvm%E9%BB%98%E8%AE%A4gopath/">更改gvm默认GoPATH</a></li>
+                    
+                    <li><a href="/posts/ssh%E4%B8%8D%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80/">Ssh不自动断开</a></li>
+                    
+                    <li><a href="/posts/linux%E6%B8%85%E9%99%A4%E6%93%8D%E4%BD%9C%E6%97%A5%E5%BF%97/">Linux清除操作日志</a></li>
+                    
+                    <li><a href="/posts/git%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95/">Git彻底删除历史提交记录</a></li>
+                    
+                    <li><a href="/posts/mount/">Mount</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

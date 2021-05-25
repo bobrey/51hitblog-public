@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on IT技术分享</title>
+    <link>https://www.51hint.com/categories/mysql/</link>
+    <description>Recent content in mysql on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Aug 2017 21:53:37 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mysql_2__case</title>
+      <link>https://www.51hint.com/posts/mysql_2__case/</link>
+      <pubDate>Tue, 29 Aug 2017 21:53:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mysql_2__case/</guid>
+      <description>CREATE PROCEDURE `GetCustomerShipping`( in p_customerNumber int(11), out p_shiping varchar(50)) BEGIN DECLARE customerProvince varchar(50); SELECT province INTO customerProvince FROM studymysql.customer WHERE customer_id = p_customerNumber; CASE customerProvince WHEN &#39;广东&#39; THEN SET p_shiping = &#39;2天货运时间&#39;; WHEN &#39;上海&#39; THEN SET p_shiping = &#39;3天货运时间&#39;; ELSE SET p_shiping = &#39;5天货运</description>
+    </item>
+    
+    <item>
+      <title>mysql_13__order</title>
+      <link>https://www.51hint.com/posts/mysql_13__order/</link>
+      <pubDate>Mon, 17 Jul 2017 21:01:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mysql_13__order/</guid>
+      <description>-- DELIMITER // -- CREATE PROCEDURE GetAllProducts() BEGIN -- SELECT * -- FROM studymysql.product; END // -- DELIMITER ; -- call GetAllProducts(); -- DELIMITER // -- create procedure xxx begin -- -- DECLARE total_sale int default 0; -- declare x,y,z int default 0; -- -- set total_sale = 20; -- select count(*) into total_sale frm product; -- -- end // -- delimiter; -- SELECT -- contact_name, -- credit_limit -- FROM</description>
+    </item>
+    
+    <item>
+      <title>msyl_12_sth</title>
+      <link>https://www.51hint.com/posts/msyl_12_sth/</link>
+      <pubDate>Mon, 17 Jul 2017 21:00:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/msyl_12_sth/</guid>
+      <description>-- MySQL变量赋值 SET @variable_name := value; SELECT @variable_name := value; SELECT @maxprice:=MAX(price) FROM product; -- 查询定义变量`@maxprice`的值 SELECT @maxprice ; -- MySQL生成列 CREATE TABLE studymysql.contacts ( id INT AUTO_INCREMENT PRIMARY KEY, first_name VARCHAR(50) NOT NULL, last_name VARCHAR(50) NOT</description>
+    </item>
+    
+    <item>
+      <title>mysql_11_select</title>
+      <link>https://www.51hint.com/posts/mysql_11_select/</link>
+      <pubDate>Mon, 17 Jul 2017 20:59:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mysql_11_select/</guid>
+      <description>SELECT contact_name, credit_limit FROM customer ORDER BY convert(contact_name using gbk) asc; SELECT * FROM test.order ORDER BY field( STATUS, 6, 5, 3, 4, 1, 2, 0 ); SELECT CONCAT( &#39; -&amp;gt;&#39;, employee_name, job_title ) as &#39;姓名及职位&#39; FROM employee SELECT order_id AS order_no, sum( price * buy_number ) total FROM order_detail GROUP BY order_no HAVING total &amp;gt; 1500000 -- 自连接 SELECT m.employee_id, m.employee_name</description>
+    </item>
+    
+    <item>
+      <title>mysql_9_transaction</title>
+      <link>https://www.51hint.com/posts/mysql_9_transaction/</link>
+      <pubDate>Mon, 17 Jul 2017 20:58:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mysql_9_transaction/</guid>
+      <description>#表锁定 LOCK TABLES table_name[READ|WRITE] UNLOCK TABLES; ##级联删除数据 ON DELETE CASCAD -- CREATE TABLE studymysql.grade( -- grade_id int(11)NOT NULL AUTO_INCREMENT, -- grade_name varchar(255)NOT NULL, -- location varchar(355)NOT NULL, -- 位置 -- PRIMARY KEY(grade_no) -- )ENGINE=InnoDB; -- CREATE TABLE class( -- class_id int(11)NOT NULL AUTO_INCREMENT, -- class_name varchar(255)NOT NULL, -- grade_id int(11)NOT NULL, -- PRIMARY KEY(class_id ), -- KEY grade_no(grade_id ),</description>
+    </item>
+    
+    <item>
+      <title>mysql_8__tempTable</title>
+      <link>https://www.51hint.com/posts/mysql_8__temptable/</link>
+      <pubDate>Mon, 17 Jul 2017 20:56:08 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mysql_8__temptable/</guid>
+      <description># 临时表 CREATE TEMPORARY TABLE top10customer SELECT p.customer_id, c.customer_name, FORMAT(SUM(p.total_money), 2) total FROM studymysql.payment p INNER JOIN studymysql.customer c ON c.customer_id=p.customer_id GROUP BY p.customer_id ORDER BY total DESC LIMIT 10; #只删除临时表 DROP TEMPORARY TABLE SET @str = CONVERT(&#39;MySQL Character Set&#39; USING utf8); SELECT LENGTH(@str), CHAR_LENGTH(@str); #字符串在不同的字符集之间进行转换</description>
+    </item>
+    
+    <item>
+      <title>mysql_7_trigger</title>
+      <link>https://www.51hint.com/posts/mysql_7_trigger/</link>
+      <pubDate>Mon, 17 Jul 2017 20:53:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mysql_7_trigger/</guid>
+      <description>CREATE TRIGGER trigger_name trigger_time trigger_event ON table_name FOR EACH ROW BEGIN &amp;hellip; END; ALTER EVENT event_name ON SCHEDULE schedule ON COMPLETION [NOT] PRESERVE RENAME TO new_event_name ENABLE | DISABLE DO event_body SHOW EVENTS FROM studymysql; CREATE EVENT test_event_04 ON SCHEDULE EVERY 1 MINUTE DO INSERT INTO messages(message,created_at) VALUES(&amp;lsquo;测试ALTER EV</description>
+    </item>
+    
+    <item>
+      <title>mysql_6_procedure_err</title>
+      <link>https://www.51hint.com/posts/mysql_6_procedure_err/</link>
+      <pubDate>Mon, 17 Jul 2017 20:52:03 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mysql_6_procedure_err/</guid>
+      <description>&amp;ndash; mySQL存储过程中的错误处理 &amp;ndash; 声明处理程序 DECLARE action HANDLER FOR condition_value statement; &amp;ndash; action接受以下值之一： &amp;ndash; CONTINUE : 继续执行封装的代码块（BEGIN … END）。 &amp;ndash;</description>
+    </item>
+    
+    <item>
+      <title>mysql_5__procedure1</title>
+      <link>https://www.51hint.com/posts/mysql_5__procedure1/</link>
+      <pubDate>Mon, 17 Jul 2017 20:50:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mysql_5__procedure1/</guid>
+      <description>DECLARE total_sale INT DEFAULT 0; DECLARE x, y, z INT DEFAULT 0; DECLARE total_count INT DEFAULT 0; SET total_count = 10; DECLARE total_products INT DEFAULT 0 SELECT COUNT(*) INTO total_products FROM studymysql.product &amp;ndash; &amp;ndash; 显示存储过程的特性 &amp;ndash; 显示存储过程源代码 show procedure status ; SHOW CREATE PROCEDURE GetAllProducts; DELIMITER // CREATE PROCEDURE GetOfficeByProvince(IN provinceName VARCHAR(255)) BEGIN SELECT</description>
+    </item>
+    
+    <item>
+      <title>mysql_4__inout</title>
+      <link>https://www.51hint.com/posts/mysql_4__inout/</link>
+      <pubDate>Mon, 17 Jul 2017 20:48:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mysql_4__inout/</guid>
+      <description>CREATE DEFINER=`root`@`localhost` PROCEDURE `GetCustomerLevel`( in p_customerNumber int(11), out p_customerLevel varchar(10)) BEGIN DECLARE creditlim double; SELECT credit_limit INTO creditlim FROM studymysql.customer WHERE customer_id = p_customerNumber; IF creditlim &amp;gt; 50000 THEN SET p_customerLevel = &#39;金钻&#39;; ELSEIF (creditlim &amp;lt;= 50000 AND creditlim &amp;gt;= 10000) THEN SET p_customerLevel = &#39;黄金&#39;; ELSEIF creditlim &amp;lt; 10000 THEN SET p_customerLevel = &#39;银牌&#39;; END IF; END</description>
+    </item>
+    
+    <item>
+      <title>mysql_1</title>
+      <link>https://www.51hint.com/posts/mysql_1/</link>
+      <pubDate>Mon, 17 Jul 2017 20:44:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mysql_1/</guid>
+      <description>SELECT id, (CASE WHEN shop_id = 13 THEN &amp;lsquo;self&amp;rsquo; WHEN shop_id != 13 THEN &amp;lsquo;other&amp;rsquo; ELSE &amp;lsquo;sth&amp;rsquo; END ) AS shop FROM shifts ORDER BY id DESC LIMIT 100;
+SELECT IF (1 &amp;gt; 13, &amp;lsquo;yes&amp;rsquo;, &amp;lsquo;no&amp;rsquo;);
+select (1+ cast(&amp;lsquo;1&amp;rsquo; as unsigned));
+select concat(&amp;lsquo;mysql cast exam#&amp;rsquo;, cast(2 as char));
+select cast(&amp;lsquo;2016-01-01 11:11:11&amp;rsquo; as datetime);
+select datediff(&amp;lsquo;2018-01-02&amp;rsquo;, &amp;lsquo;2018-01-16&amp;rsquo;);
+select str_to_date(&amp;lsquo;14,10,2018&amp;rsquo;, &amp;lsquo;%d,%m,%Y&amp;rsquo;);
+select str_to_date(&amp;lsquo;123005&amp;rsquo;,&#39;%H%i%s&#39;);
+&amp;ndash; select date_format(thedate, &amp;lsquo;%Y %m %d&amp;rsquo;) fdate;</description>
+    </item>
+    
+  </channel>
+</rss>

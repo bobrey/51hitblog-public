@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cocos2d-x on IT技术分享</title>
+    <link>https://www.51hint.com/tags/cocos2d-x/</link>
+    <description>Recent content in cocos2d-x on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Nov 2012 05:12:59 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/cocos2d-x/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cocos2d-x 一些编辑器</title>
+      <link>https://www.51hint.com/posts/2012-11-05-cocos2d-x-%E4%B8%80%E4%BA%9B%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+      <pubDate>Mon, 05 Nov 2012 05:12:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-05-cocos2d-x-%E4%B8%80%E4%BA%9B%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
+      <description>Action Editor SpriteHelper &amp;amp; LevelHelper Author’s blog Download from Mac Store SpriteHelperFree SpriteHelper LevelHelper “Video” Youtube: http://www.youtube.com/watch?v=YoVMSuwsATk Youku: http://v.youku.com/v_show/id_XMjU2NjU1OTIw.html News on cocos2d-x: http://www.cocos2d-x.org/news/14 CocosBuilder: http://cocosbuilder.com/ (can only be used in ios games) SceneDesigner: https://github.com/andrew0/SceneDesigner CocoShop: http://www.cocos2d-iphone.org/forum/topic/15668 (can only be used in ios games) – Abandoned project Map Editor Tiled Map Editor , free, cross platform, based on</description>
+    </item>
+    
+  </channel>
+</rss>

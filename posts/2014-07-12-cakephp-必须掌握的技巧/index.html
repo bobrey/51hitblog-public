@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> cakephp 必须掌握的技巧 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="cakephp 必须掌握的技巧" />
+  <meta name="twitter:title" content="cakephp 必须掌握的技巧" />
+  <meta name="description" content="&lt;td class=&quot;code&quot;&gt; &lt;div class=&quot;container&quot;&gt; &lt;div class=&quot;line number1 index0 alt2&quot;&gt; &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$this&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;-&amp;gt;pageTitle = &lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;&#39;Title of your page.&#39;&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;;&lt;/code&gt; &lt;/div&gt; &lt;/div&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;td class=&quot;code&quot;&gt; &lt;div class=&quot;container&quot;&gt; &lt;div class=&quot;line number1 index0 alt2&quot;&gt; &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$this&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;-&amp;gt;_viewVars[&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;&#39;somedata&#39;&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;] = &lt;/code&gt;&lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;array&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;(&lt;/code&gt;&lt;code">
+  <meta property="og:description" content="&lt;td class=&quot;code&quot;&gt; &lt;div class=&quot;container&quot;&gt; &lt;div class=&quot;line number1 index0 alt2&quot;&gt; &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$this&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;-&amp;gt;pageTitle = &lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;&#39;Title of your page.&#39;&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;;&lt;/code&gt; &lt;/div&gt; &lt;/div&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;td class=&quot;code&quot;&gt; &lt;div class=&quot;container&quot;&gt; &lt;div class=&quot;line number1 index0 alt2&quot;&gt; &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$this&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;-&amp;gt;_viewVars[&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;&#39;somedata&#39;&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;] = &lt;/code&gt;&lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;array&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;(&lt;/code&gt;&lt;code">
+  <meta name="twitter:description" content="&lt;td class=&quot;code&quot;&gt; &lt;div class=&quot;container&quot;&gt; &lt;div class=&quot;line number1 index0 alt2&quot;&gt; &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2014-07-12-cakephp-%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%8A%80%E5%B7%A7/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2014-07-12-cakephp-%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%8A%80%E5%B7%A7/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">cakephp 必须掌握的技巧</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sat Jul 12, 2014</h4>
+    </section>
+    <h5 id="wc">900 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/cakephp/">cakephp</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/php/">php</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$this&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;-&amp;gt;pageTitle = &lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'Title of your page.'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;;&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$this&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;-&amp;gt;_viewVars[&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'somedata'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;] = &lt;/code&gt;&lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;array&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;(&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'some'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;,&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'data'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;);&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;php plain&quot;&gt;define(&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'CAKE_ADMIN'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;, &lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'admin'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;);&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;css plain&quot;&gt;#cakeSqlLog {&lt;/code&gt;&lt;code class=&quot;css keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;display&lt;/code&gt;&lt;code class=&quot;css plain&quot;&gt;: &lt;/code&gt;&lt;code class=&quot;css value&quot; style=&quot;color: #009900 !important;&quot;&gt;none&lt;/code&gt;&lt;code class=&quot;css plain&quot;&gt;; }&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$this&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;-&amp;gt;log(&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'Something broke'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;);&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>      &lt;div class=&quot;line number2 index1 alt1&quot;&gt;
+        02
+      &lt;/div&gt;
+      
+      &lt;div class=&quot;line number3 index2 alt2&quot;&gt;
+        03
+      &lt;/div&gt;
+    &lt;/td&gt;
+    
+    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;class&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;yourController &lt;/code&gt;&lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;extends&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;AppController {&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;line number2 index1 alt1&quot;&gt;
+          &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$uses&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;= &lt;/code&gt;&lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;array&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;(&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'Post'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;,&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'User'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;);&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;line number3 index2 alt2&quot;&gt;
+          &lt;code class=&quot;php spaces&quot;&gt; &lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;}&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;var&lt;/code&gt;&lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$useTable&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;= false;&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;var&lt;/code&gt;&lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$useTable&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;= &lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'some_table'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;;&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>      &lt;div class=&quot;line number2 index1 alt1&quot;&gt;
+        02
+      &lt;/div&gt;
+      
+      &lt;div class=&quot;line number3 index2 alt2&quot;&gt;
+        03
+      &lt;/div&gt;
+      
+      &lt;div class=&quot;line number4 index3 alt1&quot;&gt;
+        04
+      &lt;/div&gt;
+    &lt;/td&gt;
+    
+    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$items&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;= &lt;/code&gt;&lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;array&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;(&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'Item 1'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;,&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'Item 2'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;,&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'Item 3'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;);&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;line number2 index1 alt1&quot;&gt;
+          &lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;foreach&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;(&lt;/code&gt;&lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$itemsas&lt;/code&gt;&lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$item&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;){&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;line number3 index2 alt2&quot;&gt;
+          &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$this&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;-&amp;gt;Post-&amp;gt;save(&lt;/code&gt;&lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;array&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;(&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'Post'&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;=&amp;gt; &lt;/code&gt;&lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;array&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;(&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'title'&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;=&amp;gt; &lt;/code&gt;&lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$item&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;)));&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;line number4 index3 alt1&quot;&gt;
+          &lt;code class=&quot;php plain&quot;&gt;}&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>      &lt;div class=&quot;line number2 index1 alt1&quot;&gt;
+        02
+      &lt;/div&gt;
+      
+      &lt;div class=&quot;line number3 index2 alt2&quot;&gt;
+        03
+      &lt;/div&gt;
+    &lt;/td&gt;
+    
+    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;function&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;beforeRender(){&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;line number2 index1 alt1&quot;&gt;
+          &lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$this&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;-&amp;gt;set(&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'colors'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;,&lt;/code&gt;&lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;array&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;(&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'red'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;,&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'blue'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;,&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'green'&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;);&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;line number3 index2 alt2&quot;&gt;
+          &lt;code class=&quot;php plain&quot;&gt;}&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>      &lt;div class=&quot;line number2 index1 alt1&quot;&gt;
+        02
+      &lt;/div&gt;
+      
+      &lt;div class=&quot;line number3 index2 alt2&quot;&gt;
+        03
+      &lt;/div&gt;
+      
+      &lt;div class=&quot;line number4 index3 alt1&quot;&gt;
+        04
+      &lt;/div&gt;
+    &lt;/td&gt;
+    
+    &lt;td class=&quot;code&quot;&gt;
+      &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;line number1 index0 alt2&quot;&gt;
+          &lt;code class=&quot;php plain&quot;&gt;Tag template &lt;/code&gt;&lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;for&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;a input type=&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;'radio'&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;tag.&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;line number2 index1 alt1&quot;&gt;
+          &lt;code class=&quot;php plain&quot;&gt;radio = &lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;&quot;&amp;lt;input type=&quot;&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;radio&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;&quot; name=&quot;&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;data[%s][%s]&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;&quot; id=&quot;&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;%s&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;&quot; %s /&amp;gt;&amp;lt;label for=&quot;&lt;/code&gt;&lt;code class=&quot;php plain&quot;&gt;%3&lt;/code&gt;&lt;code class=&quot;php variable&quot; style=&quot;color: #aa7700 !important;&quot;&gt;$s&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;&quot;&amp;gt;%s&amp;lt;/label&amp;gt;&quot;&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;line number3 index2 alt2&quot;&gt;
+          &lt;code class=&quot;php plain&quot;&gt;Tag template &lt;/code&gt;&lt;code class=&quot;php keyword&quot; style=&quot;font-weight: bold !important; color: #006699 !important;&quot;&gt;for&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;an &lt;/code&gt;&lt;code class=&quot;php functions&quot; style=&quot;color: #ff1493 !important;&quot;&gt;empty&lt;/code&gt; &lt;code class=&quot;php plain&quot;&gt;select option tag.&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&quot;line number4 index3 alt1&quot;&gt;
+          &lt;code class=&quot;php plain&quot;&gt;selectempty = &lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;&quot;&amp;lt;option value=&quot;&lt;/code&gt;&lt;code class=&quot;php string&quot; style=&quot;color: blue !important;&quot;&gt;&quot; %s&amp;gt;-- Please Select --&amp;lt;/option&amp;gt;&quot;&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->如果你需要自定义404页面，只需创建 /app/views/errors/error404.thtml。<!-- raw HTML omitted --></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2014-07-11-backbone%E5%85%A5%E9%97%A8/" data-toggle="tooltip" data-placement="top" title="backbone入门">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2014-07-17-underscore%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8/" data-toggle="tooltip" data-placement="top" title="Underscore模板的使用">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2014-07-08-php-show-imagepicture/">php show image,picture</a></li>
+                    
+                    <li><a href="/posts/2014-06-11-php-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AD%89/">php 开发环境等</a></li>
+                    
+                    <li><a href="/posts/2014-06-02-%E9%85%8D%E7%BD%AEphpstorm%E4%B8%8Exampp-xdebug/">配置Phpstorm与xampp, xdebug</a></li>
+                    
+                    <li><a href="/posts/2014-05-27-cakephp-error-database-connection-mysql-is-missing-or-could-not-be-created/">CakePHP “Error: Database connection “Mysql” is missing, or could not be created”</a></li>
+                    
+                    <li><a href="/posts/2014-01-27-phpmyadmin-max-upload-file-size/">phpmyadmin max upload file size</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sat Jul 12, 2014</h4>
+    </section>
+    <h5 id="wc">900 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/cakephp/">cakephp</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/php/">php</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

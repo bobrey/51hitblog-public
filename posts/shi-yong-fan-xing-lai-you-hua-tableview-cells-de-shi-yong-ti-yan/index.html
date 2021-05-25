@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 使用泛型来优化 TableView Cells 的使用体验 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="使用泛型来优化 TableView Cells 的使用体验" />
+  <meta name="twitter:title" content="使用泛型来优化 TableView Cells 的使用体验" />
+  <meta name="description" content="Swift 泛型强大，可以方便地使用泛型来处理 UITableViewCells 和 UICollectionViewCells。 介绍 我不喜欢使用字符串做标识符，我认为使用常量要比字符串">
+  <meta property="og:description" content="Swift 泛型强大，可以方便地使用泛型来处理 UITableViewCells 和 UICollectionViewCells。 介绍 我不喜欢使用字符串做标识符，我认为使用常量要比字符串">
+  <meta name="twitter:description" content="Swift 泛型强大，可以方便地使用泛型来处理 UITableViewCells 和 UICollectionViewCells。 介绍 我不喜欢使用字符串做标识符，我认为使用常量要比字符串">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/shi-yong-fan-xing-lai-you-hua-tableview-cells-de-shi-yong-ti-yan/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/shi-yong-fan-xing-lai-you-hua-tableview-cells-de-shi-yong-ti-yan/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">使用泛型来优化 TableView Cells 的使用体验</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Feb 15, 2017</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/swift/">swift</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#介绍">介绍</a></li>
+    <li><a href="#魔法时刻">魔法时刻</a></li>
+    <li><a href="#更进一步">更进一步</a></li>
+    <li><a href="#示例用法">示例用法</a></li>
+    <li><a href="#另一种解决方案">另一种解决方案</a></li>
+    <li><a href="#通过-cocoapods-使用这个库啦-">通过 Cocoapods 使用这个库啦 🎉</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>Swift 泛型强大，可以方便地使用泛型来处理 <code>UITableViewCells</code> 和 <code>UICollectionViewCells</code>。</p>
+<h2 id="介绍">介绍</h2>
+<p>我不喜欢使用字符串做标识符，我认为使用常量要比字符串好很多。
+但是，当涉及到 <code>UITableViewCell</code> 或 <code>UICollectionViewCell</code> 以及他们的重用标识符（<code>reuseIdentifiers</code>）时，我想采用一种更加魔幻的解决方案：『使用 Swift 的泛型 + Mixins 的方式』。</p>
+<h2 id="魔法时刻">魔法时刻</h2>
+<p>我的想法是在 <code>UITableViewCell</code>（或 <code>UICollectionViewCell</code>）的子类中将 <code>reuseIdentifier</code> 声明为一个静态常量，然后用它使这个 cell 的实例对外部透明化（即，不用显式地使用 <code>reuseIdentifer</code> 来实例化 cell）。
+我们首先声明一个协议，以便于稍后能够将其作为 Mixin 来使用：</p>
+<pre><code>protocol Reusable: class {
+ static var reuseIdentifier: String { get }
+}
+
+extension Reusable {
+ static var reuseIdentifier: String {
+    // 我喜欢使用类名来作为标识符
+    // 所以这里可以用类名返回一个默认值
+   return String(Self)
+ }
+}
+</code></pre><p>当我们使用泛型实现 `dequeueReusableCell(…)`` 方法时，魔法出现了：</p>
+<pre><code>func dequeueReusableCell&lt;T: Reusable&gt;(indexPath indexPath: NSIndexPath) -&gt; T {
+ return self.dequeueReusableCellWithIdentifier(T.reuseIdentifier, forIndexPath: indexPath) as! T
+}
+</code></pre><p>得益于 Swift 的类型推断，<em><strong>这个方法将使用调用点的上下文来推断 T 的实际类型</strong></em>，因此这个类型可以被看做方法实现中的**『复古注入』(retro-injected)！**✨
+<code>let cell = tableView.dequeueReusableCell(indexPath: indexPath) as MyCustomCell</code>
+注意观察 reuseIdentifier 在内部的使用方法…完全由编译器看到的返回类型决定！那就是我说的类型“复古注射(retro-injected)”，以及为什么我超😍它的原因
+译者注：Swift 的类型在编译时刻就确定了，所以当你写下 as MyCustomCell 后，cell 的类型即泛型 T 的具体类型就确定了
+很美妙不是吗？</p>
+<h2 id="更进一步">更进一步</h2>
+<p>当然，除了 dequeueReusableCellWithIdentifier 之外，你同样可以把这个方法用在 registerNib(<em>, forCellWithReuseIdentifier:) 和 UICollectionViewCells，supplementary 视图上。
+UITableViewCells 和 UICollectionViewCells 都能通过类名（registerClass(</em>, forCellWithReuseIdentifier:)） 或 nib（registerNib(_, forCellWithReuseIdentifier:)）的方式进行注册。如果存在 nib，我们将在协议中添加一个类型属性（static var nib: UINib?），然后使用这个 nib 注册 cell；如果 nib 不存在则使用类注册。
+代码
+这里是我在项目中实际使用的代码：
+[2016-01-20 修改]
+现在可以在Github上看到这个代码了！</p>
+<pre><code>import UIKit
+
+protocol Reusable: class {
+ static var reuseIdentifier: String { get }
+ static var nib: UINib? { get }
+}
+
+extension Reusable {
+ static var reuseIdentifier: String { return String(Self) }
+ static var nib: UINib? { return nil }
+}
+
+extension UITableView {
+ func registerReusableCell&lt;T: UITableViewCell where T: Reusable&gt;(_: T.Type) {
+   if let nib = T.nib {
+     self.registerNib(nib, forCellReuseIdentifier: T.reuseIdentifier)
+   } else {
+     self.registerClass(T.self, forCellReuseIdentifier: T.reuseIdentifier)
+   }
+ }
+
+ func dequeueReusableCell&lt;T: UITableViewCell where T: Reusable&gt;(indexPath indexPath: NSIndexPath) -&gt; T {
+   return self.dequeueReusableCellWithIdentifier(T.reuseIdentifier, forIndexPath: indexPath) as! T
+ }
+
+ func registerReusableHeaderFooterView&lt;T: UITableViewHeaderFooterView where T: Reusable&gt;(_: T.Type) {
+   if let nib = T.nib {
+     self.registerNib(nib, forHeaderFooterViewReuseIdentifier: T.reuseIdentifier)
+   } else {
+     self.registerClass(T.self, forHeaderFooterViewReuseIdentifier: T.reuseIdentifier)
+   }
+ }
+
+ func dequeueReusableHeaderFooterView&lt;T: UITableViewHeaderFooterView where T: Reusable&gt;() -&gt; T? {
+   return self.dequeueReusableHeaderFooterViewWithIdentifier(T.reuseIdentifier) as! T?
+ }
+}
+
+extension UICollectionView {
+ func registerReusableCell&lt;T: UICollectionViewCell where T: Reusable&gt;(_: T.Type) {
+   if let nib = T.nib {
+     self.registerNib(nib, forCellWithReuseIdentifier: T.reuseIdentifier)
+   } else {
+     self.registerClass(T.self, forCellWithReuseIdentifier: T.reuseIdentifier)
+   }
+ }
+
+ func dequeueReusableCell&lt;T: UICollectionViewCell where T: Reusable&gt;(indexPath indexPath: NSIndexPath) -&gt; T {
+   return self.dequeueReusableCellWithReuseIdentifier(T.reuseIdentifier, forIndexPath: indexPath) as! T
+ }
+
+ func registerReusableSupplementaryView&lt;T: Reusable&gt;(elementKind: String, _: T.Type) {
+   if let nib = T.nib {
+     self.registerNib(nib, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: T.reuseIdentifier)
+   } else {
+     self.registerClass(T.self, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: T.reuseIdentifier)
+   }
+ }
+
+ func dequeueReusableSupplementaryView&lt;T: UICollectionViewCell where T: Reusable&gt;(elementKind: String, indexPath: NSIndexPath) -&gt; T {
+   return self.dequeueReusableSupplementaryViewOfKind(elementKind, withReuseIdentifier: T.reuseIdentifier, forIndexPath: indexPath) as! T
+ }
+}
+</code></pre><h2 id="示例用法">示例用法</h2>
+<p>下面演示如何声明一个 UITableViewCell 的子类：</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">CodeBasedCustomCell</span><span class="p">:</span> <span class="n">UITableViewCell</span><span class="p">,</span> <span class="n">Reusable</span> <span class="p">{</span>
+ <span class="c1">// By default this cell will have a reuseIdentifier or &#34;MyCustomCell&#34;</span>
+ <span class="c1">// unless you provide an alternative implementation of `var reuseIdentifier`</span>
+ <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">NibBasedCustomCell</span><span class="p">:</span> <span class="n">UITableViewCell</span><span class="p">,</span> <span class="n">Reusable</span> <span class="p">{</span>
+ <span class="c1">// Here we provide a nib for this cell class</span>
+ <span class="c1">// (instead of relying of the protocol&#39;s default implementation)</span>
+ <span class="kd">static</span> <span class="kd">var</span> <span class="nv">nib</span><span class="p">:</span> <span class="n">UINib</span><span class="p">?</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="n">UINib</span><span class="p">(</span><span class="n">nibName</span><span class="p">:</span> <span class="nb">String</span><span class="p">(</span><span class="n">NibBasedCustomCell</span><span class="p">.</span><span class="kc">self</span><span class="p">),</span> <span class="n">bundle</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+ <span class="p">}</span>
+ <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div><p>然后在 UITableViewDelegate/UITableViewDataSource 中使用他们：</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="nc">MyTableViewController</span><span class="p">:</span> <span class="n">UITableViewController</span> <span class="p">{</span>
+ <span class="kr">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+   <span class="kc">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
+   <span class="n">tableView</span><span class="p">.</span><span class="n">registerReusableCell</span><span class="p">(</span><span class="n">CodeBasedCustomCell</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="c1">// This will register using the class without using a UINib</span>
+   <span class="n">tableView</span><span class="p">.</span><span class="n">registerReusableCell</span><span class="p">(</span><span class="n">NibBasedCustomCell</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="c1">// This will register using NibBasedCustomCell.xib</span>
+ <span class="p">}</span>
+
+ <span class="kr">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">tableView</span><span class="p">:</span> <span class="n">UITableView</span><span class="p">,</span> <span class="n">cellForRowAtIndexPath</span> <span class="n">indexPath</span><span class="p">:</span> <span class="n">NSIndexPath</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">UITableViewCell</span> <span class="p">{</span>
+   <span class="kd">let</span> <span class="nv">cell</span><span class="p">:</span> <span class="n">UITableViewCell</span>
+   <span class="k">if</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">section</span> <span class="p">==</span> <span class="mi">0</span> <span class="p">{</span>
+     <span class="n">cell</span> <span class="p">=</span> <span class="n">tableView</span><span class="p">.</span><span class="n">dequeueReusableCell</span><span class="p">(</span><span class="n">indexPath</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">)</span> <span class="k">as</span> <span class="n">CodeBasedCustomCell</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+     <span class="n">cell</span> <span class="p">=</span> <span class="n">tableView</span><span class="p">.</span><span class="n">dequeueReusableCell</span><span class="p">(</span><span class="n">indexPath</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">)</span> <span class="k">as</span> <span class="n">NibBasedCustomCell</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="n">cell</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="另一种解决方案">另一种解决方案</h2>
+<p>有些人倾向于将 Reusable 协议拆分成两个不同的协议，用于区分基于 nib 创建与基于 class 创建的 cell：</p>
+<div class="highlight"><pre class="chroma"><code class="language-swift" data-lang="swift"><span class="kd">protocol</span> <span class="nc">Reusable</span><span class="p">:</span> <span class="kd">class</span> <span class="p">{</span>
+ <span class="kd">static</span> <span class="kd">var</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="nb">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">extension</span> <span class="nc">Reusable</span> <span class="p">{</span>
+ <span class="kd">static</span> <span class="kd">var</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="nb">String</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">String</span><span class="p">(</span><span class="kc">Self</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">protocol</span> <span class="nc">NibReusable</span><span class="p">:</span> <span class="n">Reusable</span> <span class="p">{</span>
+ <span class="kd">static</span> <span class="kd">var</span> <span class="nv">nib</span><span class="p">:</span> <span class="n">UINib</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">extension</span> <span class="nc">NibReusable</span> <span class="p">{</span>
+ <span class="kd">static</span> <span class="kd">var</span> <span class="nv">nib</span><span class="p">:</span> <span class="n">UINib</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="n">UINib</span><span class="p">(</span><span class="n">nibName</span><span class="p">:</span> <span class="nb">String</span><span class="p">(</span><span class="kc">Self</span><span class="p">),</span> <span class="n">bundle</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>这样基于 nib 创建的 cell 也能使用默认实现 —— 因此不用在子类中再重新实现一遍。
+但是这也会迫使你在 UITableView 和 UICollectionView上添加更多的实现方法（每个协议中添加一个实现），所以嘛…这其中的平衡还要靠你自己来把握 ⚖</p>
+<h2 id="通过-cocoapods-使用这个库啦-">通过 Cocoapods 使用这个库啦 🎉</h2>
+<p>以上代码和示例，我已经上传至 GitHub，并且通过 Swift Package 以及 <a href="https://cocoapods.org/pods/Reusable">CocoaPod</a> 发布了，现在可以很方便地添加到你的工程中。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/swiftde-mutatingguan-jian-zi/" data-toggle="tooltip" data-placement="top" title="swift的mutating关键字">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/lumen/" data-toggle="tooltip" data-placement="top" title="lumen">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/swiftde-mutatingguan-jian-zi/">swift的mutating关键字</a></li>
+                    
+                    <li><a href="/posts/swiftlint/">SwiftLint</a></li>
+                    
+                    <li><a href="/posts/swift-objectmapperdejsonwomatupingu/">Swift ObjectMapperでJSONをマッピング</a></li>
+                    
+                    <li><a href="/posts/purelayoutshi-yong-fang-fa/">PureLayout使用方法</a></li>
+                    
+                    <li><a href="/posts/swiftgen/">swiftgen</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Feb 15, 2017</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/swift/">swift</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

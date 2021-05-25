@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iterm on IT技术分享</title>
+    <link>https://www.51hint.com/tags/iterm/</link>
+    <description>Recent content in iterm on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Aug 2015 00:14:40 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/iterm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ios开发环境</title>
+      <link>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Thu, 20 Aug 2015 00:14:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

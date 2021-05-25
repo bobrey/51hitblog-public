@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Eclipse开发Android应用程序入门 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Eclipse开发Android应用程序入门" />
+  <meta name="twitter:title" content="Eclipse开发Android应用程序入门" />
+  <meta name="description" content="安装Eclipse和Android SDK Android应用程序的推荐开发环境是带有Android开发包插件(Android Devlopment Toolkit (ADT))的Ec">
+  <meta property="og:description" content="安装Eclipse和Android SDK Android应用程序的推荐开发环境是带有Android开发包插件(Android Devlopment Toolkit (ADT))的Ec">
+  <meta name="twitter:description" content="安装Eclipse和Android SDK Android应用程序的推荐开发环境是带有Android开发包插件(Android Devlopment Toolkit (ADT))的Ec">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-06-01-eclipse%E5%BC%80%E5%8F%91android%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-06-01-eclipse%E5%BC%80%E5%8F%91android%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">Eclipse开发Android应用程序入门</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jun 1, 2012</h4>
+    </section>
+    <h5 id="wc">2000 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>安装Eclipse和Android SDK</p>
+<p>Android应用程序的推荐开发环境是带有Android开发包插件(Android Devlopment Toolkit (ADT))的Eclipse。</p>
+<p>为你的平台下载Android SDK（Windows ， Mac OS X 或者 Linux）。</p>
+<p>在你的硬盘上解压下载文件 (在Linux, 我使用 /opt/local/).</p>
+<p>如果你没有安装Eclipse，下载并安装Eclipse JAVA 集成开发环境包。 用于编程的话, Google推荐使用Eclipse 3.5 (Galileo).</p>
+<p>运行Eclipse 并选择Help-&gt;Install New Software.</p>
+<p>在Available Software窗口中点击Add按钮。</p>
+<p>进入 Android Development Tools 的Name输入框, 在Location 输入框输入https://dl-ssl.google.com/android/eclipse/</p>
+<p>检查可用软件中有Developer Tools并点击OK按钮。这将安装Android Development Tools 和DDMS, Android的调试工具。</p>
+<p>点击Next和Finish按钮以完成安装，安装完成后，你需要重启你的Eclipse一次。</p>
+<p>在Eclipse重启后，选择Window-&gt;Preference 后你可以在分类列表中看到Android这一项了。</p>
+<p>现在需要告诉Eclipse，你的Android SDK安装在什么地方。点击Android项后浏览选择你解压后的Android SDK所在的路径。例如/opt/local/android-sdk。</p>
+<p>点击OK按钮，保存信息。</p>
+<p>———————————————————————————————————————</p>
+<p>开发你第一个Android应用</p>
+<p>生成的代码能良好的运行，但是你真正想要的是开发一个真实的应用程序。为此，我们首先果一个咸蛋的设计流程，并开始创建一个可以让你部署在Android设备上的应用。</p>
+<p>大部分的开发者（包括我自己）都喜欢每天一杯咖啡或茶。在下一节中，你将开发一个简单的泡茶计数器应用程序来记录用户泡了多少杯茶，并为泡每杯茶做一个定时器。</p>
+<p>设计用户界面</p>
+<p>在开发任何Android应用程序之前的第一步就是设计和开发用户界面。下面是一个我们这个应用程序的用户界面的一个概览。</p>
+<p><a href="https://i2.wp.com/blog.51hint.com/wp-content/uploads/20120601150726.jpg"><!-- raw HTML omitted --></a></p>
+<p># /res/layouts/main.xml</p>
+<!-- raw HTML omitted -->
+<p>正如你所见的，Android的XML布局文件是繁琐的，但却能让你控制到屏幕的各个元素。</p>
+<p>在Android中最重要的接口元素是布局Layout容器，例如例子中使用的LinearLayout 。这些元素对于用户是不可见的,但是却扮演者例如Buttons 和TextViews这些元素的布局容器。</p>
+<p>Android中有几种不同类型的布局视图layout view，每一种都用于开发不同的布局。如同LinearLayout 和AbsoluteLayout ，TableLayout 可以让你使用更为复杂的基于表格结构的布局。你可以在SDK的API文档的通用布局对象中查找到更多的布局。</p>
+<p>关联你的布局Layout与代码</p>
+<p>保存你的布局，在Eclipse中点击Run图标或按下Ctrl+F11重新在模拟器中运行你的程序。你现看到不是之前出现的Hello World消息了，你将看到Android显示了一个新的界面。</p>
+<p>如果点击界面上的任何按钮，他们将期望的显示为高亮，但是不会执行任何操作。现在让我们在布局修改后改进一下我们的源码：</p>
+<p># /src/com/example/brewclock/BrewClockActivity.java</p>
+<!-- raw HTML omitted -->
+<p>下一步,我们将修改调用onCreate。当Android启动你的应用程序的时候，Android会首先调用这个方法。 在Eclipse生成的代码中，onCreate把activity的视图设置成R.layout.main。这行代码告诉Android解释我们的布局配置XML文件，并显示它。</p>
+<h4 id="资源对象">资源对象</h4>
+<p>在Android中，R是一个自动生成的对象，这是一个特殊的对象，你可以在代码中通过这个对象访问项目中的资源（布局，字符串，菜单，图标，…） 。每个资源都有一个给定的id。在上面的那个布局文件中，有一些@+id XML 属性。我们将通过这些值来关联布局中的Buttons 与TextViews和我们的代码和：</p>
+<p># /src/com/example/brewclock/BrewClockActivity.java</p>
+<!-- raw HTML omitted -->
+<p> </p>
+<h4 id="监听事件">监听事件</h4>
+<p>为了检测到用户单击我们的按钮，我们需要实现一个监听器listener。你可能会从其他的事件驱动系统中熟悉监听器或回调函数_callbacks_。比如Javascript/JQuery事件或Rails的回调函数。</p>
+<p>Android通过Listener接口提供相似的机制，例如OnClickListener，这个接口中定义了那些会被事件触发的方法。当用户点击屏幕的时候，实现OnClickListener 接口将会通知你的应用程序，并告诉他们所按得屏幕按钮。你当然也需要告诉每个button的ClickListener，以便Android知道具体通知到那个监听器：</p>
+<p># /src/com/example/brewclock/BrewClockActivity.java</p>
+<!-- raw HTML omitted -->
+<p> </p>
+<p>下载 <a href="http://blog.51hint.com/wp-content/uploads/Brewclock.zip">Brewclock</a></p>
+<p> </p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-06-01-measuretext-android-%E6%B5%8B%E9%87%8F%E6%96%87%E5%AD%97/" data-toggle="tooltip" data-placement="top" title="MeasureText  –android 测量文字">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-06-04-android-%E5%9F%BA%E6%9C%AC%E7%AE%80%E4%BB%8B/" data-toggle="tooltip" data-placement="top" title="android 基本简介">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jun 1, 2012</h4>
+    </section>
+    <h5 id="wc">2000 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

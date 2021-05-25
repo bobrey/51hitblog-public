@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on IT技术分享</title>
+    <link>https://www.51hint.com/tags/git/</link>
+    <description>Recent content in git on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Apr 2020 17:29:38 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git丢弃本地修改</title>
+      <link>https://www.51hint.com/posts/git%E4%B8%A2%E5%BC%83%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9/</link>
+      <pubDate>Sun, 19 Apr 2020 17:29:38 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/git%E4%B8%A2%E5%BC%83%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9/</guid>
+      <description>git丢弃本地修改的所有文件（新增、删除、修改） git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态 git stash #把所有没有提交的修改暂存到st</description>
+    </item>
+    
+    <item>
+      <title>gitbook发布epub</title>
+      <link>https://www.51hint.com/posts/gitbook-epub/</link>
+      <pubDate>Thu, 26 Apr 2018 02:42:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/gitbook-epub/</guid>
+      <description>先安装NodeJS和GitBook命令行工具(npm install gitbook-cli -g命令)。 运行 gitbook install，安装GitBook插件。 构建电子书 运行下面的命令之</description>
+    </item>
+    
+    <item>
+      <title>merge --squash</title>
+      <link>https://www.51hint.com/posts/merge-squash/</link>
+      <pubDate>Tue, 28 Feb 2017 19:39:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/merge-squash/</guid>
+      <description>本地端的历史记录的状态如下图显示。把issue1分支的所有提交合并成一个提交，并导入到master分支。 切换到master分支后，指定 &amp;nd</description>
+    </item>
+    
+    <item>
+      <title>rebase -i 修改提交</title>
+      <link>https://www.51hint.com/posts/rebase-i-xiu-gai-ti-jiao/</link>
+      <pubDate>Tue, 28 Feb 2017 19:30:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/rebase-i-xiu-gai-ti-jiao/</guid>
+      <description>本地端的历史记录的状态如下图显示。我们在这里修改「添加commit的讲解」的内容。 用rebase -i ，首先选择要修改的提交。 $ git rebase -i HEAD~</description>
+    </item>
+    
+    <item>
+      <title>rebase -i 汇合提交</title>
+      <link>https://www.51hint.com/posts/rebase-i-hui-he-ti-jiao/</link>
+      <pubDate>Tue, 28 Feb 2017 18:15:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/rebase-i-hui-he-ti-jiao/</guid>
+      <description>本地端的历史记录的状态如下图显示。在这里汇合「添加commit的讲解」和「添加pull的讲解」的修改，然后合并到一个提交。 若要汇合过去的提交</description>
+    </item>
+    
+    <item>
+      <title>cherry-pick</title>
+      <link>https://www.51hint.com/posts/cherry-pick/</link>
+      <pubDate>Tue, 28 Feb 2017 17:59:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/cherry-pick/</guid>
+      <description>git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。例如，假设我们有个稳定版本的分支，叫v2.0，另外还有</description>
+    </item>
+    
+    <item>
+      <title>reset回滚</title>
+      <link>https://www.51hint.com/posts/resethui-gun/</link>
+      <pubDate>Tue, 28 Feb 2017 17:36:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/resethui-gun/</guid>
+      <description>我们将用reset来删除master分支最前面的两个提交。 本地端的历史记录的状态如下图显示。 用log命令确认历史记录。 $ git log commit 0d4a808c26908cd5fe4b6294a00150342d1a58be Author: yourname &amp;lt;yourname@yourmail.com&amp;gt; Date: Mon Jul</description>
+    </item>
+    
+    <item>
+      <title>revert撤销操作！</title>
+      <link>https://www.51hint.com/posts/revert-gai-xie-ti-jiao/</link>
+      <pubDate>Tue, 28 Feb 2017 17:07:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/revert-gai-xie-ti-jiao/</guid>
+      <description>我们将用revert命令来取消「添加pull的讲解」提交。 本地端的历史记录的状态如下图显示。 数据库的历史记录 $ git log commit 0d4a808c26908cd5fe4b6294a00150342d1a58be Author: yourname &amp;lt;yourname@yourmail.com&amp;gt; Date: Mon Jul 16 23:19:26 2012 +0900 添</description>
+    </item>
+    
+    <item>
+      <title>commit --amend 改写提交！</title>
+      <link>https://www.51hint.com/posts/commit-amend-gai-xie-ti-jiao/</link>
+      <pubDate>Tue, 28 Feb 2017 16:49:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/commit-amend-gai-xie-ti-jiao/</guid>
+      <description>我们将修改最近一次的提交。 首先本地端的历史记录状态如下图显示。 用log命令确认历史记录。 $ git log commit 326fc9f70d022afdd31b0072dbbae003783d77ed Author: yourname &amp;lt;yourname@yourmail.com&amp;gt; Date: Mon Jul 16 23:17:56 2012 +0900 添加add的说明 commit 48eec1ddf73a7fb508ef664efd6b3d873631742f Author:</description>
+    </item>
+    
+    <item>
+      <title>gitflow</title>
+      <link>https://www.51hint.com/posts/gitflow/</link>
+      <pubDate>Sun, 19 Feb 2017 19:55:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/gitflow/</guid>
+      <description>Gitflow工作流 Gitflow工作流通过为功能开发、发布准备和维护分配独立的分支，让发布迭代过程更流畅。严格的分支模型也为大型项目提供了</description>
+    </item>
+    
+    <item>
+      <title>git 导出干净包</title>
+      <link>https://www.51hint.com/posts/2015-12-01-git-%E5%AF%BC%E5%87%BA%E5%B9%B2%E5%87%80%E5%8C%85/</link>
+      <pubDate>Tue, 01 Dec 2015 01:11:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-12-01-git-%E5%AF%BC%E5%87%BA%E5%B9%B2%E5%87%80%E5%8C%85/</guid>
+      <description>git archive master | tar -x -C /somewhere/else Most of the time that I need to ‘export’ something from git, I want a compressed archive in any case so I do something like this. git archive master | bzip2 &amp;gt;source-tree.tar.bz2 ZIP archive: git archive –format zip –output /full/path/to/zipfile.zip master</description>
+    </item>
+    
+    <item>
+      <title>ios开发环境</title>
+      <link>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Thu, 20 Aug 2015 00:14:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git tag 导出版本</title>
+      <link>https://www.51hint.com/posts/2013-10-01-git-tag-%E5%AF%BC%E5%87%BA%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Tue, 01 Oct 2013 08:12:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-01-git-tag-%E5%AF%BC%E5%87%BA%E7%89%88%E6%9C%AC/</guid>
+      <description>如果你的 tag 名是 1.0，可以按照如下方式导出。 导出并压缩为 zip 格式: 导出并压缩为 tar.bz2 格式: 导出并压缩为 tar.gz 格式: 这是把标签为v0.1的项目文档重定向</description>
+    </item>
+    
+    <item>
+      <title>git-config 配置文件</title>
+      <link>https://www.51hint.com/posts/2012-12-21-git-config-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Fri, 21 Dec 2012 08:11:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-21-git-config-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <description>~/.gitconfig 是最常用的； 对应配置命令要加上–global git配置文件 ~/.gitconfig [user] name = fly email = flyhawk007hm@hotmail.com [core] editor = vim [alias] ci = commit -a -v co = checkout st = status br = branch throw = reset –hard HEAD throwh = reset –</description>
+    </item>
+    
+    <item>
+      <title>git_vim_5 [tig]</title>
+      <link>https://www.51hint.com/posts/2012-12-20-vim_5-tig/</link>
+      <pubDate>Thu, 20 Dec 2012 09:59:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-vim_5-tig/</guid>
+      <description>tig text-mode interface for git ubuntu install tig #apt-get install tig mac install tig #brew install tig #brew install git-flow #brew install git-extras #brew install wget #brew install curl #brew install autojump {jumpstat j au} #brew install tree diff gui界面 #gitk 查看谁修改的文件 #git blame filename #tig blame filename 特定文件修改历史 #tig filename 查</description>
+    </item>
+    
+    <item>
+      <title>git_4 [fork他人代码然后push的方法]</title>
+      <link>https://www.51hint.com/posts/2012-12-15-git_4-fork%E4%BB%96%E4%BA%BA%E4%BB%A3%E7%A0%81%E7%84%B6%E5%90%8Epush%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 15 Dec 2012 07:32:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-15-git_4-fork%E4%BB%96%E4%BA%BA%E4%BB%A3%E7%A0%81%E7%84%B6%E5%90%8Epush%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>https://help.github.com/articles/fork-a-repo https://help.github.com/articles/using-pull-requests begin fork # git clone https://xxx/xxx.git # git br # git remote add upstream https://github.com/xxx/xx.git # git remote -v # git pull upstream master # git checkout -b add_sth # git br # vim xxx # git ci # git checkout master # git pull upstream master # git checkout add_sth # git rebase master # git br # tig # git push origin add_sth # web page</description>
+    </item>
+    
+    <item>
+      <title>git_3 [octopress; 博客系统]</title>
+      <link>https://www.51hint.com/posts/2012-12-15-git_3-octopress-%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Sat, 15 Dec 2012 07:09:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-15-git_3-octopress-%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</guid>
+      <description>查看系统版本 #lsb_release -a 安装git #sudo apt-get update; sudo apt-get install git #git clone https://github.com/imathis/octopress.git instlal RVM with ruby #curl -L https://get.rvm.io | bash -s stable –ruby #source xxxxx # cd octopress/ install gem # cat Gemfile # gem install bundler # bundle install begin # vim Rakefile # rake install # rake preview # ls public deploy</description>
+    </item>
+    
+    <item>
+      <title>理想的写作环境：git&#43;github&#43;markdown&#43;jekyll</title>
+      <link>https://www.51hint.com/posts/2012-12-11-%E7%90%86%E6%83%B3%E7%9A%84%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83gitgithubmarkdownjekyll/</link>
+      <pubDate>Tue, 11 Dec 2012 02:38:03 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-11-%E7%90%86%E6%83%B3%E7%9A%84%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83gitgithubmarkdownjekyll/</guid>
+      <description>理想的写作环境：git+github+markdown+jekyll http://www.yangzhiping.com/tech/writing-space.html Ruby开源项目介绍(1)：octopress——像黑客一样写博客 http://www.yangzhiping.com/tech/octopress.html</description>
+    </item>
+    
+    <item>
+      <title>git_2 [reject]; 提交被拒绝</title>
+      <link>https://www.51hint.com/posts/2012-12-05-git_2-reject-%E6%8F%90%E4%BA%A4%E8%A2%AB%E6%8B%92%E7%BB%9D/</link>
+      <pubDate>Wed, 05 Dec 2012 04:26:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-05-git_2-reject-%E6%8F%90%E4%BA%A4%E8%A2%AB%E6%8B%92%E7%BB%9D/</guid>
+      <description>push 被reject 不能简单的git pull，然后git push；否则会造成版本混乱 git fetch origin git rebase origin/master 若还有conflict，则修改冲突文件，然后 git add</description>
+    </item>
+    
+    <item>
+      <title>git_1   github生成个人页面</title>
+      <link>https://www.51hint.com/posts/2012-12-04-git_1-github%E7%94%9F%E6%88%90%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2/</link>
+      <pubDate>Tue, 04 Dec 2012 09:29:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-04-git_1-github%E7%94%9F%E6%88%90%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2/</guid>
+      <description>在github 创建个人网页 mkdir flyhawk007.github.com cd flyhawk007.github.com git init touch README git add README git remote add origin git@github.com:flyhawk007/flyhawk007.github.com.git echo “hello ,index.html” &amp;gt;index.html git add . git ci git push -u origin master 生成静态网站 jekyll https://github.com/mojombo/jekyll/wiki 高亮显</description>
+    </item>
+    
+    <item>
+      <title>git_0  init</title>
+      <link>https://www.51hint.com/posts/2012-12-04-git_0-init/</link>
+      <pubDate>Tue, 04 Dec 2012 08:37:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-04-git_0-init/</guid>
+      <description>sudo apt-get install git sudo apt-get install tig //git diff 类似 git init git config –global user.name “xxxx” git config –global user.email “xxx@xxx.com” git config –global core.editor vim git config –glo</description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://www.51hint.com/posts/2012-11-16-git/</link>
+      <pubDate>Fri, 16 Nov 2012 01:15:27 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-16-git/</guid>
+      <description>Git 是分散式的版本控制系統, 從架設、簡易操作、設定, 此篇主要是整理 基本操作、遠端操作 等. 註: Git 的範圍太廣了, 把這篇當作是初學入門就好了. 注意事</description>
+    </item>
+    
+    <item>
+      <title>git windows 客户端解决方法</title>
+      <link>https://www.51hint.com/posts/2012-08-13-git-windows-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 13 Aug 2012 12:10:57 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-13-git-windows-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>在Windows中添加一个HOME环境变量，值为%USERPROFILE%，如下图： 在“开始》运行”中打开%Home%，新建一个名为“_ne</description>
+    </item>
+    
+    <item>
+      <title>版本管理 git</title>
+      <link>https://www.51hint.com/posts/2012-08-13-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86-git/</link>
+      <pubDate>Mon, 13 Aug 2012 08:55:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-13-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86-git/</guid>
+      <description>更新代码方式的另一种方法(git pull是git fetch和git merge命令的一个组合) 从git中删除文件 提交修改 如果想省掉提交之前的 git</description>
+    </item>
+    
+    <item>
+      <title>现有 Xcode Projects加入 git版本库管理</title>
+      <link>https://www.51hint.com/posts/2011-08-02-%E7%8E%B0%E6%9C%89-xcode-projects%E5%8A%A0%E5%85%A5-git%E7%89%88%E6%9C%AC%E5%BA%93%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Tue, 02 Aug 2011 08:45:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-02-%E7%8E%B0%E6%9C%89-xcode-projects%E5%8A%A0%E5%85%A5-git%E7%89%88%E6%9C%AC%E5%BA%93%E7%AE%A1%E7%90%86/</guid>
+      <description>一、关闭xcode项目二、打开terminal三、进入到项目目录四、$git init$ git commit -a -m “init commit”$ git add .$ git commit -a -m “initia</description>
+    </item>
+    
+  </channel>
+</rss>

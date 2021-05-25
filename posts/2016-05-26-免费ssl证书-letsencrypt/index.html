@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 免费ssl证书 letsencrypt - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="免费ssl证书 letsencrypt" />
+  <meta name="twitter:title" content="免费ssl证书 letsencrypt" />
+  <meta name="description" content="git clone https://github.com/letsencrypt/letsencrypt cd letsencrypt ./letsencrypt-auto –agree-tos –email flyhawk007online@gmail.com certonly –webroot -w /home/www/wwwroot/51hint -d 51hint.com /etc/letsencrypt/live/51hint.com &lt;VirtualHost *:443&gt; SSLEngine on SSLCertificateFile /etc/letsencrypt/live/51hint.com/cert.pem SSLCertificateKeyFile /etc/letsencrypt/live/51hint.com/privkey.pem SSLCertificateChainFile /etc/letsencrypt/live/51hint.com/chain.pem &lt;Directory home/www/wwwroot/51hint/&gt; AllowOverride All Order allow,deny Allow from all DocumentRoot home/www/wwwroot/51hint/ ServerName 51hint.com ErrorLog logs/51hint-error_log CustomLog logs/51hint-access_log common sudo crontab -e 0 3">
+  <meta property="og:description" content="git clone https://github.com/letsencrypt/letsencrypt cd letsencrypt ./letsencrypt-auto –agree-tos –email flyhawk007online@gmail.com certonly –webroot -w /home/www/wwwroot/51hint -d 51hint.com /etc/letsencrypt/live/51hint.com &lt;VirtualHost *:443&gt; SSLEngine on SSLCertificateFile /etc/letsencrypt/live/51hint.com/cert.pem SSLCertificateKeyFile /etc/letsencrypt/live/51hint.com/privkey.pem SSLCertificateChainFile /etc/letsencrypt/live/51hint.com/chain.pem &lt;Directory home/www/wwwroot/51hint/&gt; AllowOverride All Order allow,deny Allow from all DocumentRoot home/www/wwwroot/51hint/ ServerName 51hint.com ErrorLog logs/51hint-error_log CustomLog logs/51hint-access_log common sudo crontab -e 0 3">
+  <meta name="twitter:description" content="git clone https://github.com/letsencrypt/letsencrypt cd letsencrypt ./letsencrypt-auto –agree-tos –email flyhawk007online@gmail.com certonly –webroot -w /home/www/wwwroot/51hint -d 51hint.com …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2016-05-26-%E5%85%8D%E8%B4%B9ssl%E8%AF%81%E4%B9%A6-letsencrypt/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2016-05-26-%E5%85%8D%E8%B4%B9ssl%E8%AF%81%E4%B9%A6-letsencrypt/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">免费ssl证书 letsencrypt</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu May 26, 2016</h4>
+    </section>
+    <h5 id="wc">100 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/letsencrypt/">letsencrypt</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/ssl/">ssl</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <ol start="0">
+<li></li>
+</ol>
+<p>git clone <a href="https://github.com/letsencrypt/letsencrypt">https://github.com/letsencrypt/letsencrypt</a></p>
+<p>cd letsencrypt</p>
+<ol>
+<li></li>
+</ol>
+<p>./letsencrypt-auto –agree-tos –email <a href="mailto:flyhawk007online@gmail.com">flyhawk007online@gmail.com</a> certonly –webroot -w /home/www/wwwroot/51hint -d 51hint.com</p>
+<ol start="2">
+<li></li>
+</ol>
+<p>/etc/letsencrypt/live/51hint.com</p>
+<ol start="3">
+<li></li>
+</ol>
+<p>&lt;VirtualHost *:443&gt;</p>
+<p>SSLEngine on</p>
+<p>SSLCertificateFile /etc/letsencrypt/live/51hint.com/cert.pem</p>
+<p>SSLCertificateKeyFile /etc/letsencrypt/live/51hint.com/privkey.pem</p>
+<p>SSLCertificateChainFile /etc/letsencrypt/live/51hint.com/chain.pem</p>
+<p>&lt;Directory home/www/wwwroot/51hint/&gt;</p>
+<p>AllowOverride All</p>
+<p>Order allow,deny</p>
+<p>Allow from all</p>
+<!-- raw HTML omitted -->
+<p>DocumentRoot home/www/wwwroot/51hint/</p>
+<p>ServerName 51hint.com</p>
+<p>ErrorLog logs/51hint-error_log</p>
+<p>CustomLog logs/51hint-access_log common</p>
+<!-- raw HTML omitted -->
+<ol start="4">
+<li></li>
+</ol>
+<p>sudo crontab -e</p>
+<p>0 3 1 * * /usr/local/src/letsencrypt/letsencrypt-auto renew</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2016-05-25-charles%E7%A0%B4%E8%A7%A3-sn-%E6%B3%A8%E5%86%8C%E7%A0%81/" data-toggle="tooltip" data-placement="top" title="charles破解 sn 注册码">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2016-06-08-swift%E5%BC%82%E5%B8%B8/" data-toggle="tooltip" data-placement="top" title="swift异常">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2016-05-24-mamp-ssl/">mamp ssl</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu May 26, 2016</h4>
+    </section>
+    <h5 id="wc">100 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/letsencrypt/">letsencrypt</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/ssl/">ssl</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

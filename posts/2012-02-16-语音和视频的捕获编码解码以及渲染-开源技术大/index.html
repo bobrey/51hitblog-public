@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 语音和视频的捕获、编码解码以及渲染–开源技术大全 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="语音和视频的捕获、编码解码以及渲染–开源技术大全" />
+  <meta name="twitter:title" content="语音和视频的捕获、编码解码以及渲染–开源技术大全" />
+  <meta name="description" content="1. **MediaStreamer2: http://www.linphone.org/ ** **http://hi.baidu.com/zui_chu_de_meng_xiang/blog/item/71d2d952ebaad6561038c286.html ** Mediastreamer2 是一个支持多种平台的轻量级的流技术引擎，主要适合于开发语音和视频电话应用程序。该引擎主要为 linphone 的多媒体流的收发，包括语音和视频的">
+  <meta property="og:description" content="1. **MediaStreamer2: http://www.linphone.org/ ** **http://hi.baidu.com/zui_chu_de_meng_xiang/blog/item/71d2d952ebaad6561038c286.html ** Mediastreamer2 是一个支持多种平台的轻量级的流技术引擎，主要适合于开发语音和视频电话应用程序。该引擎主要为 linphone 的多媒体流的收发，包括语音和视频的">
+  <meta name="twitter:description" content="1. **MediaStreamer2: http://www.linphone.org/ ** **http://hi.baidu.com/zui_chu_de_meng_xiang/blog/item/71d2d952ebaad6561038c286.html ** Mediastreamer2 是一个支持多种平台的轻量级的流技术引擎，主要适合于开发语音和视频电话应用程序。 …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-02-16-%E8%AF%AD%E9%9F%B3%E5%92%8C%E8%A7%86%E9%A2%91%E7%9A%84%E6%8D%95%E8%8E%B7%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81%E4%BB%A5%E5%8F%8A%E6%B8%B2%E6%9F%93-%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%A4%A7/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-02-16-%E8%AF%AD%E9%9F%B3%E5%92%8C%E8%A7%86%E9%A2%91%E7%9A%84%E6%8D%95%E8%8E%B7%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81%E4%BB%A5%E5%8F%8A%E6%B8%B2%E6%9F%93-%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%A4%A7/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">语音和视频的捕获、编码解码以及渲染–开源技术大全</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Feb 16, 2012</h4>
+    </section>
+    <h5 id="wc">4300 Words|Read in about 9 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#主要功能">主要功能：</a>
+      <ul>
+        <li><a href="#encoder-features">Encoder features</a></li>
+        <li><a href="#编译webrtc--httpwhite313blog163comblogstatic2102620116314827580">编译WebRTC  :   <a href="http://white313.blog.163.com/blog/static/2102620116314827580/">http://white313.blog.163.com/blog/static/2102620116314827580/</a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>1. **<a href="http://www.oschina.net/p/mediastreamer2">MediaStreamer2</a>:   <a href="http://www.linphone.org/">http://www.linphone.org/</a> **</p>
+<p>**<a href="http://hi.baidu.com/zui_chu_de_meng_xiang/blog/item/71d2d952ebaad6561038c286.html">http://hi.baidu.com/zui_chu_de_meng_xiang/blog/item/71d2d952ebaad6561038c286.html</a></p>
+<p>**</p>
+<p> </p>
+<p>Mediastreamer2 是一个支持多种平台的轻量级的流技术引擎，主要适合于开发语音和视频电话应用程序。该引擎主要为 linphone 的多媒体流的收发，包括语音和视频的捕获、编码解码以及渲染。</p>
+<h2 id="主要功能">主要功能：</h2>
+<ul>
+<li>Read/Write from to an alsa device, an oss device, a windows waveapi device</li>
+<li>Send and receive RTP/SRTP packets</li>
+<li>DTMF (telephone tones) support using SIP INFO or RFC2833</li>
+<li>Encode and decode the following formats: speex, G711, G772, GSM, H263, theora, iLBC, MPEG4, and H264, VP8 (<a href="http://www.webmproject.org/">WebM</a>).</li>
+<li>Read and write from/to a wav file</li>
+<li>Read YUV pictures from a webcam (provided that it has video4linux v1 or v2 driver)</li>
+<li>Display YUV pictures (using SDL library or native apis on windows)</li>
+<li>Dual tones generation</li>
+<li>Echo cancelation, using the extraordinary echo canceler algorithm from the speex library</li>
+<li>Audio conferencing</li>
+<li>Audio parametric equalizer using a FIR filter</li>
+<li>Volume control, automatic gain control</li>
+<li>Nat friendly: guesses NAT address for SIP messages, uses STUN for RTP streams</li>
+<li>Sound backends:</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>Linux: ALSA, OSS, PulseAudio</li>
+<li>Windows: waveapi</li>
+<li>MacOSX: HAL Audio Unit</li>
+<li>iPhone: VoiceProcessing AudioUnit with built-in echo cancellation</li>
+<li>Android sound system</li>
+<li>JSR135 on BlackBerry</li>
+</ul>
+</li>
+<li>Efficient bandwidth management: the bandwidth limitations are signaled using SDP (b=AS…), resulting in audio and video session established with bitrates that fits the user’s network capabilities.</li>
+</ul>
+</li>
+</ul>
+<p>Mediastreamer2  可通过插件进行扩展，当前提供了 H264 和 ILBC 编码器插件。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><strong>Some definitions.</strong></p>
+<p>Filter: A filter is a Mediastreamer2 component that process data. A filter has 0 or several INPUT pins and 0 or several OUTPUT pins. Here is a list of possible use of filters:</p>
+<p>capture audio or video data.</p>
+<p>play audio or display video data.</p>
+<p>send or receive RTP data.</p>
+<p>encode or decode audio or video data.</p>
+<p>mix audio/video data.</p>
+<p>Graph: A graph is a manager of filters connected together. It will transfer data from OUTPUT pins to INPUT pins and will be responsible for running filters.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><strong>How do I use Mediastremer2?</strong></p>
+<p>Mediastreamer2 can be used for a lot of different purpose. The primary use is to manage RTP audio and video session. You will need to use the API to build filters, link them together in a graph. Then the ticker API will help you to start and stop the graph.</p>
+<p>Basic graph sample:</p>
+<p>AUDIO CAPTURE   –&gt;   ENCODE –&gt;     RTP</p>
+<p>FILTER      –&gt;   FILTER –&gt;    FILTER</p>
+<p>The above graph is composed of three filters. The first one has no input: tt captures audio data directly from the drivers and provide it to the OUTPUT pin. This data is sent to the INPUT pin of the encoder which of course encode the data and send it to its OUTPUT pin. This pin is connected to the INPUT pin of a filter capable to build and send RTP packets.</p>
+<p>The modular design helps you to encode in many different format just by replacing the “ENCODE FILTER” with another one. mediastreamer2 contains internal support for g711u, g711a, speex and gsm. You can add new encoding format by implementing new filters which can then be dynamically loaded.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><strong>List of existing filters.</strong></p>
+<p>Mediastreamer2 already provides a large set of filters. Here is a complete list of built-in filters.</p>
+<p>All supported platforms:</p>
+<p>RTP receiver</p>
+<p>RTP sender</p>
+<p>Audio Filters:</p>
+<p>audio capture</p>
+<p>audio playback</p>
+<p>several audio encoder/decoder: PCMU, PCMA, speex, gsm</p>
+<p>wav file reader.</p>
+<p>wav file recorder.</p>
+<p>resampler.</p>
+<p>conference bridge.</p>
+<p>volume analyser.</p>
+<p>acoustic echo canceller.</p>
+<p>dtmf generation filter.</p>
+<p>Video Filters:</p>
+<p>video capture</p>
+<p>video display</p>
+<p>several audio encoder/decoder: H263-1998, MP4V-ES, theora</p>
+<p>image resizer.</p>
+<p>format converter. (RBG24, I420…)</p>
+<p>Plugin Filters:</p>
+<p>iLBC decoder/encoder.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Mediastreamer2 is a powerful and light weighted streaming engine specialized for voice/video telephony applications.</p>
+<p>It is the library that is responsible for all the receiving and sending of multimedia streams in linphone, including voice/video capture, encoding and decoding, and rendering.</p>
+<p><strong>Features</strong></p>
+<p>★   Read/Write from to an alsa device, an oss device, a windows waveapi device</p>
+<p>★   Send and receive RTP packets</p>
+<p>★   Encode and decode the following formats: <strong>speex, G711, GSM, H263, theora, iLBC, MPEG4, and H264.</strong></p>
+<p>★   Read and write from/to a wav file</p>
+<p>★   Dual tones generation</p>
+<p>★   Echo cancelation, using the extraordinary echo canceller algorithm from the speex library</p>
+<p>★   Audio conferencing</p>
+<p>★   Audio parametric equalizer using a FIR filter</p>
+<p>★   Volume control, automatic gain control</p>
+<p>★   Works on linux, windows XP</p>
+<p>Mediastreamer2 can be extended with dynamic plugins, currently a H264 and an ILBC codec plugins are available.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><strong>Design and principles</strong></p>
+<p>Each processing entity is contained within a MSFilter object. MSFilter(s) have inputs and/or outputs that can be used to connect from and to other MSFilters.</p>
+<p>A trivial example to understand:</p>
+<p>☆   MSRtpRecv is a MSFilter that receives RTP packets from the network, unpacketize them and post them on its only output.</p>
+<p>☆   MSSpeexDec is a MSFilter that takes everything on its input assuming these are speex encoded packets, and decodes them and put the result on its output.</p>
+<p>☆   MSFileRec is a MSFilter that takes everything on its input and write it to wav file (assuming the input is 16bit linear pcm).</p>
+<p>MSFilters can be connected together to become filter chain. If we assemble the three above examples, we obtain a processing chain that receives RTP packet, decode them and write the uncompressed result into a wav file.</p>
+<p>The execution of the media processing work is scheduled by a MSTicker object, a thread that wakes up every 10 ms to process data in all the MSFilter chains it manages. Several MSTicker can be used simultaneously, for example one for audio filters, one for video filters, or one on each processor of the machine where it runs.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><strong>Mediastreamer2 is easy to use</strong></p>
+<p>If your intent is simply to create audio and video streams, a simple API is defined in audiostream.h and videostream.h to create audio and video stream.</p>
+<p>It can be as simple as:</p>
+<p>AudioStream *as=audio_stream_start(…/*list of parameters*/);sleep(10);</p>
+<p>audio_stream_stop(as);</p>
+<p>If your intent is to add new functionalities to mediastreamer2, you’ll be glad to know that implementing a mediastreamer2 filter is very straightforward: no complex declarations, inheritance or such like this.</p>
+<p>As an example, have a look at <!-- raw HTML omitted -->this<!-- raw HTML omitted -->: it is the ‘MSVolume’ MSFilter, whose goal is to measure and control loudness of an audio stream.</p>
+<p><strong>Thanks to this lightweighted framework, developers can concentrate on what matters: the implementation of the algorithm !</strong></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><strong>Mediastreamer2 is also suitable for embedded systems</strong></p>
+<p>★   Mediastreamer2 is light. For example on linux/x86 the full-featured shared library takes around 800ko unstripped and compiled with -g (debug). Data messages that carries the media data within mediastreamer2 chains are optimized using the famous sys-V mblk_t structure. This is to avoid copies as long it is possible and allow low cost fragmentation/re-assemble operations that are very common especially when processing video streams.</p>
+<p>★   Mediastreamer2 is written in C.</p>
+<p>★   Mediastreamer2 compiles on arm with gcc.</p>
+<p>★   Mediastreamer2 has only oRTP and libc as minimal dependencies. Others (ffmpeg, speex, alsa…) can be added optionnaly if you need all features.</p>
+<p><strong>Thanks to its plugin architecture, mediastreamer2 can be extended to interface with hardware codecs, for example video codecs dsp.</strong></p>
+<p> </p>
+<p>**</p>
+<p>**</p>
+<p>**</p>
+<p>**</p>
+<p><strong>2.  <strong><a href="http://www.oschina.net/p/mcs-myvoip">VoIP性能和质量测试 MCS MyVoIP</a></strong></strong></p>
+<p>**MCSMyVoIP非常精确地模拟服务器和浏览器客户端之间的的UDP数据传输的语音质量和语音互联网连接（VoIP）的性能IP电话。连接…进行测试，抖动，丢包和支持的声音质量水平评价。在VoIP测试可以设置为不同的编解码器或数据包大小，包率定制和测试长度。测试可以进一步结合起来，带宽速度测试，网络路由诊断为更深入的关联分析。</p>
+<p>**</p>
+<p>**</p>
+<p>**</p>
+<p><strong>3. <strong><a href="http://www.oschina.net/p/sipdroid">Android手机的VoIP客户端 Sipdroid</a></strong></strong></p>
+<p>**Sipdroid是一个运行于Android手机平台上的SIP/VoIP客户端。</p>
+<p>**</p>
+<p>**</p>
+<p>**</p>
+<p>4. <strong><a href="http://www.oschina.net/p/vmukti">网络视频会议软件 VMukti</a></strong></p>
+<p>**Vmukti是一个网络视频会议软件.它是第一个开源的PBX和会议软件,它支持在家里或办公室进行声/视频交流，桌面共享等。它使用了VoIP技术。</p>
+<p>**</p>
+<p>**</p>
+<p>**</p>
+<p>5. <strong><a href="http://www.oschina.net/p/siphon">iPhone上的VoIP程序 Siphon</a>: <a href="http://code.google.com/p/siphon/">http://code.google.com/p/siphon/</a></strong></p>
+<p>Siphon 是一款 iPhone 上的 SIP/VoIP应用，支持包括中文在内的多国语言。</p>
+<p>**</p>
+<p>**</p>
+<p><strong>6. <strong><a href="http://www.oschina.net/p/video4linux2">Video4Linux2</a></strong></strong></p>
+<p>****Video4Linux2是Linux系统下进行音影图像开发的应用编程接口.本文采用了Video4Linux2提供的数据结构、应用函数等,实现了在Linux环境下USB摄像头图像教据的采集功能,并运用GTK库显示和播放了其视频图像</p>
+<hr>
+<hr>
+<hr>
+<p><strong>7. <strong><a href="http://www.oschina.net/p/intel-media-sdk">Intel Media SDK</a>(IPP)</strong></strong></p>
+<p>****API 提供的功能可以简化视频编码、解码和预处理操作，并支持 H.264 和 MPEG-2 格式编码和 H.264、MPEG-2 和 VC-1 解码。</p>
+<hr>
+<hr>
+<hr>
+<p>8.<strong><a href="http://www.oschina.net/p/frei0r">视频特效处理库 frei0r</a></strong></p>
+<p>frei0r 是一个 C库，主要用来提供一些常用的视频效果处理，通过一些简单参数来控制过滤器和混合器以实现不同的视频效果。</p>
+<p> </p>
+<p>9. <strong><a href="http://www.oschina.net/p/ccaudio2">C++的音频处理框架 GNU ccAudio2</a></strong></p>
+<p>ccaudio 2 是一个简单的、高可移植性、独立的用来处理音频数据的 C++ 框架。</p>
+<p> </p>
+<p>10. <strong><a href="http://www.oschina.net/p/videomanlib">视频捕获 API VideoMan</a></strong></p>
+<p>VideoMan 提供一组视频捕获 API 。支持多种视频流同时输入（视频传输线、USB摄像头和视频文件等）。能利用 OpenGL 对输入进行处理，方便的与 OpenCV，CUDA 等集成开发计算机视觉系统。</p>
+<p> </p>
+<p>11. <strong><a href="http://www.oschina.net/p/jrtplib">流媒体实时传输开发包 jrtplib</a></strong></p>
+<p> </p>
+<p>RTP 是目前解决流媒体实时传输问题的最好办法，如果需要在Linux平台上进行实时流媒体编程，可以考虑使用一些开放源代码的RTP库，如LIBRTP、 JRTPLIB等。 JRTPLIB是一个面向对象的RTP库，它完全遵循RFC 1889设计，在很多场合下是一个非常不错的选择，下面就以JRTPLIB为例，讲述如何在Linux平台上运用RTP协议进行实时流媒体编程。</p>
+<p>JRTPLIB 是一个用C++语言实现的RTP库，目前已经可以运行在Windows、Linux、FreeBSD、Solaris、Unix和 VxWorks等多种操作系统上。</p>
+<p> </p>
+<p>12.<strong><a href="http://www.oschina.net/p/speex">声音压缩库 Speex</a></strong></p>
+<p> </p>
+<p>13. <strong><a href="http://www.oschina.net/p/sip-inspector">SIP模拟工具 SIP Inspector</a></strong></p>
+<p>SIP Inspector 是一个用来模拟不同的SIP消息和通讯情景的工具，可用来创建 SIP 信令、定制 SIP 消息以及兼容输入和输出的消息包，该工具还可以直接从 pcap 文件中播放 RTP 流</p>
+<p> </p>
+<p>14.<strong><a href="http://www.oschina.net/p/vp8">视频编码器 VP8</a></strong></p>
+<p>VP8：高质量的视频编码，以BSD式的免费授权形式提供给所有人使用</p>
+<p> </p>
+<p>15.<strong><a href="http://www.oschina.net/p/x264+decoder">x264 视频解码器</a></strong></p>
+<p> </p>
+<p>x264是一个基于h.264/AVC的免费开源的视频解码器，该版本为win32平台下的VFW codec版。</p>
+<h3 id="encoder-features">Encoder features</h3>
+<ul>
+<li>8×8 and 4×4 adaptive spatial transform</li>
+<li>Adaptive B-frame placement</li>
+<li>B-frames as references / arbitrary frame order</li>
+<li>CAVLC/CABAC entropy coding</li>
+<li>Custom quantization matrices</li>
+<li>Intra: all macroblock types (16×16, 8×8, 4×4, and PCM with all predictions)</li>
+<li>Inter P: all partitions (from 16×16 down to 4×4)</li>
+<li>Inter B: partitions from 16×16 down to 8×8 (including skip/direct)</li>
+<li>Interlacing (MBAFF)</li>
+<li>Multiple reference frames</li>
+<li>Ratecontrol: constant quantizer, constant quality, single or multipass ABR, optional VBV</li>
+<li>Scenecut detection</li>
+<li>Spatial and temporal direct mode in B-frames, adaptive mode selection</li>
+<li>Parallel encoding on multiple CPUs</li>
+<li>Predictive lossless mode</li>
+<li>Psy optimizations for detail retention (adaptive quantization, psy-RD, psy-trellis)</li>
+<li>Zones for arbitrarily adjusting bitrate distribution</li>
+</ul>
+<p> </p>
+<p><strong>16.</strong><a href="http://www.oschina.net/p/ffdshow">DirectShow解码、编码器 FFDShow</a>****</p>
+<p>**FFDShow是一款全能的DirectShow解码、编码器,可以解压缩常见的视频格式和几乎所有的音频格式, 它还提供了丰富的加工处理选项,可以锐化画面,调节画面的亮度,它还支持诸多字幕格式.它能让音频和视频播放更流畅.</p>
+<p>**</p>
+<p>**</p>
+<p>**</p>
+<p>17. <strong><a href="http://www.oschina.net/p/webm">高质量网络视频压缩格式 WebM</a></strong></p>
+<p> </p>
+<p>WebM 项目旨在为对每个人都开放的网络开发高质量、开放的视频格式。</p>
+<p>相对于苹果支持的H.264标准，Google提出的WebM标准实际上就是VP8视频编码加上Vorbis（一种开源且无专利限制的音 频压缩格式）。</p>
+<p>WebM标准的网络视频更加偏向于开源并且是基于HTML5标准的。最为可怕的是WebM标准受到了包括 Opera,Mozilla,adobe等软件巨头和AMD,ARM,NVIDIA，qualcomm在内硬件巨头的支持，在未来潜力巨大。而且全球第一 大视频网站YouTube从今天开始支持全新的WebM标准。</p>
+<p> </p>
+<p>18.<strong><a href="http://www.oschina.net/p/android-opencore">Android多媒体框架 OpenCore</a></strong></p>
+<p> </p>
+<p>Opencore是google联合packetvideo推出的多媒体开源框架，其中的h.264解码器在目前所有的开源h.264解码器中最好的，在win32和armv4上测试通过，性能好很多，大概提升20%!</p>
+<p>OpenCore的另外一个常用的称呼是PacketVideo，它是Android的多媒体核心。在防站的过程中，PacketVideo是一家公司的 名称，而OpenCore是这套多媒体框架的软件层的名称。在Android的开发者中间，二者的含义基本相同。对比Android的其它程序 库，OpenCore的代码非常庞大，它是一个基于C++的实现，定义了全功能的操作系统移植层，各种基本的功能均被封装成类的形式，各层次之间的接口多 使用继承等方式。</p>
+<p>OpenCore是一个多媒体的框架，从宏观上来看，它主要包含了两大方面的内容：</p>
+<ul>
+<li>
+<p>PVPlayer：提供媒体播放器的功能，完成各种音频（Audio）、视频（Video）流的回放（Playback）功能</p>
+</li>
+<li>
+<p>PVAuthor：提供媒体流记录的功能，完成各种音频（Audio）、视频（Video）流的以及静态图像捕获功能</p>
+</li>
+</ul>
+<p> </p>
+<p>**19. **oRTP lib ****</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><strong>Features:</strong></p>
+<p>★   Written in C, works under Linux (and probably any Unix) and Windows.</p>
+<p>★   Implement the RFC3550 (RTP) with a easy to use API with high and low level access.</p>
+<p>★   Includes support for multiples profiles, AV profile (RFC3551) being the one by default.</p>
+<p>★   Includes a packet scheduler for to send and recv packet “on time”, according to their timestamp. Scheduling is optionnal, rtp sessions can remain not scheduled.</p>
+<p>★   Supports mutiplexing IO, so that hundreds of RTP sessions can be scheduled by a single thread.</p>
+<p>★   Features an adaptive jitter algorithm for a receiver to adapt to the clockrate of the sender.</p>
+<p>★   Supports part of RFC2833 for telephone events over RTP.</p>
+<p>★   The API is well documented using gtk-doc.</p>
+<p>★   Licensed under the Lesser Gnu Public License.</p>
+<p>★   RTCP messages sent periodically since 0.7.0 (compound packet including sender report or receiver report + SDES)</p>
+<p>★   Includes an API to parse incoming RTCP packets.</p>
+<p><strong>Todo features:</strong></p>
+<p>★   Multi stream sessions ?</p>
+<p> </p>
+<p><strong>20. <strong><a href="http://www.oschina.net/p/webrtc">WebRTC</a>  <a href="http://baike.baidu.com/view/5855785.htm">http://baike.baidu.com/view/5855785.htm</a></strong></strong></p>
+<p>WebRTC是一项在<!-- raw HTML omitted -->浏览器<!-- raw HTML omitted -->内部进行实时视频和音频通信的技术.WebRTC提供了视频会议的核心技术，包括音视频的采集、编解码、<!-- raw HTML omitted -->网络传输<!-- raw HTML omitted -->、<strong>视频显示(direct3d9和directdraw)/<strong>视频图像处理</strong></strong>****等功能，并且还支持跨平台：windows，linux，mac，android。可以用本地文件作为视频源,  <!-- raw HTML omitted --><!-- raw HTML omitted -->虚拟摄像头<!-- raw HTML omitted --><!-- raw HTML omitted -->支持<!-- raw HTML omitted --><!-- raw HTML omitted -->, WebRTC还可以录制音视频到本地文件，比较实用的功能。WebRTC的音频部分，包含设备、编解码(iLIBC/iSAC/G722/PCM16/RED/AVT、NetEQ)、加密、声音文件、声音处理、声音输出、音量控制、音视频同步、网络传输与流控(RTP/RTCP)等功能。</p>
+<p>WebRTC采用iLIBC/iSAC/G722/PCM16/RED/AVT编解码技术。</p>
+<!-- raw HTML omitted -->
+<p>WebRTC还提供NetEQ功能—抖动缓冲器及丢包补偿模块，能够提高音质，并把延迟减至最小。</p>
+<!-- raw HTML omitted -->
+<p>另外一个核心功能是基于语音会议的混音处理。</p>
+<p> </p>
+<p>声音处理针对音频数据进行处理，包括回声消除(AEC)、AECM、自动增益(AGC)、降噪处理等功能，用来提升声音质量。</p>
+<p> </p>
+<h3 id="编译webrtc--httpwhite313blog163comblogstatic2102620116314827580">编译WebRTC  :   <a href="http://white313.blog.163.com/blog/static/2102620116314827580/">http://white313.blog.163.com/blog/static/2102620116314827580/</a></h3>
+<p> </p>
+<p> </p>
+<p> </p>
+<ol start="21">
+<li></li>
+</ol>
+<h1 id="虚拟摄像头-httpbaikebaiducomview1366860htm">虚拟摄像头  <a href="http://baike.baidu.com/view/1366860.htm">http://baike.baidu.com/view/1366860.htm</a></h1>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-02-16-play-and-record-audio-concurrently/" data-toggle="tooltip" data-placement="top" title="Play and Record Audio concurrently">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-02-17-snprintf%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/" data-toggle="tooltip" data-placement="top" title="snprintf函数说明">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Feb 16, 2012</h4>
+    </section>
+    <h5 id="wc">4300 Words|Read in about 9 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>qq列表 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/qq%E5%88%97%E8%A1%A8/</link>
+    <description>Recent content in qq列表 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Jul 2014 01:32:47 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/qq%E5%88%97%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>邮件列表功能已暂停开放</title>
+      <link>https://www.51hint.com/posts/2014-07-27-%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8%E5%8A%9F%E8%83%BD%E5%B7%B2%E6%9A%82%E5%81%9C%E5%BC%80%E6%94%BE/</link>
+      <pubDate>Sun, 27 Jul 2014 01:32:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-27-%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8%E5%8A%9F%E8%83%BD%E5%B7%B2%E6%9A%82%E5%81%9C%E5%BC%80%E6%94%BE/</guid>
+      <description>&amp;lt;div&amp;gt; &amp;lt;p&amp;gt; 登录您的域名管理页面，增加一个CNAME别名。具体信息如下： &amp;lt;/p&amp;gt; &amp;lt;table class=&amp;quot; aligncenter&amp;quot; style=&amp;quot;height: 52px;&amp;quot; border=&amp;quot;0&amp;quot; width=&amp;quot;634&amp;quot; cellspacing=&amp;quot;2&amp;quot; cellpadding=&amp;quot;1&amp;quot;&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;th style=&amp;quot;text-align: left;&amp;quot; width=&amp;quot;200&amp;quot;&amp;gt; 别名 &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; 别名主机(CNAME) &amp;lt;/th&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; qqmail797491ab &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; mail.qq.com</description>
+    </item>
+    
+  </channel>
+</rss>

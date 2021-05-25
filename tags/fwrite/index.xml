@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fwrite on IT技术分享</title>
+    <link>https://www.51hint.com/tags/fwrite/</link>
+    <description>Recent content in fwrite on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Aug 2012 02:31:56 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/fwrite/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于操作文件</title>
+      <link>https://www.51hint.com/posts/2012-08-24-%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Fri, 24 Aug 2012 02:31:56 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-24-%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/</guid>
+      <description>c读写wav文件 *c++ 读写二进制文件，超级便利性 ——————————————————————————–写操作 注意事项 要写的文件需要用到输出模式标</description>
+    </item>
+    
+  </channel>
+</rss>

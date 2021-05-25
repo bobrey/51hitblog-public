@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AVCaptureSession on IT技术分享</title>
+    <link>https://www.51hint.com/tags/avcapturesession/</link>
+    <description>Recent content in AVCaptureSession on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Aug 2012 08:43:13 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/avcapturesession/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AVCaptureSession获取摄像流</title>
+      <link>https://www.51hint.com/posts/2012-08-23-avcapturesession%E8%8E%B7%E5%8F%96%E6%91%84%E5%83%8F%E6%B5%81/</link>
+      <pubDate>Thu, 23 Aug 2012 08:43:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-23-avcapturesession%E8%8E%B7%E5%8F%96%E6%91%84%E5%83%8F%E6%B5%81/</guid>
+      <description>第一步：初始化AVCaptureSession，添加输入，输出源 第二步：实现AVCaptureVideoDataOutputSampleBu</description>
+    </item>
+    
+  </channel>
+</rss>

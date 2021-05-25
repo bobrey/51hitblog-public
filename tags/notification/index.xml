@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>notification on IT技术分享</title>
+    <link>https://www.51hint.com/tags/notification/</link>
+    <description>Recent content in notification on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Jul 2012 07:05:01 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/notification/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android notification</title>
+      <link>https://www.51hint.com/posts/2012-07-09-android-notification/</link>
+      <pubDate>Mon, 09 Jul 2012 07:05:01 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-09-android-notification/</guid>
+      <description>1，使用setLatestEventInfo方法更新标准的扩展的状态通知显示中所显示的详细信息。 2，使用远程视图（Remote View）设置</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kvm on IT技术分享</title>
+    <link>https://www.51hint.com/tags/kvm/</link>
+    <description>Recent content in kvm on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Apr 2014 07:07:58 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/kvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kvm 安装windows系统</title>
+      <link>https://www.51hint.com/posts/2014-04-11-kvm-%E5%AE%89%E8%A3%85windows%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Fri, 11 Apr 2014 07:07:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-11-kvm-%E5%AE%89%E8%A3%85windows%E7%B3%BB%E7%BB%9F/</guid>
+      <description>在不支持WIN的KVM VPS上安装WIN 《LINUX vps 运行 Windows》 http://www.stuchina.net/archives/386 在KVM架构的VPS上安装任意windows系统 http://www.chinaz.com/server/2014/0122/336575.shtml http://www.zxsdw.com/index.php/archives/541/</description>
+    </item>
+    
+  </channel>
+</rss>

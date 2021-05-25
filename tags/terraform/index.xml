@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>terraform on IT技术分享</title>
+    <link>https://www.51hint.com/tags/terraform/</link>
+    <description>Recent content in terraform on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Aug 2019 16:11:32 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform</title>
+      <link>https://www.51hint.com/posts/terraform/</link>
+      <pubDate>Sat, 10 Aug 2019 16:11:32 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/terraform/</guid>
+      <description>Terraform 是一种安全有效地构建、更改和版本控制基础设施的工具(基础架构自动化的编排工具)。它的目标是 &amp;ldquo;Write, Plan, and create Infrastructure as Code&amp;rdquo;, 基础架构即代码。 Terraform 几乎可以支持所有</description>
+    </item>
+    
+  </channel>
+</rss>

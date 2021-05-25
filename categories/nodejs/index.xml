@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nodejs on IT技术分享</title>
+    <link>https://www.51hint.com/categories/nodejs/</link>
+    <description>Recent content in nodejs on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Apr 2017 16:58:48 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>eslint</title>
+      <link>https://www.51hint.com/posts/eslint/</link>
+      <pubDate>Mon, 10 Apr 2017 16:58:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/eslint/</guid>
+      <description>eslint 程式碼的風格和規範問題 eslint-plugin-react Setup npm install --save-dev eslint eslint-plugin-react eslint-plugin-react-native eslint-config-airbnb .eslintrc eslint —init edit 加入 extends airbnb 和 react plugin 就可以了 /* .eslintrc.js */ module.exports = { &amp;#34;extends&amp;#34;: &amp;#34;airbnb&amp;#34;, &amp;#34;plugins&amp;#34;: [ &amp;#34;react&amp;#34;, &amp;#34;eslint-plugin-react-native&amp;#34; ], &amp;#34;parser&amp;#34;: &amp;#34;babel-eslint&amp;#34;, &amp;#34;rules&amp;#34;: { &amp;#34;strict&amp;#34;: 0 }, };</description>
+    </item>
+    
+    <item>
+      <title>React-Native学习指南</title>
+      <link>https://www.51hint.com/posts/react-nativexue-xi-zhi-nan/</link>
+      <pubDate>Sun, 05 Mar 2017 18:26:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react-nativexue-xi-zhi-nan/</guid>
+      <description>React-Native学习指南 本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pul</description>
+    </item>
+    
+    <item>
+      <title>Visual Studio Tools  for Apache Cordova</title>
+      <link>https://www.51hint.com/posts/visual-studio-tools-for-apache-cordova/</link>
+      <pubDate>Thu, 02 Mar 2017 05:17:04 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/visual-studio-tools-for-apache-cordova/</guid>
+      <description>  Get started
+  Add JavaScript packages
+  Access device capabilities
+  App Security
+  Add mobile services
+  Add Analytics
+  Tailor to a platform
+  Build &amp;amp; Deploy
+  Optimize performance
+  Package &amp;amp; publish
+  Tutorials &amp;amp; samples
+  Tips &amp;amp; workarounds
+  </description>
+    </item>
+    
+    <item>
+      <title>Cordova插件_native</title>
+      <link>https://www.51hint.com/posts/cordovacha-jian-_native/</link>
+      <pubDate>Thu, 02 Mar 2017 04:20:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/cordovacha-jian-_native/</guid>
+      <description>创建插件 首先创建一个叫carrier的插件的文件夹，其中有js接口定义和plugin.xml。还创建了一个叫src的子文件夹并向其中创建了一</description>
+    </item>
+    
+    <item>
+      <title>cordova插件_js</title>
+      <link>https://www.51hint.com/posts/cordovacha-jian-_js/</link>
+      <pubDate>Thu, 02 Mar 2017 03:57:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/cordovacha-jian-_js/</guid>
+      <description>给下面这个例子中的插件起名叫&amp;quot;Meaning of Life&amp;quot;。创建插件前首先创建一个叫&amp;quot;mol&amp;quot;的文件夹</description>
+    </item>
+    
+    <item>
+      <title>Promise  and rxjs</title>
+      <link>https://www.51hint.com/posts/promise-and-rxjs/</link>
+      <pubDate>Wed, 01 Mar 2017 20:23:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/promise-and-rxjs/</guid>
+      <description>rxjs operation 
+console.clear(); var promise = new Promise( (resolve) =&amp;gt;{ setTimeout(() =&amp;gt; { console.log(&amp;#39;timeout hit&amp;#39;); resolve(42); },500); console.log(&amp;#34;promise started!&amp;#34;); }); // promise.then(x =&amp;gt; console.log(x));  var source = Rx.Observable.create((observer) =&amp;gt; { setTimeout(() =&amp;gt; { observer.next(42); },500); console.log(&amp;#34;observer started!&amp;#34;); }); // source.forEach(x =&amp;gt; console.log(x));  //-------------------------------------------------   var source = Rx.Observable.create((observer) =&amp;gt; { var id = setTimeout(() =&amp;gt; { console.log(&amp;#39;observable timeout hit&amp;#39;); observer.next(42); }, 1000); console.log(&amp;#39;observable started&amp;#39;); return () =&amp;gt; { console.</description>
+    </item>
+    
+    <item>
+      <title>Promise and generators (yield)</title>
+      <link>https://www.51hint.com/posts/promise-and-generators-yield/</link>
+      <pubDate>Wed, 01 Mar 2017 17:43:30 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/promise-and-generators-yield/</guid>
+      <description>Promises and generators (yield) Promise function get(url) { // Return a new promise. return new Promise(function(resolve, reject) { // Do the usual XHR stuff var req = new XMLHttpRequest(); req.open(&amp;#39;GET&amp;#39;, url); req.onload = function() { // This is called even on 404 etc // so check the status if (req.status == 200) { // Resolve the promise with the response text resolve(req.response); } else { // Otherwise reject with the</description>
+    </item>
+    
+    <item>
+      <title>nvm</title>
+      <link>https://www.51hint.com/posts/nvm/</link>
+      <pubDate>Wed, 01 Mar 2017 15:15:36 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/nvm/</guid>
+      <description>nvm curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash profile vim ~/.zshrc export NVM_DIR=&amp;quot;$HOME/.nvm&amp;quot; [ -s &amp;quot;$NVM_DIR/nvm.sh&amp;quot; ] &amp;amp;&amp;amp; . &amp;quot;$NVM_DIR/nvm.sh&amp;quot; # This loads nvm source ~/.zshrc uage nvm install node nvm use node nvm run node --version nvm which nvm ls nvm ls-remote </description>
+    </item>
+    
+    <item>
+      <title>Yarn &#43; Webpack</title>
+      <link>https://www.51hint.com/posts/untitled-3/</link>
+      <pubDate>Wed, 01 Mar 2017 04:06:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/untitled-3/</guid>
+      <description>Yarn github yarn
+brew update brew install yarn vim ~/.zshrc export PATH=&amp;quot;$PATH:`yarn global bin`&amp;quot; source ~/.zshrc yarn --version Webpack github webpack
+code + webpack yarn global add webpack webpack-dev-server --dev sample  yarn add jQuery vim webpack.config.js  module.exports = { entry: &amp;#34;./src/app.js&amp;#34;, output: { filename: &amp;#34;bundle.js&amp;#34;, path: __dirname + &amp;#34;/build&amp;#34; } }  vim index.html  &amp;lt;script src=&amp;#34;bundle.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt;  vim src/app.js  $ = require(&amp;#34;jQuery&amp;#34;); $(() =&amp;gt; { $(&amp;#34;body&amp;#34;).</description>
+    </item>
+    
+    <item>
+      <title>UI自动化测试之Protractor</title>
+      <link>https://www.51hint.com/posts/uizi-dong-hua-ce-shi-zhi-protractor/</link>
+      <pubDate>Tue, 28 Feb 2017 22:47:30 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/uizi-dong-hua-ce-shi-zhi-protractor/</guid>
+      <description>ProtractorWithPageObject Protractor with Page Object Protractor Protractor is an end-to-end test framework for AngularJS applications. Protractor runs tests against your application running in a real browser, interacting with it as a user would. 是什么 基于Node.js的程序 使用Jasmine测试框架测试接口,针对An</description>
+    </item>
+    
+    <item>
+      <title>Karma 测试</title>
+      <link>https://www.51hint.com/posts/karma-ce-shi/</link>
+      <pubDate>Tue, 28 Feb 2017 22:29:23 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/karma-ce-shi/</guid>
+      <description>Karma 测试环境 之前写过的测试都是针对简单的工具方法，用的 mocha + chai 写，最近在研究前端路由，想写写测试代码，遇到 window.location，突然意</description>
+    </item>
+    
+    <item>
+      <title>React &#43; Webpack &#43; Babel</title>
+      <link>https://www.51hint.com/posts/react/</link>
+      <pubDate>Tue, 28 Feb 2017 21:28:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react/</guid>
+      <description>React React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。 React Install npm install --save react react-dom jsx file app.jsx import React from &#39;react&#39;; import ReactDOM from &#39;react-dom&#39;; //</description>
+    </item>
+    
+    <item>
+      <title>Babel</title>
+      <link>https://www.51hint.com/posts/babel/</link>
+      <pubDate>Tue, 28 Feb 2017 21:11:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/babel/</guid>
+      <description>Babel 自带了一组 ES2015 语法转化器。这些转化器能让你现在就使用最新的 JavaScript 语法，而不用等待浏览器提供支持 webpack install npm install -g webpack npm install --save-dev webpack npm install --save-dev babel-loader babel-core 编辑配置文件webp</description>
+    </item>
+    
+    <item>
+      <title>AutoPrefixer</title>
+      <link>https://www.51hint.com/posts/autoprefixer/</link>
+      <pubDate>Tue, 28 Feb 2017 21:04:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/autoprefixer/</guid>
+      <description>所周知为兼容所有浏览器，有的CSS属性需要对不同的浏览器加上前缀，然而有时添加一条属性，需要添加3~4条类似的属性只是为了满足浏览器的兼容 w</description>
+    </item>
+    
+    <item>
+      <title>aws sns js</title>
+      <link>https://www.51hint.com/posts/aws-sns-js/</link>
+      <pubDate>Thu, 23 Feb 2017 21:26:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/aws-sns-js/</guid>
+      <description>var AWS = require(&amp;#39;aws-sdk&amp;#39;); AWS.config.update({ accessKeyId: &amp;#39;{AWS_KEY}&amp;#39;, secretAccessKey: &amp;#39;{AWS_SECRET}&amp;#39;, region: &amp;#39;{SNS_REGION}&amp;#39; }); var sns = new AWS.SNS(); sns.createPlatformEndpoint({ PlatformApplicationArn: &amp;#39;{APPLICATION_ARN}&amp;#39;, Token: &amp;#39;{DEVICE_TOKEN}&amp;#39; }, function(err, data) { if (err) { console.log(err.stack); return; } var endpointArn = data.EndpointArn; var payload = { default: &amp;#39;Hello World&amp;#39;, APNS: { aps: { alert: &amp;#39;Hello World&amp;#39;, sound: &amp;#39;default&amp;#39;, badge: 1 } } }; // first have to stringify the inner APNS object...  payload.APNS = JSON.stringify(payload.APNS); // then have to stringify the entire message payload  payload = JSON.</description>
+    </item>
+    
+  </channel>
+</rss>

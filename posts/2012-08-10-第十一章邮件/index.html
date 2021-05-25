@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第十一章：邮件 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第十一章：邮件" />
+  <meta name="twitter:title" content="第十一章：邮件" />
+  <meta name="description" content="目录 11.1 简介 11.2 在行为（Action）中发送邮件 11.2.1 最快的方法 11.2.2 灵活的方法 11.2.3 强大的方法 11.2.4 使用symfony视图 11.3 配置 11.4 发送模式 11.4.1 实时模式（real">
+  <meta property="og:description" content="目录 11.1 简介 11.2 在行为（Action）中发送邮件 11.2.1 最快的方法 11.2.2 灵活的方法 11.2.3 强大的方法 11.2.4 使用symfony视图 11.3 配置 11.4 发送模式 11.4.1 实时模式（real">
+  <meta name="twitter:description" content="目录 11.1 简介 11.2 在行为（Action）中发送邮件 11.2.1 最快的方法 11.2.2 灵活的方法 11.2.3 强大的方法 11.2.4 使用symfony视图 11.3 配置 11.4 发送模式 11.4.1 实时模式（real">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%E9%82%AE%E4%BB%B6/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%E9%82%AE%E4%BB%B6/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第十一章：邮件</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">3800 Words|Read in about 8 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_11_introduction"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.1 简介</a></a></li>
+    <li><a href="#chapter_11_sending_emails_from_an_action"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.2 在行为（Action）中发送邮件</a></a>
+      <ul>
+        <li><a href="#chapter_11_sub_the_fastest_way"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.2.1 最快的方法</a></a></li>
+        <li><a href="#chapter_11_sub_the_flexible_way"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.2.2 灵活的方法</a></a></li>
+        <li><a href="#chapter_11_sub_the_powerful_way"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.2.3 强大的方法</a></a></li>
+        <li><a href="#chapter_11_sub_using_the_symfony_view"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.2.4 使用symfony视图</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_11_configuration"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.3 配置</a></a></li>
+    <li><a href="#chapter_11_the_delivery_strategy"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.4 发送模式</a></a>
+      <ul>
+        <li><a href="#chapter_11_sub_the_realtime_strategy"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.4.1 实时模式（<code>realtime</code>）</a></a></li>
+        <li><a href="#chapter_11_sub_the_single_address_strategy"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.4.2 单地址模式（<code>single_address</code>）</a></a></li>
+        <li><a href="#chapter_11_sub_the_spool_strategy"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.4.3 队列模式（<code>spool</code>）</a></a></li>
+        <li><a href="#chapter_11_sub_the_none_strategy"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.4.4 忽略模式（<code>none</code>）</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_11_the_mail_transport"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.5 邮件服务器</a></a></li>
+    <li><a href="#chapter_11_sending_an_email_from_a_task"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.6 在命令行中发送邮件</a></a></li>
+    <li><a href="#chapter_11_debugging"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.7 调试</a></a></li>
+    <li><a href="#chapter_11_testing"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.8 测试</a></a></li>
+    <li><a href="#chapter_11_email_messages_as_classes"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.9 邮件当做类</a></a></li>
+    <li><a href="#chapter_11_recipes"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.10 Recipes</a></a>
+      <ul>
+        <li><a href="#chapter_11_sub_sending_emails_via_gmail"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.10.1 通过Gmail发送邮件</a></a></li>
+        <li><a href="#chapter_11_sub_customizing_the_mailer_object"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.10.2 自定义邮件收发器对象</a></a></li>
+        <li><a href="#chapter_11_sub_using_swift_mailer_plugins"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.10.3 使用Swift Mailer插件</a></a></li>
+        <li><a href="#chapter_11_sub_customizing_the_spool_behavior"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.10.4 自定义spool行为（Behavior）</a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_introduction">11.1 简介</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sending_emails_from_an_action">11.2 在行为（Action）中发送邮件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_the_fastest_way">11.2.1 最快的方法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_the_flexible_way">11.2.2 灵活的方法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_the_powerful_way">11.2.3 强大的方法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_using_the_symfony_view">11.2.4 使用symfony视图</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_configuration">11.3 配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_the_delivery_strategy">11.4 发送模式</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_the_realtime_strategy">11.4.1 实时模式（realtime）</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_the_single_address_strategy">11.4.2 单地址模式（single_address）</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_the_spool_strategy">11.4.3 队列模式（spool）</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_the_none_strategy">11.4.4 忽略模式（none）</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_the_mail_transport">11.5 邮件服务器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sending_an_email_from_a_task">11.6 在命令行中发送邮件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_debugging">11.7 调试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_testing">11.8 测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_email_messages_as_classes">11.9 邮件当做类</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_recipes">11.10 Recipes</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_sending_emails_via_gmail">11.10.1 通过Gmail发送邮件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_customizing_the_mailer_object">11.10.2 自定义邮件收发器对象</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_using_swift_mailer_plugins">11.10.3 使用Swift Mailer插件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#chapter_11_sub_customizing_the_spool_behavior">11.10.4 自定义spool行为（Behavior）</a></li>
+<li></li>
+</ul>
+<p>Symfony发送email是简单又强大，得益于所使用的<!-- raw HTML omitted -->Swift Mailer<!-- raw HTML omitted -->库。虽然Swift Mailer使发送邮件更加容易，symfony提供一层很薄的包装在上面来使发送邮件甚至更灵活和更强大。本章将教你如何使用。</p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_11_introduction"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.1 简介</a></h2>
+<p>在symfony中邮件操作是围绕一个邮件收发器对象为中心。然后像许多其他核心symfony对象，邮件收发器是一个工厂。它是用 <code>factories.yml</code> 配置文件定制的，而且全文实例常常是可用的：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>本教程解释在symfony中Swift Mailer集成。如果你要单独学非集成的Swift Mailer库，参考专门的<!-- raw HTML omitted -->文档<!-- raw HTML omitted -->。</p>
+<h2 id="chapter_11_sending_emails_from_an_action"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.2 在行为（Action）中发送邮件</a></h2>
+<p>从一个行为中，用 <code>getMailer()</code> 快捷方法取得邮件收发器实例：</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_11_sub_the_fastest_way"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.2.1 最快的方法</a></h3>
+<p>用 <code>sfAction::composeAndSend()</code> 方法发送邮件就那么简单：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>composeAndSend()</code> 方法有4个参数：</p>
+<ul>
+<li>发件人地址（<code>from</code>）；</li>
+<li>收件人地址（<code>to</code>）；</li>
+<li>主题；</li>
+<li>正文；</li>
+</ul>
+<p>每当一个方法带一个邮件地址作为一个参数，你可以传递一个字符串或一个数组：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>当然，你可以一次发送一个邮件给几个人，通过传递一个邮件数组作为方法的第2个参数：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_11_sub_the_flexible_way"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.2.2 灵活的方法</a></h3>
+<p>如果你需要更灵活，你还可以用 <code>sfAction::compose()</code> 方法来创建一个邮件，你所希望的方法来定制它，最后发送。这个是有用的，例如，当你需要添加一个附件的时候，如下所示：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_11_sub_the_powerful_way"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.2.3 强大的方法</a></h3>
+<p>你也创建一个消息对象更直接更灵活：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_11_sub_using_the_symfony_view"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.2.4 使用symfony视图</a></h3>
+<p>在行为（Action）中发送邮件可以很容易用上局部视图和组件。</p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_11_configuration"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.3 配置</a></h2>
+<p>正如任何其他symfony工厂，邮件收发器可以在 <code>factories.yml</code> 配置文件中配置的。默认配置如下：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>当创建一个新应用，本地的 <code>factories.yml</code> 配置文件会覆盖 <code>prod</code>、<code>env</code>、<code>test</code> 配置：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_11_the_delivery_strategy"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.4 发送模式</a></h2>
+<p>Swift Mailer集成在symfony中一个最有用的功能之一是发送模式。通过 <code>factories.yml</code> 的 <code>delivery_strategy</code> 设置可以告诉symfony如何发送邮件，可以用 <code>send()</code>|<code>sfMailer::send()</code> 方法改变模式。默认有4个有效模式，应适合所有的共同的需求：</p>
+<ul>
+<li><code>realtime</code>：实时模式，已实时发送邮件。</li>
+<li><code>single_address</code>：单地址模式，邮件被发送到单个地址。</li>
+<li><code>spool</code>：队列模式，邮件被储存在一个队列。</li>
+<li><code>none</code>：忽略模式，邮件被简单的忽略。</li>
+</ul>
+<h3 id="chapter_11_sub_the_realtime_strategy"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.4.1 实时模式（<code>realtime</code>）</a></h3>
+<p><code>realtime</code> 模式是默认发送模式，没有任何特别设置要改。</p>
+<p>邮件通过配置在 <code>factories.yml</code> 中的 <code>transport</code> 键来发送（具体看下一节更多关于如何配置邮件）。</p>
+<h3 id="chapter_11_sub_the_single_address_strategy"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.4.2 单地址模式（<code>single_address</code>）</a></h3>
+<p>用 <code>single_address</code> 模式，通过配置的 <code>delivery_address</code> 设置，所有邮件则发送到一个单地址。</p>
+<p>这个模式实际用于开发环境，以避免测试邮件被发送到实际用户那里。</p>
+<!-- raw HTML omitted -->
+<p>邮件会用和 <code>realtime</code> 模式相同的邮件服务来发送。</p>
+<h3 id="chapter_11_sub_the_spool_strategy"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.4.3 队列模式（<code>spool</code>）</a></h3>
+<p>用 <code>spool</code> 模式，邮件被存储于队列中。</p>
+<p>这个是用于产品环境最好的模式，因为web请求不会等待要发送的邮件。</p>
+<p><code>spool</code> 类是用 <code>spool_class</code> 设置。默认symfony捆绑了3个：</p>
+<ul>
+<li><code>Swift_FileSpool</code>：邮件被储存在文件系统上。</li>
+<li><code>Swift_DoctrineSpool</code>：邮件被储存在一个Doctrine模型中。</li>
+<li><code>Swift_PropelSpool</code>：邮件被储存在一个Propel模型中。</li>
+</ul>
+<p>当spool类被实例化，<code>spool_arguments</code> 设置被作为构造函数的参数。内置的队列类的可选项目：</p>
+<ul>
+<li>
+<p><code>Swift_FileSpool</code>：</p>
+<ul>
+<li>队列目录的绝对路径（邮件被存储在这个目录中）</li>
+</ul>
+</li>
+<li>
+<p><code>Swift_DoctrineSpool</code>：</p>
+<ul>
+<li>用来存储邮件的doctrine模型（默认 <code>MailMessage</code>）</li>
+<li>用于存储邮件的列名（默认 <code>message</code>）</li>
+<li>检索邮件的函数（可选）。用队列选项做为参数。</li>
+</ul>
+</li>
+<li>
+<p><code>Swift_PropelSpool</code>：</p>
+<ul>
+<li>用来存储邮件的Propel模型（默认 <code>MailMessage</code>）</li>
+<li>用于存储邮件的列名（默认 <code>message</code>）</li>
+<li>检索邮件的函数（可选）。用队列选项做为参数。</li>
+</ul>
+</li>
+</ul>
+<p>这是典型的一个doctrine spool类的配置：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>与propel spool类配置相同：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>要发送储存在队列中的邮件，可以用 <code>project:send-emails</code> 命令（注意这个命令是完全独立的队列）：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>当调用 <code>project:send-emails</code> 命令，邮件用和 <code>realtime</code> 模式相同的邮件服务来发送。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>project:send-emails</code> 命令带两个可选项：</p>
+<ul>
+<li><code>message-limit</code>：限制要发送邮件的数量。</li>
+<li><code>time-limit</code>：限制要发送邮件的时间（用秒）。</li>
+</ul>
+<p>两个选项可以合并：</p>
+<p>$ php symfony project:send-emails –message-limit=10 –time-limit=20</p>
+<p>上面的命令会在发送完10个邮件或超过20秒后停止。</p>
+<p>甚至在用 <code>spool</code> 模式时，你也许需要发送一个邮件，而且不储存在队列中。可以用邮件收发器的 <code>sendNextImmediately()</code> 方法：</p>
+<!-- raw HTML omitted -->
+<p>上面的例子，<code>$message</code> 不存储在队列中，会立即发送。正如其名。</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_11_sub_the_none_strategy"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.4.4 忽略模式（<code>none</code>）</a></h3>
+<p>这个模式是用于开发环境来避免测试邮件被发送到实际的用户那里。邮件仍然可以用web调试工具栏（下面会讲更多关于web调试工具栏的邮件收发器板块）。</p>
+<p>对于测试环境这是最适合的模式，<code>sfTesterMailer</code> 对象可以反复检查邮件，而不用实际发送（下面会讲更多关于邮件测试）。</p>
+<h2 id="chapter_11_the_mail_transport"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.5 邮件服务器</a></h2>
+<p>邮件实际上是通过一个邮件服务器发送的。邮件服务器在 <code>factories.yml</code> 配置文件中配置，默认的配置则使用本机的SMTP服务：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Swift Mailer捆绑了3个不同的邮件服务器类：</p>
+<ul>
+<li>
+<p><code>Swift_SmtpTransport</code>：使用SMTP服务来发送邮件。</p>
+</li>
+<li>
+<p><code>Swift_SendmailTransport</code>：使用 <code>sendmail</code> 来发送邮件。</p>
+</li>
+<li>
+<p><code>Swift_MailTransport</code>：使用本地的PHP <code>mail()</code> 函数来发送邮件。</p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="chapter_11_sending_an_email_from_a_task"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.6 在命令行中发送邮件</a></h2>
+<p>在命令行中发送邮件相当类似于在行为（Action）中发送邮件，正如命令行系统还提供一个 <code>getMailer()</code> 方法。</p>
+<p>当创建邮件收发器时，命令行系统依赖于当前配置。所以，如果你要使用一个特殊应用的配置，则必须带 <code>--application</code> 选项（有关更多信息见命令行这章）。</p>
+<p>注意命令行使用的配置与控制器中的相同。所以，如果当使用队列模式（<code>spool</code>）的时候你要强制发送，则使用 <code>sendNextImmediately()</code>：</p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_11_debugging"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.7 调试</a></h2>
+<p>以往调试邮件已成为一个噩梦。用symfony则非常容易，得益于“web调试工具栏”。</p>
+<p>你可以方便和迅速的查看多少邮件通过当前行为发送出去了：</p>
+<p><img src="res/emails_wdt.png" alt="在web调试工具栏中的邮件"></p>
+<p>如果你点击邮件图标，发送的邮件则以它们原始的形式显示在面板中，如下所示：</p>
+<p><img src="res/emails_wdt_details.png" alt="在web调试工具栏中的邮件 - 详细"></p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_11_testing"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.8 测试</a></h2>
+<p>当然，集成还没有一个完整的测试邮件的方法。默认，symfony注册一个邮件测试器（sfMailerTester）来缓解邮件功能测试。</p>
+<p><code>hasSent()</code> 方法测试当前请求期间发送邮件的数目：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>上面的代码检查 <code>/foo</code> 是否只发了一个邮件。</p>
+<p>发送的每个邮件可以用 <code>checkHeader()</code> 和 <code>checkBody()</code> 方法更进一步的测试：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>checkHeader()</code> 的第二个参数和 <code>checkBody()</code> 的第一个参数可以是下面的其中一个：</p>
+<ul>
+<li>字符串是检查精确匹配；</li>
+<li>正则表单式是检查它所对立的值；</li>
+<li>反正则表单式（开头用 <code>!</code> 的正则表单式）是检查不匹配的值。</li>
+</ul>
+<p>默认，在第一个邮件发出时完成检查。如果几个邮件已发送，你可以用 <code>withMessage()</code> 方法选择一个你要测试的：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>withMessage()</code> 第一个参数是收件人。如果几个邮件都发送到同一个收件人，第二个参数可以指出其中你要测试哪个邮件。</p>
+<p>最后一点，也是非常重要的-点，当测试时，用 <code>debug()</code> 方法来发现发送邮件的问题：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_11_email_messages_as_classes"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.9 邮件当做类</a></h2>
+<p>在本章，你学了如何在行为（Action）中发送邮件。这个可能在symfony中是最容易的发送邮件方法，还有当你只需要发送一点简单的邮件，这个可能是最好的方法。</p>
+<p>但是当你的应用需要管理大量不同的邮件时，你应该可能有不同模式。</p>
+<!-- raw HTML omitted -->
+<p>正因为邮件是纯粹的PHP对象，原生的方法来组织你的邮件时要为每一个邮件创建类的：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在行为中发送邮件，或在别的地方，简单的实例化邮件类：</p>
+<!-- raw HTML omitted -->
+<p>当然，添加一个基类到集中共享的头，比如 <code>From</code> 头， or to add a common signature can be convenient:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>如果邮件取决于一些模型对象，当然，你可以传递它们作为参数到构造函数：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_11_recipes"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.10 Recipes</a></h2>
+<h3 id="chapter_11_sub_sending_emails_via_gmail"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.10.1 通过Gmail发送邮件</a></h3>
+<p>如果你没有SMTP服务但有Gmail账户，用下面的配置来使用Google服务器来发送、存档邮件：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>用你的Gmail账户替换 <code>username</code> 和 <code>password</code></p>
+<h3 id="chapter_11_sub_customizing_the_mailer_object"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.10.2 自定义邮件收发器对象</a></h3>
+<p>如果通过 <code>factories.yml</code> 配置邮件收发器还不够，你可以监听 <code>mailer.configure</code> 事件，并更进一步的定制邮件收发器。</p>
+<p>你可以在你的 <code>ProjectConfiguration</code> 类中连接到这个事件，比如下面这样：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>以下部分说明了这项技术的强大用法.</p>
+<h3 id="chapter_11_sub_using_swift_mailer_plugins"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.10.3 使用Swift Mailer插件</a></h3>
+<p>要使用Swift Mailer插件，则监听 <code>mailer.configure</code> 事件（见上面一节）：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_11_sub_customizing_the_spool_behavior"><a href="forum.php?mod=viewthread&amp;tid=34&amp;extra=page%3D1#">11.10.4 自定义spool行为（Behavior）</a></h3>
+<p>内置spool的实现非常简单。每个spool都从队列中取得邮件，以随机的排列发送。</p>
+<p>你可以配置spool来限制发送邮件的时间（单位：秒），或限制要发送邮件的数量：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在本节，你会学习如何为队列实现优先级系统，来实现你自己的逻辑。</p>
+<p>首先，添加一个 <code>priority</code> 列到schema：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>发送邮件的时候，设置优先级的头（1就是最高）：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>然后，覆盖默认的 <code>setMessage()</code> 方法来更改 <code>MailMessage</code> 对象本身的优先级：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>注意，邮件是经过队列序列化的，所以取得优先级的值之前必须解序列化（unserialize）。现在，创建一个方法，由优先级排列邮件：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>最后一步是在 <code>factories.yml</code> 配置中定义接收方法来更改默认的方式，从队列中获得邮件：</p>
+<!-- raw HTML omitted -->
+<p>现在，你每次运行 <code>project:send-emails</code> 命令时，每个邮件会根据它的优先级来发送。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B9%9D%E7%AB%A0%E5%AE%8C%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" data-toggle="tooltip" data-placement="top" title="第十九章（完）：管理配置文件">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%99%A8/" data-toggle="tooltip" data-placement="top" title="第十四章：管理后台生成器">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">3800 Words|Read in about 8 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

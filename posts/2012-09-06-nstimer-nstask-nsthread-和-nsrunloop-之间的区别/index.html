@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> NSTimer、 NSTask、 NSThread 和 NSRunloop 之间的区别 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="NSTimer、 NSTask、 NSThread 和 NSRunloop 之间的区别" />
+  <meta name="twitter:title" content="NSTimer、 NSTask、 NSThread 和 NSRunloop 之间的区别" />
+  <meta name="description" content="NSTimer、 NSTask、 NSThread 和 NSRunloop 之间的区别： /*****************************/ NSTimer是一个计时器对象，方法调用在对未来的选择对象。 NSTask类是一个过程，一种">
+  <meta property="og:description" content="NSTimer、 NSTask、 NSThread 和 NSRunloop 之间的区别： /*****************************/ NSTimer是一个计时器对象，方法调用在对未来的选择对象。 NSTask类是一个过程，一种">
+  <meta name="twitter:description" content="NSTimer、 NSTask、 NSThread 和 NSRunloop 之间的区别： /*****************************/ NSTimer是一个计时器对象，方法调用在对未来的选择对象。 NSTask类是一个过程，一种">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-09-06-nstimer-nstask-nsthread-%E5%92%8C-nsrunloop-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-09-06-nstimer-nstask-nsthread-%E5%92%8C-nsrunloop-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">NSTimer、 NSTask、 NSThread 和 NSRunloop 之间的区别</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Sep 6, 2012</h4>
+    </section>
+    <h5 id="wc">1900 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>NSTimer、 NSTask、 NSThread 和 NSRunloop 之间的区别：</p>
+<p>/*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*/</p>
+<p>NSTimer是一个计时器对象，方法调用在对未来的选择对象。</p>
+<p>NSTask类是一个过程，一种方式运行程序从您的其他程序。</p>
+<p>NSThread是一个线程类。 也就是创建一个线程。</p>
+<p><!-- raw HTML omitted -->NSOperation<!-- raw HTML omitted -->是一个非常漂亮的抽象的任务。在这个类中嵌入您的操作，你可以很容易地通过一个<!-- raw HTML omitted -->NSOperationQueue<!-- raw HTML omitted -->执行类的手段同时进行。</p>
+<p>NSRunLoop其实<!-- raw HTML omitted -->NSRunLoop的本质是一个消息机制的处理模式<!-- raw HTML omitted -->。在某种意义上摘要和适应的选择（）的Unix系统调用，管理和调度输入源事件和线程计时器。</p>
+<p> </p>
+<p> </p>
+<p>每个程序运行在至少一个线程 。 你能想到的每一个单独的进程中的程序执行的线程，每个其他平行进行。</p>
+<p>如果你有一些港口样的用户界面，或其他代码，需要听取网络事件，你需要一个运行循环 。</p>
+<p>每个NSThread自动都有自己的运行循环，你很少有直接关心他们自己。 在运行循环也创造和释放autorelease池负责。</p>
+<p>最重要的一点要记住的是，新的线程必须考虑设立一个autorelease池照顾。</p>
+<p>例如，与<!-- raw HTML omitted -->detachNewThreadSelector<!-- raw HTML omitted -->调用的方法应该为他们的第一个和最后一个行如下：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>在主线程 ，所有的UI处理正在发生，运行循环是非常重要的，因为它保持了界面反应。 这就是为什么你应该永远不会运行的代码，就在主线程耗时：它会吃掉所有的线程和循环的运行时间将不会被允许运行往往不够，导致锁定或缓慢接口。 如果您需要执行耗时计算，或保持一个任务在后台运行，你应该创建一个新线程。 同样，你可能不必考虑新的运行循环正在形成。 在一个新线程执行的方法简单的方法：</p>
+<!-- raw HTML omitted -->
+<p> </p>
+<p>线程间的通信可能会非常棘手，你应该知道performSelector的方法：</p>
+<p>onThread：withObject：waitUntilDone：和performSelectorOnMainThread：withObject：waitUntilDone：</p>
+<p>定时器也处理运行循环。 相反运行循环，你可能经常会使用你的程序定时器直接。 建立一个最简单的方法是非常计时器：</p>
+<!-- raw HTML omitted -->
+<p>但有时你需要创建和管理NSTimer对象自己，例如能够取消和重新使用一个计时器。</p>
+<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<p>NSOperations是用来当您需要处理不同的任务量较大，他们把队列和/或处理他们在单独的线程（虽然他们没有单独的线程中运行）。 如果您的应用程序需要创建只是少数人，专门线程，则没有理由使用NSOperation类。 但是，如果你会经常产生想与服务器通信任务（）必须保持记录，NSOperation和NSOperationQueue能派上用场。</p>
+<p> </p>
+<p>———————————————————————————————————————————————</p>
+<p>NSRunLoop：首先是Run Loop的部分概念，它的作用就是循环、处理事件。具体来说有两个方面：</p>
+<ol>
+<li>定时启动任务（一般用和Timer协作）；2. 处理事件。</li>
+</ol>
+<p>在 单线程的app中，不需要注意Run Loop，但不代表没有。</p>
+<p>程序启动时，系统已经在主线程中加入了Run Loop。</p>
+<p>它保证了我们的主线程在运行起来后，就处于一种“等待”的状态（而不像一些命令行程序一样运行一次就结束了），</p>
+<p>这个时候如果有接收到的事件 （Timer的定时到了或是其他线程的消息），就会执行任务，否则就处于休眠状态。</p>
+<p> </p>
+<p>如果我们要写多线程的程序，可能就需要自己来管理Run Loop。</p>
+<p>下面说一下楼主提出的方法中的参数：</p>
+<p>RunMode: NSDefaultRunLoopMode，可以把这个理解为一个”过滤器“，我们可以只对自己关心的事件进行监视。一般NSDefaultRunLoopMode是最常用的。</p>
+<p>启动run loop的方法就是lz写的这个，它的说明如下：</p>
+<p>Runs the loop once, blocking for input in the specified mode until a given date.</p>
+<p>启动run loop一次，在特定的run loop mode下等待输入。</p>
+<p>如果没有附加input source或是timer，或是过limitDate，run loop就会退出，并且方法返回NO。</p>
+<p>下来是Run Loop的使用场合：</p>
+<ol>
+<li>
+<p>使用port或是自定义的input source来和其他线程进行通信</p>
+</li>
+<li>
+<p>在线程（非主线程）中使用timer</p>
+</li>
+<li>
+<p>使用 performSelector…系列（如performSelectorOnThread, …）</p>
+</li>
+<li>
+<p>使用线程执行周期性工作</p>
+</li>
+</ol>
+<p> </p>
+<p>run loop不需要创建，在线程中只需要调用[NSRunLoop currentRunLoop]就可以得到</p>
+<p>假设我们想要等待某个异步方法的回调。</p>
+<p>比如connection。</p>
+<p>如果我们的线程中没有启动run loop，是不会有效果的（因为线程已经运行完毕，正常退出了）</p>
+<p> </p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-09-05-c-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" data-toggle="tooltip" data-placement="top" title="c&#43;&#43;  类型转换">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-09-22-adobe-cs6/" data-toggle="tooltip" data-placement="top" title="adobe CS6">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Sep 6, 2012</h4>
+    </section>
+    <h5 id="wc">1900 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

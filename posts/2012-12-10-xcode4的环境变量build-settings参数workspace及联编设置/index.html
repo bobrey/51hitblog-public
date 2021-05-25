@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> xcode4的环境变量，Build Settings参数，workspace及联编设置 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="xcode4的环境变量，Build Settings参数，workspace及联编设置" />
+  <meta name="twitter:title" content="xcode4的环境变量，Build Settings参数，workspace及联编设置" />
+  <meta name="description" content="一、xcode4中的环境变量 build成功后的，最终产品路径－－可以在Build Settings参数的Per-configuration Build Products">
+  <meta property="og:description" content="一、xcode4中的环境变量 build成功后的，最终产品路径－－可以在Build Settings参数的Per-configuration Build Products">
+  <meta name="twitter:description" content="一、xcode4中的环境变量 build成功后的，最终产品路径－－可以在Build Settings参数的Per-configuration Build Products">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-12-10-xcode4%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8Fbuild-settings%E5%8F%82%E6%95%B0workspace%E5%8F%8A%E8%81%94%E7%BC%96%E8%AE%BE%E7%BD%AE/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-12-10-xcode4%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8Fbuild-settings%E5%8F%82%E6%95%B0workspace%E5%8F%8A%E8%81%94%E7%BC%96%E8%AE%BE%E7%BD%AE/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">xcode4的环境变量，Build Settings参数，workspace及联编设置</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Dec 10, 2012</h4>
+    </section>
+    <h5 id="wc">3600 Words|Read in about 8 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/ios/">ios</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/xcode/">xcode</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>一、xcode4中的环境变量</p>
+<!-- raw HTML omitted -->
+<p>build成功后的，最终产品路径－－可以在Build Settings参数的Per-configuration Build Products Path项里设置</p>
+<!-- raw HTML omitted -->
+<p>目标工程名称</p>
+<!-- raw HTML omitted -->
+<p>工程文件（比如Nuno.xcodeproj）的路径</p>
+<!-- raw HTML omitted -->
+<p>当前工程版本号</p>
+<p> </p>
+<p>其他：</p>
+<p>当编译静态库，设备选模拟器(iPhone 5.0 Simulator)，未设置任何Build Settings参数时，默认的基础路径：</p>
+<p>/Users/xxx/Library/Developer/Xcode/DerivedData/xxxWorkspace-caepeadwrerdcrftijaolkkagbjf</p>
+<p>下面用$()代替上面一长串东东</p>
+<p>$(SYMROOT) = $()/Build/Products</p>
+<p>$(BUILD_DIR) = $()/Build/Products</p>
+<p>$(BUILD_ROOT) =  $()/Build/Products</p>
+<p>这三个变量中的$()不会随着Build Settings参数的设置而改变</p>
+<p>相反，以下可以通过设置而改变</p>
+<p>$(CONFIGURATION_BUILD_DIR) = $()/Build/Products/Debug-iphonesimulator</p>
+<p>$(BUILT_PRODUCTS_DIR) = $()/Build/Products/Debug-iphonesimulator</p>
+<p>$(CONFIGURATION_TEMP_DIR) = $()/Build/Intermediates/UtilLib.build/Debug-iphonesimulator</p>
+<p>$(TARGET_BUILD_DIR) = $()/Build/Products/Debug-iphonesimulator</p>
+<p>$(SDK_NAME) = iphonesimulator5.0</p>
+<p>$(PLATFORM_NAME) = iphonesimulator</p>
+<p>$(CONFIGURATION) = Debug</p>
+<p>$(TARGET_NAME) = UtilLib</p>
+<p>$(EXECUTABLE_NAME) = libUtilLib.a 可执行文件名</p>
+<p>${IPHONEOS_DEPLOYMENT_TARGET} 5.0</p>
+<p>$(ACTION) = build</p>
+<p>$(CURRENTCONFIG_SIMULATOR_DIR) 当前模拟器路径</p>
+<p>$(CURRENTCONFIG_DEVICE_DIR) 当前设备路径</p>
+<p> </p>
+<p>$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME =</p>
+<p>$()/Build/Products/Debug-iphonesimulator</p>
+<p>$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) = $()/Build/Intermediates/UtilLib.build/Debug-iphonesimulator</p>
+<p> </p>
+<p>自定义变量</p>
+<p>${CONFIGURATION}-iphoneos 表示：Debug-iphoneos</p>
+<p>${CONFIGURATION}-iphonesimulator 表示：Debug-iphonesimulator</p>
+<p>$(CURRENTCONFIG_DEVICE_DIR) = ${SYMROOT}/${CONFIGURATION}-iphoneos</p>
+<p>$(CURRENTCONFIG_SIMULATOR_DIR) = ${SYMROOT}/${CONFIGURATION}-iphonesimulator</p>
+<p>自定义一个设备无关的路径（用来存放各种架构arm6/arm7/i386输出的产品）</p>
+<p>$(CREATING_UNIVERSAL_DIR) = ${SYMROOT}/${CONFIGURATION}-universal</p>
+<p>自定义变量代表的值</p>
+<p>$(CURRENTCONFIG_DEVICE_DIR) ＝ $()/Build/Products/Debug-iphoneos</p>
+<p>$(CURRENTCONFIG_SIMULATOR_DIR) = $()/Build/Products/Debug-iphonesimulator</p>
+<p>$(CREATING_UNIVERSAL_DIR) = $()/Build/Products/Debug-universal</p>
+<p> </p>
+<p>iphoneos5.0下的编译脚本：</p>
+<p>xcodebuild -project “UtilLib.xcodeproj” -configuration “Debug” -target “UtilLib” -sdk “iphoneos5.0” -arch “armv6 armv7″ build RUN_CLANG_STATIC_ANALYZER=NO  $(BUILD_DIR)=”${BUILD_DIR}” BUILD_ROOT=”${BUILD_ROOT}”</p>
+<p> </p>
+<p>iphonesimulator5.0下的编译脚本：</p>
+<p>xcodebuild -project “UtilLib.xcodeproj” -configuration “Debug” -target “UtilLib” -sdk “iphonesimulator5.0” -arch “i386″ build RUN_CLANG_STATIC_ANALYZER=NO $(BUILD_DIR)=”${BUILD_DIR}”  BUILD_ROOT=”${BUILD_ROOT}”</p>
+<p>加上下面一句表示输出到文件：</p>
+<blockquote>
+<p> “${BUILD_ROOT}.build_output”</p>
+</blockquote>
+<p> </p>
+<p>lipo脚本工具：合并iPhone模拟器和真机的静态类库，生成通用库</p>
+<p>lipo -create -output “${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}” “${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}”         “${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}”</p>
+<p>意思是：把”${CURRENTCONFIG_DEVICE_DIR}目录下的.a文件，和${CURRENTCONFIG_SIMULATOR_DIR}目录下的.a文件合并，</p>
+<p>在${CREATING_UNIVERSAL_DIR}目录下，生成两个设备都通用的静态库,</p>
+<p>例如：lipo -create -output xy.a x.a y.a</p>
+<p> </p>
+<p>二、xcode4中build Settings常见参数解析</p>
+<p>1.Installation Directory：安装路径</p>
+<p>静态库编译时，在Build Settings中Installation Directory设置“$(BUILT_PRODUCTS_DIR)”</p>
+<p>Skip Install设为YES</p>
+<p>Installation Directory默认为/usr/local/lib</p>
+<p>因为Build Location默认时，.a文件会放在很长（比如：/Users/xxx/Library/Developer/Xcode/DerivedData/xxxProgram</p>
+<p>dalrvzehhtesxdfqhxixzafvddwe/Build/Products/Debug-iPhoneos）的路径下，或是我们target指定的路径</p>
+<p>Skip Install如果是NO,可能会被安装到默认路径/usr/local/lib</p>
+<p>2.Public Headers Folder Path：对外公开头文件路径</p>
+<p>设为“include”（具体的头文件路径为：$(BUILT_PRODUCTS_DIR)/include/xx.h）</p>
+<p>在最终文件.a同级目录下生成一个include目录</p>
+<p>默认：/usr/local/include</p>
+<p>Public Headers Folder Path这个路径就是使用这lib的某工程需要依赖的外部头文件.导入这路径后，#include/import “xx.h”才能看到</p>
+<p>3.User Header Search Paths：依赖的外部头文件搜索路径</p>
+<p>设置为“$(BUILT_PRODUCTS_DIR)/include”</p>
+<p>和2中路径对应</p>
+<p>4.Per-configuration Build Products Path：最终文件路径</p>
+<p>比如设为“../app”，就会在工程文件.xcodeproj上一层目录下的app目录里，创建最终文件</p>
+<p>默认为$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)</p>
+<p>等于$(BUILT_PRODUCTS_DIR)</p>
+<p>5.Per-configuration Intermediate Build Files Path：临时中间文件路径</p>
+<p>默认为：$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)</p>
+<p>6.Code Signing Identity：真机调试的证书选择</p>
+<p>选一个和Bundle identifier相对应的证书</p>
+<p>Library Search Paths：库搜索路径</p>
+<p>Architectures：架构，设为 armv6 或 armv7</p>
+<p>Valid Architectures：应用框架，可以设为 armv6、 armv7 或i386</p>
+<p>Product Name:工程文件名，默认为$(TARGET_NAME)</p>
+<p>Info.plist File：info文件路径</p>
+<p>Build Variants：默认为normal</p>
+<p>Other Linker Flags：其他链接标签</p>
+<p>设为“-ObjC”</p>
+<p>当导入的静态库使用了类别，需要设为-ObjC</p>
+<p>iOS Deployment Target：ios部署对象</p>
+<p>比如可以选择设为，ios3到ios5的一种版本</p>
+<p>Prefix Header：预编头文件（比如：UtilLib/UtilLib-Prefix.pch）</p>
+<p>Precompile Prefix Header：设为“Yes”，表示允许加入预编译头</p>
+<p> </p>
+<p>三、workspace（工作区）</p>
+<p>作用：管理多个工程（project），多工程联编</p>
+<p> </p>
+<p>1.新建一个静态库工程，比如UtilLib，并生成UtilLib.h和UtilLib.m文件</p>
+<p>2.选中需要公开的头文件，</p>
+<p><!-- raw HTML omitted --></p>
+<p>把右侧栏的Target Membership中设置为public</p>
+<p><!-- raw HTML omitted --></p>
+<p>或则，选中工程目录target的Build Phases标签的copy headers项，在public中添加要公开的头文件</p>
+<p><!-- raw HTML omitted --></p>
+<p>3.Architectures设为：armv6 armv7</p>
+<p>4.Valid Architectures设为：armv6 armv7 i386</p>
+<p>5.Build Products Path设为：$(SRCROOT)/../build</p>
+<p>6.Per-configuration Build Products Path设为：</p>
+<p>$(SRCROOT)/../build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)</p>
+<p>7.Per-configuration Intermediate Build Files Path设为：</p>
+<p>$(SRCROOT)/../build/$(TARGET_NAME).build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)</p>
+<p>8.设置安装路径：Installation Directory项</p>
+<p><!-- raw HTML omitted --></p>
+<p>9.设置对外公开的头文件路径：Public Headers Folder Path项</p>
+<p><!-- raw HTML omitted --></p>
+<p> </p>
+<p>10.为静态库添加依赖的shell脚本</p>
+<p>选中工程目录target的Build Phases标签，点击由下角的Add Build Phase按钮</p>
+<p><!-- raw HTML omitted --></p>
+<p>在弹出的菜单里选择Add run script项，然后页面中会多出一个Run Script项</p>
+<p><!-- raw HTML omitted --></p>
+<p>在黑框里填写”$SRCROOT/mergeArmSymbols.sh”</p>
+<p><!-- raw HTML omitted --></p>
+<p>建立对此脚本的依赖（编译静态库的后会运行此脚本）</p>
+<p>如果编译时设备选的是iphone simulator：</p>
+<p>则此脚本会在对应iphone device的产品目录Debug-iphoneos中，生成对device有用的.a静态库，</p>
+<p>相反，如果设备选的是iphone device：</p>
+<p>则此脚本会在对应iphone simulator的产品目录Debug-iphoneos中，生成对simulator有用的.a静态库</p>
+<p>最后，此脚本调用lipo工具，把本工程生成静态库与此脚本生成的静态库合并，生成simulator和device都通用的.a文件</p>
+<p> </p>
+<p>11.具体bash shell脚本如下：</p>
+<!-- raw HTML omitted -->
+<p>下载右边的图片<!-- raw HTML omitted -->，然后把后缀改为.sh（其实就是上面的脚本，因为博客园只能上传图片)</p>
+<p>静态库编译后的目录结构如下：</p>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p> </p>
+<p>二、</p>
+<p>1.新建主工程，比如Nuno，添加对静态库的依赖</p>
+<p>点击工程，在Build Phases标签的Link Binary With Libraries项中点击加号添加UtilLib.a库</p>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>选中上面的红色项，在右边栏的Location选Relative to Project，把值设为../libs/libUtilLib.a</p>
+<p>2.设置主工程依赖的外部头文件路径：User Header Search Paths项</p>
+<p>$(SRCROOT)/../include</p>
+<p>3.设置Header Search Paths为：$(SRCROOT)/../include</p>
+<p>4.设置Library Search Paths为：$(SRCROOT)/../libs</p>
+<p>编译运行即可实现联编</p>
+<p> </p>
+<p>(备注：选择模拟器iphone 5.0 simulator，编译静态库的时，最终文件会在Debug-iphonesimulator，就算成功.a文件还是红色，</p>
+<p>这是可能是xcode的bug，不会自动切换路径</p>
+<p>因为$(BUILT_PRODUCTS_DIR)所指的位置，是build/Debug-iphonesos,不是包含最终.a文件的Debug-iphonesimulator；</p>
+<p>选择ios Device，编译成的最终文件才在build/Debug-iphonesos下，.a文件变成非红色</p>
+<p>所有得用mergeArmSymbols.sh脚本来解决）</p>
+<p><a href="http://www.cnblogs.com/xiaodao/archive/2012/03/28/2422091.html">http://www.cnblogs.com/xiaodao/archive/2012/03/28/2422091.html</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-12-10-webgame/" data-toggle="tooltip" data-placement="top" title="webgame">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-12-11-%E7%90%86%E6%83%B3%E7%9A%84%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83gitgithubmarkdownjekyll/" data-toggle="tooltip" data-placement="top" title="理想的写作环境：git&#43;github&#43;markdown&#43;jekyll">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2012-11-02-xcode-4-create-both-h-and-cpp-when-adding-a-new-file/">XCode 4: create both .h and .cpp when adding a new file</a></li>
+                    
+                    <li><a href="/posts/2012-08-28-%E6%8E%A8%E8%8D%90%E7%BB%99ios%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E8%B5%84%E6%BA%90/">推荐给iOS设计师的工具和资源</a></li>
+                    
+                    <li><a href="/posts/2012-08-25-ios%E9%80%86%E5%90%91%E6%9D%82%E6%96%87/">ios逆向杂文</a></li>
+                    
+                    <li><a href="/posts/2012-07-04-pdf-view/">pdf view</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Dec 10, 2012</h4>
+    </section>
+    <h5 id="wc">3600 Words|Read in about 8 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/ios/">ios</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/xcode/">xcode</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 汇编程序之windows console例子解说 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="汇编程序之windows console例子解说" />
+  <meta name="twitter:title" content="汇编程序之windows console例子解说" />
+  <meta name="description" content="Windows console（命令行）版的汇编程序例子及解说 **下载masm32 http://u.115.com/file/f5e5cb46c4 masm32_v10.exe** *安装到c:* **//////////////////////////////////// .386 .model flat, stdcall option casemap :none include \masm32\include\windows.inc include \masm32\include\kernel32.inc include \masm32\include\masm32.inc includelib \masm32\lib\kernel32.lib includelib \masm32\lib\masm32.lib .data HelloWorld db “Hello">
+  <meta property="og:description" content="Windows console（命令行）版的汇编程序例子及解说 **下载masm32 http://u.115.com/file/f5e5cb46c4 masm32_v10.exe** *安装到c:* **//////////////////////////////////// .386 .model flat, stdcall option casemap :none include \masm32\include\windows.inc include \masm32\include\kernel32.inc include \masm32\include\masm32.inc includelib \masm32\lib\kernel32.lib includelib \masm32\lib\masm32.lib .data HelloWorld db “Hello">
+  <meta name="twitter:description" content="Windows console（命令行）版的汇编程序例子及解说 **下载masm32 http://u.115.com/file/f5e5cb46c4 masm32_v10.exe** *安装到c:* **//////////////////////////////////// .386 .model flat, stdcall option casemap :none include …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-03-06-%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E4%B9%8Bwindows-console%E4%BE%8B%E5%AD%90%E8%A7%A3%E8%AF%B4/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-03-06-%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E4%B9%8Bwindows-console%E4%BE%8B%E5%AD%90%E8%A7%A3%E8%AF%B4/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">汇编程序之windows console例子解说</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Mar 6, 2012</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p><strong>Windows console（命令行）版的汇编程序例子及解说</strong></p>
+<p>**下载masm32   <a href="http://u.115.com/file/f5e5cb46c4">http://u.115.com/file/f5e5cb46c4</a></p>
+<p>masm32_v10.exe**</p>
+<p>*<em>安装到c:*</em></p>
+<p>**////////////////////////////////////</p>
+<p>.386</p>
+<p>.model flat, stdcall</p>
+<p>option casemap :none</p>
+<p>include \masm32\include\windows.inc</p>
+<p>include \masm32\include\kernel32.inc</p>
+<p>include \masm32\include\masm32.inc</p>
+<p>includelib \masm32\lib\kernel32.lib</p>
+<p>includelib \masm32\lib\masm32.lib</p>
+<p>.data</p>
+<p>HelloWorld db “Hello World!”, 0</p>
+<p>.code</p>
+<p>start:</p>
+<p>invoke StdOut, addr HelloWorld</p>
+<p>invoke ExitProcess, 0</p>
+<p>end start</p>
+<p>///////////////////////////////////////////////////</p>
+<p>将上面程序文本复制粘贴到记事本，另存为：hello.asm 保存类型改为：所有文件</p>
+<p>保存到：c:\masm32\bin\ 内</p>
+<p>打开命令提示符，键入：cd\ 回车【Enter键】</p>
+<p>键入：cd masm32 回车</p>
+<p>键入：cd bin 回车</p>
+<p>键入：ml /c /Zd /coff hello.asm 回车</p>
+<p>键入：link /subsystem:console hello.obj 回车</p>
+<p>键入：hello 回车</p>
+<p>ok!</p>
+<p>注意：Zd的Z要大写字母！你编的源程序xxx.asm放在bin文件夹内时可以简化命令。</p>
+<p>完成后可以看到bin文件夹内多出两个文件：hello.obj和hello.exe</p>
+<p>调试运行完毕后，再运行时，直接键入hello（即hello.exe）回车即可。</p>
+<p>/////////////////////////////////////////////</p>
+<p>逐行解释：</p>
+<p>.386–告诉汇编器：我要使用386指令集。</p>
+<p>.model flat, stdcall–</p>
+<p>指定程序的内存模式为flat,在Win32下，只有一种内存模型，那就是FLAT。 stdcall告诉编译器参数的传递约定。参数的传递约定是指参数传递时的顺序(从左到右或从右到左)和由谁恢复堆栈指针(调用者或被调用者)。在Win16下有两种约定：C 和 PASCAL。C 约定规定参数传递顺序是从右到左，即最右边的参数最先压栈，由调用者恢复堆栈指针。</p>
+<p>option casemap :none–</p>
+<p>强迫标签为字母大小写敏感。这和高级程序相似。要养成良好习惯。**</p>
+<p>**include \masm32\include\windows.inc</p>
+<p>include \masm32\include\kernel32.inc</p>
+<p>include \masm32\include\masm32.inc —</p>
+<p>windows.inc 它包含了Win32API常数和定义的声明。</p>
+<p>kernel32.inc 它包含了退出函数。</p>
+<p>masm32.inc 它包含了输出函数（显示在屏幕上）。它在masm32中内置着。**</p>
+<p>**includelib \masm32\lib\kernel32.lib</p>
+<p>includelib \masm32\lib\masm32.lib**</p>
+<p><strong>退出和输出函数须要有库libraries。</strong></p>
+<p>**.data –所有程序数据在此指令（伪指令）的下面。</p>
+<p>HelloWorld db “Hello World!”, 0 —</p>
+<p>变量名 定义字节 变量内容：字符串”Hello World!” 0表示字符串结束。**</p>
+<p>**.code –指向程序代码</p>
+<p>start: –所有代码在此标签之后开始。</p>
+<p>invoke StdOut, addr HelloWorld —</p>
+<p>invoke调用一个输出函数StOut,字符串”Hello World!”的地址：addr 变量名</p>
+<p>invoke ExitProcess, 0 –传递0给函数ExitProcess，退出程序。</p>
+<p>/////////////////////////////////////////////////**</p>
+<p><strong>ml /c /Zd /coff</strong></p>
+<p>**/c 是告诉MASM只编译不链接。这主要是考虑到在链接前您可能还有其他工作要做。</p>
+<p>/coff 告诉MASM产生的目标文件用 coff 格式。MASM 的 coff 格式是COFF（Common Object File      Format：通用目标文件格式） 格式的一种变体。</p>
+<p>/Zd–Add line number debug info加上行号调试信息。</p>
+<p>当您成功的编译了 x.asm 后，编译器会产生 x.obj 目标文件，目标文件和可执行文件只一步之遥，目标文件中包含了以二进制形式存在的指令和数据，比可执行文件相差的只是链接器加入的重定位信息。**</p>
+<p><strong>link /subsystem:console x.obj</strong></p>
+<p>**/subsystem:console 告诉链接器可执行文件的运行平台是console即命令行(另一个平台是windows) 。</p>
+<p>/////////////////////////////////////////////////////**</p>
+<p>ML.EXE 6.14 Options</p>
+<p>Options</p>
+<p>ML [ /options ] filelist [ /link linkoptions ]</p>
+<p>/AT Enable tiny model (.COM file)</p>
+<p>/Bl<!-- raw HTML omitted --> Use alternate linker</p>
+<p>/c Assemble without linking</p>
+<p>/Cp Preserve case of user identifiers</p>
+<p>/Cu Map all identifiers to upper case</p>
+<p>/Cx Preserve case in publics, externs</p>
+<p>/coff generate COFF format object file</p>
+<p>/D<!-- raw HTML omitted -->[=text] Define text macro</p>
+<p>/EP Output preprocessed listing to stdout</p>
+<p>/F <!-- raw HTML omitted --> Set stack size (bytes)</p>
+<p>/Fe<!-- raw HTML omitted --> Name executable</p>
+<p>/Fl[file] Generate listing</p>
+<p>/Fm[file] Generate map</p>
+<p>/Fo<!-- raw HTML omitted --> Name object file</p>
+<p>/FPi Generate 80×87 emulator encoding</p>
+<p>/Fr[file] Generate limited browser info</p>
+<p>/FR[file] Generate full browser info</p>
+<p>/G&lt;c|d|z&gt; Use Pascal, C, or Stdcall calls</p>
+<p>/H<!-- raw HTML omitted --> Set max external name length</p>
+<p>/I<!-- raw HTML omitted --> Add include path</p>
+<p>/link <!-- raw HTML omitted --></p>
+<p>/nologo Suppress copyright message</p>
+<p>/Sa Maximize source listing</p>
+<p>/Sc Generate timings in listing</p>
+<p>/Sf Generate first pass listing</p>
+<p>/Sl<!-- raw HTML omitted --> Set line width</p>
+<p>/Sn Suppress symbol-table listing</p>
+<p>/Sp<!-- raw HTML omitted --> Set page length</p>
+<p>/Ss<!-- raw HTML omitted --> Set subtitle</p>
+<p>/St<!-- raw HTML omitted --> Set title</p>
+<p>/Sx List false conditionals</p>
+<p>/Ta<!-- raw HTML omitted --> Assemble non-.ASM file</p>
+<p>/w Same as /W0 /WX</p>
+<p>/WX Treat warnings as errors</p>
+<p>/W<!-- raw HTML omitted --> Set warning level</p>
+<p>/X Ignore INCLUDE environment path</p>
+<p>/Zd Add line number debug info</p>
+<p>/Zf Make all symbols public</p>
+<p>/Zi Add symbolic debug info</p>
+<p>/Zm Enable MASM 5.10 compatibility</p>
+<p>/Zp[n] Set structure alignment</p>
+<p>/Zs Perform syntax check</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/" data-toggle="tooltip" data-placement="top" title="Speex编/解码API的使用 及其speex 回声消除">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-03-14-safari-%E6%A8%A1%E6%8B%9F%E7%9A%84-sourceindex/" data-toggle="tooltip" data-placement="top" title="safari 模拟的 sourceindex">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Mar 6, 2012</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

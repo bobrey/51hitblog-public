@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>有趣、好玩 on IT技术分享</title>
+    <link>https://www.51hint.com/categories/%E6%9C%89%E8%B6%A3%E5%A5%BD%E7%8E%A9/</link>
+    <description>Recent content in 有趣、好玩 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Sep 2015 04:49:47 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/%E6%9C%89%E8%B6%A3%E5%A5%BD%E7%8E%A9/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据可视化</title>
+      <link>https://www.51hint.com/posts/2015-09-07-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+      <pubDate>Mon, 07 Sep 2015 04:49:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-09-07-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+      <description>Spss那样强大的统计分析功能。 Matlab的功能更加强大，但需要较为深厚的编程基础，比较适合科学方面的可视化项目。 Excel是最流行最常用</description>
+    </item>
+    
+    <item>
+      <title>如何学习科学：开放科学工具箱</title>
+      <link>https://www.51hint.com/posts/2014-08-17-%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E7%A7%91%E5%AD%A6%E5%BC%80%E6%94%BE%E7%A7%91%E5%AD%A6%E5%B7%A5%E5%85%B7%E7%AE%B1/</link>
+      <pubDate>Sun, 17 Aug 2014 08:43:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-17-%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E7%A7%91%E5%AD%A6%E5%BC%80%E6%94%BE%E7%A7%91%E5%AD%A6%E5%B7%A5%E5%85%B7%E7%AE%B1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>全自动铺砖机</title>
+      <link>https://www.51hint.com/posts/2014-07-29-%E5%85%A8%E8%87%AA%E5%8A%A8%E9%93%BA%E7%A0%96%E6%9C%BA/</link>
+      <pubDate>Tue, 29 Jul 2014 13:22:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-29-%E5%85%A8%E8%87%AA%E5%8A%A8%E9%93%BA%E7%A0%96%E6%9C%BA/</guid>
+      <description>荷兰惊险全自动铺砖机，真是太先进了， 不知道价钱如何，能不能引进几台瞅瞅，哈哈 先上图，瞅瞅吧</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> GCD - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="GCD" />
+  <meta name="twitter:title" content="GCD" />
+  <meta name="description" content="iOS中多线程编程工具主要有： NSThread NSOperation GCD 这三种方法都简单易用,各有千秋.但无疑GCD是最有诱惑力的,因为其本身是apple为多核的并行运算提出的">
+  <meta property="og:description" content="iOS中多线程编程工具主要有： NSThread NSOperation GCD 这三种方法都简单易用,各有千秋.但无疑GCD是最有诱惑力的,因为其本身是apple为多核的并行运算提出的">
+  <meta name="twitter:description" content="iOS中多线程编程工具主要有： NSThread NSOperation GCD 这三种方法都简单易用,各有千秋.但无疑GCD是最有诱惑力的,因为其本身是apple为多核的并行运算提出的">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-08-26-gcd/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-08-26-gcd/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">GCD</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 26, 2011</h4>
+    </section>
+    <h5 id="wc">2100 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>iOS中多线程编程工具主要有：</p>
+<ul>
+<li> NSThread</li>
+<li>NSOperation</li>
+<li>GCD</li>
+</ul>
+<p>这三种方法都简单易用,各有千秋.但无疑GCD是最有诱惑力的,因为其本身是apple为多核的并行运算提出的解决方案.虽然当前移动平台用双核的不多,但不影响GCD作为多线程编程的利器(ipad2已经是双核了,这无疑是一个趋势).</p>
+<p>GCD是和block紧密相连的,所以最好先了解下block(可以查看<!-- raw HTML omitted -->这里<!-- raw HTML omitted -->).GCD是C level的函数,这意味着它也提供了C的函数指针作为参数,方便了C程序员.</p>
+<p>下面首先来看GCD的使用:</p>
+<!-- raw HTML omitted -->
+<p>async表明异步运行,block代表的是你要做的事情,queue则是你把任务交给谁来处理了.(除了async,还有sync,delay,本文以async为例).</p>
+<p>之所以程序中会用到多线程是因为程序往往会需要读取数据,然后更新UI.为了良好的用户体验,读取数据的操作会倾向于在后台运行,这样以避免阻塞主线程.GCD里就有三种queue来处理.</p>
+<ol>
+<li>Main queue：</li>
+</ol>
+<p>顾名思义,运行在主线程,由dispatch_get_main_queue获得.和ui相关的就要使用Main Queue.</p>
+<p>2.Serial quque(private dispatch queue)</p>
+<p>每次运行一个任务,可以添加多个,执行次序FIFO. 通常是指程序员生成的,比如:</p>
+<!-- raw HTML omitted -->
+<p>3. Concurrent queue(global dispatch queue):</p>
+<p>可以同时运行多个任务,每个任务的启动时间是按照加入queue的顺序,结束的顺序依赖各自的任务.使用dispatch_get_global_queue获得.</p>
+<p>所以我们可以大致了解使用GCD的框架:</p>
+<!-- raw HTML omitted -->
+<p>由此可见,GCD的使用非常简单,以我的使用经验来看,以后会逐步淘汰使用NSOperation而改用GCD.</p>
+<p>//====================================================================================//</p>
+<p>个简单的例子来说，为什么初学者写tableview的时候，滑动列表时总会很卡，因为很多初学者把图片装载放到main thread主线程去执行，例如我们要滑动畅顺的话，iOS最快可以1秒内刷新60次，如何你的一个cell的文字和图片装载超过1/60秒的话，自然就会卡。所以一般我们会把图片装载这些需要多点时间的移出main thread来处理，对于用GCD来说，就是把图片载入放到另外一个queue队列中来异步执行，当资源准备好了后，放回到main thread中显示出来。main thread在GCD中就是main queue。</p>
+<p> </p>
+<p>创建一个新queue队列的代码：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>例如，我们图片读取放到network_queue来进行异步执行</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>dispatch_async的意思就是将任务进行异步并行处理，不一定需要一个任务处理完后才能处理下一个。以上代码loadMyImageFromNetwork的意思就是从网络中读取图片，这个任务交给network_queue来处理。</p>
+<p>这样读取图片的时间过长也不会阻塞主线程界面的处理。</p>
+<p>当我们处理完图片后，应该更新界面，从queue的概念去设计，就是要将更新界面的代码放到main queue中去，因为iOS里面永远是主线程来刷新重画UI.</p>
+<p> </p>
+<p>dispatch_get_main_queue() 函数就是返回主线程，^{} 封装的就是任务代码，这样嵌套方式就可以从一个队列queue，跳到另一个queue，就是这么简单。</p>
+<p>我们一般可以把networking有关的代码放到一个queue，把图片resize的代码放到另外一个queue，处理完后更新界面，只需要嵌套跳回到 main queue。这样加上几行代码，你的程序就可以利用到系统多核资源，把具体的调度工作交给了操作系统自己来分配。有了这样的代码，不管你的硬件是单核，双核还是iMac的4核，甚至8核，都可以非常好地并行处理。</p>
+<p> </p>
+<p>—————————————————————————————————————————————–</p>
+<p>1、内存管理</p>
+<p>2、尽量少的UIView层</p>
+<p>3、显示最佳尺寸的图片</p>
+<p>4、尽量使用图片pattern，而不是一张大的图片</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>5、使用完资源后，立即释放</p>
+<p>6、循环中大量生成的自动释放autorelease对象，可以考虑使用autorelease pool封装</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>参考http://anxonli.iteye.com/blog/1097777</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>在ios，blocks是对象，它封装了一段代码，这段代码可以在任何时候执行。Blocks可以作为函数参数或者函数的返回值，而其本身又可以带输入参数或返回值。它和传统的函数指针很类似，但是有区别：blocks是inline的，并且它对局部变量是只读的。</p>
+<p>Blocks的定义：</p>
+<p>int (^Multiply)(int, int) = ^(int num1, int num2) {return num1 * num2;};</p>
+<p>定义了一个Multiply的blocks对象，它带有两个int参数，返回int。等式右边就是blocks的具体实现，注意｛｝blocks体里的；。</p>
+<p>Blocks可以访问局部变量，但是不能修改。</p>
+<p>int multiplier = 7;</p>
+<p>int (^myBlock)(int) = ^(int num) {</p>
+<p>multiplier ++;//编译报错</p>
+<p>return num * multiplier;</p>
+<p>};</p>
+<p>如果要修改就要加关键字：__block</p>
+<p>__block int multiplier = 7;</p>
+<p>int (^myBlock)(int) = ^(int num) {</p>
+<p>multiplier ++;//这样就可以了</p>
+<p>return num * multiplier;</p>
+<p>};</p>
+<p> </p>
+<p>作为函数的参数，blocks某种意义上替代了回调函数或者delegate。当函数调用了，假设某个事件触发，这时blocks里的内容就会运行。这样有利于代码的整合和阅读，你不需要到处去实现委托方法了。</p>
+<p>系统API中已经有很多支持blocks参数了</p>
+<p>·       Completion handlers</p>
+<p>·       Notification handlers</p>
+<p>·       Error handlers</p>
+<p>·       Enumeration</p>
+<p>·       View animation and transitions</p>
+<p>·       Sorting</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p><a href="http://www.cnblogs.com/scorpiozj/archive/2011/07/25/2116459.html">http://www.cnblogs.com/scorpiozj/archive/2011/07/25/2116459.html</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-08-19-%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-%E4%B8%80%E4%B8%AA%E4%B8%8D%E9%94%99%E7%9A%84%E6%A8%A1%E6%9D%BF-2/" data-toggle="tooltip" data-placement="top" title="图书管理系统解决方案 一个不错的模板">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-09-01-mac-%E3%81%A7all-in-one-eclipse/" data-toggle="tooltip" data-placement="top" title="Mac でAll in one Eclipse">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-08-19-ipad-%E5%A4%9A%E8%A7%A6%E5%BC%8Fweb%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B9%8B%E4%B8%80%E5%AF%B9%E4%BA%8Etouch%E7%9A%84%E5%A4%84%E7%90%86-2/">ipad 多触式web前端开发之一：对于Touch的处理</a></li>
+                    
+                    <li><a href="/posts/2011-08-19-ipad-web/">ipad web</a></li>
+                    
+                    <li><a href="/posts/2011-08-19-%E8%8E%B7%E5%8F%96%E7%BD%91%E9%A1%B5gbk%E5%86%85%E5%AE%B9/">获取网页(GBK)内容</a></li>
+                    
+                    <li><a href="/posts/2011-08-18-iphone%E4%B9%8Bnsdata%E8%BD%ACbyte%E6%95%B0%E7%BB%84-%E4%BB%8Ensdata%E4%B8%AD%E8%AF%BB%E5%8F%96%E4%B8%80%E4%BA%9B%E9%95%BF%E5%BA%A6%E5%AD%97%E8%8A%82/">iphone之nsdata转byte数组;  从NSData中读取一些长度字节；</a></li>
+                    
+                    <li><a href="/posts/2011-08-18-%E5%88%86%E4%BA%AB%E5%9C%A8%E8%AE%BE%E5%A4%87%E4%B8%8A%E4%B8%8D%E7%94%A8idp%E8%B0%83%E8%AF%95app%E7%9A%84%E6%96%B9%E6%B3%95/">分享在设备上不用iDP调试app的方法</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 26, 2011</h4>
+    </section>
+    <h5 id="wc">2100 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

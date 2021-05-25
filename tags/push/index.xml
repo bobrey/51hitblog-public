@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>push on IT技术分享</title>
+    <link>https://www.51hint.com/tags/push/</link>
+    <description>Recent content in push on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Jul 2015 01:57:06 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/push/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS push Notification</title>
+      <link>https://www.51hint.com/posts/2015-07-22-ios-push-notification/</link>
+      <pubDate>Wed, 22 Jul 2015 01:57:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-22-ios-push-notification/</guid>
+      <description>Apple Push Notification Services in iOS 6 Tutorial: Part 1/2 – Ray Wenderlich
+http://www.raywenderlich.com/32960/apple-push-notification-services-in-ios-6-tutorial-part-1
+ ApnsPHP
+https://github.com/immobiliare/ApnsPHP
+  Easy APNS
+http://www.easyapns.com/apple-delegate
+ download zipapns_php</description>
+    </item>
+    
+  </channel>
+</rss>

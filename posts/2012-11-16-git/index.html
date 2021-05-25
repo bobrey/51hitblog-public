@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> git - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="git" />
+  <meta name="twitter:title" content="git" />
+  <meta name="description" content="Git 是分散式的版本控制系統, 從架設、簡易操作、設定, 此篇主要是整理 基本操作、遠端操作 等. 註: Git 的範圍太廣了, 把這篇當作是初學入門就好了. 注意事">
+  <meta property="og:description" content="Git 是分散式的版本控制系統, 從架設、簡易操作、設定, 此篇主要是整理 基本操作、遠端操作 等. 註: Git 的範圍太廣了, 把這篇當作是初學入門就好了. 注意事">
+  <meta name="twitter:description" content="Git 是分散式的版本控制系統, 從架設、簡易操作、設定, 此篇主要是整理 基本操作、遠端操作 等. 註: Git 的範圍太廣了, 把這篇當作是初學入門就好了. 注意事">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-11-16-git/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-11-16-git/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">git</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Nov 16, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/git/">git</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>Git 是分散式的版本控制系統, 從架設、簡易操作、設定, 此篇主要是整理 基本操作、遠端操作 等.</p>
+<p>註: Git 的範圍太廣了, 把這篇當作是初學入門就好了. <img src="data:image/gif;base64,R0lGODlhDwAPALMOAP/qAEVFRQAAAP/OAP/JAP+0AP6dAP/+k//9E///////xzMzM///6//lAAAAAAAAACH5BAEAAA4ALAAAAAAPAA8AAARb0EkZap3YVabOGRcWcAgCnIMRTEEnCCfwpqt2mHEOagoOnz+CKnADxoKFyiHHBBCSAdOiCVg8KwPZa7sVrgJZQWI8FhB2msGgwTXTWGqCXP4WBQr4wjDDstQmEQA7" alt=":)"></p>
+<h4 id="注意事項">注意事項</h4>
+<p>由 project/.git/config 可知: (若有更多, 亦可由此得知)</p>
+<ul>
+<li>origin(remote) 是 Repository 的版本</li>
+<li>master(branch) 是 local 端, 正在修改的版本</li>
+</ul>
+<p>平常沒事不要去動到 origin, 如果動到, 可用 git reset –hard 回覆到沒修改的狀態.</p>
+<p> </p>
+<h4 id="git-新增檔案">Git 新增檔案</h4>
+<ul>
+<li>git add . # 將資料先暫存到 staging area, add 之後再新增的資料, 於此次 commit 不會含在裡面.</li>
+<li>git add filename</li>
+<li>git add modify-file # 修改過的檔案, 也要 add. (不然 commit 要加上 -a 的參數)</li>
+<li>git add -u # 只加修改過的檔案, 新增的檔案不加入.</li>
+<li>git add -i # 進入互動模式</li>
+</ul>
+<h4 id="git-刪除檔案">Git 刪除檔案</h4>
+<ul>
+<li>git rm filename</li>
+</ul>
+<h4 id="git-修改檔名搬移目錄">Git 修改檔名、搬移目錄</h4>
+<ul>
+<li>git mv filename new-filename</li>
+</ul>
+<h4 id="git-status-看目前的狀態">Git status 看目前的狀態</h4>
+<ul>
+<li>git status # 看目前檔案的狀態</li>
+</ul>
+<h4 id="git-commit">Git Commit</h4>
+<ul>
+<li>git commit</li>
+<li>git commit -m ‘commit message’</li>
+<li>git commit -a -m ‘commit -message’ # 將所有修改過得檔案都 commit, 但是 新增的檔案 還是得要先 add.</li>
+<li>git commit -a -v # -v 可以看到檔案哪些內容有被更改, -a 把所有修改的檔案都 commit</li>
+</ul>
+<h4 id="git-產生新的-branch">Git 產生新的 branch</h4>
+<ul>
+<li>git branch # 列出目前有多少 branch</li>
+<li>git branch new-branch # 產生新的 branch (名稱: new-branch), 若沒有特別指定, 會由目前所在的 branch / master 直接複製一份.</li>
+<li>git branch new-branch master # 由 master 產生新的 branch(new-branch)</li>
+<li>git branch new-branch v1 # 由 tag(v1) 產生新的 branch(new-branch)</li>
+<li>git branch -d new-branch # 刪除 new-branch</li>
+<li>git branch -D new-branch # 強制刪除 new-branch</li>
+<li>git checkout -b new-branch test # 產生新的 branch, 並同時切換過去 new-branch</li>
+<li># 與 remote repository 有關</li>
+<li>git branch -r # 列出所有 Repository branch</li>
+<li>git branch -a # 列出所有 branch</li>
+</ul>
+<h4 id="git-checkout-切換-branch">Git checkout 切換 branch</h4>
+<ul>
+<li>git checkout branch-name # 切換到 branch-name</li>
+<li>git checkout master # 切換到 master</li>
+<li>git checkout -b new-branch master # 從 master 建立新的 new-branch, 並同時切換過去 new-branch</li>
+<li>git checkout -b newbranch # 由現在的環境為基礎, 建立新的 branch</li>
+<li>git checkout -b newbranch origin # 於 origin 的基礎, 建立新的 branch</li>
+<li>git checkout filename # 還原檔案到 Repository 狀態</li>
+<li>git checkout HEAD . # 將所有檔案都 checkout 出來(最後一次 commit 的版本), 注意, 若有修改的檔案都會被還原到上一版. (git checkout -f 亦可)</li>
+<li>git checkout xxxx . # 將所有檔案都 checkout 出來(xxxx commit 的版本, xxxx 是 commit 的編號前四碼), 注意, 若有修改的檔案都會被還原到上一版.</li>
+<li>git checkout — * # 恢復到上一次 Commit 的狀態(* 改成檔名, 就可以只恢復那個檔案)</li>
+</ul>
+<h4 id="git-diff">Git diff</h4>
+<ul>
+<li>git diff master # 與 Master 有哪些資料不同</li>
+<li>git diff –cached # 比較 staging area 跟本來的 Repository</li>
+<li>git diff tag1 tag2 # tag1, 與 tag2 的 diff</li>
+<li>git diff tag1:file1 tag2:file2 # tag1, 與 tag2 的 file1, file2 的 diff</li>
+<li>git diff # 比較 目前位置 與 staging area</li>
+<li>git diff –cached # 比較 staging area 與 Repository 差異</li>
+<li>git diff HEAD # 比較目前位置 與 Repository 差別</li>
+<li>git diff new-branch # 比較目前位置 與 branch(new-branch) 的差別</li>
+<li>git diff –stat</li>
+</ul>
+<h4 id="git-tag">Git Tag</h4>
+<ul>
+<li>git tag v1 ebff # log 是 commit ebff810c461ad1924fc422fd1d01db23d858773b 的內容, 設定簡短好記得 Tag: v1</li>
+<li>git tag 中文 ebff # tag 也可以下中文, 任何文字都可以</li>
+<li>git tag -d 中文 # 把 tag=中文 刪掉</li>
+</ul>
+<h4 id="git-log">Git log</h4>
+<ul>
+<li>git log # 將所有 log 秀出</li>
+<li>git log –all # 秀出所有的 log (含 branch)</li>
+<li>git log -p # 將所有 log 和修改過得檔案內容列出</li>
+<li>git log -p filename # 將此檔案的 commit log 和 修改檔案內容差異部份列出</li>
+<li>git log –name-only # 列出此次 log 有哪些檔案被修改</li>
+<li>git log –stat –summary # 查每個版本間的更動檔案和行數</li>
+<li>git log filename # 這個檔案的所有 log</li>
+<li>git log directory # 這個目錄的所有 log</li>
+<li>git log -S’foo()’ # log 裡面有 foo() 這字串的.</li>
+<li>git log –no-merges # 不要秀出 merge 的 log</li>
+<li>git log –since=”2 weeks ago” # 最後這 2週的 log</li>
+<li>git log –pretty=oneline # 秀 log 的方式</li>
+<li>git log –pretty=short # 秀 log 的方式</li>
+<li>git log –pretty=format:’%h was %an, %ar, message: %s’</li>
+<li>git log –pretty=format:’%h : %s’ –graph # 會有簡單的文字圖形化, 分支等.</li>
+<li>git log –pretty=format:’%h : %s’ –topo-order –graph # 依照主分支排序</li>
+<li>git log –pretty=format:’%h : %s’ –date-order –graph # 依照時間排序</li>
+</ul>
+<h4 id="git-show">Git show</h4>
+<ul>
+<li>git show ebff # 查 log 是 commit ebff810c461ad1924fc422fd1d01db23d858773b 的內容</li>
+<li>git show v1 # 查 tag:v1 的修改內容</li>
+<li>git show v1:test.txt # 查 tag:v1 的 test.txt 檔案修改內容</li>
+<li>git show HEAD # 此版本修改的資料</li>
+<li>git show HEAD^ # 前一版修改的資料</li>
+<li>git show HEAD^^ # 前前一版修改的資料</li>
+<li>git show HEAD~4 # 前前前前一版修改的資料</li>
+</ul>
+<h4 id="git-reset-還原">Git reset 還原</h4>
+<ul>
+<li>git reset –hard HEAD # 還原到最前面</li>
+<li>git reset –hard HEAD~3</li>
+<li>git reset –soft HEAD~3</li>
+<li>git reset HEAD filename # 從 staging area 狀態回到 unstaging 或 untracked (檔案內容並不會改變)</li>
+</ul>
+<p> </p>
+<p>摘自 :<a href="http://blog.longwin.com.tw/2009/05/git-learn-initial-command-2009/" title="git">http://blog.longwin.com.tw/2009/05/git-learn-initial-command-2009/</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-11-07-c%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%BE%A4%E8%8B%B1%E4%BC%9A/" data-toggle="tooltip" data-placement="top" title="C&#43;&#43;开发常用工具“群英会”">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-11-20-nio%E8%BF%9E%E6%8E%A5socket/" data-toggle="tooltip" data-placement="top" title="NIO连接socket">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2012-08-13-git-windows-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">git windows 客户端解决方法</a></li>
+                    
+                    <li><a href="/posts/2012-08-13-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86-git/">版本管理 git</a></li>
+                    
+                    <li><a href="/posts/2011-08-02-%E7%8E%B0%E6%9C%89-xcode-projects%E5%8A%A0%E5%85%A5-git%E7%89%88%E6%9C%AC%E5%BA%93%E7%AE%A1%E7%90%86/">现有 Xcode Projects加入 git版本库管理</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Nov 16, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/git/">git</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

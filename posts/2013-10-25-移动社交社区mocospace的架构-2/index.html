@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 移动社交社区MocoSpace的架构 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="移动社交社区MocoSpace的架构" />
+  <meta name="twitter:title" content="移动社交社区MocoSpace的架构" />
+  <meta name="description" content="This is a guest post by Jamie Hall, Co-founder &amp; CTO of MocoSpace, describing the architecture for their mobile social network. This is a timely architecture to learn from as it combines several hot trends: it is very large, mobile, and social. What they think is especially cool about their system is: how it optimizes for device/browser fragmentation on the mobile Web; their multi-tiered, read/write, local/distributed caching system; selecting PostgreSQL">
+  <meta property="og:description" content="This is a guest post by Jamie Hall, Co-founder &amp; CTO of MocoSpace, describing the architecture for their mobile social network. This is a timely architecture to learn from as it combines several hot trends: it is very large, mobile, and social. What they think is especially cool about their system is: how it optimizes for device/browser fragmentation on the mobile Web; their multi-tiered, read/write, local/distributed caching system; selecting PostgreSQL">
+  <meta name="twitter:description" content="This is a guest post by Jamie Hall, Co-founder &amp; CTO of MocoSpace, describing the architecture for their mobile social network. This is a timely architecture to learn from as it combines several …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84-2/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84-2/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">移动社交社区MocoSpace的架构</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Oct 25, 2013</h4>
+    </section>
+    <h5 id="wc">1700 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/mocospace/">mocospace</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/%E6%9E%B6%E6%9E%84/">架构</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#stats">Stats</a></li>
+    <li><a href="#platform">Platform</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#lessons-learned">Lessons Learned</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>This is a guest post by Jamie Hall, Co-founder &amp; CTO of MocoSpace, describing the architecture for their mobile social network. This is a timely architecture to learn from as it combines several hot trends: it is very large, mobile, and social. What they think is especially cool about their system is: how it optimizes for device/browser fragmentation on the mobile Web; their multi-tiered, read/write, local/distributed caching system; selecting PostgreSQL over MySQL as a relational DB that can scale.</p>
+<p>MocoSpace is a mobile social network, with 12 million members and 3 billion page views a month, which makes it one of the most highly trafficked mobile Websites in the US. Members access the site mainly from their mobile phone Web browser, ranging from high end smartphones to lower end devices, as well as the Web. Activities on the site include customizing profiles, chat, instant messaging, music, sharing photos &amp; videos, games, eCards and blogs. The monetization strategy is focused on advertising, on both the mobile and Websites, as well as a virtual currency system and a handful of premium feature upgrades.</p>
+<h2 id="stats">Stats</h2>
+<ol>
+<li>3 billion page views a month</li>
+<li>Top 4 most trafficked mobile website after MySpace, Facebook and Google (<a href="http://www.groundtruth.com/mobile-is-mobile">http://www.groundtruth.com/mobile-is-mobile</a>)</li>
+<li>75% mobile Web, 25% Web</li>
+<li>12 million members</li>
+<li>6 million unique visitors a month</li>
+<li>100k concurrent users</li>
+<li>12 million photo uploads a month</li>
+<li>2 million emails received a day, 90% spam, 2.5 million sent a day</li>
+<li>Team of 8 developers, 2 QA, 1 sysadmin</li>
+</ol>
+<h2 id="platform">Platform</h2>
+<ol>
+<li>CentOS + Red Hat</li>
+<li>Resin application server — Java Servlets, JavaServer Pages, Comet</li>
+<li>PostgreSQL</li>
+<li>Memcached</li>
+<li>ActiveMQ’s job + message queue, in Red Hat cluster for high availability</li>
+<li>Squid – static content caching, tried Varnish but had stability issues</li>
+<li>JQuery + Ajax</li>
+<li>S3 for user photo &amp; video storage (8 TB) and EC2 for photo processing</li>
+<li>F5 BigIP load balancers – sticky sessions, gzip compression on all pages</li>
+<li>Akamai CDN – 2 TB a day, 250 million requests a day</li>
+<li>Monitoring – Nagios for alerts, Zabbix for trending</li>
+<li>EMC SAN – high IO performance for databases by RAIDing (RAID 10) lots of disks, replacing with high performance Fusion-io solid-state flash ioDrives, much more cost effective</li>
+<li>PowerMTA for mail delivery, Barracuda spam firewalls</li>
+<li>Subversion source control, Hudson for continuous integration</li>
+<li>FFMPEG for Mobile to Web and Web to mobile video transcoding</li>
+<li>Selenium for browser test case automation</li>
+<li>Web tier
+<ol>
+<li>5x Dell 1950, 2x dual core, 16G RAM</li>
+<li>5x Dell 6950/R905, 4x dual core, 32G RAM</li>
+</ol>
+</li>
+<li>Database tier
+<ol>
+<li>2x Sun Fire X4600 M2 Server, 8x quad core, 256G RAM</li>
+<li>2x Dell 6950, 4x dual core, 64G RAM</li>
+</ol>
+</li>
+</ol>
+<h2 id="architecture">Architecture</h2>
+<ol>
+<li>All pages are dynamic, with user data and customizations as well as many browser and device specific optimizations. Browser and device fragmentation issues are much greater on mobile than on the Web. Many optimizations, adaptations required based on browser capabilities, limited support for CSS/JavaScript, screen size, etc. Mobile Web traffic is often served via network proxies (gateways), with poor support for Cookies, making session management and user identification a challenge.</li>
+<li>A big challenge is handling the device/browser fragmentation on the mobile Web – optimizing for a huge range of device capabilities (everything from iPhones with touchscreens to 5 year old Motorola Razrs), screen sizes, lack of / inconsistent Web standards compliance, etc. We abstract out our presentation layer so we can serve pages to all mobile devices from the same code base, and maintain a large device capabilities database (containing things like screen size, supported file types, maximum allowed page sizes, etc) which is used to drive generation of our pages. The database contains capability details for hundreds of devices and mobile browser types.</li>
+<li>Database is sharded based on a user key, with a master lookup table mapping users to shards. We rolled our own query and aggregation layer, allowing us to query and join data across shards, though this is not used frequently. With sharding we sacrifice some consistency, but that’s Ok as long as you’re not running a bank. We perform data consistency checks offline, in batches, with the goal being eventual consistency. Large tables are partitioned into smaller sub tables for more efficient access, reducing time tables are locked for updates as well as operational maintenance activities. Log shipping used for warm standbys.</li>
+<li>A multi-tiered caching system is used, with data cached locally within the application servers as well as distributed via Memcached. When making an update we don’t just invalidate the cache and then re-populate after reading again from the database, rather we update Memcached with the new data and save another trip to the database. When updating the cache an invalidation directive is sent via the messaging queue to the local caches on each of the application servers.</li>
+<li>A distributed message queue is used for distributed server communication, everything from sending messages in realtime between users to system messages such as local cache invalidation directives.</li>
+<li>Dedicated server for building and traversing social graph entirely in memory, used to generate friend recommendations, etc.</li>
+<li>Load balancer used for rolling deploys of new versions of the site without affecting performance/traffic.</li>
+<li>Release every 2 weeks. Longer release cycles = exponential complexity, more difficult to troubleshoot and rollback. Development team responsible for deploying to and managing production systems ¿ ¿you built it, you manage it¿.</li>
+<li>Kickstart used to automate server builds from bare metal. Puppet is used to configure a server to a specific personality i.e. Webserver, database server, cache server etc, as well as to push updated policies to running nodes.</li>
+</ol>
+<h2 id="lessons-learned">Lessons Learned</h2>
+<ol>
+<li><strong>Make your boxes sweat</strong>. Don’t be afraid of high system load as long as response times are acceptable. We pack as many as five application server instances on a single box, each running on a different port. Scale up to the high end of commodity hardware before scaling out. Can pick up used or refurbished powerful 4U boxes for cheap.</li>
+<li><strong>Understand where your bottlenecks are in each tier</strong>. Are you CPU or IO (disk, network) bound? Database is almost always IO (disk) bound. Once the database doesn’t fit in RAM you hit a wall.</li>
+<li><strong>Profile the database religiously</strong>. Obsess when it comes to optimizing the database. Scaling Web tier is cheap and easy, database tier is much harder and expensive. Know the top queries on your system, both by execution time and frequency. Track and benchmark top queries with each release, need to catch and address performance issues with the database early. We use the pgFouine log analyzer and new PostgreSQL pg_stat_statements utility for generating profiling snapshots in real-time.</li>
+<li><strong>Design to disable</strong>. Be able to configure and turn off anything you release instantly, without requiring a code change or deployment. Load and stress testing are important but nothing like testing with live, production traffic via incremental, phased rollouts.</li>
+<li><strong>Communicate synchronously only when absolutely necessary</strong>. When one component or service fails it shouldn’t bring down other parts of the system. Do everything you can in the background or as a separate thread or process, don’t make the user wait. Update the database in batches wherever possible. Any system making requests outside the network need aggressive monitoring, timeout settings, and failure handling / retries. For example, we found S3 latency and failure rates can be significant, so we queue failed calls and retry later.</li>
+<li><strong>Think about monitoring during design, not after</strong>. Every component should produce performance, health, throughput, etc data. Set up alerts when these exceed thresholds. Consolidated graphs showing metrics across all instances, rather than just per instance, are particularly helpful for identifying issues and trends at a glance and should be reviewed daily — if normal operating behavior isn’t well understood it’s impossible to identify and respond to what isn’t. We tried many monitoring systems – Cacti, Ganglia, Hyperic, Zabbix, Nagios, as well as some custom built solutions. Whichever you use the most important thing is to be comfortable with it, otherwise you won’t use it enough. It should be easy, using templates, etc to quickly monitor new boxes and services as you throw them up.</li>
+<li><strong>Distributed sessions can be a lot of overhead</strong>. Go stateless when you can, but when you can’t consider sticky sessions. If the server fails the user loses their state and may need to re-login, but that’s rare and acceptable depending on what you need to do.</li>
+<li><strong>Monitor and beware of full/major garbage collection events in Java</strong>, which can lock up the whole JVM for up to 30 seconds. We use Concurrent Mark Sweep (CMS) garbage collector, which introduces some additional system overhead, but have been able to eliminate full garbage collections.</li>
+<li>When a site gets large enough it becomes a magnet for spammers and hackers, both on site and from outside via email, etc. Captcha and IP monitoring are not enough. Must<strong>invest aggressively in detection and containment systems</strong>, internal tools to detect suspicious user behavior and alert and/or attempt to automatically contain.</li>
+<li><strong>Soft delete whenever possible</strong>. Mark data for later deletion, rather than deleting immediately. Deletion can be costly, so queue up for after hours, plus if someone makes a mistake and deletes something they shouldn¿t have it¿s easy to rollback.</li>
+<li><strong>N+1 design</strong>. Never less than two of anything.</li>
+</ol>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84/" data-toggle="tooltip" data-placement="top" title="移动社交社区MocoSpace的架构">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/" data-toggle="tooltip" data-placement="top" title="对于CallBack的简单阐述">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Oct 25, 2013</h4>
+    </section>
+    <h5 id="wc">1700 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/mocospace/">mocospace</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/%E6%9E%B6%E6%9E%84/">架构</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mac on IT技术分享</title>
+    <link>https://www.51hint.com/categories/mac/</link>
+    <description>Recent content in mac on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 May 2016 01:59:20 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mac install imagemagic</title>
+      <link>https://www.51hint.com/posts/2016-05-13-mac-install-imagemagic/</link>
+      <pubDate>Fri, 13 May 2016 01:59:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-05-13-mac-install-imagemagic/</guid>
+      <description>   </description>
+    </item>
+    
+    <item>
+      <title>wireshark过滤</title>
+      <link>https://www.51hint.com/posts/2016-03-08-wireshark%E8%BF%87%E6%BB%A4/</link>
+      <pubDate>Tue, 08 Mar 2016 01:34:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-03-08-wireshark%E8%BF%87%E6%BB%A4/</guid>
+      <description>wireshark过滤无用信息，ack,pdu等 !(frame.len == 1468 or frame.len ==523) and tcp.len&amp;gt;0 and !tcp.reassembled_in and !ssl</description>
+    </item>
+    
+    <item>
+      <title>curio9无限试用</title>
+      <link>https://www.51hint.com/posts/2015-11-12-curio9%E6%97%A0%E9%99%90%E8%AF%95%E7%94%A8/</link>
+      <pubDate>Thu, 12 Nov 2015 05:47:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-12-curio9%E6%97%A0%E9%99%90%E8%AF%95%E7%94%A8/</guid>
+      <description>Curio.app 就是利用cache，反复刷试用而已</description>
+    </item>
+    
+    <item>
+      <title>mail命令发送邮件</title>
+      <link>https://www.51hint.com/posts/2015-11-09-mail%E5%91%BD%E4%BB%A4%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Mon, 09 Nov 2015 02:15:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-09-mail%E5%91%BD%E4%BB%A4%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac隐藏文件</title>
+      <link>https://www.51hint.com/posts/2015-11-05-mac%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Thu, 05 Nov 2015 07:12:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-05-mac%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6/</guid>
+      <description>用“chflags”来隐藏文件和文件夹 chflags hidden /path/to/file/or/folder/ chflags nohidden /path/to/unhide/ 保护 /etc/inetd.conf 这个文件，以免误删或被修改，则指令如下: # chflags schg /etc/inetd.conf # chflags noschg /etc/inetd.conf</description>
+    </item>
+    
+    <item>
+      <title>ios开发环境</title>
+      <link>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Thu, 20 Aug 2015 00:14:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>误删chrome书签，恢复方法</title>
+      <link>https://www.51hint.com/posts/2015-02-28-%E8%AF%AF%E5%88%A0chrome%E4%B9%A6%E7%AD%BE%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 28 Feb 2015 02:05:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-28-%E8%AF%AF%E5%88%A0chrome%E4%B9%A6%E7%AD%BE%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/</guid>
+      <description>&amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; %LOCALAPPDATA%\Google\Chrome\User Data\User Data\Default\ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; Windows XP/2003: &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; %USERPROFILE%\Local Settings\Application Data\Google\Chrome\User Data\Default\ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; 举个例子：C:\Documents and Settings\用户名\Local Settings\Application Data\Google\Chrome\User Data\Default &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; Mac: &amp;lt;/p&amp;gt; &amp;lt;p</description>
+    </item>
+    
+    <item>
+      <title>Omnifocus 2 for mac license</title>
+      <link>https://www.51hint.com/posts/2014-09-07-omnifocus-2-for-mac-license/</link>
+      <pubDate>Sun, 07 Sep 2014 00:56:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-09-07-omnifocus-2-for-mac-license/</guid>
+      <description>&amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; Serial: GZQJ-TSPJ-INPZ-LBFA-LPZQ-DEFL-PZQ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; Name: mojado &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; Serial: FFBR-YIRA-FYAX-HJDY-FIYH-JEFF-IYH &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; Name: mojado &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; Serial: CQUJ-EIYE-IAJV-TMCA-UJPL-NEFU-JPL &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; 请直接从官网下载 官方程序，然后用上述license激活。</description>
+    </item>
+    
+    <item>
+      <title>retinizer将低清转变成retina高清</title>
+      <link>https://www.51hint.com/posts/2014-05-12-retinizer%E5%B0%86%E4%BD%8E%E6%B8%85%E8%BD%AC%E5%8F%98%E6%88%90retina%E9%AB%98%E6%B8%85/</link>
+      <pubDate>Mon, 12 May 2014 02:10:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-05-12-retinizer%E5%B0%86%E4%BD%8E%E6%B8%85%E8%BD%AC%E5%8F%98%E6%88%90retina%E9%AB%98%E6%B8%85/</guid>
+      <description>retinizer是一款将不支持Retina的应用程序立刻变成高清的实用小工具。方法也很简单，将App拖入Retinizer窗口即可完成转化</description>
+    </item>
+    
+    <item>
+      <title>Burp Suite抓包</title>
+      <link>https://www.51hint.com/posts/2014-01-14-burp-suite/</link>
+      <pubDate>Tue, 14 Jan 2014 09:30:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-burp-suite/</guid>
+      <description>Burp Suite 一款相当不错的抓包工具，推荐使用 **urp Suite是一个Web应用程序集成攻击平台，它包含了一系列burp工具，这些工具之间有大量接口可以互相</description>
+    </item>
+    
+    <item>
+      <title>mac 修改path</title>
+      <link>https://www.51hint.com/posts/2013-11-21-mac-%E4%BF%AE%E6%94%B9path/</link>
+      <pubDate>Thu, 21 Nov 2013 14:22:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-21-mac-%E4%BF%AE%E6%94%B9path/</guid>
+      <description>mac系统下新增变量等一般使用 为了使变量立刻生效需要执行</description>
+    </item>
+    
+    <item>
+      <title>mac 显示桌面快捷键</title>
+      <link>https://www.51hint.com/posts/2013-11-02-mac-%E6%98%BE%E7%A4%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Sat, 02 Nov 2013 08:23:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-02-mac-%E6%98%BE%E7%A4%BA%E6%A1%8C%E9%9D%A2%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>显示桌面快捷键 1》 command + f3 2&amp;raquo; fn + f11 3&amp;raquo; 五个手指张开 （触摸板）</description>
+    </item>
+    
+    <item>
+      <title>HttpFox:HTTP数据抓包和检测</title>
+      <link>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</link>
+      <pubDate>Wed, 16 Oct 2013 07:48:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</guid>
+      <description>HttpFox监视并且分析所有进出浏览器的HTTP网络传输： 如果熟悉网络监控类软件的话，使用HttpFox不会有任何的困难，即便您不熟悉，也</description>
+    </item>
+    
+    <item>
+      <title>查看linux版本</title>
+      <link>https://www.51hint.com/posts/2012-12-19-%E6%9F%A5%E7%9C%8Blinux%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Wed, 19 Dec 2012 01:57:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-19-%E6%9F%A5%E7%9C%8Blinux%E7%89%88%E6%9C%AC/</guid>
+      <description>查看系统版本</description>
+    </item>
+    
+    <item>
+      <title>mac显示隐藏文件</title>
+      <link>https://www.51hint.com/posts/2012-10-15-mac%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Mon, 15 Oct 2012 01:54:01 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-15-mac%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6/</guid>
+      <description>隐藏文件不显示</description>
+    </item>
+    
+    <item>
+      <title>Comet (web技术)</title>
+      <link>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Fri, 20 Jul 2012 01:57:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</guid>
+      <description>Comet是一种用于web的技术，能使服务器能实时地将更新的信息传送到客户端，而无须客户端发出请求，目前有两种实现方式，长轮询和流。 实现方式</description>
+    </item>
+    
+    <item>
+      <title>zend server can’t connect to mysql</title>
+      <link>https://www.51hint.com/posts/2012-07-19-zend-server-cant-connect-to-mysql/</link>
+      <pubDate>Thu, 19 Jul 2012 11:23:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-19-zend-server-cant-connect-to-mysql/</guid>
+      <description>use command
+[ps aux|grep mysql]
+I find my.cnf in the [/usr/local/zend/mysql/data/my.cnf]
+but in fact,there is none!
+so ,what should we do
+just create my.cnf file.
+******************
+input the socket path
+[client]
+socket = /usr/local/zend/mysql/tmp/mysql.sock
+  ******************
+maybe it exist
+just open /usr/local/zend/mysql/data/my.cnffile
+comment it.
+//////////////////////////////////////////////////////
+#/usr/local/zend/bin/zendctl.sh stop-mysql
+#/usr/local/zend/bin/zendctl.sh start-mysql
+#sudo ln -s /private/tmp/mysql.sock /usr/local/zend/mysql/tmp/mysql.sock
+congratulation, it works!</description>
+    </item>
+    
+    <item>
+      <title>删除Mac OS X上的MySQL</title>
+      <link>https://www.51hint.com/posts/2012-07-19-%E5%88%A0%E9%99%A4mac-os-x%E4%B8%8A%E7%9A%84mysql/</link>
+      <pubDate>Thu, 19 Jul 2012 05:07:14 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-19-%E5%88%A0%E9%99%A4mac-os-x%E4%B8%8A%E7%9A%84mysql/</guid>
+      <description>MySQL提供的Mac OS X上的安装包不能卸载，需要手动删除。 sudo killall /usr/local/mysql/bin/mysqld [ -e /usr/local/mysql ] &amp;amp;&amp;amp; sudo rm /usr/local/mysql sudo rm -rf /usr/local/mysql* sudo rm -rf /Library/StartupItems/MySQLCOM sudo rm -rf /Library/PreferencePanes/My* sudo rm -rf /Library/Receipts/mysql* sudo rm -rf /Library/Receipts/MySQL* sudo sed -i -e &amp;lsquo;/MYSQLCOM=-YES-/ d&amp;rsquo; /etc/hostconfig echo done</description>
+    </item>
+    
+    <item>
+      <title>iphone/ipod/ipad上显示同步字幕的m4b文件自动生成工具</title>
+      <link>https://www.51hint.com/posts/2012-03-15-iphoneipodipad%E4%B8%8A%E6%98%BE%E7%A4%BA%E5%90%8C%E6%AD%A5%E5%AD%97%E5%B9%95%E7%9A%84m4b%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Thu, 15 Mar 2012 14:20:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-15-iphoneipodipad%E4%B8%8A%E6%98%BE%E7%A4%BA%E5%90%8C%E6%AD%A5%E5%AD%97%E5%B9%95%E7%9A%84m4b%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/</guid>
+      <description>m4b格式有声读物自动生成器：可以将mp3和lrc字幕转换为能够在iPhone/iPad上显示动态字幕的有声读物m4b格式，完美支持ipho</description>
+    </item>
+    
+    <item>
+      <title>Speex编/解码API的使用 及其speex 回声消除</title>
+      <link>https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/</link>
+      <pubDate>Fri, 02 Mar 2012 04:01:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/</guid>
+      <description>Speex编/解码API的使用 http://www.haogongju.net/art/153209实践linux, alsa下的speex 回</description>
+    </item>
+    
+    <item>
+      <title>音频编解码-speex库的使用方法</title>
+      <link>https://www.51hint.com/posts/2012-03-02-%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81-speex%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 02 Mar 2012 02:39:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81-speex%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+      <description>Speex是近年来开发出的一套功能强大的语音引擎，能够实现高质量和低比特率的编码。它不仅提供了基于码激励线性预测（CELP）算法的编/解码模</description>
+    </item>
+    
+    <item>
+      <title>Convert Speex file into MP3</title>
+      <link>https://www.51hint.com/posts/2012-03-02-convert-speex-file-into-mp3/</link>
+      <pubDate>Fri, 02 Mar 2012 02:33:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-convert-speex-file-into-mp3/</guid>
+      <description>Speex to Mp3 using ffmpeg and lame In one of the project we receive a speex(.spx) file from client and we have to play on browser as well as in local machine.
+So i am using ffmpeg and lame to do this job.It is 2 step process.
+Step 1
+****Speex(.spx) file first need to covert into wave(.wav) file using ffmpeg.
+&amp;lt;table border=&amp;quot;0&amp;quot; cellspacing=&amp;quot;0&amp;quot; cellpadding=&amp;quot;0&amp;quot;&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; 1 &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;ffmpeg -i filename.</description>
+    </item>
+    
+    <item>
+      <title>使用ituneMobileDevice.dll和CoreFundation.dll连接iphone等</title>
+      <link>https://www.51hint.com/posts/2012-03-02-%E4%BD%BF%E7%94%A8itunemobiledevice-dll%E5%92%8Ccorefundation-dll%E8%BF%9E%E6%8E%A5iphone%E7%AD%89/</link>
+      <pubDate>Fri, 02 Mar 2012 02:05:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-%E4%BD%BF%E7%94%A8itunemobiledevice-dll%E5%92%8Ccorefundation-dll%E8%BF%9E%E6%8E%A5iphone%E7%AD%89/</guid>
+      <description>.:: CORE SECURITY TECHNOLOGIES :: http://oss.coresecurity.com/projects/iphonedbg.html libimobiledevice http://www.libimobiledevice.org/ iphuc http://code.google.com/p/iphuc/source/checkout 如何使用.net实现iPhone和电脑之间的文件传输 http://www.flyblog.info/catprogramming/486.html iphonebrowser http://code.google.com/p/iphonebrowser/ itouchBrowser http://code.google.com/p/itouchbrowser/source/browse/#svn%2Ftrunk%2FitouchBrowser iphonefs http://code.google.com/p/iphonefs/source/browse/#svn%2Ftrunk%2FiPhoneFS%2FiPhoneDriveFilesystem%2FProperties iphonelist http://code.google.com/p/iphonelist/source/browse/#svn%2Ftrunk%2FiPhoneGUI</description>
+    </item>
+    
+    <item>
+      <title>snprintf函数说明</title>
+      <link>https://www.51hint.com/posts/2012-02-17-snprintf%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Fri, 17 Feb 2012 04:24:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-17-snprintf%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/</guid>
+      <description>int snprintf(char *restrict buf, size_t n, const char * restrict format, …);函数说明:最多从源串中拷贝n－1个字符到目标串中，然后再在后面加一个。所以如果目标串的大小为n的话，将不会溢出。</description>
+    </item>
+    
+    <item>
+      <title>语音和视频的捕获、编码解码以及渲染–开源技术大全</title>
+      <link>https://www.51hint.com/posts/2012-02-16-%E8%AF%AD%E9%9F%B3%E5%92%8C%E8%A7%86%E9%A2%91%E7%9A%84%E6%8D%95%E8%8E%B7%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81%E4%BB%A5%E5%8F%8A%E6%B8%B2%E6%9F%93-%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%A4%A7/</link>
+      <pubDate>Thu, 16 Feb 2012 10:03:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-%E8%AF%AD%E9%9F%B3%E5%92%8C%E8%A7%86%E9%A2%91%E7%9A%84%E6%8D%95%E8%8E%B7%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81%E4%BB%A5%E5%8F%8A%E6%B8%B2%E6%9F%93-%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%A4%A7/</guid>
+      <description>1. **MediaStreamer2: http://www.linphone.org/ ** **http://hi.baidu.com/zui_chu_de_meng_xiang/blog/item/71d2d952ebaad6561038c286.html ** Mediastreamer2 是一个支持多种平台的轻量级的流技术引擎，主要适合于开发语音和视频电话应用程序。该引擎主要为 linphone 的多媒体流的收发，包括语音和视频的</description>
+    </item>
+    
+    <item>
+      <title>转换文件格式wav2raw</title>
+      <link>https://www.51hint.com/posts/2012-02-14-%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8Fwav2raw/</link>
+      <pubDate>Tue, 14 Feb 2012 03:37:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-14-%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8Fwav2raw/</guid>
+      <description>l//=====================================================================// 因为raw格式的音频文件是没有文件头的，所以去掉wav文件的前20个字节 即可。 len= read(ifd,buf,20); memset(buf,0,20); //erase the wav header write(ofd,buf,20); while( (len=read(ifd,buf,200)) &amp;gt;0){ write(ofd,buf,len); } close(ifd); close(odf);</description>
+    </item>
+    
+    <item>
+      <title>mediastream2使用指南</title>
+      <link>https://www.51hint.com/posts/2012-02-13-mediastream2%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Mon, 13 Feb 2012 10:44:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-13-mediastream2%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>定义 Filter: 媒体库中处理数据的组件。一个filter有0到数个输入流和0到数个输出流。 下面是可以使用Filter的例子: 捕获音频或者视频数据. 播放</description>
+    </item>
+    
+    <item>
+      <title>iphone,ipad 通过itms-services 在线安装app</title>
+      <link>https://www.51hint.com/posts/2012-02-13-iphoneipad-%E9%80%9A%E8%BF%87itms-services-%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85app/</link>
+      <pubDate>Mon, 13 Feb 2012 09:14:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-13-iphoneipad-%E9%80%9A%E8%BF%87itms-services-%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85app/</guid>
+      <description>点击xxx.app下载 xxx.plist内容为 items assets kind software-package url http://blog.s135.com/demo/ios/jhsmyt.ipa kind display-image needs-shine url http://xxx/ios/xxx_logo.png kind full-size-image needs-shine url http://bxxxx/ios/jxxx_logo.png metadata bundle-identifier com.xxx bundle-version 1.0.0 kind software subtitle xxxx title xxxxxxxxx.plist //========================================================================================// 二维码下载方式</description>
+    </item>
+    
+    <item>
+      <title>gdb输出格式 &amp;&amp; 查看内存</title>
+      <link>https://www.51hint.com/posts/2012-02-13-gdb%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98/</link>
+      <pubDate>Mon, 13 Feb 2012 06:38:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-13-gdb%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98/</guid>
+      <description>一般来说，GDB会根据变量的类型输出变量的值。但你也可以自定义GDB的输出的格式。例如，你想输出一个整数的十六进制，或是二进制来查看这个整型</description>
+    </item>
+    
+    <item>
+      <title>Debug Assistant Library (DAL) 是一个辅助调试运行时库。</title>
+      <link>https://www.51hint.com/posts/2012-02-11-debug-assistant-library-dal-%E6%98%AF%E4%B8%80%E4%B8%AA%E8%BE%85%E5%8A%A9%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BA%93/</link>
+      <pubDate>Fri, 10 Feb 2012 17:23:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-11-debug-assistant-library-dal-%E6%98%AF%E4%B8%80%E4%B8%AA%E8%BE%85%E5%8A%A9%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BA%93/</guid>
+      <description>DAL目前支持的语言：C、C++、Objective-C、Objective-C++。 DAL目前支持的平台：标准C/C++、Windows (</description>
+    </item>
+    
+    <item>
+      <title>Better BBEdit Completion With ctags</title>
+      <link>https://www.51hint.com/posts/2012-02-11-better-bbedit-completion-with-ctags/</link>
+      <pubDate>Fri, 10 Feb 2012 17:21:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-11-better-bbedit-completion-with-ctags/</guid>
+      <description>Creating the Tags File To create the tags file, open the Terminal and cd to the toplevel directory of your project, the one that contains all related source code. Issue this command I made myself an alias called “bbtags” with some Perl-specific excludes and added it to my $HOME/.bashrc file: 参考：http://www</description>
+    </item>
+    
+    <item>
+      <title>删除MACPORT</title>
+      <link>https://www.51hint.com/posts/2012-02-07-%E5%88%A0%E9%99%A4macport/</link>
+      <pubDate>Tue, 07 Feb 2012 01:33:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-07-%E5%88%A0%E9%99%A4macport/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

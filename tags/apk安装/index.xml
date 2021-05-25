@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apk安装 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/apk%E5%AE%89%E8%A3%85/</link>
+    <description>Recent content in apk安装 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Mar 2020 21:21:36 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/apk%E5%AE%89%E8%A3%85/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apk安装</title>
+      <link>https://www.51hint.com/posts/apk%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Wed, 11 Mar 2020 21:21:36 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/apk%E5%AE%89%E8%A3%85/</guid>
+      <description>adb push apk.apk /data/local/tmp adb shell pm install /data/local/tmp/apk.apk adb shell rm /data/local/tmp/apk.apk</description>
+    </item>
+    
+  </channel>
+</rss>

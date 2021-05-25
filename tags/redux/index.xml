@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redux on IT技术分享</title>
+    <link>https://www.51hint.com/tags/redux/</link>
+    <description>Recent content in redux on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Apr 2020 23:06:51 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/redux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redux_toolkit</title>
+      <link>https://www.51hint.com/posts/redux_toolkit/</link>
+      <pubDate>Mon, 20 Apr 2020 23:06:51 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/redux_toolkit/</guid>
+      <description>redux tookit https://redux-toolkit.js.org/ 如果你的React项目中使用react hook、redux、redux-thunk，可能你需要用 redux-toolkit （以下简称RTK）优化你的项目结构，</description>
+    </item>
+    
+    <item>
+      <title>React_redux讲解</title>
+      <link>https://www.51hint.com/posts/react_redux%E8%AE%B2%E8%A7%A3/</link>
+      <pubDate>Mon, 20 Apr 2020 23:05:16 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react_redux%E8%AE%B2%E8%A7%A3/</guid>
+      <description>React Redux tutorial: who this guide is for The following React Redux guide is for JavaScript developers with a good grasp of ES6 and React. There are countless React tutorials online if you want to refresh your understandings, but if you&amp;rsquo;re just starting out I suggest reading Getting Started with React by Tania Rascia. React Redux tutorial: what you will learn The guide covers mostly Redux with React because of</description>
+    </item>
+    
+    <item>
+      <title>react-native-training/redux-4-ways</title>
+      <link>https://www.51hint.com/posts/react-native-training-redux-4-ways/</link>
+      <pubDate>Mon, 24 Apr 2017 15:56:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react-native-training-redux-4-ways/</guid>
+      <description>https://github.com/react-native-training/redux-4-ways/tree/thunk
+Redux Implementation - Thunk vs Saga vs Observable vs Redux Promise Middleware https://medium.com/p/95a130da0cdc
+ Redux Saga Redux Thunk </description>
+    </item>
+    
+    <item>
+      <title>React-Redux用法</title>
+      <link>https://www.51hint.com/posts/react-reduxyong-fa/</link>
+      <pubDate>Tue, 07 Mar 2017 16:49:04 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react-reduxyong-fa/</guid>
+      <description>React-Redux用法 为了方便使用，Redux 的作者封装了一个 React 专用的库 React-Redux，本文主要介绍它。 这个库是可以选用的。实际</description>
+    </item>
+    
+    <item>
+      <title>Redux 中间件</title>
+      <link>https://www.51hint.com/posts/redux-zhong-jian-jian/</link>
+      <pubDate>Mon, 06 Mar 2017 21:25:04 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/redux-zhong-jian-jian/</guid>
+      <description>Redux 中间件与异步操作 Redux 的基本做法：用户发出 Action，Reducer 函数算出新的 State，View 重新渲染。 但是，一个关键问题没有解决：异</description>
+    </item>
+    
+    <item>
+      <title>redux</title>
+      <link>https://www.51hint.com/posts/redux/</link>
+      <pubDate>Mon, 06 Mar 2017 17:33:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/redux/</guid>
+      <description>Redux Redux 的设计思想很简单，就两句话。 1）Web 应用是一个状态机，视图与状态是一一对应的。 2）所有的状态，保存在一个对象里面。 基本概念和 API Store Store 就是</description>
+    </item>
+    
+  </channel>
+</rss>

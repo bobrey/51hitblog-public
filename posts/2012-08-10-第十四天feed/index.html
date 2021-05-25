@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第十四天：Feed - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第十四天：Feed" />
+  <meta name="twitter:title" content="第十四天：Feed" />
+  <meta name="description" content="目录 14.1 格式 14.2 Feeds 14.2.1 最新的招聘信息Feed 14.2.2 分类里面最新的招聘信息Feed 14.3 结语 昨天，你开始编写了第一个自己的程序。现在不要停。随着对symfo">
+  <meta property="og:description" content="目录 14.1 格式 14.2 Feeds 14.2.1 最新的招聘信息Feed 14.2.2 分类里面最新的招聘信息Feed 14.3 结语 昨天，你开始编写了第一个自己的程序。现在不要停。随着对symfo">
+  <meta name="twitter:description" content="目录 14.1 格式 14.2 Feeds 14.2.1 最新的招聘信息Feed 14.2.2 分类里面最新的招聘信息Feed 14.3 结语 昨天，你开始编写了第一个自己的程序。现在不要停。随着对symfo">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%9B%9B%E5%A4%A9feed/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%9B%9B%E5%A4%A9feed/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第十四天：Feed</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">1200 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_14_formats"><a href="forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#">14.1 格式</a></a></li>
+    <li><a href="#chapter_14_feeds"><a href="forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#">14.2 Feeds</a></a>
+      <ul>
+        <li><a href="#chapter_14_sub_latest_jobs_feed"><a href="forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#">14.2.1 最新的招聘信息Feed</a></a></li>
+        <li><a href="#chapter_14_sub_latest_jobs_in_a_category_feed"><a href="forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#">14.2.2 分类里面最新的招聘信息Feed</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_14_final_thoughts"><a href="forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#">14.3 结语</a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#chapter_14_formats">14.1 格式</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#chapter_14_feeds">14.2 Feeds</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#chapter_14_sub_latest_jobs_feed">14.2.1 最新的招聘信息Feed</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#chapter_14_sub_latest_jobs_in_a_category_feed">14.2.2 分类里面最新的招聘信息Feed</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#chapter_14_final_thoughts">14.3 结语</a></li>
+<li></li>
+</ul>
+<p>昨天，你开始编写了<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一个自己的程序。现在不要停。随着对symfony了解的增加，你可以给程序添加更多的功能。可以将它共享到社区。</p>
+<p>我们今天要学习一些全新的内容。如果你找工作，你可能希望当有新工作发布时马上被通知。隔一个小时检查一下网站不是很方便，为了让用户了解最新的工作信息，我们今天将添加几个feed。</p>
+<h2 id="chapter_14_formats"><a href="forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#">14.1 格式</a></h2>
+<p>symfony框架自身支持formats和mime-types。这意味着相同的模型和控制器基于请求的格式不同，可以使用不同的模板。HTML是symfony默认的格式，但symfony支持其它几种方便的格式，如 <code>txt</code>、<code>js</code>、<code>css</code>、<code>json</code>、<code>xml</code>、<code>rdf</code> 或 <code>atom</code>。</p>
+<p>可以通过request对象的 <code>setRequestFormat()</code> 方法设置格式：</p>
+<!-- raw HTML omitted -->
+<p>但是大部分时候，格式是嵌在URL里的。在我们的案例中，如果路由中使用了特殊的 <code>sf_format</code> 变量，symfony会为你设置它。拿工作列表来说，它的URL是：</p>
+<!-- raw HTML omitted -->
+<p>这个URL等价于：</p>
+<!-- raw HTML omitted -->
+<p>两个URL是等价的，因为这个路由由 <code>sfDoctrineRouteCollection</code> 类生成，并将 <code>sf_format</code> 作为扩展名，还有因为 <code>html</code> 是默认格式。你可以自己运行 <code>app:routes</code> 命令查看一下：</p>
+<p><img src="res/cli.png" alt="Cli"></p>
+<h2 id="chapter_14_feeds"><a href="forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#">14.2 Feeds</a></h2>
+<h3 id="chapter_14_sub_latest_jobs_feed"><a href="forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#">14.2.1 最新的招聘信息Feed</a></h3>
+<p>支持不同的格式象创建不同的模板一样容易。现在我们给最新的招聘信息创建一个<a href="http://en.wikipedia.org/wiki/Atom_(standard)">Atom feed</a>，现在创建 <code>indexSuccess.atom.php</code> 模板：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>默认地情况下，symfony依据格式的不同，改变响应的 <code>Content-Type</code>，对所有非HTML的格式，将不使用局部模板。对于Atom feed，symfony将 <code>Content-Type</code> 设置为 <code>application/atom+xml; charset=utf-8</code>。</p>
+<p>在Jobeet页面底部，修改feed链接：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>内部URI和招聘列表的一样，带有 <code>sf_format</code> 变量。</p>
+<p>添加 <code>&lt;link&gt;</code> 标记到layout的 <code>&lt;head&gt;</code> 中：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>href</code> 属性使用了一个绝对的URL，得益于 <code>url_for()</code> 的<!-- raw HTML omitted -->第<!-- raw HTML omitted -->2个参数。</p>
+<p>我们来更新Atom模板的头部：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>注意 <code>format()</code> 的参数 <code>U</code>，可以返回时间戳。创建 <code>getLatestPost()</code> 获取最新发布的招聘信息：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>feed各项通过下面代码生成：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>请求对象（<code>$sf_request</code>）的 <code>getHost()</code> 方法，返回当前主机名，用来生成logo的绝对链接很方便。</p>
+<p><img src="res/feed.png" alt="Feed"></p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_14_sub_latest_jobs_in_a_category_feed"><a href="forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#">14.2.2 分类里面最新的招聘信息Feed</a></h3>
+<p>Jobeet的目的之一就是让人们找到针对性更强的工作。所以，我们需要为每个分类创建一个feed。</p>
+<p>首先，更新 <code>category</code> 的路由，添加对不同格式的支持：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>现在，<code>category</code> 路由可以解析 <code>html</code> 和 <code>atom</code> 格式了。更新模板中feed链接：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>最后一步，创建 <code>showSuccess.atom.php</code> 模板。因为在这个feed中同样要显示招聘信息列表， 我们需要重构一下代码，将生成feed各项的代码写入 <code>_list.atom.php</code> 局部模板。同模板一样， 局部模板也是特殊格式的。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>你可以使用 <code>_list.atom.php</code> 局部模板，简化feed模板：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>最后，创建 <code>showSuccess.atom.php</code> 模板：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在主feed中，需要加入最新招聘信息的日期：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="res/category_feed.png" alt="Category Feed"></p>
+<h2 id="chapter_14_final_thoughts"><a href="forum.php?mod=viewthread&amp;tid=81&amp;extra=page%3D1#">14.3 结语</a></h2>
+<p>与许多symfony功能一样，symfony的格式支持可以让你轻松完成网站feed的添加。今天，我们已经提高了求职者体验。明天，我们将看到如何通过Web Service功能，使招聘信息有更多展示机会。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%A4%A9%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%99%A8/" data-toggle="tooltip" data-placement="top" title="第十二天：管理后台生成器">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AD%E5%A4%A9%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%85%B3%E4%BA%8E%E6%A8%A1%E5%9E%8B/" data-toggle="tooltip" data-placement="top" title="第六天：更多的关于模型">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">1200 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>grep on IT技术分享</title>
+    <link>https://www.51hint.com/tags/grep/</link>
+    <description>Recent content in grep on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Dec 2012 05:05:25 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/grep/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vim_6 [grep  简单使用]</title>
+      <link>https://www.51hint.com/posts/2012-12-25-vim_6-grep-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 25 Dec 2012 05:05:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-25-vim_6-grep-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>vim 使用</description>
+    </item>
+    
+    <item>
+      <title>find-grep  搜索文件，文件内容，字符串</title>
+      <link>https://www.51hint.com/posts/2012-06-22-find-grep-%E6%90%9C%E7%B4%A2%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Fri, 22 Jun 2012 03:17:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-22-find-grep-%E6%90%9C%E7%B4%A2%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

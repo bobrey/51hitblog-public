@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>umi on IT技术分享</title>
+    <link>https://www.51hint.com/tags/umi/</link>
+    <description>Recent content in umi on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Apr 2020 11:31:18 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/umi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Umijs_davjs入门</title>
+      <link>https://www.51hint.com/posts/umijs_davjs%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Wed, 22 Apr 2020 11:31:18 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/umijs_davjs%E5%85%A5%E9%97%A8/</guid>
+      <description>UmiJS是一个可插拔的企业级 react 应用框架，具体可查看 官网文档 DvaJS是dva 首先是一个基于 redux 和 redux-saga 的数据流方案，然后为了简化开发体验，dva</description>
+    </item>
+    
+  </channel>
+</rss>

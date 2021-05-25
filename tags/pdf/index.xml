@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pdf on IT技术分享</title>
+    <link>https://www.51hint.com/tags/pdf/</link>
+    <description>Recent content in pdf on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 Jan 2013 02:30:21 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/pdf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>java 创建提取pdf</title>
+      <link>https://www.51hint.com/posts/2013-01-16-java-%E5%88%9B%E5%BB%BA%E6%8F%90%E5%8F%96pdf/</link>
+      <pubDate>Wed, 16 Jan 2013 02:30:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-16-java-%E5%88%9B%E5%BB%BA%E6%8F%90%E5%8F%96pdf/</guid>
+      <description>pdf中提取文本的都所iText创建pdf很强大，提取文本比较弱智。 pdfbox提取PDF页面内容</description>
+    </item>
+    
+    <item>
+      <title>pdf view</title>
+      <link>https://www.51hint.com/posts/2012-07-04-pdf-view/</link>
+      <pubDate>Wed, 04 Jul 2012 10:05:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-04-pdf-view/</guid>
+      <description>PDFビューワの作り方 (4) – テキストの抽出 http://news.mynavi.jp/column/iphone/036/index.html iPadで動く電子書籍アプリを作ってみる(2) http://lab.klab.org/young/2010/11/ipad%E3%81%A7%E5%8B%95%E3%81%8F%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B2/</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> React-Native学习指南 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="React-Native学习指南" />
+  <meta name="twitter:title" content="React-Native学习指南" />
+  <meta name="description" content="React-Native学习指南 本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pul">
+  <meta property="og:description" content="React-Native学习指南 本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pul">
+  <meta name="twitter:description" content="React-Native学习指南 本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pul">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/react-nativexue-xi-zhi-nan/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/react-nativexue-xi-zhi-nan/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">React-Native学习指南</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sun Mar 5, 2017</h4>
+    </section>
+    <h5 id="wc">900 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/nodejs/">nodejs</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>React-Native学习指南</p>
+<p>本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pull Requests！</p>
+<p><a href="https://medium.com/@bosung90/how-to-structure-your-react-native-application-using-redux-aec1677b76ca#.skcw0oboa">React-Native with Redux</a></p>
+<p>同时还有Awesome React-Native系列<br>
+<a href="https://github.com/jondot/awesome-react-native">https://github.com/jondot/awesome-react-native</a></p>
+<p>教程</p>
+<p>react-native 官方api文档 <a href="http://facebook.github.io/react-native/docs/getting-started.html">http://facebook.github.io/react-native/docs/getting-started.html</a></p>
+<p>react-native 中文api文档 (翻译中) <a href="https://github.com/ecomfe/react-native-cn">https://github.com/ecomfe/react-native-cn</a></p>
+<p>react.js中文文档 <a href="http://reactjs.cn/">http://reactjs.cn/</a></p>
+<p>react.js入门教程(gitbook) <a href="http://hulufei.gitbooks.io/react-tutorial/content/introduction.html">http://hulufei.gitbooks.io/react-tutorial/content/introduction.html</a></p>
+<p>react.js快速入门教程 - 阮一峰 <a href="http://www.ruanyifeng.com/blog/2015/03/react.html">http://www.ruanyifeng.com/blog/2015/03/react.html</a></p>
+<p>react.js视频教程 <a href="http://react.nodejs-china.org/t/reactjszhong-wen-shi-pin-jiao-cheng-bai-du-wang-pan/584">http://react.nodejs-china.org/t/reactjszhong-wen-shi-pin-jiao-cheng-bai-du-wang-pan/584</a></p>
+<p>react-native第一课 <a href="http://html-js.com/article/2783">http://html-js.com/article/2783</a></p>
+<p>深入浅出 React Native：使用 JavaScript 构建原生应用 <a href="http://zhuanlan.zhihu.com/FrontendMagazine/19996445">http://zhuanlan.zhihu.com/FrontendMagazine/19996445</a></p>
+<p>React Native通信机制详解 <a href="http://blog.cnbang.net/tech/2698/">http://blog.cnbang.net/tech/2698/</a></p>
+<p>React Native布局篇 <a href="http://segmentfault.com/a/1190000002658374">http://segmentfault.com/a/1190000002658374</a></p>
+<p>React Native 基础练习指北（一） <a href="http://segmentfault.com/a/1190000002645929">http://segmentfault.com/a/1190000002645929</a></p>
+<p>React Native 基础练习指北（二）http://segmentfault.com/a/1190000002647733</p>
+<p>构建一个简单的列表页和2页导航 <a href="http://www.xn--cnq920ntha.cn/archives/235#6838470-tsina-1-17436-6a377b1a66595f9ede646cf5c012734c">http://www.xn--cnq920ntha.cn/archives/235#6838470-tsina-1-17436-6a377b1a66595f9ede646cf5c012734c</a></p>
+<p>Diary of Building an iOS App with React Native <a href="http://herman.asia/building-a-flashcard-app-with-react-native">http://herman.asia/building-a-flashcard-app-with-react-native</a></p>
+<p>Use React Native in Existing iOS App <a href="http://blog-en.leapoahead.com/post/use-react-native-in-existing-ios-app">http://blog-en.leapoahead.com/post/use-react-native-in-existing-ios-app</a></p>
+<p>tcomb-form-native使用视频教程(需翻墙) <a href="http://react.rocks/example/tcomb-form-native">http://react.rocks/example/tcomb-form-native</a></p>
+<p>开源APP</p>
+<p>研究源码也是一个很好的学习方式</p>
+<p>官方演示App <a href="https://github.com/facebook/react-native/tree/master/Examples">https://github.com/facebook/react-native/tree/master/Examples</a></p>
+<p>ReactNativeRubyChina <a href="https://github.com/henter/ReactNativeRubyChina">https://github.com/henter/ReactNativeRubyChina</a></p>
+<p>HackerNews-React-Native <a href="https://github.com/iSimar/HackerNews-React-Native">https://github.com/iSimar/HackerNews-React-Native</a></p>
+<p>React-Native新闻客户端 <a href="https://github.com/tabalt/ReactNativeNews">https://github.com/tabalt/ReactNativeNews</a></p>
+<p>newswatch(新闻客户端)https://github.com/bradoyler/newswatch-react-native</p>
+<p>buyscreen(购买页面) <a href="https://github.com/appintheair/react-native-buyscreen">https://github.com/appintheair/react-native-buyscreen</a></p>
+<p>V2EX客户端 <a href="https://github.com/samuel1112/v2er">https://github.com/samuel1112/v2er</a></p>
+<p>react-native-todo <a href="https://github.com/joemaddalone/react-native-todo">https://github.com/joemaddalone/react-native-todo</a></p>
+<p>react-native-beer <a href="https://github.com/muratsu/react-native-beer">https://github.com/muratsu/react-native-beer</a></p>
+<p>react-native-stars <a href="https://github.com/86/react-native-stars">https://github.com/86/react-native-stars</a></p>
+<p>模仿天猫首页的app <a href="https://github.com/baofen14787/react-native-demo">https://github.com/baofen14787/react-native-demo</a></p>
+<p>ReactNativeChess <a href="https://github.com/csarsam/ReactNativeChess">https://github.com/csarsam/ReactNativeChess</a></p>
+<p>react native 编写的音乐软件 <a href="https://github.com/Johnqing/miumiu">https://github.com/Johnqing/miumiu</a></p>
+<p>react-native-pokedex <a href="https://github.com/ababol/react-native-pokedex">https://github.com/ababol/react-native-pokedex</a></p>
+<p>CNode-React-Native <a href="https://github.com/SFantasy/CNode-React-Native">https://github.com/SFantasy/CNode-React-Native</a></p>
+<p>8tracks电台客户端 <a href="https://github.com/voronianski/EightTracksReactNative">https://github.com/voronianski/EightTracksReactNative</a></p>
+<p>React-Native实现的计算器 <a href="https://github.com/yoxisem544/Calculator-using-React-Native">https://github.com/yoxisem544/Calculator-using-React-Native</a></p>
+<p>房产搜索app <a href="https://github.com/jawee/react-native-PropertyFinder">https://github.com/jawee/react-native-PropertyFinder</a></p>
+<p>知乎专栏app <a href="https://github.com/LeezQ/react-native-zhihu-app">https://github.com/LeezQ/react-native-zhihu-app</a></p>
+<p>ForeignExchangeApp <a href="https://github.com/peralmq/ForeignExchangeApp">https://github.com/peralmq/ForeignExchangeApp</a></p>
+<p>工具</p>
+<p>react-native-snippets(代码提示) <a href="https://github.com/Shrugs/react-native-snippets">https://github.com/Shrugs/react-native-snippets</a></p>
+<p>react-native-babel(使用ES6+) <a href="https://github.com/roman01la/react-native-babel">https://github.com/roman01la/react-native-babel</a></p>
+<p>资源网站</p>
+<p>React-native官网 <a href="http://facebook.github.io/react-native/">http://facebook.github.io/react-native/</a></p>
+<p>React-China社区 <a href="http://react-china.org/">http://react-china.org/</a></p>
+<p>React-native组件库（比较全的组件库） <a href="http://react.parts/">http://react.parts/</a></p>
+<p>React Native Modules <a href="http://reactnativemodules.com/">http://reactnativemodules.com/</a></p>
+<p>11款React Native开源移动 UI 组件 <a href="http://www.oschina.net/news/61214/11-react-native-ui-components">http://www.oschina.net/news/61214/11-react-native-ui-components</a></p>
+<p>业界讨论</p>
+<p>谈谈 React Native - 唐巧 <a href="http://blog.devtang.com/blog/2015/02/01/talk-about-react-native/">http://blog.devtang.com/blog/2015/02/01/talk-about-react-native/</a></p>
+<p>如何评价React-Native? <a href="http://www.zhihu.com/question/27852694/answer/43990708">http://www.zhihu.com/question/27852694/answer/43990708</a></p>
+<p>React Native概述：背景、规划和风险 <a href="http://div.io/topic/938">http://div.io/topic/938</a></p>
+<p>指南： <a href="https://github.com/ele828/react-native-guide">https://github.com/ele828/react-native-guide</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/react-2/" data-toggle="tooltip" data-placement="top" title="react">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/flux/" data-toggle="tooltip" data-placement="top" title="flux">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/visual-studio-tools-for-apache-cordova/">Visual Studio Tools  for Apache Cordova</a></li>
+                    
+                    <li><a href="/posts/promise-and-rxjs/">Promise  and rxjs</a></li>
+                    
+                    <li><a href="/posts/promise-and-generators-yield/">Promise and generators (yield)</a></li>
+                    
+                    <li><a href="/posts/aws-sns-js/">aws sns js</a></li>
+                    
+                    <li><a href="/posts/react-2/">react</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sun Mar 5, 2017</h4>
+    </section>
+    <h5 id="wc">900 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/nodejs/">nodejs</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

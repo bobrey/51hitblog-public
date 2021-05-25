@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第十九天：国际化和本地化 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第十九天：国际化和本地化" />
+  <meta name="twitter:title" content="第十九天：国际化和本地化" />
+  <meta name="description" content="目录 19.1 用户 19.1.1 用户culture 19.1.2 首选culture 19.2 culture在URL中 19.3 测试culture 19.4 切换语言 19.5 国际化 19.5.1 语言、字符集、编码 19.5.2 模版">
+  <meta property="og:description" content="目录 19.1 用户 19.1.1 用户culture 19.1.2 首选culture 19.2 culture在URL中 19.3 测试culture 19.4 切换语言 19.5 国际化 19.5.1 语言、字符集、编码 19.5.2 模版">
+  <meta name="twitter:description" content="目录 19.1 用户 19.1.1 用户culture 19.1.2 首选culture 19.2 culture在URL中 19.3 测试culture 19.4 切换语言 19.5 国际化 19.5.1 语言、字符集、编码 19.5.2 模版">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B9%9D%E5%A4%A9%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B9%9D%E5%A4%A9%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第十九天：国际化和本地化</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">11700 Words|Read in about 24 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#a-namechapter_19_userspan-en191-user191-用户spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.1 用户<!-- raw HTML omitted --><!-- raw HTML omitted --></a>
+      <ul>
+        <li><a href="#a-namechapter_19_sub_the_user_culturespan-en1911-the-user-culture1911-用户culturespana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.1.1 用户culture<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+        <li><a href="#a-namechapter_19_sub_the_preferred_culturespan-en1912-the-preferred-culture1912-首选culturespana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.1.2 首选culture<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+      </ul>
+    </li>
+    <li><a href="#a-namechapter_19_culture_in_the_urlspan-en192-culture-in-the-url192-culture在url中spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.2 culture在URL中<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#a-namechapter_19_culture_testingspan-en194-culture-testing194-测试culturespana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.4 测试culture<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#a-namechapter_19_language_switchingspan-en194-language-switching194-切换语言spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.4 切换语言<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#a-namechapter_19_internationalizationspan-en195-internationalization195-国际化spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.5 国际化<!-- raw HTML omitted --><!-- raw HTML omitted --></a>
+      <ul>
+        <li><a href="#a-namechapter_19_sub_languages_charset_and_encodingspan-en1951-languages-charset-and-encoding1951-语言字符集编码spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.5.1 语言、字符集、编码<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+        <li><a href="#a-namechapter_19_sub_templatesspan-en1952-templates1952-模版spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.5.2 模版<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+        <li><a href="#a-namechapter_19_sub_i18n_extract1953-codei18nextractcodea"><!-- raw HTML omitted -->19.5.3 <!-- raw HTML omitted -->i18n:extract<!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><!-- raw HTML omitted -->19.1 用户<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.1.1 用户culture<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.1.2 首选culture<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.2 culture在URL中<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.3 测试culture<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.4 切换语言<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.5 国际化<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.5.1 语言、字符集、编码<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.5.2 模版<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.5.3 <!-- raw HTML omitted -->i18n:extract<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.5.4 用参数翻译<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.5.5 表单<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.5.6 Doctrine对象<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.5.7 后台生成器<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.5.8 测试<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.6 本地化<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.6.1 模版<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.6.2 表单（I18n）<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->19.7 结语<!-- raw HTML omitted --></li>
+<li></li>
+</ul>
+<p><!-- raw HTML omitted -->前两天，我们完成了搜索引擎的功能，添加了一些AJAX使它更有趣。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Now, we will talk about Jobeet <strong>internationalization</strong> (or i18n) and <strong>localization</strong> (or l10n).”&gt;现在，我们会讨论关于Jobeet <strong>国际化</strong>（或i18n）和<strong>本地化</strong>（或l10n）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->来自<!-- raw HTML omitted -->维基百科<!-- raw HTML omitted -->：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->像往常一样，symfony框架没有重新发明轮子，然后它的i18n和l10n支持是基于的<!-- raw HTML omitted -->ICU标准<!-- raw HTML omitted -->。<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<h2 id="a-namechapter_19_userspan-en191-user191-用户spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.1 用户<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<p><!-- raw HTML omitted -->当你的网站需要提供几种语言或在世界上的不同地区使用，用户会选择一个最适合他的语言或地区。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h3 id="a-namechapter_19_sub_the_user_culturespan-en1911-the-user-culture1911-用户culturespana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.1.1 用户culture<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<p>&lt;span en=&ldquo;The i18n and l10n features of symfony are based on the <strong>user culture</strong>.”&gt;symfony的i18n和l10n功能是基于了<strong>用户culture</strong>。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->culture是用户的语言和的国家的一个组合。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;For instance, the culture for a user that speaks French is <code>fr</code> and the culture for a user from France is <code>fr_FR</code>.”&gt;例如，讲法语的用户，culture是 <code>fr</code>，来自法国的用户，culture是 <code>fr_FR</code>。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;You can manage the user culture by calling the <code>setCulture()</code> and <code>getCulture()</code> methods on the <code>User</code> object:”&gt;你可以通过在 <code>User</code> 对象上调用 <code>setCulture</code> 和 <code>getCulture</code> 方法来管理用户culture：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="a-namechapter_19_sub_the_preferred_culturespan-en1912-the-preferred-culture1912-首选culturespana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.1.2 首选culture<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<p>&lt;span en=&ldquo;By default, the user culture is the one configured in the <code>settings.yml</code> configuration file:”&gt;默认，用户culture是 <code>settings.yml</code> 配置文件中的一个配置：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;When a user starts a session on the Jobeet website, we can also determine the best culture, based on the information provided by the <code>Accept-Language</code> HTTP header|HTTP Headers.”&gt;当用户在Jobeet网站上开始一个session时，基于 <code>Accept-Language</code> HTTP头提供的信息，我们可以确定用户最合适的culture。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>getLanguages()</code> method of the request object returns an array of accepted languages for the current user, sorted by order of preference:”&gt;请求对象的 <code>getLanguages()</code> 方法返回当前用户可接受的语言的一个数组，按优先顺序排列：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->但大多数，你的网站不可能有全世界136种主要语言。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>getPreferredCulture()</code> method returns the best language by comparing the user preferred languages and the supported languages of your website:”&gt;<code>getPreferredCulture()</code> 方法通过比较用户首选的语言和你网站所支持的语言来返回最合适的语言：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->上面的那个调用，根据用户首选的语言，返回的语言会是英语或法语，如果没有匹配的就返回英语（数组里面的<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一个语言）。<!-- raw HTML omitted --></p>
+<h2 id="a-namechapter_19_culture_in_the_urlspan-en192-culture-in-the-url192-culture在url中spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.2 culture在URL中<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<p><!-- raw HTML omitted -->Jobeet网站会提供英语和法语。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->因为URL只能代表单一一个资源，culture必须嵌入到URL中。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;In order to do that, open the <code>routing.yml</code> file, and add the special <code>:sf_culture</code> variable for all routes but the <code>api_jobs</code> and the <code>homepage</code> ones.”&gt;为了做到这点，打开 <code>routing.yml</code> 文件，并给所有的路由添加专门的 <code>:sf_culture</code> 变量，但 <code>api_jobs</code> 和 <code>homepage</code> 除外。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;For simple routes, add <code>/:sf_culture</code> to the front of the <code>url</code>.”&gt;对于简单的路由，添加 <code>/:sf_culture</code> 到 <code>url</code> 的前部。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;For collection routes, add a <code>prefix_path</code> option that starts with <code>/:sf_culture</code>.”&gt;对于路由集，添加一个开头用 <code>/:sf_culture</code> 的 <code>prefix_path</code> 选项。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;When the <code>sf_culture</code> variable is used in a route, symfony will automatically use its value to change the culture of the user.”&gt;当 <code>sf_culture</code> 变量用在路由的时候，symfony会自动的使用它的值来改变用户的culture。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;As we need as many homepages as languages we support (<code>/en/</code>, <code>/fr/</code>, …), the default homepage (<code>/</code>) must redirect to the appropriate localized one, according to the user culture.”&gt;因为我们需要首页支持尽可能多的语言（<code>/en/</code>、<code>/fr/</code>、…），根据用户culture，默认的首页（<code>/</code>）必须重定向到适当的地区。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->但是假如用户还没有culture，因为他<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一次来到Jobeet，会给他选定首选的culture。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;First, add the <code>isFirstRequest()</code> method to <code>myUser</code>.”&gt;首先，添加 <code>isFirstRequest()</code> 方法到 <code>myUser</code>。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;It returns <code>true</code> only for the very first request of a user session:”&gt;它对用户session的<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一个请求返回 <code>true</code>：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Add a <code>localized_homepage</code> route:”&gt;添加一个 <code>localized_homepage</code> 路由：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Change the <code>index</code> action of the <code>job</code> module to implement the logic to redirect the user to the &ldquo;best&rdquo; homepage on the first request of a session:”&gt;更改 <code>job</code> 模块的 <code>index</code> 方法来实现在一个session的<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一个请求的逻辑来重定向用户到“最佳”首页：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;If the <code>sf_culture</code> variable is not present in the request, it means that the user has come to the <code>/</code> URL.”&gt;如果 <code>sf_culture</code> 变量没有出现在请求里面，意味着用户已经来到 <code>/</code> URL了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果是这样的话，而且session是新的，首选的culture则被用来做用户的culture。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->否则使用用户当前的culture。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The last step is to redirect the user to the <code>localized_homepage</code> URL.”&gt;最后一个步骤是重定向用户到 <code>localized_homepage</code> URL。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Notice that the <code>sf_culture</code> variable has not been passed in the redirect call as symfony adds it automatically for you.”&gt;注意，在重定向调用里面，<code>sf_culture</code> 变量不会被传递，因为symfong自动的为你添加。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Now, if you try to go to the <code>/it/</code> URL, symfony will return a 404 error as we have restricted the <code>sf_culture</code> variable to <code>en</code>, or <code>fr</code>.”&gt;现在，如果你尝试转到 <code>/it/</code> URL，symfony会返回一个404错误，因为我们已经限制了 <code>sf_culture</code> 变量必须是 <code>en</code> 或 <code>fr</code>。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->添加这个requirement到所有嵌入了culture的路由：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="a-namechapter_19_culture_testingspan-en194-culture-testing194-测试culturespana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.4 测试culture<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<p><!-- raw HTML omitted -->我们来测试一下。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->但添加测试之前，我们需要修改现有的一个。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;As all URLs have changed, edit all functional test files in <code>test/functional/frontend/</code> and add <code>/en</code> in front of all URLs.”&gt;因为所有URL已被更改，编辑 <code>text/functional/frontend/</code> 里面的所有功能测试文件，然后在所有URL的前部添加 <code>/en</code>。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Don&rsquo;t forget to also change the URLs in the <code>lib/test/JobeetTestFunctional.class.php</code> file.”&gt;不要忘记还要更改 <code>lib/test/JobeetTestFunctional.class.php</code> 文件中URL。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->加载测试来检查你已经修改正确的测试：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;The user tester provides an <code>isCulture()</code> method that tests the current user’s culture.”&gt;用户测试器提供一个测试当前用户culture的 <code>isCulture()</code> 方法。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Open the <code>jobActionsTest</code> file and add the following tests:”&gt;打开 <code>jobActionsTest</code> 文件然后添加以下测试：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="a-namechapter_19_language_switchingspan-en194-language-switching194-切换语言spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.4 切换语言<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The form framework does not provide such a form out of the box but as the need is quite common for internationalized websites, the symfony core team maintains the <!-- raw HTML omitted --><code>sfFormExtraPlugin</code><!-- raw HTML omitted -->,</p>
+<p>which contains validators, widgets, and forms which cannot be included with the main symfony package as they are too specific or have external dependencies but are nonetheless very useful.”&gt;<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Install the plugin with the <code>plugin:install</code> task:”&gt;用 <code>plugin:install</code> 命令安装插件：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->或者用下面的命令通过Subversion来取得<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;In order for plugin&rsquo;s classes to be loaded, the <code>sfFormExtraPlugin</code> plugin must be activated in the <code>config/ProjectConfiguration.class.php</code> file as shown below:”&gt;为了插件的类被加载，<code>sfFormExtraPlugin</code> 插件必须在 <code>config/ProjectConfiguration.class.php</code> 文件中激活，如下所示：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;The <code>sfFormExtraPlugin</code> plugin provides a <code>sfFormLanguage</code> form to manage the language selection. Adding the language form can be done in the layout like this:”&gt;<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;In such cases, you should use a <strong>component</strong>.”&gt;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Including a component from a template can be done by using the <code>include_component()</code> helper:”&gt;<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Create a <code>language</code> module to host the component and the action that will actually change the user language:”&gt;<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Components are to be defined in the <code>actions/components.class.php</code> file.”&gt;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The template for a component uses the same naming convention as a partial would: an underscore (<code>_</code>) followed by the component name:”&gt;<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;As the plugin does not provide the action that actually changes the user culture, edit the <code>routing.yml</code> file to create the <code>change_language</code> route:”&gt;<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;The <code>process()</code> method of <code>sfFormLanguage</code> takes care of changing the user culture, based on the user form submission.”&gt;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<h2 id="a-namechapter_19_internationalizationspan-en195-internationalization195-国际化spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.5 国际化<!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<h3 id="a-namechapter_19_sub_languages_charset_and_encodingspan-en1951-languages-charset-and-encoding1951-语言字符集编码spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.5.1 语言、字符集、编码<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<p><!-- raw HTML omitted -->不同的语言有不同的字符集。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->英语是最简单的一个，因为它只用ASCII字符，法语更复杂一点，用了强调字符比如“é”，还有一些语言像俄语、中文、阿拉伯语就更复杂了，因为它们所有的字符都是在ASCII范围之外。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这样的语言都是用完全不同的字符集来定义的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当处理国际化数据时，最好使用unicode标准。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->unicode背后的想法是建立一个通用的字符集，包含所有语言的字符。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->用unicode的问题是，一个字符就多达21个字节。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->因此，对于web，我们使用UTF-8，它映射unicode代码指向可变长度的字节序列。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在UTF-8中，大多数使用的语言有它们的字符编码，不到3个字节。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;UTF-8 is the default encoding used by symfony, and it is defined in the <code>settings.yml</code> configuration file:”&gt;UTF-8是symfony默认使用的编码，在 <code>settings.yml</code> 配置文件中定义：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Also, to enable the internationalization layer of symfony, you must set the <code>i18n</code> setting to <code>true</code> in <code>settings.yml</code>:”&gt;另外，要开启symfony的国际化层，你必须在 <code>settings.yml</code> 中设置 <code>i18n</code> 为 <code>true</code>：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="a-namechapter_19_sub_templatesspan-en1952-templates1952-模版spana"><!-- raw HTML omitted --><!-- raw HTML omitted -->19.5.2 模版<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<p><!-- raw HTML omitted -->一个国际化网站意味着用户界面被翻译成了几种语言。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;In a template, all strings that are language dependent must be wrapped with the <code>__()</code> helper (notice that there is two underscores).”&gt;在模版中，所有依赖于语言的字符串都必须用 <code>__()</code> 辅助函数包起来（注意是两个下划线）。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>__()</code> helper is part of the <code>I18N</code> helper group, which contains helpers that ease i18n management in templates.”&gt;<code>__()</code> 辅助函数是 <code>I18N</code> 辅助函数组的一部分，这些包含的辅助函数以缓解模版中的i18n管理。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;As this helper group is not loaded by default, you need to either manually add it in each template with <code>use_helper(&amp;#8216;I18N&amp;#8217;)</code> as we already did for the <code>Text</code> helper group, or load it globally by adding it to the <code>standard_helpers</code> setting:”&gt;因为这个辅助函数组不是默认加载的，你需要要么在每个模版中用 <code>use_helper('I18N')</code> 手动添加它，因为我们已经做了 <code>Text</code> 辅助函数组，要么通过添加它到 <code>standard_helpers</code> 设置来全局的加载它。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Here is how to use the <code>__()</code> helper for the Jobeet footer:”&gt;这是对Jobeet页脚如何使用 <code>__()</code> 辅助函数：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;When symfony renders a template, each time the <code>__()</code> helper is called, symfony looks for a translation for the current user’s culture.”&gt;当symfony渲染模版时，每次 <code>__()</code> 辅助函数都要被调用，symfony为用户的当前culture查找翻译。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果翻译被找到，则使用，如果没有，<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一个参数则被返回作为一个后备值。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->所有翻译都储存在一个编目里面。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->i18n框架提供许多不同的策略来储存翻译。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->我们会使用<!-- raw HTML omitted -->“XLIFF”<!-- raw HTML omitted -->格式，这是一个标准，非常灵活。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->它还储存管理后台生成器和大多数symfony插件所使用的翻译。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h3 id="a-namechapter_19_sub_i18n_extract1953-codei18nextractcodea"><!-- raw HTML omitted -->19.5.3 <!-- raw HTML omitted -->i18n:extract<!-- raw HTML omitted --><!-- raw HTML omitted --></h3>
+<p>&lt;span en=&ldquo;Instead of creating the catalogue file by hand, use the built-in <code>i18n:extract</code> task|I18n Extraction Task:”&gt;使用内置的 <code>i18n:extract</code> 命令替代手动创建创建编目文件：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;The <code>i18n:extract</code> task finds all strings that need to be translated in <code>fr</code> in the <code>frontend</code> application and creates or updates the corresponding catalogue.”&gt;</p>
+<p><code>i18n:extract</code> 命令在 <code>frontend</code> 应用程序中查找所有需要用 <code>fr</code> 翻译的字符串，然后创建或更新相应的编目。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>&amp;#8211;auto-save</code> option saves the new strings in the catalogue.”&gt;<code>--auto-save</code> 选项在编目中保存新的字符串。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;You can also use the <code>&amp;#8211;auto-delete</code> option to automatically remove strings that do not exist anymore.”&gt;你还可以使用 <code>--auto-delete</code> 选项来自动的删除不存在了的字符串。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在我们的情况中，它填充我们已经创建了的文件：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Each translation is managed by a <code>trans-unit</code> tag which has a unique <code>id</code> attribute.”&gt;每个翻译是由一个 <code>trans-unit</code> 标签来管理的，它有一个唯一的 <code>id</code> 属性。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->你现在可以编辑这个文件，然后给法语添加翻译。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;h3&gt;
+  &lt;a name=&quot;chapter_19_sub_translations_with_arguments&quot;&gt;&lt;span en=&quot;19.5.4 Translations with Arguments&quot;&gt;19.5.4 用参数翻译&lt;/span&gt;&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;The main principle behind internationalization is to translate whole sentences.&quot;&gt;国际化背后主要原则是翻译整条句子。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But some sentences embed dynamic values.&quot;&gt;但有些句子被嵌入了动态值。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;In Jobeet, this is the case on the homepage for the &amp;quot;more...&amp;quot; link:&quot;&gt;在Jobeet中，对于首页上的“more&amp;#8230;”链接这个情况：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;php&quot;&gt;&amp;lt;!-- apps/frontend/modules/job/templates/indexSuccess.php --&amp;gt;
+</code></pre>
+<p>&lt;div <!-- raw HTML omitted -->class<!-- raw HTML omitted -->=<!-- raw HTML omitted -->&ldquo;more_jobs&rdquo;<!-- raw HTML omitted -->&gt;
+and <!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> link_to<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$count<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;category&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$category<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted --> more&hellip;
+&lt;/div&gt;<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;The number of jobs is a variable that must be replaced by a placeholder for translation:&quot;&gt;职位的数目是一个变数必须由一个占位符所替换：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;php&quot;&gt;&amp;lt;!-- apps/frontend/modules/job/templates/indexSuccess.php --&amp;gt;
+</code></pre>
+<p>&lt;div <!-- raw HTML omitted -->class<!-- raw HTML omitted -->=<!-- raw HTML omitted -->&ldquo;more_jobs&rdquo;<!-- raw HTML omitted -->&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> __<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;and %count% more&hellip;'<!-- raw HTML omitted -->, <!-- raw HTML omitted -->array<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->'%count%'<!-- raw HTML omitted --> =&gt; link_to<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$count<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;category&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$category<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+&lt;/div&gt;<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;The string to be translated is now &quot;and %count% more...&quot;, and the &lt;code&gt;%count%&lt;/code&gt; placeholder will be replaced by the real number at runtime, thanks to the value given as the second argument to the &lt;code&gt;__()&lt;/code&gt; helper.&amp;#8221;&gt;要被翻译的字符串现在是“and %count% more&amp;#8230;”，然后 &lt;code&gt;%count%&lt;/code&gt; 占位符会由运行时真正的数字所替换，得意于给定的值作为&lt;b style=&quot;color:black;background-color:#ffff66&quot;&gt;第&lt;/b&gt;2个参数到 &lt;code&gt;__()&lt;/code&gt; 辅助函数。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;Add the new string manually by inserting a &lt;code&gt;trans-unit&lt;/code&gt; tag in the &lt;code&gt;messages.xml&lt;/code&gt; file, or use the &lt;code&gt;i18n:extract&lt;/code&gt; task to update the file automatically:&amp;#8221;&gt;通过在 &lt;code&gt;messages.xml&lt;/code&gt; 文件中手动插入一个 &lt;code&gt;trans-unit&lt;/code&gt; 标签来添加新的字符串，或者使用 &lt;code&gt;i18n:extract&lt;/code&gt; 命令来自动的更新文件：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;command-line&quot;&gt;$ php symfony i18n:extract frontend fr --auto-save&lt;/pre&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;After running the task, open the XLIFF file to add the French translation:&quot;&gt;运行命令之后，打开XLIFF文件来添加法语翻译：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;xml&quot;&gt;&lt;span class=&quot;sc3&quot;&gt;&lt;span class=&quot;re1&quot;&gt;&amp;lt;trans-unit&lt;/span&gt; &lt;span class=&quot;re0&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;st0&quot;&gt;&quot;6&quot;&lt;/span&gt;&lt;span class=&quot;re2&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;source<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->and %count% more&hellip;<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/source<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;target<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->et %count% autres&hellip;<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/target<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/trans-unit<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;The only requirement in the translated string is to use the &lt;code&gt;%count%&lt;/code&gt; placeholder somewhere.&amp;#8221;&gt;在翻译的字符串中唯一的要求是有些地方要使用 &lt;code&gt;%count%&lt;/code&gt; 占位符。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;Some other strings are even more complex as they involve plurals.&quot;&gt;一些其他的字符串甚至更复杂，因为它们包括复数。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;According to some numbers, the sentence changes, but not necessarily the same way for all languages.&quot;&gt;根据一些数字，改变句子，而且对于所有语言不一定都是一样的方法。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Some languages have very complex grammar rules for plurals, like Polish or Russian.&quot;&gt;一些语言有很复杂的复数语法规则，比如波兰语或俄语。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;On the category page, the number of jobs in the current category is displayed:&quot;&gt;在分类页上，当前分类职位的数目是要显示的：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;php&quot;&gt;&amp;lt;!-- apps/frontend/modules/category/templates/showSuccess.php --&amp;gt;
+</code></pre>
+<p>&lt;strong&gt;&lt;?php <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->count<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$pager<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> ?&gt;&lt;/strong&gt; jobs in this category<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;When a sentence has different translations according to a number, the &lt;code&gt;format_number_choice()&lt;/code&gt; helper should be used:&amp;#8221;&gt;当一个句子根据一个数字有不同的翻译时，则应该使用 &lt;code&gt;format_number_choice()&lt;/code&gt;：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;kw3&quot;&gt;echo&lt;/span&gt; format_number_choice&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;
+&lt;span class=&quot;st0&quot;&gt;'[0]No job in this category|[1]One job in this category|(1,+Inf]%count% jobs in this category'&lt;/span&gt;,
+&lt;span class=&quot;kw3&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'%count%'&lt;/span&gt; =&amp;gt; &lt;span class=&quot;st0&quot;&gt;'&amp;lt;strong&amp;gt;'&lt;/span&gt;.&lt;span class=&quot;kw3&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re0&quot;&gt;$pager&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;.&lt;span class=&quot;st0&quot;&gt;'&amp;lt;/strong&amp;gt;'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;,
+&lt;span class=&quot;kw3&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;re0&quot;&gt;$pager&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;The &lt;code&gt;format_number_choice()&lt;/code&gt; helper takes three arguments:&amp;#8221;&gt;&lt;code&gt;format_number_choice()&lt;/code&gt; 辅助函数有3个参数：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;The string to use depending on the number&quot;&gt;字符串依赖的数字&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;An array of placeholders&quot;&gt;占位符数组&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;The number to use to determine which text to use&quot;&gt;用于决定要使用哪个文本的数字&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;The string that describes the different translations according to the number is formatted as follow:&quot;&gt;根据数字被格式化为以下各项字符串描述不同的翻译：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;Each possibility is separated by a pipe character (&lt;code&gt;|&lt;/code&gt;)&amp;#8221;&gt;每个可能性是由一个管道字符（&lt;code&gt;|&lt;/code&gt;）分隔的&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;Each string is composed of a range followed by the translation&quot;&gt;每个字符串是一个区间所组成的，以下是区间的描述规则&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;The range can describe any range of numbers:&quot;&gt;该区间可以描述任何范围的数字：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;&lt;code&gt;[1,2]&lt;/code&gt;: Accepts values between 1 and 2, inclusive&amp;#8221;&gt;&lt;code&gt;[1,2]&lt;/code&gt;：接受1和2之间的值，包含1和2&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;&lt;code&gt;(1,2)&lt;/code&gt;: Accepts values between 1 and 2, excluding 1 and 2&amp;#8243;&gt;&lt;code&gt;{1,2,3,4}&lt;/code&gt;：接受1和2之间的值，不包含1和2&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;&lt;code&gt;{1,2,3,4}&lt;/code&gt;: Only values defined in the set are accepted&amp;#8221;&gt;&lt;code&gt;[-Inf,0)&lt;/code&gt;：只有被定义在集合里面的值是接受的&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;&lt;code&gt;[-Inf,0)&lt;/code&gt;: Accepts values greater or equal to negative infinity and strictly less than 0&amp;#8243;&gt;&lt;code&gt;[-Inf,0)&lt;/code&gt;：接受的值大于或等于负无穷，并小于0&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;&lt;code&gt;{n: n % 10 &amp;gt; 1 &amp;&amp; n % 10 &amp;lt; 5}&lt;/code&gt;: Matches numbers like 2, 3, 4, 22, 23, 24&amp;#8243;&gt;&lt;code&gt;{n: n % 10 &amp;gt; 1 &amp;&amp; n % 10 &amp;lt; 5}&lt;/code&gt;：匹配数字像2、3、4、22、23、24&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;Translating the string is similar to other message strings:&quot;&gt;翻译字符串类似于其他消息字符串：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;xml&quot;&gt;&lt;span class=&quot;sc3&quot;&gt;&lt;span class=&quot;re1&quot;&gt;&amp;lt;trans-unit&lt;/span&gt; &lt;span class=&quot;re0&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;st0&quot;&gt;&quot;7&quot;&lt;/span&gt;&lt;span class=&quot;re2&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;source<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->[0]No job in this category|[1]One job in this category|(1,+Inf]%count% jobs in this category<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/source<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;target<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->[0]Aucune annonce dans cette catégorie|[1]Une annonce dans cette catégorie|(1,+Inf]%count% annonces dans cette catégorie<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/target<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/trans-unit<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;Now that you know how to internationalize all kind of strings, take the time to add &lt;code&gt;__()&lt;/code&gt; calls for all templates of the frontend application.&amp;#8221;&gt;现在你知道如何国际化所有种类的字符串，花时间给前台应用程序的所有模版添加 &lt;code&gt;__()&lt;/code&gt; 调用。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;We won'tt internationalize the backend application.&quot;&gt;我们不会国际化后台应用程序。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;h3&gt;
+  &lt;a name=&quot;chapter_19_sub_forms_forms_i18n&quot;&gt;&lt;span en=&quot;19.5.5 Forms&quot;&gt;19.5.5 表单&lt;/span&gt;&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;The form classes contain many strings that need to be translated, like labels, error messages, and help messages.&quot;&gt;表单类包含了许多需要翻译的字符串，比如label、错误消息、帮助提示。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;All these strings are automatically internationalized by symfony, so you only need to provide translations in the XLIFF files.&quot;&gt;所有这些字符串由symfony自动的国际化，所以你只需要提供XLIFF文件里面的翻译。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;blockquote class=&quot;note&quot;&gt;
+  &lt;p&gt;
+    &lt;span en=&quot;Unfortunately, the &lt;code&gt;i18n:extract&lt;/code&gt; task does not yet parse form classes for untranslated strings.&amp;#8221;&gt;不幸，&lt;code&gt;i18n:extract&lt;/code&gt; 命令还没有能解析未翻译的字符串的表单类。&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;
+  &lt;a name=&quot;chapter_19_sub_doctrine_objects&quot;&gt;&lt;span en=&quot;19.5.6 Doctrine Objects&quot;&gt;19.5.6 Doctrine对象&lt;/span&gt;&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;For the Jobeet website, we won't internationalize all tables as it does not make sense to ask the job posters to translate their job posts in all available languages.&quot;&gt;对于Jobeet网站，我们不会国际化所有的表，因为要求职位的发布者用所有的语言来翻译他们的职位帖子是没有意义的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But the category table definitely needs to be translated.&quot;&gt;但分类表肯定是要翻译的。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;The Doctrine plugin supports i18n tables out of the box.&quot;&gt;Doctrine插件支持i18n表。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For each table that contains localized data, two tables need to be created: one for columns that are i18n-independent, and the other one with columns that need to be internationalized.&quot;&gt;每个表包含了本地化的数据，需要创建两个表：其中一个表的列不依赖于i18n，然后另一个表的列需要被国际化。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The two tables are linked by a one-to-many relationship.&quot;&gt;两个表通过一对多关系来连接的。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;Update the &lt;code&gt;schema.yml&lt;/code&gt;|&lt;code&gt;schema.yml&lt;/code&gt; (I18n) accordingly:&amp;#8221;&gt;更新 &lt;code&gt;schema.yml&lt;/code&gt;：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;# config/doctrine/schema.yml
+</code></pre>
+<p>JobeetCategory:
+actAs:
+Timestampable: ~
+I18n:
+fields: [name]
+actAs:
+Sluggable: { fields: [name], uniqueBy: [lang, name] }
+columns:
+name: { type: string(255), notnull: true }<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;By turning on the &lt;code&gt;I18n&lt;/code&gt; behavior, a model named &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt; will be automatically created and the specified &lt;code&gt;fields&lt;/code&gt; are moved to that model.&amp;#8221;&gt;通过打开 &lt;code&gt;I18n&lt;/code&gt; 行为，一个叫做 &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt; 的模型会自动的被创建，然后指定的 &lt;code&gt;fields&lt;/code&gt; 被移动到了那个模型。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;Notice we simply turn on the &lt;code&gt;I18n&lt;/code&gt; behavior and move the &lt;code&gt;Sluggable&lt;/code&gt; behavior to be attached to the &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt; model which is automatically created.&amp;#8221;&gt;注意，仅仅打开 &lt;code&gt;I18n&lt;/code&gt; 行为然后移动 &lt;code&gt;Sluggable&lt;/code&gt; 行为来附属到 &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt; 模型，这是自动创建的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The &lt;code&gt;uniqueBy&lt;/code&gt; option tells the &lt;code&gt;Sluggable&lt;/code&gt; behavior which fields determine whether a slug is unique or not.&amp;#8221;&gt;&lt;code&gt;uniqueBy&lt;/code&gt; 选项告诉 &lt;code&gt;Sluggable&lt;/code&gt; 行为，这些字段决定一个slug是否是唯一的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;In this case each slug must be unique for each &lt;code&gt;lang&lt;/code&gt; and &lt;code&gt;name&lt;/code&gt; pair.&amp;#8221;&gt;在这个情况中，slug对每个 &lt;code&gt;lang&lt;/code&gt; 和 &lt;code&gt;name&lt;/code&gt; 这一对必须是唯一的。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;And update the fixtures for categories:&quot;&gt;然后更新分类的fixtures：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;# data/fixtures/categories.yml
+</code></pre>
+<p>JobeetCategory:
+design:
+Translation:
+en:
+name: Design
+fr:
+name: design
+programming:
+Translation:
+en:
+name: Programming
+fr:
+name: Programmation
+manager:
+Translation:
+en:
+name: Manager
+fr:
+name: Manager
+administrator:
+Translation:
+en:
+name: Administrator
+fr:
+name: Administrateur<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;We also need to override the &lt;code&gt;findOneBySlug()&lt;/code&gt; method in &lt;code&gt;JobeetCategoryTable&lt;/code&gt;.&amp;#8221;&gt;我们还需要重写 &lt;code&gt;JobeetCategoryTable&lt;/code&gt; 里面的 &lt;code&gt;findOneBySlug()&lt;/code&gt; 方法。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Since Doctrine provides some magic finders for all columns in a model, we need to simply create the &lt;code&gt;findOneBySlug()&lt;/code&gt; method so that we override the default magic functionality Doctrine provides.&amp;#8221;&gt;因为Doctrine给模型里面的所有列提供了一些魔术查找器，我们仅仅需要创建 &lt;code&gt;findOneBySlug()&lt;/code&gt; 方法，以便我们重写Doctrine提供的默认的魔术功能。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;We need to make a few changes so that the category is retrieved based on the english slug in the &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt; table.&amp;#8221;&gt;我们需要做一些改变，以便分类在 &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt; 表中是基于英语slug取得的。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// lib/model/doctrine/JobeetCategoryTable.cass.php&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->public<!-- raw HTML omitted --> <!-- raw HTML omitted -->function<!-- raw HTML omitted --> findOneBySlug<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$slug<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$q<!-- raw HTML omitted --> = <!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->createQuery<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;a&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+-&gt;<!-- raw HTML omitted -->leftJoin<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;a.Translation t&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+-&gt;<!-- raw HTML omitted -->andWhere<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&rsquo;t.lang = ?'<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;en&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+-&gt;<!-- raw HTML omitted -->andWhere<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&rsquo;t.slug = ?'<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$slug<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->$q<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->fetchOne<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;Rebuild the model:&quot;&gt;重建模型：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;command-line&quot;&gt;$ php symfony doctrine:build --all --and-load --no-confirmation
+</code></pre>
+<p>$ php symfony cc<!-- raw HTML omitted --></p>
+<pre><code>&lt;blockquote class=&quot;tip&quot;&gt;
+  &lt;p&gt;
+    &lt;span en=&quot;As the &lt;code&gt;doctrine:build &amp;#8211;all &amp;#8211;and-load&lt;/code&gt; removes all tables and data from the database, don&amp;#8217;t forget to re-create a user to access the Jobeet backend with the &lt;code&gt;guard:create-user&lt;/code&gt; task.&amp;#8221;&gt;因为 &lt;code&gt;doctrine:build --all --and-load&lt;/code&gt; 从数据库中删除了所有的表和数据，不要忘记用 &lt;code&gt;guard:create-user&lt;/code&gt; 命令重建一个用户来访问Jobeet后台。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Alternatively, you can add a fixture file to add it automatically for you.&quot;&gt;或者，你可以添加一个fixture文件来自动为你添加。&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;When using the &lt;code&gt;I18n&lt;/code&gt; behavior, proxies are created between the &lt;code&gt;JobeetCategory&lt;/code&gt; object and the &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt; object so all the old functions for retrieving the category name will still work and retrieve the value for the current culture.&amp;#8221;&gt;当使用 &lt;code&gt;I18n&lt;/code&gt; 行为，代理被创建在 &lt;code&gt;JobeetCategory&lt;/code&gt; 对象和 &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt; 对象之间，所以对于取得分类名称的所有旧的函数仍然能工作，然后取得当前culture的值。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$category&lt;/span&gt; = &lt;span class=&quot;kw2&quot;&gt;new&lt;/span&gt; JobeetCategory&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;;
+</code></pre>
+<p><!-- raw HTML omitted -->$category<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->setName<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foo&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->; <!-- raw HTML omitted --><!-- raw HTML omitted -->// 设置当前culture的名称<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$category<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getName<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->; <!-- raw HTML omitted --><!-- raw HTML omitted -->// 取得当前culture的名称<!-- raw HTML omitted --><!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getUser<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->setCulture<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;fr&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->; <!-- raw HTML omitted --><!-- raw HTML omitted -->// 从你的动作类中<!-- raw HTML omitted --><!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->$category<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->setName<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foo&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->; <!-- raw HTML omitted --><!-- raw HTML omitted -->// 给法语设置名称<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$category<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getName<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->; <!-- raw HTML omitted --><!-- raw HTML omitted -->// 取得法语的名称<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>&lt;blockquote class=&quot;tip&quot;&gt;
+  &lt;p&gt;
+    &lt;span en=&quot;To reduce the number of database requests, join the &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt; in your queries.&amp;#8221;&gt;为了减少数据库请求数量，在你的查询中加入 &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt;。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It will retrieve the main object and the i18n one in one query.&quot;&gt;它会取得主要的对象和一个查询中的i18n对象。&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$categories&lt;/span&gt; = Doctrine_Query::&lt;span class=&quot;me2&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#40;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;&amp;#41;&lt;/span&gt;
+</code></pre>
+<p>-&gt;<!-- raw HTML omitted -->from<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;JobeetCategory c&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+-&gt;<!-- raw HTML omitted -->leftJoin<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;c.Translation t WITH t.lang = ?'<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$culture<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+-&gt;<!-- raw HTML omitted -->execute<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<pre><code>  &lt;p&gt;
+    &lt;span en=&quot;The &lt;code&gt;WITH&lt;/code&gt; keyword above will append a condition to the automatically added &lt;code&gt;ON&lt;/code&gt; condition of the query.&amp;#8221;&gt;上面的 &lt;code&gt;WITH&lt;/code&gt; 关键字会附加一个条件来自动的添加查询的 &lt;code&gt;ON&lt;/code&gt; 条件。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;So, the &lt;code&gt;ON&lt;/code&gt; condition of the join will end up being.&amp;#8221;&gt;所以，加入的 &lt;code&gt;ON&lt;/code&gt; 条件将最终为。&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;pre class=&quot;sql&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;LEFT&lt;/span&gt; &lt;span class=&quot;kw1&quot;&gt;JOIN&lt;/span&gt; c.Translation t &lt;span class=&quot;kw1&quot;&gt;ON&lt;/span&gt; c.id = t.id &lt;span class=&quot;kw1&quot;&gt;AND&lt;/span&gt; t.lang = ?&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;As the &lt;code&gt;category&lt;/code&gt; route is tied to the &lt;code&gt;JobeetCategory&lt;/code&gt; model class and because the &lt;code&gt;slug&lt;/code&gt; is now part of the &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt;, the route is not able to retrieve the &lt;code&gt;Category&lt;/code&gt; object automatically.&amp;#8221;&gt;正如 &lt;code&gt;category&lt;/code&gt; 路由关联了 &lt;code&gt;JobeetCategory&lt;/code&gt; 模型类，而且因为 &lt;code&gt;slug&lt;/code&gt; 现在是 &lt;code&gt;JobeetCategoryTranslation&lt;/code&gt; 的一部分，该路由不能自动的取得 &lt;code&gt;Category&lt;/code&gt; 对象。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;To help the routing system, let's create a method that will take care of object retrieval:&quot;&gt;为了帮助路由系统，我们创建一个会照顾方法取得的方法：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;Since we already overrode the &lt;code&gt;findOneBySlug()&lt;/code&gt; let&amp;#8217;s refactor a little bit more so these methods can be shared.&amp;#8221;&gt;因为我们已经重写了&lt;code&gt;findOneBySlug()&lt;/code&gt;，我们重构一下，因此这些方法可以被共享。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;We'll create a new &lt;code&gt;findOneBySlugAndCulture()&lt;/code&gt; and &lt;code&gt;doSelectForSlug()&lt;/code&gt; methods and change the &lt;code&gt;findOneBySlug()&lt;/code&gt; method to simply use the &lt;code&gt;findOneBySlugAndCulture()&lt;/code&gt; method.&amp;#8221;&gt;我们会创建一个新的 &lt;code&gt;findOneBySlugAndCulture()&lt;/code&gt; 和 &lt;code&gt;doSelectForSlug()&lt;/code&gt; 方法，然后更改 &lt;code&gt;findOneBySlug&lt;/code&gt; 方法来简单的使用 &lt;code&gt;findOneBySlugAndCulture()&lt;/code&gt; 方法。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// lib/model/doctrine/JobeetCategoryTable.class.php&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->public<!-- raw HTML omitted --> <!-- raw HTML omitted -->function<!-- raw HTML omitted --> doSelectForSlug<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$parameters<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->findOneBySlugAndCulture<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$parameters<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;slug&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$parameters<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;sf_culture&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->public<!-- raw HTML omitted --> <!-- raw HTML omitted -->function<!-- raw HTML omitted --> findOneBySlugAndCulture<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$slug<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$culture<!-- raw HTML omitted --> = <!-- raw HTML omitted -->&lsquo;en&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$q<!-- raw HTML omitted --> = <!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->createQuery<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;a&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+-&gt;<!-- raw HTML omitted -->leftJoin<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;a.Translation t&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+-&gt;<!-- raw HTML omitted -->andWhere<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&rsquo;t.lang = ?'<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$culture<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+-&gt;<!-- raw HTML omitted -->andWhere<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&rsquo;t.slug = ?'<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$slug<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->$q<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->fetchOne<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->public<!-- raw HTML omitted --> <!-- raw HTML omitted -->function<!-- raw HTML omitted --> findOneBySlug<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$slug<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->findOneBySlugAndCulture<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$slug<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;en&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;Then, use the &lt;code&gt;method&lt;/code&gt; option|&lt;code&gt;method&lt;/code&gt; option (Routing) to tell the &lt;code&gt;category&lt;/code&gt; route to use the &lt;code&gt;doSelectForSlug()&lt;/code&gt; method to retrieve the object:&amp;#8221;&gt;然后，使用 &lt;code&gt;method&lt;/code&gt; 选项（路由）来告诉 &lt;code&gt;category&lt;/code&gt; 路由来使用 &lt;code&gt;doSelectForSlug()&lt;/code&gt; 方法来取得对象：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;# apps/frontend/config/routing.yml
+</code></pre>
+<p>category:
+url:     /:sf_culture/category/:slug.:sf_format
+class:   sfDoctrineRoute
+param:   { module: category, action: show, sf_format: html }
+options: { model: JobeetCategory, type: object, method: doSelectForSlug }
+requirements:
+sf_format: (?:html|atom)<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;We need to reload the fixtures to regenerate the proper slugs for the categories:&quot;&gt;我们需要重载fixture来给分类重生成适当的slug：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre class=&quot;command-line&quot;&gt;$ php symfony doctrine:data-load&lt;/pre&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;Now the &lt;code&gt;category&lt;/code&gt; route is internationalized and the URL for a category embeds the translated category slug:&amp;#8221;&gt;现在 &lt;code&gt;category&lt;/code&gt; 路由是国际化的，而且分类的URL嵌入了翻译的分类slug：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/frontend_dev.php/fr/category/programmation
+</code></pre>
+<p>/frontend_dev.php/en/category/programming&lt;/pre&gt;
+&lt;h3&gt;&lt;a name=&ldquo;chapter_19_sub_admin_generator&rdquo;&gt;&lt;span en=&ldquo;19.5.7 Admin Generator&rdquo;&gt;19.5.7 后台生成器&lt;/span&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;
+&lt;span en=&ldquo;For the backend, we want the French and the English translations to be edited in the same form:&quot;&gt;对于后台，我们希望法语和英语的翻译在同一个表单中编辑：&lt;/span&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;img src=&ldquo;<a href="https://i2.wp.com/www.symfony-project.org/images/jobeet/1_4/19/backend_categories.png%22">https://i2.wp.com/www.symfony-project.org/images/jobeet/1_4/19/backend_categories.png&quot;</a> alt=&ldquo;Backend categories&rdquo; data-recalc-dims=&ldquo;1&rdquo; /&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;span en=&ldquo;Embedding an i18n form can be done by using the &lt;code&gt;embedI18N()<!-- raw HTML omitted --> method:&quot;&gt;嵌入一个i18n表单可以通过使用 <!-- raw HTML omitted -->embedI18N()<!-- raw HTML omitted --> 方法来完成：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  &lt;span en=&quot;Description&quot;&gt;描述&lt;/span&gt;
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Formats a date&quot;&gt;格式化一个日期&lt;/span&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Formats a date with a time (hours, minutes, seconds)&quot;&gt;用一个时间（小时、分钟、秒）格式化一个日期&lt;/span&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Displays the elapsed time between a date and now in words&quot;&gt;Displays the elapsed time between a date and now in words&lt;/span&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Displays the elapsed time between two dates in words&quot;&gt;Displays the elapsed time between two dates in words&lt;/span&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Formats a range of dates&quot;&gt;格式化一个日期范围&lt;/span&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  &lt;span en=&quot;Description&quot;&gt;描述&lt;/span&gt;
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>  &lt;td&gt;
+    &lt;span en=&quot;Formats a number&quot;&gt;格式化一个数字&lt;/span&gt;
+  &lt;/td&gt;
+  &lt;/tr&gt;
+  
+  
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;code&gt;format_currency()&lt;/code&gt;
+    &lt;/td&gt;
+    
+    
+    &lt;td&gt;
+      &lt;span en=&quot;Formats a currency&quot;&gt;格式化一个货币&lt;/span&gt;
+    &lt;/td&gt;
+    
+  &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;/table&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;In the &lt;a target=&amp;quot;_blank&amp;quot; href=&amp;quot;http://www.symfony-project.org/api/1_4/I18NHelper&amp;quot;&gt;&lt;code&gt;I18N&lt;/code&gt;&lt;/a&gt; helper group:&quot;&gt;在 &lt;a target=&quot;_blank&quot; href=&quot;http://www.symfony-project.org/api/1_4/I18NHelper&quot;&gt;&lt;code&gt;I18N&lt;/code&gt;&lt;/a&gt; 辅助函数组中：&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;table cellspacing=&quot;0&quot; class=&quot;doc_table&quot;&gt;
+    
+    
+    
+    &lt;tr&gt;
+      &lt;th&gt;
+        &lt;span en=&quot;Helper&quot;&gt;辅助函数&lt;/span&gt;
+      &lt;/th&gt;
+      
+      
+      &lt;th&gt;
+        &lt;span en=&quot;Description&quot;&gt;描述&lt;/span&gt;
+      &lt;/th&gt;
+      
+    &lt;/tr&gt;
+    
+    
+    
+    
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;code&gt;format_country()&lt;/code&gt;
+      &lt;/td&gt;
+      
+      
+      &lt;td&gt;
+        &lt;span en=&quot;Displays the name of a country&quot;&gt;显示一个国家的名称&lt;/span&gt;
+      &lt;/td&gt;
+      
+    &lt;/tr&gt;
+    
+    
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;code&gt;format_language()&lt;/code&gt;
+      &lt;/td&gt;
+      
+      
+      &lt;td&gt;
+        &lt;span en=&quot;Displays the name of a language&quot;&gt;显示一个语言的名称&lt;/span&gt;
+      &lt;/td&gt;
+      
+    &lt;/tr&gt;
+    
+    
+  &lt;/table&gt;
+  
+  
+  &lt;h3&gt;
+    &lt;a name=&quot;chapter_19_sub_forms_i18n&quot;&gt;&lt;span en=&quot;19.6.2 Forms (I18n)&quot;&gt;19.6.2 表单（I18n）&lt;/span&gt;&lt;/a&gt;
+  &lt;/h3&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;The form framework provides several widgets and validators for localized data:&quot;&gt;表单框架给本地化数据提供了几个控件和验证器：&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a target=&quot;_blank&quot; href=&quot;http://www.symfony-project.org/api/1_4/sfWidgetFormI18nDate&quot;&gt;&lt;code&gt;sfWidgetFormI18nDate&lt;/code&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    
+    
+    &lt;li&gt;
+      &lt;a target=&quot;_blank&quot; href=&quot;http://www.symfony-project.org/api/1_4/sfWidgetFormI18nDateTime&quot;&gt;&lt;code&gt;sfWidgetFormI18nDateTime&lt;/code&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    
+    
+    &lt;li&gt;
+      &lt;a target=&quot;_blank&quot; href=&quot;http://www.symfony-project.org/api/1_4/sfWidgetFormI18nTime&quot;&gt;&lt;code&gt;sfWidgetFormI18nTime&lt;/code&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    
+    
+    &lt;li&gt;
+      &lt;a target=&quot;_blank&quot; href=&quot;http://www.symfony-project.org/api/1_4/sfWidgetFormI18nChoiceCountry&quot;&gt;&lt;code&gt;sfWidgetFormI18nChoiceCountry&lt;/code&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    
+    
+    &lt;li&gt;
+      &lt;a target=&quot;_blank&quot; href=&quot;http://www.symfony-project.org/api/1_4/sfWidgetFormI18nChoiceCurrency&quot;&gt;&lt;code&gt;sfWidgetFormI18nChoiceCurrency&lt;/code&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    
+    
+    &lt;li&gt;
+      &lt;a target=&quot;_blank&quot; href=&quot;http://www.symfony-project.org/api/1_4/sfWidgetFormI18nChoiceLanguage&quot;&gt;&lt;code&gt;sfWidgetFormI18nChoiceLanguage&lt;/code&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    
+    
+    &lt;li&gt;
+      &lt;a target=&quot;_blank&quot; href=&quot;http://www.symfony-project.org/api/1_4/sfWidgetFormI18nChoiceTimezone&quot;&gt;&lt;code&gt;sfWidgetFormI18nChoiceTimezone&lt;/code&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    
+    
+    &lt;li&gt;
+      &lt;a target=&quot;_blank&quot; href=&quot;http://www.symfony-project.org/api/1_4/sfValidatorI18nChoiceCountry&quot;&gt;&lt;code&gt;sfValidatorI18nChoiceCountry&lt;/code&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    
+    
+    &lt;li&gt;
+      &lt;a target=&quot;_blank&quot; href=&quot;http://www.symfony-project.org/api/1_4/sfValidatorI18nChoiceLanguage&quot;&gt;&lt;code&gt;sfValidatorI18nChoiceLanguage&lt;/code&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    
+    
+    &lt;li&gt;
+      &lt;a target=&quot;_blank&quot; href=&quot;http://www.symfony-project.org/api/1_4/sfValidatorI18nChoiceTimezone&quot;&gt;&lt;code&gt;sfValidatorI18nChoiceTimezone&lt;/code&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    
+  &lt;/ul&gt;
+  
+  
+  &lt;h2&gt;
+    &lt;a name=&quot;chapter_19_final_thoughts&quot;&gt;&lt;span en=&quot;19.7 Final Thoughts&quot;&gt;19.7 结语&lt;/span&gt;&lt;/a&gt;
+  &lt;/h2&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;Internationalization and localization are first-class citizens in symfony.&quot;&gt;在symfony中国际化和本地化是一等公民。&lt;/span&gt;&lt;br /&gt;
+    &lt;span en=&quot;Providing a localized website to your users is very easy as symfony provides all the basic tools and even gives you command line tasks to make it fast.&quot;&gt;提供一个本地化的网站给你的用户是非常容易的，因为symfony提供所有基本的工具，乃至给你命令行命令来快速开发。&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;Be prepared for a very special day as we will be moving a lot of files around and exploring a different approach to organizing a symfony project.&quot;&gt;为一个很特别的一天做好准备，因为我们会删除周围许多的文件，然后探索一个不同的方式来组织一个symfony项目。&lt;/span&gt;
+  &lt;/p&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AD%E5%A4%A9%E6%9B%B4%E5%A4%9A%E7%9A%84%E5%85%B3%E4%BA%8E%E6%A8%A1%E5%9E%8B/" data-toggle="tooltip" data-placement="top" title="第六天：更多的关于模型">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%80%E5%A4%A9%E8%A1%A8%E5%8D%95%E6%B5%8B%E8%AF%95/" data-toggle="tooltip" data-placement="top" title="第十一天：表单测试">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">11700 Words|Read in about 24 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

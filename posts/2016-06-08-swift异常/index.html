@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> swift异常 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="swift异常" />
+  <meta name="twitter:title" content="swift异常" />
+  <meta name="description" content="异常处理机制是很多现代编程语言必备的特性，而且基本上都使用了do/try/catch语法。如果没有使用异常捕捉语句，编译器（预编译器/静态分">
+  <meta property="og:description" content="异常处理机制是很多现代编程语言必备的特性，而且基本上都使用了do/try/catch语法。如果没有使用异常捕捉语句，编译器（预编译器/静态分">
+  <meta name="twitter:description" content="异常处理机制是很多现代编程语言必备的特性，而且基本上都使用了do/try/catch语法。如果没有使用异常捕捉语句，编译器（预编译器/静态分">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2016-06-08-swift%E5%BC%82%E5%B8%B8/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2016-06-08-swift%E5%BC%82%E5%B8%B8/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">swift异常</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jun 8, 2016</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/swift/">swift</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p><code>异常处理机制</code>是很多现代编程语言必备的特性，而且基本上都使用了<code>do/try/catch</code>语法。如果没有使用异常捕捉语句，编译器（预编译器/静态分析器）会告诉你。但是在Swift中，在没有异常处理或抛出，如果不能像Java一样使用异常控制流结构，那当你编写库的代码执行了一个失败的子程序时，可能就会有意想不到的情况被抛出。</p>
+<p>在Swift中，我们知道有一个关键词<code>throws</code>，可以用来编辑函数方法。<code>throws</code>其实是一个变异体，它返回<code>enum</code>类型的数据结构，包含两个属性<code>&lt;T1, T2&gt;</code>，T1 表示成功与否的结果，T2 表示错误类型，但是这些对于开发者都是隐藏的。</p>
+<p>幸运的是，你不用维护一个包含所有异常的列表，而可以向JAVA一样，对函数进行throws标记即可。</p>
+<blockquote>
+<ol>
+<li>在Swift中，不能调用一个抛出未知异常的函数。</li>
+<li>不会引起显著的开销，而且响应迅速。</li>
+</ol>
+</blockquote>
+<h5 id="如何使用Exception来保持代码清洁呢？">如何使用Exception来保持代码清洁呢？</h5>
+<p>假如需要进行一个APP中用户登录部分的数据验证模块。你可能会创建一个新的target，并使用自定义Exception来实现。</p>
+<p>首先，定义假设一种错误/异常：假如用户使用了空的用户名和密码来登录。良好的体验应该是，针对错误类型，进行合理的提示用户。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>Swift中自定义错误/异常枚举，需要遵循<code>ErrorType</code>协议.</p>
+</blockquote>
+<p>定义好了设想的错误类型后，就可以进行用户登录数据验证函数的定义，并在其中使用LoginError枚举了。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->    <!-- raw HTML omitted -->guard<!-- raw HTML omitted --> <!-- raw HTML omitted -->let<!-- raw HTML omitted --> username = username <!-- raw HTML omitted -->where<!-- raw HTML omitted --> username.characters.<!-- raw HTML omitted -->count<!-- raw HTML omitted --> != <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted -->else<!-- raw HTML omitted --> {<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->        <!-- raw HTML omitted -->throw<!-- raw HTML omitted --> <!-- raw HTML omitted -->LoginError<!-- raw HTML omitted -->.<!-- raw HTML omitted -->EmptyUsername<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->    }<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->    <!-- raw HTML omitted -->guard<!-- raw HTML omitted --> <!-- raw HTML omitted -->let<!-- raw HTML omitted --> password = password <!-- raw HTML omitted -->where<!-- raw HTML omitted --> password.characters.<!-- raw HTML omitted -->count<!-- raw HTML omitted --> != <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted -->else<!-- raw HTML omitted --> {<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->        <!-- raw HTML omitted -->throw<!-- raw HTML omitted --> <!-- raw HTML omitted -->LoginError<!-- raw HTML omitted -->.<!-- raw HTML omitted -->EmptyPassword<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->    }<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->    <!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->&ldquo;token: &ldquo;<!-- raw HTML omitted --> + username<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>在函数方法的末尾，使用了关键词<code>throws</code>进行了标记。接下来就可以使用<code>do/try/catch</code>语法进行异常捕捉了。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->    <!-- raw HTML omitted -->do<!-- raw HTML omitted --> {<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->        <!-- raw HTML omitted -->let<!-- raw HTML omitted --> token = <!-- raw HTML omitted -->try<!-- raw HTML omitted --> loginUserWithUsername(<!-- raw HTML omitted -->&ldquo;konrad1977&rdquo;<!-- raw HTML omitted -->, password: <!-- raw HTML omitted -->nil<!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->        <!-- raw HTML omitted -->print<!-- raw HTML omitted -->(<!-- raw HTML omitted -->&ldquo;user logged in <!-- raw HTML omitted -->(token)<!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->    } <!-- raw HTML omitted -->catch<!-- raw HTML omitted --> <!-- raw HTML omitted -->LoginError<!-- raw HTML omitted -->.<!-- raw HTML omitted -->EmptyUsername<!-- raw HTML omitted --> {<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->        <!-- raw HTML omitted -->print<!-- raw HTML omitted -->(<!-- raw HTML omitted -->&ldquo;empty username&rdquo;<!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->    } <!-- raw HTML omitted -->catch<!-- raw HTML omitted --> <!-- raw HTML omitted -->LoginError<!-- raw HTML omitted -->.<!-- raw HTML omitted -->EmptyPassword<!-- raw HTML omitted --> {<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->        <!-- raw HTML omitted -->print<!-- raw HTML omitted -->(<!-- raw HTML omitted -->&ldquo;empty password&rdquo;<!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->    } <!-- raw HTML omitted -->catch<!-- raw HTML omitted --> {<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->        <!-- raw HTML omitted -->print<!-- raw HTML omitted -->(error)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->    }<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>现在，就可以捕捉了用户名或者密码为空的异常了，但是这样并没有提示用户什么地方错了。我们希望在发生错误的时候用，直接将异常信息显示出来，并且逻辑操作函数中，不希望看到异常类型和异常信息。这就需要进一步的对LoginError进行扩展实现了。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>继承<code>CustomDebugStringConvertible</code>协议是为了能够重载description函数。</p>
+</blockquote>
+<p>接下来改造登录入口函数，让其更加的简洁。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>这样就很容易的捕捉预想的哪两种错误了。如果还有其他需要捕捉的异常，就可以直接完善LoginError枚举和它的扩展了。对于登录逻辑入口来说，代码是不用变化了。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2016-05-26-%E5%85%8D%E8%B4%B9ssl%E8%AF%81%E4%B9%A6-letsencrypt/" data-toggle="tooltip" data-placement="top" title="免费ssl证书 letsencrypt">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2016-06-08-swift2-2%E6%96%B0%E7%89%B9%E6%80%A7/" data-toggle="tooltip" data-placement="top" title="swift2.2新特性">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2015-06-22-swift/">swift</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jun 8, 2016</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/swift/">swift</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

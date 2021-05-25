@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第十八章：性能 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第十八章：性能" />
+  <meta name="twitter:title" content="第十八章：性能" />
+  <meta name="description" content="目录 18.1 调整服务器 18.2 调整模型 18.2.1 优化Propel或者Doctrine的整合 18.2.2 限制化合（Hydrate）对象数量 18.2.3 用join让结果数量最小化 18.2.4 避免">
+  <meta property="og:description" content="目录 18.1 调整服务器 18.2 调整模型 18.2.1 优化Propel或者Doctrine的整合 18.2.2 限制化合（Hydrate）对象数量 18.2.3 用join让结果数量最小化 18.2.4 避免">
+  <meta name="twitter:description" content="目录 18.1 调整服务器 18.2 调整模型 18.2.1 优化Propel或者Doctrine的整合 18.2.2 限制化合（Hydrate）对象数量 18.2.3 用join让结果数量最小化 18.2.4 避免">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%E6%80%A7%E8%83%BD/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%E6%80%A7%E8%83%BD/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第十八章：性能</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">9500 Words|Read in about 19 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_18_tweaking_the_server"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.1 调整服务器</a></a></li>
+    <li><a href="#chapter_18_tweaking_the_model"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2 调整模型</a></a>
+      <ul>
+        <li><a href="#chapter_18_sub_optimizing_propel_or_doctrine_integration"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.1 优化Propel或者Doctrine的整合</a></a></li>
+        <li><a href="#chapter_18_sub_limiting_the_number_of_objects_to_hydrate"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.2 限制化合（Hydrate）对象数量</a></a></li>
+        <li><a href="#chapter_18_sub_minimizing_the_number_of_queries_with_joins"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.3 用join让结果数量最小化</a></a></li>
+        <li><a href="#chapter_18_sub_avoid_using_temporary_arrays"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.4 避免使用临时数组</a></a></li>
+        <li><a href="#chapter_18_sub_bypassing_the_orm"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.4 绕过ORM</a></a></li>
+        <li><a href="#chapter_18_sub_speeding_up_the_database"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.5 数据库加速</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_18_tweaking_the_view"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.3 调整视图</a></a>
+      <ul>
+        <li><a href="#chapter_18_sub_using_the_fastest_code_fragment"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.3.1 使用最快的代码片段</a></a></li>
+        <li><a href="#chapter_18_sub_speeding_up_the_routing_process"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.3.2 加速路由过程</a></a></li>
+        <li><a href="#chapter_18_sub_skipping_the_template"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.3.3 略过模板</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_18_tweaking_the_cache"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4 调整缓存</a></a>
+      <ul>
+        <li><a href="#chapter_18_sub_clearing_selective_parts_of_the_cache"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.1 选择性的清除部分缓存</a></a></li>
+        <li><a href="#chapter_18_sub_generating_cached_pages"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.2 生成缓存页</a></a></li>
+        <li><a href="#chapter_18_sub_using_a_database_storage_system_for_caching"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.3 使用数据库存储作为缓存</a></a></li>
+        <li><a href="#chapter_18_sub_bypassing_symfony"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.4 绕过Symfony</a></a></li>
+        <li><a href="#chapter_18_sub_caching_the_result_of_a_function_call"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.5 缓存函数调用的结果</a></a></li>
+        <li><a href="#chapter_18_sub_caching_data_in_the_server"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.6 在服务器上缓存数据</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_18_deactivating_the_unused_features"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.5 屏蔽未使用过的功能</a></a></li>
+    <li><a href="#chapter_18_optimizing_your_code"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.6 优化你的代码</a></a>
+      <ul>
+        <li><a href="#chapter_18_sub_core_compilation"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.6.1 编译核心</a></a></li>
+        <li><a href="#chapter_18_sub_the_project_optimize_task"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.6.2 <code>project:optimize</code> 命令</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_18_summary"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.7 总结</a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_tweaking_the_server">18.1 调整服务器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_tweaking_the_model">18.2 调整模型</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_optimizing_propel_or_doctrine_integration">18.2.1 优化Propel或者Doctrine的整合</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_limiting_the_number_of_objects_to_hydrate">18.2.2 限制化合（Hydrate）对象数量</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_minimizing_the_number_of_queries_with_joins">18.2.3 用join让结果数量最小化</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_avoid_using_temporary_arrays">18.2.4 避免使用临时数组</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_bypassing_the_orm">18.2.4 绕过ORM</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_speeding_up_the_database">18.2.5 数据库加速</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_tweaking_the_view">18.3 调整视图</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_using_the_fastest_code_fragment">18.3.1 使用最快的代码片段</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_speeding_up_the_routing_process">18.3.2 加速路由过程</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_skipping_the_template">18.3.3 略过模板</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_tweaking_the_cache">18.4 调整缓存</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_clearing_selective_parts_of_the_cache">18.4.1 选择性的清除部分缓存</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_generating_cached_pages">18.4.2 生成缓存页</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_using_a_database_storage_system_for_caching">18.4.3 使用数据库存储作为缓存</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_bypassing_symfony">18.4.4 绕过Symfony</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_caching_the_result_of_a_function_call">18.4.5 缓存函数调用的结果</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_caching_data_in_the_server">18.4.6 在服务器上缓存数据</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_deactivating_the_unused_features">18.5 屏蔽未使用过的功能</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_optimizing_your_code">18.6 优化你的代码</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_core_compilation">18.6.1 编译核心</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_sub_the_project_optimize_task">18.6.2 project:optimize命令</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#chapter_18_summary">18.7 总结</a></li>
+</ul>
+<p>如果你希望你的网站更吸引人群，性能和优化的问题应该是在开发阶段的一个重要因素。毫无置疑，性能一直是symfony核心开发人员之间的主要关注点。</p>
+<p>通过加速开发带来好处的同时也会带来一些多余的开销，symfony核心开发者总是会认识到性能的需求。因此，每一个类每一个方法都会仔细的分析并优化到尽可能的快速。基本的开销，可以通过比较使用和不使用symfony来显示“hello, world”的时间来测量，这个开销很小。因此，这个框架是可扩展的并能在压力测试下表现的很好。最好的证据是，一些高访问量的网站（有百万活跃用户的并有大量消耗服务器资源的Ajax交互的）使用symfony并且非常满意它的性能。.</p>
+<p>不过，很显然高访问量的站点通常会扩展服务器数量并升级到他们想要的硬件。如果你没有足够的资源做到这一点，或者如果你想确保框架的全部力量都在你的掌握中，你可以使用几个调整来进一步加快你的symfony应用。本章列出了一些在框架所有层次中和更多高级用户的推荐优化性能方法。它们中的一些在以前的章节中已经提过，但是你会觉得把它们都集中在一起会对你十分有帮助。</p>
+<h2 id="chapter_18_tweaking_the_server"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.1 调整服务器</a></h2>
+<p>一个精心优化的应用应该放在一个优化良好的服务器上。你应该了解服务器性能的基础知识，以确保symfony运行没有瓶颈。这里有几样东西需要查核,以确保你的服务器不会过于缓慢。</p>
+<p>在 <code>php.ini</code> 中设置 <code>magic_quotes_gpc</code> 为 <code>true</code> 会降低应用效率，因为这会让PHP把请求参数中的所有引用都转义，但symfony会在后来系统化的过程中还原它们，这样唯一的后果就是时间上的损失，并会在一些平台上带来引用－转义问题。因此，如果能修改PHP配置的话，设置这个参数为 <code>false</code>。</p>
+<p>PHP版本越新越好。PHP5.3比PHP5.2快。所以请升级你的PHP来获得最新的性能提升。</p>
+<p>在产品服务器上使用PHP加速器（例如APC, XCache或者eAccelerator）几乎是必须的，因为它能让PHP跑的比平均快50%。安装其中一个加速器扩展来感觉一下PHP的真实速度。</p>
+<p>此外，在产品服务器上确认关闭了debug程序，例如Xdebug或者APD扩展。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_18_tweaking_the_model"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2 调整模型</a></h2>
+<p>在symfony中，模型层是公认最慢的部分。 如果通过基准程序测试发现需要优化模型层，这里有一些可能的改进方法。</p>
+<h3 id="chapter_18_sub_optimizing_propel_or_doctrine_integration"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.1 优化Propel或者Doctrine的整合</a></h3>
+<p>初始化模型层（核心ORM类）会花一些时间，因为它需要去载入一些类并构造多个对象。无论如何，因为symfony整合了两个ORM，所以这些初始化任务只会在行为确实需要模型的时候才会发生，并且会尽量晚发生。ORM类只会在当生成的模型对象自动载入的时候才会被初始化。这就意味不使用模型的页面不会被模型层所累。</p>
+<p>如果你的应用完全不需要使用模型层，你也能在 <code>settings.yml</code> 中设置关闭所有的层并保存在 <code>sfDatabaseManager</code> 的初始化值中：</p>
+<pre><code>all:
+  .settings:
+    use_database: false
+</code></pre>
+<h4 id="propel加强">Propel加强</h4>
+<p>生成的模型类（在 <code>lib/model/om/</code>）已经被优化过了——他们不包含注释，并且他们从自动载入机制中获益。依靠自动载入替代手动包含文件意味着类会在确实需要的时候才会被载入。因此在不需要模型类的情况下，有自动载入机制会节省执行时间，若使用 <code>include</code> 语法来实现则不会节省时间。 对于注释，他们注解了生成的方法，但是会使模型文件变大——结果会导致轻微的磁盘读取开销。因为生成的方法名是非常清楚的，所以默认注解是关闭的。</p>
+<p>这两个加强是针对symfony的，但你能通过修改 <code>propel.ini</code> 文件恢复默认值，如下：</p>
+<pre><code>propel.builder.addIncludes = true   # 在生成的类中增加 include
+                                    # 来替代自动载入机制
+propel.builder.addComments = true   # 在生成的类中增加注释
+</code></pre>
+<h3 id="chapter_18_sub_limiting_the_number_of_objects_to_hydrate"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.2 限制化合（Hydrate）对象数量</a></h3>
+<p>当用peer类的方法来获得对象的时候，查询通过化合（hydrating）处理（基于查询结果的行来创建和填充对象）。例如，通常可以使用下面语句通过propel获得 <code>article</code> 表的所有行：</p>
+<!-- raw HTML omitted -->
+<p><code>$articles</code> 变量得到的值是 <code>Article</code> 类的对象数组。每一个对象都被创建并初始化了，这需要一些时间。从而得到一个结论： 相对于直接访问数据库的查询语句，propel查询语句的速度直接取决于它返回结果的数量。这就是说你的模型方法应该经过优化过只返回指定数量的结果。当你不需要从 <code>Criteria</code> 获得所有结果的时候，你应该使用 <code>setLimit()</code> 和 <code>setOffset()</code> 方法来限制返回结果数量。例如，如果你只需要获得第10-20行结果，可以如例18-1中一样改进一下 <code>Criteria</code>。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>这可以通过使用翻页来自动完成。<code>sfPropelPager</code> 对象通过自动处理offset和Propel查询语句的limit来获得对象的特定页的数据。</p>
+<h3 id="chapter_18_sub_minimizing_the_number_of_queries_with_joins"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.3 用join让结果数量最小化</a></h3>
+<p>在应用开发过程中，你应该关注每个请求会产生多少个数据库查询语句。网页调试工具条显示了每页有多少条查询语句，点击数据库图标会显示出这些SQL查询语句。如果看到查询语句的数量增加有异常，就要考虑一下使用join了。</p>
+<p>在解释join方法之前，让我们回顾一下循环一个对象数组并用Propel获得相关类的资料时会发生什么，如例18-2所示。这个例子假设你的schema描述了一个带有 <code>author</code> 表外键的 <code>article</code> 表。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>如果 <code>$articles</code> 数组包含了10个对象，那么当类 <code>Author</code> 的对象调用化合（hydrate）的时候会依次执行十次 <code>getAuthor()</code> 方法，如例18-3所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>所以例18-2中的翻页总共需执行11条查询语句：其中一个当然是用来建立 <code>Article</code> 对象的，其余的10条查询语句是用来逐次建立 <code>Author</code> 对象。仅仅显示文章和他们的作者列表却需用多条查询语句来完成。</p>
+<h4 id="如何优化你的查询与propel">如何优化你的查询与Propel</h4>
+<p>如果只是使用简单的SQL语句，你应该知道如何减少查询语句，只用一条语句来获得 <code>article</code> 表和相关 <code>author</code> 表的内容。这就是 <code>ArticlePeer</code> 类的 <code>doSelectJoinAuthor()</code> 方法做的事情。它提供了比单纯 <code>doSelect()</code> 调用更复杂的查询语句，但在结果集中增加了列，设置允许propel来融合 <code>Article</code> 对象和相关的 <code>Author</code> 对象。例18-4中的代码展示了和例18-2同样的效果，但是只需要一条数据库查询语句而不是以前的11条语句来处理，这会处理的更快。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>调用 <code>doSelect()</code> 或 <code>doSelectJoinXXX()</code> 方法对返回的结果来说没有区别；他们都返回了同样的对象数组（如例中的Article类）。在这之后使用这些对象的外键获取方法才会看出不同。在用 <code>doSelect()</code> 的情况下，他发出了查询, 一个对象会产生一个结果；而在用 <code>doSelectJoinXXX()</code> 的情况下，外部对象已经存在了，不需要用查询语句了，所以处理过程会快些。因此，如果你知道需要用到相关的对象的话，调用 <code>doSelectJoinXXX()</code> 方法会减少数据库查询语句的数量，并提高了分页的效率。</p>
+<p><code>doSelectJoinAuthor()</code> 方法是根据 <code>article</code> 和 <code>author</code> 表的关系在调用 <code>propel-build-model</code> 时自动产生的。如果在article表结构中有其他的外键（例如，对于分类表）生成的 <code>BaseArticlePeer</code> 类就会有其他的Join方法，如例18-5所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Peer类也包含了 <code>doCount()</code> 的Join方法。有i18n关联的类（见第十三章），提供了 <code>doSelectWithI18n()</code> 方法，这个方法和Join方法很像不过它作用于i18n对象。要在模型类中发现可用的Join方法，你应该检查 <code>lib/model/om/</code> 中生成的peer类。如果你没找到查询所需要的Join方法的话（例如，没有自动生成多对多关系的Join方法），可以自行建立并扩展你的模型。</p>
+<!-- raw HTML omitted -->
+<h4 id="如何优化你的doctrine查询">如何优化你的Doctrine查询</h4>
+<p>doctrine使用它自己的查询语言叫做DQL，是_Doctrine Query Language_。语法很类似SQL，但是它返回的是对象而不是结果集。使用SQL，你想在同一个语句中返回 <code>article</code> 的列各 <code>author</code>。使用DQL的解决办法就像在原来的查询中加入join语句一样简单，并且doctrine会化合你的对象。下面的代码展示了如何连合两个表：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_18_sub_avoid_using_temporary_arrays"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.4 避免使用临时数组</a></h3>
+<p>当时用Propel时，对象已经被化合（hydrated），所以不需要在模板中准备临时数组了。开发者不习惯使用ORM通常导致：尽管模板可以直接依靠现有对象的数组来实现，他们还是想要准备一个字符串或者数字数组。例如，想象一下一个模板来显示从数据库中获得的所有文章主题列表的情况。一个不使用 OOP的开发者通常会写成如例18-6这样。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>这段代码的问题是hydrating已经在调用 <code>doSelect()</code> 时完成了（需要花些时间），建立 <code>$titles</code> 数组纯属多余，因为你能改写为例18-7所示的代码。因此用来建立 <code>$titles</code> 数组的时间可以节省下来用来提高应用的效率。建立 <code>$titles</code> 数组纯属多余，因为你能改写为例18-7所示的代码。因此用来建立 <code>$titles</code> 数组的时间可以节省下来用来提高应用的效率。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>如果因为一些对象的处理过程中确实需要用临时数组，正确的方法是在你的模型类中建立一个新的方法直接返回这些数组。例如，如果需要一个文章主题数组和每个文章的评论数量的话，行为和模板应如例18-8这样。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>是否在模型中建立一个快速的处理过程 <code>getArticleTitlesWithNbComments()</code> 方法取决于你，例如，通过绕过整个对象关系映射和数据库抽象层来完成。</p>
+<h3 id="chapter_18_sub_bypassing_the_orm"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.4 绕过ORM</a></h3>
+<p>当你确实不需要对象而只需要从一些表中获得一些字段的时候，如同以前的示例中，你能在模型中建立特殊的方法，直接通过Creole调用数据库完全绕过ORM层。例如，返回一个自定义的数组。例18-9说明了这个构想。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>当你开始建立这些方法的时候，你最后可能会为每个行为写一个自定义方法，这会失去层分离带来的好处，而且还失去了数据库独立性。</p>
+<h3 id="chapter_18_sub_speeding_up_the_database"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.2.5 数据库加速</a></h3>
+<p>有许多针对数据库的优化技巧可以在使用symfony的时候用到。本节简单地列出最常用的数据库优化策略，但是良好的理解数据库引擎和管理数据库对于使用模型层会有很好的帮助。</p>
+<!-- raw HTML omitted -->
+<p>全表查询通常会发生在没有主键的列。要加速这些查询语句，你应该在数据库schema中定义索引。要增加一列索引，给列定义增加 <code>index: true</code> 属性，如例18-10所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>你也可以使用另一个选择：用 <code>index: unique</code> 语法定义一个唯一索引替代标准的索引。你也可以在 <code>schema.yml</code> 中定义多列索引（关于索引语法可以参考第八章）。强烈建议考虑这些方法，因为这通常会对一个复杂的查询有很大的帮助。</p>
+<p>在schema中增加索引后，你还需要对数据库作同样的操作，可以在数据库中直接使用 <code>ADD INDEX</code> 语句，或是调用 <code>propel-build-all</code> 命令行（这不只是重建表结构，也会清空所有已存在的数据）。</p>
+<!-- raw HTML omitted -->
+<p>除另有规定外，在symfony中每一个请求使用一个数据库连接，每一个连接在请求完成后会被关闭。在 <code>databases.yml</code> 文件中设置 <code>presistent: true</code>，可以开启持久数据库连接，这样在不同的查询之间数据库连接池会一直保持开启，如例18-11所示。</p>
+<!-- raw HTML omitted -->
+<pre><code>prod:
+  propel:
+    class:         sfPropelDatabase
+    param:
+      dsn:         mysql:dbname=example;host=localhost
+      username:    username
+      password:    password
+      persistent:  true      # Use persistent connections
+</code></pre>
+<p>这可能会增强数据库总体性能也可能不会，取决于很多因素。在因特网上关于这个主题的文档很多。请确定在修改选项前你测试过应用的性能来验证它的结果。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_18_tweaking_the_view"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.3 调整视图</a></h2>
+<p>按照不同的方法设计和实现视图层，可能会有一些小的速度减少或者提升。这小节讲述的是替代品和它们的优缺点。</p>
+<h3 id="chapter_18_sub_using_the_fastest_code_fragment"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.3.1 使用最快的代码片段</a></h3>
+<p>如果没有使用缓存系统，你要注意 <code>include_component()</code> 比 <code>include_partial()</code> 要慢一些，<code>include_partial()</code> 比PHP的 <code>include</code> 也要慢一些。这是因为symfony初始化了一个视图来包含一个局部模板和一个 <code>sfComponent</code> 类的对象来包含一个组件，包含这些文件会对总体性能带来一些小的影响。</p>
+<p>不过，除非在模板中引用了许多局部模板或者组件，否则这对系统开销不是很大。这也许会发生在每次在 <code>foreach</code> 中调用 <code>include_partial()</code> 助手函数来做列表或者表格的时候。当你注意到有大量的局部模板或者组件包含非常影响性能时，应该考虑使用缓存（见第十二章），如果不想用缓存，那只能用简单的 <code>include</code> 替代了。</p>
+<p>槽（slot）和组件槽（component slot）之间的性能的差别是可以感觉得到的。设置并包含一个槽（slot）的处理时间是可以忽略的——这等于初始化一个变量。但是组件槽 （component slot）依靠一个视图配置，他们需要初始化一些对象才能工作。不过，组件槽（component slot）可以在调用模板时被单独缓存，与之相反槽（slot）总是在包含它的模板里被缓存的。</p>
+<h3 id="chapter_18_sub_speeding_up_the_routing_process"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.3.2 加速路由过程</a></h3>
+<p>正如第九章解释过的，在模板中每一次调用链接助手函数都会请求路由系统来把内部URL转换为外部URL。这是通过在 <code>routing.yml</code> 文件中查找匹配URI和模式来完成的。symfony做起来很简单：它尝试用给予的URL去匹配第一个规则，如果不匹配，就接着尝试下一个，然后继续此步骤。由于每次测试都涉及正则表达式，这会相当耗费时间。</p>
+<p>有一个简单的方法：使用规则名称代替模块/行为。这会告诉symfony使用哪一个规则并且路由系统不会花时间去尝试匹配所有前面的规则。</p>
+<p>在具体的条件中，假设定义在 <code>routing.yml</code> 文件中的路由规则如下：</p>
+<pre><code>article_by_id:
+  url:          /article/:id
+  param:        { module: article, action: read }
+</code></pre>
+<p>然后用这个方法把输出的超连接替换掉：</p>
+<!-- raw HTML omitted -->
+<p>你应该用最快实现的方法：</p>
+<!-- raw HTML omitted -->
+<p>注意只有在包含了很多路由链接的页面里，这种差别才会比较明显。</p>
+<h3 id="chapter_18_sub_skipping_the_template"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.3.3 略过模板</a></h3>
+<p>通常，一个响应是由一组头信息和内容组成的。但是有些响应不需要内容。例如，一些Ajax交互只需要从数据库获得一些数据并提供给JavaScript程序用来更新页面的不同部分。对于这些短响应，一套单独的头信息会更适合传递。如第十一章讨论的，一个行为只能返回一个JSON 头。例18-12重现了第十一章的一个例子。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>这跳过了模板和布局，可以立即发出响应。由于它仅包含头，这会更轻巧，并会用较少时间传递给用户。</p>
+<p>第六章解释了另一个跳过模板的方法，就是直接从行为返回内容文字。这就打破了MVC的规则，但这能显著提高行为的响应速度。看例18-13的示例。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_18_tweaking_the_cache"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4 调整缓存</a></h2>
+<p>第十二章已经说过如何缓存部分或者全部响应。响应缓存会带来很大的性能提升，这应该是最优先考虑的优化。如果你想要最大化地利用缓存系统，进一步阅读本章节来了解一些你未曾想过的技巧。</p>
+<h3 id="chapter_18_sub_clearing_selective_parts_of_the_cache"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.1 选择性的清除部分缓存</a></h3>
+<p>在应用开发过程中，你必须在一些环境中清除缓存：</p>
+<ul>
+<li>当建立一个新类：在自动载入目录中增加一个类（在项目的 <code>lib/</code> 目录下）是无法让symfony自动找到它的。你必须清除自动载入配置缓存才能让symfony再次浏览所有 <code>autoload.yml</code> 文件中定义的目录并引用可自动载入类的位置——这才能包含新建的类。</li>
+<li>当你在产品环境中修改了配置文件的时候： 配置文件只在产品环境的第一次请求的时候会被解析。其余的请求使用的是缓存了的配置文件。 所以在产品环境中修改的配置文件（或者任何SF_DEBUG是关闭状态下的环境）只会在清除缓存后才会生效。</li>
+<li>当你在模板缓存已经激活的环境中修改了模板的时候： 在产品环境中，有效的缓存模板总是会替代已经存在的模板而优先得到，所以只有模板缓存被清空后模板的修改才会生效。</li>
+<li>当用 <code>project:deploy</code> 命令行去更新应用的时候：这通常包活了前面三个修改。</li>
+</ul>
+<p>清除所有缓存会带来一个问题，因为需要生成配置缓存, 所以下一个请求会需要花较长的时间来处理。除此之外，未修改过的模板缓存也会被清除掉，这样就会失去之前的请求中缓存带来的速度提升。</p>
+<p>这就是说最好的方法是只清除需要重新生成的那部分缓存。使用 <code>clear-cache</code> 去定义哪些缓存需要清除，如例18-14这样。</p>
+<!-- raw HTML omitted -->
+<pre><code>// 只清除 frontend 应用的缓存
+$ php symfony cache:clear frontend
+
+// 只清除 frontend 应用的HTML缓存
+$ php symfony cache:clear frontend template
+
+// 只清除 frontend 应用的配置缓存
+$ php symfony cache:clear frontend config
+</code></pre>
+<p>你也可以手动删除 <code>cache/</code> 目录下的文件，或者有选择的通过 <code>$cacheManager-&gt;remove()</code> 方法来清除模板缓存，如第十二章所述。</p>
+<p>上面列出的所有这些技巧会使性能的负面影响最小化。</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_18_sub_generating_cached_pages"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.2 生成缓存页</a></h3>
+<p>当你部署一个新的应用到产品服务器上的时候，模板缓存是空的。你必须等待用户访问页面一次让页面生成缓存。在一些关键的部署中，生成页面的系统开销是无法接受的，在第一次请求之前必须生成缓存。</p>
+<p>解决办法是在临时工作环境（staging）中（配置文件和产品服务器上很相似）自动浏览应用的页面从而生成模板缓存，然后把应用和缓存一起放到产品服务器上。</p>
+<p>要去自动浏览页面，一个办法是建立一个shell脚本调用浏览器（例如curl）依次访问外部连接。但是有一个更好更快的解决方案：使用 <code>sfBrowser</code> 对象的一个symfony批处理，这在第十五章已经讨论过。这是一个PHP写的内部浏览器（使用 <code>sfTestBrowser</code> 来做功能测试）。它访问外部URL并返回一个结果，但有趣的是这会像用正常浏览器访问一样生成模板缓存。因为他只是初始化一次symfony而且并不通过HTTP传送层传递，这个方法会更快一些。</p>
+<p>例18-15 例18-15展示了一个批处理脚本的示例，用来在临时工作环境（staging）中生成模板缓存文件。用 <code>php generate_cache.php</code> 开始这个缓存过程。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_18_sub_using_a_database_storage_system_for_caching"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.3 使用数据库存储作为缓存</a></h3>
+<p>symfony默认使用文件系统作为模板缓存的：HTML块或者响应对象序列化之后储存在项目的 <code>cache/</code> 目录下。symfony建议另一个方法来储存缓存：一个SQLite数据库。这是一个PHP原生的，可以非常有效实现查询的简单文件数据库。</p>
+<p>要让symfony使用SQLite储存代替文件系统储存模板缓存的话，打开 <code>factories.yml</code> 文件并编辑 <code>view_cache</code>：</p>
+<pre><code>view_cache:
+  class: sfSQLiteCache
+  param:
+    database: %SF_TEMPLATE_CACHE_DIR%/cache.db
+</code></pre>
+<p>使用SQLite储存作为模板缓存的好处是当缓存元素数量很关键的时候可以更快速的做读写操作。如果你的应用的缓存压力非常大，模板缓存文件最终会分散在很深的文件结构中； 在这时候，用SQLite存储会更快。另外，在文件系统存储中清除缓存会有一个从磁盘删除很多文件的行为； 这个操作会持续好几秒，这时应用是无法访问的。使用SQLite存储系统的话，清除缓存过程将只是一个简单的文件删除操作：删除SQLite数据库文件。无论缓存元素数据有多大，操作瞬间就会完成。</p>
+<h3 id="chapter_18_sub_bypassing_symfony"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.4 绕过Symfony</a></h3>
+<p>也许最好的加速symfony的方法是完全绕过它，这不是一个玩笑。在每次请求中会有一些页面由于没有更改过所以不需要重新由框架来处理。模板缓存已经在加速传递页面了，但是这依旧是依靠symfony来处理的。</p>
+<p>在第十二章说过的一些小技巧允许一些页面完全绕过symfony。第一个是对页面缓存本身请求代理服务器和客户端浏览器做缓存，包含了使用HTTP 1.1头文件，所以当这个页面需要的时候他们不需要再次请求了。第二个就是极速缓存（由 <code>sfSuperCachePlugin</code> 插件自动完成），这包含了在 <code>web/</code> 目录中储存一份响应的副本和修改重写规则，这样Apache会在把请求指向symfony前先会查看缓存版本。</p>
+<p>尽管他们只是针对静态页面但上述两种方法都非常有效，它们将为symfony分担这些页面的处理，这也会让服务器能全力处理其他请求。</p>
+<h3 id="chapter_18_sub_caching_the_result_of_a_function_call"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.5 缓存函数调用的结果</a></h3>
+<p>如果一个函数不是环境敏感的值也不是随机调用的话，用相同的参数调用它两次应该返回同一个结果。这就是说当第二次调用的时候如果第一次结果已经储存下来的话就可以避免再次调用它。这就是 <code>sfFunctionCache</code> 类做的事情。这个类有一个 <code>call()</code> 方法，可以通过输入一些参数来调用。当被调用的时候，这个方法用所有他的参数建立一个md5哈希值作为名字并在缓存目录下找此名字的文件。如果文件找到了，此方法就会返回存在文件中的结果。如果没有，<code>sfFunctionCache</code> 就执行这个函数，并把结果储存在缓存中，并返回值。所以第二次执行例18-16会比第一次执行更快。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>sfFunctionCache</code> 的构造函数需要一个绝对路径作为参数（该目录必须在对象初始化之前就存在）。<code>call()</code> 方法的第一个参数必须是PHP调用名，所以它可以是一个函数名，一个类名字的数组，静态方法名字，对象名字的数组或者公共方法名。你能用任意多的其他参数作为 <code>call()</code> 的参数——它们都会被作为调用的参数。</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_18_sub_caching_data_in_the_server"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.4.6 在服务器上缓存数据</a></h3>
+<p>PHP加速器提供了一些特别的函数在内存中储存数据，因此你可以再次通过它处理请求。问题是他们都用了一些不同的语法，每一个都用自己的方法来处理这个任务。symfony提供了一个缓存类来抽象所有的这些不同的工作而不管你用的是什么加速器。参见例18-17的语法。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>如果缓存不工作的话 <code>set()</code> 方法会返回 <code>false</code>。缓存的值可以是任意的（一个字符串、一个数组、一个对象）；<code>sfAPCCache</code> 类会处理序列化的过程。如果缓存中没有需求的值，<code>get</code> 方法会返回 <code>null</code> 。</p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_18_deactivating_the_unused_features"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.5 屏蔽未使用过的功能</a></h2>
+<p>默认的symfony配置激活了大多数网页应用常用的功能。然而，如果你不想要所有的这些，你可以屏蔽他们从而在每个请求中节省初始化的时间。</p>
+<p>例如，如果你的应用不使用用户会话机制，或者你想手动处理用户会话，你应该将 <code>factories.yml</code> 文件的 <code>storage</code> 键值 <code>auto_start</code> 设置为 <!-- raw HTML omitted -->false<!-- raw HTML omitted -->，如例18-18所示。</p>
+<!-- raw HTML omitted -->
+<pre><code>all:
+  storage:
+    class: sfSessionStorage
+    param:
+      auto_start: false
+</code></pre>
+<p>同样的对于数据库（如先前讨论的“调整模型”）和转义输出功能（见第七章）。如果应用不需要使用他们，屏蔽他们会让系统效率有些许提升，他们的设置在 <code>settings.yml</code> 文件中（见例18-19）。</p>
+<!-- raw HTML omitted -->
+<pre><code>all:
+  .settings:
+    use_database:      false    # 数据库和模型功能
+</code></pre>
+<p>关于安全和短暂属性功能（见第六章），你可以在 <code>filters.yml</code> 文件中屏蔽他们，如例18-20所示。</p>
+<!-- raw HTML omitted -->
+<pre><code>rendering: ~
+security:
+  enabled: false
+
+# 通常，你会要在这里插入你自己的过滤器
+
+cache:     ~
+execution: ~
+</code></pre>
+<p>一些功能只是在开发过程中有用处，所以你应该在产品环境中屏蔽他们。默认就是这么做的，因为symfony的产品环境已经优化过性能了。还有就是symfony日志，这个功能已经在产品环境中默认关闭了。</p>
+<p>你也许会想在日志关闭的时候如何在产品环境中得到错误信息，并认为这个问题并不只出现在开发过程中。幸运的是，symfony可以使用 <code>sfErrorLoggerPlugin</code> 插件，用来在产品环境后台中记录404和500错误到数据库中。这比写入文件日志功能更快，因为插件方法只在请求失败时候被调用，当日志机制打开后，不论在什么层次都增加了一个不可忽视的开销。这个插件的安装指南和操作手册网址是 <!-- raw HTML omitted --><a href="http://www.symfony-project.com/trac/wiki/sfErrorLoggerPlugin">http://www.symfony-project.com/trac/wiki/sfErrorLoggerPlugin</a><!-- raw HTML omitted -->。</p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_18_optimizing_your_code"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.6 优化你的代码</a></h2>
+<p>优化代码本身也可以加速你的应用。本节提供一些改进的好意见。</p>
+<h3 id="chapter_18_sub_core_compilation"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.6.1 编译核心</a></h3>
+<p>载入10个文件需要比载入一个大文件花费更多的I/O操作，特别是在低速磁盘中。载入一个非常大的文件需要比载入一些小文件占用更多的资源——特别是文件的很大一部分不需要使用PHP解析器的时候，例如注释。</p>
+<p>因此合并大量的文件并且把它们的注释删除是一个很好的增强性能的方法。symfony已经做了优化；这就是所谓的核心编译。在第一个请求开始的时候（或者在缓存清空后），一个symfony应用合并所有的核心框架类（<code>sfActions</code>、<code>sfRequest</code>、<code>sfView</code>和其他）到一个文件中，删除了注释和多余的空格来优化文件大小，并把它存入缓存中，取名为 <code>config_core_compile.yml.php</code>。每一个接下去的请求只是读取了这个优化过的文件。</p>
+<p>如果你的应用有类需要加载，尤其是有一个庞大的包含了很多注释的类，把他们加入核心编译文件会很有好处。要这么做的话，只要在应用的 <code>config/</code> 目录下增加一个 <code>core_compile.yml</code> 文件，列出所有需要增加的类，就如例18-21一样。</p>
+<!-- raw HTML omitted -->
+<pre><code>- %SF_ROOT_DIR%/lib/myClass.class.php
+- %SF_ROOT_DIR%/apps/frontend/lib/myToolkit.class.php
+- %SF_ROOT_DIR%/plugins/myPlugin/lib/myPluginCore.class.php...
+</code></pre>
+<h3 id="chapter_18_sub_the_project_optimize_task"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.6.2 <code>project:optimize</code> 命令</a></h3>
+<p>symfony还提供其他优化工具，<code>project:optimize</code> 命令，它把许多优化策略应用到了symfony和应用代码中，用来加速执行效率。</p>
+<!-- raw HTML omitted -->
+<p>如果你要看命令里面实现的优化策略，看一看源代码。</p>
+<h2 id="chapter_18_summary"><a href="forum.php?mod=viewthread&amp;tid=57&amp;extra=page%3D1#">18.7 总结</a></h2>
+<p>symfony是一个已经优化得非常好的框架了，能用来处理高访问量网站。但如果你确实需要优化你的应用性能，调整配置文件（无论是服务器配置，PHP配置或者是应用设置）会带来一些小的加速。你也应该遵循好的策略来写有效的模型方法；因为数据库通常是网页应用的瓶颈，这点应该引起你的注意。模板总能用一些小技巧来优化，但最好的加速方法是用缓存。最后，不要犹豫，去看看已经有的插件，这些插件会提供一些创新的技巧来加速你的网页的（如：<code>sfSuperCache</code>、<code>project:optimize</code>）。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E6%8E%A2%E7%B4%A2/" data-toggle="tooltip" data-placement="top" title="第二章：探索">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B9%9D%E7%AB%A0%E5%AE%8C%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" data-toggle="tooltip" data-placement="top" title="第十九章（完）：管理配置文件">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">9500 Words|Read in about 19 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

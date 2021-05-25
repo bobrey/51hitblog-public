@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Posts - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Posts" />
+  <meta name="twitter:title" content="Posts" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  <header class="header-section ">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="page-heading">
+              <h1>Posts</h1>
+              <hr class="small">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/ubuntu%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/">
+                <h2 class="post-title">Ubuntu时间同步</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt-get install dbus
+timedatectl set-timezone Asia/Shanghai
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
+dpkg-reconfigure tzdata
+apt-get install ntpdate 
+ntpdate cn.pool.ntp.org 
+hwclock --systohc
+
+
+</code></pre></div>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/linux/">linux</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/docker_xdebug/">
+                <h2 class="post-title">Docker_xdebug</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  设置 xdebug.remote_connect_back 为 On 标识（会忽略 xdebug.remote_host 项）。这时，Xdebug 会优先获取 HTTP_X_FORWARDED_FOR 和 REMOTE_ADDR 中的一个值作为通信时 IDE 端的目标 IP， 找问题过程见 [https://www.fanhaobai.com/2017/09/xdebug-in-docker.html] xdebug.ini //并没有xdebug.
+                  <a href="https://www.51hint.com/posts/docker_xdebug/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/docker/">docker</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/php/">php</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/cms%E8%AF%86%E5%88%AB/">
+                <h2 class="post-title">Cms识别</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <p>在线cms指纹识别</p>
+<p><a href="http://whatweb.bugscaner.com/look/">http://whatweb.bugscaner.com/look/</a></p>
+<p>疯狂加解密</p>
+<p><a href="http://tools.bugscaner.com/encodeanddecode/">http://tools.bugscaner.com/encodeanddecode/</a></p>
+<p><a href="http://whatweb.bugscaner.com/">http://whatweb.bugscaner.com/</a></p>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/golang/">golang</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/go_mysql/">
+                <h2 class="post-title">Go_mysql</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  1.下载并导入数据库驱动包 官方不提供实现，先下载第三方的实现，点击这里查看各种各样的实现版本。 这里选择了Go-MySQL-Driver这个实
+                  <a href="https://www.51hint.com/posts/go_mysql/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/golang/">golang</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/portainer_rancher/">
+                <h2 class="post-title">Portainer_rancher</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <h4 id="搭建portainer">搭建portainer</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">docker run -d -p 9000:9000 --name portainer --restart<span class="o">=</span>unless-stopped  -v /var/run/docker.sock:/var/run/docker.sock -v /Users/guo/prj/db_server/portainer_data:/data portainer/portainer
+
+</code></pre></div><h4 id="搭建rancher">搭建rancher</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">
+docker run -d --restart<span class="o">=</span>unless-stopped <span class="se">\
+</span><span class="se"></span>  -p 80:80 -p 443:443 <span class="se">\
+</span><span class="se"></span>  -v /Users/guo/prj/db_server/rancher_data:/var/lib/rancher <span class="se">\
+</span><span class="se"></span>  rancher/rancher:stable
+</code></pre></div>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/golang/">golang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/portainer/">portainer</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/rancher/">rancher</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/kubernetes/">kubernetes</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/noejs%E5%B0%81%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85/">
+                <h2 class="post-title">Noejs封包与解包</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  TCP是面向连接流传输的，其采用Nagle算法，在缓冲区对上层数据进行了处理。避免触发自动分片机制和网络上大量小数据包的同时也造成了粘包（小
+                  <a href="https://www.51hint.com/posts/noejs%E5%B0%81%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/nodejs/">nodejs</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/flutter%E5%AE%89%E8%A3%85/">
+                <h2 class="post-title">Flutter安装</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  $ brew install --HEAD libimobiledeviceを試すが、以下のエラーが出る。 ==&gt; Installing dependencies for libimobiledevice: libplist ==&gt; Installing libimobiledevice dependency: libplist ==&gt; Downloading https://homebrew.bintray.com/bottles/libplist-2.0.0_1.sierra.bottle.tar.gz ######################################################################## 100.0% ==&gt; Pouring libplist-2.0.0_1.sierra.bottle.tar.gz /usr/local/Cellar/libplist/2.0.0_1: 29 files, 347.4KB ==&gt; Installing libimobiledevice --HEAD ==&gt; Cloning https://git.libimobiledevice.org/libimobiledevice.git Cloning into '/Users/deni/Library/Caches/Homebrew/libimobiledevice--git'... ==&gt; Checking
+                  <a href="https://www.51hint.com/posts/flutter%E5%AE%89%E8%A3%85/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/flutter/">flutter</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/rabbitmq%E5%AE%9E%E7%8E%B0rpc/">
+                <h2 class="post-title">RabbitMQ实现RPC</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  RabbitMQ RabbitMQ 是基于 AMQP 协议实现的一个消息队列（Message Queue），Message Queue 是一个典型的生产者/消费者模式。生产者发布消息，消费者消费消
+                  <a href="https://www.51hint.com/posts/rabbitmq%E5%AE%9E%E7%8E%B0rpc/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/rabbitmq/">rabbitMQ</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/ntfs%E6%8C%82%E8%BD%BD/">
+                <h2 class="post-title">Ntfs挂载</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <h4 id="mac挂载ntfs硬盘">mac挂载ntfs硬盘</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">  diskutil list
+    mkdir ~/Desktop/Windows	
+    sudo umount /dev/disk2s4
+    sudo mount_ntfs -o rw,nobrowse /dev/disk2s4 ~/Desktop/Windows
+</code></pre></div><h4 id="debian挂载ntfs硬盘">debian挂载ntfs硬盘</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">    apt-get install  fuse-utils ntfs-3g
+    fdisk -l
+    mkdir /mnt/&lt;DIR&gt;
+    mount -t ntfs-3g /dev/&lt;sdXX&gt;  /mnt/&lt;DIR&gt;
+</code></pre></div>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/ntfs/">ntfs</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/vagrant%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/">
+                <h2 class="post-title">Vagrant一些配置</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># -*- mode: ruby -*-</span>
+<span class="c1"># vi: set ft=ruby :</span>
+Vagrant.configure<span class="o">(</span><span class="s2">&#34;2&#34;</span><span class="o">)</span> <span class="k">do</span> <span class="p">|</span>config<span class="p">|</span>
+	config.vm.box <span class="o">=</span> <span class="s2">&#34;ubuntu/xenial64&#34;</span>
+	config.vm.box_check_update <span class="o">=</span> <span class="nb">false</span>
+	config.vm.network <span class="s2">&#34;forwarded_port&#34;</span>, guest: 3306, host: <span class="m">3306</span>
+	config.vm.network <span class="s2">&#34;private_network&#34;</span>, ip: <span class="s2">&#34;192.168.10.5&#34;</span>
+	config.vm.network <span class="s2">&#34;public_network&#34;</span>, ip:<span class="s2">&#34;192.168.50.5&#34;</span>, bridge:<span class="s2">&#34;en0: Wi-Fi (AirPort)&#34;</span>
+	config.vm.synced_folder <span class="s2">&#34;.&#34;</span>, <span class="s2">&#34;/vagrant&#34;</span>, owner:<span class="s2">&#34;www-data&#34;</span>, group:<span class="s2">&#34;www-data&#34;</span>
+	config.vm.provider <span class="s2">&#34;virtualbox&#34;</span> <span class="k">do</span> <span class="p">|</span>vb<span class="p">|</span>
+		vb.memory <span class="o">=</span> <span class="s2">&#34;2048&#34;</span>
+	end
+end  
+</code></pre></div>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/vagrant/">vagrant</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+        </div>
+        
+          <ul class="pager main-pager">
+            
+              <li class="previous">
+                <a href="/posts/page/4">&larr; Newer Posts</a>
+              </li>
+            
+            
+              <li class="next">
+                <a href="/posts/page/6">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    <div align="center" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/4/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/3/">3</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/4/">4</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/page/5/">5</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/6/">6</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/90/">90</a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/6/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/90/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

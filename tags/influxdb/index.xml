@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>influxdb on IT技术分享</title>
+    <link>https://www.51hint.com/tags/influxdb/</link>
+    <description>Recent content in influxdb on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Apr 2019 21:38:35 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/influxdb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Influxdb</title>
+      <link>https://www.51hint.com/posts/influxdb/</link>
+      <pubDate>Mon, 22 Apr 2019 21:38:35 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/influxdb/</guid>
+      <description>influxdb简介 Influxdb是一个开源的时序性数据库，广泛应用于存储系统的监控数据，iot行业的实时数据 部署简单，无外部依赖 内置ht</description>
+    </item>
+    
+    <item>
+      <title>Grafana</title>
+      <link>https://www.51hint.com/posts/grafana/</link>
+      <pubDate>Mon, 22 Apr 2019 21:33:53 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/grafana/</guid>
+      <description>grafana 是一个开源的时序性统计和监控平台，支持例如 elasticsearch、graphite、influxdb 等众多的数据源，并以功能强大的界面</description>
+    </item>
+    
+  </channel>
+</rss>

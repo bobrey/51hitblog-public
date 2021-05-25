@@ -1,0 +1,1480 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dev-lang on IT技术分享</title>
+    <link>https://www.51hint.com/categories/dev-lang/</link>
+    <description>Recent content in dev-lang on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Apr 2020 11:31:18 +0800</lastBuildDate><atom:link href="https://www.51hint.com/categories/dev-lang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Umijs_davjs入门</title>
+      <link>https://www.51hint.com/posts/umijs_davjs%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Wed, 22 Apr 2020 11:31:18 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/umijs_davjs%E5%85%A5%E9%97%A8/</guid>
+      <description>UmiJS是一个可插拔的企业级 react 应用框架，具体可查看 官网文档 DvaJS是dva 首先是一个基于 redux 和 redux-saga 的数据流方案，然后为了简化开发体验，dva</description>
+    </item>
+    
+    <item>
+      <title>Redux_toolkit</title>
+      <link>https://www.51hint.com/posts/redux_toolkit/</link>
+      <pubDate>Mon, 20 Apr 2020 23:06:51 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/redux_toolkit/</guid>
+      <description>redux tookit https://redux-toolkit.js.org/ 如果你的React项目中使用react hook、redux、redux-thunk，可能你需要用 redux-toolkit （以下简称RTK）优化你的项目结构，</description>
+    </item>
+    
+    <item>
+      <title>React_redux讲解</title>
+      <link>https://www.51hint.com/posts/react_redux%E8%AE%B2%E8%A7%A3/</link>
+      <pubDate>Mon, 20 Apr 2020 23:05:16 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react_redux%E8%AE%B2%E8%A7%A3/</guid>
+      <description>React Redux tutorial: who this guide is for The following React Redux guide is for JavaScript developers with a good grasp of ES6 and React. There are countless React tutorials online if you want to refresh your understandings, but if you&amp;rsquo;re just starting out I suggest reading Getting Started with React by Tania Rascia. React Redux tutorial: what you will learn The guide covers mostly Redux with React because of</description>
+    </item>
+    
+    <item>
+      <title>Gorm关联查询</title>
+      <link>https://www.51hint.com/posts/gorm%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2/</link>
+      <pubDate>Sun, 19 Apr 2020 17:34:30 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/gorm%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2/</guid>
+      <description>定义了一个 User 和 Company, User 中可以包含多个 Company, 如下: type User struct { ID int `gorm:&amp;quot;TYPE:int(11);NOT NULL;PRIMARY_KEY;INDEX&amp;quot;` Name string `gorm:&amp;quot;TYPE: VARCHAR(255); DEFAULT:&#39;&#39;;INDEX&amp;quot;` Companies []Company `gorm:&amp;quot;FOREIGNKEY:UserId;ASSOCIATION_FOREIGNKEY:ID&amp;quot;` CreatedAt time.Time `gorm:&amp;quot;TYPE:DATETIME&amp;quot;` UpdatedAt time.Time `gorm:&amp;quot;TYPE:DATETIME&amp;quot;` DeletedAt *time.Time `gorm:&amp;quot;TYPE:DATETIME;DEFAULT:NULL&amp;quot;` } type Company struct { gorm.Model Industry int `gorm:&amp;quot;TYPE:INT(11);DEFAULT:0&amp;quot;` Name string `gorm:&amp;quot;TYPE:VARCHAR(255);DEFAULT:&#39;&#39;;INDEX&amp;quot;` Job string `gorm:&amp;quot;TYPE:VARCHAR(255);DEFAULT:&#39;&#39;&amp;quot;` UserId int `gorm:&amp;quot;TYPE:int(11);NOT NULL;INDEX&amp;quot;` } 在查询 User 时</description>
+    </item>
+    
+    <item>
+      <title>Git丢弃本地修改</title>
+      <link>https://www.51hint.com/posts/git%E4%B8%A2%E5%BC%83%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9/</link>
+      <pubDate>Sun, 19 Apr 2020 17:29:38 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/git%E4%B8%A2%E5%BC%83%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9/</guid>
+      <description>git丢弃本地修改的所有文件（新增、删除、修改） git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态 git stash #把所有没有提交的修改暂存到st</description>
+    </item>
+    
+    <item>
+      <title>微信挑一挑</title>
+      <link>https://www.51hint.com/posts/%E5%BE%AE%E4%BF%A1%E6%8C%91%E4%B8%80%E6%8C%91/</link>
+      <pubDate>Sun, 19 Apr 2020 17:24:31 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/%E5%BE%AE%E4%BF%A1%E6%8C%91%E4%B8%80%E6%8C%91/</guid>
+      <description>图像识别：微信跳一跳机器人 https://cloud.tencent.com/developer/article/1015118 制作原理及代码分析 https://juejin.im/entry/5a52cdf06fb9a01cb049274e 微信“跳一跳”分析笔记 https://bbs.pediy.com/thread-223677.htm https://www.jb51.net/article/133936.htm</description>
+    </item>
+    
+    <item>
+      <title>K8s_ingress nginx</title>
+      <link>https://www.51hint.com/posts/k8s_ingress/</link>
+      <pubDate>Sun, 19 Apr 2020 17:20:46 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/k8s_ingress/</guid>
+      <description>Kubernetes ingress (nginx-ingress) https://www.jianshu.com/p/bd195f7564a4 nginx-ingress配置原理 https://yuerblog.cc/2019/03/26/k8s%E9%9A%8F%E7%AC%94-nginx-ingress%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/ Kubernetes Ingress Controller的使用介绍及高可用落地 https://www.servicemesher.com/blog/kubernetes-ingress-controller-deployment-and-ha/</description>
+    </item>
+    
+    <item>
+      <title>用AWS Elastic Beanstalk架設WordPress</title>
+      <link>https://www.51hint.com/posts/aws_elastic/</link>
+      <pubDate>Sun, 19 Apr 2020 17:18:27 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/aws_elastic/</guid>
+      <description>用AWS Elastic Beanstalk架設WordPress https://medium.com/@sebastianhsu/%E7%94%A8aws-elastic-beanstalk%E6%9E%B6%E8%A8%ADwordpress%E5%85%A8%E6%94%BB%E7%95%A5-%E4%B8%80-%E8%AA%AA%E8%AA%AA-64cd2ca6a0b9 利用 AWS Elastic Beanstalk 部署 Wordpress 环境 https://www.cnblogs.com/sammyliu/p/9025039.html</description>
+    </item>
+    
+    <item>
+      <title>Docker安装mysql8</title>
+      <link>https://www.51hint.com/posts/docker%E5%AE%89%E8%A3%85mysql8/</link>
+      <pubDate>Wed, 11 Mar 2020 21:22:32 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/docker%E5%AE%89%E8%A3%85mysql8/</guid>
+      <description>docker安装mysql8 docker search mysql docker pull mysql:8.0 docker images mysql:8.0 docker run -p 3307:3306 --name mysql8.0 -e MYSQL_ROOT_PASSWORD=root -d mysql:8.0 备注： -p 将本地主机的端口映射到docker容器端口（因为本机的3306端口</description>
+    </item>
+    
+    <item>
+      <title>Apk安装</title>
+      <link>https://www.51hint.com/posts/apk%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Wed, 11 Mar 2020 21:21:36 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/apk%E5%AE%89%E8%A3%85/</guid>
+      <description>adb push apk.apk /data/local/tmp adb shell pm install /data/local/tmp/apk.apk adb shell rm /data/local/tmp/apk.apk</description>
+    </item>
+    
+    <item>
+      <title>Go开源项目</title>
+      <link>https://www.51hint.com/posts/go%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Fri, 31 Jan 2020 21:53:06 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</guid>
+      <description>golang/go 介绍：Go（又称Golang）是Google开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。go本身，也是用go语言实</description>
+    </item>
+    
+    <item>
+      <title>Fastlane自动化打包</title>
+      <link>https://www.51hint.com/posts/fastlane%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/</link>
+      <pubDate>Thu, 24 Oct 2019 13:46:37 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/fastlane%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/</guid>
+      <description>Fastlane 是一款为 iOS 和 Android 开发者提供的自动化构建工具，它可以帮助开发者将 App 打包、签名、测试、发布、信息整理、提交 App Store 等工作完整的连接起来，实现完全自动</description>
+    </item>
+    
+    <item>
+      <title>端口复用</title>
+      <link>https://www.51hint.com/posts/%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8/</link>
+      <pubDate>Sun, 25 Aug 2019 21:29:09 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8/</guid>
+      <description>利用haproxy实现443端口的复用 众所周知HTTPS默认是使用443端口的，但是我又让类似与SSLVPN之类的也用443端口。这可怎么办</description>
+    </item>
+    
+    <item>
+      <title>Vim内置目录浏览</title>
+      <link>https://www.51hint.com/posts/vim%E5%86%85%E7%BD%AE%E7%9B%AE%E5%BD%95%E6%B5%8F%E8%A7%88/</link>
+      <pubDate>Sun, 25 Aug 2019 21:24:28 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/vim%E5%86%85%E7%BD%AE%E7%9B%AE%E5%BD%95%E6%B5%8F%E8%A7%88/</guid>
+      <description>输入 :Veplore 即开分开 配置vimrc let g:netrw_hide = 1 let g:netrw_liststyle = 1 let g:netrw_banner = 0 let g:netrw_browse_split = 4 let g:netrw_winsize = 24 let g:netrw_altv = 1 let g:netrw_chgwin = 2 let g:netrw_list_hide = &amp;#39;.*\.swp$&amp;#39; let g:netrw_localrmdir = &amp;#39;rm -rf&amp;#39; let g:netrw_bufsettings=&amp;#34;noma nomod nowrap ro nobl&amp;#34; 切换窗口 ctrl + w + jhkl</description>
+    </item>
+    
+    <item>
+      <title>Mvim新标签</title>
+      <link>https://www.51hint.com/posts/mvim%E6%96%B0%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Sun, 25 Aug 2019 21:21:18 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mvim%E6%96%B0%E6%A0%87%E7%AD%BE/</guid>
+      <description>mvim新标签打开文件 which mvim vim /usr/local/bin/mvim 文件头加入 tabs=true 把底部的if块 替换为下面的 if [ &amp;#34;$gui&amp;#34; ]; then if $tabs &amp;amp;&amp;amp; [[ `$binary --serverlist` = &amp;#34;VIM&amp;#34; ]]; then exec &amp;#34;$binary&amp;#34; -g $opts --remote-tab-silent ${1:+&amp;#34;$@&amp;#34;} else exec &amp;#34;$binary&amp;#34; -g $opts ${1:+&amp;#34;$@&amp;#34;} fi else exec &amp;#34;$binary&amp;#34; $opts ${1:+&amp;#34;$@&amp;#34;} fi</description>
+    </item>
+    
+    <item>
+      <title>删除docker镜像</title>
+      <link>https://www.51hint.com/posts/%E5%88%A0%E9%99%A4docker%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Mon, 12 Aug 2019 09:32:29 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/%E5%88%A0%E9%99%A4docker%E9%95%9C%E5%83%8F/</guid>
+      <description>docker ps -a | grep &amp;#34;Exited&amp;#34; | awk &amp;#39;{print $1 }&amp;#39;|xargs docker stop docker ps -a | grep &amp;#34;Exited&amp;#34; | awk &amp;#39;{print $1 }&amp;#39;|xargs docker rm docker images|grep none|awk &amp;#39;{print $3 }&amp;#39;|xargs docker rmi</description>
+    </item>
+    
+    <item>
+      <title>负载均衡一览</title>
+      <link>https://www.51hint.com/posts/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%80%E8%A7%88/</link>
+      <pubDate>Sat, 10 Aug 2019 21:18:19 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%80%E8%A7%88/</guid>
+      <description>一、问题域 nginx、lvs、keepalived、f5、DNS轮询，往往讨论的是接入层的这样几个问题： 1）可用性：任何一台机器挂了，服务受</description>
+    </item>
+    
+    <item>
+      <title>Harbor</title>
+      <link>https://www.51hint.com/posts/harbor/</link>
+      <pubDate>Sat, 10 Aug 2019 20:35:22 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/harbor/</guid>
+      <description>安装 wget https://storage.googleapis.com/harbor-releases/release-1.8.0/harbor-offline-installer-v1.8.1.tgz tar zxvf cd harbor vim harbor hostname: 192.168.50.156 port: 5000 harbor_admin_password= 123456 data_volume: /usr/src/harbor/data location: /var/log/harbor vim docker-compose.yml ports: #需要改这里 - 5000:80 - 443:443 - 4443:4443 ./install docker-compose start/stop 使用 创建wyx用户 创建test项目 为test项目添加wyx往上，</description>
+    </item>
+    
+    <item>
+      <title>Terraform</title>
+      <link>https://www.51hint.com/posts/terraform/</link>
+      <pubDate>Sat, 10 Aug 2019 16:11:32 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/terraform/</guid>
+      <description>Terraform 是一种安全有效地构建、更改和版本控制基础设施的工具(基础架构自动化的编排工具)。它的目标是 &amp;ldquo;Write, Plan, and create Infrastructure as Code&amp;rdquo;, 基础架构即代码。 Terraform 几乎可以支持所有</description>
+    </item>
+    
+    <item>
+      <title>Istio服务治理</title>
+      <link>https://www.51hint.com/posts/istio%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86/</link>
+      <pubDate>Sat, 10 Aug 2019 15:50:38 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/istio%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86/</guid>
+      <description>istio的强大微服务治理能力还体现在其集成了grafana、prometheus、servicegraph、zipkin等addons，应</description>
+    </item>
+    
+    <item>
+      <title>Helm入门</title>
+      <link>https://www.51hint.com/posts/helm%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sat, 10 Aug 2019 15:06:37 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/helm%E5%85%A5%E9%97%A8/</guid>
+      <description>安装 brew install kubernetes-helm curl -L https://git.io/get_helm.sh | bash 常用命令 //Chart helm search 查找可用的Charts helm inspect 查看指定Chart的基本信息 helm install 根据指定的Chart 部署一个Release到K8</description>
+    </item>
+    
+    <item>
+      <title>Webrtc入门</title>
+      <link>https://www.51hint.com/posts/webrtc%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Fri, 28 Jun 2019 15:16:39 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/webrtc%E5%85%A5%E9%97%A8/</guid>
+      <description>WebRTC 是一个开源的实时通信项目, 主要目标是对Web/原生App平台上的语音、视频、以及数据传输等实时通讯提供支持 webrtc简明入门教程 https://blog.csdn.net/renfufei/article/details/85041205 体验W</description>
+    </item>
+    
+    <item>
+      <title>Dragonfly</title>
+      <link>https://www.51hint.com/posts/dragonfly/</link>
+      <pubDate>Fri, 28 Jun 2019 15:12:07 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/dragonfly/</guid>
+      <description>Dragonfly 是一款基于 P2P 的智能镜像和文件分发工具。它旨在提高文件传输的效率和速率，最大限度地利用网络带宽，尤其是在分发大量数据时，例如应用分发、缓存分</description>
+    </item>
+    
+    <item>
+      <title>Gogs_drone</title>
+      <link>https://www.51hint.com/posts/gogs_drone/</link>
+      <pubDate>Sun, 02 Jun 2019 12:25:56 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/gogs_drone/</guid>
+      <description>gogs_drone docker环境搭建 version:&amp;#39;3&amp;#39;services:drone-server:image:drone/drone:latestports:- &amp;#34;8080:80&amp;#34;- 8843:443- 9000volumes:- ./drone:/var/lib/drone/- /var/run/docker.sock:/var/run/docker.sockenvironment:- DRONE_OPEN=true- DRONE_SERVER_HOST=drone-server- DRONE_DEBUG=true- DRONE_GIT_ALWAYS_AUTH=false- DRONE_GOGS=true- DRONE_GOGS_SKIP_VERIFY=false- DRONE_GOGS_SERVER=http://gogs:3000- DRONE_PROVIDER=gogs- DRONE_DATABASE_DATASOURCE=/var/lib/drone/drone.sqlite- DRONE_DATABASE_DRIVER=sqlite3- DRONE_SERVER_PROTO=http- DRONE_RPC_SECRET=ALQU2M0KdptXUdTPKcEw- DRONE_SECRET=ALQU2M0KdptXUdTPKcEwgogs:image:gogs/gogs:latestports:- &amp;#34;10022:22&amp;#34;- &amp;#34;3000:3000&amp;#34;volumes:- ./data/gogs:/datadepends_on:- mysqlmysql:image:mysql:5.7.16volumes:- ./gogs/mysql:/var/lib/mysql- /var/run/docker.sock:/var/run/docker.sockports:- 3308:3306command:--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_cienvironment:MYSQL_ROOT_PASSWORD:passMYSQL_DATABASE:gogsMYSQL_USER:gogsMYSQL_PASSWORD:passTZ:Asia/Shanghaidrone-agent:image:drone/agent:latestdepends_on:- drone-serverenvironment:- DRONE_RPC_SERVER=http://drone-server- DRONE_RPC_SECRET=ALQU2M0KdptXUdTPKcEw- DRONE_DEBUG=true- DOCKER_HOST=tcp://docker-bind:2375- DRONE_SERVER=drone-server:9000- DRONE_SECRET=ALQU2M0KdptXUdTPKcEw- DRONE_MAX_PROCS=5docker-bind:image:docker:dindprivileged:true# command: --storage-driver=overla</description>
+    </item>
+    
+    <item>
+      <title>ApiGateway</title>
+      <link>https://www.51hint.com/posts/apigateway/</link>
+      <pubDate>Sat, 01 Jun 2019 22:31:02 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/apigateway/</guid>
+      <description>tyk 4k https://github.com/TykTechnologies/tyk
+kong 21k https://github.com/Kong/kong</description>
+    </item>
+    
+    <item>
+      <title>Goquery</title>
+      <link>https://www.51hint.com/posts/goquery/</link>
+      <pubDate>Sat, 01 Jun 2019 22:21:31 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/goquery/</guid>
+      <description>最近研究Go爬虫相关的知识，使用到goquery这个库比较多，尤其是对爬取到的HTML进行选择和查找匹配的内容时，goquery的选择器使用</description>
+    </item>
+    
+    <item>
+      <title>Newsql</title>
+      <link>https://www.51hint.com/posts/newsql/</link>
+      <pubDate>Sat, 01 Jun 2019 22:13:26 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/newsql/</guid>
+      <description>1、TiDB： 说明： PingCAP 公司基于 Google Spanner / F1 论文实现的开源分布式 NewSQL 数据库。 开源分布式 NewSQL 关系型数据库 TiDB 是新一代开源分布式 NewSQL 数据库，模型受 Google Spanner / F1 论文</description>
+    </item>
+    
+    <item>
+      <title>Consul_zipkin_etcd</title>
+      <link>https://www.51hint.com/posts/consul_zipkin_etcd/</link>
+      <pubDate>Sat, 01 Jun 2019 21:40:25 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/consul_zipkin_etcd/</guid>
+      <description>consul容器 docker run -d -p 8500:8500 --name=dev-consul -e CONSUL_BIND_INTERFACE=eth0 consul agent -dev -ui -client 0.0.0.0 zipkin容器 docker run -d -p 9411:9411 --name zipkin docker.io/openzipkin/zipkin etcd容器 docker run -it -d -p 127.0.0.1:2379:2379 quay.io/coreos/etcd:v3.3.0 etcd --listen-client-urls http://0.0.0.0:2379 --advertise-client-urls http://0.0.0.0:2379</description>
+    </item>
+    
+    <item>
+      <title>Nginx502</title>
+      <link>https://www.51hint.com/posts/nginx502/</link>
+      <pubDate>Sun, 26 May 2019 21:16:35 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/nginx502/</guid>
+      <description>php+nginx:从Unix套接字切换到TCP/IP 打开php-frm池配置文件 vim /etc/php7.2/fpm/pool.d/www.conf listen.backlog = 65536 listen =127.0.0.1 fastcgi_pass 127.0.0.1:9000; service php7.2-fpm restart service nginx restart sysctl配置 vim /etc/sysctl.conf vm.dirty_background_ratio = 2 ###</description>
+    </item>
+    
+    <item>
+      <title>Debian_lnmp</title>
+      <link>https://www.51hint.com/posts/debian_lnmp/</link>
+      <pubDate>Sun, 26 May 2019 21:09:08 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/debian_lnmp/</guid>
+      <description>支持PHP7.2、MySQL5.7 1.nginx apt-get install nginx apt-get install restart 2.mysql apt-get install mysql-server mysql-client mysql -u root -p use mysql; update mysql.user set authentication_string=PASSWORD(&amp;#39;gy!&amp;#39;), plugin=&amp;#39;mysql_native_password&amp;#39; where user=&amp;#39;root&amp;#39;; flush privileges; service mysql restart mysql -u root -p 3.php7.2.5 wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add - echo &amp;#34;deb https://packages.sury.org/php/ stretch main&amp;#34; | sudo tee /etc/apt/sources.list.d/php.list</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu16_lnmp</title>
+      <link>https://www.51hint.com/posts/ubuntu16_lnmp/</link>
+      <pubDate>Sun, 26 May 2019 21:05:55 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ubuntu16_lnmp/</guid>
+      <description>########## Install NGINX ############## # Install software-properties-common package to give us add-apt-repository package sudo apt-get install -y software-properties-common # Install latest nginx version from community maintained ppa sudo add-apt-repository ppa:nginx/stable # Update packages after adding ppa sudo apt-get update # Install nginx sudo apt-get install -y nginx # Check status sudo service nginx # Start nginx if it is not already running sudo service nginx start # At this point you should have NGINX up and running, open http://localhost on your  # browser and you should see a welcome page from NGINX ######### Install PHP7.</description>
+    </item>
+    
+    <item>
+      <title>Go_mysql时区</title>
+      <link>https://www.51hint.com/posts/go_mysql%E6%97%B6%E5%8C%BA/</link>
+      <pubDate>Sun, 12 May 2019 23:26:57 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go_mysql%E6%97%B6%E5%8C%BA/</guid>
+      <description>time.Time 直接存储入库，需要开启解析时间parseTime 设置loc=Local解决时区格式 import &amp;#34;database/sql&amp;#34; import _ &amp;#34;github.com/go-sql-driver/mysql&amp;#34; timezone := &amp;#34;&amp;#39;Asia/Shanghai&amp;#39;&amp;#34; db, err := sql.Open(&amp;#34;mysql&amp;#34;, &amp;#34;user:password@/dbname?charset=utf8mb4&amp;amp;parseTime=true&amp;amp;loc=Local&amp;amp;time_zone=&amp;#34; + url.QueryEscape(timezone))</description>
+    </item>
+    
+    <item>
+      <title>Ceph分布式存储系统</title>
+      <link>https://www.51hint.com/posts/ceph%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Sun, 12 May 2019 23:15:28 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ceph%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/</guid>
+      <description>Ceph是一个统一的分布式存储系统，设计初衷是提供较好的性能、可靠性和可扩展性。 支持三种接口： Object：有原生的API，而且也兼容Swi</description>
+    </item>
+    
+    <item>
+      <title>Etcd安装</title>
+      <link>https://www.51hint.com/posts/etcd%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sun, 12 May 2019 23:05:02 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/etcd%E5%AE%89%E8%A3%85/</guid>
+      <description>https://github.com/etcd-io/etcd/releases 安装etcd sudo apt -y install wget wget https://github.com/etcd-io/etcd/releases/download/v3.3.10/etcd-v3.3.10-linux-amd64.tar.gz tar xvf etcd-v3.3.10-linux-amd64.tar.gz cd etcd-v3.3.10-linux-amd64 sudo mv etcd etcdctl /usr/local/bin etcd --version sudo mkdir -p /var/lib/etcd/ sudo mkdir /etc/etcd sudo groupadd --system etcd sudo useradd -s /sbin/nologin --system -g etcd etcd sudo chown -R etcd:etcd /var/lib/etcd/ systemd启动etcd服务 sudo vim /etc/systemd/system/etcd.service [Unit] Description=etcd</description>
+    </item>
+    
+    <item>
+      <title>Minio对象存储</title>
+      <link>https://www.51hint.com/posts/minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Sun, 12 May 2019 22:59:19 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/</guid>
+      <description>Minio简介 Minio是一款高性能的分布式对象存储服务器，专为大规模私有云基础架构而设计 Minio是一个分布式对象存储服务器，Amazon</description>
+    </item>
+    
+    <item>
+      <title>Influxdb</title>
+      <link>https://www.51hint.com/posts/influxdb/</link>
+      <pubDate>Mon, 22 Apr 2019 21:38:35 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/influxdb/</guid>
+      <description>influxdb简介 Influxdb是一个开源的时序性数据库，广泛应用于存储系统的监控数据，iot行业的实时数据 部署简单，无外部依赖 内置ht</description>
+    </item>
+    
+    <item>
+      <title>四色建模法</title>
+      <link>https://www.51hint.com/posts/%E5%9B%9B%E8%89%B2%E5%BB%BA%E6%A8%A1%E6%B3%95/</link>
+      <pubDate>Mon, 22 Apr 2019 21:36:54 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/%E5%9B%9B%E8%89%B2%E5%BB%BA%E6%A8%A1%E6%B3%95/</guid>
+      <description>对于领域专家、程序员和测试工程师来说，领域建模所构建的概念模型是撑起软件开发系统的骨架。领域建模的方法有很多种，ThoughtWorks的</description>
+    </item>
+    
+    <item>
+      <title>Grafana</title>
+      <link>https://www.51hint.com/posts/grafana/</link>
+      <pubDate>Mon, 22 Apr 2019 21:33:53 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/grafana/</guid>
+      <description>grafana 是一个开源的时序性统计和监控平台，支持例如 elasticsearch、graphite、influxdb 等众多的数据源，并以功能强大的界面</description>
+    </item>
+    
+    <item>
+      <title>Idea注册码</title>
+      <link>https://www.51hint.com/posts/idea%E6%B3%A8%E5%86%8C%E7%A0%81/</link>
+      <pubDate>Mon, 22 Apr 2019 21:32:26 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/idea%E6%B3%A8%E5%86%8C%E7%A0%81/</guid>
+      <description>56ZS5PQ1RF-eyJsaWNlbnNlSWQiOiI1NlpTNVBRMVJGIiwibGljZW5zZWVOYW1lIjoi5q2j54mI5o6I5p2DIC4iLCJhc3NpZ25lZU5hbWUiOiIiLCJhc3NpZ25lZUVtYWlsIjoiIiwibGljZW5zZVJlc3RyaWN0aW9uIjoiRm9yIGVkdWNhdGlvbmFsIHVzZSBvbmx5IiwiY2hlY2tDb25jdXJyZW50VXNlIjpmYWxzZSwicHJvZHVjdHMiOlt7ImNvZGUiOiJJSSIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9LHsiY29kZSI6IkFDIiwicGFpZFVwVG8iOiIyMDIwLTAzLTEwIn0seyJjb2RlIjoiRFBOIiwicGFpZFVwVG8iOiIyMDIwLTAzLTEwIn0seyJjb2RlIjoiUFMiLCJwYWlkVXBUbyI6IjIwMjAtMDMtMTAifSx7ImNvZGUiOiJHTyIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9LHsiY29kZSI6IkRNIiwicGFpZFVwVG8iOiIyMDIwLTAzLTEwIn0seyJjb2RlIjoiQ0wiLCJwYWlkVXBUbyI6IjIwMjAtMDMtMTAifSx7ImNvZGUiOiJSUzAiLCJwYWlkVXBUbyI6IjIwMjAtMDMtMTAifSx7ImNvZGUiOiJSQyIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9LHsiY29kZSI6IlJEIiwicGFpZFVwVG8iOiIyMDIwLTAzLTEwIn0seyJjb2RlIjoiUEMiLCJwYWlkVXBUbyI6IjIwMjAtMDMtMTAifSx7ImNvZGUiOiJSTSIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9LHsiY29kZSI6IldTIiwicGFpZFVwVG8iOiIyMDIwLTAzLTEwIn0seyJjb2RlIjoiREIiLCJwYWlkVXBUbyI6IjIwMjAtMDMtMTAifSx7ImNvZGUiOiJEQyIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9LHsiY29kZSI6IlJTVSIsInBhaWRVcFRvIjoiMjAyMC0wMy0xMCJ9XSwiaGFzaCI6IjEyMjkxNDk4LzAiLCJncmFjZVBlcmlvZERheXMiOjAsImF1dG9Qcm9sb25nYXRlZCI6ZmFsc2UsImlzQXV0b1Byb2xvbmdhdGVkIjpmYWxzZX0=-SYSsDcgL1WJmHnsiGaHUWbaZLPIe2oI3QiIneDtaIbh/SZOqu63G7RGudSjf3ssPb1zxroMti/bK9II1ugHz/nTjw31Uah7D0HqeaCO7Zc0q9BeHysiWmBZ+8bABs5vr25GgIa5pO7CJhL7RitXQbWpAajrMBAeZ2En3wCgNwT6D6hNmiMlhXsWgwkw2OKnyHZ2dl8yEL+oV5SW14t7bdjYGKQrYjSd4+2zc4FnaX88yLnGNO9B3U6G+BuM37pxS5MjHrkHqMTK8W3I66mIj6IB6dYXD5nvKKO1OZREBAr6LV0BqRYSbuJKFhZ8nd6YDG20GvW6leimv0rHVBFmA0w==-MIIElTCCAn2gAwIBAgIBCTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE4MTEwMTEyMjk0NloXDTIwMTEwMjEyMjk0NlowaDELMAkGA1UEBhMCQ1oxDjAMBgNVBAgMBU51c2xlMQ8wDQYDVQQHDAZQcmFndWUxGTAXBgNVBAoMEEpldEJyYWlucyBzLnIuby4xHTAbBgNVBAMMFHByb2QzeS1mcm9tLTIwMTgxMTAxMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQAF8uc+YJOHHwOFcPzmbjcxNDuGoOUIP+2h1R75Lecswb7ru2LWWSUMtXVKQzChLNPn/72W0k+oI056tgiwuG7M49LXp4zQVlQnFmWU1wwGvVhq5R63Rpjx1zjGUhcXgayu7+9zMUW596Lbomsg8qVve6euqsrFicYkIIuUu4zYPndJwfe0YkS5nY72SHnNdbPhEnN8wcB2Kz+OIG0lih3yz5EqFhld03bGp222ZQCIghCTVL6QBNadGsiN/lWLl4JdR3lJkZzlpFdiHijoVRdWeSWqM4y0t23c92HXKrgppoSV18XMxrWVdoSM3nuMHwxGhFyde05OdDtLpCv+jlWf5REAsHHA201pAU6bJSZINyHDUTB+Beo28rRXSwSh3OUIvYwKNVeoBY+KwOJ7WnuTCUq1meE6GkKc4D/cXmgpOyW/1SmBz3XjVIi/zprZ0zf3qH5mkphtg6ksjKgKjmx1cXfZAAX6wcDBNaCL+Ortep1Dh8xDUbqbBVNBL4jbiL3i3xsfNiyJgaZ5sX7i8tmStEpLbPwvHcByuf59qJhV/bZOl8KqJBETCDJcY6O2aqhTUy+9x93ThKs1GKrRPePrWPluud7ttlgtRveit/pcBrnQcXOl1rHq7ByB8CFAxNotRUYL9IF5n3wJOgkPojMy6jetQA5Ogc8Sm7RG6vg1yow== 注册码有效期为2019年3月10日至2020年3月11日 使用前请将“0.0.0.0 account.jetbrains.com”及“0.0.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu时间同步</title>
+      <link>https://www.51hint.com/posts/ubuntu%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Mon, 15 Apr 2019 15:31:54 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ubuntu%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/</guid>
+      <description>apt-get install dbus timedatectl set-timezone Asia/Shanghai ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime dpkg-reconfigure tzdata apt-get install ntpdate ntpdate cn.pool.ntp.org hwclock --systohc</description>
+    </item>
+    
+    <item>
+      <title>Docker_xdebug</title>
+      <link>https://www.51hint.com/posts/docker_xdebug/</link>
+      <pubDate>Mon, 15 Apr 2019 14:52:42 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/docker_xdebug/</guid>
+      <description>设置 xdebug.remote_connect_back 为 On 标识（会忽略 xdebug.remote_host 项）。这时，Xdebug 会优先获取 HTTP_X_FORWARDED_FOR 和 REMOTE_ADDR 中的一个值作为通信时 IDE 端的目标 IP， 找问题过程见 [https://www.fanhaobai.com/2017/09/xdebug-in-docker.html] xdebug.ini //并没有xdebug.</description>
+    </item>
+    
+    <item>
+      <title>Cms识别</title>
+      <link>https://www.51hint.com/posts/cms%E8%AF%86%E5%88%AB/</link>
+      <pubDate>Mon, 15 Apr 2019 10:20:45 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/cms%E8%AF%86%E5%88%AB/</guid>
+      <description>在线cms指纹识别 http://whatweb.bugscaner.com/look/ 疯狂加解密 http://tools.bugscaner.com/encodeanddecode/ http://whatweb.bugscaner.com/</description>
+    </item>
+    
+    <item>
+      <title>Go_mysql</title>
+      <link>https://www.51hint.com/posts/go_mysql/</link>
+      <pubDate>Mon, 15 Apr 2019 09:46:30 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go_mysql/</guid>
+      <description>1.下载并导入数据库驱动包 官方不提供实现，先下载第三方的实现，点击这里查看各种各样的实现版本。 这里选择了Go-MySQL-Driver这个实</description>
+    </item>
+    
+    <item>
+      <title>Portainer_rancher</title>
+      <link>https://www.51hint.com/posts/portainer_rancher/</link>
+      <pubDate>Mon, 08 Apr 2019 10:32:03 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/portainer_rancher/</guid>
+      <description>搭建portainer docker run -d -p 9000:9000 --name portainer --restart=unless-stopped -v /var/run/docker.sock:/var/run/docker.sock -v /Users/guo/prj/db_server/portainer_data:/data portainer/portainer 搭建rancher docker run -d --restart=unless-stopped \ -p 80:80 -p 443:443 \ -v /Users/guo/prj/db_server/rancher_data:/var/lib/rancher \ rancher/rancher:stable</description>
+    </item>
+    
+    <item>
+      <title>Noejs封包与解包</title>
+      <link>https://www.51hint.com/posts/noejs%E5%B0%81%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85/</link>
+      <pubDate>Mon, 01 Apr 2019 22:45:13 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/noejs%E5%B0%81%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85/</guid>
+      <description>TCP是面向连接流传输的，其采用Nagle算法，在缓冲区对上层数据进行了处理。避免触发自动分片机制和网络上大量小数据包的同时也造成了粘包（小</description>
+    </item>
+    
+    <item>
+      <title>Flutter安装</title>
+      <link>https://www.51hint.com/posts/flutter%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 01 Apr 2019 22:43:18 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/flutter%E5%AE%89%E8%A3%85/</guid>
+      <description>$ brew install --HEAD libimobiledeviceを試すが、以下のエラーが出る。 ==&amp;gt; Installing dependencies for libimobiledevice: libplist ==&amp;gt; Installing libimobiledevice dependency: libplist ==&amp;gt; Downloading https://homebrew.bintray.com/bottles/libplist-2.0.0_1.sierra.bottle.tar.gz ######################################################################## 100.0% ==&amp;gt; Pouring libplist-2.0.0_1.sierra.bottle.tar.gz /usr/local/Cellar/libplist/2.0.0_1: 29 files, 347.4KB ==&amp;gt; Installing libimobiledevice --HEAD ==&amp;gt; Cloning https://git.libimobiledevice.org/libimobiledevice.git Cloning into &#39;/Users/deni/Library/Caches/Homebrew/libimobiledevice--git&#39;... ==&amp;gt; Checking</description>
+    </item>
+    
+    <item>
+      <title>RabbitMQ实现RPC</title>
+      <link>https://www.51hint.com/posts/rabbitmq%E5%AE%9E%E7%8E%B0rpc/</link>
+      <pubDate>Mon, 01 Apr 2019 22:33:46 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/rabbitmq%E5%AE%9E%E7%8E%B0rpc/</guid>
+      <description>RabbitMQ RabbitMQ 是基于 AMQP 协议实现的一个消息队列（Message Queue），Message Queue 是一个典型的生产者/消费者模式。生产者发布消息，消费者消费消</description>
+    </item>
+    
+    <item>
+      <title>Ntfs挂载</title>
+      <link>https://www.51hint.com/posts/ntfs%E6%8C%82%E8%BD%BD/</link>
+      <pubDate>Sat, 30 Mar 2019 15:56:04 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ntfs%E6%8C%82%E8%BD%BD/</guid>
+      <description>mac挂载ntfs硬盘 diskutil list mkdir ~/Desktop/Windows sudo umount /dev/disk2s4 sudo mount_ntfs -o rw,nobrowse /dev/disk2s4 ~/Desktop/Windows debian挂载ntfs硬盘 apt-get install fuse-utils ntfs-3g fdisk -l mkdir /mnt/&amp;lt;DIR&amp;gt; mount -t ntfs-3g /dev/&amp;lt;sdXX&amp;gt; /mnt/&amp;lt;DIR&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Vagrant一些配置</title>
+      <link>https://www.51hint.com/posts/vagrant%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 30 Mar 2019 12:32:35 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/vagrant%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/</guid>
+      <description># -*- mode: ruby -*- # vi: set ft=ruby : Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/xenial64&amp;#34; config.vm.box_check_update = false config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 3306, host: 3306 config.vm.network &amp;#34;private_network&amp;#34;, ip: &amp;#34;192.168.10.5&amp;#34; config.vm.network &amp;#34;public_network&amp;#34;, ip:&amp;#34;192.168.50.5&amp;#34;, bridge:&amp;#34;en0: Wi-Fi (AirPort)&amp;#34; config.vm.synced_folder &amp;#34;.&amp;#34;, &amp;#34;/vagrant&amp;#34;, owner:&amp;#34;www-data&amp;#34;, group:&amp;#34;www-data&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.memory = &amp;#34;2048&amp;#34; end end</description>
+    </item>
+    
+    <item>
+      <title>RabbitMQ消息中间件</title>
+      <link>https://www.51hint.com/posts/rabbitmq%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+      <pubDate>Sat, 30 Mar 2019 12:30:58 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/rabbitmq%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+      <description>1.背景 RabbitMQ是一个由erlang开发的AMQP(Advanved Message Queue)的开源实现。 2.应用场景 2.1异步处理 场景说明：用</description>
+    </item>
+    
+    <item>
+      <title>Zookeeper使用场景</title>
+      <link>https://www.51hint.com/posts/zookeeper%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</link>
+      <pubDate>Tue, 26 Mar 2019 16:10:27 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/zookeeper%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</guid>
+      <description>Zookeeper是一个高可用的分布式数据管理和协调框架，并且能够很好的保证分布式环境中数据的一致性。在越来越多的分布式系统（Hadoop、</description>
+    </item>
+    
+    <item>
+      <title>GoRPC通信</title>
+      <link>https://www.51hint.com/posts/gorpc/</link>
+      <pubDate>Mon, 25 Mar 2019 15:24:58 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/gorpc/</guid>
+      <description>tcpRPC httpRPC jsonRPC</description>
+    </item>
+    
+    <item>
+      <title>Golang集群排序</title>
+      <link>https://www.51hint.com/posts/golang%E9%9B%86%E7%BE%A4%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sun, 24 Mar 2019 21:36:31 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/golang%E9%9B%86%E7%BE%A4%E6%8E%92%E5%BA%8F/</guid>
+      <description>项目流程： 生成一个随机数文件，假设文件很大 从文件中分块地读取数据到内存，进行各个结点的内部排序 归并排序得到最终的排序结果写入文件中 应用场景：</description>
+    </item>
+    
+    <item>
+      <title>Docker最小化镜像</title>
+      <link>https://www.51hint.com/posts/docker%E6%9C%80%E5%B0%8F%E5%8C%96%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Thu, 21 Mar 2019 10:49:06 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/docker%E6%9C%80%E5%B0%8F%E5%8C%96%E9%95%9C%E5%83%8F/</guid>
+      <description>最开始镜像 FROM golang:onbuild EXPOSE 8080 构建完的docker image 700多M 更换基础镜像alpine FROM golang:alpine WORKDIR /app ADD . /app RUN cd /app &amp;amp;&amp;amp; go build -o goapp EXPOSE 8080 ENTRYPOINT ./goapp 构建的image，只有不到4</description>
+    </item>
+    
+    <item>
+      <title>Docker使用小结</title>
+      <link>https://www.51hint.com/posts/docker%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Wed, 20 Mar 2019 22:50:38 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/docker%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/</guid>
+      <description>搭建redis服务器 docker run -p 6379:6379 -v redis_data:/data --name redis -d redis:latest 搭建mongo服务器 docker run -p 27017:27017 -v mongo_data:/data/db --name mongo -d mvertes/alpine-mongo crcom爬虫 编译生成docker镜像 docker build -t crcom:latest . 生成dock</description>
+    </item>
+    
+    <item>
+      <title>Nexus6p_刷入magisk</title>
+      <link>https://www.51hint.com/posts/nexus6p_%E5%88%B7%E5%85%A5magisk/</link>
+      <pubDate>Wed, 13 Mar 2019 16:24:57 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/nexus6p_%E5%88%B7%E5%85%A5magisk/</guid>
+      <description>TWRP msgisk magisk manager magisckSU magisk Hide resetprop Magisk 主页 v18.0 https://forum.xda-developers.com/apps/magisk https://github.com/topjohnwu/Magisk/releases TWRP Nexus 6p https://dl.twrp.me/angler/ https://twrp.me/Devices/ 手动进入bootloaer adb reboot bootloaer 开启oem解锁 fastboot oem unlock //fastboot flashing unlock 开始root操作 [Magisk-v18.0.zip 拷贝到手机下载目录] fastboot flash recovery</description>
+    </item>
+    
+    <item>
+      <title>Go笔记补充</title>
+      <link>https://www.51hint.com/posts/go%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%85%85/</link>
+      <pubDate>Mon, 11 Mar 2019 21:32:17 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%85%85/</guid>
+      <description>try err的方式 if data, err := func (); err != nil{ }else{ } slice s2 = append(s2[:3], s2[4:]…) struct 工厂函数 func createTreeNode(value int) *TreeNode{ return &amp;amp;TreeNode{value:value} } type( byte int8 rune int32 ) iota 同行 位同一值；碰到const iota重置为</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://www.51hint.com/posts/kubernetes/</link>
+      <pubDate>Mon, 11 Mar 2019 21:26:31 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/kubernetes/</guid>
+      <description>install minikube brew cask install minikube brew install docker-machine-driver-hyperkit sudo chown root:wheel /usr/local/opt/docker-machine-driver-hyperkit/bin/docker-machine-driver-hyperkit sudo chmod u+s /usr/local/opt/docker-machine-driver-hyperkit/bin/docker-machine-driver-hyperkit minikube config set vm-driver hyperkit minikube start minikube dashboard //Deployment 是管理 Pod 创建和伸缩的推荐方法。 //kubectl run hello-node --image=hello-node:v1 --port=8080 kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node kubectl get deployments kubectl get pods kubectl get events kubectl config view kubectl expose deployment hello-node --type=LoadBalancer --port=8080</description>
+    </item>
+    
+    <item>
+      <title>Anki服务器搭建</title>
+      <link>https://www.51hint.com/posts/anki%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 11 Mar 2019 13:15:05 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/anki%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</guid>
+      <description>服务器搭建 export ANKI_SYNC_DATA_DIR=~/anki-sync-server-docker-data mkdir -p &amp;#34;$ANKI_SYNC_DATA_DIR&amp;#34; docker run -it \ --mount type=bind,source=&amp;#34;$ANKI_SYNC_DATA_DIR&amp;#34;,target=/app/data \ -p 27701:27701 \ --name anki-container \ -d \ kuklinistvan/anki-sync-server:latest 创建用户 # docker exec -it anki-container /bin/sh /app/anki-sync-server # ./ankisyncctl.py --help usage: ./ankisyncctl.py &amp;lt;command&amp;gt; [&amp;lt;args&amp;gt;] Commands: adduser &amp;lt;username&amp;gt; - add a new user deluser &amp;lt;username&amp;gt; - delete a user lsuser - list users passwd &amp;lt;username&amp;gt; - change password of a user</description>
+    </item>
+    
+    <item>
+      <title>Google_cloud_functions</title>
+      <link>https://www.51hint.com/posts/google_cloud_functions/</link>
+      <pubDate>Mon, 11 Mar 2019 10:15:54 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/google_cloud_functions/</guid>
+      <description>setting up a gcp project   create a new gcp project https://console.cloud.google.com/cloud-resource-manager
+  go to the https://console.cloud.google.com/functions/list , you may have to enable biling
+  Enable the cloud functions api
+  install gcloud CLI https://cloud.google.com/sdk/docs/
+  update
+gcloud components update gcloud components install beta   config
+gcloud config set project &amp;lt;PROJECT_ID&amp;gt;   confirm
+gcloud functions list   hello world as service   create a folder and edit go file</description>
+    </item>
+    
+    <item>
+      <title>Mongodb使用场景</title>
+      <link>https://www.51hint.com/posts/mongodb%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</link>
+      <pubDate>Sun, 10 Mar 2019 16:21:58 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mongodb%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</guid>
+      <description>用在一些第三方信息的获取或者抓取，因为MongoDB的schema-less，所有格式灵活，不用为了各种格式不一样的信息专门设计统一的格式，</description>
+    </item>
+    
+    <item>
+      <title>Py_chromeHeadless操作</title>
+      <link>https://www.51hint.com/posts/py_chromeheadless%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Sun, 10 Mar 2019 16:11:00 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/py_chromeheadless%E6%93%8D%E4%BD%9C/</guid>
+      <description>Chrome DevTools Protocol Chrome DevTools Protocol https://github.com/ChromeDevTools/devtools-protocol API 文档 https://chromedevtools.github.io/devtools-protocol/ 本地启动Headless Chrome docker run -it --rm --name alpine-chrome -p 9222:9222 einverne/alpine-chrome //启动之后可以访问。http://localhost:9222/json</description>
+    </item>
+    
+    <item>
+      <title>Android自动_auto</title>
+      <link>https://www.51hint.com/posts/android%E8%87%AA%E5%8A%A8_auto.js/</link>
+      <pubDate>Sun, 10 Mar 2019 16:07:50 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/android%E8%87%AA%E5%8A%A8_auto.js/</guid>
+      <description>Auto.js https://github.com/hyb1996/Auto.js?files=1 文档 https://hyb1996.github.io/AutoJs-Docs/#/?id=%E7%BB%BC%E8%BF%B0 https://github.com/e1399579/autojs</description>
+    </item>
+    
+    <item>
+      <title>Ansible_docker</title>
+      <link>https://www.51hint.com/posts/ansible_docker/</link>
+      <pubDate>Sun, 10 Mar 2019 16:04:21 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ansible_docker/</guid>
+      <description>ansible介绍 1. 安装ansible $ sudo apt-get update $ sudo apt-get install software-properties-common $ sudo apt-add-repository --yes --update ppa:ansible/ansible $ sudo apt-get install ansible ansible --version ssh-keygen ssh-copy-id guo@172.16.62.151 ssh-copy-id guo@172.16.62.152 ssh-keyscan 172.16.62.151 &amp;gt;&amp;gt; ~/.ssh/known_hosts ssh-keyscan 172.16.62.152 &amp;gt;&amp;gt; ~/.ssh/known_hosts 验证 ssh guo@172.16.62.151 ssh guo@172.16.62.152 2. 配置 vim /etc/ansible/ansible.cfg [privilege_escalation] become=True become_method=sudo become_user=root become_ask_pass=True</description>
+    </item>
+    
+    <item>
+      <title>Html5录音</title>
+      <link>https://www.51hint.com/posts/html5%E5%BD%95%E9%9F%B3/</link>
+      <pubDate>Sun, 10 Mar 2019 16:00:30 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/html5%E5%BD%95%E9%9F%B3/</guid>
+      <description>html5录音的实现方式 &amp;lt;script src=&amp;#34;recorder.mp3.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;src/recorder-core.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!--必须引入的录音核心--&amp;gt; &amp;lt;script src=&amp;#34;src/engine/mp3.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!--相应格式支持文件--&amp;gt; &amp;lt;script src=&amp;#34;src/engine/mp3-engine.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!--</description>
+    </item>
+    
+    <item>
+      <title>Lua安装</title>
+      <link>https://www.51hint.com/posts/lua%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sun, 10 Mar 2019 15:57:55 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/lua%E5%AE%89%E8%A3%85/</guid>
+      <description>安装lua sudo apt-get install libreadline-dev curl -R -O http://www.lua.org/ftp/lua-5.3.4.tar.gz tar zxf lua-5.3.4.tar.gz cd lua-5.3.4 sudo make linux test #[这一步有可能会报错，如果有报错下面有解决方法] sudo make install</description>
+    </item>
+    
+    <item>
+      <title>Go排序</title>
+      <link>https://www.51hint.com/posts/go%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Sat, 09 Mar 2019 19:53:00 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go%E6%8E%92%E5%BA%8F/</guid>
+      <description>冒泡排序 冒泡排序的原理是，对给定的数组进行多次遍历，每次均比较相邻的两个数，如果前一个比后一个大，则交换这两个数。经过第一次遍历之后，最大的</description>
+    </item>
+    
+    <item>
+      <title>Py验证码</title>
+      <link>https://www.51hint.com/posts/py%E9%AA%8C%E8%AF%81%E7%A0%81/</link>
+      <pubDate>Wed, 06 Mar 2019 14:34:53 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/py%E9%AA%8C%E8%AF%81%E7%A0%81/</guid>
+      <description>图形验证码的识别 转灰度；二值化等，再识别 import tesserocr from PIL import Image image = Image.open(xx.png) image. image.convert(&amp;#39;L&amp;#39;) #灰度 threshold = 127 table=[] for i in range(256): if i &amp;lt; threshold: table.append(0) else: table.append(1) image = iamge.point(table, &amp;#39;1&amp;#39;) #二值化 result = tesserocr.image_to_text(image) print(result) 极验滑动验证码 拖动</description>
+    </item>
+    
+    <item>
+      <title>PySplash</title>
+      <link>https://www.51hint.com/posts/pysplash/</link>
+      <pubDate>Tue, 05 Mar 2019 21:56:09 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/pysplash/</guid>
+      <description>splash lua脚本 function main(splash, args) splash:go(&amp;#34;http://www.baidu.com&amp;#34;) splash:wait(0.5) local title = splash:evaljs(&amp;#34;document.title&amp;#34;) return {title=title} end 1.异步处理 function main(splash, args) local example_urls = {&amp;#34;www.baidu.com&amp;#34;, &amp;#34;www.taobao.com&amp;#34;, &amp;#34;www.zhihu.com&amp;#34;} local urls = args.urls or example_urls local results = {} for index, url in ipairs(urls) do local ok, reason = splash:go(&amp;#34;http://&amp;#34; .. url) if ok then splash:wait(2) results[url] = splash:png() end end return results end //</description>
+    </item>
+    
+    <item>
+      <title>Pyselenium</title>
+      <link>https://www.51hint.com/posts/pyselenium/</link>
+      <pubDate>Tue, 05 Mar 2019 20:55:14 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/pyselenium/</guid>
+      <description>1.基本使用 from selenium import webdriver from selenium.webdriver.common.by import By from selenium.webdriver.common.keys import Keys from selenium.webdriver.support import expected_conditions as EC from selenium.webdriver.support.wait import WebDriverWait browser = webdriver.Chrome() try: browser.get(&amp;#39;https://www.baidu.com&amp;#39;) input = browser.find_element_by_id(&amp;#39;kw&amp;#39;) input.send_keys(&amp;#39;Python&amp;#39;) input.send_keys(Keys.ENTER) wait = WebDriverWait(browser, 10) wait.until(EC.presence_of_element_located((By.ID, &amp;#39;content_left&amp;#39;))) print(browser.current_url) print(browser.get_cookies()) print(browser.page_source) finally: browser.close() 2.理解 from selenium import webdriver browser = webdriver.Chrome() browser.get(&amp;#39;https://www.taobao.com&amp;#39;) print(browser.page_source) browser.close() // 查找节点 find_element_by_id find_element_by_name</description>
+    </item>
+    
+    <item>
+      <title>Py文件打开方式</title>
+      <link>https://www.51hint.com/posts/py%E6%96%87%E4%BB%B6%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Tue, 05 Mar 2019 15:42:03 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/py%E6%96%87%E4%BB%B6%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/</guid>
+      <description>r：以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。 rb：以二进制只读方式打开一个文件。文件指针将会放在文件的开头。 r+：以</description>
+    </item>
+    
+    <item>
+      <title>Py解析库</title>
+      <link>https://www.51hint.com/posts/py%E8%A7%A3%E6%9E%90%E5%BA%93/</link>
+      <pubDate>Tue, 05 Mar 2019 11:38:44 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/py%E8%A7%A3%E6%9E%90%E5%BA%93/</guid>
+      <description>xpath XPath常用规则 表达式 描述 nodename 选取此节点的所有子节点 / 从当前节点选取直接子节点 // 从当前节点选取子孙节点 . 选取当前节点 .. 选取当前节点的父节点</description>
+    </item>
+    
+    <item>
+      <title>Py正则表达式</title>
+      <link>https://www.51hint.com/posts/py%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <pubDate>Tue, 05 Mar 2019 09:17:24 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/py%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <description>在线正则表达式测试 http://tool.oschina.net/regex/ 规则 表3-2 常用的匹配规则 模式 描述 \w 匹配字母、数字及下划线 \W 匹配不是字母、数字及下划线的字符 \s 匹配任意空白字符，等价于[</description>
+    </item>
+    
+    <item>
+      <title>Redis使用场景</title>
+      <link>https://www.51hint.com/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</link>
+      <pubDate>Sun, 03 Mar 2019 13:45:16 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</guid>
+      <description>1.显示最新的项目列表 我们假设数据库中的每条评论都有一个唯一的递增的ID字段。 1&amp;gt; 我们可以使用分页来制作主页和评论页，使用Redis的模板，每</description>
+    </item>
+    
+    <item>
+      <title>Redis命令参考</title>
+      <link>https://www.51hint.com/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/</link>
+      <pubDate>Sun, 03 Mar 2019 13:39:13 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/</guid>
+      <description>redis命令参考 http://redisdoc.com/index.html 字符串 哈希表 列表 集合 有序集合 HyperLogLog 地理位置 位图 数据库 自动过期 事务 Lua 脚本 持久化 发布与订阅 复制 客户端与服务器 配置选项 调试 内部命令</description>
+    </item>
+    
+    <item>
+      <title>Beego的session共享及微服务</title>
+      <link>https://www.51hint.com/posts/beego%E7%9A%84session%E5%85%B1%E4%BA%AB%E5%8F%8A%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Sun, 03 Mar 2019 13:35:13 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/beego%E7%9A%84session%E5%85%B1%E4%BA%AB%E5%8F%8A%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+      <description>前段时间要做游戏的管理后台，讲真一个游戏的后台管理真心不比任何一个管理系统要少，主要还是运营提的需求比较多。为了以后的扩展跟维护就想把游戏管</description>
+    </item>
+    
+    <item>
+      <title>多级分销设计</title>
+      <link>https://www.51hint.com/posts/%E5%A4%9A%E7%BA%A7%E5%88%86%E9%94%80%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Sun, 03 Mar 2019 13:21:32 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/%E5%A4%9A%E7%BA%A7%E5%88%86%E9%94%80%E8%AE%BE%E8%AE%A1/</guid>
+      <description>表设计 user(id,parent,role,name)。 role可以是代理，可以是用户。如果是代理，parent就是上级代理。 佣金 应该有两</description>
+    </item>
+    
+    <item>
+      <title>Laravel部署</title>
+      <link>https://www.51hint.com/posts/laravel%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Sun, 03 Mar 2019 13:17:30 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/laravel%E9%83%A8%E7%BD%B2/</guid>
+      <description>服务器配置 nginx erver { listen 80; server_name example.com; root /example.com/public; add_header X-Frame-Options &amp;#34;SAMEORIGIN&amp;#34;; add_header X-XSS-Protection &amp;#34;1; mode=block&amp;#34;; add_header X-Content-Type-Options &amp;#34;nosniff&amp;#34;; index index.html index.htm index.php; charset utf-8; location / { try_files $uri $uri/ /index.php?$query_string; } location = /favicon.ico { access_log off; log_not_found off; } location = /robots.txt { access_log off; log_not_found off; } error_page 404 /index.php; location ~ \.php$ { fastcgi_split_path_info ^(.+\.php)(/.+)$; fastcgi_pass unix:/var/run/php/php7.1-fpm.sock; fastcgi_index index.php; include</description>
+    </item>
+    
+    <item>
+      <title>Dokku基于docker的PaaS类似heroku</title>
+      <link>https://www.51hint.com/posts/dokku%E5%9F%BA%E4%BA%8Edocker%E7%9A%84paas%E7%B1%BB%E4%BC%BCheroku/</link>
+      <pubDate>Fri, 01 Mar 2019 15:32:30 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/dokku%E5%9F%BA%E4%BA%8Edocker%E7%9A%84paas%E7%B1%BB%E4%BC%BCheroku/</guid>
+      <description>类似heroku搭建私有PaaS利器dokku Dock https://github.com/dokku/dokku Docker powered mini-Heroku http://dokku.viewdocs.io/dokku/</description>
+    </item>
+    
+    <item>
+      <title>Walle瓦力</title>
+      <link>https://www.51hint.com/posts/walle%E7%93%A6%E5%8A%9B/</link>
+      <pubDate>Fri, 01 Mar 2019 15:29:32 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/walle%E7%93%A6%E5%8A%9B/</guid>
+      <description>通过git超便利把代码部署上线 walle Walle https://walle-web.io/ git代码提交，权限审核，代码即刻部署上线；还是不错的</description>
+    </item>
+    
+    <item>
+      <title>Gogs</title>
+      <link>https://www.51hint.com/posts/gogs/</link>
+      <pubDate>Fri, 01 Mar 2019 15:26:15 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/gogs/</guid>
+      <description>golang开发超级便利搭建git服务器 gogs https://gogs.io/</description>
+    </item>
+    
+    <item>
+      <title>Typescript多种import</title>
+      <link>https://www.51hint.com/posts/typescript%E5%A4%9A%E7%A7%8Dimport/</link>
+      <pubDate>Fri, 01 Mar 2019 15:01:42 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/typescript%E5%A4%9A%E7%A7%8Dimport/</guid>
+      <description>1.创建a.ts文件 export function whatsYourName(name: string) { console.log(name); } export interface StringValidator { isAcceptable(s: string): boolean; } export const numberRegexp = /^[0-9]+$/; class ZipCodeValidator implements StringValidator { isAcceptable(s: string) { return s.length === 5 &amp;amp;&amp;amp; numberRegexp.test(s); } } export { ZipCodeValidator }; export { ZipCodeValidator as mainValidator }; 其实ts跟es6导出基本一致</description>
+    </item>
+    
+    <item>
+      <title>Js快速取整</title>
+      <link>https://www.51hint.com/posts/js%E5%BF%AB%E9%80%9F%E5%8F%96%E6%95%B4/</link>
+      <pubDate>Fri, 01 Mar 2019 14:52:24 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/js%E5%BF%AB%E9%80%9F%E5%8F%96%E6%95%B4/</guid>
+      <description>常用的直接取整 1. parseInt() 2. Math.trunc(); //将小数部分去掉，只保留整数部分 快速取整方法 1. ~~number //双按位非；常代替Math.trunc console.log(~~1.98989) 2. number|0 //(按位或) 对每一对</description>
+    </item>
+    
+    <item>
+      <title>Docker实例大小</title>
+      <link>https://www.51hint.com/posts/docker%E5%AE%9E%E4%BE%8B%E5%A4%A7%E5%B0%8F/</link>
+      <pubDate>Fri, 01 Mar 2019 14:45:52 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/docker%E5%AE%9E%E4%BE%8B%E5%A4%A7%E5%B0%8F/</guid>
+      <description>查看实例大小，占用空间命令 docker ps -s docker system df -v</description>
+    </item>
+    
+    <item>
+      <title>Sp手机设计分辨率</title>
+      <link>https://www.51hint.com/posts/sp%E6%89%8B%E6%9C%BA%E8%AE%BE%E8%AE%A1%E5%88%86%E8%BE%A8%E7%8E%87/</link>
+      <pubDate>Fri, 01 Mar 2019 11:54:44 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/sp%E6%89%8B%E6%9C%BA%E8%AE%BE%E8%AE%A1%E5%88%86%E8%BE%A8%E7%8E%87/</guid>
+      <description>2018年IOS/Android UI设计规范 1.设计稿与切片稿 a.尺寸 设计稿：iPhone6 750*1334 【2倍】 切图稿：iPhone6 22081242</description>
+    </item>
+    
+    <item>
+      <title>Vim文字大小</title>
+      <link>https://www.51hint.com/posts/vim%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/</link>
+      <pubDate>Fri, 01 Mar 2019 11:51:52 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/vim%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/</guid>
+      <description>更改vim默认文字大小 set guifont=* 谈起选择字体和文字大小对话框 set guifont? 设置到.vimrc;保存即可</description>
+    </item>
+    
+    <item>
+      <title>Javascript数组随机乱序</title>
+      <link>https://www.51hint.com/posts/javascript%E6%95%B0%E7%BB%84%E9%9A%8F%E6%9C%BA%E4%B9%B1%E5%BA%8F/</link>
+      <pubDate>Mon, 18 Feb 2019 22:25:11 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/javascript%E6%95%B0%E7%BB%84%E9%9A%8F%E6%9C%BA%E4%B9%B1%E5%BA%8F/</guid>
+      <description>数组随机排序(shuffle) //ES6 function shuffle(arr){ let i = arr.length; while(i){ let j = Math.floor(Math.random() * i--) [arr[j], arr[i]] = [arr[i], arr[j]]; /* ES5 j = Math.floor(Math.random() * i--); t = arr[i]; arr[i] = arr[j]; arr[j] = t; */ } } ///以下并不能真正随机打乱数组 function</description>
+    </item>
+    
+    <item>
+      <title>Mac不能更改,它们正在使用中</title>
+      <link>https://www.51hint.com/posts/mac%E4%B8%8D%E8%83%BD%E6%9B%B4%E6%94%B9%E5%AE%83%E4%BB%AC%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/</link>
+      <pubDate>Sat, 22 Dec 2018 23:12:23 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mac%E4%B8%8D%E8%83%BD%E6%9B%B4%E6%94%B9%E5%AE%83%E4%BB%AC%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E4%B8%AD/</guid>
+      <description>问题: Mac外联硬盘不能更改“-”中的一个或多个项目,因为它们正在使用中 xattr -d com.apple.FinderInfo /Volumes/someFinder/someFile</description>
+    </item>
+    
+    <item>
+      <title>Lnmp</title>
+      <link>https://www.51hint.com/posts/lnmp/</link>
+      <pubDate>Fri, 21 Dec 2018 09:18:01 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/lnmp/</guid>
+      <description>nginx sudo apt-get update sudo apt-get install nginx php7.1 sudo apt-add-repository ppa:ondrej/php sudo apt-get update sudo apt-get install php7.1 php7.1-fpm vim /etc/nginx/sites-available/default location ~ \.php$ { include snippets/fastcgi-php.conf; # With php7.0-cgi alone: # fastcgi_pass 127.0.0.1:9000; # With php7.0-fpm: fastcgi_pass unix:/run/php/php7.1-fpm.sock; } vim /etc/php/7.1/fpm/pool.d listen = /run/php/php7.1-fpm.sock mysql sudo apt-get –y install mysql-server mysql-client php7.1-mysql phpmyadmin apt-get install phpmyadmin php7.1-mbstring php-gettext ln -s /usr/share/phpmyadmin/ /var/www/html/ sudo phpenmod mcrypt xdebug apt-get install php7.</description>
+    </item>
+    
+    <item>
+      <title>Mac下minicom</title>
+      <link>https://www.51hint.com/posts/mac%E4%B8%8Bminicom/</link>
+      <pubDate>Fri, 16 Nov 2018 11:31:03 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mac%E4%B8%8Bminicom/</guid>
+      <description>1.安装 ​ brew install minicom 2.配置 ​ ls /dev/tty ​ minicom -s ​ 1&amp;gt;进入 serial port setup, ​ 2&amp;gt;Serial Device: 按A, 该为 /dev/tty.usbxxxx; ​ 3&amp;gt;波特率：按E，修改 ​ 4&amp;gt;关闭硬件流控：按F ​ 5</description>
+    </item>
+    
+    <item>
+      <title>Modbus</title>
+      <link>https://www.51hint.com/posts/modbus/</link>
+      <pubDate>Fri, 09 Nov 2018 15:54:33 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/modbus/</guid>
+      <description>MODBUS功能码 代码 中文名称 寄存器PLC地址 位或字操作 Acces Size 01 读线圈状态 00001-09999 位 Read-Write 1-bit 02 读离散输入状态 10001-19999 位 Read-Only 1-bit 03 读保持寄存器 40001-49999 字 Read-Write 16-bit 04 读输入寄存器</description>
+    </item>
+    
+    <item>
+      <title>终端代理</title>
+      <link>https://www.51hint.com/posts/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Thu, 08 Nov 2018 18:20:17 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/</guid>
+      <description>终端走代理 vim ~/.zshrc fuction proxy() { export http_proxy=http://127.0.0.1:1087 export https_proxy=http://127.0.0.1:1087 export ALL_PROXY=socks5://127.0.0.1:1080 } fuction noproxy() { unset http_proxy unset https_proxy unset ALL_PROXY } function proxyWifi() { networksetup -setsocksfirewallproxy &amp;#39;Wi-Fi&amp;#39; 127.0.0.1 1080 } function noproxyWifi() { networksetup -setsocksfirewallproxystate &amp;#39;Wi-Fi&amp;#39; off } alias ip=&amp;#34;curl ip.cn &amp;amp;&amp;amp; curl cip.cc &amp;amp;&amp;amp; curl ip.gs&amp;#34; alias v2ray=&amp;#34;nohup /usr/local/v2ray-macos/v2ray &amp;gt;&amp;gt; /tmp/v2ray.log 2&amp;gt;&amp;amp;1 &amp;amp; &amp;#34;</description>
+    </item>
+    
+    <item>
+      <title>Go小结7</title>
+      <link>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%937/</link>
+      <pubDate>Thu, 01 Nov 2018 22:53:57 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%937/</guid>
+      <description>反射reflection 反射：可以在运行时动态获取变量的相关信息 a. reflect.TypeOf()，获取变量的类型，返回reflect.Ty</description>
+    </item>
+    
+    <item>
+      <title>Go小结6</title>
+      <link>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%936/</link>
+      <pubDate>Tue, 30 Oct 2018 10:28:25 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%936/</guid>
+      <description>并发 goroutine是Go并行设计的核心。goroutine说到底其实就是协程，但是它比线程更小，十几个goroutine可能体现在底层就</description>
+    </item>
+    
+    <item>
+      <title>Go小结5</title>
+      <link>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%935/</link>
+      <pubDate>Sat, 27 Oct 2018 22:42:02 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%935/</guid>
+      <description>反射 首先需要把它转化成reflect对象(reflect.Type或者reflect.Value，根据不同的情况调用不同的函数)。这两种获取</description>
+    </item>
+    
+    <item>
+      <title>Go小结4</title>
+      <link>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%934/</link>
+      <pubDate>Fri, 26 Oct 2018 22:51:20 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%934/</guid>
+      <description>方法 方法定义 Golang 方法总是绑定对象实例，并隐式将实例作为第一实参 (receiver) func (recevier type) methodName(参数列表)(返回值列表){} // 无参数、无返回值 func (t</description>
+    </item>
+    
+    <item>
+      <title>Go小结3</title>
+      <link>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%933/</link>
+      <pubDate>Fri, 26 Oct 2018 15:18:16 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%933/</guid>
+      <description>流程控制 select语句select 是Go中的一个控制结构，类似于用于通信的switch语句。每个case必须是一个通信操作，要么是发送要么</description>
+    </item>
+    
+    <item>
+      <title>Go小结2</title>
+      <link>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%932/</link>
+      <pubDate>Wed, 24 Oct 2018 22:41:10 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%932/</guid>
+      <description>引用类型 Golang的引用类型包括 slice、map 和 channel。它们有复杂的内部结构，除了申请内存外，还需要初始化相关属性。 new和m</description>
+    </item>
+    
+    <item>
+      <title>Go小结1</title>
+      <link>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%931/</link>
+      <pubDate>Wed, 24 Oct 2018 21:26:08 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%931/</guid>
+      <description>内置函数 imag &amp;ndash; 返回complex的实部 （complex、real imag：用于创建和操作复数） real &amp;ndash; 返回complex的虚部 import用法 import 用</description>
+    </item>
+    
+    <item>
+      <title>更改gvm默认GoPATH</title>
+      <link>https://www.51hint.com/posts/%E6%9B%B4%E6%94%B9gvm%E9%BB%98%E8%AE%A4gopath/</link>
+      <pubDate>Wed, 24 Oct 2018 09:08:35 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/%E6%9B%B4%E6%94%B9gvm%E9%BB%98%E8%AE%A4gopath/</guid>
+      <description>更改gvm默认go path环境变量 vim ~/.zshrc export GOPATH=/Users/xxxx/Documents/goprj 生效 gvm use &amp;lt;version&amp;gt; --default 验证 go env</description>
+    </item>
+    
+    <item>
+      <title>Mysql配置</title>
+      <link>https://www.51hint.com/posts/mysql_winconfig/</link>
+      <pubDate>Mon, 22 Oct 2018 12:57:16 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mysql_winconfig/</guid>
+      <description>配置环境变量 MySQL C:\MySQL PAtH 添加;%MySQL%\bin; 服务安装 命令行(管理员)，进入MySQL文件夹的bin文件夹下， mysqld -install my.ini编辑 [mysql] default-character-set=utf8 [mysqld] port=3306</description>
+    </item>
+    
+    <item>
+      <title>Ansible</title>
+      <link>https://www.51hint.com/posts/ansible/</link>
+      <pubDate>Thu, 18 Oct 2018 14:17:22 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ansible/</guid>
+      <description>ansible 介绍 ansible是最近两年比较热门的一款服务器自动化运维工具，基于python研发。 核心组件说明 Host Lnventory：记录了每一个由An</description>
+    </item>
+    
+    <item>
+      <title>Ssh不自动断开</title>
+      <link>https://www.51hint.com/posts/ssh%E4%B8%8D%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80/</link>
+      <pubDate>Thu, 18 Oct 2018 14:13:10 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ssh%E4%B8%8D%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80/</guid>
+      <description>服务器端设置 vim /etc/ssh/sshd_config ClientAliveInterval 30 ClientAliveCountMax 3 客户端设置 vim /etc/ssh/ssh_config. vim ~/.ssh/config Host * ServerAliveInterval 30 ServerAliveCountMax 3 临时使用一次 ssh -o ServerAliveInterval=30 user@host</description>
+    </item>
+    
+    <item>
+      <title>nc传输文件</title>
+      <link>https://www.51hint.com/posts/nc/</link>
+      <pubDate>Thu, 18 Oct 2018 13:39:48 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/nc/</guid>
+      <description>在接受数据的机器上侦听指定端口 nc -l -p 8800 &amp;gt; demo.txt nc -l -p 9900 &amp;gt; demo.tar.bz2 在数据发送方机器上向指定地址（ip+port）以tcp方式发送数据 nc dest_ip 8800 &amp;lt; demo.txt nc dest_ip 9900 &amp;lt; $(tar</description>
+    </item>
+    
+    <item>
+      <title>Linux清除操作日志</title>
+      <link>https://www.51hint.com/posts/linux%E6%B8%85%E9%99%A4%E6%93%8D%E4%BD%9C%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Sun, 30 Sep 2018 21:15:53 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/linux%E6%B8%85%E9%99%A4%E6%93%8D%E4%BD%9C%E6%97%A5%E5%BF%97/</guid>
+      <description>删除操作日志 1.#vim ~/.bash_history 该文件即为bash命令的历史记录，我们随意修改 2.用history命令发现没有变化； #history -r 重置文件到history内存中。 11</description>
+    </item>
+    
+    <item>
+      <title>Git彻底删除历史提交记录</title>
+      <link>https://www.51hint.com/posts/git%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Thu, 30 Aug 2018 14:25:05 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/git%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95/</guid>
+      <description>删除最好一次提交 git reset --hard HEAD^ git push origin master -f 回滚到某次提交 git reset --hard commit_has git push --force 删除某次提交 git rebase -i &amp;#34;commit id&amp;#34;^ git push origin master -f git add . git commit --amend git rebase --continue</description>
+    </item>
+    
+    <item>
+      <title>Mount</title>
+      <link>https://www.51hint.com/posts/mount/</link>
+      <pubDate>Mon, 27 Aug 2018 16:52:16 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mount/</guid>
+      <description>映射ntfs硬盘 diskutil list umount /Volumns/xxx mount -t ntfs -o rw,auto,nobrowse /dev/disk2s1 ~/Desktop/test</description>
+    </item>
+    
+    <item>
+      <title>Laravel使用</title>
+      <link>https://www.51hint.com/posts/laravel%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 24 Aug 2018 23:24:26 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/laravel%E4%BD%BF%E7%94%A8/</guid>
+      <description>开始学习 1.安装 #composer create-project laravel/laravel learnlaravel5 ^5.5 2.运行 #cd learnlaravel5/public #php -S 0.0.0.0:1024 3.Auth #php artisan make:auth 4.mysql配置 #vim .env #chmod 777 -R storage bootstrap/cache 5.数据库迁移(migration) #php artisan migrate #php artisan make:model Article -m Eloque $article</description>
+    </item>
+    
+    <item>
+      <title>阿里小号</title>
+      <link>https://www.51hint.com/posts/%E9%98%BF%E9%87%8C%E5%B0%8F%E5%8F%B7/</link>
+      <pubDate>Wed, 22 Aug 2018 11:20:32 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/%E9%98%BF%E9%87%8C%E5%B0%8F%E5%8F%B7/</guid>
+      <description>阿里小号发送短信 用你自己真实手机号，发短信，验证码空格服务电话，收信人小号号码 比如服务号码是 10688888888，验证码是 ub12。 你就正</description>
+    </item>
+    
+    <item>
+      <title>BelongsToVShasOne</title>
+      <link>https://www.51hint.com/posts/belongstovshasone/</link>
+      <pubDate>Tue, 21 Aug 2018 10:05:58 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/belongstovshasone/</guid>
+      <description>hasOne User (id - primary key) =&amp;gt; hasOne =&amp;gt;Profile ( user_id - foreing key) [user_id] BelongsTo [user_id] Profile (user_id - foreing key) =&amp;gt; BelongsTo =&amp;gt; User (id - primary key) 小结 If B has an a_id column, then A hasOne or hasMany B if A has a b_id column, then A belongsTo B.</description>
+    </item>
+    
+    <item>
+      <title>Kodi</title>
+      <link>https://www.51hint.com/posts/kodi/</link>
+      <pubDate>Mon, 20 Aug 2018 15:52:07 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/kodi/</guid>
+      <description>Kodi Kodi 源代码库 github.com/xbmc/xbmc Kodi是由XBMC基金会开发的开源媒体播放器[4]，原名XBMC（最后一个以XBMC命名的版本是13.2“Gotham”，1</description>
+    </item>
+    
+    <item>
+      <title>Arch Linux LNMP配置</title>
+      <link>https://www.51hint.com/arch.html</link>
+      <pubDate>Thu, 26 Apr 2018 19:47:25 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/arch.html</guid>
+      <description>升级Arch Linux sudo pacman -Syu 安装Nginx sudo pacman -S nginx-mainline systemctl status nginx sudo systemctl restart nginx sudo systemctl enable nginx nginx -v 安装MariaDB sudo pacman -S mariadb sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql sudo systemctl start mysqld systemctl status mysqld sudo systemclt enable mysqld sudo mysql_secure_installation mysql --version 安装p</description>
+    </item>
+    
+    <item>
+      <title>go交叉编译</title>
+      <link>https://www.51hint.com/posts/go%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/</link>
+      <pubDate>Thu, 26 Apr 2018 19:47:25 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/go%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/</guid>
+      <description>Golang交叉编译步骤 首先进入$GOROOT/go/src 源码所在目录，执行如下命令创建目标平台所需的包和工具文件 # 如果你想在Window</description>
+    </item>
+    
+    <item>
+      <title>Hugsubtree</title>
+      <link>https://www.51hint.com/hugsubtree.html</link>
+      <pubDate>Thu, 26 Apr 2018 19:47:25 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/hugsubtree.html</guid>
+      <description>hugo 生成public 文件夹 public文件夹作为subtree更新到github.io git subtree add &amp;ndash;prefix=public git@github.com:xx/xx.git gh-pages &amp;ndash;squash git subtree push &amp;ndash;prefix=public git@github.com:xx/hugo_gh_blog.git gh-pages</description>
+    </item>
+    
+    <item>
+      <title>rsync同步文件件</title>
+      <link>https://www.51hint.com/posts/rsync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Thu, 26 Apr 2018 19:47:25 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/rsync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6/</guid>
+      <description>向备机推数据 rsync -avzP --delete {localDir} root@{remoteHost}:{remoteDir} rsync -avzP --delete /tmp/rtest1 root@192.168.1.101:/tmp/ 参数说明： -a 参数，相当于-rlptgoD（-r 是递归 -l 是链接文件，意思是拷贝链接文件；-p 表示保持文件原有权</description>
+    </item>
+    
+    <item>
+      <title>gitbook发布epub</title>
+      <link>https://www.51hint.com/posts/gitbook-epub/</link>
+      <pubDate>Thu, 26 Apr 2018 02:42:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/gitbook-epub/</guid>
+      <description>先安装NodeJS和GitBook命令行工具(npm install gitbook-cli -g命令)。 运行 gitbook install，安装GitBook插件。 构建电子书 运行下面的命令之</description>
+    </item>
+    
+    <item>
+      <title>android 小结</title>
+      <link>https://www.51hint.com/posts/2017-01-19-android-%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Thu, 19 Jan 2017 00:55:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2017-01-19-android-%E5%B0%8F%E7%BB%93/</guid>
+      <description>Android酷炫实用的开源框架（UI框架） – Android开发中文站 www.androidchina.net/1992.html Android 中的MVP 模式 xuyushi.github.io/2016/02/28/MVP/ Dagger 2: Step To Step – 简书 www.jianshu.com/p/7505d92d7748 依赖注入库 Dagger2 的使用方法 https://github.com/SpikeKing/wcl-dagger-demo RxJava 和 RxAndroid 四</description>
+    </item>
+    
+    <item>
+      <title>chorome bookmark export</title>
+      <link>https://www.51hint.com/posts/2016-08-18-chorome-bookmark-export/</link>
+      <pubDate>Thu, 18 Aug 2016 06:53:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-08-18-chorome-bookmark-export/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>RVA to file offset</title>
+      <link>https://www.51hint.com/posts/2016-08-02-rva-to-file-offset/</link>
+      <pubDate>Tue, 02 Aug 2016 07:58:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-08-02-rva-to-file-offset/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swift2.2新特性</title>
+      <link>https://www.51hint.com/posts/2016-06-08-swift2-2%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Wed, 08 Jun 2016 02:42:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-06-08-swift2-2%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+      <description>&amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 修改后的 AnySequence.init：&amp;lt;br /&amp;gt; &amp;lt;figure class=&amp;quot;highlight stylus&amp;quot;&amp;gt; &amp;lt;table&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td class=&amp;quot;code&amp;quot;&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;span class=&amp;quot;line&amp;quot;&amp;gt; public struct AnySequence&amp;amp;lt;Element&amp;amp;gt; : SequenceType { &amp;lt;/span&amp;gt; public init&amp;lt;S: SequenceTypewhereS.Generator.Element== Element,S.SubSequence: SequenceType,S.SubSequence.Generator.Element== Element,S.SubSequence.SubSequence== S.SubSequence&amp;gt;(_ base: S) { &amp;hellip; }}</description>
+    </item>
+    
+    <item>
+      <title>swift异常</title>
+      <link>https://www.51hint.com/posts/2016-06-08-swift%E5%BC%82%E5%B8%B8/</link>
+      <pubDate>Wed, 08 Jun 2016 02:40:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-06-08-swift%E5%BC%82%E5%B8%B8/</guid>
+      <description>异常处理机制是很多现代编程语言必备的特性，而且基本上都使用了do/try/catch语法。如果没有使用异常捕捉语句，编译器（预编译器/静态分</description>
+    </item>
+    
+    <item>
+      <title>scrapy sqlite保存</title>
+      <link>https://www.51hint.com/posts/2016-02-15-scrapy-sqlite%E4%BF%9D%E5%AD%98/</link>
+      <pubDate>Mon, 15 Feb 2016 02:11:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-02-15-scrapy-sqlite%E4%BF%9D%E5%AD%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scrapy json保存</title>
+      <link>https://www.51hint.com/posts/2016-02-15-scrapy-json/</link>
+      <pubDate>Mon, 15 Feb 2016 02:11:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-02-15-scrapy-json/</guid>
+      <description>保存json数据</description>
+    </item>
+    
+    <item>
+      <title>scrapy pycham调试</title>
+      <link>https://www.51hint.com/posts/2016-01-25-scrapy-pycham%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Mon, 25 Jan 2016 08:37:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-01-25-scrapy-pycham%E8%B0%83%E8%AF%95/</guid>
+      <description>默认使用pycharm直接运行 scrapy crawl tutorial 是不能断点调试，甚至不能直接运行 通过一些设置，是可以进行断点调试的； 首先：新建一个文件main.py 点击</description>
+    </item>
+    
+    <item>
+      <title>git 导出干净包</title>
+      <link>https://www.51hint.com/posts/2015-12-01-git-%E5%AF%BC%E5%87%BA%E5%B9%B2%E5%87%80%E5%8C%85/</link>
+      <pubDate>Tue, 01 Dec 2015 01:11:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-12-01-git-%E5%AF%BC%E5%87%BA%E5%B9%B2%E5%87%80%E5%8C%85/</guid>
+      <description>git archive master | tar -x -C /somewhere/else Most of the time that I need to ‘export’ something from git, I want a compressed archive in any case so I do something like this. git archive master | bzip2 &amp;gt;source-tree.tar.bz2 ZIP archive: git archive –format zip –output /full/path/to/zipfile.zip master</description>
+    </item>
+    
+    <item>
+      <title>vim插件</title>
+      <link>https://www.51hint.com/posts/2015-10-28-vim%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Wed, 28 Oct 2015 07:14:27 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-10-28-vim%E6%8F%92%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>supermemo</title>
+      <link>https://www.51hint.com/posts/2015-09-24-supermemo/</link>
+      <pubDate>Thu, 24 Sep 2015 01:29:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-09-24-supermemo/</guid>
+      <description>SuperMemo转换精灵体验版.rar (284.5 MB)链接: http://pan.baidu.com/s/1ntpB5mp密码: suerSuper</description>
+    </item>
+    
+    <item>
+      <title>数据可视化</title>
+      <link>https://www.51hint.com/posts/2015-09-07-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+      <pubDate>Mon, 07 Sep 2015 04:49:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-09-07-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+      <description>Spss那样强大的统计分析功能。 Matlab的功能更加强大，但需要较为深厚的编程基础，比较适合科学方面的可视化项目。 Excel是最流行最常用</description>
+    </item>
+    
+    <item>
+      <title>ps滤镜抠出复杂的人物</title>
+      <link>https://www.51hint.com/posts/2015-07-18-ps%E6%BB%A4%E9%95%9C%E6%8A%A0%E5%87%BA%E5%A4%8D%E6%9D%82%E7%9A%84%E4%BA%BA%E7%89%A9/</link>
+      <pubDate>Sat, 18 Jul 2015 11:28:14 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-18-ps%E6%BB%A4%E9%95%9C%E6%8A%A0%E5%87%BA%E5%A4%8D%E6%9D%82%E7%9A%84%E4%BA%BA%E7%89%A9/</guid>
+      <description>&amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; 最终效果 &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;img style=&amp;quot;font-style: inherit&amp;quot; src=&amp;quot;http://p1.pstatp.com/large/6185/3939259644&amp;quot; alt=&amp;quot;《PS教程》详解抽出滤镜抠出复杂的人物&amp;quot; /&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>NSString 半角・全角の判定</title>
+      <link>https://www.51hint.com/posts/2015-07-17-nsstring-%E5%8D%8A%E8%A7%92%E5%85%A8%E8%A7%92%E3%81%AE%E5%88%A4%E5%AE%9A/</link>
+      <pubDate>Fri, 17 Jul 2015 02:49:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-17-nsstring-%E5%8D%8A%E8%A7%92%E5%85%A8%E8%A7%92%E3%81%AE%E5%88%A4%E5%AE%9A/</guid>
+      <description>-(BOOL)isAllHalfWidthCharacter;@end-(BOOL)isAllHalfWidthCharacter{NSUIntegernsStringlen=[selflength];constchar*utf8=[selfUTF8String];size_tcStringlen=strlen(utf8);if(nsStringlen==cStringlen){returnYES;}else{returnNO;}}@end</description>
+    </item>
+    
+    <item>
+      <title>自动关机</title>
+      <link>https://www.51hint.com/posts/2015-07-16-%E8%87%AA%E5%8A%A8%E5%85%B3%E6%9C%BA/</link>
+      <pubDate>Thu, 16 Jul 2015 14:54:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-16-%E8%87%AA%E5%8A%A8%E5%85%B3%E6%9C%BA/</guid>
+      <description>Windows：打开命令行（点击运行，并输入”cmd”之后回车即可），敲入命令： shutdown -s -t xxxx， xxxx是你希望经过多少秒钟关机。 Linux</description>
+    </item>
+    
+    <item>
+      <title>mysql 调试sql客户端</title>
+      <link>https://www.51hint.com/posts/2015-06-21-mysql-%E8%B0%83%E8%AF%95sql%E5%AE%A2%E6%88%B7%E7%AB%AF/</link>
+      <pubDate>Sun, 21 Jun 2015 06:59:35 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-06-21-mysql-%E8%B0%83%E8%AF%95sql%E5%AE%A2%E6%88%B7%E7%AB%AF/</guid>
+      <description>dbForge Studio for MySQL,可动态调试sql，动态调试存储过程，以及调试触发器 非常好用，极力推荐 https://www.devart.com/dbforge/mysql/studio/download.html</description>
+    </item>
+    
+    <item>
+      <title>amazon ec2 绑定多ip</title>
+      <link>https://www.51hint.com/posts/2015-05-19-amazon-ec2-%E7%BB%91%E5%AE%9A%E5%A4%9Aip/</link>
+      <pubDate>Tue, 19 May 2015 13:06:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-05-19-amazon-ec2-%E7%BB%91%E5%AE%9A%E5%A4%9Aip/</guid>
+      <description>&amp;lt;p class=&amp;quot;p4&amp;quot;&amp;gt; &amp;lt;p class=&amp;quot;p2&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt;&amp;lt;b&amp;gt;Step 3:&amp;lt;/b&amp;gt; Now navigate to &amp;amp;#8220;Network Interfaces&amp;amp;#8221; from the menu on left. Right-click on the network interface of your new instance, and select &amp;amp;#8220;Manage Private IP Addresses&amp;amp;#8221;.&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p4&amp;quot;&amp;gt; &amp;lt;p class=&amp;quot;p2&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt;&amp;lt;b&amp;gt;Step 4:&amp;lt;/b&amp;gt; Click on the &amp;amp;#8220;Assign new IP&amp;amp;#8221; link in the &amp;amp;#8220;Manage Private IP Addresses&amp;amp;#8221; window. A new line should appear which says &amp;amp;#8220;Auto-assign&amp;amp;#8221;. Now click on &amp;amp;#8220;Yes, Update&amp;amp;#8221;. Take a note</description>
+    </item>
+    
+    <item>
+      <title>do</title>
+      <link>https://www.51hint.com/posts/2015-05-11-do-2/</link>
+      <pubDate>Sun, 10 May 2015 15:30:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-05-11-do-2/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>git-flow</title>
+      <link>https://www.51hint.com/posts/2015-04-26-git-flow/</link>
+      <pubDate>Sun, 26 Apr 2015 14:46:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-04-26-git-flow/</guid>
+      <description>http://fann.im/blog/2012/03/12/git-flow-notes/
+http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html</description>
+    </item>
+    
+    <item>
+      <title>自定义下拉框</title>
+      <link>https://www.51hint.com/posts/2015-04-22-aaa-2/</link>
+      <pubDate>Wed, 22 Apr 2015 08:26:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-04-22-aaa-2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git 使用</title>
+      <link>https://www.51hint.com/posts/2015-04-17-2168/</link>
+      <pubDate>Fri, 17 Apr 2015 08:24:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-04-17-2168/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>loopback</title>
+      <link>https://www.51hint.com/posts/2015-04-14-loopback/</link>
+      <pubDate>Tue, 14 Apr 2015 08:56:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-04-14-loopback/</guid>
+      <description>AngularJS 之 Factory vs Service vs Provider www.oschina.net/translate/angularjs-factory-vs-service-vs-provider Create AngularJS client – LoopBack – Documentation docs.strongloop.com/display/public/LB/Create+AngularJS+client#CreateAngularJSclient-Services</description>
+    </item>
+    
+    <item>
+      <title>创建mobileconfig</title>
+      <link>https://www.51hint.com/posts/2015-02-07-%E5%88%9B%E5%BB%BAmobileconfig/</link>
+      <pubDate>Sat, 07 Feb 2015 12:45:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-07-%E5%88%9B%E5%BB%BAmobileconfig/</guid>
+      <description>Over-the-air IPhone Setup Using a Signed .mobileconfig File Note: this does not push your configuration to an iPhone. The user of the iPhone must go to a web address and install a configuration profile. Suppose that you have a few iPhones that you need to support, but you don’t want to spend the time typing in all of the e-mail (IMAP or POP), LDAP, wireless network,</description>
+    </item>
+    
+    <item>
+      <title>grunt压缩js／css文件</title>
+      <link>https://www.51hint.com/posts/2014-10-28-grunt%E5%8E%8B%E7%BC%A9jscss%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Tue, 28 Oct 2014 08:26:23 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-10-28-grunt%E5%8E%8B%E7%BC%A9jscss%E6%96%87%E4%BB%B6/</guid>
+      <description>package.json Gruntfile.js 命令行运行grunt得到 min.js ; min.css</description>
+    </item>
+    
+    <item>
+      <title>0元领取阿里云服务器半年活动,100%领取申请免费阿里云服务器</title>
+      <link>https://www.51hint.com/posts/2014-08-20-0%E5%85%83%E9%A2%86%E5%8F%96%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8D%8A%E5%B9%B4%E6%B4%BB%E5%8A%A8100%E9%A2%86%E5%8F%96%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E9%98%BF%E9%87%8C/</link>
+      <pubDate>Wed, 20 Aug 2014 05:39:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-20-0%E5%85%83%E9%A2%86%E5%8F%96%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8D%8A%E5%B9%B4%E6%B4%BB%E5%8A%A8100%E9%A2%86%E5%8F%96%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E9%98%BF%E9%87%8C/</guid>
+      <description>元领取阿里云服务器半年活动,100%领取申请免费阿里云服务器活动需要准备 一个 支付宝帐号，因为可以快速通过实名认证。而且不是马上给你是5个工作</description>
+    </item>
+    
+    <item>
+      <title>301重定向</title>
+      <link>https://www.51hint.com/posts/2014-08-04-301%E9%87%8D%E5%AE%9A%E5%90%91/</link>
+      <pubDate>Mon, 04 Aug 2014 14:13:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-04-301%E9%87%8D%E5%AE%9A%E5%90%91/</guid>
+      <description>网站从xxx.com 301重定向到www.xxx.com php代码301重定向 apache的.htaccess301重定向 rewriteEngine on rewriteCond %{http_host} ^nikeswimminggoggles.com[NC] rewriteRule ^(.*)$ http://www.nikeswimminggoggles.com/$1 [R=301,L]</description>
+    </item>
+    
+    <item>
+      <title>ubuntu apache 多站点</title>
+      <link>https://www.51hint.com/posts/2014-07-28-ubuntu%E5%A4%9A%E7%AB%99%E7%82%B9/</link>
+      <pubDate>Mon, 28 Jul 2014 09:40:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-28-ubuntu%E5%A4%9A%E7%AB%99%E7%82%B9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Disqus是什么</title>
+      <link>https://www.51hint.com/posts/2014-07-10-disqus%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Thu, 10 Jul 2014 13:49:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-10-disqus%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>矩形碰撞检测</title>
+      <link>https://www.51hint.com/posts/2014-07-08-%E7%9F%A9%E5%BD%A2%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B/</link>
+      <pubDate>Tue, 08 Jul 2014 01:42:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-08-%E7%9F%A9%E5%BD%A2%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B/</guid>
+      <description>碰撞检测中，最简单的测试就是矩形以及圆形的碰撞检测，其中圆形的比较容易理解，矩形的虽说简单，但是要想到那个经典的算法还是不容易。经典算法如下</description>
+    </item>
+    
+    <item>
+      <title>Get Client IP Using jQuery</title>
+      <link>https://www.51hint.com/posts/2014-06-02-get-client-ip-using-jquery/</link>
+      <pubDate>Mon, 02 Jun 2014 01:36:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-02-get-client-ip-using-jquery/</guid>
+      <description>1. One way This one gives you longitude/latitude and timezone.
+Try it! &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;$(document).ready( &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;function&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;() { $.getJSON( &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;&amp;quot;&amp;amp;lt;a href=&amp;quot;http://smart-ip.net/geoip-json?callback=?&amp;quot;&amp;gt;http://smart-ip.net/geoip-json?callback=?&amp;amp;lt;/a&amp;gt;&amp;quot;&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;, &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;function&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;(data){ alert( data.host); } );});&amp;lt;/code&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/table&amp;gt;  Returns:
+ &amp;lt;div&amp;gt; 2 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 3 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 4 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 5 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 6 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 7 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 8 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 9 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 10 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 11 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 12 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 13 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 14 &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;?</description>
+    </item>
+    
+    <item>
+      <title>实现proxy</title>
+      <link>https://www.51hint.com/posts/2014-04-09-%E5%AE%9E%E7%8E%B0proxy/</link>
+      <pubDate>Wed, 09 Apr 2014 05:54:44 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-09-%E5%AE%9E%E7%8E%B0proxy/</guid>
+      <description>TCP Socket Connect through HTTP Proxy http://www.example-code.com/csharp/socket_http_proxy.asp http://www.chilkatsoft.com/downloads_DotNet.asp Socket/SSL/TLS through SOCKS5 / SOCKS4 Proxy http://www.example-code.com/csharp/socket_socks_proxy.asp https://github.com/niik/switchboard https://github.com/X-rus/xNet https://github.com/krys-g/TrotiNet https://github.com/gja/LightProxy ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| .net 4.0 task 多任务 webclient proxy socket 第三方插件实现 ============================================================ http://stackoverflow.com/questions/4898339/how-to-check-if-a-proxy-server-is-configured HttpWebRequest WebProxy C# Connecting Through Proxy – Stack Overflow http://stackoverflow.com/questions/1938990/c-sharp-connecting-through-proxy c# – MultiThreaded Proxy Checker – Stack Overflow http://stackoverflow.com/questions/6235651/multithreaded-proxy-checker multithreading – C# Multithreaded Proxy Checker – Stack Overflow http://stackoverflow.com/questions/3132178/c-sharp-multithreaded-proxy-checker Chilkat Tech Notes</description>
+    </item>
+    
+    <item>
+      <title>测试工具整理</title>
+      <link>https://www.51hint.com/posts/2014-01-24-%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</link>
+      <pubDate>Fri, 24 Jan 2014 00:24:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-24-%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</guid>
+      <description>市场主流测试工具与开源工具的对应列表 测试工具类型 开源工具 市场主流工具 测试管理工具 TestLink TestDirect 配置管理工具 CVS、VSS、SVN ClearCase BUG管理工具 Bug</description>
+    </item>
+    
+    <item>
+      <title>bug跟踪系统</title>
+      <link>https://www.51hint.com/posts/2014-01-16-bug%E8%B7%9F%E8%B8%AA%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Thu, 16 Jan 2014 08:29:08 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-16-bug%E8%B7%9F%E8%B8%AA%E7%B3%BB%E7%BB%9F/</guid>
+      <description>Redmine 管理多项目极力推荐 JIRA 收费 YouTrack 简洁需要和intellj Idea配合发挥 Trac 简单好入门</description>
+    </item>
+    
+    <item>
+      <title>wufoo 在线创建表单</title>
+      <link>https://www.51hint.com/posts/2014-01-16-wufoo-%E5%9C%A8%E7%BA%BF%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%8D%95/</link>
+      <pubDate>Thu, 16 Jan 2014 08:00:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-16-wufoo-%E5%9C%A8%E7%BA%BF%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%8D%95/</guid>
+      <description>在线创建表单神器 http://www.wufoo.com/ 国内反应液是相当的快，很快整出来一个 金数据，可以去瞅瞅，很是本土化，相当不错，呵呵</description>
+    </item>
+    
+    <item>
+      <title>gson list to json</title>
+      <link>https://www.51hint.com/posts/2013-11-28-gson-list-to-json/</link>
+      <pubDate>Thu, 28 Nov 2013 00:06:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-28-gson-list-to-json/</guid>
+      <description>创建 从list数组到json的格式化。</description>
+    </item>
+    
+    <item>
+      <title>日本一些博客投稿格式</title>
+      <link>https://www.51hint.com/posts/2013-11-07-%E6%97%A5%E6%9C%AC%E4%B8%80%E4%BA%9B%E5%8D%9A%E5%AE%A2%E6%8A%95%E7%A8%BF%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Thu, 07 Nov 2013 07:07:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-07-%E6%97%A5%E6%9C%AC%E4%B8%80%E4%BA%9B%E5%8D%9A%E5%AE%A2%E6%8A%95%E7%A8%BF%E6%A0%BC%E5%BC%8F/</guid>
+      <description>&amp;lt;td&amp;gt; エンドポイントURL &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 投稿方式 &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; &amp;lt;a href=&amp;quot;http://blog.dtiblog.com/&amp;quot;&amp;gt;DTI ブログ&amp;lt;/a&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; http://blog.dtiblog.com/xmlrpc.php &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; XML-RPC metaWeblog API (int) &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; &amp;lt;a href=&amp;quot;http://blog.fc2.com/&amp;quot;&amp;gt;FC2 ブログ&amp;lt;/a&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; http://blog.fc2.com/xmlrpc.php &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; XML-RPC</description>
+    </item>
+    
+    <item>
+      <title>对于CallBack的简单阐述</title>
+      <link>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</link>
+      <pubDate>Wed, 30 Oct 2013 06:00:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</guid>
+      <description>一哥们被callback整得晕晕乎乎，解释了半天好像还是不太懂就整理一个微型例子。 逻辑页面处理，调用接口的方法 //一些调用UI页面啥之类的，</description>
+    </item>
+    
+    <item>
+      <title>opencv 人脸识别</title>
+      <link>https://www.51hint.com/posts/2012-12-21-opencv-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/</link>
+      <pubDate>Fri, 21 Dec 2012 05:41:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-21-opencv-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/</guid>
+      <description>正确安装Opencv2.3的python包,这个版本的包和之前不同，需要事先安装numpy，否则无法正常使用 将opencv安装目录里的\da</description>
+    </item>
+    
+    <item>
+      <title>交换两个变量的值，不引入第三个变量  【异或运算符】</title>
+      <link>https://www.51hint.com/posts/2012-12-20-%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC%E4%B8%8D%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97/</link>
+      <pubDate>Thu, 20 Dec 2012 10:28:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC%E4%B8%8D%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97/</guid>
+      <description>我们先熟悉一下异或运算法则： a ^ a = 0 a ^ b = b ^ a a ^ b ^ c = a ^ (b ^ c) = (a ^ b) ^ c; d = a ^ b ^ c 可以推出 a = d ^ b ^ c. a ^ b ^ a = b. 现在</description>
+    </item>
+    
+    <item>
+      <title>git_4 [fork他人代码然后push的方法]</title>
+      <link>https://www.51hint.com/posts/2012-12-15-git_4-fork%E4%BB%96%E4%BA%BA%E4%BB%A3%E7%A0%81%E7%84%B6%E5%90%8Epush%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 15 Dec 2012 07:32:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-15-git_4-fork%E4%BB%96%E4%BA%BA%E4%BB%A3%E7%A0%81%E7%84%B6%E5%90%8Epush%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>https://help.github.com/articles/fork-a-repo https://help.github.com/articles/using-pull-requests begin fork # git clone https://xxx/xxx.git # git br # git remote add upstream https://github.com/xxx/xx.git # git remote -v # git pull upstream master # git checkout -b add_sth # git br # vim xxx # git ci # git checkout master # git pull upstream master # git checkout add_sth # git rebase master # git br # tig # git push origin add_sth # web page</description>
+    </item>
+    
+    <item>
+      <title>spider比较</title>
+      <link>https://www.51hint.com/posts/2012-12-15-spider%E6%AF%94%E8%BE%83/</link>
+      <pubDate>Sat, 15 Dec 2012 05:24:18 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-15-spider%E6%AF%94%E8%BE%83/</guid>
+      <description>Larbin Linux c++ 性能好，稳定 没有删除功能，排重会误判 Nutch W/L java Nutch/Lucene,Hadoop结合很好 不太稳定 Heritrix W/L java 高度可扩展性，性能优秀 对中文支持</description>
+    </item>
+    
+    <item>
+      <title>负载均衡之大型在线系统实现的关键</title>
+      <link>https://www.51hint.com/posts/2012-12-12-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%85%B3%E9%94%AE/</link>
+      <pubDate>Wed, 12 Dec 2012 01:20:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-12-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%85%B3%E9%94%AE/</guid>
+      <description>以上的这篇文章是早在去年的时候写的了，当时正在作休闲平台，一直在想着如何实现一个可扩充的支持百万人在线的游戏平台，后来思路有了，就写了那篇总</description>
+    </item>
+    
+    <item>
+      <title>webgame</title>
+      <link>https://www.51hint.com/posts/2012-12-10-webgame/</link>
+      <pubDate>Mon, 10 Dec 2012 06:59:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-10-webgame/</guid>
+      <description>WebGame开发 Game Coding Complete, Fourth Edition, 4th Edition疯牛辅助</description>
+    </item>
+    
+    <item>
+      <title>python 开发web框架  【Django框架】</title>
+      <link>https://www.51hint.com/posts/2012-11-28-python-%E5%BC%80%E5%8F%91web%E6%A1%86%E6%9E%B6-django%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Wed, 28 Nov 2012 07:29:36 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-28-python-%E5%BC%80%E5%8F%91web%E6%A1%86%E6%9E%B6-django%E6%A1%86%E6%9E%B6/</guid>
+      <description>http://djangobook.py3k.cn/2.0/ http://ahuaxuan.iteye.com/blog/238540</description>
+    </item>
+    
+    <item>
+      <title>网站内容抓取和数据抽取</title>
+      <link>https://www.51hint.com/posts/2012-09-04-%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E6%8A%93%E5%8F%96%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96/</link>
+      <pubDate>Tue, 04 Sep 2012 10:05:24 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-09-04-%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E6%8A%93%E5%8F%96%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96/</guid>
+      <description>python Web Scraping with Python是一个基础教程，讲解怎样使用Python写一个网络爬虫和网页抓取/数据抽取/信息提取程序，使用有名的Beautiful S</description>
+    </item>
+    
+    <item>
+      <title>xhr发送请求</title>
+      <link>https://www.51hint.com/posts/2016-06-15-xhr%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-06-15-xhr%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

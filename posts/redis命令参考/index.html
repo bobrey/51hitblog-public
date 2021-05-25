@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Redis命令参考 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Redis命令参考" />
+  <meta name="twitter:title" content="Redis命令参考" />
+  <meta name="description" content="redis命令参考">
+  <meta property="og:description" content="redis命令参考">
+  <meta name="twitter:description" content="redis命令参考">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Redis命令参考</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h3 id="redis命令参考">redis命令参考</h3>
+<p><a href="http://redisdoc.com/index.html">http://redisdoc.com/index.html</a></p>
+<ul>
+<li><a href="http://redisdoc.com/string/index.html">字符串</a></li>
+<li><a href="http://redisdoc.com/hash/index.html">哈希表</a></li>
+<li><a href="http://redisdoc.com/list/index.html">列表</a></li>
+<li><a href="http://redisdoc.com/set/index.html">集合</a></li>
+<li><a href="http://redisdoc.com/sorted_set/index.html">有序集合</a></li>
+<li><a href="http://redisdoc.com/hyperloglog/index.html">HyperLogLog</a></li>
+<li><a href="http://redisdoc.com/geo/index.html">地理位置</a></li>
+<li><a href="http://redisdoc.com/bitmap/index.html">位图</a></li>
+<li><a href="http://redisdoc.com/database/index.html">数据库</a></li>
+<li><a href="http://redisdoc.com/expire/index.html">自动过期</a></li>
+<li><a href="http://redisdoc.com/transaction/index.html">事务</a></li>
+<li><a href="http://redisdoc.com/script/index.html">Lua 脚本</a></li>
+<li><a href="http://redisdoc.com/persistence/index.html">持久化</a></li>
+<li><a href="http://redisdoc.com/pubsub/index.html">发布与订阅</a></li>
+<li><a href="http://redisdoc.com/replication/index.html">复制</a></li>
+<li><a href="http://redisdoc.com/client_and_server/index.html">客户端与服务器</a></li>
+<li><a href="http://redisdoc.com/configure/index.html">配置选项</a></li>
+<li><a href="http://redisdoc.com/debug/index.html">调试</a></li>
+<li><a href="http://redisdoc.com/internal/index.html">内部命令</a></li>
+<li><a href="http://redisdoc.com/topic/index.html">功能文档</a></li>
+</ul>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/beego%E7%9A%84session%E5%85%B1%E4%BA%AB%E5%8F%8A%E5%BE%AE%E6%9C%8D%E5%8A%A1/" data-toggle="tooltip" data-placement="top" title="Beego的session共享及微服务">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" data-toggle="tooltip" data-placement="top" title="Redis使用场景">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/beego%E7%9A%84session%E5%85%B1%E4%BA%AB%E5%8F%8A%E5%BE%AE%E6%9C%8D%E5%8A%A1/">Beego的session共享及微服务</a></li>
+                    
+                    <li><a href="/posts/%E5%A4%9A%E7%BA%A7%E5%88%86%E9%94%80%E8%AE%BE%E8%AE%A1/">多级分销设计</a></li>
+                    
+                    <li><a href="/posts/dokku%E5%9F%BA%E4%BA%8Edocker%E7%9A%84paas%E7%B1%BB%E4%BC%BCheroku/">Dokku基于docker的PaaS类似heroku</a></li>
+                    
+                    <li><a href="/posts/walle%E7%93%A6%E5%8A%9B/">Walle瓦力</a></li>
+                    
+                    <li><a href="/posts/gogs/">Gogs</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

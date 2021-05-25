@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 在 Ubuntu 12.04 上安装和配置邮件服务 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="在 Ubuntu 12.04 上安装和配置邮件服务" />
+  <meta name="twitter:title" content="在 Ubuntu 12.04 上安装和配置邮件服务" />
+  <meta name="description" content="前段时间把一台 FreeBSD 邮件服务器移到了 Ubuntu 虚拟机，又痛苦的配置了一次邮件服务器，配置完后再写一遍 Puppet 代码，把整个配置过程代码化，然后再重建一次虚拟机测">
+  <meta property="og:description" content="前段时间把一台 FreeBSD 邮件服务器移到了 Ubuntu 虚拟机，又痛苦的配置了一次邮件服务器，配置完后再写一遍 Puppet 代码，把整个配置过程代码化，然后再重建一次虚拟机测">
+  <meta name="twitter:description" content="前段时间把一台 FreeBSD 邮件服务器移到了 Ubuntu 虚拟机，又痛苦的配置了一次邮件服务器，配置完后再写一遍 Puppet 代码，把整个配置过程代码化，然后再重建一次虚拟机测">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-12-20-%E5%9C%A8-ubuntu-12-04-%E4%B8%8A%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-12-20-%E5%9C%A8-ubuntu-12-04-%E4%B8%8A%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">在 Ubuntu 12.04 上安装和配置邮件服务</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Dec 20, 2012</h4>
+    </section>
+    <h5 id="wc">1700 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/postfix/">Postfix</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/ubuntu/">ubuntu</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#准备工作">准备工作</a></li>
+    <li><a href="#安装必要软件包">安装必要软件包</a></li>
+    <li><a href="#配置-apache">配置 Apache</a></li>
+    <li><a href="#配置-mysql-数据库">配置 MySQL 数据库</a></li>
+    <li><a href="#配置-postfix-admin">配置 Postfix Admin</a></li>
+    <li><a href="#配置-dovecot">配置 Dovecot</a></li>
+    <li><a href="#配置-amavis-clamav-spamassassin">配置 Amavis, ClamAV, SpamAssassin</a></li>
+    <li><a href="#配置-postfix">配置 Postfix</a></li>
+    <li><a href="#测试-postfix">测试 Postfix</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>前段时间把一台 FreeBSD 邮件服务器移到了 Ubuntu 虚拟机，又痛苦的配置了一次邮件服务器，配置完后再写一遍 Puppet 代码，把整个配置过程代码化，然后再重建一次虚拟机测试和应用 Puppet 代码，每次看到满屏的自动配置过程都会惊讶 <a href="http://www.vpsee.com/2012/03/install-puppet-on-centos-6-2/">Puppet 的魔力</a>。</p>
+<p>邮件服务器配置之所以麻烦是因为需要了解很多东西，牵涉到域名服务 DNS/Bind，Web 收发邮件 Apache/PHP/MySQL/SquirrelMail，认证服务 LDAP, Kerberos, PAM，邮件通常存放在额外存储上还要 NFS/SAN，邮件服务 Postfix/Dovecot，反垃圾反病毒 Postgrey/Clam AV/SpamAssassion，安全认证 SSL，监控和备份等等，这一套下来基本包括了 Linux 系统管理的方方面面，所以说配置一个安全可靠的企业级邮件系统不容易，足够写<a href="http://shop.oreilly.com/product/9780596002121.do">一本书</a>。个人配置邮件服务器通常不需要 LDAP/Kerbersos/NFS/SAN/SSL 这些，剔除这些后就不是那么复杂了，不过再想一下，个人有必要配置邮件服务器么？直接用免费的 Google App 不是很方便么。</p>
+<h2 id="准备工作">准备工作</h2>
+<p>简单介绍一下我们将要安装的软件包：</p>
+<ul>
+<li>Postfix: 用来接受和发送邮件的邮件服务器，正确说法应该叫邮件传送代理（Mail Transfer Agent，MTA），是邮件服务最重要的部分；</li>
+<li>Dovecot: POP 和 IMAP 服务器，用来管理本地邮件目录以便用户能通过 Mail.app, Thunderbird, Mutt 等邮件客户端（又叫邮件用户代理 Mail User Agent, MUA）登陆和下载邮件；</li>
+<li>Postgrey: 邮件灰名单工具，可简单的抵挡垃圾邮件；</li>
+<li>amavisd-new: 一个代理，用于连接邮件传输代理和内容检查器，可以理解为 Postfix 把邮件交给它，它负责联系病毒扫描和垃圾邮件过滤；</li>
+<li>Clam AntiVirus: 病毒扫描工具；</li>
+<li>SpamAssassin: 垃圾邮件内容过滤工具；</li>
+<li>Postfix Admin: Postfix 的 Web 前端，用来管理邮件用户和域名。</li>
+</ul>
+<p>设置主机名（不要跳过这一步）：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>更新系统：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="安装必要软件包">安装必要软件包</h2>
+<p>安装 LAMP，Postfix 本身不需要 Apache/PHP/MySQL，但是因为要安装 Postfix Admin，并且管理用户需要用到数据库，所以要安装 Apache/PHP 和 MySQL.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>安装邮件服务器及一些工具：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="配置-apache">配置 Apache</h2>
+<p>编辑 apache 配置文件后重启：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="配置-mysql-数据库">配置 MySQL 数据库</h2>
+<p>创建一个名为 mail 的数据库并设置权限和密码：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="配置-postfix-admin">配置 Postfix Admin</h2>
+<p>下载 psotfixadmin，解压后放到 /var/www：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>配置 postfixamdin，标准的 php 程序配置方法，填入访问数据库需要的信息，其中 setup_password 部分稍后再填入：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>用浏览器访问 <a href="http://mail.vpsee.com/postfixadmin/setup.php">http://mail.vpsee.com/postfixadmin/setup.php</a>，用哈希后的密码字符串替代上面 $CONF[‘setup_password’] = ‘稍后替代’ 中的相关部分。</p>
+<p>为了安全考虑，最好禁止 web 访问 setup.php：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="配置-dovecot">配置 Dovecot</h2>
+<p>给系统添加 vmail 帐号：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>开始配置 Dovecot，dovecot 支持多种认证方式，这里采用数据库认证，注意下面的配置文件一个包含一个，初看比较乱，10-auth.conf 有 !include auth-sql.conf.ext 一行，会包含 /etc/dovecot/conf.d/auth-sql.conf.ext，而 auth-sql.conf.ext 会包含下面要提到的 /etc/dovecot/dovecot-sql.conf.ext，这样只要用不同的 include 就可以切换不同的认证方式，虽然初看复杂一点但是熟悉以后用起来还是挺方便的。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>配置 Dovecot，设置数据库参数，以便 dovecot 能正确访问刚才创建的 mail 数据库：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>用户在服务器上用来存放邮件的地方在哪呢？所以需要指定邮件存放地址 /var/vmail，这个目录上面在创建 vmail 帐号时已经创建了：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>修改 /etc/dovecot/conf.d/10-master.conf</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>确认 dovecot 有权限读取配置文件：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="配置-amavis-clamav-spamassassin">配置 Amavis, ClamAV, SpamAssassin</h2>
+<p>互加 clamav, amavis 用户到对方组里以便能互相访问，配置过滤模式：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>启用 spamassassin：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="配置-postfix">配置 Postfix</h2>
+<p>main.cf 是 postfix 的主要配置文件：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>注意上面配置有行 header_checks = regexp:/etc/postfix/header_checks，我们现在还没有 header_checks 文件，创建一个并包含一下内容，给自己邮件增加一点隐私，过滤一些信息：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>还需要配置 master.cf 文件：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>还需要配置几个文件：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>大功告成，重启相关服务：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="测试-postfix">测试 Postfix</h2>
+<p>用 telnet 连上邮件服务器的 25 端口（SMTP），然后发送 HELO mail.vpsee.com 指令就会得到 250 mail.vpsee.com 确认信息：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>用 telnet 发送一封邮件试一下，下面的 MAIL FROM, RCPT TO, DATA, ., QUIT 都是指令：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>ssh 登陆邮件服务器后去 /var/vmail 邮件目录看一下就可以证实 test2 用户是否收到来自 test1 用户的邮件，当然这个邮件也可以通过 Mail.app, Thunderbird, <a href="http://www.vpsee.com/2012/06/send-and-receive-email-using-mutt-fetchmail-maildrop-msmtp/">Mutt 这类工具收到本地电脑上看</a>。</p>
+<p> </p>
+<p>转自: <a href="http://www.vpsee.com/2012/06/install-mail-server-on-ubuntu-12-04/">http://www.vpsee.com/2012/06/install-mail-server-on-ubuntu-12-04/</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-12-20-vim_5-tig/" data-toggle="tooltip" data-placement="top" title="git_vim_5 [tig]">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-12-20-%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC%E4%B8%8D%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97/" data-toggle="tooltip" data-placement="top" title="交换两个变量的值，不引入第三个变量  【异或运算符】">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Dec 20, 2012</h4>
+    </section>
+    <h5 id="wc">1700 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/postfix/">Postfix</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/ubuntu/">ubuntu</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

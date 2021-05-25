@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> ortp_mediastream2_osip2_exosip2    整合sip - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="ortp_mediastream2_osip2_exosip2    整合sip" />
+  <meta name="twitter:title" content="ortp_mediastream2_osip2_exosip2    整合sip" />
+  <meta name="description" content="首先要配置环境，需要这么几个库，libosip，libeXosip2，ortp,mediastreamer2.libosip,libeXos">
+  <meta property="og:description" content="首先要配置环境，需要这么几个库，libosip，libeXosip2，ortp,mediastreamer2.libosip,libeXos">
+  <meta name="twitter:description" content="首先要配置环境，需要这么几个库，libosip，libeXosip2，ortp,mediastreamer2.libosip,libeXos">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-09-28-ortp_mediastream2_osip2_exosip2-%E6%95%B4%E5%90%88sip/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-09-28-ortp_mediastream2_osip2_exosip2-%E6%95%B4%E5%90%88sip/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">ortp_mediastream2_osip2_exosip2    整合sip</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Sep 28, 2011</h4>
+    </section>
+    <h5 id="wc">2000 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/open-source/">open source</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p><!-- raw HTML omitted -->首先要配置环境，需要这么几个库，libosip，libeXosip2，ortp,mediastreamer2.<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->libosip,libeXosip2这两个库是负责信令部分的，ortp，medastreamer2是负责媒体流传输与采集等的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->sipAPI：          <!-- raw HTML omitted --><a href="http://www.gnu.org/software/osip/doc/html/group__oSIP__MESSAGE.html">http://www.gnu.org/software/osip/doc/html/group__oSIP__MESSAGE.html</a><!-- raw HTML omitted --><!-- raw HTML omitted --> eXosipAPI：       <!-- raw HTML omitted --><a href="http://www.antisip.com/doc/exosip2/group__eXosip2__sdp.html#gdab1e84d04b387ada72e0d5">http://www.antisip.com/doc/exosip2/group__eXosip2__sdp.html#gdab1e84d04b387ada72e0d5</a><!-- raw HTML omitted -->48444f3c0<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> ortpAPI：         <!-- raw HTML omitted --><a href="http://download.savannah.gnu.org/releases-noredirect/linphone/ortp/docs/ortp_8h.html">http://download.savannah.gnu.org/releases-noredirect/linphone/ortp/docs/ortp_8h.html</a><!-- raw HTML omitted --><!-- raw HTML omitted --> mediastreamerAPI：<!-- raw HTML omitted --><a href="http://www.antisip.com/doc/mediastreamer2/mscommon_8h.html">http://www.antisip.com/doc/mediastreamer2/mscommon_8h.html</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p> </p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> 下面这段是注册代码：<!-- raw HTML omitted --> #include &lt;eXosip2/eXosip.h&gt;<!-- raw HTML omitted --> #include &lt;osip2/osip_mt.h&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;sys/types.h&gt;</p>
+<p>#include &lt;netinet/in.h&gt;</p>
+<p>#include &lt;sys/socket.h&gt;</p>
+<p>// ip_url 为服务器ip,</p>
+<p>int myregister(char *ip_url,char *port,char *username,char * password)</p>
+<p>{</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> int i;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> char identity[50];</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> char registerer[50];</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> char localip[128];</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> static int flag = 0;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> int id;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_guess_localip (AF_INET, localip, 128);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> sprintf(identity,”sip:%s@%s”,username,localip);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> sprintf(registerer,”sip:%s:%s”,ip_url,port);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>//初始化</p>
+<p>if( flag == 0)</p>
+<p>{</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> i = eXosip_init();</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> if (i != 0)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> return -1;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf(“eXosip_init successn”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> flag ++;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> i = eXosip_listen_addr(IPPROTO_UDP, NULL, 5060, AF_INET, 0);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> if (i != 0)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_quit();</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> fprintf(stderr, “could not initialize transport layern”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> return -1;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf(“eXosip_listen_addr successn”);</p>
+<p>}</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> osip_message_t *reg = NULL;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_lock();</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> id = eXosip_register_build_initial_register (identity,registerer, NULL, 1800, &amp;reg);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf(“id = %d”, id);</p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> if (id &lt; 0)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_unlock();</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> fprintf (stderr, “eXosip_register_build_initial_register failed:(bad arguments?)n”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> return 0;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_lock();</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> i = eXosip_register_send_register(id, reg);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> if (i != 0)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> fprintf (stderr, “eXosip_register_send_register failed: (bad arguments?)n”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> return 0;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_unlock ();<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf(“eXosip_register_send_register OKn”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_event_t *je;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> for (;;)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> je = eXosip_event_wait (0, 50);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_lock();</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_automatic_action ();</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_unlock();<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> if (je == NULL)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> continue;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> if (je-&gt;type == EXOSIP_REGISTRATION_SUCCESS)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf(“textinfo is %sn”, je-&gt;textinfo);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> return 1;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> break;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> if(je-&gt;type == EXOSIP_REGISTRATION_FAILURE)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> //注册失败之后，再次提交授权信息， 也可放在上面</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_add_authentication_info(username, username,password, NULL, NULL);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> if(je-&gt;type == EXOSIP_REGISTRATION_REFRESHED)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf(“refreshed”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> return 0;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_quit();</p>
+<p>}</p>
+<p>ps：注册其实挺简单的，代码是用eXosip实现的，帮助手册上面都有，只要细细分析就能看明白，网上有pdf版本的，csdn上也有，英文的。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->//——————————————————————————————————————–<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->继续，下面这段是拨号的代码：<!-- raw HTML omitted --> #include &lt;eXosip2/eXosip.h&gt;<!-- raw HTML omitted --> #include &lt;osip2/osip_mt.h&gt;<!-- raw HTML omitted --></p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;sys/types.h&gt;</p>
+<p>#include &lt;netinet/in.h&gt;</p>
+<p>#include &lt;sys/socket.h&gt;</p>
+<p>int call(char *telNum)</p>
+<p>{</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_event_t *je;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> osip_message_t *invite = NULL;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> osip_message_t *ack = NULL;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> // int call_id, dialog_id;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> int i,flag;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> char tmp[4096];</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> char localip[128];<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> char source_call[100];</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> char dest_call[100];<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> sprintf(source_call,”sip:%s@%s:%s”,s_username,s_ip,s_port);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> sprintf(dest_call,”sip:%s@%s:%s”,telNum,s_ip,s_port);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> i = eXosip_call_build_initial_invite (&amp;invite, dest_call, source_call, NULL, “This si a call for a conversation”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> if (i != 0)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf (“Intial INVITE failed!n”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> return -1;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_guess_localip (AF_INET, localip, 128);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> snprintf (tmp, 4096,</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> “v=0rn”</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> “o=josua 0 0 IN IP4 %srn”</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> “s=conversationrn”</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> “c=IN IP4 %srn”</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> “t=0 0rn”</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> “m=audio %s RTP/AVP 0 8 101rn”</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> “a=rtpmap:0 PCMU/8000rn”</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> “a=rtpmap:8 PCMA/8000rn”</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> “a=rtpmap:101 telephone-event/8000rn”</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> “a=fmtp:101 0-11rn”, localip, localip, “9900”);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> osip_message_set_body (invite, tmp, strlen (tmp));</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> osip_message_set_content_type (invite, “application/sdp”);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_lock ();</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> i = eXosip_call_send_initial_invite (invite);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_unlock ();</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> flag = 1;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> while (flag)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> je = eXosip_event_wait (0, 200);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> if (je == NULL)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf (“No response or the time is over!n”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> break;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_lock ();</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_default_action(je); <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_unlock ();<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> switch (je-&gt;type)</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> {</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> case EXOSIP_CALL_INVITE:</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf (“a new invite reveived!n”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> break;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> case EXOSIP_CALL_PROCEEDING:</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf (“proceeding!n”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> call_id = je-&gt;cid;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> break;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> case EXOSIP_CALL_RINGING:</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf (“ringing!n”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf (“call_id is %d, dialog_id is %d n”, je-&gt;cid, je-&gt;did);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> break;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> case EXOSIP_CALL_ANSWERED:</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf (“ok! connected!n”);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> call_id = je-&gt;cid;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> dialog_id = je-&gt;did;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf (“call_id is %d, dialog_id is %d n”, je-&gt;cid, je-&gt;did);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_call_build_ack (je-&gt;did, &amp;ack);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_call_send_ack (je-&gt;did, ack);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> break;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> case EXOSIP_CALL_CLOSED:</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf (“the other sid closed!n”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> return -1;//对方挂断</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> break;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> case EXOSIP_CALL_ACK:</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> printf (“ACK received!n”);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> break;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> default:break;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> eXosip_event_free (je);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> }</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> return 0;</p>
+<p>}</p>
+<p><!-- raw HTML omitted -->参考：<!-- raw HTML omitted --><a href="http://blog.sina.com.cn/s/blog_59d649610100cqn6.html">http://blog.sina.com.cn/s/blog_59d649610100cqn6.html</a><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-09-28-mediastreamer2/" data-toggle="tooltip" data-placement="top" title="mediastreamer2">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-09-29-navigationcontroller-toolbar-%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/" data-toggle="tooltip" data-placement="top" title="navigationController.toolbar 添加按钮">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-09-28-mediastreamer2/">mediastreamer2</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-2/">osip2和eXosip2协议[2]</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-1/">osip2和eXosip2协议[1]</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-2/">ortp流媒体协议 [2]</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-1/">ortp流媒体协议 [1]</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Sep 28, 2011</h4>
+    </section>
+    <h5 id="wc">2000 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/open-source/">open source</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> vim - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="vim" />
+  <meta name="twitter:title" content="vim" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/tags/vim/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/tags/vim/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  <header class="header-section ">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="page-heading">
+              <h1>#vim</h1>
+              <hr class="small">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/vim%E5%86%85%E7%BD%AE%E7%9B%AE%E5%BD%95%E6%B5%8F%E8%A7%88/">
+                <h2 class="post-title">Vim内置目录浏览</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <h4 id="输入-veplore-即开分开">输入 :Veplore 即开分开</h4>
+<h4 id="配置vimrc">配置vimrc</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">let</span> g:netrw_hide <span class="o">=</span> <span class="m">1</span>
+<span class="nb">let</span> g:netrw_liststyle <span class="o">=</span> <span class="m">1</span>
+<span class="nb">let</span> g:netrw_banner <span class="o">=</span> <span class="m">0</span>
+<span class="nb">let</span> g:netrw_browse_split <span class="o">=</span> <span class="m">4</span>
+<span class="nb">let</span> g:netrw_winsize <span class="o">=</span> <span class="m">24</span>
+<span class="nb">let</span> g:netrw_altv <span class="o">=</span> <span class="m">1</span>
+<span class="nb">let</span> g:netrw_chgwin <span class="o">=</span> <span class="m">2</span>
+<span class="nb">let</span> g:netrw_list_hide <span class="o">=</span> <span class="s1">&#39;.*\.swp$&#39;</span>
+<span class="nb">let</span> g:netrw_localrmdir <span class="o">=</span> <span class="s1">&#39;rm -rf&#39;</span>
+<span class="nb">let</span> g:netrw_bufsettings<span class="o">=</span><span class="s2">&#34;noma nomod nowrap ro nobl&#34;</span>
+</code></pre></div><h4 id="切换窗口">切换窗口</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ctrl + w + jhkl
+</code></pre></div>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/golang/">golang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/vim/">vim</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/mvim%E6%96%B0%E6%A0%87%E7%AD%BE/">
+                <h2 class="post-title">Mvim新标签</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <h4 id="mvim新标签打开文件">mvim新标签打开文件</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">which mvim
+
+vim /usr/local/bin/mvim
+</code></pre></div><ol>
+<li></li>
+</ol>
+<blockquote>
+<p>文件头加入 tabs=true</p>
+</blockquote>
+<ol start="2">
+<li></li>
+</ol>
+<blockquote>
+<p>把底部的if块 替换为下面的</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$gui</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="k">if</span> <span class="nv">$tabs</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> <span class="sb">`</span><span class="nv">$binary</span> --serverlist<span class="sb">`</span> <span class="o">=</span> <span class="s2">&#34;VIM&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">exec</span> <span class="s2">&#34;</span><span class="nv">$binary</span><span class="s2">&#34;</span> -g <span class="nv">$opts</span> --remote-tab-silent <span class="si">${</span><span class="nv">1</span><span class="p">:+</span><span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span><span class="si">}</span>
+  <span class="k">else</span>
+    <span class="nb">exec</span> <span class="s2">&#34;</span><span class="nv">$binary</span><span class="s2">&#34;</span> -g <span class="nv">$opts</span> <span class="si">${</span><span class="nv">1</span><span class="p">:+</span><span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span><span class="si">}</span>
+  <span class="k">fi</span>
+<span class="k">else</span>
+  <span class="nb">exec</span> <span class="s2">&#34;</span><span class="nv">$binary</span><span class="s2">&#34;</span> <span class="nv">$opts</span> <span class="si">${</span><span class="nv">1</span><span class="p">:+</span><span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span><span class="si">}</span>
+<span class="k">fi</span>
+</code></pre></div>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/golang/">golang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/vim/">vim</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/vim%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/">
+                <h2 class="post-title">Vim文字大小</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <h4 id="更改vim默认文字大小">更改vim默认文字大小</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">set</span> <span class="nv">guifont</span><span class="o">=</span>*
+
+谈起选择字体和文字大小对话框
+<span class="nb">set</span> guifont?
+
+设置到.vimrc<span class="p">;</span>保存即可
+</code></pre></div>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/dev-lang/">dev-lang</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/vim/">vim</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/vimji-ben-yong-fa/">
+                <h2 class="post-title">vim基本用法</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  简明 VIM 练级攻略 http://coolshell.cn/articles/5426.html command: p ce &mdash;&mdash;&mdash;-&gt; To change until end of a word cw &mdash;&mdash;&mdash;-&gt; delete a words and places you insert mode c$ &mdash;&mdash;&mdash;-&gt; delete the whole line and place insert mode CTRL-G ----------&gt; show the file name and status % ----------&gt; place the cursor on ay (,{,[ then Mgoes to its match. / ----------&gt; search FORWARD ? ----------&gt; search BACKWARD To substitute
+                  <a href="https://www.51hint.com/posts/vimji-ben-yong-fa/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/vim/">vim</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2015-11-04-vim%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/">
+                <h2 class="post-title">vim环境下载</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <p>vim 下载配置</p>
+<p>$ ln -s ~/.vimrc  xxx/vim/vimrc</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><a href="https://www.51hint.com/wp-content/uploads/2015/11/vim_cmd.txt_.png"><!-- raw HTML omitted --></a></p>
+<p><a href="https://i2.wp.com/www.51hint.com/wp-content/uploads/2015/11/vim_env.tar_.gz_.png"><!-- raw HTML omitted --></a></p>
+<p> </p>
+<p><a href="https://www.51hint.com/wp-content/uploads/2015/11/Solarized-Light.itermcolors.png"><!-- raw HTML omitted -->iterm2 Solarized Light.itermcolors</a></p>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/vim/">vim</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2015-10-28-vim%E6%8F%92%E4%BB%B6/">
+                <h2 class="post-title">vim插件</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+</blockquote>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/vim/">vim</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/vim%E6%8F%92%E4%BB%B6/">vim插件</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2015-09-08-macvim%E9%85%8D%E5%88%B6%E5%AD%A6%E4%B9%A0/">
+                <h2 class="post-title">macvim配制学习</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  在线学习教程 https://danielmiessler.com/study/vim/ vim cheatsheet www.worldtimzone.com/res/vi.html Vim Cheat Sheet www.fprintf.net/vimCheatSheet.html 安装： $ brew install macvim vim的精髓就是强大的插件支持，当然最繁琐的也是配置的插件，幸运的是github上已经有了很完善的
+                  <a href="https://www.51hint.com/posts/2015-09-08-macvim%E9%85%8D%E5%88%B6%E5%AD%A6%E4%B9%A0/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/macvim/">macvim</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/vi/">vi</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/vim/">vim</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+                <h2 class="post-title">ios开发环境</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+</blockquote>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/git/">git</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/ios/">ios</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/iterm/">iterm</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/tig/">tig</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/vim/">vim</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/xcode/">xcode</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2012-12-25-vim_6-grep-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+                <h2 class="post-title">vim_6 [grep  简单使用]</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <p>vim 使用</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p> </p>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/grep/">grep</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/vim/">vim</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2012-12-20-vim_5-tig/">
+                <h2 class="post-title">git_vim_5 [tig]</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  tig text-mode interface for git ubuntu install tig #apt-get install tig mac install tig #brew install tig #brew install git-flow #brew install git-extras #brew install wget #brew install curl #brew install autojump {jumpstat j au} #brew install tree diff gui界面 #gitk 查看谁修改的文件 #git blame filename #tig blame filename 特定文件修改历史 #tig filename 查
+                  <a href="https://www.51hint.com/posts/2012-12-20-vim_5-tig/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/git/">git</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/tig/">tig</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/vim/">vim</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+        </div>
+        
+          <ul class="pager main-pager">
+            
+            
+              <li class="next">
+                <a href="/tags/vim/page/2">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    <div align="center" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/tags/vim/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/tags/vim/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/tags/vim/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a href="/tags/vim/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/tags/vim/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

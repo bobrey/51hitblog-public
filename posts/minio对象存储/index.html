@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Minio对象存储 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Minio对象存储" />
+  <meta name="twitter:title" content="Minio对象存储" />
+  <meta name="description" content="oss分布式对象存储,s3,oss">
+  <meta property="og:description" content="oss分布式对象存储,s3,oss">
+  <meta name="twitter:description" content="oss分布式对象存储,s3,oss">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Minio对象存储</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h2 id="minio简介">Minio简介</h2>
+<ul>
+<li>Minio是一款高性能的分布式对象存储服务器，专为大规模私有云基础架构而设计</li>
+<li>Minio是一个分布式对象存储服务器，Amazon S3兼容,用Go编写，在Apache License Version 2.0下开源</li>
+<li>Minio为加密数据提供机密性，完整性和真实性保证，而性能开销可忽略不计。使用AES-256-GCM，ChaCha20-Poly1305和AES-CBC支持服务器端和客户端加密。加密对象使用AEAD服务器端加密进行防篡改。</li>
+<li>详细简介请 <a href="https://www.minio.io/">点击这里</a></li>
+</ul>
+<h3 id="以下命令都需要管理员权限-sudohttpsbaikebaiducomitemsudo7337623fraladdin">以下命令都需要管理员权限 <a href="https://baike.baidu.com/item/sudo/7337623?fr=aladdin">sudo</a></h3>
+<h2 id="搜索-gitlab-docker镜像">搜索 gitlab Docker镜像</h2>
+<pre><code>ocker search minio
+//输出结果部分截图
+NAME                        DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
+minio/minio                 Minio is an Amazon S3 compatible object stor…   175                                     [OK]
+minio/mc                    Minio Client (mc) provides a modern alternat…   8                                       [OK]
+webhippie/minio             Docker images for minio                         3                                       [OK]
+pixelchrome/minio-arm       This Dockerfile installs Minio on your ARM-P…   3                                       
+bbinet/salt-minion                                                          2                                       [OK]
+zenithar/minio-server       Minio.io Server in Alpine Linux docker          1                                       [OK]
+opennms/minion              Application container runs Minion by OpenNMS…   1                                       [OK]
+jarfil/salt-minion          Salt minion only                                1                                       [OK]
+icereed/openshift-minio     Minio packaged and compatible to Openshift a…   1                                       [OK]
+webcenter/alpine-minio      The Minio Cloud Storage that work on Rancher.   1                                       [OK]
+
+</code></pre><h3 id="拉取-gitlab-docker镜像">拉取 gitlab Docker镜像</h3>
+<pre><code>docker pull minio/minio
+</code></pre><h3 id="docker启动单个minio">Docker启动单个Minio</h3>
+<ul>
+<li>启动一个Minio。在本机测试使用的话，将-h替换为127.0.0.1。如果需要让外部系统也能访问的话使用外网IP地址。</li>
+<li>分布式Minio使用的磁盘里必须是干净的，里面没有数据</li>
+<li>分布式Minio里所有的节点需要有同样的access秘钥和secret秘钥，这样这些节点才能建立联接</li>
+<li>MINIO_ACCESS_KEY=L0DELXP9EP8JRAZLQJ90 使用自定义方便分布式</li>
+<li>MINIO_SECRET_KEY=6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2 使用自定义方便分布式</li>
+<li>分布式Minio里的节点时间差不能超过3秒，你可以使用NTP 来保证时间一致</li>
+</ul>
+<pre><code>//挂载一个盘 
+docker run -d -p 9000:9000 -h 192.168.2.28 --name minio -e MINIO_ACCESS_KEY=L0DELXP9EP8JRAZLQJ90 -e MINIO_SECRET_KEY=6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2  -v /mnt/data:/data/minio -v /mnt/config:/root/.minio  minio/minio server /data/minio     
+//挂载多个盘必须大于或等于4的偶数个盘
+docker run -d -p 9000:9000 -h 192.168.2.28 --name minio -e MINIO_ACCESS_KEY=L0DELXP9EP8JRAZLQJ90 -e MINIO_SECRET_KEY=6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2  -v /mnt/data1:/data/minio_a -v /mnt/data2:/data/minio_b -v /mnt/data3:/data/minio_c -v /mnt/data4:/data/minio_d -v /mnt/config:/root/.minio  minio/minio server /data/minio_a /data/minio_b /data/minio_c /data/minio_d        
+</code></pre><ul>
+<li>使用sudo docker ps -a 命令查看当前所有Docker容器的状态。当它的状态由starting变为运行时间时，说明成功启动</li>
+<li>使用上面配置的IP地址（如192.168.2.28:9000）访问即可</li>
+<li>初次使用需要输入MINIO_ACCESS_KEY,MINIO_SECRET_KEY的值,就可以开始你的工作了</li>
+</ul>
+<h2 id="可以通过docker-compose或swarm模式部署分布式minio-这两者之间的主要区别在于docker-compose创建了一个主机多容器部署而swarm模式创建了一个多主机多容器部署">可以通过Docker Compose或Swarm模式部署分布式Minio 。这两者之间的主要区别在于，Docker Compose创建了一个主机，多容器部署，而Swarm模式创建了一个多主机，多容器部署。</h2>
+<h3 id="docker-compose-如果没安装和不了解使用-请点击这里httpsdocsdockercomcomposeinstallprerequisites">Docker Compose 如果没安装和不了解使用 <a href="https://docs.docker.com/compose/install/#prerequisites">请点击这里</a></h3>
+<ul>
+<li>编写minio-compose.yaml <a href="https://www.minio.io/docker.html">使用工具</a></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w"> </span><span class="nt">minio1</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">minio/minio</span><span class="w">
+</span><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span>- <span class="l">minio1:/export</span><span class="w">
+</span><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span>- <span class="s2">&#34;9001:9000&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span><span class="nt">MINIO_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">L0DELXP9EP8JRAZLQJ90</span><span class="w">
+</span><span class="w">   </span><span class="nt">MINIO_SECRET_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2</span><span class="w">
+</span><span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">server http://minio{1...4}/export</span><span class="w">
+</span><span class="w"> </span><span class="nt">minio2</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">minio/minio</span><span class="w">
+</span><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span>- <span class="l">minio2:/export</span><span class="w">
+</span><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span>- <span class="s2">&#34;9002:9000&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span><span class="nt">MINIO_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">L0DELXP9EP8JRAZLQJ90</span><span class="w">
+</span><span class="w">   </span><span class="nt">MINIO_SECRET_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2</span><span class="w">
+</span><span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">server http://minio{1...4}/export</span><span class="w">
+</span><span class="w"> </span><span class="nt">minio3</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">minio/minio</span><span class="w">
+</span><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span>- <span class="l">minio3:/export</span><span class="w">
+</span><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span>- <span class="s2">&#34;9003:9000&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span><span class="nt">MINIO_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">L0DELXP9EP8JRAZLQJ90</span><span class="w">
+</span><span class="w">   </span><span class="nt">MINIO_SECRET_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2</span><span class="w">
+</span><span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">server http://minio{1...4}/export</span><span class="w">
+</span><span class="w"> </span><span class="nt">minio4</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">minio/minio</span><span class="w">
+</span><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span>- <span class="l">minio4:/export</span><span class="w">
+</span><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span>- <span class="s2">&#34;9004:9000&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">   </span><span class="nt">MINIO_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">L0DELXP9EP8JRAZLQJ90</span><span class="w">
+</span><span class="w">   </span><span class="nt">MINIO_SECRET_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2</span><span class="w">
+</span><span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">server http://minio{1...4}/export</span><span class="w">
+</span><span class="w"></span><span class="c">## By default this config uses default local driver,</span><span class="w">
+</span><span class="w"></span><span class="c">## For custom volumes replace with volume driver configuration.</span><span class="w">
+</span><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">minio1</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">minio2</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">minio3</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">minio4</span><span class="p">:</span><span class="w">
+</span></code></pre></div><ul>
+<li>Docker Compose启动集群Minio</li>
+</ul>
+<pre><code>docker-compose -f minio-compose.yaml up  //需要后台运行请加上 -d
+</code></pre><h3 id="docker-swarm-笔者没使用过该方式如果遇到问题-请点击这里httpsdocsminioiodocsdeploy-minio-on-docker-swarm">Docker Swarm 笔者没使用过该方式如果遇到问题 <a href="https://docs.minio.io/docs/deploy-minio-on-docker-swarm">请点击这里</a></h3>
+<ul>
+<li>编写minio-swarm.yaml <a href="https://www.minio.io/docker.html">使用工具</a></li>
+</ul>
+<pre><code>version: '3'
+services:
+ minio1:
+  image: minio/minio
+  volumes:
+   - minio1:/export
+  ports:
+   - &quot;9001:9000&quot;
+  networks:
+   - minio_distributed
+  environment:
+   MINIO_ACCESS_KEY: L0DELXP9EP8JRAZLQJ90
+   MINIO_SECRET_KEY: 6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2
+  deploy:
+   restart_policy:
+    delay: 10s
+    max_attempts: 10
+    window: 60s
+  command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
+ minio2:
+  image: minio/minio
+  volumes:
+   - minio2:/export
+  ports:
+   - &quot;9002:9000&quot;
+  networks:
+   - minio_distributed
+  environment:
+   MINIO_ACCESS_KEY: L0DELXP9EP8JRAZLQJ90
+   MINIO_SECRET_KEY: 6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2
+  deploy:
+   restart_policy:
+    delay: 10s
+    max_attempts: 10
+    window: 60s
+  command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
+ minio3:
+  image: minio/minio
+  volumes:
+   - minio3:/export
+  ports:
+   - &quot;9003:9000&quot;
+  networks:
+   - minio_distributed
+  environment:
+   MINIO_ACCESS_KEY: L0DELXP9EP8JRAZLQJ90
+   MINIO_SECRET_KEY: 6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2
+  deploy:
+   restart_policy:
+    delay: 10s
+    max_attempts: 10
+    window: 60s
+  command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
+ minio4:
+  image: minio/minio
+  volumes:
+   - minio4:/export
+  ports:
+   - &quot;9004:9000&quot;
+  networks:
+   - minio_distributed
+  environment:
+   MINIO_ACCESS_KEY: L0DELXP9EP8JRAZLQJ90
+   MINIO_SECRET_KEY: 6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2
+  deploy:
+   restart_policy:
+    delay: 10s
+    max_attempts: 10
+    window: 60s
+  command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
+volumes:
+  minio1:
+  minio2:
+  minio3:
+  minio4:
+networks:
+ minio_distributed:
+  driver: overlay
+</code></pre><ul>
+<li>Docker Swarm启动集群Minio</li>
+</ul>
+<pre><code>docker stack deploy --compose-file=minio-swarm.yaml minio
+</code></pre><h3 id="查看logs">查看logs</h3>
+<pre><code>docker logs -f -t --tail 10 容器ID //实时查看该容器ID最后10行日志
+</code></pre><h3 id="监视容器使用的资源">监视容器使用的资源</h3>
+<pre><code>docker stats 容器ID
+</code></pre><h2 id="拉取二进制minio">拉取二进制Minio</h2>
+<pre><code>wget https://dl.minio.io/server/minio/release/linux-amd64/minio
+</code></pre><h3 id="二进制启动minio">二进制启动Minio</h3>
+<pre><code> //挂载一个盘./minio server /data/minio_a //挂载多个盘必须大于或等于4的偶数个盘./minio server /data/minio_a /data/minio_b /data/minio_c /data/minio_d 
+</code></pre><h3 id="二进制启动集群minio编写miniosh启动脚本每个节点执行相同的操作">二进制启动集群Minio(编写minio.sh启动脚本每个节点执行相同的操作)</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">export</span> <span class="nv">MINIO_ACCESS_KEY</span><span class="o">=</span>L0DELXP9EP8JRAZLQJ90
+<span class="nb">export</span> <span class="nv">MINIO_SECRET_KEY</span><span class="o">=</span>6FgMGySzbI+6MExdUzS0r9HjdWx9tz1teLsXH1C2
+./minio server  http://192.168.2.28/data/minio http://192.168.2.29/data/minio http://192.168.2.30/data/minio http://192.168.2.21/data/minio
+</code></pre></div><h4 id="参考">参考</h4>
+<p><a href="https://www.hwholiday.com/2018/docker_install_minio/">https://www.hwholiday.com/2018/docker_install_minio/</a></p>
+<p><a href="https://docs.min.io/cn/">https://docs.min.io/cn/</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/influxdb/" data-toggle="tooltip" data-placement="top" title="Influxdb">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/etcd%E5%AE%89%E8%A3%85/" data-toggle="tooltip" data-placement="top" title="Etcd安装">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/influxdb/">Influxdb</a></li>
+                    
+                    <li><a href="/posts/%E5%9B%9B%E8%89%B2%E5%BB%BA%E6%A8%A1%E6%B3%95/">四色建模法</a></li>
+                    
+                    <li><a href="/posts/grafana/">Grafana</a></li>
+                    
+                    <li><a href="/posts/idea%E6%B3%A8%E5%86%8C%E7%A0%81/">Idea注册码</a></li>
+                    
+                    <li><a href="/posts/cms%E8%AF%86%E5%88%AB/">Cms识别</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

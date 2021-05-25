@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rtp on IT技术分享</title>
+    <link>https://www.51hint.com/tags/rtp/</link>
+    <description>Recent content in rtp on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Aug 2012 15:47:58 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/rtp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jrtplib</title>
+      <link>https://www.51hint.com/posts/2012-08-21-jrtplib/</link>
+      <pubDate>Mon, 20 Aug 2012 15:47:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-21-jrtplib/</guid>
+      <description>一、JRTPLIB简介 老外用C++编写的开源RTP协议库，用来进行实时数据传输，可以运行在 Windows、Linux、 FreeBSD、Sol</description>
+    </item>
+    
+  </channel>
+</rss>

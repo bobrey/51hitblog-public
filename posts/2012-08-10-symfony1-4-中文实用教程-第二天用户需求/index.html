@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第二天：用户需求 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第二天：用户需求" />
+  <meta name="twitter:title" content="第二天：用户需求" />
+  <meta name="description" content="虽然我们还没写一行PHP代码，但在第一天，我们设置好了环境，创建了一个空的symfony项目，还有确保了我们开始后的默认安全性。再接下来，你">
+  <meta property="og:description" content="虽然我们还没写一行PHP代码，但在第一天，我们设置好了环境，创建了一个空的symfony项目，还有确保了我们开始后的默认安全性。再接下来，你">
+  <meta name="twitter:description" content="虽然我们还没写一行PHP代码，但在第一天，我们设置好了环境，创建了一个空的symfony项目，还有确保了我们开始后的默认安全性。再接下来，你">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-symfony1-4-%E4%B8%AD%E6%96%87%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B-%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-symfony1-4-%E4%B8%AD%E6%96%87%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B-%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第二天：用户需求</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">1900 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/symfony-24hours__1.4/">symfony---24hours__[1.4]</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#a-namechapter_02_the_project_pitcha项目的定位"><!-- raw HTML omitted --><!-- raw HTML omitted -->项目的定位</a></li>
+    <li><a href="#a-namechapter_02_the_project_user_storiesa用户情景"><!-- raw HTML omitted --><!-- raw HTML omitted -->用户情景</a>
+      <ul>
+        <li><a href="#a-namechapter_02_sub_story_f1_on_the_homepage_the_user_sees_the_latest_active_jobsa情景f1在首页用户可以查看最新活跃职位"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F1：在首页，用户可以查看最新活跃职位</a></li>
+        <li><a href="#a-namechapter_02_sub_story_f2_a_user_can_ask_for_all_the_jobs_in_a_given_categorya情景f2用户能查看一个类别的所有职位"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F2：用户能查看一个类别的所有职位</a></li>
+        <li><a href="#a-namechapter_02_sub_story_f3_a_user_refines_the_list_with_some_keywordsa情景f3用户能用一些关键字搜索过滤职位列表"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F3：用户能用一些关键字搜索过滤职位列表</a></li>
+        <li><a href="#a-namechapter_02_sub_story_f4_a_user_clicks_on_a_job_to_see_more_detailed_informationa情景f4用户点击一个职位能查看更多详细信息"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F4：用户点击一个职位能查看更多详细信息</a></li>
+        <li><a href="#a-namechapter_02_sub_story_f5_a_user_posts_a_joba情景f5用户能发布职位"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F5：用户能发布职位</a></li>
+        <li><a href="#a-namechapter_02_sub_story_f6_a_user_applies_to_become_an_affiliatea情景f6用户申请成为联盟"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F6：用户申请成为联盟</a></li>
+        <li><a href="#a-namechapter_02_sub_story_f7_an_affiliate_retrieves_the_current_active_job_lista情景f7联盟可以检索当前的活跃职位列表"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F7：联盟可以检索当前的活跃职位列表</a></li>
+        <li><a href="#a-namechapter_02_sub_story_b1_an_admin_configures_the_websitea情景b1管理员能配置网站"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景B1：管理员能配置网站</a></li>
+        <li><a href="#a-namechapter_02_sub_story_b2_an_admin_manages_the_jobsa情景b2管理员能管理职位"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景B2：管理员能管理职位</a></li>
+        <li><a href="#a-namechapter_02_sub_story_b3_an_admin_manages_the_affiliatesa情景b3管理员能管理联盟"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景B3：管理员能管理联盟</a></li>
+      </ul>
+    </li>
+    <li><a href="#a-namechapter_02_final_thoughtsa结语"><!-- raw HTML omitted --><!-- raw HTML omitted -->结语</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>虽然我们还没写一行PHP代码，但在第一天，我们设置好了环境，创建了一个空的symfony项目，还有确保了我们开始后的默认安全性。再接下来，你看到屏幕上的东西会得到一个惊喜，因为会出现漂亮的symfony默认页面。</p>
+<p><a href="https://blog.51hint.com/wp-content/uploads/congratulations.png"><!-- raw HTML omitted --></a></p>
+<p>但你还需要了解更多，你要学习 开发symfony应用的所有细节。好的，继续我们的旅程吧。</p>
+<p>现在，我们会花时间来讲Jobeet项目原型的一些的需求。</p>
+<h2 id="a-namechapter_02_the_project_pitcha项目的定位"><!-- raw HTML omitted --><!-- raw HTML omitted -->项目的定位</h2>
+<p>每个人都在说危机时下。失业率再次上升。</p>
+<p>我知道，symfony开发者是不会真正的去关心这些的，这也正是为什么你当初要学symfony。另外一方面，但要招聘到一位symfony开发者还相当困难。</p>
+<p>在哪里可以招聘到symfony开发者？在哪里可以发布求职信息？</p>
+<p>需要一个求职招聘平台。是智联、英才吗？在想想。需要一个经过细分市场的求职招聘平台。一个简单、方便、快速、有趣的求职招聘平台。</p>
+<p>不用到处找，只有Jobeet一家。<strong>Jobeet是开源求职招聘网站程序</strong>只做一件事，而且做得会更好。容易使用、定制、扩展，还可以嵌入到其他网站中。支持多语言，而且当然用了最新的Web2.0技术增强用户体验。还提供了Feed和API进行交互。</p>
+<h2 id="a-namechapter_02_the_project_user_storiesa用户情景"><!-- raw HTML omitted --><!-- raw HTML omitted -->用户情景</h2>
+<p>在讲代码之前，我们讲一下项目。下一节讲我们要做的第一个版本的一些简单情景的功能。</p>
+<p>Jobeet网站有四种用户：</p>
+<ul>
+<li>**管理员（admin）：**他是管理员，有管理网站的权限</li>
+<li>**用户（user）：**他访问网站寻找职位</li>
+<li>**发布者（poster）：**他访问网站发布职位</li>
+<li>**联盟（affiliate）：**他可以引用职位重新发布到他自己的网站上</li>
+</ul>
+<p>项目有两个应用：<strong>前台</strong>（下面，情景F1到F7）用户与网站交互，和 <strong>后台</strong>（情景B1到B3）管理员管理网站。</p>
+<p>后台应用是需要登录密码的。</p>
+<h3 id="a-namechapter_02_sub_story_f1_on_the_homepage_the_user_sees_the_latest_active_jobsa情景f1在首页用户可以查看最新活跃职位"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F1：在首页，用户可以查看最新活跃职位</h3>
+<p>当一个用户来到Jobeet网站，他可以查看一个活跃职位的列表。职位是按类别排序然后是发布日期（最新的职位在前面）。对于每个职位，只显示地点、地区、公司。</p>
+<p>对于每个类别，列表仅仅显示前10个职位，并且一个类别链接可以列出该类别的所有职位（情景F2）。</p>
+<p>在首页，用户能过滤职位列表（情景F3），或发布一个新职位（情景F5）。</p>
+<p><a href="https://i0.wp.com/blog.51hint.com/wp-content/uploads/mockup_homepage.png"><!-- raw HTML omitted --></a></p>
+<h3 id="a-namechapter_02_sub_story_f2_a_user_can_ask_for_all_the_jobs_in_a_given_categorya情景f2用户能查看一个类别的所有职位"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F2：用户能查看一个类别的所有职位</h3>
+<p>用户点击类别名字或者在首页点击“更多职位”，他能看到该类别所有的职位，并以日期排序的。</p>
+<p>列表是以每页20个职位来分页的。</p>
+<p><a href="https://i2.wp.com/blog.51hint.com/wp-content/uploads/mockup_category.png"><!-- raw HTML omitted --></a></p>
+<h3 id="a-namechapter_02_sub_story_f3_a_user_refines_the_list_with_some_keywordsa情景f3用户能用一些关键字搜索过滤职位列表"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F3：用户能用一些关键字搜索过滤职位列表</h3>
+<p>用户能输入一些关键字来搜索过滤。关键字可以是地区、地点、类别、或者公司。</p>
+<h3 id="a-namechapter_02_sub_story_f4_a_user_clicks_on_a_job_to_see_more_detailed_informationa情景f4用户点击一个职位能查看更多详细信息"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F4：用户点击一个职位能查看更多详细信息</h3>
+<p>用户能从列表中选择一个职位查看详细信息。</p>
+<p><a href="https://i0.wp.com/blog.51hint.com/wp-content/uploads/mockup_job.png"><!-- raw HTML omitted --></a></p>
+<p> </p>
+<h3 id="a-namechapter_02_sub_story_f5_a_user_posts_a_joba情景f5用户能发布职位"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F5：用户能发布职位</h3>
+<p>用户能发布一个职位。一个职位由下面这些信息组成：</p>
+<ul>
+<li>公司</li>
+<li>职位类型（全职、兼职、或者自由工作者）</li>
+<li>公司LOGO标志（可选）</li>
+<li>公司网站URL（可选）</li>
+<li>区域</li>
+<li>地点</li>
+<li>类别（用户在一个类别列表中选择）</li>
+<li>职位描述（URL地址和Email会自动被加上链接）</li>
+<li>如何申请（URL地址和Email会自动被加上链接）</li>
+<li>发布（职位是否还可以发布在联盟网站上）</li>
+<li>Email（发布者的Email）</li>
+</ul>
+<p>需要是不注册就可以发布职位。</p>
+<p>过程是很简单的，仅仅两步：首先，用户在表单填写职位所需信息，然后在最终预览页验证信息。</p>
+<p>即使用户没有注册账户，发布了一个职位事后能用一个特定的URL地址来修改（相当于，发布职位时，给用户一个私有的令牌）。</p>
+<p>每个职位有30天期限（要管理员可以修改，见情景B2）。用户可以回来重新激活或延期，但仅限职位到期的最后5天内。</p>
+<p><a href="https://i2.wp.com/blog.51hint.com/wp-content/uploads/mockup_post.png"><!-- raw HTML omitted --></a></p>
+<p> </p>
+<h3 id="a-namechapter_02_sub_story_f6_a_user_applies_to_become_an_affiliatea情景f6用户申请成为联盟"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F6：用户申请成为联盟</h3>
+<p>用户变成一个联盟需要申请，并被授权使用Jobeet API。要申请，他必须提供以下信息：</p>
+<ul>
+<li>姓名</li>
+<li>Email</li>
+<li>网站URL地址</li>
+</ul>
+<p>联盟账户必须由管理员激活（情景B3）。一旦激活，联盟通过email接收一个令牌来使用API。</p>
+<p>当正在申请中，联盟也能选择一个类别来获取职位。</p>
+<h3 id="a-namechapter_02_sub_story_f7_an_affiliate_retrieves_the_current_active_job_lista情景f7联盟可以检索当前的活跃职位列表"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景F7：联盟可以检索当前的活跃职位列表</h3>
+<p>一个联盟可以用他的联盟令牌通过调用API来检索当前职位列表。列表能返回XML、JSON、或者YAML格式。</p>
+<p>列表只包含职位的公开信息。</p>
+<p>联盟也可以限制返回职位的数目，还可以指定一个类别来过滤他的查询。</p>
+<h3 id="a-namechapter_02_sub_story_b1_an_admin_configures_the_websitea情景b1管理员能配置网站"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景B1：管理员能配置网站</h3>
+<p>管理员在网站能编辑类别。</p>
+<h3 id="a-namechapter_02_sub_story_b2_an_admin_manages_the_jobsa情景b2管理员能管理职位"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景B2：管理员能管理职位</h3>
+<p>管理员能创建和删除任何发布过的职位。</p>
+<h3 id="a-namechapter_02_sub_story_b3_an_admin_manages_the_affiliatesa情景b3管理员能管理联盟"><!-- raw HTML omitted --><!-- raw HTML omitted -->情景B3：管理员能管理联盟</h3>
+<p>管理员恩那个创建或编辑联盟。他是负责激活联盟也能关闭之。</p>
+<p>当管理员激活一个新联盟时，系统创建一个唯一的令牌给联盟。</p>
+<h2 id="a-namechapter_02_final_thoughtsa结语"><!-- raw HTML omitted --><!-- raw HTML omitted -->结语</h2>
+<p>对于任何WEB开发，从来不会第一天就开始编码。首先你需要收集需求和设计网站原形。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE/" data-toggle="tooltip" data-placement="top" title="第一天：启动项目">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%9B%9B%E5%A4%A9%E6%8E%A7%E5%88%B6%E5%99%A8%E5%92%8C%E8%A7%86%E5%9B%BE/" data-toggle="tooltip" data-placement="top" title="第四天：控制器和视图">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2012-08-10-%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE/">第一天：启动项目</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">1900 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/symfony-24hours__1.4/">symfony---24hours__[1.4]</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

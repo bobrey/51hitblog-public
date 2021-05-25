@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ruby on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ruby/</link>
+    <description>Recent content in ruby on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Aug 2011 11:20:00 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ruby mechanize</title>
+      <link>https://www.51hint.com/posts/2011-08-16-ruby-mechanize/</link>
+      <pubDate>Tue, 16 Aug 2011 11:20:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-16-ruby-mechanize/</guid>
+      <description>#mechanize download url
+#https://github.com/tenderlove/mechanize
+#Nokogiri
+#http://nokogiri.org/tutorials/installing_nokogiri.html
+#http://mechanize.rubyforge.org/
+  #Installation…
+#sudo port install libxml2 libxslt
+#sudo gem install nokogiri
+#No definition for parse_file
+#irb
+#&amp;raquo; require ‘nokogiri’ quit
+  #gem install mechanize
+#gem install net-http-digest_auth
+   </description>
+    </item>
+    
+  </channel>
+</rss>

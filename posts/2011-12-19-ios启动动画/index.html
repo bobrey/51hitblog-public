@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> ios,启动动画 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="ios,启动动画" />
+  <meta name="twitter:title" content="ios,启动动画" />
+  <meta name="description" content="找到了方案 使用 AVAnimator: http://www.modejong.com/AVAnimator/ glgif : https://github.com/jamesu/glgif 用 上面两个载入动画，然后 Root View Controller 使用 UINavigationController ，在它之前创建一个 SplashViewController (这里里面实现动画)， 动画完成后 NavigationController push MainController 参考：http://s">
+  <meta property="og:description" content="找到了方案 使用 AVAnimator: http://www.modejong.com/AVAnimator/ glgif : https://github.com/jamesu/glgif 用 上面两个载入动画，然后 Root View Controller 使用 UINavigationController ，在它之前创建一个 SplashViewController (这里里面实现动画)， 动画完成后 NavigationController push MainController 参考：http://s">
+  <meta name="twitter:description" content="找到了方案 使用 AVAnimator: http://www.modejong.com/AVAnimator/ glgif : https://github.com/jamesu/glgif 用 上面两个载入动画，然后 Root View Controller 使用 UINavigationController ，在它之前创建一个 SplashViewController (这里里面实现动画)， …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-12-19-ios%E5%90%AF%E5%8A%A8%E5%8A%A8%E7%94%BB/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-12-19-ios%E5%90%AF%E5%8A%A8%E5%8A%A8%E7%94%BB/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">ios,启动动画</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Dec 19, 2011</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <p>找到了方案</p>
+<ul>
+<li>使用 AVAnimator: <!-- raw HTML omitted --><a href="http://www.modejong.com/AVAnimator/">http://www.modejong.com/AVAnimator/</a><!-- raw HTML omitted --></li>
+<li>glgif : <!-- raw HTML omitted --><a href="https://github.com/jamesu/glgif">https://github.com/jamesu/glgif</a><!-- raw HTML omitted --></li>
+</ul>
+<p>用 上面两个载入动画，然后 Root View Controller 使用 UINavigationController ，在它之前创建一个 SplashViewController (这里里面实现动画)， 动画完成后 NavigationController push MainController</p>
+<p>参考：<!-- raw HTML omitted --><a href="http://stackoverflow.com/questions/2474960/how-to-play-animation-movie-instea.">http://stackoverflow.com/questions/2474960/how-to-play-animation-movie-instea.</a>.<!-- raw HTML omitted -->.</p>
+<p>另外一个动画实现方案：<!-- raw HTML omitted --><a href="http://www.appsamuck.com/day2.html">http://www.appsamuck.com/day2.html</a><!-- raw HTML omitted --></p>
+<p>目前我已经实现，使用的是第二个方案，用 ImageView 动画切换多张图片。</p>
+<p>最方便播放视频的方法是使用UIWebView来加载一个NSURL,也即是视屏地址</p>
+<p>self.webView =  [[[UIWebView alloc]    initWithFrame:  [[UIScreen mainScreen]    applicationFrame]] autorelease] ;</p>
+<p>NSURLRequest   *request = [NSURLRequest requestWithURL:[NSURL URLWithString:string]];</p>
+<p>[self.webView loadRequest:request];</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-12-19-%E5%90%88%E6%88%90%E5%9B%BE%E7%89%87/" data-toggle="tooltip" data-placement="top" title="合成图片">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-12-19-%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%ADtouch%E6%98%AF%E5%AD%90%E8%A7%86%E5%9B%BE%E8%BF%98%E6%98%AF%E7%A6%BB%E5%BC%80%E8%A7%86%E5%9B%BE/" data-toggle="tooltip" data-placement="top" title="如何判断touch是子视图还是离开视图">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Dec 19, 2011</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

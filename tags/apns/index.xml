@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apns on IT技术分享</title>
+    <link>https://www.51hint.com/tags/apns/</link>
+    <description>Recent content in apns on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Jun 2012 06:34:28 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/apns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>六大实用的移动开发辅助工具</title>
+      <link>https://www.51hint.com/posts/2012-06-21-%E5%85%AD%E5%A4%A7%E5%AE%9E%E7%94%A8%E7%9A%84%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Thu, 21 Jun 2012 06:34:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-21-%E5%85%AD%E5%A4%A7%E5%AE%9E%E7%94%A8%E7%9A%84%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7/</guid>
+      <description>Easy APNS – 基于PHP&amp;amp;MySQL的苹果推送网络服务 假如你是一个iPhone开发人员，可能听过Apple Push Notification service (APNs)。Easy APN</description>
+    </item>
+    
+  </channel>
+</rss>

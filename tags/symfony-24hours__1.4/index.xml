@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>symfony---24hours__[1.4] on IT技术分享</title>
+    <link>https://www.51hint.com/tags/symfony-24hours__1.4/</link>
+    <description>Recent content in symfony---24hours__[1.4] on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Aug 2012 10:39:05 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/symfony-24hours__1.4/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第二天：用户需求</title>
+      <link>https://www.51hint.com/posts/2012-08-10-symfony1-4-%E4%B8%AD%E6%96%87%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B-%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82/</link>
+      <pubDate>Fri, 10 Aug 2012 10:39:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-10-symfony1-4-%E4%B8%AD%E6%96%87%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B-%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82/</guid>
+      <description>虽然我们还没写一行PHP代码，但在第一天，我们设置好了环境，创建了一个空的symfony项目，还有确保了我们开始后的默认安全性。再接下来，你</description>
+    </item>
+    
+    <item>
+      <title>第一天：启动项目</title>
+      <link>https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Fri, 10 Aug 2012 10:28:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE/</guid>
+      <description>1.1 简介 Symfony框架是一个已经超过四年多的开源项目，得益于其强大的功能和良好的文档已成为最流行的PHP框架之一。 本教程描述用symfon</description>
+    </item>
+    
+  </channel>
+</rss>

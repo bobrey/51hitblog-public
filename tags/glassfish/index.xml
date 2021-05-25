@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>glassfish on IT技术分享</title>
+    <link>https://www.51hint.com/tags/glassfish/</link>
+    <description>Recent content in glassfish on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Nov 2012 05:20:00 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/glassfish/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>glassfish3 搭建集群</title>
+      <link>https://www.51hint.com/posts/2012-11-20-glassfish3-%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Tue, 20 Nov 2012 05:20:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-20-glassfish3-%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/</guid>
+      <description>glassfish 性能越来越优越，在一些性能上远远超过tomcat 并实现j2ee新的规范，在集群方面也越来越出色，相信在不久将在祖国大地上盛开繁茂。 Glassfish 3.1 – Clustering</description>
+    </item>
+    
+    <item>
+      <title>glassfish启动及其部署</title>
+      <link>https://www.51hint.com/posts/2012-10-17-glassfish%E5%90%AF%E5%8A%A8%E5%8F%8A%E5%85%B6%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Wed, 17 Oct 2012 02:31:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-17-glassfish%E5%90%AF%E5%8A%A8%E5%8F%8A%E5%85%B6%E9%83%A8%E7%BD%B2/</guid>
+      <description>1到glashfish目录下运行 asadminstart-domain domain1 运行完后不像TOMCAT的控制台下启动的样子,别给忽悠了 2.可以检查下了 http://localhost:8080/ 3.进入控制台 http://localhost:4848/ 用户名: admin 密码</description>
+    </item>
+    
+  </channel>
+</rss>

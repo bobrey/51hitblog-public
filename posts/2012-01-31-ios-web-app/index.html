@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> ios web  app - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="ios web  app" />
+  <meta name="twitter:title" content="ios web  app" />
+  <meta name="description" content="App化 1、放到桌面 其实这个最简单啦，点浏览器的加号，就会有一个菜单，添加到屏幕就行。 2、设置图标和启动画面 添加到屏幕后，默认的是一个白色图">
+  <meta property="og:description" content="App化 1、放到桌面 其实这个最简单啦，点浏览器的加号，就会有一个菜单，添加到屏幕就行。 2、设置图标和启动画面 添加到屏幕后，默认的是一个白色图">
+  <meta name="twitter:description" content="App化 1、放到桌面 其实这个最简单啦，点浏览器的加号，就会有一个菜单，添加到屏幕就行。 2、设置图标和启动画面 添加到屏幕后，默认的是一个白色图">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-01-31-ios-web-app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-01-31-ios-web-app/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">ios web  app</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Jan 31, 2012</h4>
+    </section>
+    <h5 id="wc">2300 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>App化</p>
+<p><strong>1、放到桌面</strong></p>
+<p>其实这个最简单啦，点浏览器的加号，就会有一个菜单，添加到屏幕就行。</p>
+<p><strong>2、设置图标和启动画面</strong></p>
+<p>添加到屏幕后，默认的是一个白色图标，启动画面则是上次运行时的画面截图（所以感觉不到有启动画面）。</p>
+<p>为了更像原生的App，我们添加一下图标和启动画面。</p>
+<p>图标的添加方法是在head区添加如下代码：</p>
+<!-- raw HTML omitted -->
+<p>其中，xpadicon.png是图标，必须为png格式，大小为57*57像素，不需要添加圆角和光影效果，iOS自己会处理。</p>
+<p>启动画面的添加方法也差不多：</p>
+<!-- raw HTML omitted -->
+<p>其中，xpadstartup.png是图标，必须为png格式，纵向图片，iphone/itouch的大小为320*460，ipad为768*1004。</p>
+<p>要说明的是，启动画面的时间会很短，而且这个时间似乎是不可控的，个人感觉是在页面ready的时候启动画面消失。</p>
+<p>另外，在我试验用的itouch3上，图标和启动画面均未生效，iphone4和ipad上有效。</p>
+<p> </p>
+<p><strong>3、隐藏地址栏</strong></p>
+<p>为了更像本地App，我们要隐藏掉地址栏，而在隐藏这个之前，我们必须设定程序全屏，否则无效。</p>
+<p>全屏：</p>
+<!-- raw HTML omitted -->
+<p>隐藏地址栏：</p>
+<!-- raw HTML omitted -->
+<p><strong>4、控制用户的缩放</strong></p>
+<p>作为一个网页，事实上可以无限缩放的（当然，缩小到比viewport还小时会自动充满viewport），而作为一个程序，我们有时候不希望这样的事情发生，如下代码可以解决：</p>
+<!-- raw HTML omitted -->
+<p>上述代码的意思是，viewport的宽度为设备宽度，initial-scale是初始的缩放值。（按照我的理解，viewport的宽度值和initial-scale这两个属性应该是不可以同时存在的，因为定义了一个值会自动推算出另一个值，比如我将viewport的宽度设为屏幕宽度的2倍，那么initial-scale应该自动为0.5，待验证。）</p>
+<p>后面两个自然是能缩放的最小和最大值了。</p>
+<p>如果不想让用户缩放，则可以将最小值和最大值设为一样，都为1.0，或者直接将user-scalable设为no。</p>
+<p><strong>5、离线</strong></p>
+<p>到这里，我们的App已经很像原生App了。可是，如果断网了怎么办？</p>
+<p>于是，最的一步–离线。离线之后，我们的程序就可以在没有网络的时候正常运行，完全和原生App一样了！</p>
+<p>上述的特性都是iOS的，但是离线是HTML5的特性。</p>
+<p>要实现离线，首先得有一个先决条件：能修改web服务器的MIME（确切地讲，是MIME中有manifest类型）。关于MIME是什么就不详细介绍了。</p>
+<p>首先，我们需要在web服务器中将.manifest后缀的MIME设为”text/cache-manifest”。对IIS，在站点属性中可以设置，对apache，则能直接通过修改.htaccess文件实现。不详述。</p>
+<p>接下来，我们需要创建一个离线文件列表，列表中的文件将被缓存供下次使用。</p>
+<p>我建立的名叫cache.manifest，内容如下：</p>
+<p>CACHE MANIFEST</p>
+<p># xpad v0.1.0009</p>
+<p># 指明缓存入口</p>
+<p>CACHE:</p>
+<p>index.html</p>
+<p>index.css</p>
+<p>jquery.js</p>
+<p>xpadicon.png</p>
+<p>xpadstartup.png</p>
+<p>images/pic.png</p>
+<p># 以下资源必须在线访问</p>
+<p>NETWORK:</p>
+<p>login.php</p>
+<p># 如果index.php无法访问则用404.html代替</p>
+<p>FALLBACK:</p>
+<p>/index.php /404.html</p>
+<p>#开头的是注释，这个好理解。文件分为三段：CACHE、NETWORK、FALLBACK。</p>
+<p>CACHE表示要缓存的文件，即可以离线使用的资源，可以看到，html/css/js/pic都可以缓存，当然，其他类型的也可以。</p>
+<p>NETWORK表示必须在线访问的，例如登录之类的页面。</p>
+<p>FALLBACK表示如果在线访问失败时，用什么文件替换。上面的代码表示index.php访问失败时用404.html替换。这个可以用在网络不好的时候，例如一个离线应用去访问一个在线页面，但是没有访问成功，这时就可以调用一个已经离线了的页面去，不破坏用户体验。</p>
+<p>再接下来，就是告诉iOS，我们的程序需要离线，方法是在访问的页面中的html标签中加入一个属性标记上面说的manifest文件：</p>
+<!-- raw HTML omitted -->
+<p>访问一次，只要文件传输完毕，我们的应用就成功离线啦！这时断开网络再次打开，依然可以使用！</p>
+<p>App化的操作基本都完成啦，可以先喝口茶休息下。</p>
+<p>接下来呢？接下来你可能会修改你的页面，但是，悲剧来了，你发现无论你怎么刷新，页面都没有变化，即使清掉缓存也不行。</p>
+<p>事实上，更改页面文件并不会导致离线文件也更新，而清掉缓存也不会清掉离线的文件！</p>
+<p>更新缓存的条件是：.manifest内容发生变化！所以如你看到那样，我在最前面加入了版本，这样一方面可以标版本，另一方面刚好让程序更新缓存。</p>
+<p>我们的Web App在打开时会检测更新，但是，本次打开使用的仍然会是老版本，如果更新完成，再刷新或者再次启动会是新版本，而如果更新过程未完成，则仍然是老版本。这中间不会有任何提示。</p>
+<p>（当然，可以用脚本更新，不详述。）</p>
+<p>至此，一个完美的Web App就诞生了！</p>
+<p>现在唯一的局限就是技术限制了–网页不可能调用系统的API，如文件IO，摄像头等等。要使用这些功能，就得老老实实地下载SDK回来开发原生的App。</p>
+<p>可是，如果用HTML+js+css，也能调用本地API，和原生App实现同样的功能，是不是很心动？</p>
+<p>事实上，已经有这样的框架出现，如PhoneGap等等。有兴趣不妨Google之。因超出本文范围，故就此打住。</p>
+<p>转自:http://www.toobug.net/2011/03/ios-web-app-%E5%BC%80%E5%8F%91%E5%BF%83%E5%BE%97%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9Aapp%E5%8C%96/</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-01-31-nodejs%E4%B8%80%E4%BA%9B%E6%A1%86%E6%9E%B6%E7%AD%89/" data-toggle="tooltip" data-placement="top" title="nodejs一些框架等">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-01-31-websocketnode-js-%E9%80%9A%E8%AE%AF%E5%8F%8A%E5%9C%A8-iphone%E4%B8%AD-%E5%AE%9E%E7%8E%B0/" data-toggle="tooltip" data-placement="top" title="WebSocket&#43;Node.js 通讯及在 iPhone中 实现">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Jan 31, 2012</h4>
+    </section>
+    <h5 id="wc">2300 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

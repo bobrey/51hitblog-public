@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Go小结3 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Go小结3" />
+  <meta name="twitter:title" content="Go小结3" />
+  <meta name="description" content="description">
+  <meta property="og:description" content="description">
+  <meta name="twitter:description" content="description">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%933/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%933/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Go小结3</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h3 id="流程控制">流程控制</h3>
+<ul>
+<li>
+<p>select语句select 是Go中的一个控制结构，类似于用于通信的switch语句。每个case必须是一个通信操作，要么是发送要么是接收。
+select <strong>随机执行</strong>一个<strong>可运行</strong>的case。如果没有case可运行，它将阻塞，直到有case可运行。一个默认的子句应该总是可运行的。</p>
+<pre><code>select {
+      case i1 = &lt;-c1:
+         fmt.Printf(&quot;received &quot;, i1, &quot; from c1\n&quot;)
+      case c2 &lt;- i2:
+         fmt.Printf(&quot;sent &quot;, i2, &quot; to c2\n&quot;)      
+      default:
+         fmt.Printf(&quot;no communication\n&quot;)
+}    
+</code></pre></li>
+<li>
+<p>select是Go中的一个控制结构，类似于switch语句，用于处理异步IO操作。select会监听case语句中channel的读写操作，当case中channel读写操作为非阻塞状态（即能读写）时，将会触发相应的动作。</p>
+</li>
+<li>
+<p>典型用法</p>
+<ul>
+<li>
+<p>超时判断//比如在下面的场景中，使用全局resChan来接受response，如果时间超过3S,resChan中还没有数据返回，则第二条case将执行</p>
+<pre><code class="language-var" data-lang="var">// do request
+func test() {
+    select {
+    case data := &lt;-resChan:
+        doData(data)
+    case &lt;-time.After(time.Second * 3):
+        fmt.Println(&quot;request time out&quot;)
+    }
+}
+    
+func doData(data int) {
+    //...
+}```
+</code></pre></li>
+<li>
+<p>退出</p>
+<pre><code>//主线程（协程）中如下：
+var shouldQuit=make(chan struct{})
+fun main(){
+    {
+        //loop
+    }
+    //...out of the loop
+    select {
+        case &lt;-c.shouldQuit:
+            cleanUp()
+            return
+        default:
+        }
+    //...
+}
+    
+//再另外一个协程中，如果运行遇到非法操作或不可处理的错误，就向shouldQuit发送数据通知程序停止运行
+close(shouldQuit)
+</code></pre></li>
+<li>
+<p>判断channel是否阻塞</p>
+<pre><code>//在某些情况下是存在不希望channel缓存满了的需求的，可以用如下方法判断
+ch := make (chan int, 5)
+//...
+data：=0
+select {
+case ch &lt;- data:
+default:
+    //做相应操作，比如丢弃data。视需求而定
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="函数">函数</h3>
+<h5 id="函数定义">函数定义</h5>
+<pre><code>• 无需声明原型。
+• 支持不定 变参。
+• 支持多返回值。
+• 支持命名返回参数。 
+• 支持匿名函数和闭包。
+• 函数也是一种类型，一个函数可以赋值给变量。
+
+• 不支持 嵌套 (nested) 一个包不能有两个名字一样的函数。
+• 不支持 重载 (overload) 
+• 不支持 默认参数 (default parameter)。
+</code></pre><pre><code>// 定义函数类型。
+type FormatFunc func(s string, x, y int) string 
+
+func format(fn FormatFunc, s string, x, y int) string {
+	return fn(s, x, y)
+}
+
+func main() {
+	s1 := test(func() int { return 100 }) // 直接将匿名函数当参数。
+
+	s2 := format(func(s string, x, y int) string {
+		return fmt.Sprintf(s, x, y)
+	}, &quot;%d, %d&quot;, 10, 20)
+
+	println(s1, s2)
+}
+
+//100 10, 20
+</code></pre><h5 id="参数">参数</h5>
+<blockquote>
+<p>注意：map、slice、chan、指针、interface默认以引用的方式传递</p>
+</blockquote>
+<ul>
+<li>不定参数传值
+就是函数的参数不是固定的，后面的类型是固定的。（可变参数）Golang 可变参数本质上就是 slice。只能有一个，且必须是最后一个。</li>
+</ul>
+<pre><code>  func myfunc(args ...int) {    //0个或多个参数
+  }
+
+  func add(a int, args…int) int {    //1个或多个参数
+  }
+
+  func add(a int, b int, args…int) int {    //2个或多个参数
+  }
+</code></pre><ul>
+<li>
+<p>任意类型的不定参数：就是函数的参数和每个参数的类型都不是固定的。</p>
+<p>用interface{}传递任意类型数据是Go语言的惯例用法，而且interface{}是类型安全的。</p>
+<pre><code>  func myfunc(args ...interface{}) {
+  }
+</code></pre></li>
+<li>
+<p>使用 slice 对象做变参时，必须展开。<code>（slice...）</code></p>
+</li>
+</ul>
+<pre><code>func test(s string, n ...int) string {
+	var x int
+	for _, i := range n {
+		x += i
+	}
+
+	return fmt.Sprintf(s, x)
+}
+
+func main() {
+	s := []int{1, 2, 3}
+	res := test(&quot;sum: %d&quot;, s...)	// slice... 展开slice
+	println(res)
+}
+</code></pre><h5 id="返回值">返回值</h5>
+<p>没有参数的 return 语句返回各个返回变量的当前值。这种用法被称作“裸”返回</p>
+<pre><code>func add(a, b int) (c int) {
+	c = a + b
+	return
+}
+
+func calc(a, b int) (sum int, avg int) {
+	sum = a + b
+	avg = (a + b) / 2
+
+	return
+}
+</code></pre><h5 id="匿名函数">匿名函数</h5>
+<ul>
+<li>匿名函数由一个不带函数名的函数声明和函数体组成。匿名函数的优越性在于可以直接使用函数内的变量，不必申明</li>
+</ul>
+<pre><code>func main() {
+	getSqrt := func(a float64) float64 {
+		return math.Sqrt(a)
+	}
+	fmt.Println(getSqrt(4))
+}
+</code></pre><ul>
+<li>
+<p>Golang匿名函数可赋值给变量，做为结构字段，或者在 channel 里传送</p>
+<pre><code>// --- function variable ---
+fn := func() { println(&quot;Hello, World!&quot;) }
+fn()
+  
+// --- function as field ---
+d := struct {
+	fn func() string
+}{
+	fn: func() string { return &quot;Hello, World!&quot; },
+}
+println(d.fn())
+  
+  
+// --- channel of function ---
+fc := make(chan func() string, 2)
+fc &lt;- func() string { return &quot;Hello, World!&quot; }
+println((&lt;-fc)())
+</code></pre></li>
+</ul>
+<h5 id="闭包">闭包</h5>
+<p>闭包是由函数和与其相关的引用环境组合而成的实体
+在给定函数被多次调用的过程中，这些私有变量能够保持其持久性。变量的作用域仅限于包含它们的函数，因此无法从其它程序代码部分进行访问</p>
+<pre><code>func a() func() int {
+	i := 0
+	b := func() int {
+		i++
+		fmt.Println(i)
+		return i
+	}
+	return b
+}
+
+func main() {
+	c := a()
+	c()
+	c()
+	c()
+}
+//1
+//2
+//3
+</code></pre><h5 id="延迟">延迟</h5>
+<pre><code>1. 关键字 defer 用于注册延迟调用。
+2. 这些调用直到 return 前才被执。因此，可以用来做资源清理。
+3. 多个defer语句，按先进后出的方式执行。
+4. defer语句中的变量，在defer声明时就决定了。
+</code></pre><p>defer后面的语句在执行的时候，函数调用的参数会被保存起来，但是不执行。也就是复制了一份。</p>
+<h5 id="异常处理">异常处理</h5>
+<p>异常的使用 ：Go中可以抛出一个panic的异常，然后在defer中通过recover捕获这个异常，然后正常处理。</p>
+<ul>
+<li>
+<p>向已关闭的通道发送数据会引发panic</p>
+<pre><code>func main() {
+	defer func() {
+      if err := recover(); err != nil {
+          fmt.Println(err)
+      }
+	}()
+  
+	var ch chan int = make(chan int, 10)
+	close(ch)
+	ch &lt;- 1
+}
+//send on closed channel
+</code></pre></li>
+<li>
+<p>延迟调用中引发的错误，可被后续延迟调用捕获，但仅最后一个错误可被捕获。</p>
+<pre><code>defer func() {
+      fmt.Println(recover())
+	}()
+  
+	defer func() {
+      panic(&quot;defer panic&quot;)
+	}()
+  
+	panic(&quot;test panic&quot;)
+	//输出defer panic
+</code></pre></li>
+<li>
+<p>Go实现类似 try catch 的异常处理</p>
+<pre><code>func Try(fun func(), handler func(interface{})) {
+	defer func() {
+      if err := recover(); err != nil {
+          handler(err)
+      }
+	}()
+	fun()
+}
+  
+func main() {
+	Try(func() {
+      panic(&quot;test panic&quot;)
+	}, func(err interface{}) {
+      fmt.Println(err)
+	})
+}
+</code></pre></li>
+<li>
+<p>如何区别使用 panic 和 error 两种方式?
+惯例是:导致关键流程出现不可修复性错误的使用 panic，其他使用 error。</p>
+</li>
+</ul>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%932/" data-toggle="tooltip" data-placement="top" title="Go小结2">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%934/" data-toggle="tooltip" data-placement="top" title="Go小结4">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/go%E5%B0%8F%E7%BB%932/">Go小结2</a></li>
+                    
+                    <li><a href="/posts/go%E5%B0%8F%E7%BB%931/">Go小结1</a></li>
+                    
+                    <li><a href="/posts/%E6%9B%B4%E6%94%B9gvm%E9%BB%98%E8%AE%A4gopath/">更改gvm默认GoPATH</a></li>
+                    
+                    <li><a href="/posts/ssh%E4%B8%8D%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80/">Ssh不自动断开</a></li>
+                    
+                    <li><a href="/posts/linux%E6%B8%85%E9%99%A4%E6%93%8D%E4%BD%9C%E6%97%A5%E5%BF%97/">Linux清除操作日志</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

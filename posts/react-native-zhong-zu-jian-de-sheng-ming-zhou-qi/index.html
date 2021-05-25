@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> React Native 中组件的生命周期 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="React Native 中组件的生命周期" />
+  <meta name="twitter:title" content="React Native 中组件的生命周期" />
+  <meta name="description" content="概述 RN 组件的生命周期整理如下图 如图，可以把组件生命周期大致分为三个阶段： 第一阶段：是组件第一次绘制阶段 第二阶段：是组件在运行和交互阶段 第三阶">
+  <meta property="og:description" content="概述 RN 组件的生命周期整理如下图 如图，可以把组件生命周期大致分为三个阶段： 第一阶段：是组件第一次绘制阶段 第二阶段：是组件在运行和交互阶段 第三阶">
+  <meta name="twitter:description" content="概述 RN 组件的生命周期整理如下图 如图，可以把组件生命周期大致分为三个阶段： 第一阶段：是组件第一次绘制阶段 第二阶段：是组件在运行和交互阶段 第三阶">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/react-native-zhong-zu-jian-de-sheng-ming-zhou-qi/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/react-native-zhong-zu-jian-de-sheng-ming-zhou-qi/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">React Native 中组件的生命周期</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Apr 10, 2017</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/react/">react</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <h2 id="概述">概述</h2>
+<p>RN 组件的生命周期整理如下图
+<img src="http://7rf9ir.com1.z0.glb.clouddn.com/3-3-component-lifecycle.jpg" alt=""></p>
+<p>如图，可以把组件生命周期大致分为三个阶段：</p>
+<ul>
+<li>第一阶段：是组件第一次绘制阶段</li>
+<li>第二阶段：是组件在运行和交互阶段</li>
+<li>第三阶段：是组件卸载消亡的阶段</li>
+</ul>
+<h2 id="生命周期回调函数">生命周期回调函数</h2>
+<h3 id="getdefaultprops">getDefaultProps</h3>
+<pre><code>在组件创建之前，会先调用 getDefaultProps(),在组件被创建并加载候，首先调用 `getInitialState()`来初始化组件的状态。
+</code></pre>
+<h3 id="componetwillmount">componetWillMount</h3>
+<h3 id="componentdidmount">componentDidMount</h3>
+<h3 id="componentwillreceiveprops">componentWillReceiveProps</h3>
+<h3 id="shouldcomponentupdate">shouldComponentUpdate</h3>
+<h3 id="componentwillupdate">componentWillUpdate</h3>
+<h3 id="componentdidupdate">componentDidUpdate</h3>
+<h3 id="componentwillunmount">componentWillUnmount</h3>
+<h2 id="总结">总结</h2>
+<table>
+<thead>
+<tr>
+<th>生命周期</th>
+<th>调用次数</th>
+<th>能否使用 setSate()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getDefaultProps</td>
+<td>1</td>
+<td>(全局调用一次)	否</td>
+</tr>
+<tr>
+<td>getInitialState</td>
+<td>1</td>
+<td>否</td>
+</tr>
+<tr>
+<td>componentWillMount</td>
+<td>1</td>
+<td>是</td>
+</tr>
+<tr>
+<td>render</td>
+<td>&gt;=1</td>
+<td>否</td>
+</tr>
+<tr>
+<td>componentDidMount</td>
+<td>1</td>
+<td>是</td>
+</tr>
+<tr>
+<td>componentWillReceiveProps</td>
+<td>&gt;=0</td>
+<td>是</td>
+</tr>
+<tr>
+<td>shouldComponentUpdate</td>
+<td>&gt;=0</td>
+<td>否</td>
+</tr>
+<tr>
+<td>componentWillUpdate</td>
+<td>&gt;=0</td>
+<td>否</td>
+</tr>
+<tr>
+<td>componentDidUpdate</td>
+<td>&gt;=0</td>
+<td>否</td>
+</tr>
+<tr>
+<td>componentWillUnmount</td>
+<td>1</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/selenium/" data-toggle="tooltip" data-placement="top" title="selenium">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/eslint/" data-toggle="tooltip" data-placement="top" title="eslint">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/react-reduxyong-fa/">React-Redux用法</a></li>
+                    
+                    <li><a href="/posts/code-push-re-geng-xin-shi-yong/">Code Push 热更新使用</a></li>
+                    
+                    <li><a href="/posts/redux/">redux</a></li>
+                    
+                    <li><a href="/posts/react/">React &#43; Webpack &#43; Babel</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Apr 10, 2017</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/react/">react</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

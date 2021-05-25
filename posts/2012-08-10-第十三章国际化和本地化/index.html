@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第十三章：国际化和本地化 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第十三章：国际化和本地化" />
+  <meta name="twitter:title" content="第十三章：国际化和本地化" />
+  <meta name="description" content="目录 13.1 用户的culture 13.1.1 设定默认的culture 13.1.2 改变用户的culture 13.1.3 自动确定用户的culture 13.2 标准与格式 13.2.1 根据用户cultu">
+  <meta property="og:description" content="目录 13.1 用户的culture 13.1.1 设定默认的culture 13.1.2 改变用户的culture 13.1.3 自动确定用户的culture 13.2 标准与格式 13.2.1 根据用户cultu">
+  <meta name="twitter:description" content="目录 13.1 用户的culture 13.1.1 设定默认的culture 13.1.2 改变用户的culture 13.1.3 自动确定用户的culture 13.2 标准与格式 13.2.1 根据用户cultu">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第十三章：国际化和本地化</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">17400 Words|Read in about 35 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_user_culture">13.1 用户的culture</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_setting_the_default_culture">13.1.1 设定默认的culture</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_changing_the_culture_for_a_user">13.1.2 改变用户的culture</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_determining_the_culture_automatically">13.1.3 自动确定用户的culture</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_standards_and_formats">13.2 标准与格式</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_outputting_data_in_the_user_s_culture">13.2.1 根据用户culture值输出数据</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_getting_data_from_a_localized_input">13.2.2 从本地化输入获取数据</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_text_information_in_the_database">13.3 数据库中的文本信息</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_creating_localized_schema">13.3.1 创建本地化数据库schema</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_using_the_generated_i18n_objects">13.3.2 运用生成的i18n对象</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_interface_translation">13.4 界面翻译</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_configuring_translation">13.4.1 翻译的配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_using_the_translation_helper">13.4.2 运用翻译辅助函数</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_using_dictionary_files">13.4.3 运用字典文件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_managing_dictionaries">13.4.4 管理字典</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_handling_other_elements_requiring_translation">13.4.5 处理需要翻译的其他元素</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_handling_complex_translation_needs">13.4.6 处理复杂的翻译需求</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_sub_calling_the_translation_helper_outside_a_template">13.4.7 在模版外调用翻译辅助函数</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_summary">13.5 总结</a></li>
+</ul>
+<p><!-- raw HTML omitted -->如果你曾经开发过国际化的应用程序，你一定知道要处理好文本翻译、地方标准、本地化内容是极为困难的事。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->幸好，symfony能够自动处理与国际化有关的各种问题。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->因为“国际化（internationalization）”这个词的英文名字太长，所以开发者们通常将它简写为i18n（数一下单词字母的个数就知道为什么了）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->同样，“本地化（localization）”被简写为l10n。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这两个概念涵盖了多语种互联网应用程序的两个不同的方面。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->一个国际化应用程序程序通常包括多个版本，它们的内容相同而语言或格式不同。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->例如，一个web电子邮件系统就可以用多种语言提供同一种服务，仅仅是界面不同而已。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->而一个本地化应用程序则会根据用户浏览的地区不同而显示不同的信息。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果你浏览一个新闻网站，那么在美国访问这个网站，页面将显示与美国有关的最新话题，而在法国访问这个网站，页面就应该显示在法国发生的最新事件。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->所以说，l10n不仅要翻译页面内容，而且要根据不同的本地化版本提供不同的内容。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->总之，i18n和l10n将会处理以下问题： <!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p><!-- raw HTML omitted -->文本翻译（包括界面、资源和内容） <!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;This chapter covers the way symfony deals with those elements and how you can use it to develop internationalized and localized applications.&quot;&gt;本章将介绍symfony处理这些问题的方法以及如何运用这些方法来开发国际化和本地化的应用程序系统。&lt;/span&gt;
+&lt;/p&gt;
+    
+&lt;h2&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_user_culture&quot;&gt;&lt;span en=&quot;13.1 User Culture&quot;&gt;13.1 用户culture&lt;/span&gt;&lt;/a&gt;
+&lt;/h2&gt;
+    
+&lt;p&gt;
+  &lt;span en=&quot;All the built-in i18n features in symfony are based on a parameter of the user session called the culture.&quot;&gt;在symfony内置的i18n中所有的特性是基于被叫做culture的一个用户session参数。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The culture is the combination of the country and the language of the user, and it determines how the text and culture-dependent information are displayed.&quot;&gt;这个culture参数由用户的国家和语言所组成，它确定如何显示文本以及与culture有关的信息。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Since it is serialized in the user session, the culture is persistent between pages.&quot;&gt; 因为culture参数被序列化保存在用户session中，所以它在页面之间是持久有效的。&lt;/span&gt;
+&lt;/p&gt;
+    
+&lt;h3&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_sub_setting_the_default_culture&quot;&gt;&lt;span en=&quot;13.1.1 Setting the Default Culture&quot;&gt;13.1.1 设定默认的culture&lt;/a&gt;&lt;/h3&gt; 
+      
+  &lt;p&gt;
+    &lt;span en=&quot;By default, the culture of new users is the &lt;code&gt;default_culture&lt;/code&gt;.&amp;#8221;&gt;默认情况下，新用户的culture是 &lt;code&gt;default_culture&lt;/code&gt;。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You can change this setting in the &lt;code&gt;settings.yml&lt;/code&gt; configuration file, as shown in Listing 13-1.&amp;#8221;&gt;可以在 &lt;code&gt;settings.yml&lt;/code&gt; 配置文件中改变它的设置，如例13-1所示。&lt;/span&gt;
+  &lt;/p&gt;
+      
+  &lt;p class=&quot;figure&quot;&gt;
+    &lt;span en=&quot;Listing 13-1 - Setting the Default Culture, in &lt;code&gt;frontend/config/settings.yml&lt;/code&gt;&amp;#8220;&gt;例13-1 在 &lt;code&gt;frontend/config/settings.yml&lt;/code&gt; 中设定默认culture&lt;/span&gt;
+  &lt;/p&gt;
+      
+  &lt;pre&gt;all:
+</code></pre>
+</li>
+</ul>
+<p>.settings:
+default_culture: fr_FR<!-- raw HTML omitted --></p>
+<pre><code>      &lt;blockquote class=&quot;note&quot;&gt;
+        &lt;p&gt;
+          &lt;span en=&quot;During development, you might be surprised that a culture change in the &lt;code&gt;settings.yml&lt;/code&gt; file doesn&amp;#8217;t change the current culture in the browser.&amp;#8221;&gt;你也许会奇怪为什么虽然在开发过程中改变了 &lt;code&gt;settings.yml&lt;/code&gt; 中的值，浏览器中显示的内容却没有相应变化。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;That's because the session already has a culture from previous pages.&quot;&gt;这是因为浏览器从前面的页面中保留了先前的culture值。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot; If you want to see the application with the new default culture, you need to clear the domain cookies or restart your browser.&quot;&gt;如果你想看到新culture值带来的变化，你需要清除cookie或重启你的浏览器。&lt;/span&gt;
+        &lt;/p&gt;
+      &lt;/blockquote&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;Keeping both the language and the country in the culture is necessary because you may have a different French translation for users from France, Belgium, or Canada, and a different Spanish content for users from Spain or Mexico.&quot;&gt;在一个国家culture中保留两个语言是有必要的，因为对来自法国、比利时、加拿大的用户你可能有不同的法语翻译，还有对来自西班牙或墨西哥的用户有不同的西班牙语的内容。所以culture参数是由语言和国家两个参数值组成的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The language is coded in two lowercase characters, according to the ISO 639-1 standard (for instance, en for English).&quot;&gt;语言根据ISO 639-1标准，用两个小写字母表示，例如，英语用en表示。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The country is coded in two uppercase characters, according to the ISO 3166-1 standard (for instance, GB for Great Britain).&quot;&gt;国家根据ISO 3166-1标准，用两个大写字母表示，例如，大不列颠国（Great Britain）即英国用 &lt;code&gt;GB&lt;/code&gt; 表示。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;h3&gt;
+        &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_sub_changing_the_culture_for_a_user&quot;&gt;&lt;span en=&quot;13.1.2 Changing the Culture for a User&quot;&gt;13.1.2 改变用户的culture&lt;/a&gt;&lt;/h3&gt; 
+        
+        &lt;p&gt;
+          &lt;span en=&quot;The user culture can be changed during the browsing session&quot;&gt;在与浏览器的session过程中，用户的culture值是可以被改变的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;for instance, when a user decides to switch from the English version to the French version of the application, or when a user logs in to the application and uses the language stored in his preferences.&quot;&gt;例如，当用户决定从英文版切换到法文版的应用程序，或当用户登录时要使用自己预设的语言的时候。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;That's why the &lt;code&gt;sfUser&lt;/code&gt; class offers getter and setter methods for the user culture.&amp;#8221;&gt;这就是为什么 &lt;code&gt;sfUser&lt;/code&gt; 类提供了用户culture的getter和setter方法。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Listing 13-2 shows how to use these methods in an action.&quot;&gt;例13-2显示了如何在一个动作中运用这些方法。&lt;/span&gt;
+        &lt;/p&gt;
+        
+        &lt;p class=&quot;figure&quot;&gt;
+          &lt;span en=&quot;Listing 13-2 - Setting and Retrieving the Culture in an Action&quot;&gt;例 13-2 &amp;#8211; 在动作中设定和获取culture&lt;/span&gt;
+        &lt;/p&gt;
+        
+        &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// Culture setter&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getUser<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->setCulture<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;en_US&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// Culture getter<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$culture<!-- raw HTML omitted --> = <!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getUser<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getCulture<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; en_US<!-- raw HTML omitted --></p>
+<pre><code>        &lt;blockquote class=&quot;sidebar&quot;&gt;
+          &lt;p class=&quot;title&quot;&gt;
+            &lt;span en=&quot;Culture in the URL&quot;&gt;URL里的culture&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;When using symfony's localization and internationalization features, pages tend to have different versions for a single URL--it all depends on the user session.&quot;&gt;当你运用symfony的国际化和本地化特性时，一个URL的页面就可以有多个不同的版本，这取决于用户的session。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This prevents you from caching or indexing your pages in a search engine.&quot;&gt;而这样会使你不能在搜索引擎中缓存或索引你的页面。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;One solution is to make the culture appear in every URL, so that translated pages can be seen as different URLs to the outside world.&quot;&gt;解决这个问题的一种方法是在每个URL中加上culture值，这样，被翻译过的页面就会被看成是不同的URL。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;In order to do that, add the &lt;code&gt;:sf_culture&lt;/code&gt; token in every rule of your application &lt;code&gt;routing.yml&lt;/code&gt;:&amp;#8221;&gt;为此，你可以在应用程序的 &lt;code&gt;routing.yml&lt;/code&gt; 中为每个规则加上 &lt;code&gt;:sf_culture&lt;/code&gt; 标记：&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre&gt;page:
+</code></pre>
+<p>url: /:sf_culture/:page
+param: &hellip;
+requirements: { sf_culture: (?:fr|en|de) }</p>
+<p>article:
+url: /:sf_culture/:year/:month/:day/:slug
+param: &hellip;
+requirements: { sf_culture: (?:fr|en|de) }<!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;To avoid manually setting the &lt;code&gt;sf_culture&lt;/code&gt; request parameter in every &lt;code&gt;link_to()&lt;/code&gt;, symfony automatically adds the user culture to the default routing parameters.&amp;#8221;&gt;为了避免在每个 &lt;code&gt;link_to()&lt;/code&gt; 中手工加 &lt;code&gt;sf_culture&lt;/code&gt; 参数，symfony会将用户culture自动加到默认的路由参数中。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It also works inbound because symfony will automatically change the user culture if the &lt;code&gt;sf_culture&lt;/code&gt; parameter is found in the URL.&amp;#8221;&gt;反之，如果在URL中出现 &lt;code&gt;sf_culture&lt;/code&gt; 参数，symfony也会自动改变用户culture的值。&lt;/span&gt;
+          &lt;/p&gt;
+        &lt;/blockquote&gt;
+        
+        &lt;h3&gt;
+          &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_sub_determining_the_culture_automatically&quot;&gt;&lt;span en=&quot;13.1.3 Determining the Culture Automatically&quot;&gt;13.1.3 自动确定用户的culture&lt;/a&gt;&lt;/h3&gt; 
+          
+          &lt;p&gt;
+            &lt;span en=&quot;In many applications, the user culture is defined during the first request, based on the browser preferences.&quot;&gt;在许多应用程序中，用户的culture是在第一次请求时基于浏览器的设定来定义的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Users can define a list of accepted languages in their browser, and this data is sent to the server with each request, in the &lt;code&gt;Accept-Language&lt;/code&gt; HTTP header.&amp;#8221;&gt;用户可以在浏览器中定义一组可接受的语言，每当浏览器向服务器发出一个请求，这组语言数据就会被放在HTTP头的 &lt;code&gt;Accept-Language&lt;/code&gt; 参数中。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You can retrieve it in symfony through the &lt;code&gt;sfRequest&lt;/code&gt; object.&amp;#8221;&gt;你可以通过symfony的 &lt;code&gt;sfRequest&lt;/code&gt; 对象来获取它。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, to get the list of preferred languages of a user in an action, type this:&quot;&gt;例如，要获得一个动作中用户的预设的语言列表，可以用以下方法：&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$languages&lt;/span&gt; = &lt;span class=&quot;re0&quot;&gt;$request&lt;/span&gt;-&amp;gt;&lt;span class=&quot;me1&quot;&gt;getLanguages&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;&lt;/pre&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;The HTTP header is a string, but symfony automatically parses it and converts it into an array.&quot;&gt;HTTP头是一个字符串，但symfony自动将它转换为一个数组。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;So the preferred language of the user is accessible with &lt;code&gt;$languages[0]&lt;/code&gt; in the preceding example.&amp;#8221;&gt;所以可以用 &lt;code&gt;$languages[0]&lt;/code&gt; 取得上面例子中的用户预设语言。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;It can be useful to automatically set the user culture to its preferred browser language in a site home page or in a filter for all pages.&quot;&gt;在网站首页或者网站入口页面，可以用于自动的设定用户的culture到浏览器预设语言。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But as your website will probably only support a limited set of languages, it's better to use the &lt;code&gt;getPreferredCulture()&lt;/code&gt; method.&amp;#8221;&gt;但因为你的网站可能只支持有限的几种语言，最好是用 &lt;code&gt;getPreferredCulture()&lt;/code&gt; 方法。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It returns the best language by comparing the user preferred languages and the supported languages:&quot;&gt;它通过对照用户预设的语言和网站所支持的语言来返回一个首选语言。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$language&lt;/span&gt; = &lt;span class=&quot;re0&quot;&gt;$request&lt;/span&gt;-&amp;gt;&lt;span class=&quot;me1&quot;&gt;getPreferredCulture&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kw3&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'en'&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;'fr'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;; &lt;span class=&quot;co1&quot;&gt;&lt;span en=&quot;// the website is available in English and French&quot;&gt;// 该网站提供英语和法语&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;If there is no match, the method returns the first supported language (&lt;code&gt;en&lt;/code&gt; in the preceding example).&amp;#8221;&gt;如果没有匹配的，则返回第一个支持语言（在上面的例子中是 &lt;code&gt;en&lt;/code&gt;）。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;blockquote class=&quot;caution&quot;&gt;
+            &lt;p&gt;
+              &lt;span en=&quot;The &lt;code&gt;Accept-Language&lt;/code&gt; HTTP header is not very reliable information, since users rarely know how to modify it in their browser.&amp;#8221;&gt;HTTP头的 &lt;code&gt;Accept-Language&lt;/code&gt; 值并不是很可靠的信息，因为很少有用户知道如何改变浏览器中的语言值。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Most of the time, the preferred browser language is the language of the interface, and browsers are not available in all languages.&quot;&gt;大多数时候，预设的浏览器语言是界面的语言，而浏览器并不是在所有语言下都是可用的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If you decide to set the culture automatically according to the browser preferred language, make sure you provide a way for the user to choose an alternate language.&quot;&gt;如果你根据浏览器预设语言自动设定culture值，最好可以提供一个让用户选择语言的方法。&lt;/span&gt;
+            &lt;/p&gt;
+          &lt;/blockquote&gt;
+          
+          &lt;h2&gt;
+            &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_standards_and_formats&quot;&gt;&lt;span en=&quot;13.2 Standards and Formats&quot;&gt;13.2 标准与格式&lt;/span&gt;&lt;/a&gt;
+          &lt;/h2&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;The internals of a web application don't care about cultural particularities.&quot;&gt;web应用程序内部是不考虑culture因素的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Databases, for instance, use international standards to store dates, amounts, and so on.&quot;&gt;比如说数据库，它使用的日期、数量等数据都是按国际标准存放的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But when data is sent to or retrieved from users, a conversion needs to be made.&quot;&gt;但是，当数据发送给用户时，或从用户那里取得数据时，就需要进行格式转换。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Users won't understand timestamps, and they will prefer to declare their mother language as Français instead of French.&quot;&gt;用户不可能理解时间戳的概念，而且对于法国人来说，他们更愿意将自己的母语称为Français而不是French。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;So you will need assistance to do the conversion automatically, based on the user culture.&quot;&gt;所以你需要根据用户culture值，对格式进行自动转换。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;h3&gt;
+              &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_sub_outputting_data_in_the_user_s_culture&quot;&gt;&lt;span en=&quot;13.2.1 Outputting Data in the User's Culture&quot;&gt;13.2.1 根据用户culture值输出数据&lt;/a&gt;&lt;/h3&gt; 
+              
+              &lt;p&gt;
+                &lt;span en=&quot;Once the culture is defined, the helpers depending on it will automatically have proper output.&quot;&gt;一旦定义了culture值，辅助函数就会据此自动进行适当的输出。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, the &lt;code&gt;format_number()&lt;/code&gt; helper automatically displays a number in a format familiar to the user, according to its culture, as shown in Listing 13-3.&amp;#8221;&gt;例如，&lt;code&gt;format_number()&lt;/code&gt; 辅助函数就会根据用户的culture值，自动将数字以用户熟悉的格式输出，如例13-3所示。&lt;/span&gt;
+              &lt;/p&gt;
+              
+              &lt;p class=&quot;figure&quot;&gt;
+                &lt;span en=&quot;Listing 13-3 - Displaying a Number for the User's Culture&quot;&gt;例 13-3 &amp;#8211; 根据用户culture值显示数字&lt;/span&gt;
+              &lt;/p&gt;
+              
+              &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt; use_helper&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'Number'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kw2&quot;&gt;?&amp;gt;&lt;/span&gt;
+</code></pre>
+<p> 
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->$sf_user<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->setCulture<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;en_US&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> format_number<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->12000.10<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+=&gt; <!-- raw HTML omitted -->&lsquo;12,000.10&rsquo;<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->$sf_user<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->setCulture<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;fr_FR&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> format_number<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->12000.10<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+=&gt; <!-- raw HTML omitted -->&lsquo;12 000,10&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>              &lt;p&gt;
+                &lt;span en=&quot;You don't need to explicitly pass the culture to the helpers.&quot;&gt;你无需明确地将culture值传递给辅助函数。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;They will look for it themselves in the current session object.&quot;&gt;辅助函数会在当前的session对象中自动找到culture值。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Listing 13-4 lists helpers that take into account the user culture for their output.&quot;&gt;例13-4中列出的辅助函数在输出数据时都会考虑用户的culture值。&lt;/span&gt;
+              &lt;/p&gt;
+              
+              &lt;p class=&quot;figure&quot;&gt;
+                &lt;span en=&quot;Listing 13-4 lists helpers that take into account the user culture for their output.&quot;&gt;例13-4 与用户culture有关的辅助函数。&lt;/span&gt;
+              &lt;/p&gt;
+              
+              &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&lt;?php&lt;/span&gt; use_helper&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'Date'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kw2&quot;&gt;?&gt;&lt;/span&gt;
+</code></pre>
+<p> 
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+=&gt; <!-- raw HTML omitted -->&lsquo;9/14/10&rsquo;<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+=&gt; <!-- raw HTML omitted -->&lsquo;September 14, 2010 6:11:07 PM CEST&rsquo;<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+=&gt; <!-- raw HTML omitted -->&lsquo;12,000.10&rsquo;<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+=&gt; <!-- raw HTML omitted -->'$1,350.00'<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+=&gt; <!-- raw HTML omitted -->&lsquo;United States&rsquo;<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+=&gt; <!-- raw HTML omitted -->&lsquo;English&rsquo;<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+=&gt; input type=<!-- raw HTML omitted -->&ldquo;text&rdquo;<!-- raw HTML omitted --> name=<!-- raw HTML omitted -->&ldquo;birth_date&rdquo;<!-- raw HTML omitted --> id=<!-- raw HTML omitted -->&ldquo;birth_date&rdquo;<!-- raw HTML omitted --> value=<!-- raw HTML omitted -->&ldquo;9/14/10&rdquo;<!-- raw HTML omitted --> size=<!-- raw HTML omitted -->&ldquo;11&rdquo;<!-- raw HTML omitted --> /&gt;
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+=&gt; &lt;select name=<!-- raw HTML omitted -->&ldquo;country&rdquo;<!-- raw HTML omitted --> id=<!-- raw HTML omitted -->&ldquo;country&rdquo;<!-- raw HTML omitted -->&gt;&lt;option value=<!-- raw HTML omitted -->&ldquo;AF&rdquo;<!-- raw HTML omitted -->&gt;Afghanistan<!-- raw HTML omitted -->
+&hellip;
+&lt;option value=<!-- raw HTML omitted -->&ldquo;GB&rdquo;<!-- raw HTML omitted -->&gt;United Kingdom<!-- raw HTML omitted -->
+&lt;option value=<!-- raw HTML omitted -->&ldquo;US&rdquo;<!-- raw HTML omitted --> selected=<!-- raw HTML omitted -->&ldquo;selected&rdquo;<!-- raw HTML omitted -->&gt;United States<!-- raw HTML omitted -->
+&lt;option value=<!-- raw HTML omitted -->&ldquo;UM&rdquo;<!-- raw HTML omitted -->&gt;United States Minor Outlying Islands<!-- raw HTML omitted -->
+&lt;option value=<!-- raw HTML omitted -->&ldquo;UY&rdquo;<!-- raw HTML omitted -->&gt;Uruguay<!-- raw HTML omitted -->
+&hellip;
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;For each table that contains some localized data, you should split the table in two parts: one table that does not have any i18n column, and the other one with only the i18n columns.&quot;&gt;对于每个包括了一些本地化数据的表，你应该将表分成两个部分：一个表不包含任何i18n列，另一个表则只包含i18n列。&lt;/span&gt;&lt;br /&gt;
+  &lt;span en=&quot;The two tables are to be linked by a one-to-many relationship.&quot;&gt;这两个表是通过一对多关系来连接的。&lt;/span&gt;&lt;br /&gt;
+  &lt;span en=&quot;This setup lets you add more languages when required without changing your model.&quot;&gt;这种方法可以让你不用改变模型就可以增加任意多种语言。&lt;/span&gt;&lt;br /&gt;
+  &lt;span en=&quot;Let's consider an example using a &lt;code&gt;Product&lt;/code&gt; table.&amp;#8221;&gt;让我们看一下 &lt;code&gt;Product&lt;/code&gt; 表。&lt;/span&gt;
+  
+&lt;/p&gt;
+
+
+&lt;p&gt;
+  &lt;span en=&quot;First, create tables in the &lt;code&gt;schema.yml&lt;/code&gt; file, as shown in Listing 13-6.&amp;#8221;&gt;首先，在 &lt;code&gt;schema.yml&lt;/code&gt; 文件中创建表，如例13-6所示。&lt;/span&gt;
+  
+&lt;/p&gt;
+
+
+&lt;p class=&quot;figure&quot;&gt;
+  &lt;span en=&quot;Listing 13-6 - Sample Schema for i18n Data with Propel, in &lt;code&gt;config/schema.yml&lt;/code&gt;&amp;#8220;&gt;例 13-6 &amp;#8211; 用propel为i18n数据建立简单的schema，在 &lt;code&gt;config/schema.yml&lt;/code&gt;&lt;/span&gt;
+  
+&lt;/p&gt;
+
+
+&lt;pre&gt;my_connection:
+</code></pre>
+<p>my_product:
+_attributes: { phpName: Product, isI18N: true, i18nTable: my_product_i18n }
+id:          { type: integer, required: true, primaryKey: true, autoincrement: true }
+price:       { type: float }</p>
+<p>my_product_i18n:
+_attributes: { phpName: ProductI18n }
+id:          { type: integer, required: true, primaryKey: true, foreignTable: my_product, foreignReference: id }
+culture:     { isCulture: true, type: varchar, size: 7, required: true, primaryKey: true }
+name:        { type: varchar, size: 50 }<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;Notice the &lt;code&gt;isI18N&lt;/code&gt; and &lt;code&gt;i18nTable&lt;/code&gt; attributes in the first table, and the special culture column in the second.&amp;#8221;&gt;注意第一个表中的 &lt;code&gt;isI18N&lt;/code&gt; 和 &lt;code&gt;i18nTable&lt;/code&gt; 属性，及第2个中的特殊的 &lt;code&gt;culture&lt;/code&gt; 列。&lt;/span&gt;&lt;br /&gt;
+  &lt;span en=&quot;All these are symfony-specific Propel enhancements.&quot;&gt;这些都是propel针对symfony而增强的特性。&lt;/span&gt;
+  
+&lt;/p&gt;
+
+
+&lt;p class=&quot;figure&quot;&gt;
+  &lt;span en=&quot;Listing 13-7 - Sample Schema for i18n Data with Doctrine, in &lt;code&gt;config/doctrine/schema.yml&lt;/code&gt;&amp;#8220;&gt;例 13-7 &amp;#8211; 用doctrine写i18n数据的简单schema，在 &lt;code&gt;config/doctrine/schema.yml&lt;/code&gt;&lt;/span&gt;
+  
+&lt;/p&gt;
+
+
+&lt;pre&gt;Product:
+</code></pre>
+<p>actAs:
+I18n:
+fields: [name]
+columns:
+price: { type: float }
+name: { type: string(50) }<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;The symfony automations can make this much faster to write.&quot;&gt;symfony的自动化工具可以快速完成这一过程。&lt;/span&gt;&lt;br /&gt;
+  &lt;span en=&quot;If the table containing internationalized data has the same name as the main table with &lt;code&gt;_i18n&lt;/code&gt; as a suffix, and they are related with a column named id in both tables, you can omit the &lt;code&gt;id&lt;/code&gt; and &lt;code&gt;culture&lt;/code&gt; columns in the &lt;code&gt;_i18n&lt;/code&gt; table as well as the specific &lt;code&gt;i18n&lt;/code&gt; attributes for the main table; symfony will infer them.&amp;#8221;&gt;如果包含国际化数据的表名是主表的名字加上 &lt;code&gt;_i18n&lt;/code&gt; 后缀，而且两个表之间通过表中的 &lt;code&gt;id&lt;/code&gt; 列相互关联，那么你就可以省略主表中的 &lt;code&gt;i18n&lt;/code&gt; 属性，同时可以省略 &lt;code&gt;_i18n&lt;/code&gt; 表的 &lt;code&gt;id&lt;/code&gt; 和 &lt;code&gt;culture&lt;/code&gt; 列，symfony会自动处理这些表。&lt;/span&gt;&lt;br /&gt;
+  &lt;span en=&quot;It means that symfony will see the schema in Listing 13-8 as the same as the one in Listing 13-6.&quot;&gt;也就是说，在symfony看来，例13-8的设计和例13-6的schema是完全一样的。&lt;/span&gt;
+  
+&lt;/p&gt;
+
+
+&lt;p class=&quot;figure&quot;&gt;
+  &lt;span en=&quot;Listing 13-8 - Sample Schema for i18n Data with Doctrine, in &lt;code&gt;config/schema.yml&lt;/code&gt;&amp;#8220;&gt;例 13-8 i18n数据的简单schema，短的版本，在 &lt;code&gt;config/schema.yml&lt;/code&gt;&lt;/span&gt;
+  
+&lt;/p&gt;
+
+
+&lt;pre&gt;Product:
+</code></pre>
+<p>actAs:
+I18n:
+fields: [name]
+columns:
+price: { type: float }
+name: { type: string(50) }<!-- raw HTML omitted --></p>
+<pre><code>&lt;h3&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_sub_using_the_generated_i18n_objects&quot;&gt;&lt;span en=&quot;13.3.2 Using the Generated I18n Objects&quot;&gt;13.3.2 使用生成的I18n对象&lt;/a&gt;&lt;/h3&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;Once the corresponding object model is built (don't forget to call the &lt;code&gt;propel:build &amp;#8211;model&lt;/code&gt; task after each modification of the &lt;code&gt;schema.yml&lt;/code&gt;), you can use your &lt;code&gt;Product&lt;/code&gt; class with i18n support as if there were only one table, as shown in Listing 13-9.&amp;#8221;&gt;一旦建立了相应的对象模型（每次改变 &lt;code&gt;schema.yml&lt;/code&gt; 后，别忘了调用symfony &lt;code&gt;propel:build --model&lt;/code&gt; 命令），你就可以使用支持i18n的 &lt;code&gt;Product&lt;/code&gt; 类，就像只有一个表一样。示例请参看例13-9。&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;p class=&quot;figure&quot;&gt;
+    &lt;span en=&quot;Listing 13-9 - Dealing with i18n Objects&quot;&gt;例 13-9 &amp;#8211; 处理i18n对象&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$product&lt;/span&gt; = ProductPeer::&lt;span class=&quot;me2&quot;&gt;retrieveByPk&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;
+</code></pre>
+<p><!-- raw HTML omitted -->$product<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->setName<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;Nom du produit&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->; <!-- raw HTML omitted --><!-- raw HTML omitted -->// 默认，culture是当前的用户culture<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$product<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->save<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$product<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getName<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; <!-- raw HTML omitted -->&lsquo;Nom du produit&rsquo;<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->$product<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->setName<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;Product name&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;en&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->; <!-- raw HTML omitted --><!-- raw HTML omitted -->// 更改&rsquo;en' culture的值<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$product<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->save<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$product<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getName<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;en&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; <!-- raw HTML omitted -->&lsquo;Product name&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>  &lt;p&gt;
+    &lt;span en=&quot;As for queries with the peer objects, you can restrict the results to objects having a translation for the current culture by using the &lt;code&gt;doSelectWithI18n&lt;/code&gt; method, instead of the usual &lt;code&gt;doSelect&lt;/code&gt;, as shown in Listing 13-10.&amp;#8221;&gt;至于查询peer对象，如果不用通常的 &lt;code&gt;doSelect&lt;/code&gt; 方法，而用 &lt;code&gt;doSelectWithI18n&lt;/code&gt; 方法，就可以根据当前的culture值得到翻译的结果。如例13-10所示。&lt;/span&gt;&lt;br /&gt;
+    &lt;span en=&quot;In addition, it will create the related i18n objects at the same time as the regular ones, resulting in a reduced number of queries to get the full content (refer to Chapter 18 for more information about this method's positive impacts on performance).&quot;&gt;另外，这个方法还同时建立与i18n有关的对象，因而可以以较少的查询得到全部内容（参看第十八章的内容，该方法有助于提高性能）。&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;p class=&quot;figure&quot;&gt;
+    &lt;span en=&quot;Listing 13-10 - Retrieving Objects with an i18n &lt;code&gt;Criteria&lt;/code&gt;&amp;#8220;&gt;例 13-10 &amp;#8211; 用i18n &lt;code&gt;Criteria&lt;/code&gt; 取得对象&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$c&lt;/span&gt; = &lt;span class=&quot;kw2&quot;&gt;new&lt;/span&gt; Criteria&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;
+</code></pre>
+<p><!-- raw HTML omitted -->$c<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->add<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted -->ProductPeer::<!-- raw HTML omitted -->PRICE<!-- raw HTML omitted -->, <!-- raw HTML omitted -->100<!-- raw HTML omitted -->, Criteria::<!-- raw HTML omitted -->LESS_THAN<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->$products<!-- raw HTML omitted --> = ProductPeer::<!-- raw HTML omitted -->doSelectWithI18n<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$c<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$culture<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted --><!-- raw HTML omitted -->// $culture参数是可选的<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->// 如果没有给定文化则使用当前用户的文化<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  &lt;span en=&quot;Let's say that you want to create a website in English and French, with English being the default language.&quot;&gt;我们假设你要创建一个包含英文和法文的网站，而英文是网站的默认语言。&lt;/span&gt;&lt;br /&gt;
+  &lt;span en=&quot;Before even thinking about having the site translated, you probably wrote the templates something like the example shown in Listing 13-12.&quot;&gt;在翻译网站前，你也许写了一个象例13-12所示的模板。&lt;/span&gt;
+  
+&lt;/p&gt;
+
+
+&lt;p class=&quot;figure&quot;&gt;
+  &lt;span en=&quot;Listing 13-12 - A Single-Language Template&quot;&gt;例 &amp;#8211; 13-12 单一语言的模板&lt;/span&gt;
+  
+&lt;/p&gt;
+
+
+&lt;pre class=&quot;php&quot;&gt;Welcome to our website. Today's date is &amp;lt;?php echo format_date(date()) ?&amp;gt;&lt;/pre&gt;
+
+
+&lt;p&gt;
+  &lt;span en=&quot;For symfony to translate the phrases of a template, they must be identified as text to be translated.&quot;&gt;要在symfony中翻译模板中的词汇，它们必须先被识别为文本，然后才能翻译。&lt;/span&gt;&lt;br /&gt;
+  &lt;span en=&quot;This is the purpose of the &lt;code&gt;__()&lt;/code&gt; helper (two underscores), a member of the I18N helper group.&amp;#8221;&gt;这个可以通过 I18N辅助函数组的 &lt;code&gt;__()&lt;/code&gt;（双下划线）辅助函数做到。&lt;/span&gt;&lt;br /&gt;
+  &lt;span en=&quot;So all your templates need to enclose the phrases to translate in such function calls.&quot;&gt;因此，你的所有模板在这样的函数调用中都要包含要翻译的词汇。&lt;/span&gt;&lt;br /&gt;
+  &lt;span en=&quot;Listing 13-11, for example, can be modified to look like Listing 13-13 (as you will see in the &amp;quot;Handling Complex Translation Needs&amp;quot; section later in this chapter, there is an even better way to call the translation helper in this example).&quot;&gt;例如，例13-12可以改成例13-13中的样子（在你看了本章后面的“处理复杂的翻译需要”一节后，将有更好的方法调用本例中的翻译辅助函数）。&lt;/span&gt;
+  
+&lt;/p&gt;
+
+
+&lt;p class=&quot;figure&quot;&gt;
+  &lt;span en=&quot;Listing 13-13 - A Multiple-Language-Ready Template&quot;&gt;例 13-13 &amp;#8211; 一个可用于多语言环境的模板&lt;/span&gt;
+  
+&lt;/p&gt;
+
+
+&lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt; use_helper&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'I18N'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kw2&quot;&gt;?&amp;gt;&lt;/span&gt;
+</code></pre>
+<p> 
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> __<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;Welcome to our website.'<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> __<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&ldquo;Today&rsquo;s date is &ldquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> format_date<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->date<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>&lt;blockquote class=&quot;tip&quot;&gt;
+  &lt;p&gt;
+    &lt;span en=&quot;If your application uses the I18N helper group for every page, it is probably a good idea to include it in the &lt;code&gt;standard_helpers&lt;/code&gt; setting in the &lt;code&gt;settings.yml&lt;/code&gt; file, so that you avoid repeating &lt;code&gt;use_helper('I18N')&lt;/code&gt; for each template.&amp;#8221;&gt;如果你的应用程序程序中每页都要使用I18N辅助函数组，那么在 &lt;code&gt;settings.yml&lt;/code&gt; 文件中设定 &lt;code&gt;standard_helpers&lt;/code&gt; 参数应该是一种更好的方法，这样你可以避免在每个模板中都重复地写 &lt;code&gt;use_helper('I18N')&lt;/code&gt;。&lt;/span&gt;
+  &lt;/p&gt;
+  
+&lt;/blockquote&gt;
+
+
+&lt;h3&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_sub_using_dictionary_files&quot;&gt;&lt;span en=&quot;13.4.3 Using Dictionary Files&quot;&gt;13.4.3 运用字典文件&lt;/a&gt;&lt;/h3&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;Each time the &lt;code&gt;__()&lt;/code&gt; function is called, symfony looks for a translation of its argument in the dictionary of the current user&amp;#8217;s culture.&amp;#8221;&gt;每次调用 &lt;code&gt;__()&lt;/code&gt; 函数时，symfony就根据用户当前的culture，在相应的字典中对变量进行翻译。&lt;/span&gt;&lt;br /&gt;
+    &lt;span en=&quot;If it finds a corresponding phrase, the translation is sent back and displayed in the response. &quot;&gt;如果找到合适的翻译结果，就会将结果返回并显示出来。&lt;/span&gt;&lt;br /&gt;
+    &lt;span en=&quot;So the user interface translation relies on a dictionary file.&quot;&gt;所以说，用户界面翻译依赖于字典文件。&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;The dictionary files are written in the XML Localization Interchange File Format (XLIFF), named according to the pattern &lt;code&gt;messages.[language code].xml&lt;/code&gt;, and stored in the application &lt;code&gt;i18n/&lt;/code&gt; directory.&amp;#8221;&gt;字典文件是用XLIFF格式写成的（XLIFF是XML Localization Interchange File Format的缩写，中文译作“XML本地化交换文件格式”），文件名则根据 &lt;code&gt;messages.[语言代码].xml&lt;/code&gt; 文件中定义的模式来命名，文件路径在应用程序程序的 &lt;code&gt;i18n/&lt;/code&gt; 目录下。&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;XLIFF is a standard format based on XML.&quot;&gt;XLIFF是一种基于XML的标准格式。&lt;/span&gt;&lt;br /&gt;
+    &lt;span en=&quot;As it is well known, you can use third-party translation tools to reference all text in your website and translate it.&quot;&gt;因为它广为人知，所以你可以用第三方翻译工具去处理和翻译你站点中的所有文本。&lt;/span&gt;&lt;br /&gt;
+    &lt;span en=&quot;Translation firms know how to handle such files and to translate an entire site just by adding a new XLIFF translation.&quot;&gt;翻译公司知道如何添加一个XLIFF翻译文件去处理这些文件和翻译整个站点。&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;blockquote class=&quot;tip&quot;&gt;
+    &lt;p&gt;
+      &lt;span en=&quot;In addition to the XLIFF standard, symfony also supports several other translation back-ends for dictionaries: gettext, MySQL, and SQLite.&quot;&gt;除了XLIFF标准，symfony还支持gettext、MySQL、SQLite等的字典翻译。&lt;/span&gt;&lt;br /&gt;
+        &lt;span en=&quot;Refer to the API documentation for more information about configuring these back-ends.&quot;&gt;更多的信息和相应的配置方法请参考API文档。&lt;/span&gt;
+    &lt;/p&gt;
+    
+  &lt;/blockquote&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;Listing 13-14 shows an example of the XLIFF syntax with the &lt;code&gt;messages.fr.xml&lt;/code&gt; file necessary to translate Listing 13-13 into French.&amp;#8221;&gt;例13-14中的 &lt;code&gt;messages.fr.xml&lt;/code&gt; 展示了XLIFF语法的使用，利用它可以将例13-13翻译成法语。&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;p class=&quot;figure&quot;&gt;
+    &lt;span en=&quot;Listing 13-14 - An XLIFF Dictionary, in &lt;code&gt;frontend/i18n/messages.fr.xml&lt;/code&gt;&amp;#8220;&gt;例13-14 一个XLIFF字典，文件名为 &lt;code&gt;frontend/i18n/messages.fr.xml&lt;/code&gt;&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;pre class=&quot;xml&quot;&gt;&lt;span class=&quot;sc3&quot;&gt;&lt;span class=&quot;re1&quot;&gt;&amp;lt;?xml&lt;/span&gt; &lt;span class=&quot;re0&quot;&gt;version&lt;/span&gt;=&lt;span class=&quot;st0&quot;&gt;&quot;1.0&quot;&lt;/span&gt; &lt;span class=&quot;re0&quot;&gt;encoding&lt;/span&gt;=&lt;span class=&quot;st0&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt; &lt;span class=&quot;re2&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->&lt;!DOCTYPE xliff PUBLIC &ldquo;-//XLIFF//DTD XLIFF//EN&rdquo; &ldquo;<a href="http://www.oasis-open.org/committees/xliff/documents/xliff.dtd%22">http://www.oasis-open.org/committees/xliff/documents/xliff.dtd&quot;</a> &gt;<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;xliff<!-- raw HTML omitted --> <!-- raw HTML omitted -->version<!-- raw HTML omitted -->=<!-- raw HTML omitted -->&ldquo;1.0&rdquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;file<!-- raw HTML omitted --> <!-- raw HTML omitted -->original<!-- raw HTML omitted -->=<!-- raw HTML omitted -->&ldquo;global&rdquo;<!-- raw HTML omitted --> <!-- raw HTML omitted -->source-language<!-- raw HTML omitted -->=<!-- raw HTML omitted -->&ldquo;en_US&rdquo;<!-- raw HTML omitted --> <!-- raw HTML omitted -->datatype<!-- raw HTML omitted -->=<!-- raw HTML omitted -->&ldquo;plaintext&rdquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;body<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;trans-unit<!-- raw HTML omitted --> <!-- raw HTML omitted -->id<!-- raw HTML omitted -->=<!-- raw HTML omitted -->&ldquo;1&rdquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;source<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->Welcome to our website.<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/source<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;target<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->Bienvenue sur notre site web.<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/target<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/trans-unit<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;trans-unit<!-- raw HTML omitted --> <!-- raw HTML omitted -->id<!-- raw HTML omitted -->=<!-- raw HTML omitted -->&ldquo;2&rdquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;source<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->Today&rsquo;s date is <!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/source<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;target<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->La date d&rsquo;aujourd&rsquo;hui est <!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/target<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/trans-unit<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/body<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/file<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;/xliff<!-- raw HTML omitted -->&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>  &lt;p&gt;
+    &lt;span en=&quot;The &lt;code&gt;source-language&lt;/code&gt; attribute must always contain the full ISO code of your default culture.&amp;#8221;&gt;&lt;code&gt;source-language&lt;/code&gt; 属性必须总是包含默认culture值的完整ISO代码。&lt;/span&gt;&lt;br /&gt;
+    &lt;span en=&quot;Each translation is written in a &lt;code&gt;trans-unit&lt;/code&gt; tag with a unique &lt;code&gt;id&lt;/code&gt; attribute.&amp;#8221;&gt;每个翻译都用一个包含了唯一 &lt;code&gt;id&lt;/code&gt; 属性的 &lt;code&gt;trans-unit&lt;/code&gt; 标记来定义。&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;With the default user culture (set to &lt;code&gt;en_US&lt;/code&gt;), the phrases are not translated and the raw arguments of the &lt;code&gt;__()&lt;/code&gt; calls are displayed.&amp;#8221;&gt;对于默认的用户culture值（设定为 &lt;code&gt;en_US&lt;/code&gt;），词汇不会被翻译，而且显示的是 &lt;code&gt;__()&lt;/code&gt; 调用的原始参数值。&lt;/span&gt;&lt;br /&gt;
+    &lt;span en=&quot;The result of Listing 13-12 is then similar to Listing 13-11.&quot;&gt;这样例13-12的结果就和例13-11的类似了。&lt;/span&gt;&lt;br /&gt;
+    &lt;span en=&quot;However, if the culture is changed to &lt;code&gt;fr_FR&lt;/code&gt; or &lt;code&gt;fr_BE&lt;/code&gt;, the translations from the &lt;code&gt;messages.fr.xml&lt;/code&gt; file are displayed instead, and the result looks like Listing 13-15.&amp;#8221;&gt;但是如果culture值变成了 &lt;code&gt;fr_FR&lt;/code&gt; 或 &lt;code&gt;fr_BE&lt;/code&gt;，显示的就是 &lt;code&gt;messages.fr.xml&lt;/code&gt; 中翻译后的值了，结果如例13-15所示。&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;p class=&quot;figure&quot;&gt;
+    &lt;span en=&quot;Listing 13-15 - A Translated Template&quot;&gt;例 13-15 &amp;#8211; 一个翻译后的模板&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;pre class=&quot;php&quot;&gt;Bienvenue sur notre site web. La &lt;span class=&quot;kw3&quot;&gt;date&lt;/span&gt; d&lt;span class=&quot;st0&quot;&gt;'aujourd'&lt;/span&gt;hui est
+</code></pre>
+<p><!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> format_date<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->date<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>  &lt;p&gt;
+    &lt;span en=&quot;If additional translations need to be done, simply add a new &lt;code&gt;messages.XX.xml&lt;/code&gt; translation file in the same directory.&amp;#8221;&gt;如果还要增加其他的语言版本，只需将新的翻译文件 &lt;code&gt;messages.XX.xml&lt;/code&gt;（XX是语言代码）放入同一个目录中就可以了。&lt;/span&gt;
+    
+  &lt;/p&gt;
+  
+  
+  &lt;blockquote class=&quot;tip&quot;&gt;
+    &lt;p&gt;
+      &lt;span en=&quot;As looking for dictionary files, parsing them, and finding the correct translation for a given string takes some time, symfony uses an internal cache to speedup the process.&quot;&gt;真如查找字典文件、解析字典文件、找到一个给定的字符串的正确翻译是需要花时间的，symfony使用一个内部的缓存在加速该过程。&lt;/span&gt;&lt;br /&gt;
+        &lt;span en=&quot;By default, this cache uses the filesystem. You can configure how the i18N cache works (for instance, to share the cache between several servers) in the &lt;code&gt;factories.yml&lt;/code&gt; (see Chapter 19).&amp;#8221;&gt;默认，这个缓存使用文件系统。你可以在 &lt;code&gt;factories.yml&lt;/code&gt; 配置i18N缓存如何来工作（例如，要在几个服务器之间共享缓存）（见第十九章）。&lt;/span&gt;
+      
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  
+  &lt;h3&gt;
+    &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_sub_managing_dictionaries&quot;&gt;&lt;span en=&quot;13.4.4 Managing Dictionaries&quot;&gt;13.4.4 管理字典&lt;/a&gt;&lt;/h3&gt;
+    
+    
+    &lt;p&gt;
+      &lt;span en=&quot;If your &lt;code&gt;messages.XX.xml&lt;/code&gt; file becomes too long to be readable, you can always split the translations into several dictionary files, named by theme.&amp;#8221;&gt;如果你的 &lt;code&gt;messages.XX.xml&lt;/code&gt; 文件太长而无法阅读，你可以按主题将这个文件分成多个字典文件。&lt;/span&gt;&lt;br /&gt;
+      &lt;span en=&quot;For instance, you can split the &lt;code&gt;messages.fr.xml&lt;/code&gt; file into these three files in the application &lt;code&gt;i18n/&lt;/code&gt; directory:&amp;#8221;&gt;例如，你可以在应用程序程序的 &lt;code&gt;i18n/&lt;/code&gt; 目录中将 &lt;code&gt;messages.fr.xml&lt;/code&gt; 文件分成以下三个：&lt;/span&gt;
+      
+    &lt;/p&gt;
+    
+    
+    &lt;ul&gt;
+      &lt;li&gt;
+        navigation.fr.xml
+      &lt;/li&gt;
+      
+      
+      &lt;li&gt;
+        terms_of_service.fr.xml
+      &lt;/li&gt;
+      
+      
+      &lt;li&gt;
+        search.fr.xml
+      &lt;/li&gt;
+      
+    &lt;/ul&gt;
+    
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Note that as soon as a translation is not to be found in the default &lt;code&gt;messages.XX.xml&lt;/code&gt; file, you must declare which dictionary is to be used each time you call the &lt;code&gt;__()&lt;/code&gt; helper, using its third argument.&amp;#8221;&gt;注意，如果在默认的 &lt;code&gt;messages.XX.xml&lt;/code&gt; 文件中找不到翻译，那么你每次要调用 &lt;code&gt;__()&lt;/code&gt; 时，都必须用它的第三个参数指明使用那个字典。&lt;/span&gt;&lt;br /&gt;
+      &lt;span en=&quot;For instance, to output a string that is translated in the &lt;code&gt;navigation.fr.xml&lt;/code&gt; dictionary, write this:&amp;#8221;&gt;例如，如果要显示一个用 &lt;code&gt;navigation.fr.xml&lt;/code&gt; 字典翻译的字符串，你应该用以下语法：&lt;/span&gt;
+      
+    &lt;/p&gt;
+    
+    
+    &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;kw3&quot;&gt;echo&lt;/span&gt; __&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'Welcome to our website'&lt;/span&gt;, &lt;span class=&quot;kw2&quot;&gt;null&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;'navigation'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kw2&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+    
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Another way to organize translation dictionaries is to split them by module.&quot;&gt;另一种管理字典文件的方法是按模块分割。&lt;/span&gt;&lt;br /&gt;
+      &lt;span en=&quot;Instead of writing a single &lt;code&gt;messages.XX.xml&lt;/code&gt; file for the whole application, you can write one in each &lt;code&gt;modules/[module_name]/i18n/&lt;/code&gt; directory.&amp;#8221;&gt;你可以在每个模块的 &lt;code&gt;modules/[模块名]/i18n/&lt;/code&gt; 目录中放一个 &lt;code&gt;messages.XX.xml&lt;/code&gt; 翻译文件，而不是在整个应用程序程序中用一个统一的翻译文件。&lt;/span&gt;&lt;br /&gt;
+      &lt;span en=&quot;It makes modules more independent from the application, which is necessary if you want to reuse them, such as in plug-ins (see Chapter 17).&quot;&gt;这可以让模块独立于整个应用程序程序，如果你想重用模块（例如第十七章介绍的plug-in），这样做就很有必要。&lt;/span&gt;
+      
+    &lt;/p&gt;
+    
+    
+    &lt;p&gt;
+      &lt;span en=&quot;As updating the i18n dictionaries by hand is quite error prone, symfony provides a task to automate the process.&quot;&gt;因为手动更新i18n目录很容易出错，symfony提供一个命令来自动处理该过程。&lt;/span&gt;&lt;br /&gt;
+      &lt;span en=&quot;The &lt;code&gt;i18n:extract&lt;/code&gt; task parses a symfony application to extract all the strings that need to be translated.&amp;#8221;&gt;&lt;code&gt;i18n:extract&lt;/code&gt; 命令解析symfony应用程序来取出所有要翻译的字符串。&lt;/span&gt;&lt;br /&gt;
+      &lt;span en=&quot;It takes an application and a culture as its arguments:&quot;&gt;它把一个应用程序和一个culture作为它的参数：&lt;/span&gt;
+      
+    &lt;/p&gt;
+    
+    
+    &lt;pre&gt;$ php symfony i18n:extract frontend en&lt;/pre&gt;
+    
+    
+    &lt;p&gt;
+      &lt;span en=&quot;By default, the task does not modify your dictionaries, it just outputs the number of new and old i18n strings.&quot;&gt;默认，该命令不修改你的字典，它只输出新的数字和旧的i18n字符串。&lt;/span&gt;&lt;br /&gt;
+      &lt;span en=&quot;To append the new strings to your dictionary, you can pass the &lt;code&gt;&amp;#8211;auto-save&lt;/code&gt; option:&amp;#8221;&gt;要附加新的字符串到你的字典，你可以传递 &lt;code&gt;--auto-save&lt;/code&gt; 选项：&lt;/span&gt;
+      
+    &lt;/p&gt;
+    
+    
+    &lt;pre&gt;$ php symfony i18n:extract --auto-save frontend en&lt;/pre&gt;
+    
+    
+    &lt;p&gt;
+      &lt;span en=&quot;You can also delete old strings automatically by passing the &lt;code&gt;&amp;#8211;auto-delete&lt;/code&gt; option:&amp;#8221;&gt;你也可以通过传递 &lt;code&gt;--auto-delete&lt;/code&gt; 选项来自动的删除旧的字符串：&lt;/span&gt;
+      
+    &lt;/p&gt;
+    
+    
+    &lt;pre&gt;$ php symfony i18n:extract --auto-save --auto-delete frontend en&lt;/pre&gt;
+    
+    
+    &lt;blockquote class=&quot;note&quot;&gt;
+      &lt;p&gt;
+        &lt;span en=&quot;The current task has some known limitations.&quot;&gt;当前的命令有一些已知的局限性。&lt;/span&gt;&lt;br /&gt;
+          &lt;span en=&quot;It can only works with the default &lt;code&gt;messages&lt;/code&gt; dictionary, and for file based backends (XLIFF or gettext), it only saves and deletes strings in the main &lt;code&gt;apps/frontend/i18n/messages.XX.xml&lt;/code&gt; file.&amp;#8221;&gt;它只用默认的 &lt;code&gt;messages&lt;/code&gt; 字典来工作，然后对于基于XLIFF或gettext的文件，在主要的 &lt;code&gt;apps/frontend/i18n/messages.XX.xml&lt;/code&gt; 文件中它只保存和删除字符串。&lt;/span&gt;
+      &lt;/p&gt;
+      
+    &lt;/blockquote&gt;
+    
+    
+    &lt;h3&gt;
+      &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_sub_handling_other_elements_requiring_translation&quot;&gt;&lt;span en=&quot;13.4.5 Handling Other Elements Requiring Translation&quot;&gt;13.4.5 处理需要翻译的其他元素&lt;/a&gt;&lt;/h3&gt;
+      
+      
+      &lt;p&gt;
+        &lt;span en=&quot;The following are other elements that may require translation:&quot;&gt;需要翻译的其他元素还有如下一些：&lt;/span&gt;
+        
+      &lt;/p&gt;
+      
+      
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;p&gt;
+            &lt;span en=&quot;Images, text documents, or any other type of assets can also vary according to the user culture.&quot;&gt;根据用户culture的不同，图片、文本文档或其他类型的资源也会变化。&lt;/span&gt;&lt;br /&gt;
+                &lt;span en=&quot;The best example is a piece of text with a special typography that is actually an image.&quot;&gt;最好的例子是一个使用特殊排版的文本，它实际上是一幅图片。&lt;/span&gt;&lt;br /&gt;
+                &lt;span en=&quot;For these, you can create subdirectories named after the user &lt;code&gt;culture&lt;/code&gt;:&amp;#8221;&gt;为此，我们可以创建一个以用户 &lt;code&gt;culture&lt;/code&gt; 值命名的子目录：&lt;/span&gt;
+                
+          &lt;/p&gt;
+          
+          
+          &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;kw3&quot;&gt;echo&lt;/span&gt; image_tag&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;re0&quot;&gt;$sf_user&lt;/span&gt;-&amp;gt;&lt;span class=&quot;me1&quot;&gt;getCulture&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;.&lt;span class=&quot;st0&quot;&gt;'/myText.gif'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kw2&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/pre&gt;
+          
+        &lt;/li&gt;
+        
+        
+        &lt;li&gt;
+          &lt;p&gt;
+            &lt;span en=&quot;Error messages from validation files are automatically output by a &lt;code&gt;__()&lt;/code&gt;, so you just need to add their translation to a dictionary to have them translated.&amp;#8221;&gt;来自验证文件的错误信息会由一个 &lt;code&gt;__()&lt;/code&gt; 方法自动输出，所以你需要将对应的翻译加入到字典中以便输出对应的翻译。&lt;/span&gt;
+          &lt;/p&gt;
+          
+        &lt;/li&gt;
+        
+        
+        &lt;li&gt;
+          &lt;p&gt;
+            &lt;span en=&quot;The default symfony pages (page not found, internal server error, restricted access, and so on) are in English and must be rewritten in an i18n application.&quot;&gt;默认的symfony页面（page not found、internal server error、restricted access等）都是用英语写的，你可以在i18n应用程序程序中重写这些页面。&lt;/span&gt;&lt;br /&gt;
+                &lt;span en=&quot;You should probably create your own &lt;code&gt;default&lt;/code&gt; module in your application and use &lt;code&gt;__()&lt;/code&gt; in its templates.&amp;#8221;&gt;你应该在应用程序程序中创建了自己的 &lt;code&gt;default&lt;/code&gt; 模块，并且在模板中使用了 &lt;code&gt;__()&lt;/code&gt; 方法。&lt;/span&gt;&lt;br /&gt;
+                &lt;span en=&quot;Refer to Chapter 19 to see how to customize these pages.&quot;&gt;你可以在第十九章中找到如何定制这些页面的方法。&lt;/span&gt;
+                
+          &lt;/p&gt;
+          
+        &lt;/li&gt;
+        
+      &lt;/ul&gt;
+      
+      
+      &lt;h3&gt;
+        &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_sub_handling_complex_translation_needs&quot;&gt;&lt;span en=&quot;13.4.6 Handling Complex Translation Needs&quot;&gt;13.4.6 处理复杂的翻译需求&lt;/a&gt;&lt;/h3&gt;
+        
+        
+        &lt;p&gt;
+          &lt;span en=&quot;Translation only makes sense if the &lt;code&gt;__()&lt;/code&gt; argument is a full sentence.&amp;#8221;&gt;只有当 &lt;code&gt;__()&lt;/code&gt; 的参数是一个完整的句子时，翻译才有意义。&lt;/span&gt;&lt;br /&gt;
+          &lt;span en=&quot;However, as you sometimes have formatting or variables mixed with words, you could be tempted to cut sentences into several chunks, thus calling the helper on senseless phrases.&quot;&gt;但是，当你的格式或变量名中混合了其它词汇时，你就会想把句子分割成多个小段，这样辅助函数就遇到了无意义的词汇。&lt;/span&gt;&lt;br /&gt;
+          &lt;span en=&quot;Fortunately, the &lt;code&gt;__()&lt;/code&gt; helper offers a replacement feature based on tokens, which will help you to have a meaningful dictionary that is easier to handle by translators.&amp;#8221;&gt;幸亏，&lt;code&gt;__()&lt;/code&gt; 辅助函数提供了一个基于标记的替换功能，可以帮助你构造一个易被其它翻译器处理的有意义的词典。&lt;/span&gt;&lt;br /&gt;
+          &lt;span en=&quot;As with HTML formatting, you can leave it in the helper call as well. Listing 13-16 shows an example.&quot;&gt;对于HTML格式，只需把它留给辅助函数处理即可。例13-16给出了示例。&lt;/span&gt;
+          
+        &lt;/p&gt;
+        
+        
+        &lt;p class=&quot;figure&quot;&gt;
+          &lt;span en=&quot;Listing 13-16 - Translating Sentences That Contain Code&quot;&gt;例 13-16 &amp;#8211; 翻译包含了代码的句子&lt;/span&gt;
+          
+        &lt;/p&gt;
+        
+        
+        &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;co1&quot;&gt;&lt;span en=&quot;// Base example&quot;&gt;// 基本的例子&lt;/span&gt;&lt;/span&gt;
+</code></pre>
+<p>Welcome to all the &lt;b&gt;new&lt;/b&gt; users.&lt;br /&gt;
+There are <!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> count_logged<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted --> persons logged.
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted -->// 开启文本翻译坏的方法<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> __<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;Welcome to all the&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+&lt;b&gt;&lt;?php <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> __<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;new&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> ?&gt;&lt;/b&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> __<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;users&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->.&lt;br /&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> __<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;There are&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> count_logged<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> __<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;persons logged&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted --><!-- raw HTML omitted -->// 开启文本翻译好的方法<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> __<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;Welcome to all the &lt;b&gt;new&lt;/b&gt; users&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted --> &lt;br /&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> __<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;There are %1% persons logged&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->array<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->'%1%'<!-- raw HTML omitted --> =&gt; count_logged<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>        &lt;p&gt;
+          &lt;span en=&quot;In this example, the token is &lt;code&gt;%1%&lt;/code&gt;, but it can be anything, since the replacement function used by the translation helper is &lt;code&gt;strtr()&lt;/code&gt;.&amp;#8221;&gt;本例中，标记是 &lt;code&gt;%1%&lt;/code&gt;，当然也可以是其它任何标记，因为翻译辅助函数使用的替换函数是 &lt;code&gt;strtr()&lt;/code&gt;。&lt;/span&gt;
+          
+        &lt;/p&gt;
+        
+        
+        &lt;p&gt;
+          &lt;span en=&quot;One of the common problems with translation is the use of the plural form.&quot;&gt;翻译中的一个常见问题是复数的使用。&lt;/span&gt;&lt;br /&gt;
+          &lt;span en=&quot;According to the number of results, the text changes but not in the same way according to the language.&quot;&gt;结果数值的不同会引起文本的变化，但在不同的语言里，变化的方式却不一定相同。&lt;/span&gt;&lt;br /&gt;
+          &lt;span en=&quot;For instance, the last sentence in Listing 13-16 is not correct if &lt;code&gt;count_logged()&lt;/code&gt; returns 0 or 1.&amp;#8221;&gt;例如，例13-16中，如果 &lt;code&gt;count_logged()&lt;/code&gt; 返回0或1时，最后句子就不正确了。&lt;/span&gt;&lt;br /&gt;
+          &lt;span en=&quot;You could do a test on the return value of this function and choose which sentence to use accordingly, but that would represent a lot of code.&quot;&gt;你可以根据函数的返回值进行测试以选择哪个句子能正确使用，但那意味着要增加大量的代码。&lt;/span&gt;&lt;br /&gt;
+          &lt;span en=&quot;Additionally, different languages have different grammar rules, and the declension rules of plural can be quite complex.&quot;&gt;另外，不同的语言有不同的语法规则，复数的词尾变化规则非常复杂。&lt;/span&gt;&lt;br /&gt;
+          &lt;span en=&quot;As this problem is very common, symfony provides a helper to deal with it, called &lt;code&gt;format_number_choice()&lt;/code&gt;. Listing 13-17 demonstrates how to use this helper.&amp;#8221;&gt;因为这个问题非常普遍，symfony提供了一个辅助函数 &lt;code&gt;format_number_choice()&lt;/code&gt; 来处理它，例13-17是使用这个辅助函数的示例。&lt;/span&gt;
+          
+        &lt;/p&gt;
+        
+        
+        &lt;p class=&quot;figure&quot;&gt;
+          &lt;span en=&quot;Listing 13-17 - Translating Sentences Depending on the Value of Parameters&quot;&gt;例 13-17 &amp;#8211; 根据参数值翻译语句&lt;/span&gt;
+          
+        &lt;/p&gt;
+        
+        
+        &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;kw3&quot;&gt;echo&lt;/span&gt; format_number_choice&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->'[0]Nobody is logged|<a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_user_culture">1</a>There is 1 person logged|(1,+Inf]There are %1% persons logged&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->array<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->'%1%'<!-- raw HTML omitted --> =&gt; count_logged<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->, count_logged<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>        &lt;p&gt;
+          &lt;span en=&quot;The first argument is the multiple possibilities of text.&quot;&gt;第1个参数给出了文本的多种可能值。&lt;/span&gt;&lt;br /&gt;
+          &lt;span en=&quot;The second argument is the replacement pattern (as with the &lt;code&gt;__()&lt;/code&gt; helper) and is optional.&amp;#8221;&gt;第2个参数是替换模式（就象 &lt;code&gt;__()&lt;/code&gt; 辅助函数一样），该参数是可选的。&lt;/span&gt;&lt;br /&gt;
+          &lt;span en=&quot;The third argument is the number on which the test is made to determine which text is taken.&quot;&gt;第3个参数是一个返回数值的函数，通过这个函数的返回结果确定采用哪个文本。&lt;/span&gt;
+          
+        &lt;/p&gt;
+        
+        
+        &lt;p&gt;
+          &lt;span en=&quot;The message/string choices are separated by the pipe (&lt;code&gt;|&lt;/code&gt;) character followed by an array of acceptable values, using the following syntax:&amp;#8221;&gt;信息/字符串选项用管道符号（&lt;code&gt;|&lt;/code&gt;）分割，后跟一个可接受值的数列，该数列的语法如下：&lt;/span&gt;
+          
+        &lt;/p&gt;
+        
+        
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;span en=&quot;&lt;code&gt;[1,2]&lt;/code&gt;: Accepts values between 1 and 2, inclusive&amp;#8221;&gt;&lt;code&gt;[1,2]&lt;/code&gt;：可接受值在1和2 之间，包含1和2。&lt;/span&gt;
+              
+          &lt;/li&gt;
+          
+          
+          &lt;li&gt;
+            &lt;span en=&quot;&lt;code&gt;(1,2)&lt;/code&gt;: Accepts values between 1 and 2, excluding 1 and 2&amp;#8243;&gt;&lt;code&gt;(1,2)&lt;/code&gt;：可接受值在1和2 之间，不包含1和2。&lt;/span&gt;
+              
+          &lt;/li&gt;
+          
+          
+          &lt;li&gt;
+            &lt;span en=&quot;&lt;code&gt;{1,2,3,4}&lt;/code&gt;: Only values defined in the set are accepted&amp;#8221;&gt;&lt;code&gt;{1,2,3,4}&lt;/code&gt;：只接受定义在集合中的值。&lt;/span&gt;
+              
+          &lt;/li&gt;
+          
+          
+          &lt;li&gt;
+            &lt;span en=&quot;&lt;code&gt;[-Inf,0)&lt;/code&gt;: Accepts values greater or equal to negative infinity and strictly less than 0&amp;#8243;&gt;&lt;code&gt;[-Inf,0)&lt;/code&gt;：接受小于0且大于等于负无穷大的值。&lt;/span&gt;
+              
+          &lt;/li&gt;
+          
+          
+          &lt;li&gt;
+            &lt;span en=&quot;&lt;code&gt;{n: n % 10 &gt; 1 &amp;#038;&amp;#038; n % 10 &amp;lt; 5} pliki&lt;/code&gt;: Matches numbers like 2, 3, 4, 22, 23, 24 (useful for languages like Polish or Russian)&amp;#8221;&gt;&lt;code&gt;{n: n % 10 &gt; 1 &amp;&amp; n % 10 &amp;lt; 5} pliki&lt;/code&gt;：匹配数组比如2、3、4、22、23、24（用于波兰语或俄语）。&lt;/span&gt;
+              
+          &lt;/li&gt;
+          
+        &lt;/ul&gt;
+        
+        
+        &lt;p&gt;
+          &lt;span en=&quot;Any nonempty combinations of the delimiters of square brackets and parentheses are acceptable.&quot;&gt;用方括号或圆括号括起的任何非空组合都是可接受的。&lt;/span&gt;
+          
+        &lt;/p&gt;
+        
+        
+        &lt;p&gt;
+          &lt;span en=&quot;The message will need to appear explicitly in the XLIFF file for the translation to work properly. Listing 13-18 shows an example.&quot;&gt;为了能正确地翻译，这个信息必须精确地在XLIFF文件中定义。例13-18给出了示例。&lt;/span&gt;
+          
+        &lt;/p&gt;
+        
+        
+        &lt;p class=&quot;figure&quot;&gt;
+          &lt;span en=&quot;Listing 13-18 - XLIFF Dictionary for a &lt;code&gt;format_number_choice()&lt;/code&gt; Argument&amp;#8221;&gt;例13-18 包含 &lt;code&gt;format_number_choice()&lt;/code&gt; 参数的XLIFF字典&lt;/span&gt;
+          
+        &lt;/p&gt;
+        
+        
+        &lt;pre&gt;...
+</code></pre>
+<p>&lt;trans-unit id=&ldquo;3&rdquo;&gt;
+&lt;source&gt;[0]Nobody is logged|<a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_user_culture">1</a>There is 1 person logged|(1,+Inf]There are %1% persons logged&lt;/source&gt;
+&lt;target&gt;[0]Personne n&rsquo;est connecté|<a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=36&amp;extra=page%3D1#chapter_13_user_culture">1</a>Une personne est connectée|(1,+Inf]Il y a %1% personnes en ligne&lt;/target&gt;
+&lt;/trans-unit&gt;
+&hellip;<!-- raw HTML omitted --></p>
+<pre><code>        &lt;blockquote class=&quot;sidebar&quot;&gt;
+          &lt;p class=&quot;title&quot;&gt;
+            &lt;span en=&quot;A few words about charsets&quot;&gt;关于字符集&lt;/span&gt;
+          &lt;/p&gt;
+          
+          
+          &lt;p&gt;
+            &lt;span en=&quot;Dealing with internationalized content in templates often leads to problems with charsets.&quot;&gt;在模板中处理国际化内容常常会出现字符集问题。&lt;/span&gt;&lt;br /&gt;
+              &lt;span en=&quot;If you use a localized charset, you will need to change it each time the user changes culture.&quot;&gt;如果你用本地化字符集，那么每当用户改变culture时，你就要改变字符集。&lt;/span&gt;&lt;br /&gt;
+              &lt;span en=&quot;In addition, the templates written in a given charset will not display the characters of another charset properly.&quot;&gt;另外，用一种字符集编写的模板通常不能很好地在另一种字符集环境下显示。&lt;/span&gt;
+              
+          &lt;/p&gt;
+          
+          
+          &lt;p&gt;
+            &lt;span en=&quot;This is why, as soon as you deal with more than one culture, all your templates must be saved in UTF-8, and the layout must declare the content with this charset.&quot;&gt;所以一旦你开始处理多culture的应用程序时，你的所有模板都应保存为UTF-8字符格式，所有的界面也应声明为使用UTF-8字符集。&lt;/span&gt;&lt;br /&gt;
+              &lt;span en=&quot;You won't have any unpleasant surprises if you always work with UTF-8, and you will save yourself from a big headache.&quot;&gt;如果你一直使用UTF-8，将会给你解决许多麻烦。&lt;/span&gt;
+              
+          &lt;/p&gt;
+          
+          
+          &lt;p&gt;
+            &lt;span en=&quot;Symfony applications rely on one central setting for the charset, in the &lt;code&gt;settings.yml&lt;/code&gt; file.&amp;#8221;&gt;在 &lt;code&gt;settings.yml&lt;/code&gt; 文件中定义了整个symfony应用程序程序要使用的字符集。&lt;/span&gt;&lt;br /&gt;
+              &lt;span en=&quot;Changing this parameter will change the &lt;code&gt;content-type&lt;/code&gt; header of all responses.&amp;#8221;&gt;修改这个参数会修改所有回应的 &lt;code&gt;content-type&lt;/code&gt; 头信息的值。&lt;/span&gt;
+              
+          &lt;/p&gt;
+          
+          
+          &lt;pre&gt;all:
+</code></pre>
+<p>.settings:
+charset: utf-8<!-- raw HTML omitted --></p>
+<pre><code>        &lt;/blockquote&gt;
+        
+        
+        &lt;h3&gt;
+          &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_sub_calling_the_translation_helper_outside_a_template&quot;&gt;&lt;span en=&quot;13.4.7 Calling the Translation Helper Outside a Template&quot;&gt;13.4.7 在模版外调用翻译辅助函数&lt;/a&gt;&lt;/h3&gt;
+          
+          
+          &lt;p&gt;
+            &lt;span en=&quot;Not all the text that is displayed in a page comes from templates.&quot;&gt;页面中显示的文本不一定都来自于模版。&lt;/span&gt;&lt;br /&gt;
+            &lt;span en=&quot;That's why you often need to call the &lt;code&gt;__()&lt;/code&gt; helper in other parts of your application: actions, filters, model classes, and so on.&amp;#8221;&gt;这也是你为什么要经常在应用程序中的动作、过滤器、模型类等部分调用 &lt;code&gt;__()&lt;/code&gt; 辅助函数的原因。&lt;/span&gt;&lt;br /&gt;
+            &lt;span en=&quot;Listing 13-19 shows how to call the helper in an action by retrieving the current instance of the &lt;code&gt;I18N&lt;/code&gt; object through the context singleton.&amp;#8221;&gt;例13-19显示了如何通过获取上下文环境中 &lt;code&gt;I18N&lt;/code&gt; 对象的当前实例，在动作中调用辅助函数。&lt;/span&gt;
+            
+          &lt;/p&gt;
+          
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 13-19 - Calling &lt;code&gt;__()&lt;/code&gt; in an Action&amp;#8221;&gt;例13-19 在动作中调用 &lt;code&gt;__()&lt;/code&gt; 辅助函数&lt;/span&gt;
+            
+          &lt;/p&gt;
+          
+          
+          &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$this&lt;/span&gt;-&amp;gt;&lt;span class=&quot;me1&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;-&amp;gt;&lt;span class=&quot;me1&quot;&gt;getI18N&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;-&amp;gt;__&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;re0&quot;&gt;$text&lt;/span&gt;, &lt;span class=&quot;re0&quot;&gt;$args&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;'messages'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;&lt;/pre&gt;
+          
+          
+          &lt;h2&gt;
+            &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=36&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_13_summary&quot;&gt;&lt;span en=&quot;13.5 Summary&quot;&gt;13.5 总结&lt;/span&gt;&lt;/a&gt;
+          &lt;/h2&gt;
+          
+          
+          &lt;p&gt;
+            &lt;span en=&quot;Handling internationalization and localization in web applications is painless if you know how to deal with the user culture.&quot;&gt;如果你掌握了如何运用用户culture值，那么你就能在web应用程序中轻松地处理国际化和本地化问题了。&lt;/span&gt;&lt;br /&gt;
+            &lt;span en=&quot;The helpers automatically take it into account to output correctly formatted data, and the localized content from the database is seen as if it were part of a simple table.&quot;&gt;辅助函数将自动输出经过正确格式化的数据，而数据库中的本地化数据也会被看作一个简单表的一部分。&lt;/span&gt;&lt;br /&gt;
+            &lt;span en=&quot;As for the interface translation, the &lt;code&gt;__()&lt;/code&gt; helper and XLIFF dictionary ensure that you will have maximum versatility with minimum work.&amp;#8221;&gt;至于界面翻译，辅助函数 &lt;code&gt;__()&lt;/code&gt; 和 XLIFF字典可以确保你用最少的工作量获得最大的灵活性。&lt;/span&gt;
+          &lt;/p&gt;
+</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%99%A8/" data-toggle="tooltip" data-placement="top" title="第十四章：管理后台生成器">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E6%A8%A1%E5%9E%8B%E5%B1%82/" data-toggle="tooltip" data-placement="top" title="第八章：深入了解模型层">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">17400 Words|Read in about 35 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

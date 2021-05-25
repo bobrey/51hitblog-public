@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>framework on IT技术分享</title>
+    <link>https://www.51hint.com/tags/framework/</link>
+    <description>Recent content in framework on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Jan 2014 07:40:46 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/framework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>20 Useful Mobile Frameworks for Developers</title>
+      <link>https://www.51hint.com/posts/2014-01-27-20-useful-mobile-frameworks-for-developers/</link>
+      <pubDate>Mon, 27 Jan 2014 07:40:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-27-20-useful-mobile-frameworks-for-developers/</guid>
+      <description>1. Fries 
+Fries is a solid HTML-CSS-JS framework for creating Android-like UIsboth for real-world usage and prototyping. The framework has all the major components like forms, action bars, lists, buttons, spinners or tabs. It is also optimized for PhoneGap and can be easily converted to a native app.
+Source2. Appium 
+Appium is an open source framework which helps automating mobile app testing from any language and any test framework, with full access to back-end APIs and DBs from test code.</description>
+    </item>
+    
+  </channel>
+</rss>

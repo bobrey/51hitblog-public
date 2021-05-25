@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 自定义的iOS的滚轮选择器，附带农历选择器实现 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="自定义的iOS的滚轮选择器，附带农历选择器实现" />
+  <meta name="twitter:title" content="自定义的iOS的滚轮选择器，附带农历选择器实现" />
+  <meta name="description" content="这个控件并不是对iOS自带的UIPickerView贴图，而是重新实现，我一周多的成果，期间走了不少弯路。哈！ 此控件开发的原因： 最近公司有个">
+  <meta property="og:description" content="这个控件并不是对iOS自带的UIPickerView贴图，而是重新实现，我一周多的成果，期间走了不少弯路。哈！ 此控件开发的原因： 最近公司有个">
+  <meta name="twitter:description" content="这个控件并不是对iOS自带的UIPickerView贴图，而是重新实现，我一周多的成果，期间走了不少弯路。哈！ 此控件开发的原因： 最近公司有个">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-05-18-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84ios%E7%9A%84%E6%BB%9A%E8%BD%AE%E9%80%89%E6%8B%A9%E5%99%A8%E9%99%84%E5%B8%A6%E5%86%9C%E5%8E%86%E9%80%89%E6%8B%A9%E5%99%A8%E5%AE%9E%E7%8E%B0/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-05-18-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84ios%E7%9A%84%E6%BB%9A%E8%BD%AE%E9%80%89%E6%8B%A9%E5%99%A8%E9%99%84%E5%B8%A6%E5%86%9C%E5%8E%86%E9%80%89%E6%8B%A9%E5%99%A8%E5%AE%9E%E7%8E%B0/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">自定义的iOS的滚轮选择器，附带农历选择器实现</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri May 18, 2012</h4>
+    </section>
+    <h5 id="wc">1500 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>这个控件并不是对iOS自带的UIPickerView贴图，而是重新实现，我一周多的成果，期间走了不少弯路。哈！</p>
+<p><a href="https://blog.51hint.com/wp-content/uploads/canlendar01.png"><!-- raw HTML omitted --></a></p>
+<!-- raw HTML omitted -->
+<p>此控件开发的原因：</p>
+<p>最近公司有个需求，需要做一个农历的日期滚轮选择器，一开始想用iOS自带的UIPickerView，但是设计人员要求的比较高，必须实现她要求的样式，也就是上图中大家看到的样式。但是UIPickerView根本没有提供可以定制样式（也就是更换皮肤）的接口。首先我在论坛上找到了<!-- raw HTML omitted -->帖子，按照这位兄台所述，确实可以在一定程度上修改UIPickerView的图片，我之所以说一定程度上，有以下几个原因：<!-- raw HTML omitted --> (1.)他是用覆盖原有的UIPickerView上的各个子视图上图片的方法做的，那么你提供新的图片就必须与原图片严丝合缝。这也说明，即便是图片换了，样式也是不能换的，譬如：分割线的粗细、上下左右的边框的大小等，也就是不能完全DIY，不能满足我的需求。<!-- raw HTML omitted --> (2.)由于覆盖UIPickerView上的各个子视图上图片的做法不是苹果官方给出的，一旦以后某个版本的UIPickerView实现策略改变，例如：3号子视图不再是滚轮的背景图片，你的做法就挂了。<!-- raw HTML omitted --></p>
+<p>于是我就实现了上图中的滚轮选择器，它与UIPickerView的区别是：</p>
+<p>(1.)皮肤图片提供了方法可以做替换的。</p>
+<p>(2.)可以选择滚轮上的数据是否循环滚动。</p>
+<p>(3.)可以指定选择条的位置。</p>
+<p><a href="https://i2.wp.com/blog.51hint.com/wp-content/uploads/datepickerview_jpg.png"><!-- raw HTML omitted --></a></p>
+<!-- raw HTML omitted -->
+<p>为了代码的复用，也就是所谓的OOP，我按照以下的方式实现：</p>
+<p>(1.)pickerview目录：这个目录中的IDJPickerView.h是滚轮选择器视图，没有任何和与数据相关的东西，也就是你可以在IDJPickerView上显示任何数据。IDJPickerView通过委托获取需要显示的数据。这个目录下的IDJScrollComponent.h实现了UIScrollView上的内容可以反复循环滚动的功能。</p>
+<p>(2.)datepicker目录：IDJDatePickerView.h实现了IDJPickerView里的协议，并把IDJPickerView做为自己的一个私有成员，实现了一个可以根据type字段显示公历、农历的日期选择器，IDJDatePickerView.m里的农历算法用的是solar_chinese_calendar目录中的C++算法，因此农历的相关数据类使用了C++混编的代码。其实iOS自己支持农历的，但是存在BUG，具体的原因大家可以看我的IDJChineseCalendar.mm的源码，里面的注释比较详细的。我在这里也使用了一层封装，也就是IDJDatePickerView.m本身也不提供数据，而是通过IDJCalendar.h、IDJChineseCalendar.h、IDJCalendarUtil.h来提供，这样既实现了数据与视图的分离（因为农历算法太复杂了，直接写在IDJDatePickerView.m里会使得代码看起来可读性太差了），而且把C++的调用封装在了数据层，使得IDJDatePickerView.m的视图层代码不会出现C++的API。</p>
+<p>(3.)timepicker目录：这个目录纯粹是一个Demo，展示了一个不循环滚动、显示行数与选中条位置不对称的选择器，没有什么实际的含义。</p>
+<p>一开始我是纯粹写农历的选择器，代码都是耦合在一起的，后来逐个拆开的，这样代码就可以复用了，不仅仅是农历选择器，而是可以承载任何数据。</p>
+<p><a href="http://blog.51hint.com/wp-content/uploads/IDJDatePickerView.zip">IDJDatePickerView</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-05-18-%E8%87%AA%E5%AE%9A%E4%B9%89uipickerview/" data-toggle="tooltip" data-placement="top" title="自定义UIPickerView">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-05-18-xcode%E4%B8%8B%E7%9A%84ios%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" data-toggle="tooltip" data-placement="top" title="XCode下的iOS单元测试">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri May 18, 2012</h4>
+    </section>
+    <h5 id="wc">1500 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

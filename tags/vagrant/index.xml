@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vagrant on IT技术分享</title>
+    <link>https://www.51hint.com/tags/vagrant/</link>
+    <description>Recent content in Vagrant on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Mar 2019 12:32:35 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vagrant一些配置</title>
+      <link>https://www.51hint.com/posts/vagrant%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 30 Mar 2019 12:32:35 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/vagrant%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/</guid>
+      <description># -*- mode: ruby -*- # vi: set ft=ruby : Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/xenial64&amp;#34; config.vm.box_check_update = false config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 3306, host: 3306 config.vm.network &amp;#34;private_network&amp;#34;, ip: &amp;#34;192.168.10.5&amp;#34; config.vm.network &amp;#34;public_network&amp;#34;, ip:&amp;#34;192.168.50.5&amp;#34;, bridge:&amp;#34;en0: Wi-Fi (AirPort)&amp;#34; config.vm.synced_folder &amp;#34;.&amp;#34;, &amp;#34;/vagrant&amp;#34;, owner:&amp;#34;www-data&amp;#34;, group:&amp;#34;www-data&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.memory = &amp;#34;2048&amp;#34; end end</description>
+    </item>
+    
+    <item>
+      <title>php 开发环境等</title>
+      <link>https://www.51hint.com/posts/2014-06-11-php-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AD%89/</link>
+      <pubDate>Wed, 11 Jun 2014 01:19:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-11-php-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AD%89/</guid>
+      <description>这个网站学习资料非常不错 http://www.phptherightway.com/ Vagrant会创建一些共享文件夹，用来给你在主机和虚拟机之间共享代码用。也就是说，你可以在主机上写好程序，然后在</description>
+    </item>
+    
+  </channel>
+</rss>

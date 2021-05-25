@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 关于jrtp和sip杂文 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="关于jrtp和sip杂文" />
+  <meta name="twitter:title" content="关于jrtp和sip杂文" />
+  <meta name="description" content="根据这几天的实践，找出了一个最优的配置： 1 sip server采用Trixbox，如果对Linux很熟建议直接用Asterisk. 2 客户端如果直接">
+  <meta property="og:description" content="根据这几天的实践，找出了一个最优的配置： 1 sip server采用Trixbox，如果对Linux很熟建议直接用Asterisk. 2 客户端如果直接">
+  <meta name="twitter:description" content="根据这几天的实践，找出了一个最优的配置： 1 sip server采用Trixbox，如果对Linux很熟建议直接用Asterisk. 2 客户端如果直接">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-23-%E5%85%B3%E4%BA%8Ejrtp%E5%92%8Csip%E6%9D%82%E6%96%87/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-23-%E5%85%B3%E4%BA%8Ejrtp%E5%92%8Csip%E6%9D%82%E6%96%87/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">关于jrtp和sip杂文</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 23, 2012</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>根据这几天的实践，找出了一个最优的配置：</p>
+<p>1 sip server采用Trixbox，如果对Linux很熟建议直接用Asterisk.</p>
+<p>2 客户端如果直接使用，建议ekiga.</p>
+<p> </p>
+<p>如果想了解SIP的详细工作流程，可以这样：</p>
+<p>1 找一个外网的sip server (如果有经验，可以用yate2，或Trixbox等自己搭建)</p>
+<p>2 安装x-lite ( 很不错的sip软电话客户端,如果安装eyeBeam更好，带视频)</p>
+<p>3 安装ethereal和WinPcap (抓包工具)</p>
+<p>然后，用x-lite拨打其他的客户端或SIP话机，用抓包工具抓出相关的数据包，先看流程，然后再看包结构</p>
+<p> </p>
+<p>比如，音频采集播放用DirectSound,视频采用播放用DirectShow.编解码用ffmpeg编译出来的libavcodec,传输用jrtplib.这么一看，只有3 音视频编码后组RTP和6 从RTP解包还原成编码后的音视频 这两部分相对陌生，其他的都能找到成熟的代码。基于这个想法，就不用上述开源产品，直接自己写一个好了。</p>
+<p> </p>
+<p>先做准备工作：</p>
+<p>1 编译好ffmpeg及所带的libavcodec等几个lib和dll,音视频编解码时需要。</p>
+<p>2 利用DirectShow做视频采集。播放就直接用GDI画图好了，简洁。</p>
+<p>3 声音部分，参考Youtoo这个程序，连SIP都有了，用现成的exosip,osip,ms2.lib(这个库不支持视频，否则就不用做上面那些苦力了)。音质相当不错。</p>
+<p>4 传输就用jrtplib，不过开始为了调试方便，自己写的UDP socket。</p>
+<p>这些准备工作做好，下一步就开始参考RFC进行RTP的组包和解包了。</p>
+<p> </p>
+<p>RTP接收部分比较简单(不用考虑jitterbuffer等)，先从这里入手。</p>
+<p>其实主要就3步：</p>
+<p>1 创建一个udp，监听一个端口，比如5200。</p>
+<p>2 收到RTP包，送到解包程序，继续收第 二个</p>
+<p>3 收齐一帧后，或保存文件，或解码去播放。</p>
+<p> </p>
+<p>2 收到了数据，开始Decode，一般通过RTP传输的视频主要有h263 (old,1998,2000),h264,mpeg4-es。mpeg4-es格式最简单，就从它入手。</p>
+<p>如果了解RFC3160，直接分析格式写就是了。如果想偷懒，用现成的， 也找的到：在opal项目下，有个plugins目录，视频中包含了h261,h263,h264,mpeg4等多种解包</p>
+<p>，解码的源码，稍加改动就可以拿来用。</p>
+<p>首先看：video/common下的rtpframe.h这个文件，这是对RTP包头的数据和操作的封装：</p>
+<p> </p>
+<p>原封不动，可以直接拿来使用。当然，自己写一个也不麻烦。很多人写不好估计是卡在位运算上了。</p>
+<p>然后，进入video/MPEG4-ffmpeg目录下看mpeg4.cxx，这里包含了完整的RFC解包重组及MPEG4解码的源码。直接编译可能通不过，好在代码写的非常整齐，提取出来就是了。</p>
+<p>解包解码只要看这一个函数：</p>
+<p>bool MPEG4DecoderContext::DecodeFrames(const BYTE * src, unsigned &amp; srcLen,</p>
+<p>BYTE * dst, unsigned &amp; dstLen,</p>
+<p>unsigned int &amp; flags)</p>
+<p>写的非常非常的明白：if (srcRTP.GetMarker())，到了这里表示收满了一包，开始去解码。</p>
+<p>mpeg4-es的RFC还原重组就这么简单，下一步的解码，就涉及到用libavcodec.dll了。</p>
+<p>参考自’http://blog.csdn.net/sxcong/article/details/4354707</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-23-c-%E4%B8%AD%E5%88%A9%E7%94%A8-directsound-%E5%BD%95%E9%9F%B3/" data-toggle="tooltip" data-placement="top" title="C# 中利用 DirectSound 录音">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-24-%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/" data-toggle="tooltip" data-placement="top" title="关于操作文件">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 23, 2012</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

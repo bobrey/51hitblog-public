@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx on IT技术分享</title>
+    <link>https://www.51hint.com/tags/nginx/</link>
+    <description>Recent content in nginx on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 May 2019 21:16:35 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nginx502</title>
+      <link>https://www.51hint.com/posts/nginx502/</link>
+      <pubDate>Sun, 26 May 2019 21:16:35 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/nginx502/</guid>
+      <description>php+nginx:从Unix套接字切换到TCP/IP 打开php-frm池配置文件 vim /etc/php7.2/fpm/pool.d/www.conf listen.backlog = 65536 listen =127.0.0.1 fastcgi_pass 127.0.0.1:9000; service php7.2-fpm restart service nginx restart sysctl配置 vim /etc/sysctl.conf vm.dirty_background_ratio = 2 ###</description>
+    </item>
+    
+    <item>
+      <title>ubuntu nginx虚拟主机</title>
+      <link>https://www.51hint.com/posts/2015-02-20-ubuntu-nginx%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/</link>
+      <pubDate>Fri, 20 Feb 2015 14:14:30 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-20-ubuntu-nginx%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/</guid>
+      <description>&amp;lt;td width=&amp;quot;200&amp;quot;&amp;gt; Linux Mint 17 &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; Nginx Version &amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; Nginx 1.6.2 &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; IP -1 &amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; 10.0.2.15 &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr bgcolor=&amp;quot;#FFFFFF&amp;quot;&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; IP -2 &amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; 10.0.2.15 &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr bgcolor=&amp;quot;#FFFFFF&amp;quot;&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; Domain Name -1 &amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; support.2daygeek.com &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr bgcolor=&amp;quot;#FFFFFF&amp;quot;&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; Domain Name -2 &amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; dev.2daygeek.com &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;td width=&amp;quot;200&amp;quot;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>ubuntu安装nginx</title>
+      <link>https://www.51hint.com/posts/2015-02-19-ubuntu%E5%AE%89%E8%A3%85nginx/</link>
+      <pubDate>Thu, 19 Feb 2015 13:15:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-19-ubuntu%E5%AE%89%E8%A3%85nginx/</guid>
+      <description>一、安装nginx #sudo apt-get update #sudo apt-get install nginx 二、安装php #sudo apt-get install php5-fpm php5-mysql #sudo vim /etc/php5/fpm/php.ini 修改【 cgi.fix_pathinfo=0 】 #sudo service php5-fpm restart 三、php和nginx联动 #sudo vim /etc/nginx/sites-available/default 修改【 server { listen 80 default_server; listen [::]:80 default_server ipv6only=on; root /usr/share/nginx/html;</description>
+    </item>
+    
+    <item>
+      <title>负载均衡软件 Nginx, Haproxy,LVS比较</title>
+      <link>https://www.51hint.com/posts/2012-10-25-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%BD%AF%E4%BB%B6-nginx-haproxylvs%E6%AF%94%E8%BE%83/</link>
+      <pubDate>Thu, 25 Oct 2012 07:05:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-25-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%BD%AF%E4%BB%B6-nginx-haproxylvs%E6%AF%94%E8%BE%83/</guid>
+      <description>1、NGINX Nginx的优点: 性能好，可以负载超过1万的并发。 功能多，除了负载均衡，还能作Web服务器，而且可以通过Geo模块来实现流量分</description>
+    </item>
+    
+  </channel>
+</rss>

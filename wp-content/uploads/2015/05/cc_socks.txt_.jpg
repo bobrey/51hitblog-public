@@ -1,0 +1,50 @@
+
+Get Two Public IPs on an Amazon EC2 Instance for Free
+blog.ls20.com/get-two-public-ips-on-an-amazon-ec2-instance-for-free/
+
+
+How to Use ec2-api-tools to Manage EC2 Instances
+	http://www.tokiwinter.com/aws-use-ec2-tools-manage-instances/
+
+
+aws sdk for php
+	https://github.com/aws/aws-sdk-php
+	http://aws.amazon.com/sdk-for-php/
+	
+
+Download the Sample Project
+	http://aws.amazon.com/developers/getting-started/php/
+
+http://docs.aws.amazon.com/aws-sdk-php/guide/latest/index.html
+
+
+Provision an Amazon EC2 Instance with PHP
+	http://blogs.aws.amazon.com/php/post/TxMLFLE50WUAMR/Provision-an-Amazon-EC2-Instance-with-PHP
+
+
+http://stackoverflow.com/questions/11308099/how-to-start-and-stop-ec2-instances-using-php-aws-sdk
+https://gist.github.com/tomellis/3946086
+
+
+linux socket5 server
+http://blog.yegorgavrilov.com/2014/10/howto-ss5-socks5-proxy-server-on-centos.html
+http://www.ahowto.net/linux/create-socks5-server/
+
+基于Linode的shadowsocks实现
+http://www.poised-flw.com/%E6%9C%8D%E5%8A%A1%E5%99%A8/2015/04/07/linode-with-shadowsocks.html
+
+Dante
+http://www.111cn.net/sys/linux/46313.htm
+
+
+facebook email
+http://www.blackhatworld.com/blackhat-seo/facebook/695940-free-way-scrape-facebook-emails-4-500-emails-5-minutes.html
+
+
+If you have ScrapeBox, you can harvest URLs of Facebook pages/groups with this kind of footprint :
+Code: [View]
+	weight loss "gmail.com" "yahoo.com" inurl:"pages" site:facebook.com
+	Facebook doesn't uses the "@" in source code but the decimal translation "& #064 ;" (so Email Grabber will not works...).
+
+
+

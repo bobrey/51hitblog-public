@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>browser on IT技术分享</title>
+    <link>https://www.51hint.com/tags/browser/</link>
+    <description>Recent content in browser on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Jul 2012 07:59:22 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/browser/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android 浏览器</title>
+      <link>https://www.51hint.com/posts/2012-07-09-android-%E6%B5%8F%E8%A7%88%E5%99%A8/</link>
+      <pubDate>Mon, 09 Jul 2012 07:59:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-09-android-%E6%B5%8F%E8%A7%88%E5%99%A8/</guid>
+      <description>1、在程序中调起浏览器 2、通过WebView嵌入浏览器 1）允许internet连接的访问 在上面的例子中，我们可能发现无法相关的网页，这是因为</description>
+    </item>
+    
+  </channel>
+</rss>

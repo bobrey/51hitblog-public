@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>track on IT技术分享</title>
+    <link>https://www.51hint.com/tags/track/</link>
+    <description>Recent content in track on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Jan 2014 08:29:08 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/track/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bug跟踪系统</title>
+      <link>https://www.51hint.com/posts/2014-01-16-bug%E8%B7%9F%E8%B8%AA%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Thu, 16 Jan 2014 08:29:08 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-16-bug%E8%B7%9F%E8%B8%AA%E7%B3%BB%E7%BB%9F/</guid>
+      <description>Redmine 管理多项目极力推荐 JIRA 收费 YouTrack 简洁需要和intellj Idea配合发挥 Trac 简单好入门</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>helm on IT技术分享</title>
+    <link>https://www.51hint.com/tags/helm/</link>
+    <description>Recent content in helm on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Aug 2019 15:06:37 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/helm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Helm入门</title>
+      <link>https://www.51hint.com/posts/helm%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sat, 10 Aug 2019 15:06:37 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/helm%E5%85%A5%E9%97%A8/</guid>
+      <description>安装 brew install kubernetes-helm curl -L https://git.io/get_helm.sh | bash 常用命令 //Chart helm search 查找可用的Charts helm inspect 查看指定Chart的基本信息 helm install 根据指定的Chart 部署一个Release到K8</description>
+    </item>
+    
+  </channel>
+</rss>

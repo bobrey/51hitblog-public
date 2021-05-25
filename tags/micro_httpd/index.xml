@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>micro_httpd on IT技术分享</title>
+    <link>https://www.51hint.com/tags/micro_httpd/</link>
+    <description>Recent content in micro_httpd on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Aug 2013 10:28:55 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/micro_httpd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>micro_httpd 轻量级别服务器</title>
+      <link>https://www.51hint.com/posts/2013-08-01-micro_httpd-%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%88%AB%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Thu, 01 Aug 2013 10:28:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-08-01-micro_httpd-%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%88%AB%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>**micro_httpd**是一个轻量级的http服务器（http://www.acme.com/software/micro_httpd</description>
+    </item>
+    
+  </channel>
+</rss>

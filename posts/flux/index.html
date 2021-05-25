@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> flux - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="flux" />
+  <meta name="twitter:title" content="flux" />
+  <meta name="description" content="Flux Flux 是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。 Flux存在多种实现（至少15种），本文采用的是">
+  <meta property="og:description" content="Flux Flux 是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。 Flux存在多种实现（至少15种），本文采用的是">
+  <meta name="twitter:description" content="Flux Flux 是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。 Flux存在多种实现（至少15种），本文采用的是">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/flux/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/flux/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">flux</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Mar 6, 2017</h4>
+    </section>
+    <h5 id="wc">1900 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/flux/">flux</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装-demo">安装 Demo</a></li>
+    <li><a href="#基本概念">基本概念</a>
+      <ul>
+        <li><a href="#flux-的最大特点就是数据的单向流动">Flux 的最大特点，就是数据的&quot;单向流动&quot;。</a></li>
+      </ul>
+    </li>
+    <li><a href="#view第一部分">View（第一部分）</a></li>
+    <li><a href="#action">Action</a></li>
+    <li><a href="#dispatcher">Dispatcher</a></li>
+    <li><a href="#store">Store</a></li>
+    <li><a href="#view-第二部分">View （第二部分）</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h1 id="flux">Flux</h1>
+<p>Flux 是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。
+Flux存在多种实现（至少15种），本文采用的是Facebook官方实现。</p>
+<h2 id="安装-demo">安装 Demo</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/ruanyf/extremely-simple-flux-demo.git
+$ <span class="nb">cd</span> extremely-simple-flux-demo <span class="o">&amp;&amp;</span> npm install
+$ npm star
+</code></pre></div><h2 id="基本概念">基本概念</h2>
+<p>首先，Flux将一个应用分成四个部分</p>
+<ul>
+<li>View： 视图层</li>
+<li>Action（动作）：视图层发出的消息（比如mouseClick）</li>
+<li>Dispatcher（派发器）：用来接收Actions、执行回调函数</li>
+<li>Store（数据层）：用来存放应用的状态，一旦发生变动，就提醒Views要更新页面
+<img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016011503.png" alt=""></li>
+</ul>
+<h3 id="flux-的最大特点就是数据的单向流动">Flux 的最大特点，就是数据的&quot;单向流动&quot;。</h3>
+<ol>
+<li>用户访问 View</li>
+<li>View 发出用户的 Action</li>
+<li>Dispatcher 收到 Action，要求 Store 进行相应的更新</li>
+<li>Store 更新后，发出一个&quot;change&quot;事件</li>
+<li>View 收到&quot;change&quot;事件后，更新页面</li>
+</ol>
+<p>上面过程中，数据总是&quot;单向流动&quot;</p>
+<h2 id="view第一部分">View（第一部分）</h2>
+<p>请打开 Demo 的首页index.jsx ，你会看到只加载了一个组件。</p>
+<ol>
+<li>index.jsx</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// index.jsx
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ReactDOM</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react-dom&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">MyButtonController</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./components/MyButtonController&#39;</span><span class="p">);</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">MyButtonController</span><span class="o">/&gt;</span><span class="p">,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;#example&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div><p>这里，我采用的是 React 的 controller view 模式。&ldquo;controller view&quot;组件只用来保存状态，然后将其转发给子组件。MyButtonController的源码很简单。</p>
+<ol start="2">
+<li>MyButtonController.jsx</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// components/MyButtonController.jsx
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ButtonActions</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../actions/ButtonActions&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">MyButton</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./MyButton&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">MyButtonController</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">createNewItem</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ButtonActions</span><span class="p">.</span><span class="nx">addNewItem</span><span class="p">(</span><span class="s1">&#39;new item&#39;</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">MyButton</span>
+      <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">createNewItem</span><span class="p">}</span>
+    <span class="o">/&gt;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">MyButtonController</span><span class="p">;</span>
+</code></pre></div><p>上面代码中，MyButtonController将参数传给子组件MyButton。后者的源码甚至更简单。
+3. MyButton.jsx</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// components/MyButton.jsx
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">MyButton</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">onClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">New</span> <span class="nx">Item</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+  <span class="o">&lt;</span><span class="err">/div&gt;;</span>
+<span class="p">};</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">MyButton</span><span class="p">;</span>
+</code></pre></div><p>上面代码中，你可以看到MyButton是一个纯组件（即不含有任何状态），从而方便了测试和复用。这就是&quot;controll view&quot;模式的最大优点。</p>
+<p>MyButton只有一个逻辑，就是一旦用户点击，就调用this.createNewItem 方法，向Dispatcher发出一个Action。</p>
+<h2 id="action">Action</h2>
+<p>每个Action都是一个对象，包含一个<code>actionType</code>属性（说明动作的类型）和一些其他属性（用来传递数据）。
+在这个Demo里面，<code>ButtonActions</code> 对象用于存放所有的Action。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// actions/ButtonActions.js
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">AppDispatcher</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../dispatcher/AppDispatcher&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">ButtonActions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">addNewItem</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">AppDispatcher</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">({</span>
+      <span class="nx">actionType</span><span class="o">:</span> <span class="s1">&#39;ADD_NEW_ITEM&#39;</span><span class="p">,</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="nx">text</span>
+    <span class="p">});</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div><p>上面代码中，<code>ButtonActions.addNewItem</code>方法使用<code>AppDispatcher</code>，把动作<code>ADD_NEW_ITEM</code>派发到Store。</p>
+<h2 id="dispatcher">Dispatcher</h2>
+<p>Dispatcher 的作用是将 Action 派发到 Store、。你可以把它看作一个路由器，负责在 View 和 Store 之间，建立 Action 的正确传递路线。注意，Dispatcher 只能有一个，而且是全局的。</p>
+<p>Facebook官方的 <a href="https://github.com/facebook/flux">Dispatcher 实现</a>输出一个类，你要写一个<code>AppDispatcher.js</code>，生成 Dispatcher 实例。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// dispatcher/AppDispatcher.js
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">Dispatcher</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;flux&#39;</span><span class="p">).</span><span class="nx">Dispatcher</span><span class="p">;</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dispatcher</span><span class="p">();</span>
+</code></pre></div><p><code>AppDispatcher.register()</code>方法用来<strong>登记各种Action的回调函数</strong>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// dispatcher/AppDispatcher.js
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">ListStore</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../stores/ListStore&#39;</span><span class="p">);</span>
+
+<span class="nx">AppDispatcher</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">actionType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s1">&#39;ADD_NEW_ITEM&#39;</span><span class="o">:</span>
+      <span class="nx">ListStore</span><span class="p">.</span><span class="nx">addNewItemHandler</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+      <span class="nx">ListStore</span><span class="p">.</span><span class="nx">emitChange</span><span class="p">();</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="c1">// no op
+</span><span class="c1"></span>  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div><p>上面代码中，Dispatcher收到<code>ADD_NEW_ITEM</code>动作，就会执行回调函数，对<code>ListStore</code>进行操作。
+<strong>记住，Dispatcher 只用来派发 Action，不应该有其他逻辑。</strong></p>
+<h2 id="store">Store</h2>
+<p>Store 保存整个应用的状态。它的角色有点像 MVC 架构之中的Model 。
+在我们的 Demo 中，有一个<code>ListStore</code>，所有数据都存放在那里。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// stores/ListStore.js
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">ListStore</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">items</span><span class="o">:</span> <span class="p">[],</span>
+
+  <span class="nx">getAll</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">;</span>
+  <span class="p">},</span>
+
+  <span class="nx">addNewItemHandler</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="nx">emitChange</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">ListStore</span><span class="p">;</span>
+</code></pre></div><p>上面代码中，**ListStore.emitChange()**用来发出一个&quot;change&quot;事件。</p>
+<p>由于 Store 需要在变动后向 View 发送&quot;change&quot;事件，因此它必须实现事件接口。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// stores/ListStore.js
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">EventEmitter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;events&#39;</span><span class="p">).</span><span class="nx">EventEmitter</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">assign</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;object-assign&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">ListStore</span> <span class="o">=</span> <span class="nx">assign</span><span class="p">({},</span> <span class="nx">EventEmitter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">items</span><span class="o">:</span> <span class="p">[],</span>
+
+  <span class="nx">getAll</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">;</span>
+  <span class="p">},</span>
+
+  <span class="nx">addNewItemHandler</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="nx">emitChange</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="nx">addChangeListener</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="nx">removeChangeListener</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><p>上面代码中，ListStore继承了<code>EventEmitter.prototype</code>，因此就能使用<code>ListStore.on()</code>和<code>ListStore.emit()</code>，来监听和触发事件了。
+Store 更新后（<code>this.addNewItemHandler()</code>）发出事件（<code>this.emitChange()</code>），表明状态已经改变。 View 监听到这个事件，就可以查询新的状态，更新页面了。</p>
+<h2 id="view-第二部分">View （第二部分）</h2>
+<p>现在，我们再回过头来修改 View ，让它监听 Store 的 change 事件。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// components/MyButtonController.jsx
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ListStore</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../stores/ListStore&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ButtonActions</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../actions/ButtonActions&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">MyButton</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./MyButton&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">MyButtonController</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">getInitialState</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">items</span><span class="o">:</span> <span class="nx">ListStore</span><span class="p">.</span><span class="nx">getAll</span><span class="p">()</span>
+    <span class="p">};</span>
+  <span class="p">},</span>
+
+  <span class="nx">componentDidMount</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ListStore</span><span class="p">.</span><span class="nx">addChangeListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_onChange</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="nx">componentWillUnmount</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">ListStore</span><span class="p">.</span><span class="nx">removeChangeListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_onChange</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="nx">_onChange</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+      <span class="nx">items</span><span class="o">:</span> <span class="nx">ListStore</span><span class="p">.</span><span class="nx">getAll</span><span class="p">()</span>
+    <span class="p">});</span>
+  <span class="p">},</span>
+
+  <span class="nx">createNewItem</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ButtonActions</span><span class="p">.</span><span class="nx">addNewItem</span><span class="p">(</span><span class="s1">&#39;new item&#39;</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">MyButton</span>
+      <span class="nx">items</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">items</span><span class="p">}</span>
+      <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">createNewItem</span><span class="p">}</span>
+    <span class="o">/&gt;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><p>上面代码中，你可以看到当MyButtonController 发现 Store 发出 <code>change</code> 事件，就会调用 <code>this._onChange</code> 更新组件状态，从而触发重新渲染。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// components/MyButton.jsx
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">React</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;react&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">MyButton</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">props</span><span class="p">.</span><span class="nx">items</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">itemHtml</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">listItem</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">i</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">listItem</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;;</span>
+  <span class="p">});</span>
+
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">itemHtml</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/ul&gt;</span>
+    <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">onClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">New</span> <span class="nx">Item</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+  <span class="o">&lt;</span><span class="err">/div&gt;;</span>
+<span class="p">};</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">MyButton</span><span class="p">;</span>
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/react-nativexue-xi-zhi-nan/" data-toggle="tooltip" data-placement="top" title="React-Native学习指南">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/redux/" data-toggle="tooltip" data-placement="top" title="redux">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/react-nativexue-xi-zhi-nan/">React-Native学习指南</a></li>
+                    
+                    <li><a href="/posts/react-2/">react</a></li>
+                    
+                    <li><a href="/posts/vue/">Vue</a></li>
+                    
+                    <li><a href="/posts/visual-studio-tools-for-apache-cordova/">Visual Studio Tools  for Apache Cordova</a></li>
+                    
+                    <li><a href="/posts/reduce/">reduce</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Mar 6, 2017</h4>
+    </section>
+    <h5 id="wc">1900 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/flux/">flux</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

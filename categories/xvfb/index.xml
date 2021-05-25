@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xvfb on IT技术分享</title>
+    <link>https://www.51hint.com/categories/xvfb/</link>
+    <description>Recent content in xvfb on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Mar 2017 01:59:17 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/xvfb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xvfb</title>
+      <link>https://www.51hint.com/posts/xvfb/</link>
+      <pubDate>Tue, 14 Mar 2017 01:59:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/xvfb/</guid>
+      <description>$sudo apt-get update $ sudo apt-get install firefox xvfb -y $ sudo aptitude install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic $ sudo apt-get install fonts-ipafont-gothic fonts-ipafont-mincho export DISPLAY=:10 echo &amp;#34;Starting Xvfb ...&amp;#34; Xvfb :10 -screen 0 1024x768x24 -ac &amp;amp; http://localhost:4444/wd/hub/static/resource/hub.html</description>
+    </item>
+    
+  </channel>
+</rss>

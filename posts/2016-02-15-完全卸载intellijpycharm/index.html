@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 完全卸载intellij,pycharm - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="完全卸载intellij,pycharm" />
+  <meta name="twitter:title" content="完全卸载intellij,pycharm" />
+  <meta name="description" content="On Windows and Linux platforms IDEA stores its caches, configuration and plugins in the user’s home directory (profile directory). On Windows platform it’s usually \Documents and Settings&lt;USER ACCOUNT NAME&gt;&amp;IntelliJIdeaXX. On Windows Vista, Windows 7 and later Windows versions the profile directory is \Users&lt;USER ACCOUNT NAME&gt;. For Unix/Linux the home directory is ~/.IntelliJIdeaXX (~ is usually an alias for /home/) XX represents product">
+  <meta property="og:description" content="On Windows and Linux platforms IDEA stores its caches, configuration and plugins in the user’s home directory (profile directory). On Windows platform it’s usually \Documents and Settings&lt;USER ACCOUNT NAME&gt;&amp;IntelliJIdeaXX. On Windows Vista, Windows 7 and later Windows versions the profile directory is \Users&lt;USER ACCOUNT NAME&gt;. For Unix/Linux the home directory is ~/.IntelliJIdeaXX (~ is usually an alias for /home/) XX represents product">
+  <meta name="twitter:description" content="On Windows and Linux platforms IDEA stores its caches, configuration and plugins in the user’s home directory (profile directory). On Windows platform it’s usually \Documents and Settings&lt;USER …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2016-02-15-%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BDintellijpycharm/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2016-02-15-%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BDintellijpycharm/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">完全卸载intellij,pycharm</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Feb 15, 2016</h4>
+    </section>
+    <h5 id="wc">400 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <p>On <strong>Windows</strong> and <strong>Linux</strong> platforms IDEA stores its caches, configuration and plugins in the user’s <strong>home directory</strong> (<strong>profile directory</strong>).</p>
+<p> </p>
+<p>On <strong>Windows</strong> platform it’s usually <strong><!-- raw HTML omitted -->\Documents and Settings&lt;USER ACCOUNT NAME&gt;&amp;IntelliJIdeaXX</strong>.</p>
+<p>On <strong>Windows Vista</strong>, <strong>Windows 7</strong> and later Windows versions the <strong>profile directory</strong> is <strong><!-- raw HTML omitted -->\Users&lt;USER ACCOUNT NAME&gt;</strong>.</p>
+<p>For <strong>Unix/Linux</strong> the home directory is <strong>~/.IntelliJIdeaXX</strong>  (<strong>~</strong> is usually an alias for <strong>/home/<!-- raw HTML omitted --></strong>)</p>
+<p><strong>XX</strong> represents product version and can be (50, 60, 70, 80, 90, etc).</p>
+<p> </p>
+<p>Under the .IntelliJIdeaXX directory the following subdirectories can be found:</p>
+<ul>
+<li>Config: <strong>/config</strong></li>
+<li>Plugins: <strong>/config/plugins</strong></li>
+<li>Caches: <strong>/system</strong></li>
+<li>Logs: **/system/log **(also contains automatic thread dumps)</li>
+</ul>
+<p> </p>
+<p>On <strong>Mac OS X</strong> IDEA uses the following directories:</p>
+<ul>
+<li>Config: <strong>~/Library/Preferences/IntelliJIdeaXX</strong></li>
+<li>System: <strong>~/Library/Caches/IntelliJIdeaXX</strong></li>
+<li>Plugins: <strong>~/Library/Application Support/IntelliJIdeaXX</strong></li>
+<li>Logs: <strong>~/Library/Logs/IntelliJIdeaXX</strong> (starting from IDEA 9.0, older versions keep logs under System location)</li>
+</ul>
+<p> </p>
+<p>For <strong>other products based on IDEA platform</strong> look for the product name instead of <strong>IntelliJIdea</strong>:</p>
+<ul>
+<li><strong>WebIde</strong> for WebStorm/PhpStorm</li>
+<li><strong>PyCharm</strong></li>
+<li><strong>RubyMine</strong></li>
+</ul>
+<p> </p>
+<p>In some environments user’s home directory is located on the mapped network drive which is unacceptable for IntelliJ IDEA. You’ll notice the huge performance degradation. You may also want to move system directory to the faster or larger drive partition.</p>
+<p> </p>
+<ul>
+<li><strong>Config</strong> directory stores global IDEA configuration which is not specific to a project</li>
+<li><strong>System</strong> directory contains project caches, indices, compiler caches, jar caches, logs and <a href="http://www.jetbrains.net/devnet/docs/DOC-260">thread dumps</a>{.jive-link-external-small} (except Mac), version control system caches, and some other system files</li>
+<li><strong>Plugins</strong> directory keeps third-party plug-ins which you install via Plugin Manager (bundled plug-ins are located in IDEA_HOME\plugins)</li>
+</ul>
+<p> </p>
+<p>Locations of these directories can be modified in <strong>IDEA_HOME\bin\idea.properties</strong> file.</p>
+<p> </p>
+<p>You will need to adjust the following parameters:</p>
+<p> </p>
+<ul>
+<li>idea.config.path</li>
+<li>idea.system.path</li>
+<li>idea.plugins.path</li>
+</ul>
+<p> </p>
+<p><strong>Note for Mac OS X users</strong>: most likely you will not need to change the defaults, but if for some reason you want to do it, you can find the related settings in the <strong>Info.plist</strong> file located in IDEA Application directory.</p>
+<p> </p>
+<p> </p>
+<p>For IntelliJ Idea 11.1 Community Edition (IC-117.117) on Mac OS X (10.6) following seems to be the location:</p>
+<p> </p>
+<ul>
+<li>Config: **~/Library/Preferences/**<strong>IdeaIC11</strong></li>
+<li>System: **~/Library/Caches/**<strong>IdeaIC11</strong></li>
+<li>Plugins: **~/Library/Application Support/**<strong>IdeaIC11</strong></li>
+<li>Logs: **~/Library/Logs/**<strong>IdeaIC11</strong></li>
+</ul>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2016-02-12-%E5%88%A0%E9%99%A4w3-total-cache/" data-toggle="tooltip" data-placement="top" title="删除W3 Total Cache">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2016-02-15-scrapy-json/" data-toggle="tooltip" data-placement="top" title="scrapy json保存">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Feb 15, 2016</h4>
+    </section>
+    <h5 id="wc">400 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

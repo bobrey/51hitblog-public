@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>XMLHttpRequest on IT技术分享</title>
+    <link>https://www.51hint.com/tags/xmlhttprequest/</link>
+    <description>Recent content in XMLHttpRequest on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://www.51hint.com/tags/xmlhttprequest/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xhr发送请求</title>
+      <link>https://www.51hint.com/posts/2016-06-15-xhr%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-06-15-xhr%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

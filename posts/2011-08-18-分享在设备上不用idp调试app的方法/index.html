@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 分享在设备上不用iDP调试app的方法 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="分享在设备上不用iDP调试app的方法" />
+  <meta name="twitter:title" content="分享在设备上不用iDP调试app的方法" />
+  <meta name="description" content="&lt;p style=&quot;text-align: left; padding: 0px; margin: 0.8em 0px 0.8em 0px;&quot;&gt; 这是1ST告诉我的办法，第一次就是他告诉的，没想到这次还是他告诉的。 &lt;/p&gt; &lt;p style=&quot;text-align: left; padding: 0px; margin: 0.8em 0px 0.8em 0px;&quot;&gt; 下面是所有的代码操作，请对照操">
+  <meta property="og:description" content="&lt;p style=&quot;text-align: left; padding: 0px; margin: 0.8em 0px 0.8em 0px;&quot;&gt; 这是1ST告诉我的办法，第一次就是他告诉的，没想到这次还是他告诉的。 &lt;/p&gt; &lt;p style=&quot;text-align: left; padding: 0px; margin: 0.8em 0px 0.8em 0px;&quot;&gt; 下面是所有的代码操作，请对照操">
+  <meta name="twitter:description" content="&lt;p style=&quot;text-align: left; padding: 0px; margin: 0.8em 0px 0.8em 0px;&quot;&gt; 这是1ST告诉我的办法，第一次就是他告诉的，没想到这次还是他告诉的。 &lt;/p&gt; &lt;p style=&quot;text-align: left; padding: 0px; margin: 0.8em …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-08-18-%E5%88%86%E4%BA%AB%E5%9C%A8%E8%AE%BE%E5%A4%87%E4%B8%8A%E4%B8%8D%E7%94%A8idp%E8%B0%83%E8%AF%95app%E7%9A%84%E6%96%B9%E6%B3%95/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-08-18-%E5%88%86%E4%BA%AB%E5%9C%A8%E8%AE%BE%E5%A4%87%E4%B8%8A%E4%B8%8D%E7%94%A8idp%E8%B0%83%E8%AF%95app%E7%9A%84%E6%96%B9%E6%B3%95/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">分享在设备上不用iDP调试app的方法</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 18, 2011</h4>
+    </section>
+    <h5 id="wc">7500 Words|Read in about 15 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p> </p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;p style=&quot;text-align: left; padding: 0px; margin: 0.8em 0px 0.8em 0px;&quot;&gt;
+  这是1ST告诉我的办法，第一次就是他告诉的，没想到这次还是他告诉的。
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left; padding: 0px; margin: 0.8em 0px 0.8em 0px;&quot;&gt;
+  下面是所有的代码操作，请对照操作步骤来进行，代码操作这是作为参考：
+&lt;/p&gt;
+
+&lt;p style=&quot;text-align: left; padding: 0px; margin: 0.8em 0px 0.8em 0px;&quot;&gt;
+  操作步骤：
+&lt;/p&gt;
+
+&lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+  &lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;iPhone&lt;/span&gt;必须是越狱后的，并且安装了&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;afc2add&lt;/span&gt;。
+&lt;/p&gt;
+
+&lt;p class=&quot;p2&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; min-height: 18px; padding: 0px; margin: 0px;&quot;&gt;
+  &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+    将&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;iPhone&lt;/span&gt;接入&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;Mac&lt;/span&gt;，并打开&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;xCode&lt;/span&gt;，会自动弹出&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;Organizer&lt;/span&gt;（或在&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;xCode&lt;/span&gt;的菜单&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;Window&lt;/span&gt;中打开），在其中点击&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;“&lt;/span&gt;用这台设备进行开发&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;”&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&quot;p2&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; min-height: 18px; padding: 0px; margin: 0px;&quot;&gt;
+    &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+      xCode&lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;配置步骤：&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+      零、开始前的注意事项
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;1&lt;/span&gt;、&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt; &lt;/span&gt;权限问题：
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;   &lt;/span&gt;要想修改并保存文件，须先修改该文件及其上层目录的权限（在右键菜单的显示简介中），添加当前用户并赋读和写权限，才能修改文件。
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;2&lt;/span&gt;、注意备份
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;   &lt;/span&gt;修改之前一定注意备份原有文件
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;一、修改文件&lt;/span&gt;SDKSettings.plist
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt; &lt;/span&gt;文件位置：
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+         /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;  &lt;/span&gt;修改方法：
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+          &lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;找到&lt;/span&gt;&lt;key&gt;CODE_SIGNING_REQUIRED&lt;/key&gt;&lt;string&gt;YES&lt;/string&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;    &lt;/span&gt;将值从YES改为&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;NO&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+          &lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;找到&lt;/span&gt;&lt;key&gt;ENTITLEMENTS_REQUIRED&lt;/key&gt;&lt;string&gt;YES&lt;/string&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;    &lt;/span&gt;将值从YES改为&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;NO&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p2&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; min-height: 18px; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+        &lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;二、修改文件&lt;/span&gt;info.plist
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+        &lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt; &lt;/span&gt;文件位置：
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+          /Developer/Platforms/iPhoneOS.platform/
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+        &lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;  &lt;/span&gt;修改方法：
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+          &lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;找到所有的&lt;/span&gt;&lt;key&gt;CODE_SIGN_CONTEXT_CLASS&lt;/key&gt;&lt;string&gt;XCiPhoneOSCodeSignContext&lt;/string&gt;
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+          &lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;将值从&lt;/span&gt;XCiPhoneOSCodeSignContext&lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;改为&lt;/span&gt; XCCodeSignContext
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+        （共&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;2&lt;/span&gt;处）
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;p2&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; min-height: 18px; padding: 0px; margin: 0px;&quot;&gt;
+        &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+          三、打开终端，输入以下命令：
+        &lt;/p&gt;
+        
+        &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+          cd /Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/MacOS/
+        &lt;/p&gt;
+        
+        &lt;p class=&quot;p2&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; min-height: 18px; padding: 0px; margin: 0px;&quot;&gt;
+          &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+            dd if=iPhoneOS Build System Support of=working bs=500 count=255
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;p2&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; min-height: 18px; padding: 0px; margin: 0px;&quot;&gt;
+            &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+              printf &amp;#8220;xc3x26x00x00&amp;#8221; &gt;&gt; working
+            &lt;/p&gt;
+            
+            &lt;p class=&quot;p2&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; min-height: 18px; padding: 0px; margin: 0px;&quot;&gt;
+              &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+                dd if=iPhoneOS Build System Support of=working bs=1 skip=127504 seek=127504
+              &lt;/p&gt;
+              
+              &lt;p class=&quot;p2&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; min-height: 18px; padding: 0px; margin: 0px;&quot;&gt;
+                &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+                  /bin/mv -n iPhoneOS Build System Support iPhoneOS Build System Support.original
+                &lt;/p&gt;
+                
+                &lt;p class=&quot;p2&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; min-height: 18px; padding: 0px; margin: 0px;&quot;&gt;
+                  &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+                    /bin/mv working iPhoneOS Build System Support
+                  &lt;/p&gt;
+                  
+                  &lt;p class=&quot;p2&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; min-height: 18px; padding: 0px; margin: 0px;&quot;&gt;
+                    &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+                      chmod a+x iPhoneOS Build System Support
+                    &lt;/p&gt;
+                    
+                    &lt;p class=&quot;p2&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; min-height: 18px; padding: 0px; margin: 0px;&quot;&gt;
+                      &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+                        &lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;四、修改工程属性（&lt;/span&gt;Project Settings&lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;）&lt;/span&gt;
+                      &lt;/p&gt;
+                      
+                      &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+                        先打开工程属性，&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;xCode3&lt;/span&gt;可在菜单&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;File-&gt;Project&lt;br /&gt; Settings&lt;/span&gt;中打开，或右键点工程文件列表中的工程项，从中找到工程属性；&lt;span class=&quot;s1&quot; style=&quot;font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;xCode4&lt;/span&gt;直接单击工程文件列表中的工程项即可
+                      &lt;/p&gt;
+                      
+                      &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+                        &lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;在工程属性中，找到&lt;/span&gt;Build Settings&lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;，修改其中的&lt;/span&gt;Code&lt;br /&gt; Signing Identity&lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;，将所有属性值都从&lt;/span&gt;iPhone Developer&lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;改为&lt;/span&gt;Don&amp;#8217;t&lt;br /&gt; Code Sign
+                      &lt;/p&gt;
+                      
+                      &lt;p class=&quot;p3&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal Times; padding: 0px; margin: 0px;&quot;&gt;
+                        &lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;（若在&lt;/span&gt;xCode4&lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;中找不到&lt;/span&gt;Code&lt;br /&gt; Signing Identity&lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;，在属性列表的左上方有个&lt;/span&gt;“Basic”&lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;和&lt;/span&gt;“All”&lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;的选项，选择&lt;/span&gt;All&lt;span class=&quot;s2&quot; style=&quot;font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;就能找到了。&lt;/span&gt;
+                      &lt;/p&gt;
+                      
+                      &lt;p class=&quot;p4&quot; style=&quot;margin: 0px; padding: 0px; text-align: left; font: 15px STSong; min-height: 15px;&quot;&gt;
+                        &lt;p class=&quot;p4&quot; style=&quot;margin: 0px; padding: 0px; text-align: left; font: 15px STSong; min-height: 15px;&quot;&gt;
+                          &lt;p class=&quot;p4&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; min-height: 15px; padding: 0px; margin: 0px;&quot;&gt;
+                            &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+                              最后、选择Device的SDK，Run。会将编译好的app传输到设备上，不过xCode会提示Error Starting Executable &amp;#8220;project name&amp;#8221;, Error launching remote program…这时，只需手动在设备上打开这个程序就可以了，调试信息可在Organizer里实时监控
+                            &lt;/p&gt;
+                            
+                            &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+                              &lt;p class=&quot;p1&quot; style=&quot;text-align: left; font: normal normal normal 15px/normal STSong; padding: 0px; margin: 0px;&quot;&gt;
+                                再次最后，操作完quit一下Xcode，再打开往设备上安装app。
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                &amp;nbsp;
+                              &lt;/p&gt;
+                              
+                              &lt;ol class=&quot;linenums&quot; style=&quot;border-left-width: 20px; border-left-style: solid; border-left-color: #666666; list-style-type: decimal-leading-zero; color: #b0ebe7; padding: 0px 0px 0px 10px; margin: 0px;&quot;&gt;
+                                &lt;li class=&quot;L0&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; tests$ cd &lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Developer&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Platforms&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;iPhoneOS&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;platform&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Developer&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;SDKs&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;iPhoneOS4&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;3.sdk&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L1&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS4&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;3.sdk&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;$ ls&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L2&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Developer&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Entitlements&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;ResourceRules&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;SDKSettings&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; usr&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L3&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS4&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;3.sdk&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;$ cp &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;SDKSettings&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;SDKSettings&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;backup&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L4&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;cp&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;SDKSettings&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;backup&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Permission&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; denied&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L5&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS4&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;3.sdk&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;$ sudo cp &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;SDKSettings&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;SDKSettings&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;backup&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L6&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Password&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;:&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L7&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS4&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;3.sdk&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;$ ls&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L8&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Developer&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;ResourceRules&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;SDKSettings&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;backup usr&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L9&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Entitlements&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;SDKSettings&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L0&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS4&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;3.sdk&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;$ sudo emacs &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;SDKSettings&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L1&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS4&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;3.sdk&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;$ cd &lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Developer&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Platforms&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;iPhoneOS&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;platform&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L2&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;platform$ ls&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L3&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Developer&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;DeviceSupport&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Info&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist iPhoneOS&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;icns version&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L4&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;platform$ sudo cp &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Info&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Info&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;backup&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L5&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;platform$ ls&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L6&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Developer&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;DeviceSupport&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Info&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Info&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;backup iPhoneOS&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;icns version&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L7&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;platform$ sudo emacs &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Info&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;plist&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L8&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;platform$ cd &lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Developer&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Platforms&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;iPhoneOS&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;platform&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Developer&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Library&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Xcode&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Plug&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;ins&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;xcplugin&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Contents&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L9&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; ls&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L0&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L1&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; ls &lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;al&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L2&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;total &lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;232&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L3&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;drwxrwxr&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;x &lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; root admin &lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;102&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;7&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;22&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;06&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;27&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L4&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;drwxrwxr&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;x &lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;7&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; root admin &lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;238&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;7&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;22&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;06&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;27&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;..&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L5&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;rwxrwxr&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;x &lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; root admin &lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;115904&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;31&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;09&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;22&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L6&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; dd &lt;/span&gt;&lt;span style=&quot;color: #f0e68c; font-weight: bold; padding: 0px; margin: 0px;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; of&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;working bs&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;500&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; count&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;255&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L7&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;231&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;+&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; records &lt;/span&gt;&lt;span style=&quot;color: #f0e68c; font-weight: bold; padding: 0px; margin: 0px;&quot;&gt;in&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L8&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;231&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;+&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; records &lt;/span&gt;&lt;span style=&quot;color: #f0e68c; font-weight: bold; padding: 0px; margin: 0px;&quot;&gt;out&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L9&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;115904&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; bytes transferred &lt;/span&gt;&lt;span style=&quot;color: #f0e68c; font-weight: bold; padding: 0px; margin: 0px;&quot;&gt;in&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;0.023461&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; secs &lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;4940262&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; bytes&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;sec&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;)&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L0&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; printf &lt;/span&gt;&lt;span style=&quot;color: #ffa0a0; padding: 0px; margin: 0px;&quot;&gt;&amp;#8220;xc3x26x00x00&amp;#8221;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&gt;&gt;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; working &lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L1&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; dd &lt;/span&gt;&lt;span style=&quot;color: #f0e68c; font-weight: bold; padding: 0px; margin: 0px;&quot;&gt;if&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; of&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;working bs&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; skip&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;127504&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; seek&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;125504&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L2&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;+&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; records &lt;/span&gt;&lt;span style=&quot;color: #f0e68c; font-weight: bold; padding: 0px; margin: 0px;&quot;&gt;in&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L3&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;+&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; records &lt;/span&gt;&lt;span style=&quot;color: #f0e68c; font-weight: bold; padding: 0px; margin: 0px;&quot;&gt;out&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L4&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; bytes transferred &lt;/span&gt;&lt;span style=&quot;color: #f0e68c; font-weight: bold; padding: 0px; margin: 0px;&quot;&gt;in&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;0.000013&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; secs &lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #cd5c5c; padding: 0px; margin: 0px;&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; bytes&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;sec&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;)&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L5&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; mv&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L6&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;mv mvn &lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L7&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; mv&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L8&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;mv mvn &lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L9&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; mv &lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;n iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;backup&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L0&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; ls&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L1&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;backup working&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L2&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; mv working iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L3&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; ls&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L4&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;backup&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L5&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; chmod a&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;+&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;x iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L6&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;dawncold@tianzhenmatoMacBook&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;&amp;#8211;&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Pro&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;MacOS$&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; ls&lt;/span&gt;
+                                &lt;/li&gt;
+                                &lt;li class=&quot;L7&quot; style=&quot;border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #555555; padding: 2px 0px 2px 0px; margin: 0px;&quot;&gt;
+                                  &lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt; iPhoneOS &lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Build&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;System&lt;/span&gt;&lt;span style=&quot;color: #98fb98; padding: 0px; margin: 0px;&quot;&gt;Support&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #ffffff; padding: 0px; margin: 0px;&quot;&gt;backup&lt;/span&gt;
+                                &lt;/li&gt;
+                              &lt;/ol&gt;
+                              
+                              &lt;p&gt;
+                                &amp;nbsp;
+                              &lt;/p&gt;&lt;/div&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-08-18-nsfilehandle/" data-toggle="tooltip" data-placement="top" title="NSFileHandle">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-08-18-iphone%E4%B9%8Bnsdata%E8%BD%ACbyte%E6%95%B0%E7%BB%84-%E4%BB%8Ensdata%E4%B8%AD%E8%AF%BB%E5%8F%96%E4%B8%80%E4%BA%9B%E9%95%BF%E5%BA%A6%E5%AD%97%E8%8A%82/" data-toggle="tooltip" data-placement="top" title="iphone之nsdata转byte数组;  从NSData中读取一些长度字节；">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-08-18-nsfilehandle/">NSFileHandle</a></li>
+                    
+                    <li><a href="/posts/2011-08-17-%E5%87%A0%E4%B8%AA%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%A0%81/">几个网络代码</a></li>
+                    
+                    <li><a href="/posts/2011-08-17-%E8%8E%B7%E5%8F%96%E6%9C%AC%E6%9C%BA-%E5%85%AC%E5%BC%80ip/">获取本机 公开ip</a></li>
+                    
+                    <li><a href="/posts/2011-08-16-iphone-how-to%E7%BB%99uiview%E6%8B%8D%E7%85%A7/">iPhone How-to:给UIView拍照</a></li>
+                    
+                    <li><a href="/posts/2011-08-16-iphone-%E6%92%AD%E6%94%BEgif%E5%8A%A8%E7%94%BB/">iphone 播放gif动画</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 18, 2011</h4>
+    </section>
+    <h5 id="wc">7500 Words|Read in about 15 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

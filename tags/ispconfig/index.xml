@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ISPConfig on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ispconfig/</link>
+    <description>Recent content in ISPConfig on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Jul 2012 05:10:46 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ispconfig/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>虚拟主机管理程序</title>
+      <link>https://www.51hint.com/posts/2012-07-02-%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Mon, 02 Jul 2012 05:10:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-02-%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8F/</guid>
+      <description>Kloxo的前身是lxadmin，是一款免费的虚拟主机管理系统，安装简单，功能强大，可以快速地在red hat,centos系列linux系统</description>
+    </item>
+    
+  </channel>
+</rss>

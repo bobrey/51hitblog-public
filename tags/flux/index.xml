@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>flux on IT技术分享</title>
+    <link>https://www.51hint.com/tags/flux/</link>
+    <description>Recent content in flux on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Mar 2017 16:04:21 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/flux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>flux</title>
+      <link>https://www.51hint.com/posts/flux/</link>
+      <pubDate>Mon, 06 Mar 2017 16:04:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/flux/</guid>
+      <description>Flux Flux 是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。 Flux存在多种实现（至少15种），本文采用的是</description>
+    </item>
+    
+  </channel>
+</rss>

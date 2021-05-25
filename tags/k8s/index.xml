@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>k8s on IT技术分享</title>
+    <link>https://www.51hint.com/tags/k8s/</link>
+    <description>Recent content in k8s on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Apr 2020 17:20:46 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>K8s_ingress nginx</title>
+      <link>https://www.51hint.com/posts/k8s_ingress/</link>
+      <pubDate>Sun, 19 Apr 2020 17:20:46 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/k8s_ingress/</guid>
+      <description>Kubernetes ingress (nginx-ingress) https://www.jianshu.com/p/bd195f7564a4 nginx-ingress配置原理 https://yuerblog.cc/2019/03/26/k8s%E9%9A%8F%E7%AC%94-nginx-ingress%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/ Kubernetes Ingress Controller的使用介绍及高可用落地 https://www.servicemesher.com/blog/kubernetes-ingress-controller-deployment-and-ha/</description>
+    </item>
+    
+    <item>
+      <title>Harbor</title>
+      <link>https://www.51hint.com/posts/harbor/</link>
+      <pubDate>Sat, 10 Aug 2019 20:35:22 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/harbor/</guid>
+      <description>安装 wget https://storage.googleapis.com/harbor-releases/release-1.8.0/harbor-offline-installer-v1.8.1.tgz tar zxvf cd harbor vim harbor hostname: 192.168.50.156 port: 5000 harbor_admin_password= 123456 data_volume: /usr/src/harbor/data location: /var/log/harbor vim docker-compose.yml ports: #需要改这里 - 5000:80 - 443:443 - 4443:4443 ./install docker-compose start/stop 使用 创建wyx用户 创建test项目 为test项目添加wyx往上，</description>
+    </item>
+    
+    <item>
+      <title>Istio服务治理</title>
+      <link>https://www.51hint.com/posts/istio%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86/</link>
+      <pubDate>Sat, 10 Aug 2019 15:50:38 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/istio%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86/</guid>
+      <description>istio的强大微服务治理能力还体现在其集成了grafana、prometheus、servicegraph、zipkin等addons，应</description>
+    </item>
+    
+    <item>
+      <title>Helm入门</title>
+      <link>https://www.51hint.com/posts/helm%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sat, 10 Aug 2019 15:06:37 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/helm%E5%85%A5%E9%97%A8/</guid>
+      <description>安装 brew install kubernetes-helm curl -L https://git.io/get_helm.sh | bash 常用命令 //Chart helm search 查找可用的Charts helm inspect 查看指定Chart的基本信息 helm install 根据指定的Chart 部署一个Release到K8</description>
+    </item>
+    
+  </channel>
+</rss>

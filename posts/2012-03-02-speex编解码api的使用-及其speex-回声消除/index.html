@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Speex编/解码API的使用 及其speex 回声消除 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Speex编/解码API的使用 及其speex 回声消除" />
+  <meta name="twitter:title" content="Speex编/解码API的使用 及其speex 回声消除" />
+  <meta name="description" content="Speex编/解码API的使用 http://www.haogongju.net/art/153209实践linux, alsa下的speex 回">
+  <meta property="og:description" content="Speex编/解码API的使用 http://www.haogongju.net/art/153209实践linux, alsa下的speex 回">
+  <meta name="twitter:description" content="Speex编/解码API的使用 http://www.haogongju.net/art/153209实践linux, alsa下的speex 回">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">Speex编/解码API的使用 及其speex 回声消除</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Mar 2, 2012</h4>
+    </section>
+    <h5 id="wc">1000 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p> </p>
+<h1 id="speex编解码api的使用">Speex编/解码API的使用</h1>
+<p><a href="http://www.haogongju.net/art/153209">http://www.haogongju.net/art/153209</a><!-- raw HTML omitted --></p>
+<p><a href="http://blog.csdn.net/sunkwei/article/details/6447736">实践linux, alsa下的speex 回声消除</a></p>
+<p><a href="http://blog.csdn.net/sunkwei/article/details/6447736">http://blog.csdn.net/sunkwei/article/details/6447736</a></p>
+<p><a href="http://blog.csdn.net/sunkwei/article/details/6429096">实践windows下 speex 1.2rc1 中的回声消除功能</a></p>
+<p><a href="http://blog.csdn.net/sunkwei/article/details/6429096">http://blog.csdn.net/sunkwei/article/details/6429096</a><!-- raw HTML omitted --></p>
+<p>看到网上很多希望使用speex aec的, 似乎找不到win32下的例子, 我这里尝试做了一个, 效果还行, 使用<!-- raw HTML omitted --></p>
+<p>上面是三路实时音频录下后, 在audacity中显示, 第一路为本地mic采集, 第二路为本地回放, 第三路为经过speex_echo_cancellation() 处理后的, 这个测试中, 为间断的读”1, 2, 3…”, 图中选中的是 “2”. capture到playback之间,大约差了1百多毫秒.</p>
+<p>下面开始叙述实现过程, 并附上源码.</p>
+<p>其实aec中最困难的问题是如何同步capture和playback, 一开始我也尝试用 speex_echo_playback()/speex_echo_capture() 但最后还是放弃了, 因为真正的问题在于win32下的实时性太差了, 两个及时最高优先级的工作线程, 也很难对齐.</p>
+<p>这个例子中使用dsound进行capture/playback(开始用waveIn/waveOut, 简直无法忍受, 感兴趣的, 关闭代码中的 USING_DSOUND试试), capture和playback使用 event, 通知独立的工作线程, 进行aec.</p>
+<p>speex aec中, 希望20ms一个frames, 但是win32下似乎设置20ms一个通知点时, 就乱套了, 至少在我的x61(win2003)是不行的, 所以设置40ms.</p>
+<p><strong>通知点:</strong></p>
+<p>**    **static HANDLE _evt_notify<a href="http://blog.csdn.net/sunkwei/article/details/6429096">2</a> = { CreateEvent(0, 0, 0, 0), CreateEvent(0, 0, 0, 0), };</p>
+<p>创建两个event对象, 分别对应 capture和playback中使用的 notify point</p>
+<p><strong>fifo缓冲</strong> :</p>
+<p>实现为环形缓冲, 分别用于 _cbuf_recv: 接收网络数据, _cbuf_input:  保存capture数据, _cbuf_output: 保存 playback数据</p>
+<p><strong>工作线程: 实施aec</strong></p>
+<p>**    **while true {</p>
+<p>WaitForMultipleObjects(_evt_notify);</p>
+<p>if (capture notify) {</p>
+<p>save data info _cbuf_input;     // _cbuf_input 包含回声需要消除的声音</p>
+<p>}</p>
+<p>else {</p>
+<p>get data from _cbuf_recv;  // _cbuf_recv 保存来自网络的数据</p>
+<p>save data info _cbuf_output // _cbuf_output 作为参考</p>
+<p>playback data</p>
+<p>}</p>
+<p>while (_cbuf_input.data &gt; FRAMESIZE, _cbuf_output.data &gt; FRAMESIZE) {</p>
+<p>speex_echo_cancellation();</p>
+<p>send_pcm();</p>
+<p>}</p>
+<p>}</p>
+<p><strong>PCM格式</strong></p>
+<p>** **       WAVEFORMATEX:</p>
+<p>.wFormatTag = WAVE_FORMAT_PCM;</p>
+<p>.nChannels = 1;</p>
+<p>.nSamplesPerSec = 8000;</p>
+<p>.wBitsPerSample = 16;</p>
+<p>.nBlockAlign = 2;</p>
+<p>.nAvgBytesPerSec = 16000;</p>
+<p><strong>打开playback设备</strong></p>
+<p>**        **DirectSoundCreate8();</p>
+<p>SetCooperativeLevel( DSSCL_EXCLUSIVE)</p>
+<p>CreateSoundBuffer()</p>
+<p>QueryInterface (IID_IDirectSoundNotify8 ..)</p>
+<p>SetNotificationPositions( _evt_notify<a href="http://blog.csdn.net/sunkwei/article/details/6447736">1</a>);</p>
+<p>Play(0, 0, DSBPLAY_LOOPING);</p>
+<p>**</p>
+<p>**</p>
+<p><strong>打开capature设备</strong></p>
+<p>****DirectSoundCaptureCreate8();</p>
+<p>CreateCaptureBuffer();</p>
+<p>QueryInterface (IID_IDirectSoundNotify8 ..)</p>
+<p>SetNotificationPositions( _evt_notify[0]);</p>
+<p>Start(DSCBBSTART_LOOPING);</p>
+<p>其实xp开始有个 DirectSoundFullDuplexCreate8() 的函数, 可以一次调用同时创建 capture buffer和playback buffer, 源码中有.</p>
+<p>这里下载 <a href="http://download.csdn.net/source/3290182">http://download.csdn.net/source/3290182</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-03-02-%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81-speex%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" data-toggle="tooltip" data-placement="top" title="音频编解码-speex库的使用方法">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-03-06-%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E4%B9%8Bwindows-console%E4%BE%8B%E5%AD%90%E8%A7%A3%E8%AF%B4/" data-toggle="tooltip" data-placement="top" title="汇编程序之windows console例子解说">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Mar 2, 2012</h4>
+    </section>
+    <h5 id="wc">1000 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

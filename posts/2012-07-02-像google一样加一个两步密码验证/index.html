@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 像google一样加一个两步密码验证 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="像google一样加一个两步密码验证" />
+  <meta name="twitter:title" content="像google一样加一个两步密码验证" />
+  <meta name="description" content="&lt;p&gt; &lt;a title=&quot;google 两步验证&quot; href=&quot;http://support.google.com/accounts/bin/topic.py?hl=zh-Hans&amp;topic=28786&quot; target=&quot;_blank&quot;&gt;google的两步密码验证&lt;/a&gt;出来已经">
+  <meta property="og:description" content="&lt;p&gt; &lt;a title=&quot;google 两步验证&quot; href=&quot;http://support.google.com/accounts/bin/topic.py?hl=zh-Hans&amp;topic=28786&quot; target=&quot;_blank&quot;&gt;google的两步密码验证&lt;/a&gt;出来已经">
+  <meta name="twitter:description" content="&lt;p&gt; &lt;a title=&quot;google 两步验证&quot; href=&quot;http://support.google.com/accounts/bin/topic.py?hl=zh-Hans&amp;topic=28786&quot; target=&quot;_blank&quot;&gt;google的两步密码验证&lt;/a&gt;出来已经">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-07-02-%E5%83%8Fgoogle%E4%B8%80%E6%A0%B7%E5%8A%A0%E4%B8%80%E4%B8%AA%E4%B8%A4%E6%AD%A5%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-07-02-%E5%83%8Fgoogle%E4%B8%80%E6%A0%B7%E5%8A%A0%E4%B8%80%E4%B8%AA%E4%B8%A4%E6%AD%A5%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">像google一样加一个两步密码验证</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jul 2, 2012</h4>
+    </section>
+    <h5 id="wc">1000 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  &lt;a title=&quot;google 两步验证&quot; href=&quot;http://support.google.com/accounts/bin/topic.py?hl=zh-Hans&amp;topic=28786&quot; target=&quot;_blank&quot;&gt;google的两步密码验证&lt;/a&gt;出来已经相当一段时间了，相信很多同学都用过，其工作原理是:&lt;br /&gt; 两步验证为您的 Google 帐户多加了一道安全防线除了用户名和密码外，您还需要输入登录时 Google 通过短信或语音留言向您发送的验证码。
+&lt;/p&gt;
+
+&lt;p&gt;
+  实际上这个东西就是类似网银口令卡的东西，但是这个实现起来更为简单，你在google账户开启了两步密码验证以后，你先得正确输入了密码，再拿出手机，查出当前的第二步密码，正确输入后才能访问你的账户，这个密码每30秒就过期并且会生成一个新密码，对了，这个东西叫做&lt;a href=&quot;http://code.google.com/p/google-authenticator/&quot; target=&quot;_blank&quot;&gt;google authenticator&lt;/a&gt;,google是把他开源出来了的，并且有了&lt;a title=&quot;google authenticator ios客户端&quot; href=&quot;http://itunes.apple.com/cn/app/google-authenticator/id388497605?mt=8&quot; target=&quot;_blank&quot;&gt;IOS客户端&lt;/a&gt;，&lt;a title=&quot;google authoenticator的android客户端&quot; href=&quot;http://market.android.com/details?id=com.google.android.apps.authenticator&quot; target=&quot;_blank&quot;&gt;Android客户端&lt;/a&gt;，Blackberry客户端，甚至有&lt;a title=&quot;google authenticator for s60&quot; href=&quot;http://code.google.com/p/lwuitgauthj2me/&quot; target=&quot;_blank&quot;&gt;Nokia客户端&lt;/a&gt;（这个非官方出品），有算法用啥语言来实现，实际上已经不重要了！因此，用PHP来实现google authenticator算法根本不是问题,请看&lt;a href=&quot;http://www.idontplaydarts.com/wp-content/uploads/2011/07/ga.php_.txt&quot; target=&quot;_blank&quot;&gt;老外的代码&lt;/a&gt; 。
+&lt;/p&gt;
+
+&lt;p&gt;
+  对！我们有了这些资源，就可以实现自己的两步密码验证了，实际上这个算法是一个叫做&lt;a href=&quot;http://www.ietf.org/rfc/rfc4226.txt&quot; target=&quot;_blank&quot;&gt;HOTP&lt;/a&gt;的东西，算法的核心根据密钥和时间戳或者计数器来算出一个一次性密码，像google authenticator是30秒一换（基于计数器的当然就是一次换一个啦），密钥只有google authenticator和服务器知道，暴露出来的仅仅是一个每30秒（或每次）换一次的token，也就是一次性密码。
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;img class=&quot;alignnone&quot; title=&quot;google d&quot; src=&quot;https://i2.wp.com/www.zendstudio.net/wp-content/uploads/2012/03/IMG_0241.png?resize=320%2C480&quot; alt=&quot;&quot; data-recalc-dims=&quot;1&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  转自‘&lt;a href=&quot;http://www.zendstudio.net/archives/php-google-authenticator/&quot;&gt;http://www.zendstudio.net/archives/php-google-authenticator/&lt;/a&gt;
+&lt;/p&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-07-02-%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8F/" data-toggle="tooltip" data-placement="top" title="虚拟主机管理程序">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-07-03-ecshop-%E6%B7%BB%E5%8A%A0%E5%90%8E%E5%8F%B0%E8%8F%9C%E5%8D%95/" data-toggle="tooltip" data-placement="top" title="ecshop 添加后台菜单">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jul 2, 2012</h4>
+    </section>
+    <h5 id="wc">1000 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

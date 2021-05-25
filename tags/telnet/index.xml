@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>telnet on IT技术分享</title>
+    <link>https://www.51hint.com/tags/telnet/</link>
+    <description>Recent content in telnet on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Mar 2014 02:09:47 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/telnet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>telnet  脚本 发信</title>
+      <link>https://www.51hint.com/posts/2014-03-04-telnet-%E8%84%9A%E6%9C%AC-%E5%8F%91%E4%BF%A1/</link>
+      <pubDate>Tue, 04 Mar 2014 02:09:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-03-04-telnet-%E8%84%9A%E6%9C%AC-%E5%8F%91%E4%BF%A1/</guid>
+      <description>start.bat tellogin.vbs</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Golang集群排序 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Golang集群排序" />
+  <meta name="twitter:title" content="Golang集群排序" />
+  <meta name="description" content="集群排序">
+  <meta property="og:description" content="集群排序">
+  <meta name="twitter:description" content="集群排序">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/golang%E9%9B%86%E7%BE%A4%E6%8E%92%E5%BA%8F/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/golang%E9%9B%86%E7%BE%A4%E6%8E%92%E5%BA%8F/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Golang集群排序</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <p>项目流程：</p>
+<p>生成一个随机数文件，假设文件很大
+从文件中分块地读取数据到内存，进行各个结点的内部排序
+归并排序得到最终的排序结果写入文件中
+应用场景：</p>
+<p>单机内存大小不足时，想要对大数据进行排序。
+可以添加其他分布式管理的功能，例如对分布式日志文件进行整合。
+涉及到的Golang特性：</p>
+<p>面向接口–Reader/Writer接口的使用
+函数式编程
+并发编程
+源码链接：https://github.com/chao2015/externalsort</p>
+<p>源码分析：</p>
+<ol>
+<li>
+<p>channel通信</p>
+</li>
+<li>
+<p>内部排序</p>
+</li>
+<li>
+<p>归并排序</p>
+</li>
+<li>
+<p>随机数生成函数</p>
+</li>
+<li>
+<p>读写数据</p>
+</li>
+<li>
+<p>单机版外部排序</p>
+</li>
+<li>
+<p>集群版外部排序</p>
+</li>
+</ol>
+<h4 id="1--channel通信">1.  channel通信</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 数据源来自于一个Array
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">ArraySource</span><span class="p">(</span><span class="nx">a</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
+  <span class="c1">// 调用的真实情况是，函数新建一个channel并马上返回，并行的goroutine来进行发送数据的操作，发送完后记得close。
+</span><span class="c1"></span>  <span class="c1">// func: 1.新建一个channel
+</span><span class="c1"></span>  <span class="nx">out</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
+  <span class="c1">// go: 1.发送数据（channel是goroutine之间的通信管道）
+</span><span class="c1"></span>  <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">a</span> <span class="p">{</span>
+          <span class="nx">out</span> <span class="o">&lt;-</span> <span class="nx">v</span>
+      <span class="p">}</span>
+      <span class="c1">// go: 2.关闭channel，否则会报错：fatal error: all goroutines are asleep - deadlock!
+</span><span class="c1"></span>      <span class="nb">close</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
+  <span class="p">}()</span>
+  <span class="c1">// func: 2.返回这个channel
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">out</span>
+<span class="p">}</span>
+
+
+<span class="kd">func</span> <span class="nf">TestArraySource</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 1. channel通信
+</span><span class="c1"></span>    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">ArraySource</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="c1">// (1)
+</span><span class="c1"></span>    <span class="c1">//for {
+</span><span class="c1"></span>    <span class="c1">//  if num, ok := &lt;-p; ok {
+</span><span class="c1"></span>    <span class="c1">//      fmt.Println(num)
+</span><span class="c1"></span>    <span class="c1">//  } else {
+</span><span class="c1"></span>    <span class="c1">//      break
+</span><span class="c1"></span>    <span class="c1">//  }
+</span><span class="c1"></span>    <span class="c1">//}
+</span><span class="c1"></span>  
+    <span class="c1">//(2) 简略写法
+</span><span class="c1"></span>    <span class="k">for</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">p</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div><h4 id="2内部排序">2.内部排序</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">startTime</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+
+<span class="kd">func</span> <span class="nf">Init</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">startTime</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="c1">// 内部排序
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">InMemSort</span><span class="p">(</span><span class="nx">in</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="nx">out</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Read into memory
+</span><span class="c1"></span>        <span class="nx">a</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{}</span>
+        <span class="k">for</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">in</span> <span class="p">{</span>
+            <span class="nx">a</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Read done:&#34;</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Sub</span><span class="p">(</span><span class="nx">startTime</span><span class="p">))</span>
+
+        <span class="c1">// Sort
+</span><span class="c1"></span>        <span class="nx">sort</span><span class="p">.</span><span class="nf">Ints</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;InMemSort done:&#34;</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Sub</span><span class="p">(</span><span class="nx">startTime</span><span class="p">))</span>
+
+        <span class="c1">// Output
+</span><span class="c1"></span>        <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">a</span> <span class="p">{</span>
+            <span class="nx">out</span> <span class="o">&lt;-</span> <span class="nx">v</span>
+        <span class="p">}</span>
+        <span class="nb">close</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
+    <span class="p">}()</span>
+    <span class="k">return</span> <span class="nx">out</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">TestInMemSort</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 2. 内部排序
+</span><span class="c1"></span>    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">InMemSort</span><span class="p">(</span>
+        <span class="nx">pipeline</span><span class="p">.</span><span class="nf">ArraySource</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="k">for</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">p</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div><h4 id="3-归并排序">3. 归并排序</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Merge</span><span class="p">(</span><span class="nx">in1</span><span class="p">,</span> <span class="nx">in2</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="nx">out</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">v1</span><span class="p">,</span> <span class="nx">ok1</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">in1</span>
+        <span class="nx">v2</span><span class="p">,</span> <span class="nx">ok2</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">in2</span>
+        <span class="k">for</span> <span class="nx">ok1</span> <span class="o">||</span> <span class="nx">ok2</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">!</span><span class="nx">ok2</span> <span class="o">||</span> <span class="p">(</span><span class="nx">ok1</span> <span class="o">&amp;&amp;</span> <span class="nx">v1</span> <span class="o">&lt;=</span> <span class="nx">v2</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">out</span> <span class="o">&lt;-</span> <span class="nx">v1</span>
+                <span class="nx">v1</span><span class="p">,</span> <span class="nx">ok1</span> <span class="p">=</span> <span class="o">&lt;-</span><span class="nx">in1</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">out</span> <span class="o">&lt;-</span> <span class="nx">v2</span>
+                <span class="nx">v2</span><span class="p">,</span> <span class="nx">ok2</span> <span class="p">=</span> <span class="o">&lt;-</span><span class="nx">in2</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="nb">close</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Merge done:&#34;</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Sub</span><span class="p">(</span><span class="nx">startTime</span><span class="p">))</span>
+    <span class="p">}()</span>
+    <span class="k">return</span> <span class="nx">out</span>
+<span class="p">}</span>
+
+
+<span class="kd">func</span> <span class="nf">TestMerge</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">pipeline</span><span class="p">.</span><span class="nf">Init</span><span class="p">()</span>
+
+    <span class="c1">// 3. 归并排序
+</span><span class="c1"></span>    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">Merge</span><span class="p">(</span>
+        <span class="nx">pipeline</span><span class="p">.</span><span class="nf">InMemSort</span><span class="p">(</span><span class="nx">pipeline</span><span class="p">.</span><span class="nf">ArraySource</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span>
+        <span class="nx">pipeline</span><span class="p">.</span><span class="nf">InMemSort</span><span class="p">(</span><span class="nx">pipeline</span><span class="p">.</span><span class="nf">ArraySource</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">8</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">p</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div><h4 id="4-随机数生成函数">4. 随机数生成函数</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 随机生成count个int型数据
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">RandomSource</span><span class="p">(</span><span class="nx">count</span> <span class="kt">int</span><span class="p">)</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="nx">out</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
+    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+            <span class="nx">out</span> <span class="o">&lt;-</span> <span class="nx">rand</span><span class="p">.</span><span class="nf">Int</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="nb">close</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
+    <span class="p">}()</span>
+    <span class="k">return</span> <span class="nx">out</span>
+<span class="p">}</span>
+
+
+<span class="kd">func</span> <span class="nf">TestRandomSource</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">RandomSource</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">p</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div><h4 id="5-读写数据">5. 读写数据</h4>
+<p>读写端要做到：</p>
+<ol>
+<li>
+<p>buffer大小一致</p>
+</li>
+<li>
+<p>大小端一致</p>
+</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 读数据。第一个参数是读的来源对象，第二个参数是读取长度(-1全读)。输出是一个channel
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">ReaderSource</span><span class="p">(</span><span class="nx">reader</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">,</span> <span class="nx">chunkSize</span> <span class="kt">int</span><span class="p">)</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="nx">out</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 64位系统的int型大小是64，所以用一个64位buffer = byte(8)*8
+</span><span class="c1"></span>        <span class="nx">buffer</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+        <span class="c1">// 读取长度的控制变量
+</span><span class="c1"></span>        <span class="nx">bytesRead</span> <span class="o">:=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="p">{</span>
+            <span class="c1">// n是读取的长度
+</span><span class="c1"></span>            <span class="nx">n</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">reader</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">buffer</span><span class="p">)</span>
+            <span class="nx">bytesRead</span> <span class="o">+=</span> <span class="nx">n</span>
+            <span class="c1">// 可能最后读取4字节数据，nil=EOF，所以要先读取数据，再判断nil
+</span><span class="c1"></span>            <span class="k">if</span> <span class="nx">n</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="c1">// 大端还是小端，发送和接收端统一即可
+</span><span class="c1"></span>                <span class="nx">out</span> <span class="o">&lt;-</span> <span class="nb">int</span><span class="p">(</span><span class="nx">binary</span><span class="p">.</span><span class="nx">BigEndian</span><span class="p">.</span><span class="nf">Uint64</span><span class="p">(</span><span class="nx">buffer</span><span class="p">))</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">||</span>
+                <span class="p">(</span><span class="nx">chunkSize</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">bytesRead</span> <span class="o">&gt;=</span> <span class="nx">chunkSize</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">break</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="nb">close</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
+    <span class="p">}()</span>
+    <span class="k">return</span> <span class="nx">out</span>
+<span class="p">}</span>
+
+<span class="c1">// 写数据。第一个参数是写的目的对象，第二个参数是写的数据channel
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">WriteSink</span><span class="p">(</span><span class="nx">writer</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">,</span> <span class="nx">in</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">in</span> <span class="p">{</span>
+        <span class="nx">buffer</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+        <span class="nx">binary</span><span class="p">.</span><span class="nx">BigEndian</span><span class="p">.</span><span class="nf">PutUint64</span><span class="p">(</span><span class="nx">buffer</span><span class="p">,</span> <span class="nb">uint64</span><span class="p">(</span><span class="nx">v</span><span class="p">))</span>
+        <span class="nx">writer</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">buffer</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">filename</span> <span class="p">=</span> <span class="s">&#34;small.in&#34;</span>
+    <span class="kd">const</span> <span class="nx">n</span> <span class="p">=</span> <span class="mi">64</span>
+
+    <span class="c1">// 新建文件，返回可用的文件描述符
+</span><span class="c1"></span>    <span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+
+    <span class="c1">// 生成随机数
+</span><span class="c1"></span>    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">RandomSource</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+
+    <span class="c1">// 写数据到文件
+</span><span class="c1"></span>    <span class="c1">// 包装文件描述符，使用缓存机制，提高读写速度
+</span><span class="c1"></span>    <span class="nx">writer</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewWriter</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+    <span class="nx">pipeline</span><span class="p">.</span><span class="nf">WriteSink</span><span class="p">(</span><span class="nx">writer</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
+    <span class="nx">writer</span><span class="p">.</span><span class="nf">Flush</span><span class="p">()</span> <span class="c1">// 确保缓存数据全部写入
+</span><span class="c1"></span>
+    <span class="c1">// 上面的文件描述符offset在末尾，不能用于读取
+</span><span class="c1"></span>    <span class="c1">// 打开文件
+</span><span class="c1"></span>    <span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+
+    <span class="c1">// 读取数据
+</span><span class="c1"></span>    <span class="nx">p</span> <span class="p">=</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">ReaderSource</span><span class="p">(</span><span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">file</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nx">count</span> <span class="o">:=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">p</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+        <span class="nx">count</span><span class="o">++</span>
+        <span class="k">if</span> <span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">100</span> <span class="p">{</span>
+            <span class="k">break</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div><h4 id="6-单机版外部排序">6. 单机版外部排序</h4>
+<p>前面4步就是demo测试，通过第5步生成small.in的待排序文件是必要的。
+下面所要做的工作，就是从待排序文件中分块读取数据，块内排序后再归并排序，生成结果。</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 搭建归并节点组，递归调用实现2路归并
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">MergeN</span><span class="p">(</span><span class="nx">inputs</span> <span class="o">...&lt;-</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">inputs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="nx">m</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">inputs</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="c1">// merge inputs[0..m) and inputs [m..end)
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nf">Merge</span><span class="p">(</span>
+        <span class="nf">MergeN</span><span class="p">(</span><span class="nx">inputs</span><span class="p">[:</span><span class="nx">m</span><span class="p">]</span><span class="o">...</span><span class="p">),</span>
+        <span class="nf">MergeN</span><span class="p">(</span><span class="nx">inputs</span><span class="p">[</span><span class="nx">m</span><span class="p">:]</span><span class="o">...</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="c1">// pipeline的搭建及运行，单机上时，分块数(chunkCount)最好是cpu的核数
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">createPipeline</span><span class="p">(</span>
+    <span class="nx">filename</span> <span class="kt">string</span><span class="p">,</span>
+    <span class="nx">fileSize</span><span class="p">,</span> <span class="nx">chunkCount</span> <span class="kt">int</span><span class="p">)</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
+
+    <span class="nx">chunkSize</span> <span class="o">:=</span> <span class="nx">fileSize</span> <span class="o">/</span> <span class="nx">chunkCount</span>
+    <span class="nx">pipeline</span><span class="p">.</span><span class="nf">Init</span><span class="p">()</span>
+
+    <span class="c1">// 初始化结点组
+</span><span class="c1"></span>    <span class="nx">sortResults</span> <span class="o">:=</span> <span class="p">[]</span><span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">chunkCount</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        <span class="c1">// 打开文件
+</span><span class="c1"></span>        <span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="c1">// 设置offset
+</span><span class="c1"></span>        <span class="nx">file</span><span class="p">.</span><span class="nf">Seek</span><span class="p">(</span><span class="nb">int64</span><span class="p">(</span><span class="nx">i</span><span class="o">*</span><span class="nx">chunkSize</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c1">// 读取数据
+</span><span class="c1"></span>        <span class="nx">source</span> <span class="o">:=</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">ReaderSource</span><span class="p">(</span>
+            <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">file</span><span class="p">),</span> <span class="nx">chunkSize</span><span class="p">)</span>
+        <span class="c1">// 内部排序后，追加到结点组中
+</span><span class="c1"></span>        <span class="nx">sortResults</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">sortResults</span><span class="p">,</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">InMemSort</span><span class="p">(</span><span class="nx">source</span><span class="p">))</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 归并结点组
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">MergeN</span><span class="p">(</span><span class="nx">sortResults</span><span class="o">...</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">writeToFile</span><span class="p">(</span><span class="nx">p</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">filename</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 创建文件
+</span><span class="c1"></span>    <span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+    <span class="c1">// 写入文件
+</span><span class="c1"></span>    <span class="nx">writer</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewWriter</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+    <span class="k">defer</span> <span class="nx">writer</span><span class="p">.</span><span class="nf">Flush</span><span class="p">()</span>
+    <span class="nx">pipeline</span><span class="p">.</span><span class="nf">WriteSink</span><span class="p">(</span><span class="nx">writer</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">printFile</span><span class="p">(</span><span class="nx">filename</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 打开文件
+</span><span class="c1"></span>    <span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">defer</span> <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+    <span class="c1">// 读取数据
+</span><span class="c1"></span>    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">ReaderSource</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nx">count</span> <span class="o">:=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">p</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+        <span class="nx">count</span><span class="o">++</span>
+        <span class="k">if</span> <span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">100</span> <span class="p">{</span>
+            <span class="k">break</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// small 512 4
+</span><span class="c1"></span>    <span class="c1">// large 80000000 4
+</span><span class="c1"></span>    <span class="kd">const</span> <span class="nx">filename_prefix</span> <span class="p">=</span> <span class="s">&#34;small&#34;</span> 
+
+    <span class="c1">// 单机版
+</span><span class="c1"></span>    <span class="nx">p</span> <span class="o">:=</span> <span class="nf">createPipeline</span><span class="p">(</span><span class="nx">filename_prefix</span><span class="o">+</span><span class="s">&#34;.in&#34;</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1">// 文件大小(512/80000000)，读取块数(4)
+</span><span class="c1"></span>
+    <span class="nf">writeToFile</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span> <span class="nx">filename_prefix</span><span class="o">+</span><span class="s">&#34;.out&#34;</span><span class="p">)</span>
+    <span class="nf">printFile</span><span class="p">(</span><span class="nx">filename_prefix</span> <span class="o">+</span> <span class="s">&#34;.out&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div><h4 id="7-集群版外部排序">7. 集群版外部排序</h4>
+<p>通过多端口之间的tcp通信来模拟集群。</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// WriteSink的网络封装，写入数据
+</span><span class="c1">// 第一个参数是端口号，如&#34;:7000&#34;，第二个参数是传输的数据channel
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NetworkSink</span><span class="p">(</span><span class="nx">addr</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">in</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 监听
+</span><span class="c1"></span>    <span class="nx">listener</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="nx">addr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">defer</span> <span class="nx">listener</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+
+        <span class="c1">// 等待连接请求，返回下一个连接
+</span><span class="c1"></span>        <span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">listener</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+        <span class="c1">// 写入数据
+</span><span class="c1"></span>        <span class="nx">writer</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewWriter</span><span class="p">(</span><span class="nx">conn</span><span class="p">)</span>
+        <span class="k">defer</span> <span class="nx">writer</span><span class="p">.</span><span class="nf">Flush</span><span class="p">()</span>
+        <span class="nf">WriteSink</span><span class="p">(</span><span class="nx">writer</span><span class="p">,</span> <span class="nx">in</span><span class="p">)</span>
+    <span class="p">}()</span>
+<span class="p">}</span>
+
+<span class="c1">// ReaderSource的网络封装，读取数据
+</span><span class="c1">// 唯一参数是端口号。输出一个channel
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NetworkSource</span><span class="p">(</span><span class="nx">addr</span> <span class="kt">string</span><span class="p">)</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
+    <span class="nx">out</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
+    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 连接
+</span><span class="c1"></span>        <span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="nx">addr</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="c1">// 读取数据
+</span><span class="c1"></span>        <span class="nx">r</span> <span class="o">:=</span> <span class="nf">ReaderSource</span><span class="p">(</span><span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">conn</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">r</span> <span class="p">{</span>
+            <span class="nx">out</span> <span class="o">&lt;-</span> <span class="nx">v</span>
+        <span class="p">}</span>
+        <span class="nb">close</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
+    <span class="p">}()</span>
+    <span class="k">return</span> <span class="nx">out</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">createNetworkPipeline</span><span class="p">(</span>
+    <span class="nx">filename</span> <span class="kt">string</span><span class="p">,</span>
+    <span class="nx">fileSize</span><span class="p">,</span> <span class="nx">chunkCount</span> <span class="kt">int</span><span class="p">)</span> <span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
+
+    <span class="nx">chunkSize</span> <span class="o">:=</span> <span class="nx">fileSize</span> <span class="o">/</span> <span class="nx">chunkCount</span>
+    <span class="nx">pipeline</span><span class="p">.</span><span class="nf">Init</span><span class="p">()</span>
+
+    <span class="c1">// 初始化端口号组
+</span><span class="c1"></span>    <span class="nx">sortAddr</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">chunkCount</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+        <span class="c1">// 打开文件
+</span><span class="c1"></span>        <span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="c1">// 设置offset
+</span><span class="c1"></span>        <span class="nx">file</span><span class="p">.</span><span class="nf">Seek</span><span class="p">(</span><span class="nb">int64</span><span class="p">(</span><span class="nx">i</span><span class="o">*</span><span class="nx">chunkSize</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c1">// 读取数据
+</span><span class="c1"></span>        <span class="nx">source</span> <span class="o">:=</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">ReaderSource</span><span class="p">(</span><span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">file</span><span class="p">),</span> <span class="nx">chunkSize</span><span class="p">)</span>
+        <span class="c1">// 端口号
+</span><span class="c1"></span>        <span class="nx">addr</span> <span class="o">:=</span> <span class="s">&#34;:&#34;</span> <span class="o">+</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="mi">7000</span><span class="o">+</span><span class="nx">i</span><span class="p">)</span>
+        <span class="c1">// 起tcp服务
+</span><span class="c1"></span>        <span class="nx">pipeline</span><span class="p">.</span><span class="nf">NetworkSink</span><span class="p">(</span><span class="nx">addr</span><span class="p">,</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">InMemSort</span><span class="p">(</span><span class="nx">source</span><span class="p">))</span>
+        <span class="c1">// 追加到端口号组
+</span><span class="c1"></span>        <span class="nx">sortAddr</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">sortAddr</span><span class="p">,</span> <span class="nx">addr</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 初始化结点组
+</span><span class="c1"></span>    <span class="nx">sortResults</span> <span class="o">:=</span> <span class="p">[]</span><span class="o">&lt;-</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">addr</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">sortAddr</span> <span class="p">{</span>
+        <span class="nx">sortResults</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">sortResults</span><span class="p">,</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">NetworkSource</span><span class="p">(</span><span class="nx">addr</span><span class="p">))</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 归并结点组
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nx">pipeline</span><span class="p">.</span><span class="nf">MergeN</span><span class="p">(</span><span class="nx">sortResults</span><span class="o">...</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// small 512 4
+</span><span class="c1"></span>    <span class="c1">// large 80000000 4
+</span><span class="c1"></span>    <span class="kd">const</span> <span class="nx">filename_prefix</span> <span class="p">=</span> <span class="s">&#34;small&#34;</span>
+
+    <span class="c1">// 网络版
+</span><span class="c1"></span>    <span class="nx">p</span> <span class="o">:=</span> <span class="nf">createNetworkPipeline</span><span class="p">(</span><span class="nx">filename_prefix</span><span class="o">+</span><span class="s">&#34;.in&#34;</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+    <span class="nf">writeToFile</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span> <span class="nx">filename_prefix</span><span class="o">+</span><span class="s">&#34;.out&#34;</span><span class="p">)</span>
+    <span class="nf">printFile</span><span class="p">(</span><span class="nx">filename_prefix</span> <span class="o">+</span> <span class="s">&#34;.out&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div><p>参考：<a href="https://blog.csdn.net/chao2016/article/details/81638592">https://blog.csdn.net/chao2016/article/details/81638592</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/docker%E6%9C%80%E5%B0%8F%E5%8C%96%E9%95%9C%E5%83%8F/" data-toggle="tooltip" data-placement="top" title="Docker最小化镜像">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/gorpc/" data-toggle="tooltip" data-placement="top" title="GoRPC通信">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/go%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%85%85/">Go笔记补充</a></li>
+                    
+                    <li><a href="/posts/kubernetes/">Kubernetes</a></li>
+                    
+                    <li><a href="/posts/google_cloud_functions/">Google_cloud_functions</a></li>
+                    
+                    <li><a href="/posts/go%E6%8E%92%E5%BA%8F/">Go排序</a></li>
+                    
+                    <li><a href="/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">Redis使用场景</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

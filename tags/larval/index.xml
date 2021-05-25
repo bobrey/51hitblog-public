@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>larval on IT技术分享</title>
+    <link>https://www.51hint.com/tags/larval/</link>
+    <description>Recent content in larval on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Aug 2018 10:05:58 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/larval/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BelongsToVShasOne</title>
+      <link>https://www.51hint.com/posts/belongstovshasone/</link>
+      <pubDate>Tue, 21 Aug 2018 10:05:58 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/belongstovshasone/</guid>
+      <description>hasOne User (id - primary key) =&amp;gt; hasOne =&amp;gt;Profile ( user_id - foreing key) [user_id] BelongsTo [user_id] Profile (user_id - foreing key) =&amp;gt; BelongsTo =&amp;gt; User (id - primary key) 小结 If B has an a_id column, then A hasOne or hasMany B if A has a b_id column, then A belongsTo B.</description>
+    </item>
+    
+  </channel>
+</rss>

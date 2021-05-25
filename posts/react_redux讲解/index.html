@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> React_redux讲解 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="React_redux讲解" />
+  <meta name="twitter:title" content="React_redux讲解" />
+  <meta name="description" content="react redux 详细解释">
+  <meta property="og:description" content="react redux 详细解释">
+  <meta name="twitter:description" content="react redux 详细解释">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/react_redux%E8%AE%B2%E8%A7%A3/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/react_redux%E8%AE%B2%E8%A7%A3/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">React_redux讲解</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h2 id="react-redux-tutorial-who-this-guide-is-for">React Redux tutorial: who this guide is for</h2>
+<p>The following <strong>React Redux guide is for JavaScript developers with a good grasp of ES6 and React</strong>. There are countless React tutorials online if you want to refresh your understandings, but if you&rsquo;re just starting out I suggest reading <a href="https://www.taniarascia.com/getting-started-with-react/">Getting Started with React</a> by Tania Rascia.</p>
+<h2 id="react-redux-tutorial-what-you-will-learn">React Redux tutorial: what you will learn</h2>
+<p>The guide covers mostly Redux with React because of the wide adoption of this combination but <strong>Redux can also be used as a stand-alone library</strong> without any frontend framework/library.</p>
+<p>So in the following guide you will learn:</p>
+<ul>
+<li>what is Redux</li>
+<li>Redux&rsquo;s building blocks</li>
+<li>how to use <strong>Redux stand-alone</strong></li>
+<li>how to use <strong>Redux with React</strong></li>
+</ul>
+<h2 id="react-redux-tutorial-a-minimal-react-development-environment">React Redux tutorial: a minimal React development environment</h2>
+<p>Before starting off make sure to have a React <strong>development environment in place</strong>.</p>
+<p>To make one you can follow <a href="https://www.valentinog.com/blog/babel/">How to set up React, webpack, and Babel</a> or even better, use <a href="https://github.com/facebook/create-react-app">create-react-app</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npx create-react-app react-redux-tutorial
+</code></pre></div><p>Once done you&rsquo;re good to go.</p>
+<h2 id="react-redux-tutorial-what-is-the-state">React Redux tutorial: what is the state?</h2>
+<p><strong>What is Redux</strong>? To answer that question we must first talk about <strong>state in JavaScript web applications</strong>. Consider a simple user flow:</p>
+<p><em>&ldquo;as a user I can click a button named Click me and a modal should appear soon after&rdquo;.</em></p>
+<p>Guess what, <strong>even in this trivial interaction</strong> there is a <strong>state</strong> we must deal with. For example, we can describe the initial state of the app as a plain JavaScript object:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">buttonClicked</span><span class="o">:</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span>
+  <span class="nx">modalOpen</span><span class="o">:</span> <span class="s1">&#39;no&#39;</span>
+<span class="p">}</span>
+</code></pre></div><p>When the user clicks, the state changes and we have:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">buttonClicked</span><span class="o">:</span> <span class="s1">&#39;yes&#39;</span><span class="p">,</span>
+  <span class="nx">modalOpen</span><span class="o">:</span> <span class="s1">&#39;yes&#39;</span>
+<span class="p">}</span>
+</code></pre></div><p>How do you <strong>reliably keep track of these state changes</strong>? What if the state is mutated by accident by some unrelated piece of logic? Is there a library that can help us?</p>
+<p>Also, if you worked with React before the term state should be no surprise to you. I guess you already wrote some &ldquo;stateful&rdquo; React component like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">ExampleComponent</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">articles</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;React Redux Tutorial for Beginners&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;TypeScript tutorial for beginners&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">2</span> <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">articles</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">;</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">articles</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">el</span> <span class="p">=&gt;</span> <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">el</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">el</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;)}&lt;/ul&gt;;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>A <strong>stateful React component</strong> is a JavaScript class (with <a href="https://www.valentinog.com/blog/hooks/">React hooks that&rsquo;s no longer the case</a>).</p>
+<p>In <strong>a React component the state holds data which can be rendered to the user</strong>. The <strong>state in React could also change in response to actions and events</strong>: in fact you can <strong>update the local component’s state with</strong> <code>this.setState()</code>.</p>
+<p>So, <strong>in general a typical JavaScript application is full of state</strong>. For example, state is:</p>
+<ul>
+<li>what the user sees (data)</li>
+<li>the data we fetch from an API</li>
+<li>the URL</li>
+<li>the items selected inside a page</li>
+<li>eventual errors to show to the user</li>
+</ul>
+<p>Having seen the basics let&rsquo;s now talk about <strong>what problem Redux tries to solve</strong>.</p>
+<h2 id="what-problem-does-redux-solve">What problem does Redux solve?</h2>
+<p>So, <strong>state is everywhere in web application</strong>. From now on I&rsquo;ll talk about state and logic in the context of a typical React application, but <strong>consider these concept applicable to any frontend architecture</strong>, regardless of the specific library. The thing is, can you imagine how much state a web application application has?</p>
+<p><strong>Even an innocent single page app could grow out of control without clear boundaries between every layer of the application</strong>. This holds particularly true in React.</p>
+<p>Yeah, <strong>you can get by with keeping the state within a parent React component</strong> (or in context) as long as the application remains small. Then <strong>things will become tricky especially when you add more behaviours to the app</strong>. At <strong>some point you may want to reach for a consistent way to keep track of state changes</strong>. Not only, I’d say that <strong>frontend components shouldn’t know about the business logic</strong>. Ever.</p>
+<p><strong>Unfortunately a ton of logic gets stuffed into frontend components these days</strong>. Is there an alternative to this agony?</p>
+<p>Redux can solve exactly those issues. <strong>It might not be clear in the beginning, but Redux helps giving each frontend component the exact piece of state it needs</strong>.</p>
+<p>Even better, <strong>Redux can hold business logic inside its own layer (middleware)</strong>, alongside with the code for fetching data. The benefits of this approach are manifold.</p>
+<p>In the <strong>next sections we&rsquo;ll see when and how to use Redux in your applications</strong>. First a couple of words about the quintessential question: &ldquo;should I use Redux&rdquo;?</p>
+<h2 id="react-redux-tutorial-should-i-use-redux">React Redux tutorial: should I use Redux?</h2>
+<p>I must admit <strong>I&rsquo;m a bit biased here</strong> because I&rsquo;m fond of Redux and I suggest it whenever I join a new project. But <strong>maybe you don&rsquo;t need neither Redux, nor alternatives like Mobx and friends</strong>. <strong>Even more if you&rsquo;re working on a simple project</strong>.</p>
+<p>In React for example there are <strong>many ways to avoid using Redux: children props, the context API</strong>.</p>
+<p>But for medium to bigger projects I always found Redux (or an equivalent) almost mandatory: <strong>state management libraries beautifully keep logic and behaviours abstracted away from the UI</strong>. <strong>UI testability skyrockets and so developer productivity</strong>. If you look at it from another perspective you may argue that Redux has a cost. It adds another layer of abstraction to your application.</p>
+<p>What <strong>cost are you willing to pay? Convoluted frontend components or multiple layers of abstractions</strong>?</p>
+<p>Enough talking. In the next section we’ll start building a proof of concept to introduce:</p>
+<ul>
+<li>Redux fundamental principles</li>
+<li>Redux alongside with React</li>
+</ul>
+<p>Again, <strong>make sure you have a React development environment ready to use</strong>.</p>
+<h2 id="react-redux-tutorial-getting-to-know-the-redux-store">React Redux tutorial: getting to know the Redux store</h2>
+<p>When I approached Redux for the first time I was confused. There is too much terminology: <strong>action, reducer, middleware</strong>. But on top of that <strong>it wasn&rsquo;t clear to me how were all the moving parts glued together</strong>? There were some minions or what? In <strong>Redux there are no minions (unfortunately)</strong>.</p>
+<p><strong>What orchestrates all the cogs is the store</strong>. Repeat with me: <strong>the store</strong>. The store in Redux is kind of magic and <strong>holds all of the application&rsquo;s state</strong>.</p>
+<p>So let&rsquo;s <strong>create a store</strong> to start playing with Redux. Move into your React development environment and install Redux:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> react-redux-tutorial
+
+npm i redux --save-dev
+</code></pre></div><p>Create a directory for the store:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p src/js/store
+</code></pre></div><p>Next up create a new file, <strong>src/js/store/index.js</strong> and initialize the store:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/store/index.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">rootReducer</span> <span class="nx">from</span> <span class="s2">&#34;../reducers/index&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">rootReducer</span><span class="p">);</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">store</span><span class="p">;</span>
+</code></pre></div><p>As you can see, <strong>store is the result of calling createStore</strong>, a function from the Redux library. <strong>createStore takes a reducer as the first argument and in our case we passed in rootReducer</strong> (not yet present).</p>
+<p>You may also pass an <strong>initial state to createStore</strong>, useful for server side rendering and <strong>state preloading</strong>, but for now we’re not interested in that. The most important concept to understand here is that the <strong>state in Redux comes from reducers</strong>. Let’s repeat: <strong>reducers produce the state of your application</strong>.</p>
+<p>Armed with that knowledge let’s move on to <strong>our first Redux reducer</strong>.</p>
+<p><em><a href="https://github.com/valentinogagliardi/react-redux-tutorial/tree/getting-to-know-redux-store">See the branch on Github</a></em></p>
+<h2 id="react-redux-tutorial-getting-to-know-redux-reducers">React Redux tutorial: getting to know Redux reducers</h2>
+<p>What’s a reducer? A <strong>Redux reducer is just a JavaScript function</strong>. It <strong>takes two parameters</strong>: the <strong>current state and action</strong> (more about actions soon).</p>
+<p>In a typical React component the local state might be mutated in place. In Redux you&rsquo;re not allowed to do that. The <strong>third principle of Redux (as outlined by its creator) prescribes that the state is immutable and cannot change in place</strong>.</p>
+<p>In other words the reducer must be pure. A pure function is one that returns the exact same output for the given input. But despite this terminology <strong>reasoning about a reducer is not that hard</strong>.</p>
+<p>In our example <strong>we&rsquo;ll be creating a simple reducer</strong> which takes initial state ad action as parameters. Create a directory for the root reducer:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p src/js/reducers
+</code></pre></div><p>Then create a new file, <strong>src/js/reducers/index.js</strong>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">articles</span><span class="o">:</span> <span class="p">[]</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">rootReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">rootReducer</span><span class="p">;</span>
+</code></pre></div><p>Notice how the <strong>initial state is passed as a default parameter</strong>. But as of <strong>now our reducer does nothing, other than returning the initial state</strong>.</p>
+<p>In the next section we&rsquo;ll add an <strong>action</strong> to the mix, and things will become interesting.</p>
+<p><em><a href="https://github.com/valentinogagliardi/react-redux-tutorial/tree/getting-to-know-redux-reducers">See the branch on Github</a></em></p>
+<h2 id="react-redux-tutorial-getting-to-know-redux-actions-and-named-constants">React Redux tutorial: getting to know Redux actions and named constants</h2>
+<p>Redux reducers are without doubt the most important concept in Redux. <strong>Reducers produce the state of an application. But how does a reducer know when to generate the next state?</strong></p>
+<p>The <strong>second principle of Redux says the only way to change the state is by sending a signal to the store. This signal is an action</strong>. So &ldquo;<strong>dispatching an action</strong>&rdquo; means <strong>sending out a signal</strong> to the store.</p>
+<p>Confused? The reassuring thing is that <strong>Redux actions are nothing more than JavaScript objects</strong>. This is how an action looks like:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ADD_ARTICLE&#39;</span><span class="p">,</span>
+  <span class="nx">payload</span><span class="o">:</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;React Redux Tutorial&#39;</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>As you can see it&rsquo;s a JavaScript object with two properties: <strong>type and payload</strong>.</p>
+<p><strong>The type property drives how the state should change and it&rsquo;s always required by Redux. The payload property instead describes what should change, and might be omitted</strong> if you don&rsquo;t have new data to save in the store.</p>
+<p>As a <strong>best practice in Redux we wrap every action within a function</strong>, so that object creation is abstracted away. <strong>Such function takes the name of action creator</strong>: let’s put everything together by creating a simple action creator.</p>
+<p>Create a directory for actions:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p src/js/actions
+</code></pre></div><p>Then create a new file, <strong>src/js/actions/index.js</strong>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/actions/index.js
+</span><span class="c1"></span>
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">addArticle</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;ADD_ARTICLE&#34;</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div><p>You can notice that the type property is a string. <strong>Strings are prone to typos and duplicates</strong> and for this reason it&rsquo;s better to <strong>declare actions as constants</strong>. Create a new folder for them:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p src/js/constants
+</code></pre></div><p>Then create a new file, <strong>src/js/constants/action-types.js</strong>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/constants/action-types.js
+</span><span class="c1"></span>
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">ADD_ARTICLE</span> <span class="o">=</span> <span class="s2">&#34;ADD_ARTICLE&#34;</span><span class="p">;</span>
+</code></pre></div><p>Now open up again <strong>src/js/actions/index.js</strong> and update the action to use action types:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/actions/index.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">ADD_ARTICLE</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../constants/action-types&#34;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">addArticle</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">ADD_ARTICLE</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div><p>As you can see we&rsquo;re starting to deal with multiple files. That&rsquo;s the main pet peeve with Redux for most people. You can follow the <a href="https://github.com/erikras/ducks-modular-redux">Redux duck</a> convention if you want, it keeps every Redux related piece in a single file.</p>
+<p>One step closer to have a working Redux application, but <strong>first we need to tweak the reducer for catching the new action</strong>.</p>
+<p><em><a href="https://github.com/valentinogagliardi/react-redux-tutorial/tree/getting-to-know-redux-actions">See the branch on Github</a></em></p>
+<h2 id="refactoring-the-reducer">Refactoring the reducer</h2>
+<p>We left last section with the following question: <strong>how does a reducer know when to generate the next state</strong>? The key here is the Redux store. <strong>When an action is dispatched, the store forwards a message (the action object) to the reducer</strong>.</p>
+<p>At this point the reducer says &ldquo;oh, let&rsquo;s look at the type property of this action&rdquo;. Then <strong>depending on the action type, the reducer produces the next state</strong>, eventually <strong>merging the action payload</strong> into the new state.</p>
+<p>Earlier we created a reducer that does nothing. Let&rsquo;s fix it! Open up <strong>src/js/reducers/index.js</strong> and update the reducer with an if statement for <strong>checking the action type</strong>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/reducers/index.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">ADD_ARTICLE</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../constants/action-types&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">articles</span><span class="o">:</span> <span class="p">[]</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">rootReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="nx">ADD_ARTICLE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">state</span><span class="p">.</span><span class="nx">articles</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">rootReducer</span><span class="p">;</span>
+</code></pre></div><p>There is also a line of code which <strong>pushes the action payload into the initial state</strong>. Seems the right thing to do. <strong>But it&rsquo;s wrong</strong>! Our reducer breaks the main Redux principle: <strong>immutability</strong>.</p>
+<p><code>Array.prototype.push</code> is an <strong>impure function</strong>: it modifies the original array. But there&rsquo;s more. We&rsquo;re also changing the initial state in place.</p>
+<p>We need a fix. First we can return a new JavaScript object with <code>Object.assign</code>. This way <strong>we keep the original state unaltered</strong>. Then we can use <code>Array.prototype.concat</code> instead of <code>Array.prototype.push</code> for keeping the original array:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">ADD_ARTICLE</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../constants/action-types&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">articles</span><span class="o">:</span> <span class="p">[]</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">rootReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="nx">ADD_ARTICLE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">state</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">articles</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">articles</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">)</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">rootReducer</span><span class="p">;</span>
+</code></pre></div><p>Now the initial state is left pristine and <strong>the resulting state is just a copy of the initial state</strong>. Remember two key points for <strong>avoiding mutations in Redux</strong>:</p>
+<ul>
+<li>use concat, slice, or the spread operator for arrays</li>
+<li>use <code>Object.assign</code> or object spread of objects</li>
+</ul>
+<p>If this stuff about immutability feels boilerplate to you redux starter kit has solved the problem. Take a look at it once you finish this tutorial.</p>
+<p>In the <strong>next section we’ll play with Redux from the browser&rsquo;s console</strong>. Hold tight!</p>
+<p><em><a href="https://github.com/valentinogagliardi/react-redux-tutorial/tree/refactoring-the-reducer">See the branch on Github</a></em></p>
+<h2 id="react-redux-tutorial-redux-store-methods">React Redux tutorial: Redux store methods</h2>
+<p>This will be super quick, I promise.</p>
+<p>You might be surprised to know that Redux itself is a small library (2KB) and the <strong>most important methods are just three</strong>:</p>
+<ul>
+<li><strong>getState</strong> for reading the current state of the application</li>
+<li><strong>dispatch</strong> for dispatching an action</li>
+<li><strong>subscribe</strong> for listening to state changes</li>
+</ul>
+<p>We will play in the browser’s console with them. To do so we need to export the store and the action we created as global variables. Create a new file named <strong>src/js/index.js</strong> and place there the following code:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">store</span> <span class="nx">from</span> <span class="s2">&#34;../js/store/index&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">addArticle</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../js/actions/index&#34;</span><span class="p">;</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">store</span> <span class="o">=</span> <span class="nx">store</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">addArticle</span> <span class="o">=</span> <span class="nx">addArticle</span><span class="p">;</span>
+</code></pre></div><p>Now open up <strong>src/index.js</strong> as well, clean up its content and update it as follows:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">index</span> <span class="nx">from</span> <span class="s2">&#34;./js/index&#34;</span><span class="p">;</span>
+</code></pre></div><p>Now run the development server with:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm start
+</code></pre></div><p>head over http://localhost:3000/ and open up the console with F12. Start off by <strong>reading the current state</strong>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">();</span>
+<span class="c1">// output: {articles: Array(0)}
+</span></code></pre></div><p>Zero articles. In fact we haven’t update the initial state yet. To make things interesting we can <strong>listen for state updates with subscribe</strong>.</p>
+<p>The subscribe method accepts a callback that will fire whenever an action is dispatched. Dispatching an action means notifying the store that we intend to change the state.</p>
+<p>Register the callback with:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">store</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Look ma, Redux!!&#39;</span><span class="p">));</span>
+</code></pre></div><p><strong>To change the state in Redux we need to dispatch an action</strong>. To dispatch an action we&rsquo;ll call the dispatch method. We have one action for now: addArticle for adding a new item to the state. Let’s dispatch the action with:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span> <span class="nx">addArticle</span><span class="p">({</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;React Redux Tutorial for Beginners&#39;</span><span class="p">,</span> <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">})</span> <span class="p">);</span>
+</code></pre></div><p>Right after running the above code you should see &ldquo;Look ma, Redux!!&rdquo;. To verify that the state changed run again:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">();</span>
+<span class="c1">// output: {articles: Array(1)}
+</span></code></pre></div><p>And that&rsquo;s it. <strong>This is Redux</strong> in its simplest form. Was that difficult?</p>
+<p>Once you feel confident head over the next sections. We&rsquo;ll go straight to <strong>connecting React with Redux</strong>!</p>
+<h2 id="react-redux-tutorial-connecting-react-with-redux">React Redux tutorial: connecting React with Redux</h2>
+<p>After learning Redux I realized it wasn&rsquo;t so complex. I knew how to access the current state with getState. I knew how to dispatch an action with dispatch and how to listen for state changes with subscribe.</p>
+<p>Yet I didn&rsquo;t know how to couple React and Redux together. I was asking myself: should I call getState from React? How do I dispatch an action from a React component? And so on.</p>
+<p><strong>Redux is framework agnostic</strong>. You can use it with vanilla Javascript. Or with Angular. Or with React. There are bindings for joining together Redux with your favorite framework/library.</p>
+<p>For React there is <strong>react-redux</strong>, a library for which you need to learn just <strong>one method for now: connect</strong>. What does it do? Unsurprisingly it <strong>connects a React component with the Redux store</strong>.</p>
+<p>You will use connect with two or three arguments depending on the use case:</p>
+<ul>
+<li>a <strong>mapStateToProps</strong> function (you can name it also &ldquo;select&rdquo;)</li>
+<li>a <strong>mapDispatchToProps</strong> function</li>
+</ul>
+<p><strong>mapStateToProps</strong> does exactly what its name suggests: <strong>it connects a part of the Redux state to the props of a React component</strong>. By doing so a connected React component will have access to the <strong>exact part of the store it needs</strong>.</p>
+<p><strong>mapDispatchToProps</strong> does something similar, but for actions. <strong>mapDispatchToProps connects Redux actions to React props</strong>. This way <strong>a connected React component will be able to send messages to the store</strong>.</p>
+<p>In the next section we&rsquo;ll finally get our hands dirty. We&rsquo;ll build a super simple application made of three components:</p>
+<ul>
+<li>an App component</li>
+<li>a List component for displaying articles</li>
+<li>a Form component for adding new articles</li>
+</ul>
+<h2 id="react-redux-tutorial-app-component-and-redux-store">React Redux tutorial: App component and Redux store</h2>
+<p>Before starting off <strong>install react-redux</strong> with:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm i react-redux --save-dev
+</code></pre></div><p>I said that <strong>mapStateToProps connects a portion of the Redux state to the props of a React component</strong>. You may wonder: is this <strong>enough for connecting Redux with React</strong>? No, it&rsquo;s not. We also need <strong>Provider, an high order component from react-redux</strong>.</p>
+<p>Open up <strong>src/index.js</strong>, wipe out everything and update the file with the following code:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">render</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-dom&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Provider</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-redux&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">store</span> <span class="nx">from</span> <span class="s2">&#34;./js/store/index&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s2">&#34;./js/components/App&#34;</span><span class="p">;</span>
+
+<span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Provider</span> <span class="nx">store</span><span class="o">=</span><span class="p">{</span><span class="nx">store</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="err">/Provider&gt;,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;root&#34;</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div><p>As you can see <strong>Provider wraps up your React application</strong> and makes it aware of the entire Redux&rsquo;s store.</p>
+<p>Now let&rsquo;s create the App component. It’s nothing special: App should import a List component and render itself. Create a directory for holding components:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p src/js/components
+</code></pre></div><p>and a new file named <strong>src/js/components/App.js</strong>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/components/App.js
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">List</span> <span class="nx">from</span> <span class="s2">&#34;./List&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">Articles</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+      <span class="o">&lt;</span><span class="nx">List</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="p">);</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></div><p>Save and close the file, then move on to creating List.</p>
+<h2 id="react-redux-tutorial-list-component-and-redux-state">React Redux tutorial: List component and Redux state</h2>
+<p>We have done nothing special so far. But our new component, List, will <strong>interact with the Redux store</strong>.</p>
+<p>A brief recap: the key for <strong>connecting a React component with Redux is connect</strong>. Connect takes at least one argument.</p>
+<p>Since we want List to get a list of articles it&rsquo;s a matter of <strong>connecting state.articles</strong> with the component. How? <strong>With mapStateToProps</strong>. Note that &ldquo;mapStateToProps&rdquo; is just a convention, most developers for example use &ldquo;select&rdquo;.</p>
+<p>Create a new file named <strong>src/js/components/List.js</strong>. It should look like so:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/components/List.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">connect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-redux&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">mapStateToProps</span> <span class="o">=</span> <span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">articles</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">articles</span> <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">ConnectedList</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">articles</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="nx">articles</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">el</span> <span class="p">=&gt;</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">el</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">el</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+    <span class="p">))}</span>
+  <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">List</span> <span class="o">=</span> <span class="nx">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">)(</span><span class="nx">ConnectedList</span><span class="p">);</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">List</span><span class="p">;</span>
+</code></pre></div><p>The List component receives the prop <strong>articles</strong> which is a copy of the articles array we saw in the Redux state. It comes from the reducer:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">articles</span><span class="o">:</span> <span class="p">[]</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">rootReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="nx">ADD_ARTICLE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">state</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">articles</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">articles</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">)</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Always remember: <strong>the state in redux comes from reducers</strong>.</p>
+<p>Finally the component gets exported as List. List is the result of connecting the stateless component ConnectedList with the Redux store.</p>
+<p>Still confused? <strong>Understanding how connect works will take some time</strong>. But fear not, <strong>the road to learn Redux is paved with &ldquo;ah-ha&rdquo; moments</strong>.</p>
+<p>I suggest taking a break for exploring both connect and mapStateToProps.</p>
+<p>Head over the next section when you&rsquo;re ready!</p>
+<h2 id="react-redux-tutorial-form-component-and-redux-actions">React Redux tutorial: Form component and Redux actions</h2>
+<p>The Form component we&rsquo;re going to create is a bit more complex than List. It&rsquo;s a form for adding new items to our application and for that we&rsquo;ll use a JavaScript class.</p>
+<p><strong>Disclaimer</strong>: this tutorial was born when React didn&rsquo;t have hooks yet. I could use a functional component here, but <strong>to avoid twisting the tutorial I&rsquo;ll stick with classes</strong>.</p>
+<p>The class component will help keeping some local state, like form inputs. It <strong>receives a Redux action</strong> as well. This way it can <strong>update the global state by dispatching the addArticle action</strong>.</p>
+<p>Create a new file in <strong>src/js/components/Form.js</strong> with the following code:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/components/Form.jsx
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">connect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-redux&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">addArticle</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../actions/index&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">mapDispatchToProps</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">addArticle</span><span class="o">:</span> <span class="nx">article</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">(</span><span class="nx">addArticle</span><span class="p">(</span><span class="nx">article</span><span class="p">))</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">ConnectedForm</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;&#34;</span>
+    <span class="p">};</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">handleChange</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="p">[</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span><span class="p">]</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">title</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">addArticle</span><span class="p">({</span> <span class="nx">title</span> <span class="p">});</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;&#34;</span> <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">title</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">label</span> <span class="nx">htmlFor</span><span class="o">=</span><span class="s2">&#34;title&#34;</span><span class="o">&gt;</span><span class="nx">Title</span><span class="o">&lt;</span><span class="err">/label&gt;</span>
+          <span class="o">&lt;</span><span class="nx">input</span>
+            <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text&#34;</span>
+            <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;title&#34;</span>
+            <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">title</span><span class="p">}</span>
+            <span class="nx">onChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">}</span>
+          <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;submit&#34;</span><span class="o">&gt;</span><span class="nx">SAVE</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+      <span class="o">&lt;</span><span class="err">/form&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">Form</span> <span class="o">=</span> <span class="nx">connect</span><span class="p">(</span>
+  <span class="kc">null</span><span class="p">,</span>
+  <span class="nx">mapDispatchToProps</span>
+<span class="p">)(</span><span class="nx">ConnectedForm</span><span class="p">);</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Form</span><span class="p">;</span>
+</code></pre></div><p>A brief explanation of the component:</p>
+<ul>
+<li>besides mapDispatchToProps and connect it&rsquo;s standard React stuff</li>
+<li>mapDispatchToProps connects Redux actions to React props</li>
+<li>the <strong>action is dispatched in the handleSubmit method</strong></li>
+</ul>
+<p>Finally the component gets exported as Form. Form is the result of connecting ConnectedForm with the Redux store.</p>
+<p>Note: <strong>the first argument for connect must be null when mapStateToProps is absent like in our example</strong>. Or you&rsquo;ll get TypeError: dispatch is not a function.</p>
+<p>Our components are all set! Now update App to include the Form component:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">List</span> <span class="nx">from</span> <span class="s2">&#34;./List&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Form</span> <span class="nx">from</span> <span class="s2">&#34;./Form&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;&gt;</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">Articles</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+      <span class="o">&lt;</span><span class="nx">List</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">Add</span> <span class="nx">a</span> <span class="k">new</span> <span class="nx">article</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Form</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="o">&lt;</span><span class="err">/&gt;</span>
+<span class="p">);</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></div><p>Run the development server with:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm start
+</code></pre></div><p>and you should see our working proof of concept (in the first version of this tutorial I used Bootstrap, then removed).</p>
+<p>Nothing fancy but still useful for showing React and Redux at work!</p>
+<p>The List component on the left is connected to the Redux store. It will re-render whenever you add a new item.</p>
+<p>You did it! But we&rsquo;re not done yet! <strong>In the next section we&rsquo;ll look at Redux middleware</strong>. Hold tight!</p>
+<p><em><a href="https://github.com/valentinogagliardi/react-redux-tutorial/tree/connecting-react-redux">See the branch on Github</a></em></p>
+<h2 id="react-redux-tutorial-what-is-a-redux-middleware">React Redux tutorial: what is a Redux middleware?</h2>
+<p>So far we saw the building blocks of Redux: <strong>store</strong>, the traffic policeman.<strong>Reducers</strong>, which makes the state in Redux.</p>
+<p>Then there are <strong>actions, plain JavaScript objects, acting as messengers in your application</strong>. Finally, we have <strong>action creators, functions for creating those messages</strong>.</p>
+<p>Now, imagine the following scenario: you need to prevent users from creating articles with particular words inside the title. Let’s take a look at <code>handleSubmit</code> in <code>Form.js</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript">  <span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">title</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">addArticle</span><span class="p">({</span> <span class="nx">title</span> <span class="p">});</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;&#34;</span> <span class="p">});</span>
+  <span class="p">}</span>
+</code></pre></div><p>We can just add a check before <code>this.props.addArticle</code> right? It could be something along these lines:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript">  <span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">title</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">forbiddenWords</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;money&#39;</span><span class="p">];</span>
+    <span class="kr">const</span> <span class="nx">foundWord</span> <span class="o">=</span> <span class="nx">forbiddenWords</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">word</span> <span class="p">=&gt;</span> <span class="nx">title</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">foundWord</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">titleForbidden</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">addArticle</span><span class="p">({</span> <span class="nx">title</span> <span class="p">});</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;&#34;</span> <span class="p">});</span>
+  <span class="p">}</span>
+</code></pre></div><p>Wasn&rsquo;t the <strong>entire point of Redux to move the logic out of our React components</strong>? So what? Can we check the title property inside the reducer? Maybe! While there let&rsquo;s dispatch another action in response to a forbidden word &hellip; but, how I&rsquo;m supposed to access dispatch inside a reducer?</p>
+<p>It&rsquo;s clear we want to reach for something different. Looks like we want to <strong>check the action payload (and the title property) before the action goes to the reducer</strong>. There should be a way for <strong>tapping into the application&rsquo;s flow</strong>. Guess what, that&rsquo;s <strong>exactly what a Redux middleware does</strong>.</p>
+<p>A <strong>Redux middleware is a function that is able to intercept, and act accordingly, our actions, before they reach the reducer</strong>. While the theory is quite simple, a Redux middleware can look a bit confusing.</p>
+<p>In its basic form <strong>a Redux middleware is a function returning a function, which takes next as a parameter. Then the inner function returns another function which takes action as a parameter and finally returns</strong> <code>next(action)</code>. Here&rsquo;s how it looks like:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">forbiddenWordsMiddleware</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">action</span><span class="p">){</span>
+      <span class="c1">// do your stuff
+</span><span class="c1"></span>      <span class="k">return</span> <span class="nx">next</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>This last point is really important: you should always call <code>next(action)</code> in your middleware. If you forget it, Redux stops, and no other action will reach the reducer. <code>next(action)</code> moves the application forward by <strong>calling the next middleware in the chain</strong>.</p>
+<p>In a middleware you can also access <code>getState</code> and <code>dispatch</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">forbiddenWordsMiddleware</span><span class="p">({</span> <span class="nx">getState</span><span class="p">,</span> <span class="nx">dispatch</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">action</span><span class="p">){</span>
+      <span class="c1">// do your stuff
+</span><span class="c1"></span>      <span class="k">return</span> <span class="nx">next</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>What&rsquo;s also interesting is that the middleware doesn&rsquo;t exit after <code>next(action)</code>. If you&rsquo;re interested in <strong>reading the next state of the app after the middleware chain runs</strong> you can capture it with <code>getState</code> after <code>next(action)</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">forbiddenWordsMiddleware</span><span class="p">({</span> <span class="nx">getState</span><span class="p">,</span> <span class="nx">dispatch</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">action</span><span class="p">){</span>
+      <span class="c1">// do your stuff
+</span><span class="c1"></span>      <span class="kr">const</span> <span class="nx">nextAction</span> <span class="o">=</span> <span class="nx">next</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+      <span class="c1">// read the next state
+</span><span class="c1"></span>      <span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">getState</span><span class="p">();</span>
+      <span class="c1">// return the next action
+</span><span class="c1"></span>      <span class="k">return</span> <span class="nx">nextAction</span><span class="p">;</span>  
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Still, don&rsquo;t forget to return the next action at the end.</p>
+<p>I know, you want to cry and change career but bear with me. Middleware in Redux is super important because they will hold the bulk of your application&rsquo;s logic. If you think about it there is <strong>no better place than a middleware for abstracting away business logic</strong>.</p>
+<p>Armed with that knowledge we can create our <strong>first Redux middleware</strong>: it should check whether the action&rsquo;s payload has bad words into it. We’ll see the actual implementation into the next section.</p>
+<h2 id="react-redux-tutorial-your-first-redux-middleware">React Redux tutorial: your first Redux middleware</h2>
+<p>The middleware we&rsquo;re going to build should inspect the action&rsquo;s payload. There are a lot of <strong>benefits from using a Redux middleware</strong>:</p>
+<ul>
+<li>most of the logic can live outside the UI library</li>
+<li>middleware become reusable pieces of logic, easy to reason about</li>
+<li>middleware can be tested in isolation</li>
+</ul>
+<p>So, let&rsquo;s get our hands dirty. Create a new folder for the middleware:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p src/js/middleware
+</code></pre></div><p>Now create a new file named in <code>src/js/middleware/index.js</code>. The structure of our first middleware should be like:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">forbiddenWordsMiddleware</span><span class="p">({</span> <span class="nx">dispatch</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">){</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">action</span><span class="p">){</span>
+      <span class="c1">// do your stuff
+</span><span class="c1"></span>      <span class="k">return</span> <span class="nx">next</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>For now we don&rsquo;t need <code>getState</code>, we just get <code>dispatch</code> as the first parameter. Nice. Now we need to check the action payload, namely the title property. If the title matches one or more bad words we stop the user from adding the article.</p>
+<p>Also, the check should fire up only when the action is of type <code>ADD_ARTICLE</code>. It makes sense. How about this one:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">ADD_ARTICLE</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../constants/action-types&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">forbiddenWords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;spam&#34;</span><span class="p">,</span> <span class="s2">&#34;money&#34;</span><span class="p">];</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">forbiddenWordsMiddleware</span><span class="p">({</span> <span class="nx">dispatch</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// do your stuff
+</span><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="nx">ADD_ARTICLE</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="kr">const</span> <span class="nx">foundWord</span> <span class="o">=</span> <span class="nx">forbiddenWords</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">word</span> <span class="p">=&gt;</span>
+          <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">title</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span>
+        <span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">foundWord</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;FOUND_BAD_WORD&#34;</span> <span class="p">});</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="nx">next</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div><p>Here’s what the middleware does: when action type is <code>ADD_ARTICLE</code> check if <code>action.payload.title</code> contains a bad word. If it does then dispatch an action of type <code>FOUND_BAD_WORD</code>, otherwise <strong>let the next middleware run</strong>.</p>
+<p>Now, time to wire up <code>forbiddenWordsMiddleware</code> to the Redux store. For that we need to import our middleware, another utility from Redux (applyMiddleware), and then cook everything together.</p>
+<p>Open up <code>src/js/store/index.js</code> and modify the file like so:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/store/index.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">applyMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">rootReducer</span> <span class="nx">from</span> <span class="s2">&#34;../reducers/index&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">forbiddenWordsMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../middleware&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span>
+  <span class="nx">rootReducer</span><span class="p">,</span>
+  <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">forbiddenWordsMiddleware</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">store</span><span class="p">;</span>
+</code></pre></div><p><strong>Note</strong>: if you want to enable Redux Dev Tools use <a href="https://github.com/valentinogagliardi/react-redux-tutorial/blob/your-first-redux-middleware/src/js/store/index.js">this code</a>.</p>
+<p>Save and close the file, run npm start and check if the middleware works. Try to add an article with &ldquo;money&rdquo; in its title and <strong>you won&rsquo;t see the new article appear in the list</strong>.</p>
+<p>The middleware works! Good job! In the next sections we&rsquo;ll explore <strong>asynchronous actions in Redux with Redux Thunk and Redux Saga</strong>.</p>
+<p><strong><a href="https://youtu.be/OUbBirfMb-0">Watch Redux course lesson 5, working with middlewares</a></strong></p>
+<p><em><a href="https://github.com/valentinogagliardi/react-redux-tutorial/tree/your-first-redux-middleware">See the branch on Github</a></em></p>
+<h2 id="react-redux-tutorial-asynchronous-actions-in-redux-the-naive-way">React Redux tutorial: asynchronous actions in Redux, the naive way</h2>
+<p>So far we were dealing with <strong>synchronous data</strong>. That is, <strong>dispatching an action is synchronous</strong>. No AJAX, no promises. We return a plain object from our action creators. And when the action reaches the reducer we return the next state.</p>
+<p>Now, suppose we want to <strong>fetch data from an API</strong>. In React you would put a call in componentDidMount and call it a day. But how about <strong>Redux? What&rsquo;s a good place for calling asynchronous functions</strong>? Let’s think a moment about it.</p>
+<p>Reducers? No way. Reducers should stay lean and clean. A reducer is not a good place for asynchronous logic.</p>
+<p>Actions? How I am supposed to do that? Actions in Redux are plain objects. And how about action creators? An action creator is a function, and it looks like a nice spot for calling an API! Let&rsquo;s give it a shot.</p>
+<p>We&rsquo;ll create a new action named <strong>getData</strong>. This action calls an API with fetch and returns a Redux action.</p>
+<p>Open up <strong>src/js/actions/index.js</strong> and create a new action named getData:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/actions/index.js
+</span><span class="c1"></span>
+<span class="c1">// ...
+</span><span class="c1">// our new action creator. Will it work?
+</span><span class="c1"></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">getData</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="s2">&#34;https://jsonplaceholder.typicode.com/posts&#34;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">json</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;DATA_LOADED&#34;</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="nx">json</span> <span class="p">};</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div><p><strong>It makes sense. But will it work</strong>? Let&rsquo;s wire up a React component so it dispatches getData from componentDidMount. mapDispatchToProps (this time with the object shorthand form) will map Redux action creators to our component&rsquo;s props. Create a new React component in <strong>src/js/components/Posts.js</strong>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">connect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-redux&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">getData</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../actions/index&#34;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">Post</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// calling the new action creator
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">getData</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">connect</span><span class="p">(</span>
+  <span class="kc">null</span><span class="p">,</span>
+  <span class="p">{</span> <span class="nx">getData</span> <span class="p">}</span>
+<span class="p">)(</span><span class="nx">Post</span><span class="p">);</span>
+</code></pre></div><p>Finally update <strong>src/js/components/App.js</strong> to use the new component:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">List</span> <span class="nx">from</span> <span class="s2">&#34;./List&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Form</span> <span class="nx">from</span> <span class="s2">&#34;./Form&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">Post</span> <span class="nx">from</span> <span class="s2">&#34;./Posts&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;&gt;</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">Articles</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+      <span class="o">&lt;</span><span class="nx">List</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">Add</span> <span class="nx">a</span> <span class="k">new</span> <span class="nx">article</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Form</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">API</span> <span class="nx">posts</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Post</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="o">&lt;</span><span class="err">/&gt;</span>
+<span class="p">);</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></div><p>Save and close the files, run the app, and look at the console: &ldquo;Error: Actions must be plain objects. Use custom middleware for async actions&rdquo;. <strong>We cannot call fetch from within an action creator in Redux</strong>. Now what?</p>
+<p>For making things work we need a custom middleware. <strong>Luckily there&rsquo;s something ready for us: redux-thunk</strong>.</p>
+<h2 id="asynchronous-actions-in-redux-with-redux-thunk">Asynchronous actions in Redux with Redux Thunk</h2>
+<p>We just learned that <strong>calling fetch from an action creator does not work</strong>. That&rsquo;s because Redux is expecting objects as actions but we&rsquo;re trying to return a Promise. <strong>With redux-thunk we can overcome the problem and return functions from action creators</strong>. Inside that function <strong>we can call APIs, delay the dispatch of an action, and so on</strong>.</p>
+<p>First we need to install the middleware with:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm i redux-thunk --save-dev
+</code></pre></div><p>Now let’s load the middleware in <strong>src/js/store/index.js</strong>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">,</span> <span class="nx">compose</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">rootReducer</span> <span class="nx">from</span> <span class="s2">&#34;../reducers/index&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">forbiddenWordsMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../middleware&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">thunk</span> <span class="nx">from</span> <span class="s2">&#34;redux-thunk&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">storeEnhancers</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">__REDUX_DEVTOOLS_EXTENSION_COMPOSE__</span> <span class="o">||</span> <span class="nx">compose</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span>
+  <span class="nx">rootReducer</span><span class="p">,</span>
+  <span class="nx">storeEnhancers</span><span class="p">(</span><span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">forbiddenWordsMiddleware</span><span class="p">,</span> <span class="nx">thunk</span><span class="p">))</span>
+<span class="p">);</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">store</span><span class="p">;</span>
+</code></pre></div><p>At this point we need to refactor getData to use redux-thunk. Open up <strong>src/js/actions/index.js and update the action creator</strong> like so:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">getData</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="s2">&#34;https://jsonplaceholder.typicode.com/posts&#34;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">json</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">dispatch</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;DATA_LOADED&#34;</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="nx">json</span> <span class="p">});</span>
+      <span class="p">});</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div><p>That&rsquo;s redux-thunk!</p>
+<p>A few things worth noting in the new version of getData: the <strong>fetch call gets returned from an outer function and the outer function has dispatch as a parameter</strong>. If you want to access the state inside the action creator you can add getState in the parameter&rsquo;s list.</p>
+<p>Also, notice the use of dispatch inside &ldquo;then&rdquo;. We need to explicitly call dispatch inside the async function for dispatching the next action.</p>
+<p>With that in place we&rsquo;re ready to update our reducer with the new action type. Open up <strong>src/js/reducers/index.js</strong> and add a new if statement. We can also add a new key inside initialState for saving the articles from the API:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">ADD_ARTICLE</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../constants/action-types&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">articles</span><span class="o">:</span> <span class="p">[],</span>
+  <span class="nx">remoteArticles</span><span class="o">:</span> <span class="p">[]</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">rootReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="nx">ADD_ARTICLE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">state</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">articles</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">articles</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">)</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="s2">&#34;DATA_LOADED&#34;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">state</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">remoteArticles</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">remoteArticles</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">)</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">rootReducer</span><span class="p">;</span>
+</code></pre></div><p>(I know, <code>DATA_LOADED</code> should be its own named constant. I left it as an exercise for you. Hope you don&rsquo;t mind!)</p>
+<p>Finally, we&rsquo;re ready to update our Post component for displaying our &ldquo;remote&rdquo; posts. We will use mapStateToProps (again, feel free to call this function select) for selecting ten posts:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">connect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-redux&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">getData</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../actions/index&#34;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">Post</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">getData</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">articles</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">el</span> <span class="p">=&gt;</span> <span class="p">(</span>
+          <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">el</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">el</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+        <span class="p">))}</span>
+      <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">mapStateToProps</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">articles</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">remoteArticles</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">connect</span><span class="p">(</span>
+  <span class="nx">mapStateToProps</span><span class="p">,</span>
+  <span class="p">{</span> <span class="nx">getData</span> <span class="p">}</span>
+<span class="p">)(</span><span class="nx">Post</span><span class="p">);</span>
+</code></pre></div><p>Save and close the files, run the app, and <strong>everything should work fine</strong>! Good job!</p>
+<p>To recap: <strong>Redux does not understand other types of action than a plain object</strong>. If you want to move asynchronous logic from React to Redux and being able to return functions instead of plain objects you have to use a custom middleware.</p>
+<p><strong>redux-thunk is a middleware for Redux</strong>. With redux-thunk you can return functions from action creators, not only objects. You can do asynchronous work inside your actions and dispatch other actions in response to AJAX calls.</p>
+<p>When to use redux-thunk? redux-thunk is a nice middleware that works very well for simpler use cases. But if your asynchronous logic involves more complex scenarios then redux saga might be a better fit.</p>
+<p>In the next section we&rsquo;ll take a look at it. Hold tight!</p>
+<p><strong><a href="https://youtu.be/6Q6mh0_WzVA">Watch Redux course lesson 6, asynchronous actions with redux-thunk</a></strong></p>
+<p><em><a href="https://github.com/valentinogagliardi/react-redux-tutorial/tree/async-action-thunk">See the branch on Github</a></em></p>
+<h2 id="react-redux-tutorial-introducing-redux-saga">React Redux tutorial: introducing Redux Saga</h2>
+<p>redux-thunk makes perfect sense for a lot of project. You can also entirely skip redux-thunk and move your <strong>asynchronous logic to a custom middleware</strong>. But in reality asynchronous actions can be trickier to test and organize.</p>
+<p>For this reason most developers prefer an alternative approach: <strong>redux-saga</strong>.</p>
+<p><strong>What is redux-saga</strong>? redux-saga is a Redux <strong>middleware for managing side effects</strong>. With redux-saga you can have a separate thread in your application for dealing with impure actions: <strong>API calls, storage access</strong>, and more.</p>
+<p>redux-saga is different from an async action in terms of both syntax and code organization. With redux-thunk you can put an API call directly inside an action creator while in <strong>redux-saga you can have clear separation between synchronous and asynchronous logic</strong>.</p>
+<p>Worth noting, redux-saga does not use regular JavaScript function. You will see a lot of asterisks and &ldquo;yield&rdquo; in your sagas. Those asterisks mark <strong>generator functions</strong>!</p>
+<p><strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Generator functions in JavaScript</a> are function which can be paused and resumed on demand</strong>. redux-saga relies heavily on generator functions but the good thing is that you won&rsquo;t need to call <code>next()</code> in your code. redux-saga handles that for you under the hood.</p>
+<h2 id="writing-your-first-redux-saga">Writing your first Redux Saga</h2>
+<p>In this section we will refactor our code to use a Redux saga instead of a thunk. I won&rsquo;t cover the entire Saga API in this post so please bear with me. We&rsquo;ll just take a look at a bunch of methods.</p>
+<p>Before getting started install redux saga with:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm i redux-saga --save-dev
+</code></pre></div><p>Now we can refactor our async action and remove the fetch call. From now on our action creator will just dispatch a plain action. Open up <strong>src/js/actions/index.js</strong> and modify <code>getData</code> to return a plain action named <code>DATA_REQUESTED</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">getData</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;DATA_REQUESTED&#34;</span> <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div><p>The <code>DATA_REQUESTED</code> action will be intercepted by Redux saga with <code>takeEvery</code>. You can imagine <code>takeEvery</code> taking every <code>DATA_REQUESTED</code> action passing inside our app and starting some work in response to that action.</p>
+<p>Now, how do you structure a saga? A <strong>redux saga could live in a single file containing</strong>:</p>
+<ul>
+<li>a <strong>worker function</strong></li>
+<li>a <strong>watcher function</strong></li>
+</ul>
+<p>The <strong>watcher is a generator function watching for every action we are interested in</strong>. In <strong>response to that action, the watcher will call a worker saga</strong>, which is another generator function for doing the actual API call.</p>
+<p>The worker saga will call the remote API with <code>call</code> from redux-saga/effects. When the data is loaded we can dispatch another action from our saga with <code>put</code>, again, from redux-saga/effects.</p>
+<p>Armed with this knowledge we can lay down our first Redux saga. First create a new folder for holding your sagas:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p src/js/sagas
+</code></pre></div><p>Then create a new file named <strong>api-saga.js</strong> in <strong>src/js/sagas</strong>. And here&rsquo;s our saga:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">takeEvery</span><span class="p">,</span> <span class="nx">call</span><span class="p">,</span> <span class="nx">put</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux-saga/effects&#34;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span><span class="o">*</span> <span class="nx">watcherSaga</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">yield</span> <span class="nx">takeEvery</span><span class="p">(</span><span class="s2">&#34;DATA_REQUESTED&#34;</span><span class="p">,</span> <span class="nx">workerSaga</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="o">*</span> <span class="nx">workerSaga</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">call</span><span class="p">(</span><span class="nx">getData</span><span class="p">);</span>
+    <span class="k">yield</span> <span class="nx">put</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;DATA_LOADED&#34;</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">});</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">yield</span> <span class="nx">put</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;API_ERRORED&#34;</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="nx">e</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Let&rsquo;s take a break to read through the logic flow of our saga.</p>
+<h2 id="demystifying-your-first-redux-saga">Demystifying your first redux saga</h2>
+<p>Take a look at the code above. Here&rsquo;s how it works:</p>
+<ol>
+<li>take every action named <code>DATA_REQUESTED</code> and for each action spin a worker saga</li>
+<li>inside the worker saga call a function named <code>getData</code></li>
+<li>if the function succeeds, then dispatch (put) a new action named <code>DATA_LOADED</code> alongside with a payload</li>
+<li>if the function errors out, then dispatch (put) a new action named <code>API_ERRORED</code>, alongside with a payload (the error)</li>
+</ol>
+<p>The only thing we&rsquo;re missing in our code is <code>getData</code>. Open up <strong>src/js/sagas/api-saga.js</strong> again and add the function:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">takeEvery</span><span class="p">,</span> <span class="nx">call</span><span class="p">,</span> <span class="nx">put</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux-saga/effects&#34;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span><span class="o">*</span> <span class="nx">watcherSaga</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">yield</span> <span class="nx">takeEvery</span><span class="p">(</span><span class="s2">&#34;DATA_REQUESTED&#34;</span><span class="p">,</span> <span class="nx">workerSaga</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="o">*</span> <span class="nx">workerSaga</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">call</span><span class="p">(</span><span class="nx">getData</span><span class="p">);</span>
+    <span class="k">yield</span> <span class="nx">put</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;DATA_LOADED&#34;</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">});</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">yield</span> <span class="nx">put</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;API_ERRORED&#34;</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="nx">e</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">getData</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="s2">&#34;https://jsonplaceholder.typicode.com/posts&#34;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><p>Finally we can wire up redux saga to our redux store. Open up <code>src/js/store/index.js</code> and update the store as follows:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">,</span> <span class="nx">compose</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">rootReducer</span> <span class="nx">from</span> <span class="s2">&#34;../reducers/index&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">forbiddenWordsMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../middleware&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">createSagaMiddleware</span> <span class="nx">from</span> <span class="s2">&#34;redux-saga&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">apiSaga</span> <span class="nx">from</span> <span class="s2">&#34;../sagas/api-saga&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">initialiseSagaMiddleware</span> <span class="o">=</span> <span class="nx">createSagaMiddleware</span><span class="p">();</span>
+
+<span class="kr">const</span> <span class="nx">storeEnhancers</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">__REDUX_DEVTOOLS_EXTENSION_COMPOSE__</span> <span class="o">||</span> <span class="nx">compose</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span>
+  <span class="nx">rootReducer</span><span class="p">,</span>
+  <span class="nx">storeEnhancers</span><span class="p">(</span>
+    <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">forbiddenWordsMiddleware</span><span class="p">,</span> <span class="nx">initialiseSagaMiddleware</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="nx">initialiseSagaMiddleware</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">apiSaga</span><span class="p">);</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">store</span><span class="p">;</span>
+</code></pre></div><p>Notice <code>createSagaMiddleware</code> and <code>initialiseSagaMiddleware.run</code> for running our saga. Now close and save the file. Run npm start and You should see the exact same output again with the remote posts correctly displaying in the browser.</p>
+<p>Congratulations! <strong>You created your first redux saga</strong>! And now a couple of exercises for you:</p>
+<ul>
+<li>our reducer was ready for handling <code>DATA_LOADED</code> alongside with its payload. Complete the reducer for dealing with <code>API_ERRORED</code>.</li>
+<li>move <code>DATA_LOADED</code>, <code>API_ERRORED</code>, and <code>DATA_REQUESTED</code> in named constants.</li>
+<li>do we need to better account for fetch errors inside getData?</li>
+</ul>
+<p>CODE: you can access the complete example at <a href="https://github.com/valentinogagliardi/react-redux-tutorial">react-redux-tutorial on Github</a>. Clone the repo and checkout the most recent branch:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/valentinogagliardi/react-redux-tutorial
+<span class="nb">cd</span> react-redux-tutorial
+git checkout your-first-redux-saga
+</code></pre></div><p><em><a href="https://github.com/valentinogagliardi/react-redux-tutorial/tree/your-first-redux-saga">See the branch on Github</a></em></p>
+<h2 id="sagas-and-parameters">Sagas and parameters</h2>
+<p>Worker sagas take the actual <strong>action</strong> as a parameter:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span><span class="o">*</span> <span class="nx">workerSaga</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// omit
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><p>That means we can use an <strong>action payload</strong> if present. So if your Post component dispatches an action with its payload (look at <code>componentDidMount</code>):</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/components/Posts.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">connect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react-redux&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">getData</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;../actions/index&#34;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">Post</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">getData</span><span class="p">(</span><span class="s2">&#34;https://api.valentinog.com/api/link/&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">articles</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">el</span> <span class="p">=&gt;</span> <span class="p">(</span>
+          <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">el</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">el</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/li&gt;</span>
+        <span class="p">))}</span>
+      <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">mapStateToProps</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">articles</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">remoteArticles</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">connect</span><span class="p">(</span><span class="nx">mapStateToProps</span><span class="p">,</span> <span class="p">{</span> <span class="nx">getData</span> <span class="p">})(</span><span class="nx">Post</span><span class="p">);</span>
+</code></pre></div><p>and the action creator returns the payload too:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// src/js/actions/index.js
+</span><span class="c1"></span>
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">getData</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;DATA_REQUESTED&#34;</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="p">{</span> <span class="nx">url</span> <span class="p">}</span> <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div><p>We can access the action in our worker saga and pass the action payload (url in this case) to <code>getData</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">takeEvery</span><span class="p">,</span> <span class="nx">call</span><span class="p">,</span> <span class="nx">put</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux-saga/effects&#34;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span><span class="o">*</span> <span class="nx">watcherSaga</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">yield</span> <span class="nx">takeEvery</span><span class="p">(</span><span class="s2">&#34;DATA_REQUESTED&#34;</span><span class="p">,</span> <span class="nx">workerSaga</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="o">*</span> <span class="nx">workerSaga</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// pass the action payload to getData
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="k">yield</span> <span class="nx">call</span><span class="p">(</span><span class="nx">getData</span><span class="p">,</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+    <span class="k">yield</span> <span class="nx">put</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;DATA_LOADED&#34;</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">});</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">yield</span> <span class="nx">put</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;API_ERRORED&#34;</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="nx">e</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">getData</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="modern-redux-with-redux-toolkit">Modern Redux with Redux Toolkit</h2>
+<p>In the late months of 2018 Redux saw the introduction of Redux starter kit, later renamed to <strong>Redux Toolkit</strong>. Redux Toolkit aims to simplify Redux with a <strong>convenient abstraction</strong> over the &ldquo;boilerplate&rdquo; that so many developers complained about.</p>
+<p>In the following sections we&rsquo;ll explore <strong>Redux Toolkit side by side with &ldquo;classic&rdquo; Redux code</strong>. To illustrate Redux Toolkit we&rsquo;ll see a &ldquo;vanilla&rdquo; JavaScript application, no React for now. I assume you&rsquo;ve got a <a href="https://www.valentinog.com/blog/babel/">webpack development environment</a>. You could also use create-react-app, just replace the content of <code>index.js</code> with my code.</p>
+<h2 id="modern-redux-with-redux-toolkit-configurestore">Modern Redux with Redux Toolkit: configureStore</h2>
+<p>Let&rsquo;s say we need a <strong>login flow where the user enters username, password, and receives back a token</strong> from an API.</p>
+<p>Let&rsquo;s start with <strong>store creation</strong>. We saw <code>createStore</code> as a way to create a store in Redux. It takes a root reducer, optional middleware, and optional store enhancers:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">applyMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">middleware</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="cm">/*YOUR CUSTOM MIDDLEWARES HERE*/</span>
+<span class="p">];</span>
+
+<span class="kr">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">rootReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// DO STUFF
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">rootReducer</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">(...</span><span class="nx">middleware</span><span class="p">));</span>
+</code></pre></div><p>We can also <strong>split reducers with</strong> <code>combineReducers</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">combineReducers</span><span class="p">,</span> <span class="nx">applyMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">middleware</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="cm">/*YOUR CUSTOM MIDDLEWARES HERE*/</span>
+<span class="p">];</span>
+
+<span class="c1">// AUTH STATE
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">authState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// DO STUFF
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">rootReducer</span> <span class="o">=</span> <span class="nx">combineReducers</span><span class="p">({</span>
+  <span class="nx">auth</span><span class="o">:</span> <span class="nx">authReducer</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">rootReducer</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">(...</span><span class="nx">middleware</span><span class="p">));</span>
+</code></pre></div><p>If you were to add Redux Dev Tool to the mix, store creation would become a bit crowded:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">combineReducers</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">,</span> <span class="nx">compose</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux&#34;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">storeEnhancers</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">__REDUX_DEVTOOLS_EXTENSION_COMPOSE__</span> <span class="o">||</span> <span class="nx">compose</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">middleware</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="cm">/*YOUR CUSTOM MIDDLEWARES HERE*/</span>
+<span class="p">];</span>
+
+<span class="c1">// AUTH STATE
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">authState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// DO STUFF
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">rootReducer</span> <span class="o">=</span> <span class="nx">combineReducers</span><span class="p">({</span>
+  <span class="nx">auth</span><span class="o">:</span> <span class="nx">authReducer</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span>
+  <span class="nx">rootReducer</span><span class="p">,</span>
+  <span class="nx">storeEnhancers</span><span class="p">(</span><span class="nx">applyMiddleware</span><span class="p">(...</span><span class="nx">middleware</span><span class="p">))</span>
+<span class="p">);</span>
+</code></pre></div><p>With <code>configureStore</code> from <strong>Redux Toolkit</strong> we <strong>can simplify store creation</strong>. First, install the toolkit with:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm i @reduxjs/toolkit
+</code></pre></div><p>Then, replace <code>createStore</code> with <code>configureStore</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">configureStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@reduxjs/toolkit&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">middleware</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="cm">/*YOUR CUSTOM MIDDLEWARES HERE*/</span>
+<span class="p">];</span>
+
+<span class="c1">// AUTH STATE
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">authState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// DO STUFF
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">configureStore</span><span class="p">({</span>
+  <span class="nx">reducer</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">auth</span><span class="o">:</span> <span class="nx">authReducer</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">middleware</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div><p>No need to compose anything, no boilerplate: <code>configureStore</code> accepts a configuration object where you can define:</p>
+<ul>
+<li>a root reducer, or an object of slices</li>
+<li>your middleware</li>
+<li>optional store enhancers</li>
+<li>a preloaded state</li>
+</ul>
+<p>What&rsquo;s included in <code>configureStore</code>?</p>
+<ul>
+<li>Redux Dev Tool out of the box</li>
+<li><strong>redux-thunk</strong></li>
+</ul>
+<p>Just pay attention to include the <a href="https://redux-toolkit.js.org/api/getDefaultMiddleware#included-default-middleware">default middleware</a> with <code>getDefaultMiddleware</code> when you pass an array of custom middleware:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">configureStore</span><span class="p">,</span> <span class="nx">getDefaultMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@reduxjs/toolkit&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">middleware</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">...</span><span class="nx">getDefaultMiddleware</span><span class="p">(),</span>
+  <span class="cm">/*YOUR CUSTOM MIDDLEWARES HERE*/</span>
+<span class="p">];</span>
+
+<span class="c1">// AUTH STATE
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">authState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// DO STUFF
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">configureStore</span><span class="p">({</span>
+  <span class="nx">reducer</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">auth</span><span class="o">:</span> <span class="nx">authReducer</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">middleware</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div><h2 id="modern-redux-with-redux-toolkit-createaction">Modern Redux with Redux Toolkit: createAction</h2>
+<p>The next utility function from Redux Toolkit is <code>createAction</code>. It&rsquo;s good practice in Redux to have <strong>action creators</strong> and <strong>named actions</strong> for almost <strong>every behaviour</strong> of the app.</p>
+<p>Consider again this &ldquo;classic&rdquo; Redux example with some actions: <code>LOGIN_SUCCESS</code>, <code>FETCH_LINKS_REQUEST</code>, and <code>FETCH_LINKS_SUCCESS</code> (without even accounting for errors! That would make the boilerplate grow even bigger in this example):</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">combineReducers</span><span class="p">,</span> <span class="nx">applyMiddleware</span><span class="p">,</span> <span class="nx">compose</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;redux&#34;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">storeEnhancers</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">__REDUX_DEVTOOLS_EXTENSION_COMPOSE__</span> <span class="o">||</span> <span class="nx">compose</span><span class="p">;</span>
+
+<span class="c1">// NAMED ACTIONS AND ACTION CREATORS
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">LOGIN_SUCCESS</span> <span class="o">=</span> <span class="s2">&#34;LOGIN_SUCCESS&#34;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">FETCH_LINKS_REQUEST</span> <span class="o">=</span> <span class="s2">&#34;FETCH_LINKS_REQUEST&#34;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">FETCH_LINKS_SUCCESS</span> <span class="o">=</span> <span class="s2">&#34;FETCH_LINKS_SUCCESS&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">loginSuccess</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">LOGIN_SUCCESS</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">fetchLinksRequest</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">FETCH_LINKS_REQUEST</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">fetchLinksSuccess</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">FETCH_LINKS_SUCCESS</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">//
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">middleware</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="cm">/*YOUR CUSTOM MIDDLEWARES HERE*/</span>
+<span class="p">];</span>
+
+<span class="c1">// AUTH STATE
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">authState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// DO STUFF
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">rootReducer</span> <span class="o">=</span> <span class="nx">combineReducers</span><span class="p">({</span>
+  <span class="nx">auth</span><span class="o">:</span> <span class="nx">authReducer</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span>
+  <span class="nx">rootReducer</span><span class="p">,</span>
+  <span class="nx">storeEnhancers</span><span class="p">(</span><span class="nx">applyMiddleware</span><span class="p">(...</span><span class="nx">middleware</span><span class="p">))</span>
+<span class="p">);</span>
+</code></pre></div><p>That&rsquo;s definitively too much boilerplate. With <code>createAction</code> <strong>we can get rid of action creators and named actions</strong> to condense all in one place:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span>
+  <span class="nx">configureStore</span><span class="p">,</span>
+  <span class="nx">getDefaultMiddleware</span><span class="p">,</span>
+  <span class="nx">createAction</span><span class="p">,</span>
+<span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@reduxjs/toolkit&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">loginSuccess</span> <span class="o">=</span> <span class="nx">createAction</span><span class="p">(</span><span class="s2">&#34;LOGIN_SUCCESS&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">fetchLinksRequest</span> <span class="o">=</span> <span class="nx">createAction</span><span class="p">(</span><span class="s2">&#34;FETCH_LINKS_REQUEST&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">fetchLinksSuccess</span> <span class="o">=</span> <span class="nx">createAction</span><span class="p">(</span><span class="s2">&#34;FETCH_LINKS_SUCCESS&#34;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">middleware</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">...</span><span class="nx">getDefaultMiddleware</span><span class="p">(),</span>
+  <span class="cm">/*YOUR CUSTOM MIDDLEWARES HERE*/</span>
+<span class="p">];</span>
+
+<span class="c1">// AUTH STATE
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">authState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// DO STUFF
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">configureStore</span><span class="p">({</span>
+  <span class="nx">reducer</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">auth</span><span class="o">:</span> <span class="nx">authReducer</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">middleware</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div><p>Each of these calls to <code>createAction</code> are <strong>actual action creators</strong> ready to be called, with an optional payload:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// Creates an action creator
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">loginSuccess</span> <span class="o">=</span> <span class="nx">createAction</span><span class="p">(</span><span class="s2">&#34;LOGIN_SUCCESS&#34;</span><span class="p">);</span>
+
+<span class="c1">// Calls the action creator 
+</span><span class="c1"></span><span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">loginSuccess</span><span class="p">(</span><span class="s2">&#34;aPayload&#34;</span><span class="p">))</span>
+</code></pre></div><p>Now, let&rsquo;s turn our attention to <strong>reducers</strong>.</p>
+<h2 id="modern-redux-with-redux-toolkit-createreducer">Modern Redux with Redux Toolkit: createReducer</h2>
+<p>After actions creators and named actions, <strong>reducers are where most of the Redux &ldquo;boilerplate&rdquo; grows</strong>. Traditionally you would have a <code>switch</code> with a group of <code>case</code> for handling action types (again, back to &ldquo;classic&rdquo; Redux):</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// NAMED ACTIONS AND ACTION CREATORS
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">LOGIN_SUCCESS</span> <span class="o">=</span> <span class="s2">&#34;LOGIN_SUCCESS&#34;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">LOGIN_FAILED</span> <span class="o">=</span> <span class="s2">&#34;LOGIN_FAILED&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">loginSuccess</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">LOGIN_SUCCESS</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">loginFailed</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">LOGIN_FAILED</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// Reducer
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">authState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+  <span class="nx">error</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">LOGIN_SUCCESS</span><span class="o">:</span>
+    <span class="c1">// return the next state
+</span><span class="c1"></span>    <span class="k">case</span> <span class="nx">LOGIN_FAILED</span><span class="o">:</span>
+    <span class="c1">// return the next state
+</span><span class="c1"></span>    <span class="k">default</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>The &ldquo;issue&rdquo; pops up soon when <strong>we need to return the next state without touching the initial state</strong>. It could be done in two ways. With <code>Object.assign</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">LOGIN_SUCCESS</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">state</span><span class="p">,</span> <span class="p">{</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span> <span class="p">});</span>
+    <span class="k">case</span> <span class="nx">LOGIN_FAILED</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">state</span><span class="p">,</span> <span class="p">{</span> <span class="nx">error</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span> <span class="p">});</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Or with an <strong>object spread</strong> (ECMAScript 2018):</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">LOGIN_SUCCESS</span><span class="o">:</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="p">...</span><span class="nx">state</span><span class="p">,</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span> <span class="p">};</span>
+    <span class="k">case</span> <span class="nx">LOGIN_FAILED</span><span class="o">:</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="p">...</span><span class="nx">state</span><span class="p">,</span> <span class="nx">error</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span> <span class="p">};</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Now, what if I tell you <strong>can cut things out</strong> with <code>createReducer</code>? This utility function from Redux Toolkit takes an initial state, and a <strong>mapping object</strong> where:</p>
+<ul>
+<li><strong>properties in this mapping are action types</strong></li>
+<li><strong>values are reducing function</strong></li>
+</ul>
+<p>Pair this with actions from <code>createAction</code>, which have their <code>toString()</code> configured to return the action type, and you can refactor this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// NAMED ACTIONS AND ACTION CREATORS
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">LOGIN_SUCCESS</span> <span class="o">=</span> <span class="s2">&#34;LOGIN_SUCCESS&#34;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">LOGIN_FAILED</span> <span class="o">=</span> <span class="s2">&#34;LOGIN_FAILED&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">loginSuccess</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">LOGIN_SUCCESS</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">loginFailed</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nx">LOGIN_FAILED</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// Reducer
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">authState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+  <span class="nx">error</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">LOGIN_SUCCESS</span><span class="o">:</span>
+    <span class="c1">// return the next state
+</span><span class="c1"></span>    <span class="k">case</span> <span class="nx">LOGIN_FAILED</span><span class="o">:</span>
+    <span class="c1">// return the next state
+</span><span class="c1"></span>    <span class="k">default</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>to <strong>this</strong>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span>
+  <span class="nx">configureStore</span><span class="p">,</span>
+  <span class="nx">getDefaultMiddleware</span><span class="p">,</span>
+  <span class="nx">createAction</span><span class="p">,</span>
+  <span class="nx">createReducer</span><span class="p">,</span>
+<span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@reduxjs/toolkit&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">loginSuccess</span> <span class="o">=</span> <span class="nx">createAction</span><span class="p">(</span><span class="s2">&#34;LOGIN_SUCCESS&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">loginFailed</span> <span class="o">=</span> <span class="nx">createAction</span><span class="p">(</span><span class="s2">&#34;LOGIN_FAILED&#34;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">authState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+  <span class="nx">error</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">authReducer</span> <span class="o">=</span> <span class="nx">createReducer</span><span class="p">(</span><span class="nx">authState</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nx">loginSuccess</span><span class="p">]</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// return the next state
+</span><span class="c1"></span>  <span class="p">},</span>
+  <span class="p">[</span><span class="nx">loginFailed</span><span class="p">]</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// return the next state
+</span><span class="c1"></span>  <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="c1">// rest omitted for brevity
+</span></code></pre></div><p>Wait! <code>createReducer</code> really shines when dealing with <strong>mutations</strong>. Under the hood uses <strong>immer</strong>, which allows for writing <strong>mutative logic, which in reality does not alter the original object</strong>. We can refactor our &ldquo;classic&rdquo; reducer from:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">LOGIN_SUCCESS</span><span class="o">:</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="p">...</span><span class="nx">state</span><span class="p">,</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span> <span class="p">};</span>
+    <span class="k">case</span> <span class="nx">LOGIN_FAILED</span><span class="o">:</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="p">...</span><span class="nx">state</span><span class="p">,</span> <span class="nx">error</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span> <span class="p">};</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>To:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">authReducer</span> <span class="o">=</span> <span class="nx">createReducer</span><span class="p">(</span><span class="nx">authState</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nx">loginSuccess</span><span class="p">]</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">state</span><span class="p">.</span><span class="nx">token</span> <span class="o">=</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">},</span>
+  <span class="p">[</span><span class="nx">loginFailed</span><span class="p">]</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">state</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div><p>Look how clean it is. Let&rsquo;s now see the big picture with <code>createSlice</code>.</p>
+<h2 id="modern-redux-with-redux-toolkit-createslice">Modern Redux with Redux Toolkit: createSlice</h2>
+<p><code>createSlice</code> <strong>is the holy grail of Redux</strong>. It is able to <strong>keep everything in a single place: reducers, action creators, state</strong>. Let&rsquo;s see what we got so far with Redux Toolkit:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span>
+  <span class="nx">configureStore</span><span class="p">,</span>
+  <span class="nx">getDefaultMiddleware</span><span class="p">,</span>
+  <span class="nx">createAction</span><span class="p">,</span>
+  <span class="nx">createReducer</span><span class="p">,</span>
+<span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@reduxjs/toolkit&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">loginSuccess</span> <span class="o">=</span> <span class="nx">createAction</span><span class="p">(</span><span class="s2">&#34;LOGIN_SUCCESS&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">loginFailed</span> <span class="o">=</span> <span class="nx">createAction</span><span class="p">(</span><span class="s2">&#34;LOGIN_FAILED&#34;</span><span class="p">);</span>
+<span class="c1">// we don&#39;t need this now const fetchLinksRequest = createAction(&#34;FETCH_LINKS_REQUEST&#34;);
+</span><span class="c1">// we don&#39;t need this now const fetchLinksSuccess = createAction(&#34;FETCH_LINKS_SUCCESS&#34;);
+</span><span class="c1"></span>
+<span class="kr">const</span> <span class="nx">middleware</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">...</span><span class="nx">getDefaultMiddleware</span><span class="p">(),</span>
+  <span class="cm">/*YOUR CUSTOM MIDDLEWARES HERE*/</span>
+<span class="p">];</span>
+
+<span class="c1">// AUTH STATE
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">authState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+  <span class="nx">error</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">authReducer</span> <span class="o">=</span> <span class="nx">createReducer</span><span class="p">(</span><span class="nx">authState</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nx">loginSuccess</span><span class="p">]</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">state</span><span class="p">.</span><span class="nx">token</span> <span class="o">=</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">},</span>
+  <span class="p">[</span><span class="nx">loginFailed</span><span class="p">]</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">state</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">configureStore</span><span class="p">({</span>
+  <span class="nx">reducer</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">auth</span><span class="o">:</span> <span class="nx">authReducer</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">middleware</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div><p>With <code>createSlice</code> we can simplify even more, and our code becomes:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span>
+  <span class="nx">configureStore</span><span class="p">,</span>
+  <span class="nx">getDefaultMiddleware</span><span class="p">,</span>
+  <span class="nx">createSlice</span><span class="p">,</span>
+<span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@reduxjs/toolkit&#34;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">middleware</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">...</span><span class="nx">getDefaultMiddleware</span><span class="p">(),</span>
+  <span class="cm">/*YOUR CUSTOM MIDDLEWARES HERE*/</span>
+<span class="p">];</span>
+
+<span class="c1">// AUTH STATE
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">authState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+  <span class="nx">error</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">authSlice</span> <span class="o">=</span> <span class="nx">createSlice</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;auth&#34;</span><span class="p">,</span>
+  <span class="nx">initialState</span><span class="o">:</span> <span class="nx">authState</span><span class="p">,</span>
+  <span class="nx">reducers</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">loginSuccess</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">state</span><span class="p">.</span><span class="nx">token</span> <span class="o">=</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">loginFailed</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">state</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="p">{</span> <span class="nx">loginSuccess</span><span class="p">,</span> <span class="nx">loginFailed</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">authSlice</span><span class="p">.</span><span class="nx">actions</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">authReducer</span> <span class="o">=</span> <span class="nx">authSlice</span><span class="p">.</span><span class="nx">reducer</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">configureStore</span><span class="p">({</span>
+  <span class="nx">reducer</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">auth</span><span class="o">:</span> <span class="nx">authReducer</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">middleware</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div><p>At first, it&rsquo;s not easy to understand what <code>createSlice</code> is doing, but with a little help we can make it. It accepts:</p>
+<ul>
+<li>a slice name</li>
+<li>an initial state for the reducer</li>
+<li>an object with &ldquo;case reducers&rdquo;</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">authSlice</span> <span class="o">=</span> <span class="nx">createSlice</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;auth&#34;</span><span class="p">,</span>
+  <span class="nx">initialState</span><span class="o">:</span> <span class="nx">authState</span><span class="p">,</span>
+  <span class="nx">reducers</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">loginSuccess</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">state</span><span class="p">.</span><span class="nx">token</span> <span class="o">=</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">loginFailed</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">state</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div><p>The slice name is the action prefix. For example if I dispatch:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span> <span class="nx">loginSuccess</span><span class="p">(</span><span class="s2">&#34;some_asasa_token&#34;</span><span class="p">)</span> <span class="p">)</span>
+</code></pre></div><p>The generated action is:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;auth/loginSuccess&#34;</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="s2">&#34;some_asasa_token&#34;</span> <span class="p">}</span>
+</code></pre></div><p>The &ldquo;case reducers&rdquo; are the same as a classic switch block of a reducer:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// classic reducer
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">authReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">authState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">LOGIN_SUCCESS</span><span class="o">:</span>
+      <span class="c1">// return the next state
+</span><span class="c1"></span>    <span class="k">case</span> <span class="nx">LOGIN_FAILED</span><span class="o">:</span>
+      <span class="c1">// return the next state
+</span><span class="c1"></span>    <span class="k">default</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>In exchange <code>createSlice</code> returns <strong>action creators</strong>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="p">{</span> <span class="nx">loginSuccess</span><span class="p">,</span> <span class="nx">loginFailed</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">authSlice</span><span class="p">.</span><span class="nx">actions</span><span class="p">;</span>
+</code></pre></div><p>And a reducer:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">authReducer</span> <span class="o">=</span> <span class="nx">authSlice</span><span class="p">.</span><span class="nx">reducer</span><span class="p">;</span>
+</code></pre></div><p>The reducer is used in <code>configureStore</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">authReducer</span> <span class="o">=</span> <span class="nx">authSlice</span><span class="p">.</span><span class="nx">reducer</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">configureStore</span><span class="p">({</span>
+  <span class="nx">reducer</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">auth</span><span class="o">:</span> <span class="nx">authReducer</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">middleware</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div><p>With <code>createSlice</code> we come full circle . To learn more about all the configuration options make sure to refer the <a href="https://redux-toolkit.js.org/">official documentation</a>.</p>
+<h2 id="modern-redux-with-redux-toolkit-createasyncthunk">Modern Redux with Redux Toolkit: createAsyncThunk</h2>
+<p>Coming soon</p>
+<h2 id="modern-redux-with-redux-toolkit-create-react-app-template">Modern Redux with Redux Toolkit: create-react-app template</h2>
+<p>Coming soon</p>
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>What a journey! I hope you learned something from this guide. Tried my best to keep things as simple as possible. Pick Redux, play with it and take your time to absorb all the concepts.</p>
+<p>Redux used to have a lot of boilerplate and moving parts. Don&rsquo;t get discouraged. <strong>With Redux Toolkit now it&rsquo;s easier to write Redux logic.</strong></p>
+<p>After reading this tutorial you can tune on <strong>this <a href="https://www.youtube.com/playlist?list=PLfNd7po_IV0GTfQb8RJirrt83BFMF-Lj0">free Redux course of mine</a> where I cover Redux from zero to toolkit</strong>.</p>
+<p>Thanks for reading and stay tuned on this blog!</p>
+<h2 id="further-resources">Further resources</h2>
+<p>Recommended read: the <strong><a href="https://redux.js.org/style-guide/style-guide/">official style guide for writing Redux code</a></strong>.</p>
+<p><a href="https://redux-toolkit.js.org/">Official documentation for Redux Toolkit</a>.</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/gorm%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2/" data-toggle="tooltip" data-placement="top" title="Gorm关联查询">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/redux_toolkit/" data-toggle="tooltip" data-placement="top" title="Redux_toolkit">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/gorm%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2/">Gorm关联查询</a></li>
+                    
+                    <li><a href="/posts/%E5%BE%AE%E4%BF%A1%E6%8C%91%E4%B8%80%E6%8C%91/">微信挑一挑</a></li>
+                    
+                    <li><a href="/posts/k8s_ingress/">K8s_ingress nginx</a></li>
+                    
+                    <li><a href="/posts/go%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">Go开源项目</a></li>
+                    
+                    <li><a href="/posts/fastlane%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/">Fastlane自动化打包</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

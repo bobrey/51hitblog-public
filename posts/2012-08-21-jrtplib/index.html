@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> jrtplib - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="jrtplib" />
+  <meta name="twitter:title" content="jrtplib" />
+  <meta name="description" content="一、JRTPLIB简介 老外用C&#43;&#43;编写的开源RTP协议库，用来进行实时数据传输，可以运行在 Windows、Linux、 FreeBSD、Sol">
+  <meta property="og:description" content="一、JRTPLIB简介 老外用C&#43;&#43;编写的开源RTP协议库，用来进行实时数据传输，可以运行在 Windows、Linux、 FreeBSD、Sol">
+  <meta name="twitter:description" content="一、JRTPLIB简介 老外用C&#43;&#43;编写的开源RTP协议库，用来进行实时数据传输，可以运行在 Windows、Linux、 FreeBSD、Sol">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-21-jrtplib/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-21-jrtplib/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">jrtplib</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Aug 20, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/rtp/">rtp</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一jrtplib简介">一、JRTPLIB简介</a></li>
+    <li><a href="#二相关下载">二、相关下载</a></li>
+    <li><a href="#三-编译步骤">三、 编译步骤</a>
+      <ul>
+        <li><a href="#1下载jrtplib和jthread并解压缩阅读readme"><strong>1    下载jrtplib和jthread并解压缩。阅读README。</strong></a></li>
+        <li><a href="#2编译jthread生成jthreadlib和jthread_dlib">**2 ** <strong>编译jthread生成jthread.lib和jthread_d.lib。</strong></a></li>
+        <li><a href="#3-编译jrtplib生成jrtpliblib和jrtplib_dlib">3  编译jrtplib生成jrtplib.lib和jrtplib_d.lib。</a></li>
+      </ul>
+    </li>
+    <li><a href="#四-使用实例">四、 使用实例</a>
+      <ul>
+        <li><a href="#1添加库">1  添加库</a></li>
+        <li><a href="#2添加头文件">2  添加头文件</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h2 id="一jrtplib简介">一、JRTPLIB简介</h2>
+<p>老外用C++编写的开源RTP协议库，用来进行实时数据传输，可以运行在 Windows、Linux、 FreeBSD、Solaris、Unix和VxWorks 等多种操作系统上，主页为：<a href="http://research.edm.uhasselt.be/~jori/page/index.php?n=Main.HomePage">http://research.edm.uhasselt.be/~jori/page/index.php?n=Main.HomePage</a></p>
+<p> </p>
+<hr>
+<h2 id="二相关下载">二、相关下载</h2>
+<p><strong>jrtplib</strong>：　　<a href="http://research.edm.uhasselt.be/~jori/page/index.php?n=CS.Jrtplib">http://research.edm.uhasselt.be/~jori/page/index.php?n=CS.Jrtplib</a></p>
+<p>**jthread：　  <a href="http://research.edm.uhasselt.be/~jori/page/index.php?n=CS.Jthread">http://research.edm.uhasselt.be/~jori/page/index.php?n=CS.Jthread</a> **</p>
+<p><strong>cmake</strong>：    <a href="http://www.cmake.org/cmake/resources/software.html">http://www.cmake.org/cmake/resources/software.html</a></p>
+<hr>
+<h2 id="三-编译步骤">三、 编译步骤</h2>
+<h3 id="1下载jrtplib和jthread并解压缩阅读readme"><strong>1    下载jrtplib和jthread并解压缩。阅读README。</strong></h3>
+<h3 id="2编译jthread生成jthreadlib和jthread_dlib">**2 ** <strong>编译jthread生成jthread.lib和jthread_d.lib。</strong></h3>
+<p><strong>①</strong> <strong>打开cmake</strong>，添加好输入(where..)和输出路径(where to…)，完成configure配置（选visual studio 10），配置结果如下图：</p>
+<p><a href="https://blog.51hint.com/wp-content/uploads/000.png"><!-- raw HTML omitted --></a></p>
+<p>② <strong>点击</strong>generate，生成VS2010工程文件</p>
+<p>③ <strong>打开工程文件并编译</strong>，在debug和release下分别生成jthread.lib和jthread_d.lib</p>
+<p>**     编译的具体方法为**：选择Solution Explorer里的 Solution jthread，点右键，运行”Rebuild Solution”；如编译无错误，再选择INSTALL项目，运行”Build”。</p>
+<p>④ <strong>如果编译成功</strong>（如下图），会在C:\Program Files\jthread的include\jthread下生成头文件；在lib下生成lib和cmake文件</p>
+<p><a href="https://blog.51hint.com/wp-content/uploads/2012040623582613.png"><!-- raw HTML omitted --></a></p>
+<p>温馨提示：在win7下，你必须拥有管理者权限，否则编译不会通过，因为无法在C:\Program Files创建jthread文件，当然你可以手动创建。</p>
+<h3 id="3-编译jrtplib生成jrtpliblib和jrtplib_dlib">3  编译jrtplib生成jrtplib.lib和jrtplib_d.lib。</h3>
+<p>① **同2-****①，**其中configure会稍微麻烦一些，详细配置结果如下：<a href="https://i2.wp.com/blog.51hint.com/wp-content/uploads/2012040700015052.png"><!-- raw HTML omitted --></a></p>
+<p>② <strong>点击</strong>generate，生成VS2010工程文件</p>
+<p>③ <strong>打开工程文件并编译</strong>，在debug和release下分别生成jrtplib_d.lib和jrtplib.lib</p>
+<p><strong>④</strong> <strong>编译成功</strong>（如下图），在C:\Program Files\jrtplib下include\jrtplib3下会生成一堆头文件；在lib下会生成jrtplib_d.lib和jrtplib.lib以及cmake文件</p>
+<p><a href="https://i0.wp.com/blog.51hint.com/wp-content/uploads/2012040700012122.png"><!-- raw HTML omitted --></a></p>
+<p> </p>
+<p><strong>说明</strong>：网上提到的一些用VS2008和VC6.0方法中提到了两个细节：  一是要把”jmutex.h”和”jthread.h”两个头文件放入jrtplib/src目录下，二是要把src文件夹下所有头文件中的&lt;jmutex.h&gt;和&lt;jthread.h&gt;语句修改为”jmutex.h”和”jthread.h”。</p>
+<p>我在编译时没有处理这两个细节成功了，后续调试出现相应问题相应修改一下即可。</p>
+<p> </p>
+<hr>
+<h2 id="四-使用实例">四、 使用实例</h2>
+<h3 id="1添加库">1  添加库</h3>
+<p><strong>①步骤一：</strong></p>
+<p><strong>方法1</strong>. 将编译生成的jrtplib.lib和jthread.lib库拷贝到“*:\Program Files\Microsoft Visual Studio 10.0\VC\lib”下面</p>
+<p><strong>方法2</strong>. 将编译生成的四个lib库库拷贝到当前工程的cpp文件下</p>
+<p><strong>②步骤二：</strong></p>
+<p><strong>方法1</strong>. [菜单]“项目-&gt;属性-&gt;配置属性-&gt;连接器-&gt;输入-&gt;附加依赖项”里填写“jrtplib.lib;jthread.lib;WS2_32.lib”</p>
+<p><strong>方法2</strong>.  pragma 方式，在stdafx.h文件中 添加</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p> </p>
+<h3 id="2添加头文件">2  添加头文件</h3>
+<p>①步骤一：将所有的.h文件放到一起，如myJRTPLIBHeader里面，再添加include</p>
+<p>②步骤二：</p>
+<p>方法1.“项目-&gt;属性-&gt;配置属性-&gt;C/C++-&gt;常规-&gt;附加包含目录”</p>
+<p>方法2.“工具-&gt;选项-&gt;项目和解决方案-&gt;C++ 目录”，选择对应平台，然后添加所需“包括文件”目录（此法VS2010不通）</p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-15-asterisk-agi/" data-toggle="tooltip" data-placement="top" title="asterisk agi ,IVR">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-22-ios%E4%B8%8B%E5%BE%AE%E4%BF%A1%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%94%BE%E4%B9%8B%E5%88%87%E6%8D%A2%E5%90%AC%E7%AD%92%E5%92%8C%E6%89%AC%E5%A3%B0%E5%99%A8%E7%9A%84%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/" data-toggle="tooltip" data-placement="top" title="iOS下微信语音播放之切换听筒和扬声器的方法解决方案">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Aug 20, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/rtp/">rtp</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

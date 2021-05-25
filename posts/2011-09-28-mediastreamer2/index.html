@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> mediastreamer2 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="mediastreamer2" />
+  <meta name="twitter:title" content="mediastreamer2" />
+  <meta name="description" content="mediastreamer2是一个支持多种平台的轻量级的流技术引擎，主要适用于开发语音和视频电话应用程序。 该引擎主要为linphone的多媒">
+  <meta property="og:description" content="mediastreamer2是一个支持多种平台的轻量级的流技术引擎，主要适用于开发语音和视频电话应用程序。 该引擎主要为linphone的多媒">
+  <meta name="twitter:description" content="mediastreamer2是一个支持多种平台的轻量级的流技术引擎，主要适用于开发语音和视频电话应用程序。 该引擎主要为linphone的多媒">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-09-28-mediastreamer2/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-09-28-mediastreamer2/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">mediastreamer2</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Sep 28, 2011</h4>
+    </section>
+    <h5 id="wc">2300 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/open-source/">open source</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>mediastreamer2是一个支持多种平台的轻量级的流技术引擎，主要适用于开发语音和视频电话应用程序。</p>
+<p>该引擎主要为linphone的多媒体的收发，包括语音和视频的捕获、编码解码以及渲染。</p>
+<p><!-- raw HTML omitted -->mediastream.c是mediastream2库自带的一个test，也是最为复杂的一个test，学习它有助于加深对mediastreamer2的理解<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->//*****************************************************************************************************************************************************************************//<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->简介一下它的功能<!-- raw HTML omitted --><!-- raw HTML omitted --> 1 利用mediastreamer2库封装的filter完成：从声卡捕捉声音，编码后通过rtp发送给远端主机，同时接收远端主机发来的rtp包，解码到声卡回放。<!-- raw HTML omitted --><!-- raw HTML omitted --> filter graph如下：<!-- raw HTML omitted --><!-- raw HTML omitted --> soundread -&gt; ec -&gt; encoder -&gt; rtpsend<!-- raw HTML omitted --><!-- raw HTML omitted --> rtprecv -&gt; decode -&gt; dtmfgen -&gt; ec -&gt; soundwrite<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 2 利用mediastreamer2库封装的filter完成：从摄像头捕捉图像，编码后通过rtp发送给远端主机（有本地视频预览），同时接收远端主机发来的rtp包，解码后视频回放。<!-- raw HTML omitted --><!-- raw HTML omitted --> filter graph如下：<!-- raw HTML omitted --><!-- raw HTML omitted --> source -&gt; pixconv -&gt; tee -&gt; encoder -&gt; rtpsend<!-- raw HTML omitted --><!-- raw HTML omitted --> tee -&gt; output<!-- raw HTML omitted --><!-- raw HTML omitted --> rtprecv -&gt; decoder -&gt; output<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 这个程序没有实现：用2个session来分别同时传送视频和音频。所以不要造成误解。<!-- raw HTML omitted --><!-- raw HTML omitted --> 它实现的是：用1个全双工的session来传送视频或者音频，不管是本机还是远端主机，运行的都是同一个程序，一次只能选择一种payload。<!-- raw HTML omitted --><!-- raw HTML omitted --> 牢记rfc3550 Page 17中的所说“Separate audio and video streams SHOULD NOT be carried in a single RTP session and demultiplexed based on the payload type or SSRC fields. ”<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 程序中audio_stream_new() video_stream_new()内使用create_duplex_rtpsession()建立起监听端口。<!-- raw HTML omitted --><!-- raw HTML omitted --> 比较奇怪的是video_stream_start()最后没有attach上rtprecv。而audio_stream_start_full()里有attach rtprecv。<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 编译的时候，别忘了加-D VIDEO_ENABLED启用视频支持。<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 程序命令参数<!-- raw HTML omitted --><!-- raw HTML omitted --> mediastream –local <!-- raw HTML omitted --> –remote <a href="ip:port">ip:port</a> –payload <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> [ –fmtp <!-- raw HTML omitted -->] [ –jitter <!-- raw HTML omitted -->]<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 这里fmtp和jitter是可选<!-- raw HTML omitted --><!-- raw HTML omitted --> fmtp的介绍如下：<!-- raw HTML omitted --><!-- raw HTML omitted --> Sets a send parameters (fmtp) for the PayloadType. This method is provided for applications using RTP with SDP, but actually the ftmp information is not used for RTP processing.<!-- raw HTML omitted --><!-- raw HTML omitted --> jitter就是设定缓冲时间，也就是队列的阀值。具体可以参见Comer所著TCP/IP 卷一的RTP一章。默认是80ms（还是50ms？），没必要修改它。<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->//==========================================================================================================//<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->举一个使用的例子。<!-- raw HTML omitted --><!-- raw HTML omitted --> 主机A IP 10.10.104.198 <!-- raw HTML omitted --><!-- raw HTML omitted --> 主机B IP 10.10.104.199<!-- raw HTML omitted --><!-- raw HTML omitted --> 主机A 运行 ./mediastream –local 5010 –remote 10.10.104.199:6014 –payload 110<!-- raw HTML omitted --><!-- raw HTML omitted --> 主机B 运行 ./mediastream –local 6014 –remote 10.10.104.198:5010 –payload 110<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 这里我使用的是音频传输，speex_nb编码。视频没有使用，怀疑是SDL有些问题，视频预览的时候是绿屏。<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 注意：程序代码里提到的音频编码有lpc1015，speex_nb，speex_wb，ilbc等，视频编码有h263_1998，theora，mp4v，x_snow，h264等。但是你却不一定能用得起来。这要看之前编译ffmpeg时，究竟是否指定了如上编码。<!-- raw HTML omitted --><!-- raw HTML omitted --> 如果你的机子上并没有这些库，却又指定了这些库的payload type，那么mediastreamer2初始化的时候，会在终端输出错误信息找不到xxx.so之类，那么请换另一种payload type。<!-- raw HTML omitted --><!-- raw HTML omitted --> 一般来说，speex，theora,xvid(h264)这三个比较容易编译。<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->[atom@localhost<!-- raw HTML omitted --> code]$ ./mediastream –local 5010 –remote 10.10.104.199:6014 –payload 110 &gt; atom<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p> </p>
+<p> </p>
+<p>//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//</p>
+<!-- raw HTML omitted -->
+<p>When using mediastreamer2, your first task is to initialize the library:</p>
+<p>#include &lt;<a href="http://download.savannah.gnu.org/releases-noredirect/linphone/mediastreamer/doc/mscommon_8h.html" title="mediastreamer2 mscommon.h include file"><strong><!-- raw HTML omitted -->mediastreamer2/mscommon.h<!-- raw HTML omitted --></strong></a>&gt;</p>
+<p>int i;</p>
+<p>i=ms_init();</p>
+<p>if (i!=0)</p>
+<p>return -1;</p>
+<p>Mediastreamer2 provides internal components which are called filters. Those filters must be linked together so that OUTPUT from one filter is sent to INPUT of the other filters.</p>
+<p>Usually, filters are used for processing audio or video data. They could capture data, play/draw data, encode/decode data, mix data (conference), transform data (echo canceller). One of the most important filter is the RTP filters that are able to send and</p>
+<p>receive RTP data.</p>
+<!-- raw HTML omitted -->
+<p>If you are using mediastreamer2, you probably want to do Voice Over IP and get a graph providing a 2 way communication. This 2 graphs are very simple:</p>
+<p>This first graph shows the filters needed to capture data from a sound card, encode them and send it through an RTP session.</p>
+<p>AUDIO    -&gt;    ENCODER   -&gt;   RTP</p>
+<p>CAPTURE   -&gt;                        -&gt; SENDER</p>
+<p>This second graph shows the filters needed to receive data from an RTP session decode it and send it to the playback device.</p>
+<p>RTP      -&gt;    DECODER   -&gt;   DTMF           -&gt;   AUDIO</p>
+<p>RECEIVER -&gt;                        -&gt; GENERATION -&gt; PLAYBACK</p>
+<!-- raw HTML omitted -->
+<p>Note that the NULL/error checks are not done for better reading. To build the graph, you’ll need some information: you need to select the sound card and of course have an RTP session created with oRTP.</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->     MSSndCard *sndcard;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->       sndcard=ms_snd_card_manager_get_default_card(<!-- raw HTML omitted --><!-- raw HTML omitted -->ms_snd_card_manager_get()<!-- raw HTML omitted --><!-- raw HTML omitted -->);<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->      /* audio capture filter */<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     MSFilter *soundread=ms_snd_card_create_reader(captcard);<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     MSFilter *soundwrite=ms_snd_card_create_writer(playcard);<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     MSFilter *encoder=ms_filter_create_encoder(“PCMU”);<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     MSFilter *decoder=ms_filter_create_decoder(“PCMU”);<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     MSFilter *rtpsend=ms_filter_new(MS_RTP_SEND_ID);<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     MSFilter *rtprecv=ms_filter_new(MS_RTP_RECV_ID);<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     RtpSession *rtp_session = *** your_ortp_session *** ;<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     ms_filter_call_method(rtpsend,MS_RTP_SEND_SET_SESSION,rtp_session);<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     ms_filter_call_method(rtprecv,MS_RTP_RECV_SET_SESSION,rtp_session);<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->     MSFilter *dtmfgen=ms_filter_new(MS_DTMF_GEN_ID);<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>In most cases, the above graph is not enough: you’ll need to configure filter’s options. As an example, you need to set sampling rate of sound cards’ filters:</p>
+<p>int sr = 8000;</p>
+<p>int chan=1;</p>
+<p>ms_filter_call_method(soundread,MS_FILTER_SET_SAMPLE_RATE,&amp;sr);</p>
+<p>ms_filter_call_method(soundwrite,MS_FILTER_SET_SAMPLE_RATE,&amp;sr);</p>
+<p>ms_filter_call_method(stream-&gt;encoder,MS_FILTER_SET_SAMPLE_RATE,&amp;sr);</p>
+<p>ms_filter_call_method(stream-&gt;decoder,MS_FILTER_SET_SAMPLE_RATE,&amp;sr);</p>
+<p>ms_filter_call_method(soundwrite,MS_FILTER_SET_NCHANNELS, &amp;chan);</p>
+<p>/* if you have some fmtp parameters (from SDP for example!)</p>
+<p>char *fmtp1 = \** get your fmtp line **;</p>
+<p>char *fmtp2 = \** get your fmtp line **;</p>
+<p>ms_filter_call_method(stream-&gt;encoder,MS_FILTER_ADD_FMTP, (void*)fmtp1);</p>
+<p>ms_filter_call_method(stream-&gt;decoder,MS_FILTER_ADD_FMTP,(void*)fmtp2);</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>    ms_filter_link(stream-&gt;encoder,0,stream-&gt;rtpsend,0);</p>
+<p>ms_filter_link(stream-&gt;rtprecv,0,stream-&gt;decoder,0);</p>
+<p>ms_filter_link(stream-&gt;decoder,0,stream-&gt;dtmfgen,0);</p>
+<p>ms_filter_link(stream-&gt;dtmfgen,0,stream-&gt;soundwrite,0);</p>
+<p> </p>
+<p> </p>
+<p>Then you need to ‘attach’ the filters to a ticker. A ticker is a graph manager responsible for running filters.</p>
+<p>In the above case, there is 2 independant graph within the ticker: you need to attach the first element of each graph (the one that does not contains any INPUT pins)</p>
+<p>/* create ticker */</p>
+<p>MSTicker *ticker=ms_ticker_new();</p>
+<p>ms_ticker_attach(ticker,soundread);</p>
+<p>ms_ticker_attach(ticker,rtprecv);</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->      <!-- raw HTML omitted -->ms_ticker_detach(ticker,soundread);</p>
+<p>ms_ticker_detach(ticker,rtprecv);</p>
+<p>ms_filter_unlink(stream-&gt;soundread,0,stream-&gt;encoder,0);</p>
+<p>ms_filter_unlink(stream-&gt;encoder,0,stream-&gt;rtpsend,0);</p>
+<p>ms_filter_unlink(stream-&gt;rtprecv,0,stream-&gt;decoder,0);</p>
+<p>ms_filter_unlink(stream-&gt;decoder,0,stream-&gt;dtmfgen,0);</p>
+<p>ms_filter_unlink(stream-&gt;dtmfgen,0,stream-&gt;soundwrite,0);</p>
+<p>if (rtp_session!=NULL) rtp_session_destroy(rtp_session);</p>
+<p>if (rtpsend!=NULL) ms_filter_destroy(rtpsend);</p>
+<p>if (rtprecv!=NULL) ms_filter_destroy(rtprecv);</p>
+<p>if (soundread!=NULL) ms_filter_destroy(soundread);</p>
+<p>if (soundwrite!=NULL) ms_filter_destroy(soundwrite);</p>
+<p>if (encoder!=NULL) ms_filter_destroy(encoder);</p>
+<p>if (decoder!=NULL) ms_filter_destroy(decoder);</p>
+<p>if (dtmfgen!=NULL) ms_filter_destroy(dtmfgen);</p>
+<p>if (ticker!=NULL) ms_ticker_destroy(ticker);</p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-2/" data-toggle="tooltip" data-placement="top" title="osip2和eXosip2协议[2]">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-09-28-ortp_mediastream2_osip2_exosip2-%E6%95%B4%E5%90%88sip/" data-toggle="tooltip" data-placement="top" title="ortp_mediastream2_osip2_exosip2    整合sip">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-2/">osip2和eXosip2协议[2]</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-1/">osip2和eXosip2协议[1]</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-2/">ortp流媒体协议 [2]</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-1/">ortp流媒体协议 [1]</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Sep 28, 2011</h4>
+    </section>
+    <h5 id="wc">2300 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/open-source/">open source</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

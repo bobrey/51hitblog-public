@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 网站内容抓取和数据抽取 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="网站内容抓取和数据抽取" />
+  <meta name="twitter:title" content="网站内容抓取和数据抽取" />
+  <meta name="description" content="python Web Scraping with Python是一个基础教程，讲解怎样使用Python写一个网络爬虫和网页抓取/数据抽取/信息提取程序，使用有名的Beautiful S">
+  <meta property="og:description" content="python Web Scraping with Python是一个基础教程，讲解怎样使用Python写一个网络爬虫和网页抓取/数据抽取/信息提取程序，使用有名的Beautiful S">
+  <meta name="twitter:description" content="python Web Scraping with Python是一个基础教程，讲解怎样使用Python写一个网络爬虫和网页抓取/数据抽取/信息提取程序，使用有名的Beautiful S">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-09-04-%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E6%8A%93%E5%8F%96%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-09-04-%E7%BD%91%E7%AB%99%E5%86%85%E5%AE%B9%E6%8A%93%E5%8F%96%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8A%BD%E5%8F%96/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">网站内容抓取和数据抽取</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Sep 4, 2012</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>python</p>
+<ul>
+<li><!-- raw HTML omitted -->Web Scraping with Python<!-- raw HTML omitted -->是一个基础教程，讲解怎样使用Python写一个网络爬虫和网页抓取/数据抽取/信息提取程序，使用有名的<!-- raw HTML omitted -->Beautiful Soup<!-- raw HTML omitted -->库解析HTML文档，还使用了<!-- raw HTML omitted -->urllib2库<!-- raw HTML omitted -->抓取网页，使用<!-- raw HTML omitted -->mechanize库<!-- raw HTML omitted -->模仿浏览器行为</li>
+<li><!-- raw HTML omitted -->Web scraping with Python (Part 2)<!-- raw HTML omitted -->试图解决一个所有做网页抓取和数据抽取都觉得头疼的问题：提取JavaScript代码管理的内容，作者介绍了两个Web应用自动测试程序：<!-- raw HTML omitted -->Selenium<!-- raw HTML omitted -->和<!-- raw HTML omitted -->Windmill<!-- raw HTML omitted -->，作者选用了后者，因为Windmill是一个测试工具，作者写的代码实际上是该工具的测试用例脚本。</li>
+<li><!-- raw HTML omitted -->使用Python抓取网页图片<!-- raw HTML omitted -->出示了一段代码，使用Python从网站页面上抽取图片，<a href="http://www.gooseeker.com/cn/node/product/front">网页抓取/数据抽取/信息提取软件工具包MetaSeeker</a>在网页内容抽取流程中没有将图片、视频等存于文件的媒体内容保存下来，只是将这些资源的URL保存下来，所以需要另外的程序使用这些URL下载这些资源。</li>
+<li><!-- raw HTML omitted -->Charming Python: Easy Web data collection with mechanize and Beautiful Soup<!-- raw HTML omitted --></li>
+</ul>
+<p> </p>
+<p>PHP</p>
+<ul>
+<li><!-- raw HTML omitted -->网页抓取<!-- raw HTML omitted -->给出了一个用PHP实现的网页抓取的实例</li>
+<li><!-- raw HTML omitted -->网页内容抓取类<!-- raw HTML omitted -->给出了用PHP实现的网页抓取的一个类Thief，实现了方法：getPageContent， getContentPiece，getContent等等</li>
+<li><!-- raw HTML omitted -->使用PHP简单网页抓取和内容分析<!-- raw HTML omitted -->展示了使用函数：get_content_by_socket(), get_url(), get_content_url(), get_content_object 抓取网站内容</li>
+<li><!-- raw HTML omitted -->Writing Website Scrapers in PHP<!-- raw HTML omitted -->是一个基础教程，抓取网页后用简单的文本抽取方法提取需要的内容。</li>
+<li><!-- raw HTML omitted -->Using web scraping to extract information from websites<!-- raw HTML omitted -->使用<!-- raw HTML omitted -->Zend Framework<!-- raw HTML omitted -->中的<!-- raw HTML omitted -->Zend Http<!-- raw HTML omitted -->实现网站内容抽取(web scraping)。</li>
+<li></li>
+</ul>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-09-04-runnable/" data-toggle="tooltip" data-placement="top" title="runnable">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-09-05-c-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" data-toggle="tooltip" data-placement="top" title="c&#43;&#43;  类型转换">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Sep 4, 2012</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

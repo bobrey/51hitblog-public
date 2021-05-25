@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NIO on IT技术分享</title>
+    <link>https://www.51hint.com/tags/nio/</link>
+    <description>Recent content in NIO on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Nov 2012 05:17:05 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/nio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NIO连接socket</title>
+      <link>https://www.51hint.com/posts/2012-11-20-nio%E8%BF%9E%E6%8E%A5socket/</link>
+      <pubDate>Tue, 20 Nov 2012 05:17:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-20-nio%E8%BF%9E%E6%8E%A5socket/</guid>
+      <description>Apache Mina是一个NIO框架，用来实现socket服务端非常方便 摘自:http://www.blogjava.net/hadeslee/arc</description>
+    </item>
+    
+  </channel>
+</rss>

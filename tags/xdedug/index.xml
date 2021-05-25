@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xdedug on IT技术分享</title>
+    <link>https://www.51hint.com/tags/xdedug/</link>
+    <description>Recent content in xdedug on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Nov 2014 09:43:19 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/xdedug/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xdedug</title>
+      <link>https://www.51hint.com/posts/2014-11-20-xdedug/</link>
+      <pubDate>Thu, 20 Nov 2014 09:43:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-11-20-xdedug/</guid>
+      <description>#php -i
+  copy it to http://xdebug.org/wizard.php
+  download http://code.activestate.com/komodo/remotedebugging/
+Run: cp modules/xdebug.so /usr/lib/php/modules
+  vim /et/php.ini
+[XDebug]
+zend_extension = /usr/lib/php/modules/xdebug.so
+xdebug.remote_enable = On
+xdebug.idekey=”PHPSTORM”
+xdebug.remote_autostart = 1
+xdebug.remote_connect_back = 1
+xdebug.remote_handler = “dbgp”
+xdebug.remote_host = “127.0.0.1”
+xdebug.remote_port=9000
+xdebug.profiler_enable=On</description>
+    </item>
+    
+  </channel>
+</rss>

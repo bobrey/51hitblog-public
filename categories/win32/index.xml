@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>win32 on IT技术分享</title>
+    <link>https://www.51hint.com/categories/win32/</link>
+    <description>Recent content in win32 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Jul 2016 11:51:23 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/win32/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Win7旗舰版永久激活密钥 Windows7正版密匙</title>
+      <link>https://www.51hint.com/posts/2016-07-30-win7%E6%97%97%E8%88%B0%E7%89%88%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BB%E5%AF%86%E9%92%A5-windows7%E6%AD%A3%E7%89%88%E5%AF%86%E5%8C%99/</link>
+      <pubDate>Sat, 30 Jul 2016 11:51:23 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-07-30-win7%E6%97%97%E8%88%B0%E7%89%88%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BB%E5%AF%86%E9%92%A5-windows7%E6%AD%A3%E7%89%88%E5%AF%86%E5%8C%99/</guid>
+      <description>安装好windows7系统后右击计算机–属性–更改产品密匙 输入以下密匙; RHTBY-VWY6D-QJRJ9-JGQ3X-Q2289 HT6VR-XMPDJ-2VBFV-R9PFY-3VP7R 6K2KY-BFH24-PJW6W-9GK29-TMPWP或22</description>
+    </item>
+    
+    <item>
+      <title>误删chrome书签，恢复方法</title>
+      <link>https://www.51hint.com/posts/2015-02-28-%E8%AF%AF%E5%88%A0chrome%E4%B9%A6%E7%AD%BE%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 28 Feb 2015 02:05:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-28-%E8%AF%AF%E5%88%A0chrome%E4%B9%A6%E7%AD%BE%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/</guid>
+      <description>&amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; %LOCALAPPDATA%\Google\Chrome\User Data\User Data\Default\ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; Windows XP/2003: &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; %USERPROFILE%\Local Settings\Application Data\Google\Chrome\User Data\Default\ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; 举个例子：C:\Documents and Settings\用户名\Local Settings\Application Data\Google\Chrome\User Data\Default &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; Mac: &amp;lt;/p&amp;gt; &amp;lt;p</description>
+    </item>
+    
+    <item>
+      <title>Wireshark抓包</title>
+      <link>https://www.51hint.com/posts/2014-01-16-wireshark%E6%8A%93%E5%8C%85/</link>
+      <pubDate>Thu, 16 Jan 2014 06:49:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-16-wireshark%E6%8A%93%E5%8C%85/</guid>
+      <description>Wireshark是一个非常好用的抓包工具，当我们遇到一些和网络相关的问题时， 可以通过这个工具进行分析，不过要说明的是，这只是一个工具，用法</description>
+    </item>
+    
+    <item>
+      <title>Fiddler抓包</title>
+      <link>https://www.51hint.com/posts/2014-01-14-fiddler%E6%8A%93%E5%8C%85/</link>
+      <pubDate>Tue, 14 Jan 2014 09:39:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-fiddler%E6%8A%93%E5%8C%85/</guid>
+      <description>Fiddler是最强大最好用的Web调试工具之一，它能记录所有客户端和服务器的http和https请求，允许你监视，设置断点，甚至修改输入输</description>
+    </item>
+    
+    <item>
+      <title>Burp Suite抓包</title>
+      <link>https://www.51hint.com/posts/2014-01-14-burp-suite/</link>
+      <pubDate>Tue, 14 Jan 2014 09:30:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-burp-suite/</guid>
+      <description>Burp Suite 一款相当不错的抓包工具，推荐使用 **urp Suite是一个Web应用程序集成攻击平台，它包含了一系列burp工具，这些工具之间有大量接口可以互相</description>
+    </item>
+    
+    <item>
+      <title>HttpFox:HTTP数据抓包和检测</title>
+      <link>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</link>
+      <pubDate>Wed, 16 Oct 2013 07:48:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</guid>
+      <description>HttpFox监视并且分析所有进出浏览器的HTTP网络传输： 如果熟悉网络监控类软件的话，使用HttpFox不会有任何的困难，即便您不熟悉，也</description>
+    </item>
+    
+    <item>
+      <title>查看outlook密码</title>
+      <link>https://www.51hint.com/posts/2013-10-10-%E6%9F%A5%E7%9C%8Boutlook%E5%AF%86%E7%A0%81/</link>
+      <pubDate>Thu, 10 Oct 2013 00:04:24 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-10-%E6%9F%A5%E7%9C%8Boutlook%E5%AF%86%E7%A0%81/</guid>
+      <description>您是否有经常忘记密码的习惯； 虽然outlook还能正常收发邮件，单项更换客户端了 却发现密码忘记了，只能看见 *******了， 正好这款工具，帮</description>
+    </item>
+    
+    <item>
+      <title>windows下免费开源安全工具</title>
+      <link>https://www.51hint.com/posts/2013-01-09-windows%E4%B8%8B%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 09 Jan 2013 05:01:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-09-windows%E4%B8%8B%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/</guid>
+      <description>密码破译器 John the Ripper——破解Windows LANManager（和其他程序）密码，提供了大多数其他密码破译器的功能。 Brutus——破</description>
+    </item>
+    
+    <item>
+      <title>glassfish3 搭建集群</title>
+      <link>https://www.51hint.com/posts/2012-11-20-glassfish3-%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Tue, 20 Nov 2012 05:20:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-20-glassfish3-%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/</guid>
+      <description>glassfish 性能越来越优越，在一些性能上远远超过tomcat 并实现j2ee新的规范，在集群方面也越来越出色，相信在不久将在祖国大地上盛开繁茂。 Glassfish 3.1 – Clustering</description>
+    </item>
+    
+    <item>
+      <title>xna和cocos2d-xna</title>
+      <link>https://www.51hint.com/posts/2012-10-22-xna%E5%92%8Ccocos2d-xna/</link>
+      <pubDate>Mon, 22 Oct 2012 09:51:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-22-xna%E5%92%8Ccocos2d-xna/</guid>
+      <description>xna游戏编程 Professional XNA Game Programming学习笔记 [WroxXna ]1 [ 大量xna入门资料等 ]1 http://shiba.hpe.sh.cn/jiaoyanzu/wuli/soft/xna.aspx?classId=4 ======================================================= cocos2d-xna运行在windows8 http://www.cnblogs.com/nowpaper/archive/2012/09/03/2667371.html</description>
+    </item>
+    
+    <item>
+      <title>破解常用 win32 API</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E7%A0%B4%E8%A7%A3%E5%B8%B8%E7%94%A8-win32-api/</link>
+      <pubDate>Fri, 18 May 2012 07:01:18 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E7%A0%B4%E8%A7%A3%E5%B8%B8%E7%94%A8-win32-api/</guid>
+      <description>004B5E72 push 94FC54 Install App 004B5E48 push 94FC34 [AppFastIn?] 拦截窗口： bp CreateWindow 创建窗口 bp CreateWindowEx(A) 创建窗口 bp ShowWindow 显示窗口 bp UpdateWindow 更新窗口 bp GetWindowText(A) 获取窗口文本 拦截消息框： bp MessageBox(A) 创建消息框 bp MessageBoxExA 创建消息框 bp MessageBoxIndirect(A) 创建</description>
+    </item>
+    
+    <item>
+      <title>怎样用代理猎手找大学代理服务器</title>
+      <link>https://www.51hint.com/posts/2012-05-09-%E6%80%8E%E6%A0%B7%E7%94%A8%E4%BB%A3%E7%90%86%E7%8C%8E%E6%89%8B%E6%89%BE%E5%A4%A7%E5%AD%A6%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Wed, 09 May 2012 06:00:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-09-%E6%80%8E%E6%A0%B7%E7%94%A8%E4%BB%A3%E7%90%86%E7%8C%8E%E6%89%8B%E6%89%BE%E5%A4%A7%E5%AD%A6%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>下面以哈佛大学为例进行说明： 具备条件： 1.proxyhunter（必要） 2.Iplocation（可选） 3.windows系统 4.宽带网络（</description>
+    </item>
+    
+    <item>
+      <title>rot13encoding/decoding</title>
+      <link>https://www.51hint.com/posts/2012-04-18-rot13encodingdecoding/</link>
+      <pubDate>Wed, 18 Apr 2012 04:09:57 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-04-18-rot13encodingdecoding/</guid>
+      <description>http://rot13-encoder-decoder.waraxe.us/</description>
+    </item>
+    
+    <item>
+      <title>Speex编/解码API的使用 及其speex 回声消除</title>
+      <link>https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/</link>
+      <pubDate>Fri, 02 Mar 2012 04:01:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/</guid>
+      <description>Speex编/解码API的使用 http://www.haogongju.net/art/153209实践linux, alsa下的speex 回</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>socket on IT技术分享</title>
+    <link>https://www.51hint.com/tags/socket/</link>
+    <description>Recent content in socket on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Aug 2012 23:11:34 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>socket</title>
+      <link>https://www.51hint.com/posts/2012-08-23-socket/</link>
+      <pubDate>Wed, 22 Aug 2012 23:11:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-23-socket/</guid>
+      <description>htonl() &amp;lt;p&amp;gt; 简述：&amp;lt;br /&amp;gt; 将主机的无符号短整形数转换成网络字节顺序。&amp;lt;br /&amp;gt; #include &amp;lt;winsock.h&amp;gt;&amp;lt;br /&amp;gt; u_short PASCAL FAR htons( u_short hostshort);&amp;lt;br /&amp;gt; hostshort：主机字节顺序表达的1</description>
+    </item>
+    
+  </channel>
+</rss>

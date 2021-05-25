@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> AES 加密 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="AES 加密" />
+  <meta name="twitter:title" content="AES 加密" />
+  <meta name="description" content="C&#43;&#43; AES 加密算法 头文件： #ifndef AES_H #define AES_H #include #include #include using namespace std; class AES { // 默认 PKCS5Padding public: static char commkey[16]; char m_key[16]; AES(const char *key = AES::commkey); private: typedef unsigned char byte; static const int KEY_SIZE = 16; //密钥长度为128位 static const int N_ROUND = 11; byte plainText[16]; //">
+  <meta property="og:description" content="C&#43;&#43; AES 加密算法 头文件： #ifndef AES_H #define AES_H #include #include #include using namespace std; class AES { // 默认 PKCS5Padding public: static char commkey[16]; char m_key[16]; AES(const char *key = AES::commkey); private: typedef unsigned char byte; static const int KEY_SIZE = 16; //密钥长度为128位 static const int N_ROUND = 11; byte plainText[16]; //">
+  <meta name="twitter:description" content="C&#43;&#43; AES 加密算法 头文件： #ifndef AES_H #define AES_H #include #include #include using namespace std; class AES { // 默认 PKCS5Padding public: static char commkey[16]; char m_key[16]; AES(const char *key = …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-03-19-aes-%E5%8A%A0%E5%AF%86/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-03-19-aes-%E5%8A%A0%E5%AF%86/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">AES 加密</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Mar 19, 2012</h4>
+    </section>
+    <h5 id="wc">3300 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>C++ AES 加密算法 头文件：</p>
+<p>#ifndef AES_H</p>
+<p>#define AES_H</p>
+<p>#include <!-- raw HTML omitted --></p>
+<p>#include <!-- raw HTML omitted --></p>
+<p>#include <!-- raw HTML omitted --></p>
+<p>using namespace std;</p>
+<p>class AES</p>
+<p>{</p>
+<p>// 默认 PKCS5Padding</p>
+<p>public:</p>
+<p>static char commkey[16];</p>
+<p>char m_key[16];</p>
+<p>AES(const char *key = AES::commkey);</p>
+<p>private:</p>
+<p>typedef unsigned char byte;</p>
+<p>static const int KEY_SIZE = 16;    //密钥长度为128位</p>
+<p>static const int N_ROUND = 11;</p>
+<p>byte plainText[16];               //明文</p>
+<p>byte state[16];                   //当前分组。</p>
+<p>byte cipherKey[16];               //密钥</p>
+<p>byte roundKey[N_ROUND][16];    //轮密钥</p>
+<p>byte cipherText[16];        //密文</p>
+<p>byte SBox[16][16];            //S盒</p>
+<p>byte InvSBox[16][16];        //逆S盒</p>
+<p>void EncryptionProcess();</p>
+<p>void DecryptionProcess();</p>
+<p>void Round(const int&amp; round);</p>
+<p>void InvRound(const int&amp; round);</p>
+<p>void FinalRound();</p>
+<p>void InvFinalRound();</p>
+<p>void KeyExpansion();</p>
+<p>void AddRoundKey(const int&amp; round);</p>
+<p>void SubBytes();</p>
+<p>void InvSubBytes();</p>
+<p>void ShiftRows();</p>
+<p>void InvShiftRows();</p>
+<p>void MixColumns();</p>
+<p>void InvMixColumns();</p>
+<p>void BuildSBox();</p>
+<p>void BuildInvSBox();</p>
+<p>void InitialState(const byte* text);</p>
+<p>void InitialCipherText();</p>
+<p>void InitialplainText();</p>
+<p>byte GFMultplyByte(const byte&amp; left, const byte&amp; right);</p>
+<p>const byte* GFMultplyBytesMatrix(const byte* left, const byte* right);</p>
+<p>const byte* Cipher(const byte* text, const byte* key, const int&amp; keySize);</p>
+<p>const byte* InvCipher(const byte* text, const byte* key, const int&amp; keySize);</p>
+<p>char GetHex(char c);</p>
+<p>int BytesToHexString(const unsigned char* pSrc, char* pDst, int nSrcLength);</p>
+<p>char * HexStringToBytes(const unsigned char* pSrc, char* pDst, int nSrcLength);</p>
+<p>public:</p>
+<p>std::string Encryption(const char * src, int len);</p>
+<p>std::string Decryption(const char * src, int len);</p>
+<p>public:</p>
+<p>static std::string s_Encryption(const char * src, int len);</p>
+<p>static std::string s_Decryption(const char * src, int len);</p>
+<p>};</p>
+<p>std::string enaes(const std::string&amp; src);</p>
+<p>std::string deaes(const std::string&amp; src);</p>
+<p>#endif</p>
+<p> </p>
+<p>cpp文件：</p>
+<p> </p>
+<p>#include “aes.h”</p>
+<p>char AES::commkey[16]  = {55, 55, 55, 44, -16, 124, -40, -114,-87, -40, 37, 33, 82, 55, 55, 55  };</p>
+<p>std::string AES::s_Encryption(const char * src, int len)</p>
+<p>{</p>
+<p>AES aes;</p>
+<p>return aes.Encryption(src, len);</p>
+<p>}</p>
+<p>std::string AES::s_Decryption(const char * src, int len)</p>
+<p>{</p>
+<p>AES aes;</p>
+<p>return aes.Decryption(src, len);</p>
+<p>}</p>
+<p>int AES::BytesToHexString(const unsigned char* pSrc, char* pDst, int nSrcLength)</p>
+<p>{</p>
+<p>int i;</p>
+<p>const char tab[]=”0123456789ABCDEF”;    // 0x0-0xf的字符查找表</p>
+<p>for (i = 0; i &lt; nSrcLength; i++)</p>
+<p>{</p>
+<p>*pDst++ = tab[*pSrc &raquo; 4];        // 输出高4位</p>
+<p>*pDst++ = tab[*pSrc &amp; 0x0f];    // 输出低4位</p>
+<p>pSrc++;</p>
+<p>}</p>
+<p>*pDst = ‘\0’;</p>
+<p>return (nSrcLength * 2);</p>
+<p>}</p>
+<p>char AES::GetHex(char c)</p>
+<p>{</p>
+<p>if (‘0’ &lt;= c &amp;&amp; c &lt;= ‘9’)</p>
+<p>{</p>
+<p>c -= ‘0’;</p>
+<p>}</p>
+<p>else if (‘a’ &lt;= c &amp;&amp; c &lt;= ‘z’)</p>
+<p>{</p>
+<p>c -= ‘a’;</p>
+<p>c += 10;</p>
+<p>}</p>
+<p>else if (‘A’ &lt;= c &amp;&amp; c &lt;= ‘Z’)</p>
+<p>{</p>
+<p>c -= ‘A’;</p>
+<p>c += 10;</p>
+<p>}</p>
+<p>return c;</p>
+<p>}</p>
+<p>char * AES::HexStringToBytes(const unsigned char* pSrc, char* pDst, int nSrcLength)</p>
+<p>{</p>
+<p>int i;</p>
+<p>char * result = pDst;</p>
+<p>int bytes = nSrcLength / 2;</p>
+<p>for (i = 0; i &lt; bytes; i++)</p>
+<p>{</p>
+<p>char c = *pSrc;</p>
+<p>*pDst++ = (GetHex(pSrc[0]) &laquo; 4) + GetHex(pSrc[1]);</p>
+<p>pSrc += 2;</p>
+<p>}</p>
+<p>return result;</p>
+<p>}</p>
+<p>std::string AES::Encryption(const char * src, int len)</p>
+<p>{</p>
+<p>const char * input = src;</p>
+<p>int round = len / 16;</p>
+<p>int padNum = 16 – (len – round * 16);</p>
+<p>int outSize = round * 32 + 33;</p>
+<p>char * output = new char [outSize];</p>
+<p>output[outSize – 1] = ‘\0’;</p>
+<p>const byte * cipherText = NULL;</p>
+<p>for (int r = 0; r &lt; round; r++)</p>
+<p>{</p>
+<p>cipherText = Cipher((const byte*)input, (const byte*)m_key, 16);</p>
+<p>input += 16;</p>
+<p>BytesToHexString(cipherText, output, 16);</p>
+<p>output += 32;</p>
+<p>}</p>
+<p>char pad[16];</p>
+<p>memcpy(pad, input, 16 – padNum);</p>
+<p>memset(pad + 16 – padNum, padNum, padNum);</p>
+<p>cipherText = Cipher((const byte*)pad, (const byte*)m_key, 16);</p>
+<p>BytesToHexString(cipherText, output, 16);</p>
+<p>output += 32;</p>
+<p>output -= (outSize – 1);</p>
+<p>std::string result;</p>
+<p>result = output;</p>
+<p>delete [] output;</p>
+<p>return result;</p>
+<p>}</p>
+<p>std::string AES::Decryption(const char * src, int len)</p>
+<p>{</p>
+<p>int round = len / 32;</p>
+<p>//if (round &gt; 0 &amp;&amp; len – round * 32 != 0) std::string::empty_string;</p>
+<p>std::string sInput(len / 2 + 1, ‘a’);</p>
+<p>char * input = const_cast&lt;char*&gt;(sInput.c_str());</p>
+<p>input = HexStringToBytes((unsigned char *)src, input, len);</p>
+<p>char output[17];</p>
+<p>output[16] = ‘\0’;</p>
+<p>std::string result;</p>
+<p>const byte * cipherText = NULL;</p>
+<p>for (int r = 0; r &lt; round; r++)</p>
+<p>{</p>
+<p>cipherText = InvCipher((const byte*)input, (const byte*)m_key, 16);</p>
+<p>memcpy(output, cipherText, 16);</p>
+<p>if (r == round – 1)</p>
+<p>{</p>
+<p>*(output + 16 – output[15]) = ‘\0’;</p>
+<p>}</p>
+<p>input += 16;</p>
+<p>result += output;</p>
+<p>}</p>
+<p>return result;</p>
+<p>}</p>
+<p>void AES::EncryptionProcess()</p>
+<p>{    //    加密过程</p>
+<p>InitialState(plainText);</p>
+<p>KeyExpansion();    //    密钥扩展</p>
+<p>AddRoundKey(0);    //    轮密钥加</p>
+<p>for(int i = 1; i &lt; N_ROUND-1; ++i)</p>
+<p>{</p>
+<p>Round(i);</p>
+<p>}</p>
+<p>FinalRound();</p>
+<p>InitialCipherText();</p>
+<p>}</p>
+<p>void AES::DecryptionProcess()</p>
+<p>{    //    解密过程</p>
+<p>InitialState(cipherText);</p>
+<p>KeyExpansion();</p>
+<p>InvFinalRound();</p>
+<p>for(int i = N_ROUND-2; i &gt; 0 ; –i)</p>
+<p>{</p>
+<p>InvRound(i);</p>
+<p>}</p>
+<p>AddRoundKey(0);</p>
+<p>InitialplainText();</p>
+<p>}</p>
+<p>void AES::Round(const int&amp; round)</p>
+<p>{    //    正常轮</p>
+<p>SubBytes();</p>
+<p>ShiftRows();</p>
+<p>MixColumns();</p>
+<p>AddRoundKey(round);</p>
+<p>}</p>
+<p>void AES::InvRound(const int&amp; round)</p>
+<p>{    //    正常轮的逆</p>
+<p>AddRoundKey(round);</p>
+<p>InvMixColumns();</p>
+<p>InvShiftRows();</p>
+<p>InvSubBytes();</p>
+<p>}</p>
+<p>void AES::FinalRound()</p>
+<p>{    //    最后轮</p>
+<p>SubBytes();</p>
+<p>ShiftRows();</p>
+<p>AddRoundKey(N_ROUND – 1);</p>
+<p>}</p>
+<p>void AES::InvFinalRound()</p>
+<p>{    //    最后轮的逆</p>
+<p>AddRoundKey(N_ROUND – 1);</p>
+<p>InvShiftRows();</p>
+<p>InvSubBytes();</p>
+<p>}</p>
+<p>void AES::KeyExpansion()</p>
+<p>{    //    密钥扩展</p>
+<p>const byte rcon[N_ROUND][4] = {</p>
+<p>{0x00, 0x00, 0x00, 0x00},</p>
+<p>{0x01, 0x00, 0x00, 0x00},</p>
+<p>{0x02, 0x00, 0x00, 0x00},</p>
+<p>{0x04, 0x00, 0x00, 0x00},</p>
+<p>{0x08, 0x00, 0x00, 0x00},</p>
+<p>{0x10, 0x00, 0x00, 0x00},</p>
+<p>{0x20, 0x00, 0x00, 0x00},</p>
+<p>{0x40, 0x00, 0x00, 0x00},</p>
+<p>{0x80, 0x00, 0x00, 0x00},</p>
+<p>{0x1b, 0x00, 0x00, 0x00},</p>
+<p>{0x36, 0x00, 0x00, 0x00} };</p>
+<p>for(int i = 0; i &lt; 16; ++i)</p>
+<p>{</p>
+<p>roundKey[0][i] = cipherKey[i];</p>
+<p>}</p>
+<p>for(int i = 0; i &lt; 4; ++i)</p>
+<p>{    //  roundKey[0][16]为cipherKey的转置矩阵</p>
+<p>for(int j = 0; j &lt; 4; ++j)</p>
+<p>{</p>
+<p>roundKey[0][4*i + j] = cipherKey[4*j + i];</p>
+<p>}</p>
+<p>}</p>
+<p>for(int roundIndex = 1; roundIndex &lt; N_ROUND; ++roundIndex)</p>
+<p>{</p>
+<p>byte rotWord[4] = {0x00};</p>
+<p>rotWord[0] = roundKey[roundIndex – 1][3];</p>
+<p>rotWord[1] = roundKey[roundIndex – 1][7];</p>
+<p>rotWord[2] = roundKey[roundIndex – 1][11];</p>
+<p>rotWord[3] = roundKey[roundIndex – 1][15];</p>
+<p>std::swap<!-- raw HTML omitted -->(rotWord[0], rotWord[1]);</p>
+<p>std::swap<!-- raw HTML omitted -->(rotWord[1], rotWord[2]);</p>
+<p>std::swap<!-- raw HTML omitted -->(rotWord[2], rotWord[3]);</p>
+<p>for(int i = 0; i &lt; 4; ++i)</p>
+<p>{</p>
+<p>rotWord[i] = SBox[ rotWord[i] &raquo; 4][ rotWord[i] &amp; 0x0f ];</p>
+<p>roundKey[roundIndex][4*i] = roundKey[roundIndex – 1][4*i] ^ rotWord[i] ^ rcon[roundIndex][i];</p>
+<p>}</p>
+<p>for(int j = 1; j &lt; 4; ++j)</p>
+<p>{</p>
+<p>for(int i = 0; i &lt; 4; ++i)</p>
+<p>{</p>
+<p>roundKey[roundIndex][4*i + j] = roundKey[roundIndex – 1][4*i + j] ^ roundKey[roundIndex][4*i + j – 1];</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>void AES::AddRoundKey(const int&amp; round)</p>
+<p>{    //    轮密钥加</p>
+<p>for(int i = 0; i &lt; 16; ++i)</p>
+<p>{    //    利用当前分组state和第round组扩展密钥进行按位异或</p>
+<p>state[i] ^= roundKey[round][i];</p>
+<p>}</p>
+<p>}</p>
+<p>void AES::SubBytes()</p>
+<p>{    //    字节代换</p>
+<p>for(int i = 0; i &lt; 16; ++i)</p>
+<p>{</p>
+<p>state[i] = SBox[ state[i] &raquo; 4][ state[i] &amp; 0x0f ];</p>
+<p>}</p>
+<p>}</p>
+<p>void AES::InvSubBytes()</p>
+<p>{    //    逆字节代换</p>
+<p>for(int i = 0; i &lt; 16; ++i)</p>
+<p>{</p>
+<p>state[i] = InvSBox[ state[i] &raquo; 4][ state[i] &amp; 0x0f ];</p>
+<p>}</p>
+<p>}</p>
+<p>void AES::ShiftRows()</p>
+<p>{    //    行变换</p>
+<p>//state第一行保持不变</p>
+<p>// Do nothing.</p>
+<p>//state第二行循环左移一个字节</p>
+<p>std::swap<!-- raw HTML omitted -->(state[4], state[5]);</p>
+<p>std::swap<!-- raw HTML omitted -->(state[5], state[6]);</p>
+<p>std::swap<!-- raw HTML omitted -->(state[6], state[7]);</p>
+<p>//state第三行循环左移两个字节</p>
+<p>std::swap<!-- raw HTML omitted -->(state[8], state[10]);</p>
+<p>std::swap<!-- raw HTML omitted -->(state[9], state[11]);</p>
+<p>//state第三行循环左移三个字节</p>
+<p>std::swap<!-- raw HTML omitted -->(state[14], state[15]);</p>
+<p>std::swap<!-- raw HTML omitted -->(state[13], state[14]);</p>
+<p>std::swap<!-- raw HTML omitted -->(state[12], state[13]);</p>
+<p>}</p>
+<p>void AES::InvShiftRows()</p>
+<p>{    //    行变换反演</p>
+<p>//state第一行保持不变</p>
+<p>// Do nothing.</p>
+<p>//state第二行循环右移一个字节</p>
+<p>std::swap<!-- raw HTML omitted -->(state[6], state[7]);</p>
+<p>std::swap<!-- raw HTML omitted -->(state[5], state[6]);</p>
+<p>std::swap<!-- raw HTML omitted -->(state[4], state[5]);</p>
+<p>//state第三行循环右移两个字节</p>
+<p>std::swap<!-- raw HTML omitted -->(state[9], state[11]);</p>
+<p>std::swap<!-- raw HTML omitted -->(state[8], state[10]);</p>
+<p>//state第三行循环右移三个字节</p>
+<p>std::swap<!-- raw HTML omitted -->(state[12], state[13]);</p>
+<p>std::swap<!-- raw HTML omitted -->(state[13], state[14]);</p>
+<p>std::swap<!-- raw HTML omitted -->(state[14], state[15]);</p>
+<p>}</p>
+<p>void AES::MixColumns()</p>
+<p>{    //    列混淆</p>
+<p>byte matrix[4][4] = {</p>
+<p>{0x02, 0x03, 0x01, 0x01},</p>
+<p>{0x01, 0x02, 0x03, 0x01},</p>
+<p>{0x01, 0x01, 0x02, 0x03},</p>
+<p>{0x03, 0x01, 0x01, 0x02}};</p>
+<p>const byte* temp = GFMultplyBytesMatrix((byte*)matrix, state);</p>
+<p>for(int i = 0; i &lt; 16; ++i)</p>
+<p>{</p>
+<p>state[i] = temp[i];</p>
+<p>}</p>
+<p>delete[] temp;</p>
+<p>}</p>
+<p>void AES::InvMixColumns()</p>
+<p>{    //    列混淆反演</p>
+<p>byte matrix[4][4] = {</p>
+<p>{0x0e, 0x0b, 0x0d, 0x09},</p>
+<p>{0x09, 0x0e, 0x0b, 0x0d},</p>
+<p>{0x0d, 0x09, 0x0e, 0x0b},</p>
+<p>{0x0b, 0x0d, 0x09, 0x0e} };</p>
+<p>const byte* temp = GFMultplyBytesMatrix((byte*)matrix, state);</p>
+<p>for(int i = 0; i &lt; 16; ++i)</p>
+<p>{</p>
+<p>state[i] = temp[i];</p>
+<p>}</p>
+<p>delete[] temp;</p>
+<p>}</p>
+<p>void AES::BuildSBox()</p>
+<p>{    //    构建S盒</p>
+<p>byte box[16][16] =</p>
+<p>{</p>
+<p>/*        0     1     2     3     4     5     6     7     8     9     a     b     c     d     e     f */</p>
+<p>/*0*/  {0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76},</p>
+<p>/*1*/  {0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0},</p>
+<p>/*2*/  {0xb7, 0xfd, 0x93, 0x26, 0x36, 0x3f, 0xf7, 0xcc, 0x34, 0xa5, 0xe5, 0xf1, 0x71, 0xd8, 0x31, 0x15},</p>
+<p>/*3*/  {0x04, 0xc7, 0x23, 0xc3, 0x18, 0x96, 0x05, 0x9a, 0x07, 0x12, 0x80, 0xe2, 0xeb, 0x27, 0xb2, 0x75},</p>
+<p>/*4*/  {0x09, 0x83, 0x2c, 0x1a, 0x1b, 0x6e, 0x5a, 0xa0, 0x52, 0x3b, 0xd6, 0xb3, 0x29, 0xe3, 0x2f, 0x84},</p>
+<p>/*5*/  {0x53, 0xd1, 0x00, 0xed, 0x20, 0xfc, 0xb1, 0x5b, 0x6a, 0xcb, 0xbe, 0x39, 0x4a, 0x4c, 0x58, 0xcf},</p>
+<p>/*6*/  {0xd0, 0xef, 0xaa, 0xfb, 0x43, 0x4d, 0x33, 0x85, 0x45, 0xf9, 0x02, 0x7f, 0x50, 0x3c, 0x9f, 0xa8},</p>
+<p>/*7*/  {0x51, 0xa3, 0x40, 0x8f, 0x92, 0x9d, 0x38, 0xf5, 0xbc, 0xb6, 0xda, 0x21, 0x10, 0xff, 0xf3, 0xd2},</p>
+<p>/*8*/  {0xcd, 0x0c, 0x13, 0xec, 0x5f, 0x97, 0x44, 0x17, 0xc4, 0xa7, 0x7e, 0x3d, 0x64, 0x5d, 0x19, 0x73},</p>
+<p>/*9*/  {0x60, 0x81, 0x4f, 0xdc, 0x22, 0x2a, 0x90, 0x88, 0x46, 0xee, 0xb8, 0x14, 0xde, 0x5e, 0x0b, 0xdb},</p>
+<p>/*a*/  {0xe0, 0x32, 0x3a, 0x0a, 0x49, 0x06, 0x24, 0x5c, 0xc2, 0xd3, 0xac, 0x62, 0x91, 0x95, 0xe4, 0x79},</p>
+<p>/*b*/  {0xe7, 0xc8, 0x37, 0x6d, 0x8d, 0xd5, 0x4e, 0xa9, 0x6c, 0x56, 0xf4, 0xea, 0x65, 0x7a, 0xae, 0x08},</p>
+<p>/*c*/  {0xba, 0x78, 0x25, 0x2e, 0x1c, 0xa6, 0xb4, 0xc6, 0xe8, 0xdd, 0x74, 0x1f, 0x4b, 0xbd, 0x8b, 0x8a},</p>
+<p>/*d*/  {0x70, 0x3e, 0xb5, 0x66, 0x48, 0x03, 0xf6, 0x0e, 0x61, 0x35, 0x57, 0xb9, 0x86, 0xc1, 0x1d, 0x9e},</p>
+<p>/*e*/  {0xe1, 0xf8, 0x98, 0x11, 0x69, 0xd9, 0x8e, 0x94, 0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28, 0xdf},</p>
+<p>/*f*/  {0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16}</p>
+<p>};</p>
+<p>for(int i = 0; i &lt; 16; ++i)</p>
+<p>{</p>
+<p>for(int j = 0; j &lt; 16; ++j)</p>
+<p>{</p>
+<p>SBox[i][j] = box[i][j];</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>void AES::BuildInvSBox()</p>
+<p>{    //    构建逆S盒</p>
+<p>byte box[16][16] =</p>
+<p>{</p>
+<p>/*        0     1     2     3     4     5     6     7     8     9     a     b     c     d     e     f */</p>
+<p>/*0*/  {0x52, 0x09, 0x6a, 0xd5, 0x30, 0x36, 0xa5, 0x38, 0xbf, 0x40, 0xa3, 0x9e, 0x81, 0xf3, 0xd7, 0xfb},</p>
+<p>/*1*/  {0x7c, 0xe3, 0x39, 0x82, 0x9b, 0x2f, 0xff, 0x87, 0x34, 0x8e, 0x43, 0x44, 0xc4, 0xde, 0xe9, 0xcb},</p>
+<p>/*2*/  {0x54, 0x7b, 0x94, 0x32, 0xa6, 0xc2, 0x23, 0x3d, 0xee, 0x4c, 0x95, 0x0b, 0x42, 0xfa, 0xc3, 0x4e},</p>
+<p>/*3*/  {0x08, 0x2e, 0xa1, 0x66, 0x28, 0xd9, 0x24, 0xb2, 0x76, 0x5b, 0xa2, 0x49, 0x6d, 0x8b, 0xd1, 0x25},</p>
+<p>/*4*/  {0x72, 0xf8, 0xf6, 0x64, 0x86, 0x68, 0x98, 0x16, 0xd4, 0xa4, 0x5c, 0xcc, 0x5d, 0x65, 0xb6, 0x92},</p>
+<p>/*5*/  {0x6c, 0x70, 0x48, 0x50, 0xfd, 0xed, 0xb9, 0xda, 0x5e, 0x15, 0x46, 0x57, 0xa7, 0x8d, 0x9d, 0x84},</p>
+<p>/*6*/  {0x90, 0xd8, 0xab, 0x00, 0x8c, 0xbc, 0xd3, 0x0a, 0xf7, 0xe4, 0x58, 0x05, 0xb8, 0xb3, 0x45, 0x06},</p>
+<p>/*7*/  {0xd0, 0x2c, 0x1e, 0x8f, 0xca, 0x3f, 0x0f, 0x02, 0xc1, 0xaf, 0xbd, 0x03, 0x01, 0x13, 0x8a, 0x6b},</p>
+<p>/*8*/  {0x3a, 0x91, 0x11, 0x41, 0x4f, 0x67, 0xdc, 0xea, 0x97, 0xf2, 0xcf, 0xce, 0xf0, 0xb4, 0xe6, 0x73},</p>
+<p>/*9*/  {0x96, 0xac, 0x74, 0x22, 0xe7, 0xad, 0x35, 0x85, 0xe2, 0xf9, 0x37, 0xe8, 0x1c, 0x75, 0xdf, 0x6e},</p>
+<p>/*a*/  {0x47, 0xf1, 0x1a, 0x71, 0x1d, 0x29, 0xc5, 0x89, 0x6f, 0xb7, 0x62, 0x0e, 0xaa, 0x18, 0xbe, 0x1b},</p>
+<p>/*b*/  {0xfc, 0x56, 0x3e, 0x4b, 0xc6, 0xd2, 0x79, 0x20, 0x9a, 0xdb, 0xc0, 0xfe, 0x78, 0xcd, 0x5a, 0xf4},</p>
+<p>/*c*/  {0x1f, 0xdd, 0xa8, 0x33, 0x88, 0x07, 0xc7, 0x31, 0xb1, 0x12, 0x10, 0x59, 0x27, 0x80, 0xec, 0x5f},</p>
+<p>/*d*/  {0x60, 0x51, 0x7f, 0xa9, 0x19, 0xb5, 0x4a, 0x0d, 0x2d, 0xe5, 0x7a, 0x9f, 0x93, 0xc9, 0x9c, 0xef},</p>
+<p>/*e*/  {0xa0, 0xe0, 0x3b, 0x4d, 0xae, 0x2a, 0xf5, 0xb0, 0xc8, 0xeb, 0xbb, 0x3c, 0x83, 0x53, 0x99, 0x61},</p>
+<p>/*f*/  {0x17, 0x2b, 0x04, 0x7e, 0xba, 0x77, 0xd6, 0x26, 0xe1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0c, 0x7d}</p>
+<p>};</p>
+<p>for(int i = 0; i &lt; 16; ++i)</p>
+<p>{</p>
+<p>for(int j = 0; j &lt; 16; ++j)</p>
+<p>{</p>
+<p>InvSBox[i][j] = box[i][j];</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>void AES::InitialState(const byte* text)</p>
+<p>{    //    state初始时候为明(密)文矩阵的转置矩阵</p>
+<p>for(int i = 0; i &lt; 4; ++i)</p>
+<p>{    //转置text存放在state中</p>
+<p>for(int j = 0; j &lt; 4; ++j)</p>
+<p>{</p>
+<p>state[4*i + j] = text[4*j + i];</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>void AES::InitialCipherText()</p>
+<p>{    //    state被复制到输出矩阵中</p>
+<p>for(int i = 0; i &lt; 4; ++i)</p>
+<p>{    //转置state存放在cipherText中</p>
+<p>for(int j = 0; j &lt; 4; ++j)</p>
+<p>{</p>
+<p>cipherText[4*i + j] = state[4*j + i];</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>void AES::InitialplainText()</p>
+<p>{    //    state被复制到输入矩阵中</p>
+<p>for(int i = 0; i &lt; 4; ++i)</p>
+<p>{    //转置state存放在plainText中</p>
+<p>for(int j = 0; j &lt; 4; ++j)</p>
+<p>{</p>
+<p>plainText[4*i + j] = state[4*j + i];</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>AES::byte AES::GFMultplyByte(const byte&amp; left, const byte&amp; right)</p>
+<p>{    //有限域GF(2^8)上的乘法</p>
+<p>byte temp[8];</p>
+<p>std::bitset&lt;8&gt; bits((unsigned long)right);    //把right化为8个二进制位存放在bits中</p>
+<p>temp[0] = left;</p>
+<p>for(int i = 1; i &lt; 8; ++i)</p>
+<p>{</p>
+<p>if(temp[i-1] &gt;= 0x80)    //若 (temp[i-1] 首位为”1″</p>
+<p>{</p>
+<p>temp[i] = temp[i-1] &laquo; 1;</p>
+<p>temp[i] = temp[i] ^ 0x1b;    //与(00011011)异或</p>
+<p>}</p>
+<p>else</p>
+<p>{</p>
+<p>temp[i] = temp[i-1] &laquo; 1;</p>
+<p>}</p>
+<p>}</p>
+<p>byte result = 0x00;</p>
+<p>for(int i = 0; i &lt; 8; ++i)</p>
+<p>{</p>
+<p>if(bits[i] == 1)</p>
+<p>{</p>
+<p>result ^= temp[i];</p>
+<p>}</p>
+<p>}</p>
+<p>return result;</p>
+<p>}</p>
+<p>const AES::byte* AES::GFMultplyBytesMatrix(const byte* left, const byte* right)</p>
+<p>{    //有限域GF(2^8)上的矩阵(4*4)乘法</p>
+<p>AES::byte* result = new AES::byte[16];</p>
+<p>for(int i = 0; i &lt; 4; ++i)</p>
+<p>{</p>
+<p>for(int j = 0; j &lt; 4; ++j)</p>
+<p>{</p>
+<p>result[4*i + j] = GFMultplyByte(left[4*i], right[j]);</p>
+<p>for(int k = 1; k &lt; 4; ++k)</p>
+<p>{</p>
+<p>result[4*i + j] ^= GFMultplyByte(left[4*i + k], right[4*k + j]);</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>return result;</p>
+<p>}</p>
+<p>AES::AES(const char * key)</p>
+<p>{</p>
+<p>memcpy(m_key, key, 16);</p>
+<p>BuildSBox();</p>
+<p>BuildInvSBox();</p>
+<p>}</p>
+<p>const AES::byte* AES::Cipher(const byte* text, const byte* key, const int&amp; keySize)</p>
+<p>{    //    用key给text加密</p>
+<p>for(int i = 0; i &lt; 16; ++i)</p>
+<p>{</p>
+<p>plainText[i] = text[i];</p>
+<p>}</p>
+<p>for(int i = 0; i &lt; keySize; ++i)</p>
+<p>{</p>
+<p>cipherKey[i] = key[i];</p>
+<p>}</p>
+<p>EncryptionProcess();</p>
+<p>return cipherText;</p>
+<p>}</p>
+<p>const AES::byte* AES::InvCipher(const byte* text, const byte* key, const int&amp; keySize)</p>
+<p>{    //    用key给text解密</p>
+<p>for(int i = 0; i &lt; 16; ++i)</p>
+<p>{</p>
+<p>cipherText[i] = text[i];</p>
+<p>}</p>
+<p>for(int i = 0; i &lt; keySize; ++i)</p>
+<p>{</p>
+<p>cipherKey[i] = key[i];</p>
+<p>}</p>
+<p>DecryptionProcess();</p>
+<p>return plainText;</p>
+<p>}</p>
+<p>std::string enaes(const std::string&amp; src)</p>
+<p>{</p>
+<p>return AES::s_Encryption(src.c_str(), src.length());</p>
+<p>}</p>
+<p>std::string deaes(const std::string&amp; src)</p>
+<p>{</p>
+<p>return AES::s_Decryption(src.c_str(), src.length());</p>
+<p>}</p>
+<p>调用：</p>
+<p>// 加密明文到字符串</p>
+<p>std::string result = enaes(“userId=U998230302002303&amp;fileId=F2399929399923&amp;deadline=2011-12-12 12:00:00”);</p>
+<p>printf(“%s”, result.c_str());</p>
+<p>//请求服务器url</p>
+<p>NSString *resultstr = [[NSString alloc] initWithCString:result.c_str()];</p>
+<p>NSMutableString *url = [[NSMutableString alloc] init];</p>
+<p>[url appendString:@”http://192.168.11.154:8888/AES?”];</p>
+<p>[url appendString:resultstr];</p>
+<p>[resultstr release];</p>
+<p>// 发送请求并获得服务器反馈的数据</p>
+<p>NSData *urldata = [AESEnCDeCViewController Get:url];</p>
+<p>// 第一种 转换NSData数据到char*字符串</p>
+<p>char * test = (char*)[urldata bytes];</p>
+<p>std::string old = deaes(test);</p>
+<p>// 第二种 转换NSData到UTF8编码的NSString中再转换为char*字符串</p>
+<p>//    NSString *desStr = [[NSString alloc] initWithData:urldata encoding:NSUTF8StringEncoding];</p>
+<p>//    const char *desresult = [desStr UTF8String];</p>
+<p>//    std::string old = deaes(desresult);</p>
+<p>// 解密字符串到明文</p>
+<p>NSString *oldstr = [[NSString alloc] initWithCString:old.c_str()];</p>
+<p>// 更新textview文本内容</p>
+<p>[showtext setText:oldstr];</p>
+<p> </p>
+<p>特别注意：</p>
+<p>1.当obj-c 与 C++ 混编时需要将cpp后缀更改为.mm ，也要将调用c++类方法的.m文件后缀更改为.mm</p>
+<p>项目属性info TARGETS</p>
+<p>2.工程linking 方式   C++ Standard library type 更改为 Dynamic 方式</p>
+<p>3.工程GCC 4.2 Language</p>
+<p>1)C Language Dialect 更改为GNU99或C99（后来测试发现每个选项都可以编译通过，无语中。。。，最后更改为Compiler Default）</p>
+<p>2)Compile Sources As 更改为 Objective-C++</p>
+<p> </p>
+<p> </p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-03-18-c-%E8%B0%83%E7%94%A8c-lib/" data-toggle="tooltip" data-placement="top" title="c&#43;&#43; 调用c lib">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-03-19-uti-iphone%E6%94%AF%E6%8C%81%E4%BE%9D%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80%E5%90%8D%E6%89%93%E5%BC%80%E5%BA%94%E7%94%A8/" data-toggle="tooltip" data-placement="top" title="UTI iPhone支持依文件后缀名打开应用">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Mar 19, 2012</h4>
+    </section>
+    <h5 id="wc">3300 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 基于注解的struts action跳转 @Result 跳转到另一个action - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="基于注解的struts action跳转 @Result 跳转到另一个action" />
+  <meta name="twitter:title" content="基于注解的struts action跳转 @Result 跳转到另一个action" />
+  <meta name="description" content="初学ssh 基于注解的方式简单灵活，但是做一个例子的时候，添加用户AddUser 完成后 想页面跳转到 ListUser 这个action， 然后action 成功后 会">
+  <meta property="og:description" content="初学ssh 基于注解的方式简单灵活，但是做一个例子的时候，添加用户AddUser 完成后 想页面跳转到 ListUser 这个action， 然后action 成功后 会">
+  <meta name="twitter:description" content="初学ssh 基于注解的方式简单灵活，但是做一个例子的时候，添加用户AddUser 完成后 想页面跳转到 ListUser 这个action， 然后action 成功后 会">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2013-02-19-%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84struts-action%E8%B7%B3%E8%BD%AC-result-%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AAaction/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2013-02-19-%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84struts-action%E8%B7%B3%E8%BD%AC-result-%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AAaction/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">基于注解的struts action跳转 @Result 跳转到另一个action</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 19, 2013</h4>
+    </section>
+    <h5 id="wc">1700 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/struts/">struts</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>初学ssh 基于注解的方式简单灵活，但是做一个例子的时候，添加用户AddUser 完成后 想页面跳转到 ListUser 这个action，</p>
+<p>然后action 成功后 会跳转到list.jsp 显示 所以用户信息，</p>
+<p>发现 网上几乎所有例子都是 @Result 成功跳转到一个jsp ，不成功跳转到另一个jsp</p>
+<p>@Action(value=”studentAdd”,results={</p>
+<p>@Result(name=”success”,location=”/usersuc.jsp”),</p>
+<p>@Result(name=”error”,location=”/usererror.jsp”)</p>
+<p>})</p>
+<p>那么如果 成功跳转到另一action个 怎么写呢，搜了半天 也没有想要的答案</p>
+<p>就自己尝试</p>
+<p>@Action(value=”studentAdd”,results={</p>
+<p>@Result(name=”success”,location=”/StudentList.action”),</p>
+<p>@Result(name=”error”,location=”/error.jsp”)</p>
+<p>}) 这是错的 ，tomcat启动时 直接就报错 Exception starting filter struts2 , Unable to load configuration. – [unknown location]</p>
+<p>如果不加 .action 后缀</p>
+<p>@Action(value=”studentAdd”,results={</p>
+<p>@Result(name=”success”,location=”/StudentList”),</p>
+<p>@Result(name=”error”,location=”/error.jsp”)</p>
+<p>}) 这样虽然tomcat启动时不报错，但是添加用户页面成功 不成功会显示404错误 找不到action</p>
+<p>偶然在一片文章中 看到</p>
+<p>struts2 跳转类型 result type=chain、dispatcher、redirect(redirect-action)</p>
+<p>dispatcher 为默认跳转类型，用于返回一个视图资源(如:jsp)</p>
+<p>Xml代码 :</p>
+<p><!-- raw HTML omitted -->/main.jsp<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->/main.jsp<!-- raw HTML omitted --></p>
+<p>以上写法使用了两个默认，其完整的写法为：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>用于页面转发，页面跳转过程一直是同一个线程，Action中的数据一直保存在。</p>
+<p>location只能是页面，不能是另一个action（可用type=”chain”解决）。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>redirect 类型用于重定向到一个页面，另一个action或一个网址。</p>
+<p>Xml代码:</p>
+<p><!-- raw HTML omitted -->aaa.jsp<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->bbb.action<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="http://www.baidu.com">www.baidu.com</a><!-- raw HTML omitted --></p>
+<p>缺点：redirect把一个http返回码（SUCCESS）以及返回的页面位置一起重新发给web服务器，容纳后由web服务器产生一个新的HTTP请求，就会产生一个新的线程，保存在原来Action执行的线程中的数据就无法访问。</p>
+<p>所以，result需要包含Action的数据，那么redirect不是一个可行的办法。因为新的HTTP请求时在Servlet容器的新的线程中处理的，ActionContext中的所有状态都不会存在。</p>
+<p>处理方法：</p>
+<p>（方法一）：</p>
+<p><!-- raw HTML omitted -->/topicAction!findTopics.do?topicId=${topicId}<!-- raw HTML omitted --></p>
+<p>（方法二）：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>redirect-action 结果类型使用ActionMapperFactory提供的ActionMapper来重定向请求到另外一个action</p>
+<p>Xml代码:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>redirect和redirect-action两种结果类型在使用上其实并没有什么区别，只是写法不同而已。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>chain 用于把相关的几个action连接起来，共同完成一个功能。</p>
+<p>Xml代码:</p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->step2.action<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->finish.jsp<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>处于chain中的action属于同一个http请求，共享一个ActionContext</p>
+<p>plaintextj 结果类型用于直接在页面上显示源代码</p>
+<p>Xml代码:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>既然这样 制定跳转类型 是不是就可以了呢， 找下面来写 果然就OK了</p>
+<p>@Action(value=”studentAdd”,results={</p>
+<p>@Result(name=”success”,type=”chain”,location=”studentList”)})</p>
+<p>另外补充：同一个action中 <!-- raw HTML omitted --> 一个方法跳转至另一个方法 “user” <!-- raw HTML omitted --> 为该action的命名<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>@Result(name = “success”, location = “user”, type = “chain”, params = { “method”, “index” })</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2013-01-16-springframework/" data-toggle="tooltip" data-placement="top" title="springframework">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2013-03-01-object-c%E4%B8%8E%E6%A0%87%E5%87%86cc%E6%B7%B7%E5%90%88%E7%BC%96%E7%A8%8B/" data-toggle="tooltip" data-placement="top" title="Object-C与标准C/C&#43;&#43;混合编程">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 19, 2013</h4>
+    </section>
+    <h5 id="wc">1700 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/struts/">struts</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

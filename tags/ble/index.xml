@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BLE on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ble/</link>
+    <description>Recent content in BLE on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 30 Jul 2015 02:48:10 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ble/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS BLE</title>
+      <link>https://www.51hint.com/posts/2015-07-30-ios-ble/</link>
+      <pubDate>Thu, 30 Jul 2015 02:48:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-30-ios-ble/</guid>
+      <description>Core Bluetooth
+http://southpeak.github.io/blog/2014/07/29/core-bluetoothkuang-jia-zhi-%5B%3F%5D-:centralyu-peripheral/
+ Arduino Tutorial: Integrating Bluetooth LE and iOS with Swift – Ray Wenderlich
+http://www.raywenderlich.com/85900/arduino-tutorial-integrating-bluetooth-le-ios-swift</description>
+    </item>
+    
+  </channel>
+</rss>

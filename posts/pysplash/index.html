@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> PySplash - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="PySplash" />
+  <meta name="twitter:title" content="PySplash" />
+  <meta name="description" content="splash">
+  <meta property="og:description" content="splash">
+  <meta name="twitter:description" content="splash">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/pysplash/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/pysplash/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">PySplash</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h5 id="splash-lua脚本">splash lua脚本</h5>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">main</span><span class="p">(</span><span class="n">splash</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">go</span><span class="p">(</span><span class="s2">&#34;http://www.baidu.com&#34;</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">title</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">evaljs</span><span class="p">(</span><span class="s2">&#34;document.title&#34;</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="p">{</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">}</span>
+<span class="kr">end</span>
+</code></pre></div><p>1.异步处理</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">main</span><span class="p">(</span><span class="n">splash</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">example_urls</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;www.baidu.com&#34;</span><span class="p">,</span> <span class="s2">&#34;www.taobao.com&#34;</span><span class="p">,</span> <span class="s2">&#34;www.zhihu.com&#34;</span><span class="p">}</span>
+  <span class="kd">local</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">args.urls</span> <span class="ow">or</span> <span class="n">example_urls</span>
+  <span class="kd">local</span> <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="kr">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">url</span> <span class="kr">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span> <span class="kr">do</span>
+    <span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">go</span><span class="p">(</span><span class="s2">&#34;http://&#34;</span> <span class="o">..</span> <span class="n">url</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="n">ok</span> <span class="kr">then</span>
+      <span class="n">splash</span><span class="p">:</span><span class="n">wait</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+      <span class="n">results</span><span class="p">[</span><span class="n">url</span><span class="p">]</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">png</span><span class="p">()</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+  <span class="kr">return</span> <span class="n">results</span>
+<span class="kr">end</span>
+
+
+<span class="o">//</span><span class="err">可以设置加载的超时时间，单位是秒。如果设置为</span><span class="mi">0</span><span class="err">或</span><span class="kc">nil</span><span class="err">（类似</span><span class="n">Python中的None</span><span class="err">），代表不检测超时</span>
+ <span class="n">splash.resource_timeout</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+
+<span class="o">//</span><span class="err">设置图片是否加载，默认情况下是加载的。禁用该属性后，可以节省网络流量并提高网页加载速度。但是需要注意的是，禁用图片加载可能会影响</span><span class="n">JavaScript渲染</span>
+<span class="n">splash.images_enabled</span> <span class="o">=</span> <span class="kc">false</span>
+
+
+
+<span class="o">//</span><span class="err">控制浏览器插件（如</span><span class="n">Flash插件</span><span class="err">）是否开启。默认情况下，此属性是</span><span class="kc">false</span><span class="err">，表示不开启</span>
+<span class="n">splash.plugins_enabled</span> <span class="o">=</span> <span class="kc">true</span><span class="o">/</span><span class="kc">false</span>
+
+
+
+<span class="o">//</span><span class="err">控制页面上下或左右滚动</span>
+<span class="n">splash.scroll_position</span> <span class="o">=</span> <span class="p">{</span><span class="n">y</span><span class="o">=</span><span class="mi">400</span><span class="p">}</span>
+<span class="n">splash.scroll_position</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span><span class="p">}</span>
+</code></pre></div><h4 id="splash对象的方法">splash对象的方法</h4>
+<ol>
+<li>
+<p>go
+该方法用来请求某个链接，而且它可以模拟GET和POST请求，同时支持传入请求头、表单等数据
+<code>ok, reason = splash:go{url, baseurl=nil, headers=nil, http_method=&quot;GET&quot;, body=nil, formdata=nil}</code></p>
+</li>
+<li>
+<p>wait
+控制页面的等待时间
+<code>ok, reason = splash:wait{time, cancel_on_redirect=**false**, cancel_on_error=**true**}</code></p>
+</li>
+<li>
+<p>jsfunc
+直接调用JavaScript定义的方法，但是所调用的方法需要用双中括号包围，这相当于实现了JavaScript方法到Lua脚本的转换</p>
+</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">main</span><span class="p">(</span><span class="n">splash</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">get_div_count</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">jsfunc</span><span class="p">(</span><span class="s">[[
+</span><span class="s">  function () {
+</span><span class="s">    var body = document.body;
+</span><span class="s">    var divs = body.getElementsByTagName(&#39;div&#39;);
+</span><span class="s">    return divs.length;
+</span><span class="s">  }
+</span><span class="s">  ]]</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">go</span><span class="p">(</span><span class="s2">&#34;https://www.baidu.com&#34;</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="p">(</span><span class="s2">&#34;There are %s DIVs&#34;</span><span class="p">):</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">get_div_count</span><span class="p">())</span>
+<span class="kr">end</span>
+</code></pre></div><ol start="4">
+<li>evaljs
+执行JavaScript代码并返回最后一条JavaScript语句的返回结果</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="n">result</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">evaljs</span><span class="p">(</span><span class="n">js</span><span class="p">)</span>
+</code></pre></div><ol start="5">
+<li>runjs
+执行JavaScript代码，它与<code>evaljs()</code>的功能类似，但是更偏向于执行某些动作或声明某些方法</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">main</span><span class="p">(</span><span class="n">splash</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">go</span><span class="p">(</span><span class="s2">&#34;https://www.baidu.com&#34;</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">runjs</span><span class="p">(</span><span class="s2">&#34;foo = function() { return &#39;bar&#39; }&#34;</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">result</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">evaljs</span><span class="p">(</span><span class="s2">&#34;foo()&#34;</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="n">result</span>
+<span class="kr">end</span>
+
+<span class="o">//</span><span class="err">这里我们用</span><span class="n">runjs</span><span class="p">()</span><span class="err">先声明了一个</span><span class="n">JavaScript定义的方法</span><span class="err">，然后通过</span><span class="n">evaljs</span><span class="p">()</span><span class="err">来调用得到的结果。</span>
+</code></pre></div><ol start="6">
+<li>autoload
+此方法可以设置每个页面访问时自动加载的对象</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="n">ok</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">autoload</span><span class="p">{</span><span class="n">source_or_url</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">nil</span><span class="p">}</span>
+</code></pre></div><p>参数说明如下。</p>
+<ul>
+<li><strong>source_or_url</strong>：JavaScript代码或者JavaScript库链接。</li>
+<li><strong>source</strong>：JavaScript代码。</li>
+<li><strong>url</strong>：JavaScript库链接</li>
+</ul>
+<p>但是此方法只负责加载JavaScript代码或库，不执行任何操作。如果要执行操作，可以调用<code>evaljs()</code>或<code>runjs()</code>方法。示例如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">main</span><span class="p">(</span><span class="n">splash</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">autoload</span><span class="p">(</span><span class="s">[[
+</span><span class="s">    function get_document_title(){
+</span><span class="s">      return document.title;
+</span><span class="s">    }
+</span><span class="s">  ]]</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">go</span><span class="p">(</span><span class="s2">&#34;https://www.baidu.com&#34;</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="n">splash</span><span class="p">:</span><span class="n">evaljs</span><span class="p">(</span><span class="s2">&#34;get_document_title()&#34;</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div><p>这里我们调用<code>autoload()</code>方法声明了一个JavaScript方法，然后通过<code>evaljs()</code>方法来执行此JavaScript方法。</p>
+<p>//<code>autoload</code>加载库</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">main</span><span class="p">(</span><span class="n">splash</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">splash</span><span class="p">:</span><span class="n">autoload</span><span class="p">(</span><span class="s2">&#34;https://code.jquery.com/jquery-2.1.3.min.js&#34;</span><span class="p">))</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">splash</span><span class="p">:</span><span class="n">go</span><span class="p">(</span><span class="s2">&#34;https://www.taobao.com&#34;</span><span class="p">))</span>
+  <span class="kd">local</span> <span class="n">version</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">evaljs</span><span class="p">(</span><span class="s2">&#34;$.fn.jquery&#34;</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="s1">&#39;JQuery version: &#39;</span> <span class="o">..</span> <span class="n">version</span>
+<span class="kr">end</span>
+</code></pre></div><ol start="7">
+<li>
+<p>Call_later</p>
+<p>通过设置定时任务和延迟时间来实现任务延时执行，并且可以在执行前通过<code>cancel()</code>方法重新执行定时任务</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">main</span><span class="p">(</span><span class="n">splash</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">snapshots</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="kd">local</span> <span class="n">timer</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">call_later</span><span class="p">(</span><span class="kr">function</span><span class="p">()</span>
+    <span class="n">snapshots</span><span class="p">[</span><span class="s2">&#34;a&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">png</span><span class="p">()</span>
+    <span class="n">splash</span><span class="p">:</span><span class="n">wait</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">snapshots</span><span class="p">[</span><span class="s2">&#34;b&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">png</span><span class="p">()</span>
+  <span class="kr">end</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">go</span><span class="p">(</span><span class="s2">&#34;https://www.taobao.com&#34;</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">wait</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="n">snapshots</span>
+<span class="kr">end</span>
+</code></pre></div></li>
+<li>
+<p>http_get
+可以模拟发送HTTP的GET请求</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="n">response</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">http_get</span><span class="p">{</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span> <span class="n">follow_redirects</span><span class="o">=</span><span class="kc">true</span><span class="p">}</span>
+   
+<span class="o">&gt;</span><span class="n">url</span><span class="err">：请求</span><span class="n">URL</span><span class="err">。</span>
+<span class="o">&gt;</span><span class="n">headers</span><span class="err">：可选参数，默认为空，请求头。</span>
+<span class="o">&gt;</span><span class="n">follow_redirects</span><span class="err">：可选参数，表示是否启动自动重定向，默认为</span><span class="kc">true</span><span class="err">。</span>
+   
+<span class="kr">function</span> <span class="nf">main</span><span class="p">(</span><span class="n">splash</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">treat</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&#34;treat&#34;</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">response</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">http_get</span><span class="p">(</span><span class="s2">&#34;http://httpbin.org/get&#34;</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="p">{</span>
+    <span class="n">html</span><span class="o">=</span><span class="n">treat.as_string</span><span class="p">(</span><span class="n">response.body</span><span class="p">),</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">response.url</span><span class="p">,</span>
+    <span class="n">status</span><span class="o">=</span><span class="n">response.status</span>
+    <span class="p">}</span>
+<span class="kr">end</span>
+</code></pre></div></li>
+<li>
+<p>http_post
+和<code>http_get()</code>方法类似，此方法用来模拟发送POST请求，不过多了一个参数<code>body</code>，</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">response</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">http_post</span><span class="p">{</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">nil</span><span class="p">,</span> <span class="n">follow_redirects</span><span class="o">=</span><span class="n">true</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">nil</span><span class="p">}</span>
+       
+<span class="n">function</span> <span class="n">main</span><span class="p">(</span><span class="n">splash</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+  <span class="n">local</span> <span class="n">treat</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&#34;treat&#34;</span><span class="p">)</span>
+  <span class="n">local</span> <span class="n">json</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&#34;json&#34;</span><span class="p">)</span>
+  <span class="n">local</span> <span class="n">response</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">http_post</span><span class="p">{</span><span class="s2">&#34;http://httpbin.org/post&#34;</span><span class="p">,</span>     
+      <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&#34;Germey&#34;</span><span class="p">}),</span>
+      <span class="n">headers</span><span class="o">=</span><span class="p">{[</span><span class="s2">&#34;content-type&#34;</span><span class="p">]</span><span class="o">=</span><span class="s2">&#34;application/json&#34;</span><span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span>
+    <span class="n">html</span><span class="o">=</span><span class="n">treat</span><span class="o">.</span><span class="n">as_string</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">),</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+    <span class="n">status</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">status</span>
+    <span class="p">}</span>
+<span class="n">end</span>    
+</code></pre></div><ol start="10">
+<li>
+<p>html()
+获取网页的源代码</p>
+</li>
+<li>
+<p>png()
+获取png格式的网页截图</p>
+</li>
+<li>
+<p>Jpeg()
+获取jpeg格式的网页截图</p>
+</li>
+<li>
+<p>har()
+获取页面加载过程描述</p>
+</li>
+<li>
+<p>url()
+获取当前正在访问的URL</p>
+</li>
+<li>
+<p>get_cookies()
+获取当前页面的Cookies</p>
+</li>
+<li>
+<p>add_cookis()</p>
+</li>
+<li>
+<p>clear_cookies()</p>
+</li>
+<li>
+<p>get_viewport_size()
+获取当前浏览器页面的大小，即宽高</p>
+</li>
+<li>
+<p>set_viewport_size()
+设置当前浏览器页面的大小，即宽高</p>
+</li>
+<li>
+<p>set_viewport_flull()</p>
+</li>
+<li>
+<p>set_user_agent()
+splash:set_user_agent(&lsquo;Splash&rsquo;)</p>
+</li>
+<li>
+<p>set_custom_headers()</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="n">splash</span><span class="p">:</span><span class="n">set_custom_headers</span><span class="p">({</span>
+     <span class="p">[</span><span class="s2">&#34;User-Agent&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;Splash&#34;</span><span class="p">,</span>
+     <span class="p">[</span><span class="s2">&#34;Site&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;Splash&#34;</span><span class="p">,</span>
+  <span class="p">})</span>
+</code></pre></div></li>
+<li>
+<p>select()选中符合条件的第一个节点，如果有多个节点符合条件，则只会返回一个，其参数是CSS选择器</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">main</span><span class="p">(</span><span class="n">splash</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">go</span><span class="p">(</span><span class="s2">&#34;https://www.baidu.com/&#34;</span><span class="p">)</span>
+  <span class="n">input</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">select</span><span class="p">(</span><span class="s2">&#34;#kw&#34;</span><span class="p">)</span>
+  <span class="n">input</span><span class="p">:</span><span class="n">send_text</span><span class="p">(</span><span class="s1">&#39;Splash&#39;</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+  <span class="kr">return</span> <span class="n">splash</span><span class="p">:</span><span class="n">png</span><span class="p">()</span>
+<span class="kr">end</span>
+</code></pre></div></li>
+<li>
+<p>select_all()
+选中所有符合条件的节点，其参数是CSS选择器</p>
+<div class="highlight"><pre class="chroma"><code class="language-lua" data-lang="lua"><span class="kr">function</span> <span class="nf">main</span><span class="p">(</span><span class="n">splash</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">treat</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;treat&#39;</span><span class="p">)</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">splash</span><span class="p">:</span><span class="n">go</span><span class="p">(</span><span class="s2">&#34;http://quotes.toscrape.com/&#34;</span><span class="p">))</span>
+  <span class="n">assert</span><span class="p">(</span><span class="n">splash</span><span class="p">:</span><span class="n">wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+  <span class="kd">local</span> <span class="n">texts</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">select_all</span><span class="p">(</span><span class="s1">&#39;.quote .text&#39;</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="kr">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">text</span> <span class="kr">in</span> <span class="n">ipairs</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span> <span class="kr">do</span>
+    <span class="n">results</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">text.node</span><span class="p">.</span><span class="n">innerHTML</span>
+  <span class="kr">end</span>
+  <span class="kr">return</span> <span class="n">treat.as_array</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div></li>
+<li>
+<p>mouse_click()
+模拟鼠标点击操作，传入的参数为坐标值<code>x</code>和<code>y</code>。此外，也可以直接选中某个节点，然后调用此方法</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">function</span> <span class="n">main</span><span class="p">(</span><span class="n">splash</span><span class="p">)</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">go</span><span class="p">(</span><span class="s2">&#34;https://www.baidu.com/&#34;</span><span class="p">)</span>
+  <span class="nb">input</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">select</span><span class="p">(</span><span class="s2">&#34;#kw&#34;</span><span class="p">)</span>
+  <span class="nb">input</span><span class="p">:</span><span class="n">send_text</span><span class="p">(</span><span class="s1">&#39;Splash&#39;</span><span class="p">)</span>
+  <span class="n">submit</span> <span class="o">=</span> <span class="n">splash</span><span class="p">:</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;#su&#39;</span><span class="p">)</span>
+  <span class="n">submit</span><span class="p">:</span><span class="n">mouse_click</span><span class="p">()</span>
+  <span class="n">splash</span><span class="p">:</span><span class="n">wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">splash</span><span class="p">:</span><span class="n">png</span><span class="p">()</span>
+<span class="n">end</span>
+</code></pre></div><h4 id="splash-api调用">Splash Api调用</h4>
+<blockquote>
+<p>前面说明了Splash Lua脚本的用法，但这些脚本是在Splash页面中测试运行的，如何才能利用Splash渲染页面呢？怎样才能和Python程序结合使用并抓取JavaScript渲染的页面呢？</p>
+</blockquote>
+<h5 id="renderhtml">render.html</h5>
+<p>此接口用于获取JavaScript渲染的页面的HTML代码，接口地址就是Splash的运行地址加此接口名称，例如<a href="http://localhost:8050/render.html">http://localhost:8050/render.html</a></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:8050/render.html?url=https://www.baidu.com&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><blockquote>
+<p>此接口还支持代理设置、图片加载设置、Headers设置、请求方法设置，具体的用法可以参见官文档<a href="https://splash.readthedocs.io/en/stable/api.html#render-html">https://splash.readthedocs.io/en/stable/api.html#render-html</a>。</p>
+</blockquote>
+<h5 id="renderpng">render.png</h5>
+<p>此接口可以获取网页截图，其参数比render.html多了几个，比如通过<code>width</code>和<code>height</code>来控制宽高，它返回的是PNG格式的图片二进制数据。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:8050/render.png?url=https://www.jd.com&amp;wait=5&amp;width=1000&amp;height=700&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;taobao.png&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="o">//</span><span class="err">详细的参数设置可以参考官网文档</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">splash</span><span class="o">.</span><span class="n">readthedocs</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">html</span><span class="c1">#render-png。    </span>
+</code></pre></div><h5 id="renderjson">render.json</h5>
+<p>此接口包含了前面接口的所有功能，返回结果是JSON格式</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8050</span><span class="o">/</span><span class="n">render</span><span class="o">.</span><span class="n">json</span><span class="err">?</span><span class="n">url</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">httpbin</span><span class="o">.</span><span class="n">org</span><span class="o">&amp;</span><span class="n">html</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">har</span><span class="o">=</span><span class="mi">1</span>
+<span class="o">//</span><span class="err">多参数设置，具体可以参考官方文档：</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">splash</span><span class="o">.</span><span class="n">readthedocs</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">html</span><span class="c1">#render-json。            </span>
+</code></pre></div><h5 id="execute">execute</h5>
+<p>此接口才是最为强大的接口。前面说了很多Splash Lua脚本的操作，用此接口便可实现与Lua脚本的对接</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span>
+        
+<span class="n">lua</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">function main(splash)
+</span><span class="s1">    return &#39;hello&#39;
+</span><span class="s1">end
+</span><span class="s1">&#39;&#39;&#39;</span>
+        
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:8050/execute?lua_source=&#39;</span> <span class="o">+</span> <span class="n">quote</span><span class="p">(</span><span class="n">lua</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div><p><strong>我们之前所说的Lua脚本均可以用此方式与Python进行对接，所有网页的动态渲染、模拟点击、表单提交、页面滑动、延时等待后的一些结果均可以自由控制，获取页面源码和截图也都不在话下</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span>
+        
+<span class="n">lua</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">function main(splash, args)
+</span><span class="s1">  local treat = require(&#34;treat&#34;)
+</span><span class="s1">  local response = splash:http_get(&#34;http://httpbin.org/get&#34;)
+</span><span class="s1">    return {
+</span><span class="s1">    html=treat.as_string(response.body),
+</span><span class="s1">    url=response.url,
+</span><span class="s1">    status=response.status
+</span><span class="s1">    }
+</span><span class="s1">end
+</span><span class="s1">&#39;&#39;&#39;</span>
+        
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://localhost:8050/execute?lua_source=&#39;</span> <span class="o">+</span> <span class="n">quote</span><span class="p">(</span><span class="n">lua</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></li>
+</ol>
+</li>
+</ol>
+<h3 id="splash負荷分散">splash負荷分散</h3>
+<div class="highlight"><pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">//这样默认以轮询策略实现负载均衡，每个服务器的压力相同。此策略适合服务器配置相当、无状态且短平快的服务使用。</span>
+<span class="s">http</span> <span class="p">{</span>
+    <span class="kn">upstream</span> <span class="s">splash</span> <span class="p">{</span>
+        <span class="kn">least_conn</span><span class="p">;</span>
+        <span class="kn">server</span> <span class="n">41.159.27.223</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+        <span class="kn">server</span> <span class="n">41.159.27.221</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+        <span class="kn">server</span> <span class="n">41.159.27.9</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+        <span class="kn">server</span> <span class="n">41.159.117.119</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kn">server</span> <span class="p">{</span>
+        <span class="kn">listen</span> <span class="mi">8050</span><span class="p">;</span>
+        <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+            <span class="kn">proxy_pass</span> <span class="s">http://splash</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="k">//指定权重</span>
+<span class="s">upstream</span> <span class="s">splash</span> <span class="p">{</span>
+    <span class="kn">server</span> <span class="n">41.159.27.223</span><span class="p">:</span><span class="mi">8050</span> <span class="s">weight=4</span><span class="p">;</span>
+    <span class="kn">server</span> <span class="n">41.159.27.221</span><span class="p">:</span><span class="mi">8050</span> <span class="s">weight=2</span><span class="p">;</span>
+    <span class="kn">server</span> <span class="n">41.159.27.9</span><span class="p">:</span><span class="mi">8050</span> <span class="s">weight=2</span><span class="p">;</span>
+    <span class="kn">server</span> <span class="n">41.159.117.119</span><span class="p">:</span><span class="mi">8050</span> <span class="s">weight=1</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">//IP散列负载均衡</span>
+<span class="s">upstream</span> <span class="s">splash</span> <span class="p">{</span>
+    <span class="kn">ip_hash</span><span class="p">;</span>
+    <span class="kn">server</span> <span class="n">41.159.27.223</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+    <span class="kn">server</span> <span class="n">41.159.27.221</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+    <span class="kn">server</span> <span class="n">41.159.27.9</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+    <span class="kn">server</span> <span class="n">41.159.117.119</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">//配置认证</span>
+<span class="s">http</span> <span class="p">{</span>
+    <span class="kn">upstream</span> <span class="s">splash</span> <span class="p">{</span>
+        <span class="kn">least_conn</span><span class="p">;</span>
+        <span class="kn">server</span> <span class="n">41.159.27.223</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+        <span class="kn">server</span> <span class="n">41.159.27.221</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+        <span class="kn">server</span> <span class="n">41.159.27.9</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+        <span class="kn">server</span> <span class="n">41.159.117.119</span><span class="p">:</span><span class="mi">8050</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kn">server</span> <span class="p">{</span>
+        <span class="kn">listen</span> <span class="mi">8050</span><span class="p">;</span>
+        <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+            <span class="kn">proxy_pass</span> <span class="s">http://splash</span><span class="p">;</span>
+            <span class="kn">auth_basic</span> <span class="s">&#34;Restricted&#34;</span><span class="p">;</span>
+            <span class="kn">auth_basic_user_file</span> <span class="s">/etc/nginx/conf.d/.htpasswd</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">//</span><span class="err">测试负载均衡</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span>
+<span class="kn">import</span> <span class="nn">re</span>
+ 
+<span class="n">lua</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">function main(splash, args)
+</span><span class="s1">  local treat = require(&#34;treat&#34;)
+</span><span class="s1">  local response = splash:http_get(&#34;http://httpbin.org/get&#34;)
+</span><span class="s1">  return treat.as_string(response.body)
+</span><span class="s1">end
+</span><span class="s1">&#39;&#39;&#39;</span>
+ 
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://splash:8050/execute?lua_source=&#39;</span> <span class="o">+</span> <span class="n">quote</span><span class="p">(</span><span class="n">lua</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">))</span>
+<span class="n">ip</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;(\d+\.\d+\.\d+\.\d+)&#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/pyselenium/" data-toggle="tooltip" data-placement="top" title="Pyselenium">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/py%E9%AA%8C%E8%AF%81%E7%A0%81/" data-toggle="tooltip" data-placement="top" title="Py验证码">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/pyselenium/">Pyselenium</a></li>
+                    
+                    <li><a href="/posts/py%E6%96%87%E4%BB%B6%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/">Py文件打开方式</a></li>
+                    
+                    <li><a href="/posts/py%E8%A7%A3%E6%9E%90%E5%BA%93/">Py解析库</a></li>
+                    
+                    <li><a href="/posts/py%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Py正则表达式</a></li>
+                    
+                    <li><a href="/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">Redis使用场景</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

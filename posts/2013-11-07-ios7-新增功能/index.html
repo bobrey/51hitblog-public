@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> ios7 新增功能 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="ios7 新增功能" />
+  <meta name="twitter:title" content="ios7 新增功能" />
+  <meta name="description" content="动态UIKit 新增了UIDynamicItem委托，用来为UIView制定动态行为，当然其他任何对象都能通过实现这组接口来定义动态行为，只不">
+  <meta property="og:description" content="动态UIKit 新增了UIDynamicItem委托，用来为UIView制定动态行为，当然其他任何对象都能通过实现这组接口来定义动态行为，只不">
+  <meta name="twitter:description" content="动态UIKit 新增了UIDynamicItem委托，用来为UIView制定动态行为，当然其他任何对象都能通过实现这组接口来定义动态行为，只不">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2013-11-07-ios7-%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2013-11-07-ios7-%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">ios7 新增功能</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Nov 7, 2013</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>动态UIKit</p>
+<p>新增了UIDynamicItem委托，用来为UIView制定动态行为，当然其他任何对象都能通过实现这组接口来定义动态行为，只不过在UIKit中可能应用最多。所谓动态行为，是指将现实世界的行为或者特性引入到UI中，比如重力等。通过实现UIDynamicItem，UIKit现在支持如下行为：</p>
+<p>UIAttachmentBehavior 连接两个实现了UIDynamicItem的物体（以下简称动态物体），一个物体移动时，另一个跟随移动</p>
+<p>UICollisionBehavior 指定边界，使两个动态物体可以进行碰撞</p>
+<p>UIGravityBehavior 顾名思义，为动态物体增加重力模拟</p>
+<p>UIPushBehavior 为动态物体施加持续的力</p>
+<p>UISnapBehavior 为动态物体指定一个附着点，想象一下类似挂一幅画在图钉上的感觉</p>
+<p>如果有开发游戏的童鞋可能会觉得这些很多都是做游戏时候的需求，一种box2d之类的2D物理引擎的既视感跃然而出。没错的亲，动态UI，加上之后要介绍的Sprite Kit，极大的扩展了使用UIKit进行游戏开发的可能性。另外要注意UIDynamicItem不仅适用于UIKit，任何对象都可以实现接口来获得动态物体的一些特性，所以说用来做一些3D的事情也不是没有可能。如果觉得Cocos2D+box2d这样的组合使用起来不方便的话，现在动态UIKit+SpriteKit给出了新的选择。</p>
+<p> </p>
+<p> </p>
+<p>Sprite Kit Framework</p>
+<p>这是个人认为iOS7 SDK最大的亮点，也是最重要的部分，iOS SDK终于有自己的精灵系统了;这个框架是iOS SDK自带了一个较完备的2D游戏引擎，</p>
+<p>Xcode还提供了创建粒子系统和贴图Atlas的工具。使用Xcode来管理粒子效果和贴图atlas，可以迅速在Sprite Kit中反应出来</p>
+<p> </p>
+<p>后台下载</p>
+<p>通过设置UIBackgroundModes为fetch来实现后台下载内容了</p>
+<p>推送并在后台下载。UIBackgroundModes设为remote-notification</p>
+<p>为后台下载，开发者必须使用一个新的类NSURLSession，其实就是在NSURLConnection上加了个后台处理</p>
+<p> </p>
+<p>AirDrop</p>
+<p>使用UIActivityViewController,实现UIActivityItemSource接口后进行发送;用它来分享照片，文档，链接，或者其他数据给附近的设备</p>
+<p> </p>
+<p>Inter-App Audio 应用间的音频</p>
+<p>AudioUnit框架中加入了在同一台设备不同应用之间发送MIDI指令和传送音频的能力</p>
+<p> </p>
+<p>点对点连接 Peer-to-Peer Connectivity</p>
+<p>可以看成是AirDrop不能直接使用的补偿，代价是需要自己实现。MultipeerConnectivity框架可以用来发现和连接附近的设备，</p>
+<p>并传输数据，而这一切并不需要有网络连接</p>
+<p>Store Kit Framework</p>
+<p>Store Kit在内购方面采用了新的订单系统，这将可以实现对订单的本机验证。这是一次对应内购破解和有可能验证失败导致内购失败的更新，苹果希望藉此减少内购的实现流程，减少出错，同时遏制内购破解泛滥。前者可能没有问题，但是后者的话，因为objc的动态特性，决定了只要有越狱存在，内购破解也是早晚的事情。不过这一点确实方便了没有能力架设验证服务器的小开发者，这方面来说还是很好的。</p>
+<p> </p>
+<p>MessageUI里添加了附件按钮，Xcode开始支持模块了等等。</p>
+<p> </p>
+<p>===================================</p>
+<p>后面做几个小demo，演示一下功能，呵呵</p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2013-11-07-handlercallback-%E6%B3%84%E9%9C%B2%E5%86%85%E5%AD%98/" data-toggle="tooltip" data-placement="top" title="Handler,Callback 泄露内存">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2013-11-07-%E6%97%A5%E6%9C%AC%E4%B8%80%E4%BA%9B%E5%8D%9A%E5%AE%A2%E6%8A%95%E7%A8%BF%E6%A0%BC%E5%BC%8F/" data-toggle="tooltip" data-placement="top" title="日本一些博客投稿格式">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-11-15-ios%E4%B8%8D%E9%94%99%E7%9A%84%E5%BC%80%E6%BA%90%E7%B1%BB%E5%BA%93%E5%8F%8A%E5%85%B6%E8%87%AA%E5%B7%B1%E5%88%B6%E4%BD%9Cframework/">ios不错的开源类库及其自己制作framework</a></li>
+                    
+                    <li><a href="/posts/2011-10-03-other-linkder-flags-%E8%AE%BE%E7%BD%AE/">Other Linkder Flags 设置</a></li>
+                    
+                    <li><a href="/posts/2011-09-29-navigationcontroller-toolbar-%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/">navigationController.toolbar 添加按钮</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-quartz2d/">Quartz2d</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-gdb%E8%B0%83%E8%AF%95-%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%80%BC-struct/">gdb调试 查看变量值 struct</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Nov 7, 2013</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

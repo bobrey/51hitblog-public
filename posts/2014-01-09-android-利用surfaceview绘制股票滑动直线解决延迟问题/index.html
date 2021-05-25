@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Android: 利用SurfaceView绘制股票滑动直线解决延迟问题 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Android: 利用SurfaceView绘制股票滑动直线解决延迟问题" />
+  <meta name="twitter:title" content="Android: 利用SurfaceView绘制股票滑动直线解决延迟问题" />
+  <meta name="description" content="1.背景介绍 最近项目要绘制股票走势图，并绘制能够跟随手指滑动的指示线(Indicator)来精确查看股票价格和日期。如下图所示： 上图中的那条">
+  <meta property="og:description" content="1.背景介绍 最近项目要绘制股票走势图，并绘制能够跟随手指滑动的指示线(Indicator)来精确查看股票价格和日期。如下图所示： 上图中的那条">
+  <meta name="twitter:description" content="1.背景介绍 最近项目要绘制股票走势图，并绘制能够跟随手指滑动的指示线(Indicator)来精确查看股票价格和日期。如下图所示： 上图中的那条">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2014-01-09-android-%E5%88%A9%E7%94%A8surfaceview%E7%BB%98%E5%88%B6%E8%82%A1%E7%A5%A8%E6%BB%91%E5%8A%A8%E7%9B%B4%E7%BA%BF%E8%A7%A3%E5%86%B3%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2014-01-09-android-%E5%88%A9%E7%94%A8surfaceview%E7%BB%98%E5%88%B6%E8%82%A1%E7%A5%A8%E6%BB%91%E5%8A%A8%E7%9B%B4%E7%BA%BF%E8%A7%A3%E5%86%B3%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">Android: 利用SurfaceView绘制股票滑动直线解决延迟问题</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Jan 9, 2014</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>1.背景介绍</p>
+<p>最近项目要绘制股票走势图，并绘制能够跟随手指滑动的指示线(Indicator)来精确查看股票价格和日期。如下图所示：</p>
+<p><!-- raw HTML omitted --></p>
+<p>上图中的那条白色直线就是股票的指示线，用来跟随手指精确确定股票的时间和股票价格。不论是绘制股票图还是绘制指示线，我们首先想到的就是用Android中的自定义View来实现。实践证明，使用View能够很好地实现静态的图片，但是对用动态图像的绘制，往往会出现延迟的现象。就如上图的指示线，实际用View类实现的，跟随手指移动时，指示线就会出现延迟的现象，严重影响了用户体验，这里自然而然的要用到SurfaceView以提高性能，提高滑动的流畅度。</p>
+<p> </p>
+<p>2.Android中View和SurfaceView对比</p>
+<p>下面例举了一下二者的区别：</p>
+<p>View　　　　　　　　　　　　　　　　SurfaceView</p>
+<p>只能在UI主线程中更新画面　　　　　　UI主线程和新起的独立线程中都可更新画面</p>
+<p>无双缓冲机制　　　　　　　　　　　　采用双缓冲机制，速度快</p>
+<p>还有其他区别希望大家补充。</p>
+<p> </p>
+<p>3.案例</p>
+<p>下面是该程序实现的主要代码，隐去了数据的填充。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>上述代码关键地方都有注释。对于SurfaceView的实现，需要继承SurfaceView和实现Callback接口，同时需要实现三个方法：surfaceCreated、surfaceDestroyed、surfaceChanged方法，分别表示SurfaceView创建、销毁、界面改变时执行的方法。在构造函数中要初始化SurfaceHolder，同时每次绘图前要锁定画布，绘制完成后解锁画布。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2013-12-25-ios%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-%E7%BD%91%E7%BB%9C%E5%B0%81%E5%8C%85%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7charles/" data-toggle="tooltip" data-placement="top" title="iOS开发工具——网络封包分析工具Charles,抓包">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2014-01-14-a-gps%E5%AE%9A%E4%BD%8Dandroid%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" data-toggle="tooltip" data-placement="top" title="A-GPS定位Android简单实现">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Jan 9, 2014</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

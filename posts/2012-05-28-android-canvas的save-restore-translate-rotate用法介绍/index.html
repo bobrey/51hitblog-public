@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Android canvas的save restore translate rotate用法介绍 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Android canvas的save restore translate rotate用法介绍" />
+  <meta name="twitter:title" content="Android canvas的save restore translate rotate用法介绍" />
+  <meta name="description" content="一. 首先讲一下canvas的save 和 restore功能. 这是canvas很有魅力的一个部分. onDraw方法会传入一个Canvas对象，它">
+  <meta property="og:description" content="一. 首先讲一下canvas的save 和 restore功能. 这是canvas很有魅力的一个部分. onDraw方法会传入一个Canvas对象，它">
+  <meta name="twitter:description" content="一. 首先讲一下canvas的save 和 restore功能. 这是canvas很有魅力的一个部分. onDraw方法会传入一个Canvas对象，它">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-05-28-android-canvas%E7%9A%84save-restore-translate-rotate%E7%94%A8%E6%B3%95%E4%BB%8B%E7%BB%8D/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-05-28-android-canvas%E7%9A%84save-restore-translate-rotate%E7%94%A8%E6%B3%95%E4%BB%8B%E7%BB%8D/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">Android canvas的save restore translate rotate用法介绍</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon May 28, 2012</h4>
+    </section>
+    <h5 id="wc">900 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>一. 首先讲一下canvas的save 和 restore功能. 这是canvas很有魅力的一个部分.</p>
+<p>onDraw方法会传入一个Canvas对象，它是你用来绘制控件视觉界面的画布。</p>
+<p>在onDraw方法里，我们经常会看到调用save和restore方法，它们到底是干什么用的呢?</p>
+<p>❑ save：用来保存Canvas的状态。save之后，可以调用Canvas的平移、放缩、旋转、错切、裁剪等操作。</p>
+<p>❑ restore：用来恢复Canvas之前保存的状态。防止save后对Canvas执行的操作对后续的绘制有影响。</p>
+<p><strong>save和restore要配对使用(restore可以比save少，但不能多)</strong>，如果restore调用次数比save多，会引发Error。save和restore之间，往往夹杂的是对Canvas的特殊操作。</p>
+<p>例如：我们先想在画布上绘制一个右向的三角箭头，当然，我们可以直接绘制，另外，我们也可以先把画布旋转90°，画一个向上的箭头，然后再旋转回来(这种旋转操作对于画圆周上的标记非常有用)。然后，我们想在右下角有个20像素的圆，那么，onDraw中的核心代码是：</p>
+<p>int px = getMeasuredWidth();</p>
+<p>int py = getMeasuredWidth();</p>
+<p>// Draw background</p>
+<p>canvas.drawRect(0, 0, px, py, backgroundPaint);</p>
+<p>canvas.save();</p>
+<p>// 以画布中心为轴正向旋转90度</p>
+<p>canvas.rotate(90, px/2, py/2);</p>
+<p>//这里注意一下, <strong>rotate后面必须是getMeasuredWidth()和getMeasuredHeight()</strong>..具体为什么我也不太清楚..</p>
+<p> </p>
+<p>// Draw up arrow ，左-右-中</p>
+<p>canvas.drawLine(px / 2, 0, 0, py / 2, linePaint);</p>
+<p>canvas.drawLine(px / 2, 0, px, py / 2, linePaint);</p>
+<p>canvas.drawLine(px / 2, 0, px / 2, py, linePaint);</p>
+<p>// 把画布旋转回来，回复到旋转之前的样子</p>
+<p>canvas.restore();</p>
+<p>// Draw circle</p>
+<p>canvas.drawCircle(px – 10, py – 10, 10, linePaint);</p>
+<p> </p>
+<p> </p>
+<p>效果如图1所示：</p>
+<p><!-- raw HTML omitted --></p>
+<p> </p>
+<p>图1</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  &amp;nbsp;
+&lt;/p&gt;
+
+&lt;p&gt;
+  所以，save和restore之间，往往夹杂的是对Canvas的特殊操作。
+&lt;/p&gt;
+
+&lt;p&gt;
+  &amp;nbsp;
+&lt;/p&gt;
+
+&lt;p&gt;
+  二. 接着讲讲translate方法.
+&lt;/p&gt;
+
+&lt;p&gt;
+  &amp;nbsp;
+&lt;/p&gt;
+
+&lt;p&gt;
+  和j2me的translate用法一样，作用就是移动原点，默认的原点（0，0）是在屏幕左上角的，你可以&lt;strong&gt;通过translate（x，y）把点（x，y）作为原点&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+  &amp;nbsp;
+&lt;/p&gt;
+
+&lt;p&gt;
+  from： http://blog.csdn.net/infsafe/article/details/5428696
+&lt;/p&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-05-18-xcode%E4%B8%8B%E7%9A%84ios%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" data-toggle="tooltip" data-placement="top" title="XCode下的iOS单元测试">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-05-29-motionevent-%E7%9A%84getx%E4%B8%8Egetrawx%E7%9A%84%E5%8C%BA%E5%88%AB/" data-toggle="tooltip" data-placement="top" title="MotionEvent 的getX()与getRawX()的区别">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon May 28, 2012</h4>
+    </section>
+    <h5 id="wc">900 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

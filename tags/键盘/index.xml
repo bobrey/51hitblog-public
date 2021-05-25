@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>键盘 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/%E9%94%AE%E7%9B%98/</link>
+    <description>Recent content in 键盘 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Feb 2014 08:05:25 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/%E9%94%AE%E7%9B%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ios自定义键盘</title>
+      <link>https://www.51hint.com/posts/2014-02-23-ios%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%AE%E7%9B%98/</link>
+      <pubDate>Sun, 23 Feb 2014 08:05:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-02-23-ios%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%AE%E7%9B%98/</guid>
+      <description>盘缓存与安全键盘 ** ** 大部分中文应用弹出的默认键盘是简体中文输入法键盘，在输入用户名和密码的时候，如果使用简体中文输入法键盘，输入英文字符和数</description>
+    </item>
+    
+  </channel>
+</rss>

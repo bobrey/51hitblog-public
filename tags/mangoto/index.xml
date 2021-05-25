@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mangoto on IT技术分享</title>
+    <link>https://www.51hint.com/tags/mangoto/</link>
+    <description>Recent content in mangoto on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Aug 2013 10:10:26 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/mangoto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mangoto 学习的一些资料</title>
+      <link>https://www.51hint.com/posts/2013-08-15-mangoto-%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%80%E4%BA%9B%E8%B5%84%E6%96%99/</link>
+      <pubDate>Thu, 15 Aug 2013 10:10:26 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-08-15-mangoto-%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%80%E4%BA%9B%E8%B5%84%E6%96%99/</guid>
+      <description>Magento Test Automation Framework http://www.slideshare.net/amakata/magento-test-automation-framework magento 插件等 http://blog.csdn.net/shuishui8310/article/category/640421/2 Nginx下magento的性能优化配置 http://www.gaojinbo.com/nginx%E4%B8%8Bmagento%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html Magento开发文档(一)：Magento入门 http://www.ruiwant.com/magento-for-dev-part-1-introduction-to-magento.html http://www.sunzhenghua.com/blog/index/directsearch/search_item/magento/blog_search/%E6%90%9C%20%E7%B4%A2/page/1 http://www.sunzhenghua.com/magento-development-systemxml http://www.sunzhenghua.com/magento-add-custom-fields-checkout-page http://blog.csdn.net/shuishui8310/article/month/2011/09 http://www.magentonotes.com/magent-cart-empty-use-different-template.html https://code.google.com/p/sis-css-css/source/browse/my/note/Magento-note.txt?spec=svn87&amp;amp;r=87 http://www.hellokeykey.com/ http://php186.com/content/list/magento/96.html</description>
+    </item>
+    
+  </channel>
+</rss>

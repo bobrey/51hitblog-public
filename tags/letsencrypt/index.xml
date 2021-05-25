@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>letsencrypt on IT技术分享</title>
+    <link>https://www.51hint.com/tags/letsencrypt/</link>
+    <description>Recent content in letsencrypt on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 May 2016 03:09:20 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/letsencrypt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>免费ssl证书 letsencrypt</title>
+      <link>https://www.51hint.com/posts/2016-05-26-%E5%85%8D%E8%B4%B9ssl%E8%AF%81%E4%B9%A6-letsencrypt/</link>
+      <pubDate>Thu, 26 May 2016 03:09:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-05-26-%E5%85%8D%E8%B4%B9ssl%E8%AF%81%E4%B9%A6-letsencrypt/</guid>
+      <description>git clone https://github.com/letsencrypt/letsencrypt cd letsencrypt ./letsencrypt-auto –agree-tos –email flyhawk007online@gmail.com certonly –webroot -w /home/www/wwwroot/51hint -d 51hint.com /etc/letsencrypt/live/51hint.com &amp;lt;VirtualHost *:443&amp;gt; SSLEngine on SSLCertificateFile /etc/letsencrypt/live/51hint.com/cert.pem SSLCertificateKeyFile /etc/letsencrypt/live/51hint.com/privkey.pem SSLCertificateChainFile /etc/letsencrypt/live/51hint.com/chain.pem &amp;lt;Directory home/www/wwwroot/51hint/&amp;gt; AllowOverride All Order allow,deny Allow from all DocumentRoot home/www/wwwroot/51hint/ ServerName 51hint.com ErrorLog logs/51hint-error_log CustomLog logs/51hint-access_log common sudo crontab -e 0 3</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> git-config 配置文件 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="git-config 配置文件" />
+  <meta name="twitter:title" content="git-config 配置文件" />
+  <meta name="description" content="~/.gitconfig 是最常用的； 对应配置命令要加上–global git配置文件 ~/.gitconfig [user] name = fly email = flyhawk007hm@hotmail.com [core] editor = vim [alias] ci = commit -a -v co = checkout st = status br = branch throw = reset –hard HEAD throwh = reset –">
+  <meta property="og:description" content="~/.gitconfig 是最常用的； 对应配置命令要加上–global git配置文件 ~/.gitconfig [user] name = fly email = flyhawk007hm@hotmail.com [core] editor = vim [alias] ci = commit -a -v co = checkout st = status br = branch throw = reset –hard HEAD throwh = reset –">
+  <meta name="twitter:description" content="~/.gitconfig 是最常用的； 对应配置命令要加上–global git配置文件 ~/.gitconfig [user] name = fly email = flyhawk007hm@hotmail.com [core] editor = vim [alias] ci = commit -a -v co = checkout st = status br = branch throw = …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-12-21-git-config-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-12-21-git-config-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">git-config 配置文件</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Dec 21, 2012</h4>
+    </section>
+    <h5 id="wc">200 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/git/">git</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <p><a href="https://www.51hint.com/wp-content/uploads/2012/12/gitconfig.png"><!-- raw HTML omitted --></a> <a href="https://www.51hint.com/wp-content/uploads/2012/12/gitignore_global.png"><!-- raw HTML omitted --></a> <a href="https://i0.wp.com/www.51hint.com/wp-content/uploads/2012/12/gitignore.png"><!-- raw HTML omitted --></a></p>
+<p>~/.gitconfig 是最常用的； 对应配置命令要加上–global</p>
+<p>git配置文件</p>
+<p>~/.gitconfig</p>
+<p>[user]</p>
+<p>name = fly</p>
+<p>email = <a href="mailto:flyhawk007hm@hotmail.com">flyhawk007hm@hotmail.com</a></p>
+<p>[core]</p>
+<p>editor = vim</p>
+<p>[alias]</p>
+<p>ci = commit -a -v</p>
+<p>co = checkout</p>
+<p>st = status</p>
+<p>br = branch</p>
+<p>throw = reset –hard HEAD</p>
+<p>throwh = reset –hard HEAD^</p>
+<p>[color]</p>
+<p>ui = true</p>
+<p>[push]</p>
+<p>default = current</p>
+<p>[merge]</p>
+<p>tool = meld</p>
+<p>/*</p>
+<ul>
+<li>用其他用户名在本机提交</li>
+</ul>
+<p>*/</p>
+<p># git commit –author = “fly <a href="mailto:xxx@xx.com">xxx@xx.com</a>” -a -m “fix sth”</p>
+<p>查看帮助</p>
+<p># man git config</p>
+<p>/push.default</p>
+<p> </p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-12-21-sublime-textcavas/" data-toggle="tooltip" data-placement="top" title="sublime Text；cavas">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-12-23-centos-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85lamp/" data-toggle="tooltip" data-placement="top" title="centos6 快速安装LAMP">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2012-12-20-vim_5-tig/">git_vim_5 [tig]</a></li>
+                    
+                    <li><a href="/posts/2012-12-15-git_4-fork%E4%BB%96%E4%BA%BA%E4%BB%A3%E7%A0%81%E7%84%B6%E5%90%8Epush%E7%9A%84%E6%96%B9%E6%B3%95/">git_4 [fork他人代码然后push的方法]</a></li>
+                    
+                    <li><a href="/posts/2012-12-15-git_3-octopress-%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/">git_3 [octopress; 博客系统]</a></li>
+                    
+                    <li><a href="/posts/2012-12-11-%E7%90%86%E6%83%B3%E7%9A%84%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83gitgithubmarkdownjekyll/">理想的写作环境：git&#43;github&#43;markdown&#43;jekyll</a></li>
+                    
+                    <li><a href="/posts/2012-12-05-git_2-reject-%E6%8F%90%E4%BA%A4%E8%A2%AB%E6%8B%92%E7%BB%9D/">git_2 [reject]; 提交被拒绝</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Dec 21, 2012</h4>
+    </section>
+    <h5 id="wc">200 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/git/">git</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>swift2 on IT技术分享</title>
+    <link>https://www.51hint.com/categories/swift2/</link>
+    <description>Recent content in swift2 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Feb 2017 18:18:48 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/swift2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>swift2.2变化</title>
+      <link>https://www.51hint.com/posts/swift2-2bian-hua/</link>
+      <pubDate>Tue, 21 Feb 2017 18:18:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swift2-2bian-hua/</guid>
+      <description>associatedtype プロトコルには付属型という、プロトコルを型に適用する段階で具体的な型を決められる（それまで先送りできる）ものを規定することができました。今</description>
+    </item>
+    
+    <item>
+      <title>swift2.2 Selector</title>
+      <link>https://www.51hint.com/posts/swift2-2-selector/</link>
+      <pubDate>Tue, 21 Feb 2017 17:30:35 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swift2-2-selector/</guid>
+      <description>ViewControllerごとにSelector構造体をprivate拡張してセレクターのタイププロパティを生やしてあげる ViewController.swift private extension Selector { static let buttonTapped</description>
+    </item>
+    
+    <item>
+      <title>Swift2.0で追加された try, do-catch, defer を試してみる</title>
+      <link>https://www.51hint.com/posts/untitled-2/</link>
+      <pubDate>Tue, 21 Feb 2017 16:18:30 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/untitled-2/</guid>
+      <description>do-catch構文の基本的な使い方は下の通りです。 ErrorTypeを使った独自エラーを作り、独自エラーのthrowとcatchをする事が</description>
+    </item>
+    
+    <item>
+      <title>Swift2.0で追加されたrepeat-whileを触ってみた</title>
+      <link>https://www.51hint.com/posts/swift2-0dezhui-jia-saretarepeat-whilewohong-tutemita/</link>
+      <pubDate>Tue, 21 Feb 2017 16:07:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swift2-0dezhui-jia-saretarepeat-whilewohong-tutemita/</guid>
+      <description>repeat-whileは下の通りです。 他の言語のdo-whileと全く同じです。 var i = 0 repeat { print(i) i++ } while i &amp;lt; 10</description>
+    </item>
+    
+    <item>
+      <title>swift2で追加されたguard statementを試してみる</title>
+      <link>https://www.51hint.com/posts/swift2dezhui-jia-saretaguard-statementwoshi-sitemiru/</link>
+      <pubDate>Tue, 21 Feb 2017 15:47:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swift2dezhui-jia-saretaguard-statementwoshi-sitemiru/</guid>
+      <description>guard statementを試し 基本的な使い方は下の通りです。 guardとelseをセットで使います。 この例のように、変数がnilだった場合はブロ</description>
+    </item>
+    
+    <item>
+      <title>swift2 protocl extension小结</title>
+      <link>https://www.51hint.com/posts/swift-protocl-extensionxiao-jie/</link>
+      <pubDate>Tue, 21 Feb 2017 15:34:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swift-protocl-extensionxiao-jie/</guid>
+      <description>swift的protocol extensions简要说明 protocol extensions是什么 プロトコルにメソッドを追加できる機能です。 下のようにex</description>
+    </item>
+    
+  </channel>
+</rss>

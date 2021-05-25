@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ipa on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ipa/</link>
+    <description>Recent content in ipa on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Apr 2016 07:05:07 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ipa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xcodebuild 导出ipa</title>
+      <link>https://www.51hint.com/posts/2016-04-26-xcodebuild-%E5%AF%BC%E5%87%BAipa/</link>
+      <pubDate>Tue, 26 Apr 2016 07:05:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-04-26-xcodebuild-%E5%AF%BC%E5%87%BAipa/</guid>
+      <description>xcode7 以后编译需要plist文件； exportOptions.plist 编译xarchive，导出ipa文件</description>
+    </item>
+    
+  </channel>
+</rss>

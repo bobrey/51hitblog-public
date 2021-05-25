@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gis on IT技术分享</title>
+    <link>https://www.51hint.com/tags/gis/</link>
+    <description>Recent content in gis on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Aug 2012 15:53:56 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/gis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gis</title>
+      <link>https://www.51hint.com/posts/2012-09-01-gis/</link>
+      <pubDate>Fri, 31 Aug 2012 15:53:56 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-09-01-gis/</guid>
+      <description>ARCGIS SERVER 10 下载 geoServer 安装 http://www.cnblogs.com/beniao/archive/2011/01/08/1930822.html gis开源介绍 http://www.cnblogs.com/opengis/archive/2012/03/17/2403166.html http://blog.csdn.net/suen/article/details/2709472 绘制城市地图 http://www.opencity.info/</description>
+    </item>
+    
+  </channel>
+</rss>

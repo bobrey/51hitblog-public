@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on IT技术分享</title>
+    <link>https://www.51hint.com/categories/python/</link>
+    <description>Recent content in python on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Mar 2017 20:10:22 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>selenium</title>
+      <link>https://www.51hint.com/posts/selenium/</link>
+      <pubDate>Sun, 26 Mar 2017 20:10:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/selenium/</guid>
+      <description>Selenium,Tor sudo apt-get install python-pip -y sudo pip install selenium Basic Usage from selenium import webdriver driver = webdriver.Firefox() driver.get(&amp;#34;http://www.imdb.com/name/nm0331516/&amp;#34;) pagesHTML = driver.page_source searchBar = driver.find_element_by_id(&amp;#34;navbar-query&amp;#34;) searchBar.send_keys(&amp;#34;summer glau&amp;#34;) driver.find_element_by_id(&amp;#34;navbar-submit-button&amp;#34;).click() firstResult = driver.find_element_by_class_name(&amp;#34;result_text&amp;#34;) resultingURL = firstResult.find_element_by_tag_name(&amp;#34;a&amp;#34;).get_attribute(&amp;#34;href&amp;#34;) driver.get(resultingURL) driver.close()  If you want to use Chrome instead of Firefox, you need to download a chromedriver file from: http://chromedriver.storage.googleapis.com/index.html.
+  Download the latest version for your distribution, unzip the file, and move the output chromedriver file to /usr/bin.</description>
+    </item>
+    
+    <item>
+      <title>xvfb</title>
+      <link>https://www.51hint.com/posts/xvfb/</link>
+      <pubDate>Tue, 14 Mar 2017 01:59:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/xvfb/</guid>
+      <description>$sudo apt-get update $ sudo apt-get install firefox xvfb -y $ sudo aptitude install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic $ sudo apt-get install fonts-ipafont-gothic fonts-ipafont-mincho export DISPLAY=:10 echo &amp;#34;Starting Xvfb ...&amp;#34; Xvfb :10 -screen 0 1024x768x24 -ac &amp;amp; http://localhost:4444/wd/hub/static/resource/hub.html</description>
+    </item>
+    
+    <item>
+      <title>基于python yield机制的异步操作同步化编程模型</title>
+      <link>https://www.51hint.com/posts/ji-yu-python-yieldji-zhi-de-yi-bu-cao-zuo-tong-bu-hua-bian-cheng-mo-xing/</link>
+      <pubDate>Tue, 28 Feb 2017 16:11:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ji-yu-python-yieldji-zhi-de-yi-bu-cao-zuo-tong-bu-hua-bian-cheng-mo-xing/</guid>
+      <description>游戏引擎一般都采用分布式框架，通过一定的策略来均衡服务器集群的资源负载，从而保证服务器运算的高并发性和CPU高利用率，最终提高游戏的性能和负</description>
+    </item>
+    
+    <item>
+      <title>PYTHON-进阶-FUNCTOOLS模块小结</title>
+      <link>https://www.51hint.com/posts/python-jin-jie-functoolsmo-kuai-xiao-jie/</link>
+      <pubDate>Tue, 28 Feb 2017 15:58:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/python-jin-jie-functoolsmo-kuai-xiao-jie/</guid>
+      <description>functools.partial 作用: 通过包装手法，允许我们 &amp;ldquo;重新定义&amp;rdquo; 函数签名 用一些默认参数包装一个可调用对象,返回结果是可调用对象，并且可以像</description>
+    </item>
+    
+    <item>
+      <title>Python装饰器和符号@</title>
+      <link>https://www.51hint.com/posts/pythonzhuang-shi-qi-he-fu-hao/</link>
+      <pubDate>Tue, 28 Feb 2017 15:40:57 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/pythonzhuang-shi-qi-he-fu-hao/</guid>
+      <description>装饰器 Decorator 在代码运行期间动态增加功能的方式，称之为“装饰器”。装饰器本质是高阶函数, 就是将函数作为参数进行相应运作,最后返回一个闭包代替原有函</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>grafana on IT技术分享</title>
+    <link>https://www.51hint.com/tags/grafana/</link>
+    <description>Recent content in grafana on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Apr 2019 21:33:53 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Grafana</title>
+      <link>https://www.51hint.com/posts/grafana/</link>
+      <pubDate>Mon, 22 Apr 2019 21:33:53 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/grafana/</guid>
+      <description>grafana 是一个开源的时序性统计和监控平台，支持例如 elasticsearch、graphite、influxdb 等众多的数据源，并以功能强大的界面</description>
+    </item>
+    
+  </channel>
+</rss>

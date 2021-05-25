@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Amazon SNSとAdobe PhoneGap Buildを利用したプッシュ通知アプリの作成 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Amazon SNSとAdobe PhoneGap Buildを利用したプッシュ通知アプリの作成" />
+  <meta name="twitter:title" content="Amazon SNSとAdobe PhoneGap Buildを利用したプッシュ通知アプリの作成" />
+  <meta name="description" content="BaaS（Backend as a service）の普及により、より手軽にスマートデバイス向けのアプリが開発できるようになりました。 そこで今回は、">
+  <meta property="og:description" content="BaaS（Backend as a service）の普及により、より手軽にスマートデバイス向けのアプリが開発できるようになりました。 そこで今回は、">
+  <meta name="twitter:description" content="BaaS（Backend as a service）の普及により、より手軽にスマートデバイス向けのアプリが開発できるようになりました。 そこで今回は、">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/amazon-snstoadobe-phonegap-buildwoli-yong-sitaputusiyutong-zhi-apurinozuo-cheng/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/amazon-snstoadobe-phonegap-buildwoli-yong-sitaputusiyutong-zhi-apurinozuo-cheng/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Amazon SNSとAdobe PhoneGap Buildを利用したプッシュ通知アプリの作成</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Feb 22, 2017</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/android/">android</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#サンプルアプリ作成">サンプルアプリ作成</a></li>
+    <li><a href="#サンプルのダウンロード">サンプルのダウンロード</a></li>
+    <li><a href="#設定ファイルの作成">設定ファイルの作成</a></li>
+    <li><a href="#googleプロジェクト作成">Googleプロジェクト作成</a></li>
+    <li><a href="#ソースのビルド">ソースのビルド</a></li>
+    <li><a href="#amazon-snsの設定">Amazon SNSの設定</a></li>
+    <li><a href="#エンドポイントの設定">エンドポイントの設定</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>BaaS（Backend as a service）の普及により、より手軽にスマートデバイス向けのアプリが開発できるようになりました。</p>
+<p>そこで今回は、ハイブリッドアプリケーション向けのビルドサービス「Adobe PhoneGap Build」を利用してビルドしたアプリに、マルチデバイス対応の通知サービス「Amazon SNS」でプッシュ通知してみたいと思います。</p>
+<h2 id="サンプルアプリ作成">サンプルアプリ作成</h2>
+<p>Adobe PhoneGap Buildでアプリをビルドするためのソースを作成します。</p>
+<h2 id="サンプルのダウンロード">サンプルのダウンロード</h2>
+<p>以下のページからサンプルをダウンロードします。
+<a href="https://github.com/phonegap-build/PushPlugin">https://github.com/phonegap-build/PushPlugin</a></p>
+<p>任意のフォルダを作成しダウンロードしたサンプルから「Example/www」フォルダをコピーして配置します。</p>
+<pre><code>push-notification-sample
+  +- www
+</code></pre>
+<h2 id="設定ファイルの作成">設定ファイルの作成</h2>
+<p>ダウンロードしたサンプルには設定ファイルが存在しませんのでconfig.xmlを作成し
+プッシュ通知用プラグインの設定を記述します。</p>
+<p>保存場所</p>
+<pre><code>push-notification-sample
+  +- www
+    +- config.xml
+</code></pre>
+<p>config.xmlの内容</p>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;widget</span> <span class="na">xmlns =</span> <span class="s">&#34;http://www.w3.org/ns/widgets&#34;</span> <span class="na">xmlns:gap =</span> <span class="s">&#34;http://phonegap.com/ns/1.0&#34;</span> <span class="na">id =</span> <span class="s">&#34;com.example.push-notication-sample&#34;</span> <span class="na">version =</span> <span class="s">&#34;1.0.0&#34;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;name&gt;</span>Push Notification Sample<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Push Notification Sample<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;author</span> <span class="na">email=</span><span class="s">&#34;dev@example.com&#34;</span> <span class="na">href=</span><span class="s">&#34;http://example.com&#34;</span><span class="nt">&gt;</span>Example<span class="nt">&lt;/author&gt;</span>
+
+    <span class="nt">&lt;gap:plugin</span> <span class="na">name=</span><span class="s">&#34;org.apache.cordova.device&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;gap:plugin</span> <span class="na">name=</span><span class="s">&#34;com.phonegap.plugins.pushplugin&#34;</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;icon</span> <span class="na">src=</span><span class="s">&#34;icon.png&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;access</span> <span class="na">origin=</span><span class="s">&#34;*&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/widget&gt;</span>
+</code></pre></div><p>Config.xmlファイルの仕様については以下のページを参照してください
+<a href="http://cordova.apache.org/docs/ja/3.5.0/config_ref_index.md.html">http://cordova.apache.org/docs/ja/3.5.0/config_ref_index.md.html</a></p>
+<h2 id="googleプロジェクト作成">Googleプロジェクト作成</h2>
+<p>Android端末へプッシュ通知するにはGCM（Google Cloud Messaging）を利用します。</p>
+<ul>
+<li>
+<p><a href="https://console.developers.google.com/">Google Developer Console</a>でプロジェクトを作成します。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/1.create-google-project.png" alt=""></p>
+</li>
+<li>
+<p>APIsメニューにて「Google Cloud Messaging for Android」をONにします。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/enable-gcm-api.png" alt=""></p>
+</li>
+<li>
+<p>プロジェクトナンバーをindex.htmlの52行目のsenderIDに設定します。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/1.project-no.png" alt=""></p>
+</li>
+<li>
+<p>index.htmlの52行目</p>
+</li>
+</ul>
+<pre><code>pushNotification.register(successHandler, errorHandler, {&quot;senderID&quot;:&quot;120281718381&quot;,&quot;ecb&quot;:&quot;onNotification&quot;});
+</code></pre><h2 id="ソースのビルド">ソースのビルド</h2>
+<ul>
+<li>
+<p><a href="https://build.phonegap.com/">Adobe PhoneGap Build</a>にサインインし、「push-notification-sample」フォルダをzip形式で圧縮したファイルをアップロードします。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/1.phongap-build-upload.png" alt=""></p>
+</li>
+<li>
+<p>アップロードが完了したらビルドを開始します。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/1.phongap-build-build-start.png" alt=""></p>
+</li>
+<li>
+<p>ビルドが完了したら以下のように各ＯＳ向けのアプリがビルドされます。
+Android端末のブラウザで<a href="https://build.phonegap.com/">Adobe PhoneGap Build</a>にアクセスしアプリのインストールを行います。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/4-08.app-install1.png" alt=""></p>
+</li>
+</ul>
+<h2 id="amazon-snsの設定">Amazon SNSの設定</h2>
+<p>アプリケーション作成</p>
+<p><a href="https://console.developers.google.com/project">Google Developer Console</a>のCredentialsメニューでAPIキーを取得します。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/4-01.gcm-api-key-1.png" alt=""></p>
+<p><img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/4-02.gcm-api-key-2.png" alt=""></p>
+<p>Amazon SNSの<a href="https://console.aws.amazon.com/sns/home">コンソール画面</a>でアプリケーションを新規作成します。「Push Platform」はGoogle Cloud Messaging(GCM)、「API KEY」に取得したAPIキーを設定しておきます。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/4.create-aws-sns-app.png" alt=""></p>
+<h2 id="エンドポイントの設定">エンドポイントの設定</h2>
+<ul>
+<li>
+<p>エンドポイントに追加するために先ほどインストールしたアプリケーションを開きデバイスIDをコピーします。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/4-04.device-id.png" alt=""></p>
+</li>
+<li>
+<p>コピーしたデバイスIDをエンドポイントに追加します。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/4-05-1.add-endpoint.png" alt=""></p>
+</li>
+</ul>
+<p>Publishボタンを選択してメッセージを送信します。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/4-06-1.publish.png" alt=""></p>
+<p>メッセージタイプをJSON形式に選択すれば、アプリケーションにJSONデータをパラメータとして渡すこともできます。
+<img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/4-06-3.publish.png" alt=""></p>
+<p>Androidの通知センターにメッセージが届き、アプリケーションにも通知されます。</p>
+<p><img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/4-09.notification-center.png" alt=""></p>
+<p><img src="http://www.infoscoop.org/blogjp/wp-content/uploads/2014/08/4-10.receive-message.png" alt=""></p>
+<p>次回はAmazon SNSのAPIを利用したプッシュ通知の方法について紹介したいと思います。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/swift3-noescape/" data-toggle="tooltip" data-placement="top" title="swift3 noescape">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/aws-sns-js/" data-toggle="tooltip" data-placement="top" title="aws sns js">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Feb 22, 2017</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/android/">android</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

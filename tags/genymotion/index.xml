@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>genymotion on IT技术分享</title>
+    <link>https://www.51hint.com/tags/genymotion/</link>
+    <description>Recent content in genymotion on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Apr 2014 06:12:59 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/genymotion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android模拟器Genymotion</title>
+      <link>https://www.51hint.com/posts/2014-04-25-android%E6%A8%A1%E6%8B%9F%E5%99%A8genymotion/</link>
+      <pubDate>Fri, 25 Apr 2014 06:12:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-25-android%E6%A8%A1%E6%8B%9F%E5%99%A8genymotion/</guid>
+      <description>自从用了Genymotion这个号称快到极致的Android模拟器以后，很多时候调试程序都不想用真机了，SDK带效率低下的官方模拟器因为效率</description>
+    </item>
+    
+  </channel>
+</rss>

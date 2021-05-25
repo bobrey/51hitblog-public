@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Posts - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Posts" />
+  <meta name="twitter:title" content="Posts" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  <header class="header-section ">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="page-heading">
+              <h1>Posts</h1>
+              <hr class="small">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/rebase-i-hui-he-ti-jiao/">
+                <h2 class="post-title">rebase -i 汇合提交</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  本地端的历史记录的状态如下图显示。在这里汇合「添加commit的讲解」和「添加pull的讲解」的修改，然后合并到一个提交。 若要汇合过去的提交
+                  <a href="https://www.51hint.com/posts/rebase-i-hui-he-ti-jiao/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/git/">git</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/cherry-pick/">
+                <h2 class="post-title">cherry-pick</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。例如，假设我们有个稳定版本的分支，叫v2.0，另外还有
+                  <a href="https://www.51hint.com/posts/cherry-pick/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/git/">git</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/resethui-gun/">
+                <h2 class="post-title">reset回滚</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  我们将用reset来删除master分支最前面的两个提交。 本地端的历史记录的状态如下图显示。 用log命令确认历史记录。 $ git log commit 0d4a808c26908cd5fe4b6294a00150342d1a58be Author: yourname &lt;yourname@yourmail.com&gt; Date: Mon Jul
+                  <a href="https://www.51hint.com/posts/resethui-gun/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/git/">git</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/revert-gai-xie-ti-jiao/">
+                <h2 class="post-title">revert撤销操作！</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  我们将用revert命令来取消「添加pull的讲解」提交。 本地端的历史记录的状态如下图显示。 数据库的历史记录 $ git log commit 0d4a808c26908cd5fe4b6294a00150342d1a58be Author: yourname &lt;yourname@yourmail.com&gt; Date: Mon Jul 16 23:19:26 2012 +0900 添
+                  <a href="https://www.51hint.com/posts/revert-gai-xie-ti-jiao/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/git/">git</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/commit-amend-gai-xie-ti-jiao/">
+                <h2 class="post-title">commit --amend 改写提交！</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  我们将修改最近一次的提交。 首先本地端的历史记录状态如下图显示。 用log命令确认历史记录。 $ git log commit 326fc9f70d022afdd31b0072dbbae003783d77ed Author: yourname &lt;yourname@yourmail.com&gt; Date: Mon Jul 16 23:17:56 2012 +0900 添加add的说明 commit 48eec1ddf73a7fb508ef664efd6b3d873631742f Author:
+                  <a href="https://www.51hint.com/posts/commit-amend-gai-xie-ti-jiao/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/git/">git</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/ji-yu-python-yieldji-zhi-de-yi-bu-cao-zuo-tong-bu-hua-bian-cheng-mo-xing/">
+                <h2 class="post-title">基于python yield机制的异步操作同步化编程模型</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  游戏引擎一般都采用分布式框架，通过一定的策略来均衡服务器集群的资源负载，从而保证服务器运算的高并发性和CPU高利用率，最终提高游戏的性能和负
+                  <a href="https://www.51hint.com/posts/ji-yu-python-yieldji-zhi-de-yi-bu-cao-zuo-tong-bu-hua-bian-cheng-mo-xing/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/python/">python</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/python-jin-jie-functoolsmo-kuai-xiao-jie/">
+                <h2 class="post-title">PYTHON-进阶-FUNCTOOLS模块小结</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  functools.partial 作用: 通过包装手法，允许我们 &ldquo;重新定义&rdquo; 函数签名 用一些默认参数包装一个可调用对象,返回结果是可调用对象，并且可以像
+                  <a href="https://www.51hint.com/posts/python-jin-jie-functoolsmo-kuai-xiao-jie/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/python/">python</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/pythonzhuang-shi-qi-he-fu-hao/">
+                <h2 class="post-title">Python装饰器和符号@</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  装饰器 Decorator 在代码运行期间动态增加功能的方式，称之为“装饰器”。装饰器本质是高阶函数, 就是将函数作为参数进行相应运作,最后返回一个闭包代替原有函
+                  <a href="https://www.51hint.com/posts/pythonzhuang-shi-qi-he-fu-hao/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/python/">python</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/charles-zhu-ce-ma/">
+                <h2 class="post-title">Charles 注册码</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  Windows 用户 RegName: ANONYMOUS@chinapyg.com Reg_Key: 5fae99ec65736945ba 官方下载后可直接激活。神key. Mac 用户 方式一如果不行，方式二绝对可以。 方式一 账号：WaitsUn.com 密码：vapg-fol
+                  <a href="https://www.51hint.com/posts/charles-zhu-ce-ma/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/mac-os-x-shang-de-lddhe-stracede-ti-dai/">
+                <h2 class="post-title">Mac OS X 上的ldd和strace的替代</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  Linux下经常会用到ldd查看程序使用了哪些共享链接库，很方便的一个工具，在Mac OS X上没有这个命令，如果想在Mac OS X查看程序使用了哪些
+                  <a href="https://www.51hint.com/posts/mac-os-x-shang-de-lddhe-stracede-ti-dai/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+        </div>
+        
+          <ul class="pager main-pager">
+            
+              <li class="previous">
+                <a href="/posts/page/17">&larr; Newer Posts</a>
+              </li>
+            
+            
+              <li class="next">
+                <a href="/posts/page/19">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    <div align="center" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/17/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/17/">17</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/page/18/">18</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/19/">19</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/90/">90</a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/19/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/90/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

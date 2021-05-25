@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>max on IT技术分享</title>
+    <link>https://www.51hint.com/tags/max/</link>
+    <description>Recent content in max on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Jan 2014 04:42:51 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/max/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>phpmyadmin max upload file size</title>
+      <link>https://www.51hint.com/posts/2014-01-27-phpmyadmin-max-upload-file-size/</link>
+      <pubDate>Mon, 27 Jan 2014 04:42:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-27-phpmyadmin-max-upload-file-size/</guid>
+      <description>memory_limit = 512M
+post_max_size = 80M
+upload_max_filesize = 200M</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ecshop on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ecshop/</link>
+    <description>Recent content in ecshop on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Jul 2012 02:55:30 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ecshop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ecshop 添加后台菜单</title>
+      <link>https://www.51hint.com/posts/2012-07-03-ecshop-%E6%B7%BB%E5%8A%A0%E5%90%8E%E5%8F%B0%E8%8F%9C%E5%8D%95/</link>
+      <pubDate>Tue, 03 Jul 2012 02:55:30 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-03-ecshop-%E6%B7%BB%E5%8A%A0%E5%90%8E%E5%8F%B0%E8%8F%9C%E5%8D%95/</guid>
+      <description>如何在ecshop后台添加新菜单及权限管理 今天仔细研究终于搞明白，对于不懂的用户见意分析一下他的代码，这样才能彻底搞懂，拿别人的文章来读只是</description>
+    </item>
+    
+  </channel>
+</rss>

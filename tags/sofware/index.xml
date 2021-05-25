@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sofware on IT技术分享</title>
+    <link>https://www.51hint.com/tags/sofware/</link>
+    <description>Recent content in sofware on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Dec 2012 02:31:50 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/sofware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>软件推荐</title>
+      <link>https://www.51hint.com/posts/2012-12-19-%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</link>
+      <pubDate>Wed, 19 Dec 2012 02:31:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-19-%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</guid>
+      <description>1、StarUML 一款知名的免费开源的UML建模工具。 2、ArgoUML 另一个著名的开源UML建模软件，ArgoUML支持Windows、M</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>多线程 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+    <description>Recent content in 多线程 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 Aug 2011 07:59:00 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GCD</title>
+      <link>https://www.51hint.com/posts/2011-08-26-gcd/</link>
+      <pubDate>Fri, 26 Aug 2011 07:59:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-26-gcd/</guid>
+      <description>iOS中多线程编程工具主要有： NSThread NSOperation GCD 这三种方法都简单易用,各有千秋.但无疑GCD是最有诱惑力的,因为其本身是apple为多核的并行运算提出的</description>
+    </item>
+    
+  </channel>
+</rss>

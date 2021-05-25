@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>callback on IT技术分享</title>
+    <link>https://www.51hint.com/tags/callback/</link>
+    <description>Recent content in callback on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Nov 2013 04:54:24 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/callback/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Handler,Callback 泄露内存</title>
+      <link>https://www.51hint.com/posts/2013-11-07-handlercallback-%E6%B3%84%E9%9C%B2%E5%86%85%E5%AD%98/</link>
+      <pubDate>Thu, 07 Nov 2013 04:54:24 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-07-handlercallback-%E6%B3%84%E9%9C%B2%E5%86%85%E5%AD%98/</guid>
+      <description>然后再使用Handler/Callback ,就OK了； 不会再泄露内存 或者</description>
+    </item>
+    
+    <item>
+      <title>对于CallBack的简单阐述</title>
+      <link>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</link>
+      <pubDate>Wed, 30 Oct 2013 06:00:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</guid>
+      <description>一哥们被callback整得晕晕乎乎，解释了半天好像还是不太懂就整理一个微型例子。 逻辑页面处理，调用接口的方法 //一些调用UI页面啥之类的，</description>
+    </item>
+    
+  </channel>
+</rss>

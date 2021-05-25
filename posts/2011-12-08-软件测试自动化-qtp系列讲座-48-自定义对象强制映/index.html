@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 【软件测试自动化-QTP系列讲座 48】== 自定义对象强制映射封装类(一) == - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="【软件测试自动化-QTP系列讲座 48】== 自定义对象强制映射封装类(一) ==" />
+  <meta name="twitter:title" content="【软件测试自动化-QTP系列讲座 48】== 自定义对象强制映射封装类(一) ==" />
+  <meta name="description" content="在上一次虚拟对象讲座中我们简单介绍了用于处理第三方无法识别对象的描述性的写法，那么这次为大家介绍的知识点是Object Mapping也就是对">
+  <meta property="og:description" content="在上一次虚拟对象讲座中我们简单介绍了用于处理第三方无法识别对象的描述性的写法，那么这次为大家介绍的知识点是Object Mapping也就是对">
+  <meta name="twitter:description" content="在上一次虚拟对象讲座中我们简单介绍了用于处理第三方无法识别对象的描述性的写法，那么这次为大家介绍的知识点是Object Mapping也就是对">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-12-08-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%87%AA%E5%8A%A8%E5%8C%96-qtp%E7%B3%BB%E5%88%97%E8%AE%B2%E5%BA%A7-48-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1%E5%BC%BA%E5%88%B6%E6%98%A0/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-12-08-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%87%AA%E5%8A%A8%E5%8C%96-qtp%E7%B3%BB%E5%88%97%E8%AE%B2%E5%BA%A7-48-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1%E5%BC%BA%E5%88%B6%E6%98%A0/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">【软件测试自动化-QTP系列讲座 48】== 自定义对象强制映射封装类(一) ==</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Dec 8, 2011</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>在上一次虚拟对象讲座中我们简单介绍了用于处理第三方无法识别对象的描述性的写法，那么这次为大家介绍的知识点是Object Mapping也就是对象映射，虽然是一个比较老的知识点了，但是有些新人可能还不是非常了解，因此在这里做一次简单介绍，来看实例:</p>
+<p>这里我们使用QQ的登录框作为实例，因为QTP对QQ程序识别很差。</p>
+<p>正常情况下如果我们使用spy去查QQ的用户名文本框所显示的是winobject对象</p>
+<p><a href="https://i2.wp.com/www.51hint.com/wp-content/uploads/0.png"><!-- raw HTML omitted --></a></p>
+<p>那此时对象被识别为了WinObject形式，说明此时对象的文本框类型并没有被识别出来。</p>
+<p>也就是说QTP工具本身并不知道这个对象是文本框，但是我们是可以分辨此对象是什么类型的</p>
+<p>那此时我们可以使用对象映射的方式来解决这类问题。</p>
+<p>打开Tools –&gt; Object Identification</p>
+<p><a href="https://www.51hint.com/wp-content/uploads/1.png"><!-- raw HTML omitted --></a></p>
+<p>点击user-defined</p>
+<p><a href="https://www.51hint.com/wp-content/uploads/2.png"><!-- raw HTML omitted --></a></p>
+<p>点击红色区域的手指图标，抓去QQ用户名文本框</p>
+<p><a href="https://i0.wp.com/www.51hint.com/wp-content/uploads/3.png"><!-- raw HTML omitted --></a></p>
+<p>在右边map to的处选择SingleLine Edit后，点击Add按钮（注意这一步别忘记了）</p>
+<p>最后点击OK,</p>
+<p>再次使用spy进行查找你会发现对象已经成功被映射成winedit了。</p>
+<p><a href="https://i0.wp.com/www.51hint.com/wp-content/uploads/4.png"><!-- raw HTML omitted --></a></p>
+<p>接着我们添加到对象库，直接执行一次看看</p>
+<p><strong>Window(“QQ2011”).WinEdit(“TXEdit”).Set “test”</strong></p>
+<p>执行结果：</p>
+<p>怎么样，是不是已经可以成功执行了。</p>
+<p>总结：</p>
+<p>这一讲我们主要简单介绍了对象映射的基础，但是这种方式存在着一些弊端，比如移植问题等等，下次我们会主要讲解如何来解决这一系列问题。</p>
+<p>出处：http://blog.csdn.net/zzxxbb112</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-12-08-%E5%A6%82%E4%BD%95%E7%94%A8nslog%E8%BE%93%E5%87%BAnsrangecgrect%E7%AD%89%E7%BB%93%E6%9E%84%E4%BD%93/" data-toggle="tooltip" data-placement="top" title="如何用NSLog输出NSRange,CGRect等结构体">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-12-09-%E8%AE%BE%E7%BD%AEttlauncherview%E7%9A%84%E8%A1%8C%E9%AB%98/" data-toggle="tooltip" data-placement="top" title="设置TTLauncherView的行高">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Dec 8, 2011</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

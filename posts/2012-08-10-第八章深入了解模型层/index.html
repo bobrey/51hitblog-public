@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第八章：深入了解模型层 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第八章：深入了解模型层" />
+  <meta name="twitter:title" content="第八章：深入了解模型层" />
+  <meta name="description" content="目录 8.1 为什么使用ORM和抽象层？ 8.2 Symfony的数据库schema 8.3 Schema示例 8.3.1 Schema基本语法 8.4 模型类 8.4.1 基础和自定义类 8.4.2 对象和">
+  <meta property="og:description" content="目录 8.1 为什么使用ORM和抽象层？ 8.2 Symfony的数据库schema 8.3 Schema示例 8.3.1 Schema基本语法 8.4 模型类 8.4.1 基础和自定义类 8.4.2 对象和">
+  <meta name="twitter:description" content="目录 8.1 为什么使用ORM和抽象层？ 8.2 Symfony的数据库schema 8.3 Schema示例 8.3.1 Schema基本语法 8.4 模型类 8.4.1 基础和自定义类 8.4.2 对象和">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E6%A8%A1%E5%9E%8B%E5%B1%82/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E6%A8%A1%E5%9E%8B%E5%B1%82/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第八章：深入了解模型层</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">4700 Words|Read in about 10 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_08_why_use_an_orm_and_an_abstraction_layer"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.1 为什么使用ORM和抽象层？<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_08_symfony_s_database_schema"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.2 Symfony的数据库schema<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_08_sub_schema_example"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.3 Schema示例<!-- raw HTML omitted --></a></a>
+      <ul>
+        <li><a href="#chapter_08_sub_basic_schema_syntax"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.3.1 Schema基本语法<!-- raw HTML omitted --></a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_08_model_classes"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.4 模型类<!-- raw HTML omitted --></a></a>
+      <ul>
+        <li><a href="#chapter_08_sub_base_and_custom_classes"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.4.1 基础和自定义类<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_08_sub_object_and_table_classes"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.4.2 对象和数据表类<!-- raw HTML omitted --></a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_why_use_an_orm_and_an_abstraction_layer">8.1 为什么使用ORM和抽象层？</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_symfony_s_database_schema">8.2 Symfony的数据库schema</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_schema_example">8.3 Schema示例</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_basic_schema_syntax">8.3.1 Schema基本语法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_model_classes">8.4 模型类</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_base_and_custom_classes">8.4.1 基础和自定义类</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_object_and_table_classes">8.4.2 对象和数据表类</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_accessing_data">8.5 访问数据</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_retrieving_the_column_value">8.5.1 取得列值</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_retrieving_related_records">8.5.2 取得相关联的记录</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_saving_and_deleting_data">8.5.3 保存和删除数据</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_retrieving_records_by_primary_key">8.5.4 通过主键来获得记录</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_retrieving_records_with_doctrine_query">8.5.5 用Doctrine_Query获得记录</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_using_raw_sql_queries">8.5.6 使用原生的SQL查询</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_using_special_date_columns">8.5.7 使用特定日期列</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_database_connections">8.6 数据库连接</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_extending_the_model">8.7 扩展模型</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_adding_new_methods">8.7.1 增加新的方法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_overriding_existing_methods">8.7.2 覆盖现有方法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_using_model_behaviors">8.7.3 使用模型行为</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_extended_schema_syntax">8.8 Schema扩展语法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_attributes">8.8.1 属性</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_column_details">8.8.2 列详细资料</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_relationships">8.8.3 关联</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_indexes">8.8.4 索引</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_i18n_tables">8.8.5 I18n表</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_behaviors">8.8.6 行为</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_don_t_create_the_model_twice">8.9 不要重复的建模型</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_building_a_sql_database_structure_based_on_an_existing_schema">8.9.1 基于已存在的schema建立一个SQL数据库结构</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_sub_generating_a_yaml_data_model_from_an_existing_database">8.9.2 从已有数据库建立YAML数据模型</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#chapter_08_summary">8.10 总结</a></li>
+<li></li>
+</ul>
+<p><!-- raw HTML omitted -->到目前为止本书大多数的讨论都专注于建立页面，处理请求与响应。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->但是web应用的业务逻辑大多依赖于它的数据模型。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->symfony的默认模型组件是基于一个对象/关系映射层。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Symfony comes bundles with the two most popular PHP ORMs: &lt;a target=&quot;_blank&rdquo; href=&quot;<!-- raw HTML omitted --><a href="http://www.propelorm.org/%22%3EPropel">http://www.propelorm.org/&quot;&gt;Propel</a><!-- raw HTML omitted --><!-- raw HTML omitted --> and &amp;lta target=&quot;_blank&quot; href=&quot;<!-- raw HTML omitted --><a href="http://www.doctrine-project.org/%22%3EDoctrine">http://www.doctrine-project.org/&quot;&gt;Doctrine</a><!-- raw HTML omitted -->.<!-- raw HTML omitted -->“&gt;symfony捆绑两个最流行的PHP ORM<!-- raw HTML omitted -->：<!-- raw HTML omitted -->Proopel<!-- raw HTML omitted --> 和 <!-- raw HTML omitted -->Doctrine<!-- raw HTML omitted -->。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在symfony应用中，你不用关注数据库的实际位置，而是通过对象来访问储存在数据库中的数据的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这保持了高度的抽象和可移植性。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->本章解释了如何建立一个数据对象模型和如何通过Doctrine来访问和修改数据。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->同时也展示了symfony是如何整合Doctrine的。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_08_why_use_an_orm_and_an_abstraction_layer"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.1 为什么使用ORM和抽象层？<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->数据库是关系型的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->PHP5和symfony都是面向对象的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->为了在面向对象环境中最有效的访问数据库，一个接口转换“对象逻辑”为“关系逻辑”是必须的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如第一章所述，这个接口就叫做对象-关系映射（ORM），它是由可以访问数据和保持业务规则的对象组成的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->ORM最大的优势就是可重用性，它允许数据对象的方法可以被应用的其他部分调用，甚至可以从不同的应用中调用。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->ORM层也可以封装数据逻辑，例如，基于用户的贡献度和如何作出的贡献来计算论坛用户的评分。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当一个页面需要显示例如一个用户的评分，不需要担心如何去计算，只要很简单的调用数据模型的方法即可。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果以后计算方法有所变化，你只需要修改模型的评分方法即可，应用的其他部分不需要改变。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->使用对象来代替记录，用类来代替表，还有其他好处：他们允许你在对象中增加一个新的读取方法而不需要对应到表的一个列。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;For instance, if you have a table called <code>client</code> with two fields named <code>first_name</code> and <code>last_name</code>, you might like to be able to require just a <code>Name</code>.”&gt;例如，如果你有一个 <code>client</code> 表，它拥有两个字段分别叫做 <code>first_name</code> 和 <code>last_name</code>，你可能只想要获得一个 <code>Name</code>。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;In an object-oriented world, it is as easy as adding a new accessor method to the <code>Client</code> class, as in Listing 8-1.”&gt;在面向对象的世界里，<code>Client</code> 类中增加一个存取方法是非常简单的，如例8-1所示。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;From the application point of view, there is no difference between the <code>FirstName</code>, <code>LastName</code>, and <code>Name</code> attributes of the <code>Client</code> class.”&gt;从应用的角度来看，<code>Client</code> 类的 <code>FirstName</code>、<code>LastName</code> 和 <code>Name</code> 属性没有什么区别。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->只有类本身才能决定属性所对应的数据库的列。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->所有重复的数据访问函数和数据自身的业务逻辑可以存在对象中。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Suppose you have a <code>ShoppingCart</code> class in which you keep <code>Items</code> (which are objects).”&gt;假设你有一个 <code>ShoppingCart</code> 类，里面有一个 <code>Item</code>（是个对象）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->只要写一个自定义的方法来封装实际的计算过程，就可以在结账时得到购物车的总价。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如例8-2所示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->在建立数据访问过程的时候还要考虑另外一个要点：数据库厂商所使用的不同的SQL语法变种。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->换用另外一个数据库管理系统（DBMS）会让你不得不重写一部分为以前设计的SQL查询。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果用数据库独立语法来建立一个查询，并把实际SQL翻译为第三方语言，换数据库系统就不会麻烦了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这就是数据抽象层存在的目的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->它强制让你使用特定的语法规则来写查询，同时把它转到到相应的DBMS并优化SQL语句。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->抽象层的主要优势是可移植性，因为他让换用另一种数据库成为可能，甚至可以在项目中期换用。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->假设你需要为应用写一个快速原型，但客户还没有确定哪个数据库最适合他。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->你可以先用SQLite建立你的应用，然后在客户有了决定后切换到MySQL、PostgreSQL或者Oracle。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这只要改变配置文件中一行代码即可。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->symfony使用Propel或者Doctrine来实现ORM，然后用PDO（PHP Data Object）做数据库抽象。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这两个第三方组件，都是由Propel和Doctrine团队开发的，并且都无缝集合到了symfony中，你可以把他们作为框架的一部分。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在本章描述的这些语法和规则与symfony框架本身的语法的可能会有点不同。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_08_symfony_s_database_schema"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.2 Symfony的数据库schema<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->为了创建symfony使用的数据对象模型，需要把数据库关系模型翻译为对象数据模型。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->ORM需要关系模型的描述来做映射，这就叫做schema。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在schema中，你定义表和表之间的关系，还有表中字段列的详细。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->symfony中的schema语法使用YAML格式。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>schema.yml</code> files must be located in the <code>myproject/config/doctrine</code> directory.”&gt;<code>schema.yml</code> 文件必须放在 <code>myproject/config/doctrine</code> 目录下。<!-- raw HTML omitted --></p>
+<h2 id="chapter_08_sub_schema_example"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.3 Schema示例<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->如何把数据库结构转换为schema呢？看例子是最好的理解方法。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Imagine that you have a blog database with two tables: <code>blog_article</code> and <code>blog_comment</code>, with the structure shown in Figure 8-1.”&gt;试想一下你有一个博客数据库，包含两个表 <code>blog_article</code> 和 <code>blog_comment</code>，结构如图8-1所示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The related <code>schema.yml</code> file should look like Listing 8-3.”&gt;对应的 <code>schema.yml</code> 文件应该看上去如例8-3所示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Notice that the name of the database itself (<code>blog</code>) doesn’t appear in the <code>schema.yml</code> file.”&gt;注意数据库本身的名字（<code>blog</code>）并没有出现在 <code>schemal.yml</code> 文件中。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Instead, the database is described under a connection name (<code>doctrine</code> in this example).”&gt;反而在连接名下有数据库描述（本例中是 <code>doctrine</code>）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这是因为实际的连接设置可以依照应用运行的环境来定。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;For instance, when you run your application in the development environment, you will access a development database (maybe <code>blog_dev</code>), but with the same schema as the production database.”&gt;例如，当你在开发环境中运行应用时，你会访问一个开发数据库（比如是 <code>blog_dev</code>），但是产品数据库也用的是同一个schema文件。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The connection settings will be specified in the <code>databases.yml</code> file, described in the &ldquo;Database Connections&rdquo; section later in this chapter.”&gt;在 <code>database.yml</code> 文件中有连接，本章稍后的“数据库连接”会有介绍。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->schema不包含任何连接设置的细节，只有连接名用来保持数据库抽象。<!-- raw HTML omitted --></p>
+<h3 id="chapter_08_sub_basic_schema_syntax"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.3.1 Schema基本语法<!-- raw HTML omitted --></a></h3>
+<p>&lt;span en=&ldquo;In a <code>schema.yml</code> file, the first key represents a model name.”&gt;在 <code>schema.yml</code> 文件中，第一个关键字代表一个模型名。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->你可以指定多个模块，每个模型都有一组字段列。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->根据YAML语法，关键字用冒号作结束标记，然后结构是通过缩进显示的（一个或多个空格，但不是制表符）。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;A model can have special attributes, including the <code>tableName</code> (the name of the models database table).”&gt;模型可以有一些属性，包括 <code>tableName</code>（模型数据表的名称）。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;If you don&rsquo;t mention a <code>tableName</code> for a model, Doctrine creates it based on the underscored version of the model name.”&gt;对于模型如果你没有设置 <code>tableName</code>，Doctrine则根据模型名字的下划线命名法自动创建它。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->一个模型包含许多字段列。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->有两种方法可以定义字段：<!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p><!-- raw HTML omitted -->如果只定义一个属性，则为字段类型。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Symfony understands the usual column types: <code>boolean</code>, <code>integer</code>, <code>float</code>, <code>date</code>, <code>string(size)</code>, <code>clob</code> (converted, for instance, to <code>text</code> in MySQL), and so on.”&gt;symfony支持一些常用的字段类型：<code>boolean</code>、<code>integer</code>、<code>float</code>、<code>date</code>、<code>string(size)</code>、<code>clob</code>（转换过的，例如MySQL中的 <code>text</code>），等等。<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>&lt;span en=&ldquo;If you need to define other column attributes (like default value, required, and so on), you should write the column attributes as a set of <code>key: value</code>.”&gt;如果需要定义字段列的其他属性（如默认值、是否为必填等等），你需要把字段属性写为一组 <code>key: value</code>。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这种扩展的schema语法稍后在本章介绍。<!-- raw HTML omitted --></p>
+</li>
+</ul>
+<p><!-- raw HTML omitted -->模型还可以包含详细外键和索引。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->请参阅“扩展Schema语法”这节，在本章后面会了解到更多。<!-- raw HTML omitted --></p>
+<h2 id="chapter_08_model_classes"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.4 模型类<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->Schema用于建立ORM层的模型类的。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;To save execution time, these classes are generated with a command-line task called &lt;code.doctrine:build-model<!-- raw HTML omitted -->.”&gt;为了省时，这些类是通过命令行调用 <code>doctrine:build-model</code> 来生成的。<!-- raw HTML omitted --></p>
+<pre><code>$ php symfony doctrine:build-model
+</code></pre>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Typing this command will launch the analysis of the schema and the generation of base data model classes in the <code>lib/model/doctrine/base</code> directory of your project:”&gt;输入这个命令会加载schema并分析，然后在你项目的 <code>lib/model/doctrine/base</code> 目录生成基础数据模型类。<!-- raw HTML omitted --></p>
+<ul>
+<li><code>BaseArticle.php</code></li>
+<li><code>BaseComment.php</code></li>
+</ul>
+<p>&lt;span en=&ldquo;In addition, the actual data model classes will be created in <code>lib/model/doctrine</code>:”&gt;此外，会在 <code>lib/model/doctrine</code> 创建实际数据模型类：<!-- raw HTML omitted --></p>
+<ul>
+<li><code>Article.php</code></li>
+<li><code>ArticleTable.php</code></li>
+<li><code>Comment.php</code></li>
+<li><code>CommentTable.php</code></li>
+</ul>
+<p><!-- raw HTML omitted -->你只定义了两个模型，而到6个文件。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->没有错这是正常的，然后我解释一下。<!-- raw HTML omitted --></p>
+<h3 id="chapter_08_sub_base_and_custom_classes"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.4.1 基础和自定义类<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->为什么数据对象模型在两个不同的目录有两个不同的版本？<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;You will probably need to add custom methods and properties to the model objects (think about the <code>getName()</code> method in Listing 8-1). “&gt;你可能会需要添加自定义的方法和属性到模型对象（比如例8-1的 <code>getName()</code> 方法）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->但随着你项目的开发，你还会添加数据表或字段。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Whenever you change the <code>schema.yml</code> file, you need to regenerate the object model classes by making a new call to <code>doctrine:build-model</code>.”&gt;只要你修改了 <code>schema.yml</code> 文件，就要运行 <code>doctrine:build-model</code> 命令重新生成对象模型类。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果你在自动生成出来的类上写你自己的自定义方法，那么以后每次再生成它们会被覆盖。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>Base</code> classes kept in the <code>lib/model/doctrine/base/</code> directory are the ones directly generated from the schema.”&gt;位于 <code>lib/model/doctrine/base/</code> 目录里的 <code>Base</code> 类是来自schema直接生成的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->你不能修改它们，因为每次新建的模型会完全覆盖这些文件。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;On the other hand, the custom object classes, kept in the <code>lib/model/doctrine</code> directory, actually inherit from the <code>Base</code> ones.”&gt;另一方面，自定义类，位于 <code>lib/model/doctrine</code> 目录里，实际上是继承自 <code>Base</code> 类。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;When the <code>doctrine:build-model</code> task is called on an existing model, these classes are not modified.”&gt;如果 <code>doctrine:build-model</code> 命令调用了一个已有的模型的时候，这些类则不会被修改。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->所以这个就是你可以添加自定义方法的地方。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Listing 8-4 presents an example of a custom model class as created by the first call to the <code>doctrine:build-model</code> task.”&gt;例 8-4 展示的是第一次调用 <code>doctrine:build-model</code> 命令建立的一个自定义模型类的例子<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;It inherits everything of the <code>BaseArticle class</code>, but a modification in the schema will not affect it.”&gt;它继承 <code>BaseArticle</code> 类的一切，但修改schema并不会影响到这个文件。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->用自定义类来扩展基础类的机制可以让你在不知道最终数据库中模型之间的关系的时候开始编程。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->相关的文件结构会让模型既可以自定义又可以进化。<!-- raw HTML omitted --></p>
+<h3 id="chapter_08_sub_object_and_table_classes"><a href="forum.php?mod=viewthread&amp;tid=31&amp;extra=page%3D1#"><!-- raw HTML omitted -->8.4.2 对象和数据表类<!-- raw HTML omitted --></a></h3>
+<p>&lt;span en=&quot;<code>Article</code> and <code>Comment</code> are object classes that represent a record in the database.”&gt;<code>Article</code> 和 <code>Comment</code> 是对象类，在数据库中代表一条记录。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->他们可以访问到记录的字段类和有关记录。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这就是说你可以调用 <!-- raw HTML omitted -->Article<!-- raw HTML omitted --> 对象的方法来获取文章的标题，如例8-5所示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&quot;<code>ArticleTable</code> and <code>CommentTable</code> are table classes; that is, classes that contain public methods to operate on the tables.”&gt;<code>ArticleTable</code> 和 <code>CommentTable</code> 是数据表类；因此，类包含了公有的方法来操作数据表。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->他们提供了从表中获得记录的方法。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->他们的方法通常返回了一个对象或是相关对象类的对象的集合，如例8-6所示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  &lt;span en=&quot;Object-Oriented&quot;&gt;面向对象的 &amp;nbsp; &amp;nbsp; &lt;/span&gt;
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Class&quot;&gt;类&lt;/span&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Object&quot;&gt;对象&lt;/span&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Property&quot;&gt;属性&lt;/span&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  Criteria
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;code&gt;-&amp;gt;where('acolumn = ?', 'value')&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;code&gt;-&amp;gt;orderBy('acolumn ASC')&amp;lt;/span&gt;&amp;lt;/td&gt;
+  &amp;lt;/tr&gt;
+  &amp;lt;tr&gt;
+  &amp;lt;td&gt;&amp;lt;code&gt;ORDER BY column DESC&lt;/code&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;-&amp;gt;addOrderBy('acolumn DESC')&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;code&gt;-&amp;gt;limit(limit)&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;code&gt;-&amp;gt;offset(offset)&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;code&gt;-&amp;gt;leftJoin('a.Model2 m')&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;code&gt;-&amp;gt;innerJoin('a.Model2 m')&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96/" data-toggle="tooltip" data-placement="top" title="第十三章：国际化和本地化">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E7%BC%93%E5%AD%98/" data-toggle="tooltip" data-placement="top" title="第十二章：缓存">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">4700 Words|Read in about 10 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

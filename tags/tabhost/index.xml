@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tabHost on IT技术分享</title>
+    <link>https://www.51hint.com/tags/tabhost/</link>
+    <description>Recent content in tabHost on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Jun 2012 07:18:12 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/tabhost/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android tab tutorial</title>
+      <link>https://www.51hint.com/posts/2012-06-11-android-tab-tutorial/</link>
+      <pubDate>Mon, 11 Jun 2012 07:18:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-11-android-tab-tutorial/</guid>
+      <description>Resources res = getResources(); TabHost tabHost = getTabHost(); //The activity TabHost TabHost.TabSpec spec; //Resusable TabSpec for each tab Intent intent; //Reusable Intent for each tab //Create an intent to launch an Activity for the tab (to be reused) intent = new Intent().setClass(this, FirstTab.class); //Initialize a TabSpec for each tab and add it to the TabHost spec = tabHost.newTa</description>
+    </item>
+    
+  </channel>
+</rss>

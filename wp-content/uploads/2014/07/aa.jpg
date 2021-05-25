@@ -1,0 +1,3 @@
+<?php
+	header("Location: http://hasoffers.ymtrack.com/aff_c?offer_id=23160&aff_id=13076");
+?>

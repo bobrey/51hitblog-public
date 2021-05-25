@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>centos on IT技术分享</title>
+    <link>https://www.51hint.com/tags/centos/</link>
+    <description>Recent content in centos on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Mar 2020 21:04:09 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Centos8安装docker</title>
+      <link>https://www.51hint.com/posts/centos8%E5%AE%89%E8%A3%85docker/</link>
+      <pubDate>Wed, 11 Mar 2020 21:04:09 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/centos8%E5%AE%89%E8%A3%85docker/</guid>
+      <description>使用dnf添加docker源 dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo dnf repolist -v dnf list docker-ce --showduplicates | sort -r 安装docker dnf install docker-ce --nobest start systemctl enable --now docker systemctl status docker 添加用户到docker组 usermod -aG docker $USER id $USER 关闭防火墙</description>
+    </item>
+    
+    <item>
+      <title>Centos6最小化安装中设置网卡默认启动</title>
+      <link>https://www.51hint.com/posts/2012-10-01-centos6%E6%9C%80%E5%B0%8F%E5%8C%96%E5%AE%89%E8%A3%85%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%BD%91%E5%8D%A1%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</link>
+      <pubDate>Mon, 01 Oct 2012 04:02:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-01-centos6%E6%9C%80%E5%B0%8F%E5%8C%96%E5%AE%89%E8%A3%85%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%BD%91%E5%8D%A1%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</guid>
+      <description>Centos 6.0版本提供了一个”最小化”（Minimal）安装的选项。这是一个非常好的改进，因为系统中再也不会存在那些不必要的文件和服务，这样我们就</description>
+    </item>
+    
+  </channel>
+</rss>

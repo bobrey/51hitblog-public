@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> iphone 调试日志 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="iphone 调试日志" />
+  <meta name="twitter:title" content="iphone 调试日志" />
+  <meta name="description" content="大部分人调试程序都是看日志吧，这里我就给大家总结一下iphone程序中添加保存日志的方法。 Objective-C开发程序的时候，有专门的日志">
+  <meta property="og:description" content="大部分人调试程序都是看日志吧，这里我就给大家总结一下iphone程序中添加保存日志的方法。 Objective-C开发程序的时候，有专门的日志">
+  <meta name="twitter:description" content="大部分人调试程序都是看日志吧，这里我就给大家总结一下iphone程序中添加保存日志的方法。 Objective-C开发程序的时候，有专门的日志">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-06-20-iphone-%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-06-20-iphone-%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">iphone 调试日志</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jun 20, 2011</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p> </p>
+<p>大部分人调试程序都是看日志吧，这里我就给大家总结一下iphone程序中添加保存日志的方法。</p>
+<p>Objective-C开发程序的时候，有专门的日志操作类NSLog，它将指定的输出到标准的错误输出上（stderr）。我们可以利用它在Xcode的日志输出窗口，或者是输出到具体的文件当中。</p>
+<p>下面是我在程序中常用到的日志宏，用DEBUG开关管理，也就是说只有在DEBUG模式下才让日志输出 ：</p>
+<!-- raw HTML omitted -->
+<pre><code>  &lt;td&gt;
+    &lt;pre class=&quot;src&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;&lt;span&gt;#ifdef&lt;/span&gt;&lt;/span&gt; DEBUG
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --># define<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->LOG<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->fmt<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->, &hellip;) <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->do<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> {                                            /
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->NSString<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->* <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->file<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> = [[NSString alloc] initWithFormat:@<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;%s&quot;<!-- raw HTML omitted --><!-- raw HTML omitted -->, __FILE__]; /
+NSLog((@<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;%@(%d) &ldquo;<!-- raw HTML omitted --><!-- raw HTML omitted --> fmt), [file lastPathComponent], __LINE__, ##__VA_ARGS__); /
+[file release];                                                 /
+} <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->while<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->(0)
+<!-- raw HTML omitted --><!-- raw HTML omitted --># define<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->LOG_METHOD<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> NSLog(@<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;%s&rdquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->, __func__)
+<!-- raw HTML omitted --><!-- raw HTML omitted --># define<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->LOG_CMETHOD<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> NSLog(@<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;%@/%@&quot;<!-- raw HTML omitted --><!-- raw HTML omitted -->, NSStringFromClass([self class]), NSStringFromSelector(_cmd))
+<!-- raw HTML omitted --><!-- raw HTML omitted --># define<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->COUNT<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->p<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->) NSLog(@<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;%s(%d): count = %d/n&quot;<!-- raw HTML omitted --><!-- raw HTML omitted -->, __func__, __LINE__, [p retainCount]);
+<!-- raw HTML omitted --><!-- raw HTML omitted --># define<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->LOG_TRACE<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->x<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->) <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->do<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> {<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->printf<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->x<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->; putchar(<!-- raw HTML omitted --><!-- raw HTML omitted -->'/n'<!-- raw HTML omitted --><!-- raw HTML omitted -->); fflush(stdout);} <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->while<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> (0)
+<!-- raw HTML omitted --><!-- raw HTML omitted -->#else<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted --># define<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->LOG<!-- raw HTML omitted --><!-- raw HTML omitted -->(&hellip;)
+<!-- raw HTML omitted --><!-- raw HTML omitted --># define<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->LOG_METHOD<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted --># define<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->LOG_CMETHOD<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted --># define<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->COUNT<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->p<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->)
+<!-- raw HTML omitted --><!-- raw HTML omitted --># define<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->LOG_TRACE<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->x<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->)
+<!-- raw HTML omitted --><!-- raw HTML omitted -->#endif<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>可以看到，除了标准的用户定义输出外，我还加入了许多有用的信息，比如源程序文件位置，行号，类名，函数名等。具体的应用可以在具体的开发过程中添加、删除。</p>
+<p> </p>
+<p>真机测试的时候，可以利用freopen将标准错误输出保存到指定的文件当中，这样就可以在问题发生后分析日志文件。</p>
+<!-- raw HTML omitted -->
+<pre><code>  &lt;td&gt;
+    &lt;pre class=&quot;src&quot;&gt;- (&lt;span class=&quot;type&quot;&gt;&lt;strong&gt;&lt;span&gt;void&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;)&lt;span class=&quot;function-name&quot;&gt;&lt;span&gt;redirectNSLogToDocumentFolder&lt;/span&gt;&lt;/span&gt;{
+&lt;span class=&quot;type&quot;&gt;&lt;strong&gt;&lt;span&gt;NSArray&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt; *&lt;span class=&quot;variable-name&quot;&gt;&lt;strong&gt;&lt;span&gt;paths&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt; = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, &lt;span class=&quot;constant&quot;&gt;&lt;span&gt;YES&lt;/span&gt;&lt;/span&gt;);
+&lt;span class=&quot;type&quot;&gt;&lt;strong&gt;&lt;span&gt;NSString&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt; *&lt;span class=&quot;variable-name&quot;&gt;&lt;strong&gt;&lt;span&gt;documentsDirectory&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt; = [paths objectAtIndex:0];
+&lt;span class=&quot;type&quot;&gt;&lt;strong&gt;&lt;span&gt;NSString&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt; *&lt;span class=&quot;variable-name&quot;&gt;&lt;strong&gt;&lt;span&gt;fileName&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt; =[&lt;span class=&quot;type&quot;&gt;&lt;strong&gt;&lt;span&gt;NSString&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt; stringWithFormat:@&lt;span class=&quot;string&quot;&gt;&lt;span&gt;&quot;%@.log&quot;&lt;/span&gt;&lt;/span&gt;,[&lt;span class=&quot;type&quot;&gt;&lt;strong&gt;&lt;span&gt;NSDate&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt; date]];
+&lt;span class=&quot;type&quot;&gt;&lt;strong&gt;&lt;span&gt;NSString&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt; *&lt;span class=&quot;variable-name&quot;&gt;&lt;strong&gt;&lt;span&gt;logFilePath&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt; = [documentsDirectory stringByAppendingPathComponent:fileName];
+freopen([logFilePath cStringUsingEncoding:NSASCIIStringEncoding],&lt;span class=&quot;string&quot;&gt;&lt;span&gt;&quot;a+&quot;&lt;/span&gt;&lt;/span&gt;,stderr);
+</code></pre>
+<p>}</p>
+<ul>
+<li>
+<p>(<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->void<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->applicationDidFinishLaunching<!-- raw HTML omitted --><!-- raw HTML omitted -->🙁<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->UIApplication<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> *)<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->application<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> {
+<!-- raw HTML omitted --><!-- raw HTML omitted -->// <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->真机测试时保存日志 <!-- raw HTML omitted --><!-- raw HTML omitted -->    <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->if<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> ([<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->CDeviceInfo<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> getModelType] != SIMULATOR) {
+[<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->self<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> redirectNSLogToDocumentFolder];
+}<!-- raw HTML omitted --></p>
+<pre><code>  &lt;div&gt;
+    转自：http://blog.csdn.net/demigod2009/archive/2011/05/17/6428004.aspx
+  &lt;/div&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-06-20-openurl%E6%89%93%E5%BC%80%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-sms-tel-mail-maps/" data-toggle="tooltip" data-placement="top" title="openURL打开其他应用程序 sms tel mail maps">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-06-20-%E8%8B%B9%E6%9E%9C%E6%8E%A8%E9%80%81%E9%80%9A%E7%9F%A5/" data-toggle="tooltip" data-placement="top" title="苹果推送通知">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-06-20-openurl%E6%89%93%E5%BC%80%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-sms-tel-mail-maps/">openURL打开其他应用程序 sms tel mail maps</a></li>
+                    
+                    <li><a href="/posts/2011-06-14-objc_msgsend%E5%87%BD%E6%95%B0-runtimeapi/">objc_msgSend函数  runtimeapi</a></li>
+                    
+                    <li><a href="/posts/2011-06-10-%E6%97%8B%E8%BD%AC%E5%8F%8D%E8%BD%AC%E7%BC%A9%E6%94%BE%E7%AD%89/">旋转，反转，缩放等</a></li>
+                    
+                    <li><a href="/posts/2011-06-09-%E7%B1%BB%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E6%9B%BF%E6%8D%A2%E5%AE%9E%E7%8E%B0fin/">类方法以及私有方法和【使用动态方法替换实现final功能]</a></li>
+                    
+                    <li><a href="/posts/2011-06-09-nsobject%E7%9A%84%E5%A5%A5%E7%A7%98-%E4%B8%8E%E7%B1%BB%E5%A4%96%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F/">NSObject的奥秘与类外访问私有变量</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jun 20, 2011</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

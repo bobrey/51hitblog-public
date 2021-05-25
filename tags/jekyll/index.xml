@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jekyll on IT技术分享</title>
+    <link>https://www.51hint.com/tags/jekyll/</link>
+    <description>Recent content in jekyll on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Dec 2012 02:38:03 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>理想的写作环境：git&#43;github&#43;markdown&#43;jekyll</title>
+      <link>https://www.51hint.com/posts/2012-12-11-%E7%90%86%E6%83%B3%E7%9A%84%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83gitgithubmarkdownjekyll/</link>
+      <pubDate>Tue, 11 Dec 2012 02:38:03 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-11-%E7%90%86%E6%83%B3%E7%9A%84%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83gitgithubmarkdownjekyll/</guid>
+      <description>理想的写作环境：git+github+markdown+jekyll http://www.yangzhiping.com/tech/writing-space.html Ruby开源项目介绍(1)：octopress——像黑客一样写博客 http://www.yangzhiping.com/tech/octopress.html</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Android 手机定位慢的解决方法 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Android 手机定位慢的解决方法" />
+  <meta name="twitter:title" content="Android 手机定位慢的解决方法" />
+  <meta name="description" content="首先，你需要创建一个LocationManager； 然后定义出自己的LocationListener，LocationListener包涵了">
+  <meta property="og:description" content="首先，你需要创建一个LocationManager； 然后定义出自己的LocationListener，LocationListener包涵了">
+  <meta name="twitter:description" content="首先，你需要创建一个LocationManager； 然后定义出自己的LocationListener，LocationListener包涵了">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2014-01-14-android-%E6%89%8B%E6%9C%BA%E5%AE%9A%E4%BD%8D%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2014-01-14-android-%E6%89%8B%E6%9C%BA%E5%AE%9A%E4%BD%8D%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">Android 手机定位慢的解决方法</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Jan 14, 2014</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/android/">Android</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>首先，你需要创建一个LocationManager；</p>
+<p>然后定义出自己的LocationListener，LocationListener包涵了好几个成员函数，它们都是回调函数。最重要的一个是“onLocationChanged”，这个函数是在Android获取了新的location信息之后调用的，你可以在这个函数内来实现自己想要的功能。比如，你可以定义一个内部location变量，一旦这个函数被调用，就将内部location变量设置成最新的值；</p>
+<p>最后，调用LocationManager.requestLocastionUpdates，它其实是将定义的locationListener注册到Android中。在上面的代码中，这句话是说让LocationListener监听GPS_PROVIDER的变化。GPS_PROVIDER对应于android上的GPS模块获取位置信息，还有一个NETWORK_PROVIDER表示通过network方式获取位置信息。**</p>
+<p>**</p>
+<p><strong>问题</strong></p>
+<p>那么接下来就有问题了，什么时候能够真正获得手机的 定位经纬度呢？等着onLocationChanged被调用吧。那它什么时候会被调用？没人知道。我写过一个小程序，测试Network方式下注册过 listener之后（requestLocationUpdates函数）和onLocationChanged被调用之间的时间间隔。测试的网络条件 很好。反复观察了几次，大部分都可以在几十毫秒内就返回了，但也有一些时候，时间间隔长达几十秒。这意味着，你的用户需要等上几十秒才能有返回。</p>
+<p>所以，第一个需要注意的地方是，不要一直等待你的回调函数onLocationChanged被调用。你需要设置一个timeout机制。</p>
+<p>这又会引入第二个问题。如果timeout了，但onLocationChanged仍然没有返回，怎么办？难道只能提示用户无法定位吗？</p>
+<p>别急，Android还提供了一个函数：getlastKnowLocation。这个函数会返回android平台最后一次获取到的位置信息。比如，你可以这样：</p>
+<!-- raw HTML omitted -->
+<p>所以，即便onLocationChanged没有被调用，我们仍然可以获取一个位置信息。当然，这里又引出了第三个问题：这个的返回值值得信赖吗？</p>
+<p>如果用过一些LBS或者地图程序，你会发现有一个现象：在某些时候你打开地图结果被定位到的地方是你上一次使用地图程序的位置。这就是因为程序是采 用getLastKnownLocation获取的位置。这个问题的解决办法是，需要定义一个标准判断获取到的Location是否可信。Android的Location这个类除了包涵有latitude,longitude，还包含有很多其他的信息，比如何时获取到的，通过哪种方式获取到的，等等。程序员完全可以基于这些信息来判断获取到的Location是否过时或者是否可信。</p>
+<p><strong>合理的方案</strong></p>
+<p>最后，说一下整体方案。Android的官方文档【1】给出了推荐的方案：</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>首先注册自己的LocationListener，让它同时监听GPS_PROVIDER和NETWORK_PROVIDER；</p>
+<p>然后可以调用getLastKnownLocation获得一个Location值，这个值可以作为一个备选值；</p>
+<p>然后在一段用户可接受的时间内，不断接收从onLocationChanged返回的位置，并同之前的值做比较，选取其中的最佳；</p>
+<p>最后，会剩下一个筛选后的最优结果，你需要判断这个结果是否可接受。如果可以接受，返回给用户，如果不行，告诉用户无法定位。</p>
+<p>整个过程你需要定义两个重要的函数：一个是比较两个Location信息，返回其中好的那个；另一个函数则用来判断Location信息是否可以被接受。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2014-01-14-android-gps-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A82/" data-toggle="tooltip" data-placement="top" title="android gps 简单入门2">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2014-01-14-android%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%9C%B0%E5%9B%BE%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/" data-toggle="tooltip" data-placement="top" title="android定位和地图开发实例">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2013-12-09-android-something/">android -something</a></li>
+                    
+                    <li><a href="/posts/2013-11-15-logcat-%E5%AF%BC%E5%87%BA/">logcat 导出</a></li>
+                    
+                    <li><a href="/posts/2013-11-07-handlercallback-%E6%B3%84%E9%9C%B2%E5%86%85%E5%AD%98/">Handler,Callback 泄露内存</a></li>
+                    
+                    <li><a href="/posts/2013-10-21-android-%E5%8A%A8%E6%80%81%E6%B7%BB%E5%8A%A0layout%E9%87%8D%E5%88%A9%E7%94%A8layoutxml/">android 动态添加layout，重利用layoutxml</a></li>
+                    
+                    <li><a href="/posts/2013-10-18-%E5%85%B3%E9%97%ADandroid%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/">关闭android应用程序</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Jan 14, 2014</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/android/">Android</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

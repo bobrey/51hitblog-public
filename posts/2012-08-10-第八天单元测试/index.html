@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第八天：单元测试 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第八天：单元测试" />
+  <meta name="twitter:title" content="第八天：单元测试" />
+  <meta name="description" content="目录 8.1 symfony中的测试 8.2 单元测试 8.3 lime测试框架 8.4 运行单元测试 8.5 测试slugify方法 8.6 为新功能添加测试 8.7 为调试Bug添加测试 8.8 Do">
+  <meta property="og:description" content="目录 8.1 symfony中的测试 8.2 单元测试 8.3 lime测试框架 8.4 运行单元测试 8.5 测试slugify方法 8.6 为新功能添加测试 8.7 为调试Bug添加测试 8.8 Do">
+  <meta name="twitter:description" content="目录 8.1 symfony中的测试 8.2 单元测试 8.3 lime测试框架 8.4 运行单元测试 8.5 测试slugify方法 8.6 为新功能添加测试 8.7 为调试Bug添加测试 8.8 Do">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AB%E5%A4%A9%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AB%E5%A4%A9%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第八天：单元测试</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">3600 Words|Read in about 8 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_08_tests_in_symfony"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.1 symfony中的测试</a></a></li>
+    <li><a href="#chapter_08_unit_tests"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.2 单元测试</a></a></li>
+    <li><a href="#chapter_08_the_lime_lime_testing_framework_testing_framework"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.3 <code>lime</code> 测试框架</a></a></li>
+    <li><a href="#chapter_08_running_unit_tests"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.4 运行单元测试</a></a></li>
+    <li><a href="#chapter_08_testing_slugify"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.5 测试 <code>slugify</code> 方法</a></a></li>
+    <li><a href="#chapter_08_adding_tests_for_new_features"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.6 为新功能添加测试</a></a></li>
+    <li><a href="#chapter_08_adding_tests_because_of_a_bug"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.7 为调试Bug添加测试</a></a></li>
+    <li><a href="#chapter_08_doctrine_unit_tests"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.8 Doctrine单元测试</a></a>
+      <ul>
+        <li><a href="#chapter_08_sub_database_configuration"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.8.1 数据库配置</a></a></li>
+        <li><a href="#chapter_08_sub_test_data"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.8.2 测试数据</a></a></li>
+        <li><a href="#chapter_08_sub_testing_jobeetjob"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.8.4 测试 <code>JobeetJob</code></a></a></li>
+        <li><a href="#chapter_08_sub_test_other_doctrine_classes"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.8.5 测试其他doctrine类</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_08_unit_tests_harness"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.9 打包测试</a></a></li>
+    <li><a href="#chapter_08_final_thoughts"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.10 结语</a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_tests_in_symfony">8.1 symfony中的测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_unit_tests">8.2 单元测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_the_lime_lime_testing_framework_testing_framework">8.3 lime测试框架</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_running_unit_tests">8.4 运行单元测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_testing_slugify">8.5 测试slugify方法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_adding_tests_for_new_features">8.6 为新功能添加测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_adding_tests_because_of_a_bug">8.7 为调试Bug添加测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_doctrine_unit_tests">8.8 Doctrine单元测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_sub_database_configuration">8.8.1 数据库配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_sub_test_data">8.8.2 测试数据</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_sub_testing_jobeetjob">8.8.4 测试JobeetJob</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_sub_test_other_doctrine_classes">8.8.5 测试其他doctrine类</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_unit_tests_harness">8.9 打包测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#chapter_08_final_thoughts">8.10 结语</a></li>
+<li></li>
+</ul>
+<p>过去两天，我们回顾我们过去5天学过的内容，增加和修改了一些功能。在这个过程中，我们也接触到symfony一些高级功能。</p>
+<p>今天，我们讲的与前几天完全不同：<strong>自动测试</strong>。因为主题范围太大，我们会用两天来讲这些，</p>
+<h2 id="chapter_08_tests_in_symfony"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.1 symfony中的测试</a></h2>
+<p>Symfony有两种不同的自动测试：<strong>单元测试</strong> 和 <strong>功能测试</strong>。</p>
+<p>单元测试是检查每个方法和函数工作正常。每一个测试必须 as independent as possible from the others。</p>
+<p>另一方面，功能测试检验整体程序运行过程是否正确。</p>
+<p>所有的测试在symfony中是位于项目的 <code>test/</code> 目录下。它包含两个子目录，一个单元测试（<code>test/unit/</code>）和一个功能测试（<code>test/functional/</code>）。</p>
+<p>今天讲单元测试，明天会专门讲功能测试。</p>
+<h2 id="chapter_08_unit_tests"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.2 单元测试</a></h2>
+<p>写单元测试是网站开发中最艰难环节之一，也是最好的习惯之一。当网页开发者没有真正检验自己的工作，就会出现问题： 我添加功能前写测试程序吗？我需要测试什么？我的测试是否需要涵盖各种特殊情况？我如何确定所有内容都通过了测试？但通常一个最基础的问题是：从哪开始？</p>
+<p>symfony提倡的是一种实用主义的方式：有一点总比没有强。你有许多没有测试的代码吗？没问题，你不需要一套完整测试套件，就可以从测试中获益。你可以在发现bug时，再开始添加测试。久而久之，你的代码将变得更好，代码覆盖度将提高，你对代码将更有信心。以实用主义的方式开始测试程序，不久之后你就会感到适应的。下面我们为新功能写测试。我保证你很快就会上瘾的。</p>
+<p>大部分测试库存在的问题是，巨大的学习成本。这也是symfony为什么提供非常简单的测试库 <strong>lime</strong> 的原因，它将让编写测试程序非常轻松。</p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_08_the_lime_lime_testing_framework_testing_framework"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.3 <code>lime</code> 测试框架</a></h2>
+<p>所有用lime框架写的测试开始都是一样的：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>首先，<code>unit.php</code> 引导文件包括了一些初始化。然后一个新的 <code>lime_test</code> 对象，该对象<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一个参数表示需要执行多个测试项。</p>
+<!-- raw HTML omitted -->
+<p>测试程序调用方法或函数，并让其使用预定义值执行，然后将执行结果与预期的结果相比较 以判断测试是否通过。</p>
+<p>为更容易进行结果比较，<code>lime_test</code> 对象提供几个方法：</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  描述
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  测试一个条件，然后如果是true则通过
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  比较两个值，如果他们相等（&lt;code&gt;==&lt;/code&gt;）则通过
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  比较两个值，如果他们不相等则通过
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查一个字符串是否匹配一个正则表单式
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查一个字符串是否不匹配一个正则表达式
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查两个数组是否有相同的值
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>lime_test</code> 对象也提供了其他方便的测试方法：</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  描述
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  总是失败，用于测试异常
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  总是通过，用于测试异常
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  作为 &lt;code&gt;$nb_tests&lt;/code&gt; 计数，用于条件测试
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  tests
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  作为一个测试的计数，用于测试仍然被写
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  written
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>最后，如果没有进行任何测试，<code>comment($msg)</code> 方法最后会输出一条注释。</p>
+<h2 id="chapter_08_running_unit_tests"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.4 运行单元测试</a></h2>
+<p>所有的单元测试文件存储在 <code>test/unit/</code> 目录下。按约定，测试文件命名方式是类名加 <code>Test</code> 后缀。你可以按喜欢的方式组织 <code>test/unit/</code> 目录下的文件，但我们还是建议你仿照 <code>lib/</code> 的目录结构。</p>
+<p>要举例说明单元测试，我们会测试 <code>Jobeet</code> 类。</p>
+<p>创建一个 <code>test/unit/JobeetTest.php</code> 文件，然后下面的代码拷贝进去：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>要加载测试，你可以直接执行文件：</p>
+<!-- raw HTML omitted -->
+<p>或用 <code>test:unit</code> 命令：</p>
+<!-- raw HTML omitted -->
+<p><img src="res/cli_tests.png" alt="Tests on the command line"></p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_08_testing_slugify"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.5 测试 <code>slugify</code> 方法</a></h2>
+<p>让我们以 <code>Jobeet::slugify()</code> 单元测试，作为我们的开始。</p>
+<p>我们在<!-- raw HTML omitted -->第<!-- raw HTML omitted -->五天创建 <code>slugify()</code> 方法来清理字符串，让它可以安全地包含在URL中。这个方法包含一些基础的转化，如将非ASCII字符转换成（<code>-</code>）或将字符串转换为小写字母：</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  输出
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sensio-labs
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  paris-france
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>用下面的代码替换测试文件中的内容：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>如果你仔细观察我们写到测试，你将注意到每行代码只测试一种情况。你必须记住这条规则：一个测试项只测试一种情况。</p>
+<p>现在可以运行测试文件。如果所有测试项通过，最后将显示“<em>绿色条</em>”表示通过，否则出现“<em>红色条</em>”警告你有没通过的测试项。</p>
+<p><img src="res/slugify.png" alt="slugify() tests"></p>
+<p>如果一个测试项测试失败，将输出一些提示信息，描述失败原因；但如果文件中有上百个测试项，从中找出错误信息将是很难的一件事。</p>
+<p>所有lime测试方法都有一个字符串作为最后一个参数，这个参数用来显示说明信息。用来添加该测试项的描述信息。它也可以作为方法预期行的格式文档，让我们添加一些描述信息到 <code>slugify</code> 测试文件：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="res/slugify_doc.png" alt="slugify() tests with messages"></p>
+<p>这些说明字符串在你试图指出该测试项的功能时，尤其有用。你可以观察出这些字符的输出格式：以方法名开头，后接该方法应如何行为的描述。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_08_adding_tests_for_new_features"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.6 为新功能添加测试</a></h2>
+<p>假如给 <code>slugify()</code> 传递一个空的字符串，它将返回一个空字符串。你可以添加这样的测试，它也会通过测试。但是一个空字符串在URL中没有意义。让我们修改一下 <code>slugify()</code> 方法，假如是空字符的话返回“n-a”字符串。</p>
+<p>你可以先写测试代码，然后更新方法，或者相反。先写测试代码会给你信心：即将加入的功能的确可以运行：</p>
+<!-- raw HTML omitted -->
+<p>我们先写测试代码，然后更新方法，这种开发方式被称为：<a href="http://en.wikipedia.org/wiki/Test_Driven_Development">测试驱动开发（TDD）</a>。</p>
+<p>如果你现在运行测试，会显示一条红色的错误提示。因为这个新功能还没有添加到 <code>slugify()</code> 方法中，或者已经添加的新功能没有通过测试。</p>
+<p>现在更新 <code>Jobeet</code> 类，在开始处加入下面的条件语句：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>现在你必须更新测试计划中测试量，这个测试才可以通过。否则，你将看到一条类似的提示：你计划进行6个测试，1个额外运行。更新计划测试量很重要，因为如果测试脚本提前结束，你会马上知道。</p>
+<h2 id="chapter_08_adding_tests_because_of_a_bug"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.7 为调试Bug添加测试</a></h2>
+<p>让我们讨论这种情况，测试已经通过了不过一个用户向你提交了bug：一些招聘信息指向404页面。你经过调查，错误的原因是这些招聘信息含有空公司名、职位或本地化字符。</p>
+<p>这不可能啊？</p>
+<p>因为你从头到尾检查了整个数据库，并没有发现空字段。最后你发现， 当字符串中全部都是非ASCII字符时，<code>slugify()</code> 会将它转换成空字符串。然后你很高兴地打开 <code>Jobeet</code> 类修改代码，不过这不是个好注意。在修复bug之前，我们应该先进行一下测试：</p>
+<!-- raw HTML omitted -->
+<p><img src="res/slugify_bug.png" alt="slugify() bug"></p>
+<p>如我们所料，测试没有通过，现在修改 <code>Jobeet</code> 类，将空字符检查添加到后面：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>新的测试也通过。现在，虽然我们的测试代码的覆盖率已经达到了100%，但 <code>slugify()</code> 仍然存在bug。</p>
+<p>当你写测试代码的时候，你不可能考虑到所有的特殊情况，而且测试时它们也没有出现问题。但是一旦你发现bug时，一定要在修复之前先写测试代码。这意味着随着时间的推移，你的代码将变得越来越好。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_08_doctrine_unit_tests"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.8 Doctrine单元测试</a></h2>
+<h3 id="chapter_08_sub_database_configuration"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.8.1 数据库配置</a></h3>
+<p>因为需要数据库连接，所以doctrine模型类的单元测试稍微复杂一些。你已经有了开发用的数据库，但作为良好习惯，你应该创建一个专用的测试数据库。</p>
+<p>在<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一天的课程中，我们介绍过环境是改变应用的设置一种手段。默认的，所有测试程序都运行在 <code>test</code> 环境中，所以我们需要给 <code>test</code> 环境配置一个不同的数据库：</p>
+<!-- raw HTML omitted -->
+<p><code>env</code> 选项告诉给命令，数据库配置只对于 <code>test</code> 环境。当我们在<!-- raw HTML omitted -->第<!-- raw HTML omitted -->三天用这个命令期间，我们没有传递任何 <code>env</code> 选项，所以配置是对于所有环境的。</p>
+<!-- raw HTML omitted -->
+<p>现在我们配置了数据库，我们可以用 <code>doctrine:insert-sql</code> 命令引导它：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_08_sub_test_data"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.8.2 测试数据</a></h3>
+<p>我们有了专用测试数据库，现在需要导入一些数据。<!-- raw HTML omitted -->第<!-- raw HTML omitted -->3天时候我们用 <code>doctrine:data-load</code> 导入过数据。但是对测试环境来说，这些数据需要在每次使用时自动加载。</p>
+<p><code>doctrine:data-load</code> 命令内部使用 <code>Doctrine_Core::loadData()</code> 方法来加载数据：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>loadData()</code> 方法将一个目录或文件作为<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一个参数。也可以用包含多个目录、文件的数组作为参数。</p>
+<p>我们已经在 <code>data/fixtures/</code> 目录下创建了一些初始数据。单元测试和功能测试使用的初始化数据保存 <code>test/fixtures/</code> 目录下。</p>
+<p>现在复制 <code>data/fixtures/</code> 文件到 <code>test/fixtures/</code> 目录中。</p>
+<h3 id="chapter_08_sub_testing_jobeetjob"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.8.4 测试 <code>JobeetJob</code></a></h3>
+<p>我们为 <code>JobeetJob</code> 模型类添加一些单元测试。</p>
+<p>我们所有的Doctrine单元测试将以相同的代码开始，用下面的代码在 <code>bootstrap/</code> 测试目录下新建一个 <code>Doctrine.php</code> 文件：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>这些代码是显而易见的：</p>
+<ul>
+<li>
+<p>对于前端控制器，我们为 <code>test</code> 环境初始化一个配置对象：</p>
+<!-- raw HTML omitted -->
+</li>
+<li>
+<p>我们创建数据库管理器。通过读取 <code>databases.yml</code> 配置初始化doctrine连接：</p>
+<!-- raw HTML omitted -->
+</li>
+<li>
+<p>使用 <code>Doctrine_Core::loadData()</code> 加载我们的测试数据：</p>
+<!-- raw HTML omitted -->
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<p>现在万事俱备，我们可以开始测试 <code>JobeetJob</code> 类啦。</p>
+<p>首先，我们需要创建在 <code>test/unit/model</code> 目录下 <code>JobeetJobTest.php</code> 文件：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>然后，我们给 <code>getCompanySlug()</code> 添加测试：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>注意，我们只测试 <code>getCompanySlug()</code> 方法生成slug是否正确，因为其它测试项刚才已经测试过了。</p>
+<p><code>save()</code> 测试，稍微有些复杂：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_08_sub_test_other_doctrine_classes"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.8.5 测试其他doctrine类</a></h3>
+<p>你现在可以为其它doctrine类添加测试，因为你现在已经习惯了编写单元测试的过程，它非常简单。</p>
+<h2 id="chapter_08_unit_tests_harness"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.9 打包测试</a></h2>
+<p>可以用 <code>test:unit</code> 命令执行全部单元测试：</p>
+<!-- raw HTML omitted -->
+<p>命令输出每个测试文件是否通过：</p>
+<p><img src="res/test_harness.png" alt="Unit tests harness"></p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_08_final_thoughts"><a href="forum.php?mod=viewthread&amp;tid=66&amp;extra=page%3D1#">8.10 结语</a></h2>
+<p>虽然测试程序非常重要，但可能有些人跳过了今天的课程。我很高兴你没有。</p>
+<p>当然，学习symfony意味着要学习它提供的所有好的功能，同时也要学习基本的开发原理和良好的编程习惯，测试就是其中之一。或快或慢，单元测试会为你节省开发时间。让你对自己的代码有坚定信心，不再害怕重构代码。单元测试是一个安全守卫，它会在你出现问题时提醒你。symfony框架本身的测试超过9000条。</p>
+<p>明天我们为 <code>job</code> 和 <code>category</code> 模块写一些功能测试。在这之前花些时间，给Jobeet模型类写更多的单元测试。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%BA%94%E5%A4%A9%E8%B7%AF%E7%94%B1/" data-toggle="tooltip" data-placement="top" title="第五天：路由">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B9%9D%E5%A4%A9%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/" data-toggle="tooltip" data-placement="top" title="第九天：功能测试">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">3600 Words|Read in about 8 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

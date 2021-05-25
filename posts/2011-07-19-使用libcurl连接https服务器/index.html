@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 使用libcurl连接https服务器 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="使用libcurl连接https服务器" />
+  <meta name="twitter:title" content="使用libcurl连接https服务器" />
+  <meta name="description" content="一、编译openssl 连接https的 前提是要有openssl。 然后得到两个静态库文件 (libcrypto.a libssl.a) 参考 http://hi.baidu.com/tmy13/blog/item/f661a01b131977148618bfae.html 二、编译libcurl 下载libcurl。编">
+  <meta property="og:description" content="一、编译openssl 连接https的 前提是要有openssl。 然后得到两个静态库文件 (libcrypto.a libssl.a) 参考 http://hi.baidu.com/tmy13/blog/item/f661a01b131977148618bfae.html 二、编译libcurl 下载libcurl。编">
+  <meta name="twitter:description" content="一、编译openssl 连接https的 前提是要有openssl。 然后得到两个静态库文件 (libcrypto.a libssl.a) 参考 http://hi.baidu.com/tmy13/blog/item/f661a01b131977148618bfae.html 二、编译libcurl 下载libcurl。编">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-07-19-%E4%BD%BF%E7%94%A8libcurl%E8%BF%9E%E6%8E%A5https%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-07-19-%E4%BD%BF%E7%94%A8libcurl%E8%BF%9E%E6%8E%A5https%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">使用libcurl连接https服务器</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Jul 19, 2011</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>一、编译openssl</p>
+<p>连接https的 前提是要有openssl。 然后得到两个静态库文件 (libcrypto.a  libssl.a)</p>
+<p>参考 <a href="http://hi.baidu.com/tmy13/blog/item/f661a01b131977148618bfae.html">http://hi.baidu.com/tmy13/blog/item/f661a01b131977148618bfae.html</a></p>
+<p>二、编译libcurl</p>
+<p>下载<!-- raw HTML omitted -->libcurl<!-- raw HTML omitted -->。编译配置按照实际情况更改sdk目录和版本。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>最后输出下面的内容，说明可以编译支持https的libcurl了。</p>
+<p>SSL support:   enabled (OpenSSL)</p>
+<p>接下来，</p>
+<p>make</p>
+<p>make install</p>
+<p>编译结果输出到 ~/tmp/iphonelib/curl/lib 下的libcurl.a</p>
+<p> </p>
+<p>三、使用</p>
+<p>1    将libcrypto.a    libssl.a    libcurl.a   拖到工程中；</p>
+<p>2    由于openssl 使用了zlib,所以还需要在工程中加入链接开关 [他のリンかフラグ　　　　-lz  ]</p>
+<p>3     添加编译所需的头文件路径。 【ヘッダ検索パス　　 eg:~/tmp/iphonelib/curl/include 】</p>
+<p> </p>
+<p> </p>
+<p>四、code</p>
+<p>#include &lt;curl/curl.h&gt;</p>
+<p>CURL             *curl;</p>
+<p>CURLcode      res;</p>
+<p> </p>
+<p>curl = curl_easy_init();</p>
+<p>if(curl){</p>
+<p>curl_easy_setopt(curl,CURLOPT_URL,”https://twitter.com/”);</p>
+<p>curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER,0L);</p>
+<p> </p>
+<p>res = curl_easy_perform(curl);</p>
+<p>if(0 != res){</p>
+<p>fprintf(stderr,”curl error: %d ¥n”, res);</p>
+<p>}</p>
+<p>curl_easy_cleanup(curl);</p>
+<p>}</p>
+<p> </p>
+<p> </p>
+<p>五、在模拟器上使用libcurl</p>
+<p>如果要在模拟器上使用，由于处理器结构不一样，需要重新编译openssl 和curl静态库.</p>
+<p>编译的时候只要将SDK的路径由iPhoneOS.platform =&gt;iPhoneSimulator.platform</p>
+<p>编译开关 -arch armv6 =&gt;-arch i386就可以了。</p>
+<p>只是编译的文件名最后和iphone上用的区别开来，如下所示。</p>
+<p>libcrypto_simulator.a</p>
+<p>libssl_simulator.a</p>
+<p>libcurl_simulator.a</p>
+<p> </p>
+<p>又或者不改变库的名称，而是增加新的编译目标。</p>
+<p> </p>
+<p>参考: <a href="http://www.yifeiyang.net/iphone-web-development-skills-of-the-article-5-https-server-using-libcurl-to-connect/">http://www.yifeiyang.net/iphone-web-development-skills-of-the-article-5-https-server-using-libcurl-to-connect/</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-07-13-bash-%E9%A1%B9%E7%9B%AE%E8%A1%8C%E6%95%B0%E7%BB%9F%E8%AE%A1/" data-toggle="tooltip" data-placement="top" title="bash 项目行数统计">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-08-02-%E7%8E%B0%E6%9C%89-xcode-projects%E5%8A%A0%E5%85%A5-git%E7%89%88%E6%9C%AC%E5%BA%93%E7%AE%A1%E7%90%86/" data-toggle="tooltip" data-placement="top" title="现有 Xcode Projects加入 git版本库管理">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Jul 19, 2011</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

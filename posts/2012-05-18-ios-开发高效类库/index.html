@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> ios 开发高效类库 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="ios 开发高效类库" />
+  <meta name="twitter:title" content="ios 开发高效类库" />
+  <meta name="description" content="KissXml——xml解析库 相关教程：http://www.iteye.com/topic/625849 http://sencho.blog.163.com/blog/static/83056228201151743110540/ 很方便的一个xml解析器，支持X">
+  <meta property="og:description" content="KissXml——xml解析库 相关教程：http://www.iteye.com/topic/625849 http://sencho.blog.163.com/blog/static/83056228201151743110540/ 很方便的一个xml解析器，支持X">
+  <meta name="twitter:description" content="KissXml——xml解析库 相关教程：http://www.iteye.com/topic/625849 http://sencho.blog.163.com/blog/static/83056228201151743110540/ 很方便的一个xml解析器，支持X">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-05-18-ios-%E5%BC%80%E5%8F%91%E9%AB%98%E6%95%88%E7%B1%BB%E5%BA%93/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-05-18-ios-%E5%BC%80%E5%8F%91%E9%AB%98%E6%95%88%E7%B1%BB%E5%BA%93/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">ios 开发高效类库</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri May 18, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>KissXml——xml解析库</p>
+<p>相关教程：http://www.iteye.com/topic/625849</p>
+<p><a href="http://sencho.blog.163.com/blog/static/83056228201151743110540/">http://sencho.blog.163.com/blog/static/83056228201151743110540/</a></p>
+<p>很方便的一个xml解析器，支持Xpath查询。</p>
+<p>skpsmtpmessage——Quick SMTP邮件发送</p>
+<p>svn checkout <a href="http://skpsmtpmessage.googlecode.com/svn/trunk/">http://skpsmtpmessage.googlecode.com/svn/trunk/</a> skpsmtpmessage-read-only</p>
+<p>github: git clone <a href="https://github.com/kailoa/iphone-smtp.git">https://github.com/kailoa/iphone-smtp.git</a></p>
+<p>相关教程：http://disanji.net/2011/01/28/skpsmtpmessage-open-source-framework/</p>
+<p>skpsmtpmessage 是由Skorpiostech, Inc.为我们带来的一个SMTP协议的开源实现，使用Objective-c 实现，iOS系统的项目可以直接调用。</p>
+<p>jsonframework——JSON支持</p>
+<p>相关教程：http://blog.csdn.net/xiaoguan2008/article/details/6732683</p>
+<p>它是一个开源框架，基于BSD协议发布。由于json-framework是开放源代码的，当你需要使用它时你只需将json的源代码加入到你的工程中。</p>
+<p>ASIHttpRequest——HTTP Network库</p>
+<p>ASIHttpRequest库极大的简化了网络通 信，提供更先进的工具，例如文件上传工具，重定向处理工具、验证工具、等等。</p>
+<p>MBProgressHUD——进展指示符库</p>
+<p>苹果的应用程序一般都会用一种优雅的，半透明的进度显示效果，不过这个API是不公开的，因此你要是用了，很可能被清除出AppStore。而 MBProgressHUD提供了一个替代方案，而且在用户角度上，实现的效果根本看不出和官方程序有什么差别。同时还提供了其他附加功能，比如虚拟进展 指示符，以及完成提示信息。整合到项目里也很容易，这里不细谈了。</p>
+<p>zxing——二维码扫描库</p>
+<p>支持条形码/二维码扫描的图形处理库，这是一个java库，在android上的功能比较完整。同时该库也支持ios，但只能支持二位条形码的扫描。</p>
+<p>kal——iPhone日历控件</p>
+<p>一个类似于ios系统默认日历开源日历库，支持添加事件，自定义日历样式等功能。</p>
+<p>Facebook iOS SDK——Facebook API类库</p>
+<p>大体来讲就是iPhone上的Facebook login，完全支持Facebook Graph API和the older REST api。</p>
+<p>shareKit——分享库</p>
+<p>相关demo：http://www.cocoachina.com/bbs/read.php?tid-71760.html</p>
+<p>分享到开心，豆瓣，腾讯，新浪微博的api所用到的强大的分享库。</p>
+<p>SDWebImage——简化网络图片处理</p>
+<p>用SDWebImage调用网站上的图片，跟本地调用内置在应用包里的图片一样简单。操作也很简单。</p>
+<p>GData client——iPhone上所有Google相关服务的类库</p>
+<p>名字就说明一切了。跟Google相关的，值得一提的是，这个项目很开放。有很多示例程序供下载。</p>
+<p>CorePlot——2D图形绘图仪</p>
+<p>CorePlot有很多解决方案将你的数据可视。同时也会提供各种迷人的图形效果，比如棒状图、饼状图、线状图等等，在他们网站上也提供了大量的范例图形，很多股票价格应用，游戏分数，个人财务管理都在用。</p>
+<p>Three20——类似于Facebook的优秀的UI库</p>
+<p>Three20类库是Facebook自己做的，大而全是他最大的特色。把他整合到已有的项目中可能得费点周折，不过如果一开始你就用上了Three20，尤其是牵扯到很多web相关的项目的时候，你就能深刻体会到神马叫给力了。</p>
+<p>FMDatabase——SQLite的Objective-C封装</p>
+<p>是SQLite的C API對初學者來說實在太麻煩太瑣碎，難度太高。FMDB說穿了其實只是把C API包裝成簡單易用的Objective-C类。對于SQLite初學者來說，大大減低了上手的難度。有了FMDB，寫程式時只要專心在SQLite的語法上，而不用去理那堆有看沒有懂的C API，實在是件快樂的事情。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-05-18-%E5%88%9B%E5%BB%BAios-5-news-stand%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E4%B9%8B%E4%B8%80-%E5%A4%96%E8%A7%82/" data-toggle="tooltip" data-placement="top" title="创建IOS 5 News Stand应用程序之一 – 外观">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-05-18-%E5%A6%82%E4%BD%95%E5%9C%A8uialertview%E4%B8%AD%E6%98%BE%E7%A4%BA%E8%BF%9B%E5%BA%A6%E6%9D%A1/" data-toggle="tooltip" data-placement="top" title="如何在UIAlertView中显示进度条">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri May 18, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

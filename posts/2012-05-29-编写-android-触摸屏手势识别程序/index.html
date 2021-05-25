@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 编写 Android 触摸屏手势识别程序 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="编写 Android 触摸屏手势识别程序" />
+  <meta name="twitter:title" content="编写 Android 触摸屏手势识别程序" />
+  <meta name="description" content="很多时候，利用触摸屏的Fling、Scroll等Gesture（手势）操作来操作会使得应用程序的用户体验大大提升，比如用Scroll手势在 浏">
+  <meta property="og:description" content="很多时候，利用触摸屏的Fling、Scroll等Gesture（手势）操作来操作会使得应用程序的用户体验大大提升，比如用Scroll手势在 浏">
+  <meta name="twitter:description" content="很多时候，利用触摸屏的Fling、Scroll等Gesture（手势）操作来操作会使得应用程序的用户体验大大提升，比如用Scroll手势在 浏">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-05-29-%E7%BC%96%E5%86%99-android-%E8%A7%A6%E6%91%B8%E5%B1%8F%E6%89%8B%E5%8A%BF%E8%AF%86%E5%88%AB%E7%A8%8B%E5%BA%8F/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-05-29-%E7%BC%96%E5%86%99-android-%E8%A7%A6%E6%91%B8%E5%B1%8F%E6%89%8B%E5%8A%BF%E8%AF%86%E5%88%AB%E7%A8%8B%E5%BA%8F/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">编写 Android 触摸屏手势识别程序</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue May 29, 2012</h4>
+    </section>
+    <h5 id="wc">3200 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>很多时候，利用触摸屏的Fling、Scroll等Gesture（手势）操作来操作会使得应用程序的用户体验大大提升，比如用Scroll手势在 浏览器中滚屏，用Fling在阅读器中翻页等。在Android系统中，手势的识别是通过 GestureDetector.OnGestureListener接口来实现的，不过William翻遍了Android的官方文档也没有找到一个相 关的例子，API Demo中的TouchPaint也仅仅是提到了onTouch事件的处理，没有涉及到手势。</p>
+<p>我们先来明确一些概念，首先，Android的事件处理机制是基于Listener（监听器）来实现的，比我们今天所说的触摸屏相关的事件，就是通 过onTouchListener。其次，所有View的子类都可以通过setOnTouchListener()、 setOnKeyListener()等方法来添加对某一类事件的监听器。第三，Listener一般会以Interface（接口）的方式来提供，其中 包含一个或多个abstract（抽象）方法，我们需要实现这些方法来完成onTouch()、onKey()等等的操作。这样，当我们给某个view设 置了事件Listener，并实现了其中的抽象方法以后，程序便可以在特定的事件被dispatch到该view的时候，通过callbakc函数给予适 当的响应。</p>
+<p>看一个简单的例子，就用最简单的TextView来说明（事实上和ADT中生成的skeleton没有什么区别）。</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;div&gt;
+  &lt;code&gt;02.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;03.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;@Override&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;04.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;protected&lt;/code&gt; &lt;code&gt;void&lt;/code&gt; &lt;code&gt;onCreate(Bundle savedInstanceState) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;05.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;super&lt;/code&gt;&lt;code&gt;.onCreate(savedInstanceState);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;06.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;setContentView(R.layout.main);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;07.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;08.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// init TextView&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;09.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;TextView tv = (TextView) findViewById(R.id.page);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;10.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// set OnTouchListener on TextView&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;11.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;tv.setOnTouchListener(&lt;/code&gt;&lt;code&gt;this&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;12.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// show some text&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;13.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;tv.setText(R.string.text);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;14.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;15.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;16.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;@Override&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;17.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;public&lt;/code&gt; &lt;code&gt;boolean&lt;/code&gt; &lt;code&gt;onTouch(View v, MotionEvent event) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;18.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;Toast.makeText(&lt;/code&gt;&lt;code&gt;this&lt;/code&gt;&lt;code&gt;, &lt;/code&gt;&lt;code&gt;&quot;onTouch&quot;&lt;/code&gt;&lt;code&gt;, Toast.LENGTH_SHORT).show();&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;19.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;return&lt;/code&gt; &lt;code&gt;false&lt;/code&gt;&lt;code&gt;;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;20.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>我们给TextView的实例tv设定了一个onTouchListener，因为GestureTest类实现了OnTouchListener 接口，所以简单的给一个this作为参数即可。onTouch方法则是实现了OnTouchListener中的抽象方法，我们只要在这里添加逻辑代码即 可在用户触摸屏幕时做出响应，就像我们这里所做的——打出一个提示信息。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>这里，我们可以通过MotionEvent的getAction()方法来获取Touch事件的类型，包括 ACTION_DOWN, ACTION_MOVE, ACTION_UP, 和ACTION_CANCEL。ACTION_DOWN是指按下触摸屏，ACTION_MOVE是指按下触摸屏后移动受力点，ACTION_UP则是指松 开触摸屏，ACTION_CANCEL不会由用户直接触发（所以不在今天的讨论范围，请参考ViewGroup.onInterceptTouchEvent(MotionEvent)）。借助对于用户不同操作的判断，结合getRawX()、getRawY()、getX()和getY()等方法来获取坐标后，我们可以实现诸如拖动某一个按钮，拖动滚动条等功能。待机可以看看MotionEvent类的文档，另外也可以看考TouchPaint例子。</p>
+<p>回到今天所要说的重点，当我们捕捉到Touch操作的时候，如何识别出用户的Gesture？这里我们需要GestureDetector.OnGestureListener接口的帮助，于是我们的GestureTest类就变成了这个样子。</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;div&gt;
+  &lt;code&gt;2.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;OnGestureListener {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;3.&lt;/code&gt;&lt;code&gt;...&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;4.&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>随后，在onTouch()方法中，我们调用GestureDetector的onTouchEvent()方法，将捕捉到的MotionEvent交给 GestureDetector 来分析是否有合适的callback函数来处理用户的手势。</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;div&gt;
+  &lt;code&gt;2.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;public&lt;/code&gt; &lt;code&gt;boolean&lt;/code&gt; &lt;code&gt;onTouch(View v, MotionEvent event) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;3.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// OnGestureListener will analyzes the given motion event&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;4.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;return&lt;/code&gt; &lt;code&gt;mGestureDetector.onTouchEvent(event);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;5.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>接下来，我们实现了以下6个抽象方法，其中最有用的当然是onFling()、onScroll()和onLongPress()了。我已经把每一个方法代表的手势的意思写在了注释里，大家看一下就明白了。</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;div&gt;
+  &lt;code&gt;02.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;@Override&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;03.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;public&lt;/code&gt; &lt;code&gt;boolean&lt;/code&gt; &lt;code&gt;onDown(MotionEvent e) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;04.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// TODO Auto-generated method stub&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;05.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;Toast.makeText(&lt;/code&gt;&lt;code&gt;this&lt;/code&gt;&lt;code&gt;, &lt;/code&gt;&lt;code&gt;&quot;onDown&quot;&lt;/code&gt;&lt;code&gt;, Toast.LENGTH_SHORT).show();&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;06.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;return&lt;/code&gt; &lt;code&gt;false&lt;/code&gt;&lt;code&gt;;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;07.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;08.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;09.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// 用户轻触触摸屏，尚未松开或拖动，由一个1个MotionEvent ACTION_DOWN触发&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;10.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// 注意和onDown()的区别，强调的是没有松开或者拖动的状态&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;11.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;@Override&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;12.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;public&lt;/code&gt; &lt;code&gt;void&lt;/code&gt; &lt;code&gt;onShowPress(MotionEvent e) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;13.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// TODO Auto-generated method stub&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;14.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;15.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;16.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// 用户（轻触触摸屏后）松开，由一个1个MotionEvent ACTION_UP触发&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;17.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;@Override&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;18.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;public&lt;/code&gt; &lt;code&gt;boolean&lt;/code&gt; &lt;code&gt;onSingleTapUp(MotionEvent e) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;19.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// TODO Auto-generated method stub&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;20.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;return&lt;/code&gt; &lt;code&gt;false&lt;/code&gt;&lt;code&gt;;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;21.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;22.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;23.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// 用户按下触摸屏、快速移动后松开，由1个MotionEvent ACTION_DOWN, 多个ACTION_MOVE, 1个ACTION_UP触发&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;24.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;@Override&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;25.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;public&lt;/code&gt; &lt;code&gt;boolean&lt;/code&gt; &lt;code&gt;onFling(MotionEvent e1, MotionEvent e2, &lt;/code&gt;&lt;code&gt;float&lt;/code&gt; &lt;code&gt;velocityX,&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;26.&lt;/code&gt;&lt;code&gt;            &lt;/code&gt;&lt;code&gt;float&lt;/code&gt; &lt;code&gt;velocityY) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;27.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// TODO Auto-generated method stub&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;28.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;return&lt;/code&gt; &lt;code&gt;false&lt;/code&gt;&lt;code&gt;;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;29.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;30.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;31.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// 用户长按触摸屏，由多个MotionEvent ACTION_DOWN触发&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;32.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;@Override&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;33.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;public&lt;/code&gt; &lt;code&gt;void&lt;/code&gt; &lt;code&gt;onLongPress(MotionEvent e) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;34.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// TODO Auto-generated method stub&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;35.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;36.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;37.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;38.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// 用户按下触摸屏，并拖动，由1个MotionEvent ACTION_DOWN, 多个ACTION_MOVE触发&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;39.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;@Override&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;40.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;public&lt;/code&gt; &lt;code&gt;boolean&lt;/code&gt; &lt;code&gt;onScroll(MotionEvent e1, MotionEvent e2, &lt;/code&gt;&lt;code&gt;float&lt;/code&gt; &lt;code&gt;distanceX,&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;41.&lt;/code&gt;&lt;code&gt;            &lt;/code&gt;&lt;code&gt;float&lt;/code&gt; &lt;code&gt;distanceY) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;42.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// TODO Auto-generated method stub&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;43.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;return&lt;/code&gt; &lt;code&gt;false&lt;/code&gt;&lt;code&gt;;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;44.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>我们来试着做一个onFling()事件的处理吧，onFling()方法中每一个参数的意义我写在注释中了，需要注意的是Fling事件的处理代 码中，除了第一个触发Fling的ACTION_DOWN和最后一个ACTION_MOVE中包含的坐标等信息外，我们还可以根据用户在X轴或者Y轴上的 移动速度作为条件。比如下面的代码中我们就在用户移动超过100个像素，且X轴上每秒的移动速度大于200像素时才进行处理。</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;div&gt;
+  &lt;code&gt;02.&lt;/code&gt;&lt;code&gt;public&lt;/code&gt; &lt;code&gt;boolean&lt;/code&gt; &lt;code&gt;onFling(MotionEvent e1, MotionEvent e2, &lt;/code&gt;&lt;code&gt;float&lt;/code&gt; &lt;code&gt;velocityX,&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;03.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;float&lt;/code&gt; &lt;code&gt;velocityY) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;04.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// 参数解释：&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;05.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// e1：第1个ACTION_DOWN MotionEvent&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;06.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// e2：最后一个ACTION_MOVE MotionEvent&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;07.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// velocityX：X轴上的移动速度，像素/秒&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;08.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// velocityY：Y轴上的移动速度，像素/秒&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;09.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;10.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// 触发条件 ：&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;11.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;// X轴的坐标位移大于FLING_MIN_DISTANCE，且移动速度大于FLING_MIN_VELOCITY个像素/秒&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;12.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;13.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;if&lt;/code&gt; &lt;code&gt;(e1.getX() - e2.getX() &amp;gt; FLING_MIN_DISTANCE&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;14.&lt;/code&gt;&lt;code&gt;            &lt;/code&gt;&lt;code&gt;&amp;&amp; Math.abs(velocityX) &amp;gt; FLING_MIN_VELOCITY) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;15.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// Fling left&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;16.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;Toast.makeText(&lt;/code&gt;&lt;code&gt;this&lt;/code&gt;&lt;code&gt;, &lt;/code&gt;&lt;code&gt;&quot;Fling Left&quot;&lt;/code&gt;&lt;code&gt;, Toast.LENGTH_SHORT).show();&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;17.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt; &lt;code&gt;(e2.getX() - e1.getX() &amp;gt; FLING_MIN_DISTANCE&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;18.&lt;/code&gt;&lt;code&gt;            &lt;/code&gt;&lt;code&gt;&amp;&amp; Math.abs(velocityX) &amp;gt; FLING_MIN_VELOCITY) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;19.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;// Fling right&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;20.&lt;/code&gt;&lt;code&gt;        &lt;/code&gt;&lt;code&gt;Toast.makeText(&lt;/code&gt;&lt;code&gt;this&lt;/code&gt;&lt;code&gt;, &lt;/code&gt;&lt;code&gt;&quot;Fling Right&quot;&lt;/code&gt;&lt;code&gt;, Toast.LENGTH_SHORT).show();&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;21.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;22.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;23.&lt;/code&gt;&lt;code&gt;    &lt;/code&gt;&lt;code&gt;return&lt;/code&gt; &lt;code&gt;false&lt;/code&gt;&lt;code&gt;;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;24.&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>问题是，这个时候如果我们尝试去运行程序，你会发现我们根本得不到想要的结果，跟踪代码的执行的会发现onFling()事件一直就没有被捕捉到。这正是一开始困扰我的问题，这到底是为什么呢？</p>
+<p>我在讨论组的Gesture detection这个帖子里找到了答案，即我们需要在onCreate中tv.setOnTouchListener(this);之后添加如下一句代码。</p>
+<!-- raw HTML omitted -->
+<p>只有这样，view才能够处理不同于Tap（轻触）的hold（即ACTION_MOVE，或者多个ACTION_DOWN），我们同样可以通过layout定义中的android:longClickable来做到这一点。</p>
+<p>这次遇到的这个问题和上次MapView中setOnKeyListener遇到的问题挺类似，其实都是对SDK的了解不够全面，遇到了一次记住了就好。不过话说回来，Google在文档方面确实需要加强了，起码可以在OnGestureListener中说明需要满足那些条件才可以保证手势被正确识别。</p>
+<p>参考自:<a href="http://www.oschina.net/question/12_1515">http://www.oschina.net/question/12_1515</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-05-29-motionevent-%E7%9A%84getx%E4%B8%8Egetrawx%E7%9A%84%E5%8C%BA%E5%88%AB/" data-toggle="tooltip" data-placement="top" title="MotionEvent 的getX()与getRawX()的区别">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-05-29-muilti-touch-%E5%8F%8C%E6%8C%87%E7%BC%A9%E6%94%BE%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A2%E7%B4%A2/" data-toggle="tooltip" data-placement="top" title="Muilti-touch 双指缩放的实现探索">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue May 29, 2012</h4>
+    </section>
+    <h5 id="wc">3200 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

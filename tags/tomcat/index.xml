@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tomcat on IT技术分享</title>
+    <link>https://www.51hint.com/tags/tomcat/</link>
+    <description>Recent content in tomcat on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Oct 2012 04:30:16 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/tomcat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tomcat  long-pulling</title>
+      <link>https://www.51hint.com/posts/2012-10-17-tomcat-long-pulling/</link>
+      <pubDate>Wed, 17 Oct 2012 04:30:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-17-tomcat-long-pulling/</guid>
+      <description>tomcat 对于comet和异步IO的支持 际是使用,需要增加对NIO的支持，要做的仅仅是在server.xml里边修改connector： ================================================================ ** **要用</description>
+    </item>
+    
+  </channel>
+</rss>

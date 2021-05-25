@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>phpmyadmin on IT技术分享</title>
+    <link>https://www.51hint.com/tags/phpmyadmin/</link>
+    <description>Recent content in phpmyadmin on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Jun 2014 03:27:10 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/phpmyadmin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xampp phpmyadmin 乱码</title>
+      <link>https://www.51hint.com/posts/2014-06-09-xampp-phpmyadmin-%E4%B9%B1%E7%A0%81/</link>
+      <pubDate>Mon, 09 Jun 2014 03:27:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-09-xampp-phpmyadmin-%E4%B9%B1%E7%A0%81/</guid>
+      <description>修改 //xampp/mysql/bin/my.ini</description>
+    </item>
+    
+    <item>
+      <title>phpmyadmin max upload file size</title>
+      <link>https://www.51hint.com/posts/2014-01-27-phpmyadmin-max-upload-file-size/</link>
+      <pubDate>Mon, 27 Jan 2014 04:42:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-27-phpmyadmin-max-upload-file-size/</guid>
+      <description>memory_limit = 512M
+post_max_size = 80M
+upload_max_filesize = 200M</description>
+    </item>
+    
+  </channel>
+</rss>

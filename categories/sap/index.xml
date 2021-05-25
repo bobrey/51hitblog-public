@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sap on IT技术分享</title>
+    <link>https://www.51hint.com/categories/sap/</link>
+    <description>Recent content in sap on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Jan 2012 09:05:58 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/sap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>abap基本数据类型</title>
+      <link>https://www.51hint.com/posts/2012-01-13-abap%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Fri, 13 Jan 2012 09:05:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-13-abap%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ABAP：确定字段长度</title>
+      <link>https://www.51hint.com/posts/2012-01-13-abap%E7%A1%AE%E5%AE%9A%E5%AD%97%E6%AE%B5%E9%95%BF%E5%BA%A6/</link>
+      <pubDate>Fri, 13 Jan 2012 07:49:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-13-abap%E7%A1%AE%E5%AE%9A%E5%AD%97%E6%AE%B5%E9%95%BF%E5%BA%A6/</guid>
+      <description>ABAP 错误提示为：In Unicode, DESCRIBE LENGTH can only be used with the IN BYTE MODE or IN CHARACTER MODE addition **解决办法： ** &amp;lt;p&amp;gt; &amp;lt;span style=&amp;quot;font-family: 宋体;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color: #000066;&amp;quot;&amp;gt;DESCRIBE FIELD F LENGTH M &amp;lt;span&amp;gt;IN BYTE MODE&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>sap ecc破解</title>
+      <link>https://www.51hint.com/posts/2012-01-13-sap-ecc%E7%A0%B4%E8%A7%A3/</link>
+      <pubDate>Fri, 13 Jan 2012 03:09:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-13-sap-ecc%E7%A0%B4%E8%A7%A3/</guid>
+      <description>正常在企业运作的时候，单纯使用标准的SAP系统整套流程走下来固然是没有问题，但是偏偏每个企业都有自己的一套运作流程，所以SAP标准的流程自然</description>
+    </item>
+    
+    <item>
+      <title>sap gui 客户端</title>
+      <link>https://www.51hint.com/posts/2012-01-12-sap-gui-%E5%AE%A2%E6%88%B7%E7%AB%AF/</link>
+      <pubDate>Thu, 12 Jan 2012 07:17:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-12-sap-gui-%E5%AE%A2%E6%88%B7%E7%AB%AF/</guid>
+      <description>Windows GUI，最常用和标准的登录方式，能够百分之百的使用 SAP 的所有功能，可以到 ftp://ftp.sap.com/pub/sapgui/win/ JAVA GUI，是针对 JAVA 用户的登录方式，能够使用大部分 SAP 功能，打印功能较</description>
+    </item>
+    
+  </channel>
+</rss>

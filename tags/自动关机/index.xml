@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>自动关机 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/%E8%87%AA%E5%8A%A8%E5%85%B3%E6%9C%BA/</link>
+    <description>Recent content in 自动关机 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Jul 2015 14:54:32 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/%E8%87%AA%E5%8A%A8%E5%85%B3%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自动关机</title>
+      <link>https://www.51hint.com/posts/2015-07-16-%E8%87%AA%E5%8A%A8%E5%85%B3%E6%9C%BA/</link>
+      <pubDate>Thu, 16 Jul 2015 14:54:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-16-%E8%87%AA%E5%8A%A8%E5%85%B3%E6%9C%BA/</guid>
+      <description>Windows：打开命令行（点击运行，并输入”cmd”之后回车即可），敲入命令： shutdown -s -t xxxx， xxxx是你希望经过多少秒钟关机。 Linux</description>
+    </item>
+    
+  </channel>
+</rss>

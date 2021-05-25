@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on IT技术分享</title>
+    <link>https://www.51hint.com/categories/vim/</link>
+    <description>Recent content in vim on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Jan 2017 23:49:21 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vim基本用法</title>
+      <link>https://www.51hint.com/posts/vimji-ben-yong-fa/</link>
+      <pubDate>Fri, 27 Jan 2017 23:49:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/vimji-ben-yong-fa/</guid>
+      <description>简明 VIM 练级攻略 http://coolshell.cn/articles/5426.html command: p ce &amp;mdash;&amp;mdash;&amp;mdash;-&amp;gt; To change until end of a word cw &amp;mdash;&amp;mdash;&amp;mdash;-&amp;gt; delete a words and places you insert mode c$ &amp;mdash;&amp;mdash;&amp;mdash;-&amp;gt; delete the whole line and place insert mode CTRL-G ----------&amp;gt; show the file name and status % ----------&amp;gt; place the cursor on ay (,{,[ then Mgoes to its match. / ----------&amp;gt; search FORWARD ? ----------&amp;gt; search BACKWARD To substitute</description>
+    </item>
+    
+  </channel>
+</rss>

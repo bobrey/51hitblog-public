@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Mac OS X 上的ldd和strace的替代 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Mac OS X 上的ldd和strace的替代" />
+  <meta name="twitter:title" content="Mac OS X 上的ldd和strace的替代" />
+  <meta name="description" content="Linux下经常会用到ldd查看程序使用了哪些共享链接库，很方便的一个工具，在Mac OS X上没有这个命令，如果想在Mac OS X查看程序使用了哪些">
+  <meta property="og:description" content="Linux下经常会用到ldd查看程序使用了哪些共享链接库，很方便的一个工具，在Mac OS X上没有这个命令，如果想在Mac OS X查看程序使用了哪些">
+  <meta name="twitter:description" content="Linux下经常会用到ldd查看程序使用了哪些共享链接库，很方便的一个工具，在Mac OS X上没有这个命令，如果想在Mac OS X查看程序使用了哪些">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/mac-os-x-shang-de-lddhe-stracede-ti-dai/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/mac-os-x-shang-de-lddhe-stracede-ti-dai/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Mac OS X 上的ldd和strace的替代</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Feb 24, 2017</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>Linux下经常会用到ldd查看程序使用了哪些共享链接库，很方便的一个工具，在Mac OS X上没有这个命令，如果想在Mac OS X查看程序使用了哪些链接库可以用otool 来代替。</p>
+<p>例：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ otool -L /usr/bin/vim
+ /usr/bin/vim:
+       /usr/lib/libncurses.5.4.dylib <span class="o">(</span>compatibility version 5.4.0, current version 5.4.0<span class="o">)</span>
+       /usr/lib/libiconv.2.dylib <span class="o">(</span>compatibility version 7.0.0, current version 7.0.0<span class="o">)</span>
+       /usr/lib/libSystem.B.dylib <span class="o">(</span>compatibility version 1.0.0, current version 1213.0.0<span class="o">)</span>
+otool还有很多其它参数：
+
+-f print the fat headers
+-a print the archive header
+-h print the mach header
+-l print the load commands
+-L print shared libraries used
+-D print shared library id name
+-t print the text section <span class="o">(</span>disassemble with -v<span class="o">)</span>
+-p &lt;routine name&gt; start dissassemble from routine name
+-s &lt;segname&gt; &lt;sectname&gt; print contents of section
+-d print the data section
+-o print the Objective-C segment
+-r print the relocation entries
+-S print the table of contents of a library
+-T print the table of contents of a dynamic shared library
+-M print the module table of a dynamic shared library
+-R print the reference table of a dynamic shared library
+-I print the indirect symbol table
+-H print the two-level hints table
+-G print the data in code table
+-v print verbosely <span class="o">(</span>symbolically<span class="o">)</span> when possible
+-V print disassembled operands symbolically
+-c print argument strings of a core file
+-X print no leading addresses or headers
+-m don’t use archive<span class="o">(</span>member<span class="o">)</span> syntax
+-B force Thumb disassembly <span class="o">(</span>ARM objects only<span class="o">)</span>
+-q use llvm’s disassembler <span class="o">(</span>the default<span class="o">)</span>
+-Q use otool<span class="o">(</span>1<span class="o">)</span>’s disassembler
+-mcpu<span class="o">=</span>arg use <span class="sb">`</span>arg’ as the cpu <span class="k">for</span> disassembly
+-j print opcode bytes
+-C print linker optimization hints
+–version print the version of otool
+</code></pre></div><hr>
+<p>Linux中的strace可以查看程序运行时的系统调用，有时对于调试程序很有帮助，Mac OS X中可用dtruss (需要root)替代</p>
+<p>例：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo dtruss df -h
+
+其它参数：
+
+-p PID <span class="c1"># examine this PID</span>
+-n name <span class="c1"># examine this process name</span>
+-t syscall <span class="c1"># examine this syscall only</span>
+-a <span class="c1"># print all details</span>
+-c <span class="c1"># print syscall counts</span>
+-d <span class="c1"># print relative times (us)</span>
+-e <span class="c1"># print elapsed times (us)</span>
+-f <span class="c1"># follow children</span>
+-l <span class="c1"># force printing pid/lwpid</span>
+-o <span class="c1"># print on cpu times</span>
+-s <span class="c1"># print stack backtraces</span>
+-L <span class="c1"># don’t print pid/lwpid</span>
+-b bufsize <span class="c1"># dynamic variable buf size</span>
+eg,
+dtruss df -h <span class="c1"># run and examine “df -h”</span>
+dtruss -p <span class="m">1871</span> <span class="c1"># examine PID 1871</span>
+dtruss -n tar <span class="c1"># examine all processes called “tar”</span>
+dtruss -f test.sh <span class="c1"># run test.sh and follow children</span>
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/aws-sns-js/" data-toggle="tooltip" data-placement="top" title="aws sns js">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/charles-zhu-ce-ma/" data-toggle="tooltip" data-placement="top" title="Charles 注册码">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Feb 24, 2017</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

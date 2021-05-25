@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Yarn &#43; Webpack - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Yarn &#43; Webpack" />
+  <meta name="twitter:title" content="Yarn &#43; Webpack" />
+  <meta name="description" content="Yarn github yarn
+brew update brew install yarn vim ~/.zshrc export PATH=&quot;$PATH:`yarn global bin`&quot; source ~/.zshrc yarn --version Webpack github webpack
+code &#43; webpack yarn global add webpack webpack-dev-server --dev sample  yarn add jQuery vim webpack.config.js  module.exports = { entry: &#34;./src/app.js&#34;, output: { filename: &#34;bundle.js&#34;, path: __dirname &#43; &#34;/build&#34; } }  vim index.html  &lt;script src=&#34;bundle.js&#34;&gt;&lt;/script&gt; &lt;body&gt; &lt;/body&gt;  vim src/app.js  $ = require(&#34;jQuery&#34;); $(() =&gt; { $(&#34;body&#34;).">
+  <meta property="og:description" content="Yarn github yarn
+brew update brew install yarn vim ~/.zshrc export PATH=&quot;$PATH:`yarn global bin`&quot; source ~/.zshrc yarn --version Webpack github webpack
+code &#43; webpack yarn global add webpack webpack-dev-server --dev sample  yarn add jQuery vim webpack.config.js  module.exports = { entry: &#34;./src/app.js&#34;, output: { filename: &#34;bundle.js&#34;, path: __dirname &#43; &#34;/build&#34; } }  vim index.html  &lt;script src=&#34;bundle.js&#34;&gt;&lt;/script&gt; &lt;body&gt; &lt;/body&gt;  vim src/app.js  $ = require(&#34;jQuery&#34;); $(() =&gt; { $(&#34;body&#34;).">
+  <meta name="twitter:description" content="Yarn github yarn
+brew update brew install yarn vim ~/.zshrc export PATH=&quot;$PATH:`yarn global bin`&quot; source ~/.zshrc yarn --version Webpack github webpack
+code &#43; webpack yarn global add webpack …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/untitled-3/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/untitled-3/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Yarn &#43; Webpack</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Mar 1, 2017</h4>
+    </section>
+    <h5 id="wc">400 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/nodejs/">nodejs</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <h2 id="yarn">Yarn</h2>
+<p><a href="https://github.com/yarnpkg/yarn">github yarn</a></p>
+<pre><code>brew update
+brew install yarn
+
+vim ~/.zshrc
+export PATH=&quot;$PATH:`yarn global bin`&quot;
+
+source ~/.zshrc
+
+yarn --version
+</code></pre><h2 id="webpack">Webpack</h2>
+<p><a href="https://webpack.github.io/">github webpack</a></p>
+<h2 id="code--webpack">code + webpack</h2>
+<pre><code>yarn global add webpack webpack-dev-server --dev
+</code></pre><h2 id="sample">sample</h2>
+<ul>
+<li><code>yarn add jQuery</code></li>
+<li>vim webpack.config.js</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+<span class="nx">entry</span><span class="o">:</span> <span class="s2">&#34;./src/app.js&#34;</span><span class="p">,</span>
+<span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">filename</span><span class="o">:</span> <span class="s2">&#34;bundle.js&#34;</span><span class="p">,</span>
+  <span class="nx">path</span><span class="o">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s2">&#34;/build&#34;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+<li>vim index.html</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;bundle.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div><ul>
+<li>vim src/app.js</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;jQuery&#34;</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;body&#34;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&#34;Body has been loaded, yeah.&#34;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><ul>
+<li>run</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yarn run webpack-dev-server -- --inline --hot
+</code></pre></div><ul>
+<li>build</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yarn run webpack
+</code></pre></div><hr>
+<hr>
+<h2 id="other-sample">other sample</h2>
+<ul>
+<li>webpack.config.js</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">webpack</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">js</span>
+<span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">webpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpack&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">app</span><span class="o">:</span> <span class="s1">&#39;app.js&#39;</span><span class="p">,</span> <span class="c1">// Which file(s) Webpack should parse
+</span><span class="c1"></span>  <span class="p">},</span>
+  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;[name].bundle.js&#39;</span><span class="p">,</span> <span class="c1">// The filename template
+</span><span class="c1"></span>    <span class="nx">path</span><span class="o">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/dist/js&#39;</span><span class="p">,</span> <span class="c1">// Directory for the output file(s)
+</span><span class="c1"></span>  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div><ul>
+<li>Multiple Files</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">webpack</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">letters</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;a.js&#39;</span><span class="p">,</span> <span class="s1">&#39;b.js&#39;</span><span class="p">,</span> <span class="s1">&#39;c.js&#39;</span><span class="p">],</span>
+    <span class="nx">numbers</span><span class="o">:</span> <span class="s1">&#39;one.js&#39;</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;[name].bundle.js&#39;</span><span class="p">,</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/js&#39;</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div><ul>
+<li>developing</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">webpack</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">js</span>
+<span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">webpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpack&#39;</span><span class="p">);</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">entry</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">app</span><span class="o">:</span> <span class="s1">&#39;./js/app.js&#39;</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;[name].bundle.js&#39;</span><span class="p">,</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/dist/js&#39;</span><span class="p">,</span>
+    <span class="nx">publicPath</span><span class="o">:</span> <span class="s1">&#39;js&#39;</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html">index.html
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Sample page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/js/app.bundle.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    This is a simple app.
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div><ul>
+<li>loaders
+<code>yarn add --dev css-loader style-loader sass-loader node-sass </code></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">webpack</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// …
+</span><span class="c1"></span>  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(css|sass|scss)$/</span><span class="p">,</span>
+        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span>
+          <span class="s1">&#39;style-loader&#39;</span><span class="p">,</span>
+          <span class="p">{</span> <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;css-loader&#39;</span><span class="p">,</span> <span class="nx">options</span><span class="o">:</span> <span class="p">{</span> <span class="nx">modules</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">},</span>
+          <span class="s1">&#39;sass-loader&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(jpg|jpeg|png|svg)$/</span><span class="p">,</span>
+        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;url-loader&#39;</span><span class="p">],</span>
+      <span class="p">},</span> 
+      <span class="c1">// …
+</span><span class="c1"></span>    <span class="p">],</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+
+</code></pre></div><p><code>vim index.js  import styles from './assets/stylesheets/application.css';</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">webpack</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">js</span>
+<span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.css$/</span><span class="p">,</span>
+      <span class="nx">use</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s1">&#39;style-loader&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;css-loader&#39;</span><span class="p">,</span>
+        <span class="p">{</span>
+          <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;postcss-loader&#39;</span><span class="p">,</span>
+          <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">plugins</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+              <span class="k">return</span> <span class="p">[</span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;precss&#39;</span><span class="p">),</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;autoprefixer&#39;</span><span class="p">)];</span>
+            <span class="p">},</span>
+          <span class="p">},</span>
+        <span class="p">},</span>
+      <span class="p">],</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div><ul>
+<li>babel + es6<br>
+<code>yarn add --dev babel-loader babel-core babel-preset-es2015</code></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">webpack</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">js</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// …
+</span><span class="c1"></span>  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.js$/</span><span class="p">,</span>
+        <span class="nx">exclude</span><span class="o">:</span> <span class="p">[</span><span class="sr">/node_modules/</span><span class="p">],</span>
+        <span class="nx">use</span><span class="o">:</span> <span class="p">[{</span>
+          <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;babel-loader&#39;</span><span class="p">,</span>
+          <span class="nx">options</span><span class="o">:</span> <span class="p">{</span> <span class="nx">presets</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;es2015&#39;</span><span class="p">]</span> <span class="p">}</span>
+        <span class="p">}],</span>
+      <span class="p">},</span>
+    
+      <span class="c1">// Loaders for other file types can go here
+</span><span class="c1"></span>    <span class="p">],</span>
+  <span class="p">},</span>
+  <span class="c1">// …
+</span><span class="c1"></span><span class="p">};</span>
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/uizi-dong-hua-ce-shi-zhi-protractor/" data-toggle="tooltip" data-placement="top" title="UI自动化测试之Protractor">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/nvm/" data-toggle="tooltip" data-placement="top" title="nvm">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/uizi-dong-hua-ce-shi-zhi-protractor/">UI自动化测试之Protractor</a></li>
+                    
+                    <li><a href="/posts/karma-ce-shi/">Karma 测试</a></li>
+                    
+                    <li><a href="/posts/react/">React &#43; Webpack &#43; Babel</a></li>
+                    
+                    <li><a href="/posts/babel/">Babel</a></li>
+                    
+                    <li><a href="/posts/autoprefixer/">AutoPrefixer</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Mar 1, 2017</h4>
+    </section>
+    <h5 id="wc">400 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/nodejs/">nodejs</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

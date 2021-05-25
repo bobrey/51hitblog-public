@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xdebug on IT技术分享</title>
+    <link>https://www.51hint.com/tags/xdebug/</link>
+    <description>Recent content in xdebug on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Jun 2014 01:12:44 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/xdebug/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>配置Phpstorm与xampp, xdebug</title>
+      <link>https://www.51hint.com/posts/2014-06-02-%E9%85%8D%E7%BD%AEphpstorm%E4%B8%8Exampp-xdebug/</link>
+      <pubDate>Mon, 02 Jun 2014 01:12:44 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-02-%E9%85%8D%E7%BD%AEphpstorm%E4%B8%8Exampp-xdebug/</guid>
+      <description>&amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;ol start=&amp;quot;1&amp;quot;&amp;gt; &amp;lt;li&amp;gt; [XDebug] &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; zend_extension=&amp;amp;#8221;/opt/lampp/lib/php/extensions/xdebug.so&amp;amp;#8221; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.remote_enable=true &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.remote_host=127.0.0.1 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.remote_port=9000 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.remote_handler=dbgp &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.profiler_enable=1 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.profiler_output_dir=&amp;amp;#8221;/opt/lampp/tmp&amp;amp;#8221; &amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>zend server xdebug</title>
+      <link>https://www.51hint.com/posts/2012-08-03-zend-server-xdebug/</link>
+      <pubDate>Fri, 03 Aug 2012 05:34:18 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-03-zend-server-xdebug/</guid>
+      <description>Zend Server Community Edition on OS X Add this line to ~/.bash_profile OR ~/.profile # Zend Server Community Edition export PATH=”/usr/local/zend/bin:$PATH” #Your webserver should now be available on port 10088 and the Zend admin interface on port 10081 Open</description>
+    </item>
+    
+  </channel>
+</rss>

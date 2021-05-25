@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 音频编解码-speex库的使用方法 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="音频编解码-speex库的使用方法" />
+  <meta name="twitter:title" content="音频编解码-speex库的使用方法" />
+  <meta name="description" content="Speex是近年来开发出的一套功能强大的语音引擎，能够实现高质量和低比特率的编码。它不仅提供了基于码激励线性预测（CELP）算法的编/解码模">
+  <meta property="og:description" content="Speex是近年来开发出的一套功能强大的语音引擎，能够实现高质量和低比特率的编码。它不仅提供了基于码激励线性预测（CELP）算法的编/解码模">
+  <meta name="twitter:description" content="Speex是近年来开发出的一套功能强大的语音引擎，能够实现高质量和低比特率的编码。它不仅提供了基于码激励线性预测（CELP）算法的编/解码模">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-03-02-%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81-speex%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-03-02-%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81-speex%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">音频编解码-speex库的使用方法</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Mar 2, 2012</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>Speex是近年来开发出的一套功能强大的语音引擎，能够实现高质量和低比特率的编码。它不仅提供了基于码激励线性预测（CELP）算法的编/解码模块，而且在其最新发布的版本中还提供了声音预处理和声学回声消除模块，为保障IP网络中的语音通信质量提供了技术手段。此外，Speex还具有压缩后的比特率低（2~44 kbps）的特点，并支持多种比特率。这些特点使得Speex特别适合VoIP的系统。</p>
+<p>虽然是开源的，但是使用的人还不是很多，网上的资料也很少，下面简单给大家介绍一下如何使用speex的API。</p>
+<p>一：编码流程</p>
+<p>使用Speex的API函数对音频数据进行压缩编码要经过如下步骤：</p>
+<p>1、      定义一个SpeexBits类型变量bits和一个Speex编码器状态变量enc_state。</p>
+<p>2、     调用speex_bits_init(&amp;bits)初始化bits。</p>
+<p>3、    调用speex_encoder_init(&amp;speex_nb_mode)来初始化enc_state。其中speex_nb_mode是SpeexMode类型的变量，表示的是窄带模式。还有speex_wb_mode表示宽带模式、speex_uwb_mode表示超宽带模式。</p>
+<p>4、    调用函数int speex_encoder_ ctl(void *state, int request, void *ptr)来设定编码器的参数，其中参数state表示编码器的状态；参数request表示要定义的参数类型，如SPEEX_ GET_ FRAME_SIZE表示设置帧大小，SPEEX_ SET_QUALITY表示量化大小，这决定了编码的质量；参数ptr表示要设定的值。</p>
+<p>可通过speex_encoder_ctl(enc_state, SPEEX_GET_FRAME_SIZE, &amp;frame_size) 和speex_encoder_ctl(enc_state, SPEEX_SET_QUALITY, &amp;quality)来设定编码器的参数。</p>
+<p>5、   初始化完毕后，对每一帧声音作如下处理：调用函数speex_bits_reset(&amp;bits)再次设定SpeexBits，然后调用函数speex_encode(enc_state, input_frame, &amp;bits)，参数bits中保存编码后的数据流。</p>
+<p>6、      编码结束后，调用函数speex_bits_destroy (&amp;bits)，    speex_encoder_destroy (enc_state)来</p>
+<p> </p>
+<p>二：解码流程</p>
+<p>同样，对已经编码过的音频数据进行解码要经过以下步骤：</p>
+<p>1、      定义一个SpeexBits类型变量bits和一个Speex编码状态变量enc_state。</p>
+<p>2、    调用speex_bits_init(&amp;bits)初始化bits。</p>
+<p>3、    调用speex_decoder_init (&amp;speex_nb_mode)来初始化enc_state。</p>
+<p>4、     调用函数speex_decoder_ctl (void *state, int request, void *ptr)来设定编码器的参数。</p>
+<p>5、    调用函数 speex_decode(void *state, SpeexBits *bits, float *out)对参数bits中的音频数据进行解编码，参数out中保存解码后的数据流。</p>
+<p>6、    调用函数speex_bits_destroy(&amp;bits), speex_ decoder_ destroy (void *state)来关闭和销毁SpeexBits和解码器。</p>
+<p>sampleenc.c     sampledec.c</p>
+<p><a href="http://www.speex.org/docs/manual/speex-manual/node13.html#SECTION001310000000000000000">http://www.speex.org/docs/manual/speex-manual/node13.html#SECTION001310000000000000000</a></p>
+<p><a href="http://www.speex.org/docs/manual/speex-manual/node13.html#SECTION001320000000000000000">http://www.speex.org/docs/manual/speex-manual/node13.html#SECTION001320000000000000000</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-03-02-convert-speex-file-into-mp3/" data-toggle="tooltip" data-placement="top" title="Convert Speex file into MP3">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/" data-toggle="tooltip" data-placement="top" title="Speex编/解码API的使用 及其speex 回声消除">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Mar 2, 2012</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

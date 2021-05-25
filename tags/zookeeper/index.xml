@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zookeeper on IT技术分享</title>
+    <link>https://www.51hint.com/tags/zookeeper/</link>
+    <description>Recent content in zookeeper on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Mar 2019 16:10:27 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/zookeeper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Zookeeper使用场景</title>
+      <link>https://www.51hint.com/posts/zookeeper%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</link>
+      <pubDate>Tue, 26 Mar 2019 16:10:27 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/zookeeper%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</guid>
+      <description>Zookeeper是一个高可用的分布式数据管理和协调框架，并且能够很好的保证分布式环境中数据的一致性。在越来越多的分布式系统（Hadoop、</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on IT技术分享</title>
+    <link>https://www.51hint.com/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Apr 2020 17:20:46 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>K8s_ingress nginx</title>
+      <link>https://www.51hint.com/posts/k8s_ingress/</link>
+      <pubDate>Sun, 19 Apr 2020 17:20:46 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/k8s_ingress/</guid>
+      <description>Kubernetes ingress (nginx-ingress) https://www.jianshu.com/p/bd195f7564a4 nginx-ingress配置原理 https://yuerblog.cc/2019/03/26/k8s%E9%9A%8F%E7%AC%94-nginx-ingress%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86/ Kubernetes Ingress Controller的使用介绍及高可用落地 https://www.servicemesher.com/blog/kubernetes-ingress-controller-deployment-and-ha/</description>
+    </item>
+    
+    <item>
+      <title>Portainer_rancher</title>
+      <link>https://www.51hint.com/posts/portainer_rancher/</link>
+      <pubDate>Mon, 08 Apr 2019 10:32:03 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/portainer_rancher/</guid>
+      <description>搭建portainer docker run -d -p 9000:9000 --name portainer --restart=unless-stopped -v /var/run/docker.sock:/var/run/docker.sock -v /Users/guo/prj/db_server/portainer_data:/data portainer/portainer 搭建rancher docker run -d --restart=unless-stopped \ -p 80:80 -p 443:443 \ -v /Users/guo/prj/db_server/rancher_data:/var/lib/rancher \ rancher/rancher:stable</description>
+    </item>
+    
+  </channel>
+</rss>

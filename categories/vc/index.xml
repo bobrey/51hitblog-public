@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VC on IT技术分享</title>
+    <link>https://www.51hint.com/categories/vc/</link>
+    <description>Recent content in VC on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Aug 2016 07:58:53 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/vc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RVA to file offset</title>
+      <link>https://www.51hint.com/posts/2016-08-02-rva-to-file-offset/</link>
+      <pubDate>Tue, 02 Aug 2016 07:58:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-08-02-rva-to-file-offset/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>inet_aton和inet_network和inet_addr</title>
+      <link>https://www.51hint.com/posts/2016-07-08-inet_aton%E5%92%8Cinet_network%E5%92%8Cinet_addr/</link>
+      <pubDate>Fri, 08 Jul 2016 02:47:56 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-07-08-inet_aton%E5%92%8Cinet_network%E5%92%8Cinet_addr/</guid>
+      <description>210.25.132.181属于IP地址的ASCII表示法，也就是字符串形式。英语叫做IPv4 numbers-and-dots notation。 如果把210.25.132</description>
+    </item>
+    
+    <item>
+      <title>实现proxy</title>
+      <link>https://www.51hint.com/posts/2014-04-09-%E5%AE%9E%E7%8E%B0proxy/</link>
+      <pubDate>Wed, 09 Apr 2014 05:54:44 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-09-%E5%AE%9E%E7%8E%B0proxy/</guid>
+      <description>TCP Socket Connect through HTTP Proxy http://www.example-code.com/csharp/socket_http_proxy.asp http://www.chilkatsoft.com/downloads_DotNet.asp Socket/SSL/TLS through SOCKS5 / SOCKS4 Proxy http://www.example-code.com/csharp/socket_socks_proxy.asp https://github.com/niik/switchboard https://github.com/X-rus/xNet https://github.com/krys-g/TrotiNet https://github.com/gja/LightProxy ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| .net 4.0 task 多任务 webclient proxy socket 第三方插件实现 ============================================================ http://stackoverflow.com/questions/4898339/how-to-check-if-a-proxy-server-is-configured HttpWebRequest WebProxy C# Connecting Through Proxy – Stack Overflow http://stackoverflow.com/questions/1938990/c-sharp-connecting-through-proxy c# – MultiThreaded Proxy Checker – Stack Overflow http://stackoverflow.com/questions/6235651/multithreaded-proxy-checker multithreading – C# Multithreaded Proxy Checker – Stack Overflow http://stackoverflow.com/questions/3132178/c-sharp-multithreaded-proxy-checker Chilkat Tech Notes</description>
+    </item>
+    
+    <item>
+      <title>交换两个变量的值，不引入第三个变量  【异或运算符】</title>
+      <link>https://www.51hint.com/posts/2012-12-20-%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC%E4%B8%8D%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97/</link>
+      <pubDate>Thu, 20 Dec 2012 10:28:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC%E4%B8%8D%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97/</guid>
+      <description>我们先熟悉一下异或运算法则： a ^ a = 0 a ^ b = b ^ a a ^ b ^ c = a ^ (b ^ c) = (a ^ b) ^ c; d = a ^ b ^ c 可以推出 a = d ^ b ^ c. a ^ b ^ a = b. 现在</description>
+    </item>
+    
+    <item>
+      <title>51单片机</title>
+      <link>https://www.51hint.com/posts/2012-12-16-51%E5%8D%95%E7%89%87%E6%9C%BA/</link>
+      <pubDate>Sun, 16 Dec 2012 12:22:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-16-51%E5%8D%95%E7%89%87%E6%9C%BA/</guid>
+      <description>http://www.tudou.com/programs/view/Rb4-lRaOtEM?FR=LIAN</description>
+    </item>
+    
+    <item>
+      <title>负载均衡之大型在线系统实现的关键</title>
+      <link>https://www.51hint.com/posts/2012-12-12-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%85%B3%E9%94%AE/</link>
+      <pubDate>Wed, 12 Dec 2012 01:20:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-12-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%85%B3%E9%94%AE/</guid>
+      <description>以上的这篇文章是早在去年的时候写的了，当时正在作休闲平台，一直在想着如何实现一个可扩充的支持百万人在线的游戏平台，后来思路有了，就写了那篇总</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;开发常用工具“群英会”</title>
+      <link>https://www.51hint.com/posts/2012-11-07-c%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%BE%A4%E8%8B%B1%E4%BC%9A/</link>
+      <pubDate>Wed, 07 Nov 2012 04:47:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-07-c%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%BE%A4%E8%8B%B1%E4%BC%9A/</guid>
+      <description>C++开发常用工具“群英会” http://foxhack.blog.51cto.com/96963/36910</description>
+    </item>
+    
+    <item>
+      <title>c&#43;&#43;  类型转换</title>
+      <link>https://www.51hint.com/posts/2012-09-05-c-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</link>
+      <pubDate>Wed, 05 Sep 2012 02:47:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-09-05-c-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GUI,CLI,TUI</title>
+      <link>https://www.51hint.com/posts/2012-09-01-guiclitui/</link>
+      <pubDate>Sat, 01 Sep 2012 07:54:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-09-01-guiclitui/</guid>
+      <description>CLI – Typing commands and editing files manually, fun, thought-provoking and often leads to troubleshooting TUI – Characterized by the /sbin/yast text-based UI, often using the NCurses library, it’s a text version of a GUI, as it were, and YaST in the TUI mode matches screen for screen with the GUI mode GUI – Characterized by the /sbin/yast2 X11 GUI interface, it’s run in</description>
+    </item>
+    
+    <item>
+      <title>关于操作文件</title>
+      <link>https://www.51hint.com/posts/2012-08-24-%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Fri, 24 Aug 2012 02:31:56 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-24-%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/</guid>
+      <description>c读写wav文件 *c++ 读写二进制文件，超级便利性 ——————————————————————————–写操作 注意事项 要写的文件需要用到输出模式标</description>
+    </item>
+    
+    <item>
+      <title>socket</title>
+      <link>https://www.51hint.com/posts/2012-08-23-socket/</link>
+      <pubDate>Wed, 22 Aug 2012 23:11:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-23-socket/</guid>
+      <description>htonl() &amp;lt;p&amp;gt; 简述：&amp;lt;br /&amp;gt; 将主机的无符号短整形数转换成网络字节顺序。&amp;lt;br /&amp;gt; #include &amp;lt;winsock.h&amp;gt;&amp;lt;br /&amp;gt; u_short PASCAL FAR htons( u_short hostshort);&amp;lt;br /&amp;gt; hostshort：主机字节顺序表达的1</description>
+    </item>
+    
+    <item>
+      <title>VC在窗体上画直线</title>
+      <link>https://www.51hint.com/posts/2012-08-09-vc%E5%9C%A8%E7%AA%97%E4%BD%93%E4%B8%8A%E7%94%BB%E7%9B%B4%E7%BA%BF/</link>
+      <pubDate>Thu, 09 Aug 2012 08:58:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-vc%E5%9C%A8%E7%AA%97%E4%BD%93%E4%B8%8A%E7%94%BB%E7%9B%B4%E7%BA%BF/</guid>
+      <description>转自：http://hi.baidu.com/suruiqiang/blog/item/a942e4cc4634f61200e928eb.h</description>
+    </item>
+    
+    <item>
+      <title>Windows 下的最简单的TCP服务器客户端</title>
+      <link>https://www.51hint.com/posts/2012-08-09-windows-%E4%B8%8B%E7%9A%84%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84tcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%A2%E6%88%B7%E7%AB%AF/</link>
+      <pubDate>Thu, 09 Aug 2012 08:57:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-windows-%E4%B8%8B%E7%9A%84%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84tcp%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%A2%E6%88%B7%E7%AB%AF/</guid>
+      <description>转自：http://www.cppblog.com/tx7do/archive/2010/06/10/117591.html 他们是短连接的,</description>
+    </item>
+    
+    <item>
+      <title>TabCtrl在对话框中的使用</title>
+      <link>https://www.51hint.com/posts/2012-08-09-tabctrl%E5%9C%A8%E5%AF%B9%E8%AF%9D%E6%A1%86%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 09 Aug 2012 08:56:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-tabctrl%E5%9C%A8%E5%AF%B9%E8%AF%9D%E6%A1%86%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>建立一个基于对话框的程序 在对话框中加入一个TabCtrl，给控件付一个成员变量m_tabctrl. 在BOOL CTabctrlexampleD</description>
+    </item>
+    
+    <item>
+      <title>windows7 vs2008 Active control test container [源码生成]</title>
+      <link>https://www.51hint.com/posts/2012-08-09-windows7-vs2008-active-control-test-container-%E6%BA%90%E7%A0%81%E7%94%9F%E6%88%90/</link>
+      <pubDate>Thu, 09 Aug 2012 08:54:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-windows7-vs2008-active-control-test-container-%E6%BA%90%E7%A0%81%E7%94%9F%E6%88%90/</guid>
+      <description>在VS 2008中Active X control test container是不以Tools的形式提供，而是以Sample的形式存在。在我的电脑上存在的位置为：C:</description>
+    </item>
+    
+    <item>
+      <title>Win7安vc2008编译报LINK : fatal error LNK1000: Internal error during IncrBuildImage</title>
+      <link>https://www.51hint.com/posts/2012-08-09-win7%E5%AE%89vc2008%E7%BC%96%E8%AF%91%E6%8A%A5link-fatal-error-lnk1000-internal-error-during-incrbuildimage/</link>
+      <pubDate>Thu, 09 Aug 2012 08:47:26 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-win7%E5%AE%89vc2008%E7%BC%96%E8%AF%91%E6%8A%A5link-fatal-error-lnk1000-internal-error-during-incrbuildimage/</guid>
+      <description>环境： Windows 7 Ultimate x64 version Microsoft Visual Studio 2008 SP1 (VC++ 2008) 返回错误：LINK : fatal error LNK1000: Internal error during IncrBuildImage 解决办法： 项目-&amp;gt;属性-&amp;gt;链接器-&amp;gt;常规 下面的“启用增量链</description>
+    </item>
+    
+    <item>
+      <title>Comet (web技术)</title>
+      <link>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Fri, 20 Jul 2012 01:57:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</guid>
+      <description>Comet是一种用于web的技术，能使服务器能实时地将更新的信息传送到客户端，而无须客户端发出请求，目前有两种实现方式，长轮询和流。 实现方式</description>
+    </item>
+    
+    <item>
+      <title>使用DirectUI技术实现QQ界面</title>
+      <link>https://www.51hint.com/posts/2012-06-30-%E4%BD%BF%E7%94%A8directui%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0qq%E7%95%8C%E9%9D%A2/</link>
+      <pubDate>Sat, 30 Jun 2012 09:25:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-30-%E4%BD%BF%E7%94%A8directui%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0qq%E7%95%8C%E9%9D%A2/</guid>
+      <description>DirectUI技术说白了就是XML配置文件+图片+JavaScript控制界面。这点与网页css+图片+JavaScript十分相似，就是</description>
+    </item>
+    
+    <item>
+      <title>rot13encoding/decoding</title>
+      <link>https://www.51hint.com/posts/2012-04-18-rot13encodingdecoding/</link>
+      <pubDate>Wed, 18 Apr 2012 04:09:57 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-04-18-rot13encodingdecoding/</guid>
+      <description>http://rot13-encoder-decoder.waraxe.us/</description>
+    </item>
+    
+    <item>
+      <title>Binary to Text (ASCII) Conversion</title>
+      <link>https://www.51hint.com/posts/2012-04-18-binary-to-text-ascii-conversion/</link>
+      <pubDate>Wed, 18 Apr 2012 03:53:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-04-18-binary-to-text-ascii-conversion/</guid>
+      <description>http://www.roubaixinteractive.com/PlayGround/Binary_Conversion/Binary_To_Text.asp</description>
+    </item>
+    
+    <item>
+      <title>Winsock – SOCKET 函数</title>
+      <link>https://www.51hint.com/posts/2012-03-27-winsock-socket-%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Tue, 27 Mar 2012 04:07:26 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-27-winsock-socket-%E5%87%BD%E6%95%B0/</guid>
+      <description>初始化 Winsock 调用sock函数创建套接口 函数定义 SOCKET socket(int af, // 协议簇 一般 AF_INET 用于 Internet 协议int type, // 套接口类型(SOCK_STREAM、SOCK_RGRAM、</description>
+    </item>
+    
+    <item>
+      <title>AES 加密</title>
+      <link>https://www.51hint.com/posts/2012-03-19-aes-%E5%8A%A0%E5%AF%86/</link>
+      <pubDate>Mon, 19 Mar 2012 06:50:09 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-19-aes-%E5%8A%A0%E5%AF%86/</guid>
+      <description>C++ AES 加密算法 头文件： #ifndef AES_H #define AES_H #include #include #include using namespace std; class AES { // 默认 PKCS5Padding public: static char commkey[16]; char m_key[16]; AES(const char *key = AES::commkey); private: typedef unsigned char byte; static const int KEY_SIZE = 16; //密钥长度为128位 static const int N_ROUND = 11; byte plainText[16]; //</description>
+    </item>
+    
+    <item>
+      <title>c&#43;&#43; 调用c lib</title>
+      <link>https://www.51hint.com/posts/2012-03-18-c-%E8%B0%83%E7%94%A8c-lib/</link>
+      <pubDate>Sat, 17 Mar 2012 15:10:35 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-18-c-%E8%B0%83%E7%94%A8c-lib/</guid>
+      <description>如果不想用lib文件或者是没有lib文件， 可以 用WIN32 API函数LoadLibrary、GetProcAddress。 如果在C++工程里</description>
+    </item>
+    
+    <item>
+      <title>CR/LF换行回车</title>
+      <link>https://www.51hint.com/posts/2011-08-18-crlf/</link>
+      <pubDate>Thu, 18 Aug 2011 04:07:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-18-crlf/</guid>
+      <description>Such a trivial problem – I simply want to add a CR/LF pair to the end (or middle) of a string.(Uh, CR/LF means Carriage Return/Linefeed.) The codes for this are &amp;lt;th&amp;gt; Hex &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Decimal &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Visual Basic &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Delphi &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; C++ Builder &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Java &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Paradox &amp;lt;/th&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr align=&amp;quot;center&amp;quot;&amp;gt; &amp;lt;td&amp;gt; CR &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 0D &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 13 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; vbCR &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; #13</description>
+    </item>
+    
+    <item>
+      <title>c&#43;&#43; 函数省略号的用法</title>
+      <link>https://www.51hint.com/posts/2011-07-08-c-%E5%87%BD%E6%95%B0%E7%9C%81%E7%95%A5%E5%8F%B7%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Fri, 08 Jul 2011 03:51:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-07-08-c-%E5%87%BD%E6%95%B0%E7%9C%81%E7%95%A5%E5%8F%B7%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description>在不确定形参的函数时，形参部分可以使用省略号”…”； 首先需要引用&amp;lt;stdarg.h&amp;gt;头文件，然后利用va_list //保存函数参</description>
+    </item>
+    
+    <item>
+      <title>C/C&#43;&#43;中typedef struct和struct的用法</title>
+      <link>https://www.51hint.com/posts/2011-06-09-cc%E4%B8%ADtypedef-struct%E5%92%8Cstruct%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Thu, 09 Jun 2011 02:08:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-09-cc%E4%B8%ADtypedef-struct%E5%92%8Cstruct%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

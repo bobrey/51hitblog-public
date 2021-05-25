@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>node on IT技术分享</title>
+    <link>https://www.51hint.com/categories/node/</link>
+    <description>Recent content in node on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Apr 2015 10:59:53 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/node/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nodejs</title>
+      <link>https://www.51hint.com/posts/2015-04-13-nodejs/</link>
+      <pubDate>Mon, 13 Apr 2015 10:59:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-04-13-nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nodejs环境配置</title>
+      <link>https://www.51hint.com/posts/2014-08-23-nodejs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 23 Aug 2014 14:16:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-23-nodejs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <description>NodeJs http://nodejs.org/dist/ 1.download [node.exe] http://nodejs.org/dist/latest/ 2.download [npm.zip] http://nodejs.org/dist/npm/ make [node] foler node |-nodejs —&amp;gt;node and npm |-npm-global —&amp;gt;global |-npm-cache —&amp;gt;cache set env move [node.exe] to [node]folder; move [npmxx.zip] to [node]folder ,and unzip it; set PATH add xxxxx\node\nodejs set PATH add xxxxx\node\node-global then type</description>
+    </item>
+    
+    <item>
+      <title>使用express和socket.io</title>
+      <link>https://www.51hint.com/posts/2012-01-31-%E4%BD%BF%E7%94%A8express%E5%92%8Csocket-io/</link>
+      <pubDate>Tue, 31 Jan 2012 08:18:09 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-31-%E4%BD%BF%E7%94%A8express%E5%92%8Csocket-io/</guid>
+      <description>nodejs的web框架：express，下面的代码就可以创建一个基于express和socket.io的socket应用 和客户端的方法一样</description>
+    </item>
+    
+    <item>
+      <title>node.js 負荷分散</title>
+      <link>https://www.51hint.com/posts/2012-01-31-node-js-%E8%B2%A0%E8%8D%B7%E5%88%86%E6%95%A3/</link>
+      <pubDate>Tue, 31 Jan 2012 06:33:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-31-node-js-%E8%B2%A0%E8%8D%B7%E5%88%86%E6%95%A3/</guid>
+      <description>这个例子中有两个指定的套接字对象： client_socket 和 dest_socket。 ◆ client_socket 是负载平衡器与客户端之间的连接。 ◆ dest_socket 是负载平衡器与被平衡服务器之间的连接。</description>
+    </item>
+    
+    <item>
+      <title>WebSocket&#43;Node.js 通讯及在 iPhone中 实现</title>
+      <link>https://www.51hint.com/posts/2012-01-31-websocketnode-js-%E9%80%9A%E8%AE%AF%E5%8F%8A%E5%9C%A8-iphone%E4%B8%AD-%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 31 Jan 2012 02:06:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-31-websocketnode-js-%E9%80%9A%E8%AE%AF%E5%8F%8A%E5%9C%A8-iphone%E4%B8%AD-%E5%AE%9E%E7%8E%B0/</guid>
+      <description>http://my.oschina.net/lionyang/blog/30410 这个资源里我使用的是作者的服务器端现成代码。 http://www.cnblogs.com/meteoric_cry/archive/2011/06/05/2073226.html 这个资源里我使用的是客户端现成代码，服务器端代码调试失败，不知道什么原因，可能是我人品问题在</description>
+    </item>
+    
+    <item>
+      <title>nodejs一些框架等</title>
+      <link>https://www.51hint.com/posts/2012-01-31-nodejs%E4%B8%80%E4%BA%9B%E6%A1%86%E6%9E%B6%E7%AD%89/</link>
+      <pubDate>Tue, 31 Jan 2012 01:48:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-31-nodejs%E4%B8%80%E4%BA%9B%E6%A1%86%E6%9E%B6%E7%AD%89/</guid>
+      <description>nodejs.exe — windows 版 nodejs npm — nodejs 的模板库管理工具，但windows下很多库都不能直接安装使用 express — mvc framework jade — template dot — template ejs — template Tenjin — template jst — template ，有错误，还未修复 dirty — 因为</description>
+    </item>
+    
+    <item>
+      <title>node-websocket-server</title>
+      <link>https://www.51hint.com/posts/2012-01-30-node-websocket-server/</link>
+      <pubDate>Mon, 30 Jan 2012 10:59:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-30-node-websocket-server/</guid>
+      <description>一、安装 npm install websocket-server 二、 iostate-server.js var http = require(“http”) ,fs = require(“fs”) ,path = require(“path”) ,ws = require(</description>
+    </item>
+    
+    <item>
+      <title>node入门</title>
+      <link>https://www.51hint.com/posts/2012-01-30-node%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Mon, 30 Jan 2012 07:09:18 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-30-node%E5%85%A5%E9%97%A8/</guid>
+      <description>node中文入门简体教程 http://www.nodebeginner.org/index-zh-cn.html#responding-request-handlers-with-non-blocking-operations expressjs为nodejs的webframework框架 http://js8.in/774.html http://www.html5china.com/HTML5features/WebSocket/20111206_3075.html</description>
+    </item>
+    
+  </channel>
+</rss>

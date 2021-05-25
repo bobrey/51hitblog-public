@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> ortp流媒体协议 [2] - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="ortp流媒体协议 [2]" />
+  <meta name="twitter:title" content="ortp流媒体协议 [2]" />
+  <meta name="description" content="ortp 发送数据的示例程序 //=========================================================================================================// 自己实现rtp还是比较简单的。分为接收和发送，接收的时候直接去掉12个字节的报头，然后向下送。而发送的时候稍微麻烦点，">
+  <meta property="og:description" content="ortp 发送数据的示例程序 //=========================================================================================================// 自己实现rtp还是比较简单的。分为接收和发送，接收的时候直接去掉12个字节的报头，然后向下送。而发送的时候稍微麻烦点，">
+  <meta name="twitter:description" content="ortp 发送数据的示例程序 //=========================================================================================================// 自己实现rtp还是比较简单的。分为接收和发送，接收的时候直接去掉12个字节的报头，然后向下送。而发送的时候稍微麻烦点，">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-2/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-2/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">ortp流媒体协议 [2]</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Sep 28, 2011</h4>
+    </section>
+    <h5 id="wc">3400 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/open-source/">open source</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>ortp 发送数据的示例程序</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>//=========================================================================================================//</p>
+<p><!-- raw HTML omitted -->自己实现rtp还是比较简单的。分为接收和发送，接收的时候直接去掉12个字节的报头，然后向下送。而发送的时候稍微麻烦点，我的实现手法如下：<!-- raw HTML omitted --></p>
+<p>**初始化报头：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> char rtppacket[172] = {0x80, 0x08};//PCMA 0x08 PCMU 0x00</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> srand((int)time(0));</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> unsigned short seq = 0, tmp = 0;</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> unsigned int timestamp = htonl(0);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> unsigned int ssrc = htonl(rand());</p>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> memcpy(rtppacket+ 4, &amp;timestamp, 4);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> memcpy(rtppacket+ 8, &amp;ssrc, 4);</p>
+<p><strong>发送报文</strong>（在一个循环中）：</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->memcpy(rtppacket+ 2, &amp;tmp, 2);</p>
+<p><!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->seq++;</p>
+<p><!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->tmp = htons(seq);</p>
+<p><!-- raw HTML omitted -->  <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted -->memcpy(rtppacket+ 12, &amp;voicedata, 160);</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> 直接UDP send报文。</p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --> 在这里面，timestamp是我全部赋值为0的，并且这个实现是只能承载G711A。但是在ZTE的网关上运行正常。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/li&gt; &lt;/ul&gt; 
+  
+  &lt;p style=&quot;margin-top: 0px; margin-bottom: 5px; padding-top: 0px; padding-bottom: 0px; list-style-type: none; list-style-position: initial; word-wrap: normal; word-break: normal; line-height: 18px; font-family: Tahoma,Verdana,Arial; font-size: 9pt; border: 0px initial initial;&quot;&gt;
+    &lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; ortp中发送和接收主要是两个函数rtp_session_send_with_ts和rtp_session_recv_with_ts。&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-bottom: 5px; padding-top: 0px; padding-bottom: 0px; list-style-type: none; list-style-position: initial; word-wrap: normal; word-break: normal; line-height: 18px; font-family: Tahoma,Verdana,Arial; font-size: 9pt; border: 0px initial initial;&quot;&gt;
+    &lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;br /&gt; 以rtp_session_recv_with_ts为例：内部接收数据使用的是rtp_session_recvm_with_ts，&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-bottom: 5px; padding-top: 0px; padding-bottom: 0px; list-style-type: none; list-style-position: initial; word-wrap: normal; word-break: normal; line-height: 18px; font-family: Tahoma,Verdana,Arial; font-size: 9pt; border: 0px initial initial;&quot;&gt;
+    &lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;br /&gt; 首先，会接收所有scoket上的数据，然后将rtp包存放在一个队列之中，一系列处理之后，有一个pthread_mutex_lock的线程锁，将线程锁住。&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-bottom: 5px; padding-top: 0px; padding-bottom: 0px; list-style-type: none; list-style-position: initial; word-wrap: normal; word-break: normal; line-height: 18px; font-family: Tahoma,Verdana,Arial; font-size: 9pt; border: 0px initial initial;&quot;&gt;
+    &lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;br /&gt; 此时，由rtp_scheduler_schedule线程进行调度（该线程在协议栈初始化）时创建。&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-bottom: 5px; padding-top: 0px; padding-bottom: 0px; list-style-type: none; list-style-position: initial; word-wrap: normal; word-break: normal; line-height: 18px; font-family: Tahoma,Verdana,Arial; font-size: 9pt; border: 0px initial initial;&quot;&gt;
+    &lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;br /&gt; rtp_scheduler_schedule会遍历所有的media session（媒体流），然后判断其中的timestamp（时间戳），如果计算的时间到达，则让rtp_session_recvm_with_ts继续处理。&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-bottom: 5px; padding-top: 0px; padding-bottom: 0px; list-style-type: none; list-style-position: initial; word-wrap: normal; word-break: normal; line-height: 18px; font-family: Tahoma,Verdana,Arial; font-size: 9pt; border: 0px initial initial;&quot;&gt;
+    &lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; 时间戳的算法是以第一个打到的rtp数据包为准，然后根据其中的时间，进行推算。假如第一个包是10点整来的，然后ptime又是20ms，那么下一个包的时间就是10点又20毫秒。&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+     &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; media session是一个RtpSession对象，包含多种属性和方法。RtpScheduler中包含一个RtpSession的队列，用来支持多媒体流。&lt;br /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; 值得一提的是，rtp_scheduler_schedule中有一个独特的&amp;#8221;sleep&amp;#8221;，该sleep可以停顿10ms。
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-bottom: 5px; padding-top: 0px; padding-bottom: 0px; list-style-type: none; list-style-position: initial; word-wrap: normal; word-break: normal; line-height: 18px; font-family: Tahoma,Verdana,Arial; font-size: 9pt; border: 0px initial initial;&quot;&gt;
+    &lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;     并且这个时间是绝对的，如果中间因为处理或者其他原因延迟了2ms，那么这个sleep停顿的就是8ms。&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-bottom: 5px; padding-top: 0px; padding-bottom: 0px; list-style-type: none; list-style-position: initial; word-wrap: normal; word-break: normal; line-height: 18px; font-family: Tahoma,Verdana,Arial; font-size: 9pt; border: 0px initial initial;&quot;&gt;
+    &lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;     具体函数可以看一下posixtimer.c中的posix_timer_do实现。&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-bottom: 5px; padding-top: 0px; padding-bottom: 0px; list-style-type: none; list-style-position: initial; word-wrap: normal; word-break: normal; line-height: 18px; font-family: Tahoma,Verdana,Arial; border: 0px initial initial;&quot;&gt;
+    &lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt;     精确的计时使用select，精确时间的取得很多使用&lt;/span&gt;&lt;span style=&quot;font-size: 9pt; background-color: #ff9900;&quot;&gt;gettimeofday&lt;/span&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt;这个函数，该函数在精确计时的时候非常有用。&lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;strong&gt;单线程支持多路媒体流&lt;/strong&gt;&lt;br /&gt; &lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; 对外是有一个&lt;/span&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt;sessionset，完全模拟了select的做法，对外提供的接口，也和标准select几乎一样。主要的处理实现，还是在&lt;/span&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt;rtp_scheduler里面完成。模拟select的唤醒，使用了&lt;/span&gt;&lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt;pthread_cond_wait。&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;strong&gt; &lt;wbr /&gt;自适应的缓冲区算法&lt;/strong&gt;&lt;br /&gt; &lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; 主要的实现都在jitterctl.c里面，也不算很复杂，没有太仔细看。从注释中看到算法如下：&lt;/span&gt;&lt;br /&gt; &lt;span style=&quot;font-family: Arial; word-wrap: normal; word-break: normal; line-height: 18px;&quot;&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt; background-color: #c0c0c0;&quot;&gt; The&lt;br /&gt; algorithm computes two values:&lt;br /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt;slide: an average of difference between the expected and the socket-received timestamp&lt;br /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; jitter: an average of the absolute value of the difference between socket-received timestamp and slide.&lt;br /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; &lt;wbr /&gt; slide is used to make clock-slide detection and correction.&lt;/p&gt; 
+    
+    &lt;p&gt;
+      &lt;/span&gt;&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;strong&gt;RTCP的实现&lt;/strong&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; rtcp是不算很复杂的东西。ortp中，在RtpSession里面，即包含了rtcp的一些相关属性。需要的时候，直接取出然后组包发送就可以了。不过还要涉及到SDES，东西倒也是不少。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt; &lt;wbr /&gt;后记&lt;/span&gt;&lt;br /&gt; &lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; 大概读了一下ortp，一共大约14K的代码量，确实算是一款优秀的作品，作者对于线程，实时性的一些处理，都相当的深入。对于数据结构的组织，也非常不错，大部分数据，均适用了自己的封装。采用了链表的结构，声明在str_utils.h里面，这些数据结构的具体使用，就没有太仔细看了。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; 读完以后，再回头看看自己的项目，确实没有必要用ortp这样的“庞然大物”了：多种rtp格式？我只需要G711A；实时性？我有底层硬件保证了；多路媒体流？不需要，我只要VOIP语音；自适应的jitter？也不用，底层硬件有保证；至于RTCP，不是必须项，也可以不要。在单用途的终端上，协议栈的实现可以简化非常多。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; &lt;/span&gt;&lt;wbr /&gt;&lt;span style=&quot;font-size: 9pt;&quot;&gt; 最后感叹一下，老外的计算机水平确实比国内高出很多。我看的这份ortp的实现，设计，实现几近炉火纯青，方方面面考虑周详仔细，并且实现了Linux平台和Windows平台的通用。显示在程序结构，数据组织，操作系统，网络协议方面不凡的功力。国内程序员，写程序很多是为了混口饭，不会去精益求精，能实现功能，就已经很不错，是老板眼中的红人。国内写代码要达到ortp这样的艺术水准，还有非常长的路要走。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      参考；http://blog.sina.com.cn/s/blog_6a9032c10100lyi1.html
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &amp;nbsp;
+    &lt;/p&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-1/" data-toggle="tooltip" data-placement="top" title="ortp流媒体协议 [1]">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-1/" data-toggle="tooltip" data-placement="top" title="osip2和eXosip2协议[1]">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-1/">ortp流媒体协议 [1]</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Sep 28, 2011</h4>
+    </section>
+    <h5 id="wc">3400 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/open-source/">open source</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

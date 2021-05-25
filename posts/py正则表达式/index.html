@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Py正则表达式 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Py正则表达式" />
+  <meta name="twitter:title" content="Py正则表达式" />
+  <meta name="description" content="python正则表达式">
+  <meta property="og:description" content="python正则表达式">
+  <meta name="twitter:description" content="python正则表达式">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/py%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/py%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Py正则表达式</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h4 id="在线正则表达式测试">在线正则表达式测试</h4>
+<p><a href="http://tool.oschina.net/regex/">http://tool.oschina.net/regex/</a></p>
+<h4 id="规则">规则</h4>
+<p>表3-2 常用的匹配规则</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\w</code></td>
+<td>匹配字母、数字及下划线</td>
+</tr>
+<tr>
+<td><code>\W</code></td>
+<td>匹配不是字母、数字及下划线的字符</td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>匹配任意空白字符，等价于<code>[\t\n\r\f]</code></td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>匹配任意非空字符</td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>匹配任意数字，等价于<code>[0-9]</code></td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>匹配任意非数字的字符</td>
+</tr>
+<tr>
+<td><code>\A</code></td>
+<td>匹配字符串开头</td>
+</tr>
+<tr>
+<td><code>\Z</code></td>
+<td>匹配字符串结尾，如果存在换行，只匹配到换行前的结束字符串</td>
+</tr>
+<tr>
+<td><code>\z</code></td>
+<td>匹配字符串结尾，如果存在换行，同时还会匹配换行符</td>
+</tr>
+<tr>
+<td><code>\G</code></td>
+<td>匹配最后匹配完成的位置</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>匹配一个换行符</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>匹配一个制表符</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>匹配一行字符串的开头</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>匹配一行字符串的结尾</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>匹配任意字符，除了换行符，当<code>re.DOTALL</code>标记被指定时，则可以匹配包括换行符的任意字符</td>
+</tr>
+<tr>
+<td><code>[...]</code></td>
+<td>用来表示一组字符，单独列出，比如<code>[amk]</code>匹配<code>a</code>、<code>m</code>或<code>k</code></td>
+</tr>
+<tr>
+<td><code>[^...]</code></td>
+<td>不在<code>[]</code>中的字符，比如<code>[^abc]</code>匹配除了<code>a</code>、<code>b</code>、<code>c</code>之外的字符</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>匹配0个或多个表达式</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>匹配1个或多个表达式</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>匹配0个或1个前面的正则表达式定义的片段，非贪婪方式</td>
+</tr>
+<tr>
+<td><code>{n}</code></td>
+<td>精确匹配<code>n</code>个前面的表达式</td>
+</tr>
+<tr>
+<td><code>{n, m}</code></td>
+<td>匹配<code>n</code>到<code>m</code>次由前面正则表达式定义的片段，贪婪方式</td>
+</tr>
+<tr>
+<td>`a</td>
+<td>b`</td>
+</tr>
+<tr>
+<td><code>( )</code></td>
+<td>匹配括号内的表达式，也表示一个组</td>
+</tr>
+</tbody>
+</table>
+<h5 id="贪婪与非贪婪">贪婪与非贪婪</h5>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
+ 
+<span class="n">content</span> <span class="o">=</span> <span class="s1">&#39;Hello 1234567 World_This is a Regex Demo&#39;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^He.*?(\d+).*Demo$&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="err">这里我们只是将第一个</span><span class="o">.*</span><span class="err">改成了</span><span class="o">.*</span><span class="err">?，转变为非贪婪匹配。结果如下：</span>
+<span class="o">&lt;</span><span class="n">_sre</span><span class="o">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s1">&#39;Hello 1234567 World_This is a Regex Demo&#39;</span><span class="o">&gt;</span>
+<span class="mi">1234567</span>
+</code></pre></div><blockquote>
+<p>此时就可以成功获取1234567了。原因可想而知，贪婪匹配是尽可能匹配多的字符，非贪婪匹配就是尽可能匹配少的字符。</p>
+<p>当.<em>?匹配到Hello后面的空白字符时，再往后的字符就是数字了，而\d+恰好可以匹配，那么这里.</em>?就不再进行匹配，交给\d+去匹配后面的数字。所以这样.*?匹配了尽可能少的字符，\d+的结果就是1234567了。</p>
+<p>所以说，在做匹配的时候，字符串中间尽量使用非贪婪匹配，也就是用.<em>?来代替.</em>，以免出现匹配结果缺失的情况。</p>
+</blockquote>
+<h4 id="修饰符">修饰符</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
+ 
+<span class="n">content</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Hello 1234567 World_This
+</span><span class="s1">is a Regex Demo
+</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^He.*?(\d+).*?Demo$&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>  <span class="o">//</span><span class="err">内容有换行</span><span class="p">,</span><span class="err">加</span><span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">S</span><span class="p">]</span><span class="err">才可匹配到</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div><p>修饰符</p>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>re.I</code></td>
+<td>使匹配对大小写不敏感</td>
+</tr>
+<tr>
+<td><code>re.L</code></td>
+<td>做本地化识别（locale-aware）匹配</td>
+</tr>
+<tr>
+<td><code>re.M</code></td>
+<td>多行匹配，影响<code>^</code>和<code>$</code></td>
+</tr>
+<tr>
+<td><code>re.S</code></td>
+<td>使<code>.</code>匹配包括换行在内的所有字符</td>
+</tr>
+<tr>
+<td><code>re.U</code></td>
+<td>根据Unicode字符集解析字符。这个标志影响<code>\w</code>、<code>\W</code>、 <code>\b</code>和<code>\B</code></td>
+</tr>
+<tr>
+<td><code>re.X</code></td>
+<td>该标志通过给予你更灵活的格式以便你将正则表达式写得更易于理解</td>
+</tr>
+</tbody>
+</table>
+<p>在网页匹配中，较为常用的有<code>re.S</code>和<code>re.I</code>。</p>
+<h4 id="转义匹配">转义匹配</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="err">当遇到用于正则匹配模式的特殊字符时，在前面加反斜线转义一下即可。例如</span><span class="o">.</span><span class="err">就可以用</span>\<span class="o">.</span><span class="err">来匹配</span>
+
+<span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;\.baidu\.com&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+</code></pre></div><h5 id="findall">findall()</h5>
+<h5 id="sub">sub()</h5>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" data-toggle="tooltip" data-placement="top" title="Redis使用场景">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/py%E8%A7%A3%E6%9E%90%E5%BA%93/" data-toggle="tooltip" data-placement="top" title="Py解析库">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">Redis使用场景</a></li>
+                    
+                    <li><a href="/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/">Redis命令参考</a></li>
+                    
+                    <li><a href="/posts/beego%E7%9A%84session%E5%85%B1%E4%BA%AB%E5%8F%8A%E5%BE%AE%E6%9C%8D%E5%8A%A1/">Beego的session共享及微服务</a></li>
+                    
+                    <li><a href="/posts/%E5%A4%9A%E7%BA%A7%E5%88%86%E9%94%80%E8%AE%BE%E8%AE%A1/">多级分销设计</a></li>
+                    
+                    <li><a href="/posts/laravel%E9%83%A8%E7%BD%B2/">Laravel部署</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

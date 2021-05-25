@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> NSDate、NSCalendar获取时间之差 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="NSDate、NSCalendar获取时间之差" />
+  <meta name="twitter:title" content="NSDate、NSCalendar获取时间之差" />
+  <meta name="description" content="//======================================================================================================= NSCanlendar 一些方法属性 1. 创建或初始化可用以下方法 &#43; (id)currentCalendar; 取得当前用户的逻辑日历(logical calendar) &#43; (id)autoupdatingCurrentCalendar; 取得当前用户的逻辑日历(logical calendar), …… – (id)initWithCalendarIdentifier:(NSString *)identifier;">
+  <meta property="og:description" content="//======================================================================================================= NSCanlendar 一些方法属性 1. 创建或初始化可用以下方法 &#43; (id)currentCalendar; 取得当前用户的逻辑日历(logical calendar) &#43; (id)autoupdatingCurrentCalendar; 取得当前用户的逻辑日历(logical calendar), …… – (id)initWithCalendarIdentifier:(NSString *)identifier;">
+  <meta name="twitter:description" content="//======================================================================================================= NSCanlendar 一些方法属性 1. 创建或初始化可用以下方法 &#43; (id)currentCalendar; 取得当前用户的逻辑日历(logical calendar) &#43; …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-09-20-nsdatenscalendar%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E4%B9%8B%E5%B7%AE/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-09-20-nsdatenscalendar%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E4%B9%8B%E5%B7%AE/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">NSDate、NSCalendar获取时间之差</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Sep 20, 2011</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>//=======================================================================================================</p>
+<p>NSCanlendar 一些方法属性 1. 创建或初始化可用以下方法 + (id)currentCalendar;</p>
+<p>取得当前用户的逻辑日历(logical calendar) + (id)autoupdatingCurrentCalendar;</p>
+<p>取得当前用户的逻辑日历(logical calendar), …… – (id)initWithCalendarIdentifier:(NSString *)identifier; 初始化为各种日历。</p>
+<p>identifier的范围可以是: NSGregorianCalendar 阳历 NSBuddhistCalendar 佛历 NSChineseCalendar 中国日历 NSHebrewCalendar</p>
+<p>希伯来日历 NSIslamicCalendar 伊斯兰日历 NSIslamicCivilCalendar 伊斯兰民事日历 NSJapaneseCalendar 日本日历</p>
+<ol>
+<li>使用前若有必要可以先做以下设定 – (void)setLocale:(NSLocale *)locale; 设置区域 – (void)setTimeZone:(NSTimeZone *)tz;</li>
+</ol>
+<p>设置时区 – (void)setFirstWeekday:(NSUInteger)value;</p>
+<p>设定每周的第一天从星期几开始，比如: . 如需设定从星期日开始，则value传入1 . 如需设定从星期一开始，则value传入</p>
+<p>2 . 以此类推 详细信息请参阅FirstWeekday属性 – (void)setMinimumDaysInFirstWeek:(NSUInteger)value;</p>
+<p>设定作为(每年及每月)第一周必须包含的最少天数，比如: . 如需设定第一周最少包括7天，则value传入7 详细信息请参阅MinimumDaysInFirstWeek属性  </p>
+<p>unsigned int unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;</p>
+<p>NSDateComponents *components = [calendarLocal components:unitFlags fromDate:date];</p>
+<p>参考：http://www.cnblogs.com/wujian1360/archive/2011/09/05/2168007.html</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-09-19-net2ftp%E5%AE%89%E8%A3%85/" data-toggle="tooltip" data-placement="top" title="net2ftp安装">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-09-21-macport-error-checksum-mismatch/" data-toggle="tooltip" data-placement="top" title="MacPorts  Error: Checksum mismatch">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Sep 20, 2011</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Ansible_docker - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Ansible_docker" />
+  <meta name="twitter:title" content="Ansible_docker" />
+  <meta name="description" content="ansible下部署docker">
+  <meta property="og:description" content="ansible下部署docker">
+  <meta name="twitter:description" content="ansible下部署docker">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/ansible_docker/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/ansible_docker/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Ansible_docker</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h4 id="ansible介绍">ansible介绍</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">1. 安装ansible
+  $ sudo apt-get update
+  $ sudo apt-get install software-properties-common
+  $ sudo apt-add-repository --yes --update ppa:ansible/ansible
+  $ sudo apt-get install ansible
+  ansible --version
+  ssh-keygen
+  ssh-copy-id guo@172.16.62.151
+  ssh-copy-id guo@172.16.62.152
+  ssh-keyscan 172.16.62.151 &gt;&gt; ~/.ssh/known_hosts
+  ssh-keyscan 172.16.62.152 &gt;&gt; ~/.ssh/known_hosts
+  验证
+    ssh guo@172.16.62.151
+    ssh guo@172.16.62.152
+
+2.
+  配置
+  vim /etc/ansible/ansible.cfg
+    <span class="o">[</span>privilege_escalation<span class="o">]</span>
+      <span class="nv">become</span><span class="o">=</span>True
+      <span class="nv">become_method</span><span class="o">=</span>sudo
+      <span class="nv">become_user</span><span class="o">=</span>root
+      <span class="nv">become_ask_pass</span><span class="o">=</span>True
+  host Inventory配置文件默认在/etc/ansible/hosts 
+    <span class="o">[</span>web<span class="o">]</span>
+    172.16.62.151
+    <span class="o">[</span>db<span class="o">]</span>
+    172.16.62.152
+    <span class="o">[</span>all:children<span class="o">]</span>
+    web
+    db
+    
+
+3.
+  ansible all -m ping
+  ansible all -a <span class="s2">&#34;/bin/echo hello&#34;</span>
+  ansible all -m setup
+  ansible all -m copy -a <span class="s2">&#34;src=/etc/hosts dest=/tmp/hosts&#34;</span>
+
+  <span class="c1">#state：present表示安装，latest表示升级最新版，absent表示删除    </span>
+  ansible db -m cron -a <span class="s1">&#39;state=present minute=&#34;*/10&#34; job=&#34;/usr/bin/echo hello&#34; name=&#34;test cron job&#34;&#39;</span>
+  ansible db -a <span class="s1">&#39;crontab -l&#39;</span>                   
+  ansible db -a <span class="s1">&#39;cat /var/spool/cron/crontabs/guo&#39;</span>  --sudo --ask-sudo-pass   
+
+  ansible web -m apt -a <span class="s2">&#34;name=nginx state=present&#34;</span> --sudo --ask-sudo-pass
+  ansible web -m service -a <span class="s2">&#34;name=nginx state=started&#34;</span> --sudo --ask-sudo-pass
+  ansible web -m service -a <span class="s2">&#34;name=nginx state=stopped&#34;</span> -become
+  ansible web -m apt -a <span class="s2">&#34;name=nginx state=absent&#34;</span> -become
+ 
+ 
+4.
+	Playbook命令集
+	vim playbook.yml
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">	</span>- <span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l">all</span><span class="w">
+</span><span class="w">	  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="kc">yes</span><span class="w">
+</span><span class="w">	  </span><span class="nt">become_method</span><span class="p">:</span><span class="w"> </span><span class="l">sudo</span><span class="w">
+</span><span class="w">	  </span><span class="nt">tasks</span><span class="p">:</span><span class="w">
+</span><span class="w">	    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">apt update</span><span class="w">
+</span><span class="w">	      </span><span class="nt">apt</span><span class="p">:</span><span class="w">
+</span><span class="w">	        </span><span class="nt">update_cache</span><span class="p">:</span><span class="w"> </span><span class="kc">yes</span><span class="w">
+</span><span class="w">	    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install apache</span><span class="w">
+</span><span class="w">	      </span><span class="nt">apt</span><span class="p">:</span><span class="w">
+</span><span class="w">	        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">apache2</span><span class="w">
+</span><span class="w">	        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l">present</span><span class="w">
+</span><span class="w">	      </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">	        </span><span class="nt">RUNLEVEL</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">  
+</span><span class="w">	    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">start apache</span><span class="w">
+</span><span class="w">	      </span><span class="nt">service</span><span class="p">:</span><span class="w">
+</span><span class="w">	        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">apache2</span><span class="w">
+</span><span class="w">	        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l">started</span><span class="w">
+</span><span class="w">	      </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">	        </span><span class="nt">RUNLEVEL</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">      
+</span><span class="w">	    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Remove useless packages from the cache</span><span class="w">
+</span><span class="w">	      </span><span class="nt">apt</span><span class="p">:</span><span class="w">
+</span><span class="w">	        </span><span class="nt">autoclean</span><span class="p">:</span><span class="w"> </span><span class="kc">yes</span><span class="w">
+</span><span class="w">	    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Remove dependencies that are no longer required</span><span class="w">
+</span><span class="w">	      </span><span class="nt">apt</span><span class="p">:</span><span class="w">
+</span><span class="w">	        </span><span class="nt">autoremove</span><span class="p">:</span><span class="w"> </span><span class="kc">yes</span><span class="w">  
+</span></code></pre></div><pre><code>ansible-playbook -i hosts playbook.yml
+</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/html5%E5%BD%95%E9%9F%B3/" data-toggle="tooltip" data-placement="top" title="Html5录音">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/android%E8%87%AA%E5%8A%A8_auto.js/" data-toggle="tooltip" data-placement="top" title="Android自动_auto">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/ansible/">Ansible</a></li>
+                    
+                    <li><a href="/posts/html5%E5%BD%95%E9%9F%B3/">Html5录音</a></li>
+                    
+                    <li><a href="/posts/lua%E5%AE%89%E8%A3%85/">Lua安装</a></li>
+                    
+                    <li><a href="/posts/go%E6%8E%92%E5%BA%8F/">Go排序</a></li>
+                    
+                    <li><a href="/posts/py%E9%AA%8C%E8%AF%81%E7%A0%81/">Py验证码</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

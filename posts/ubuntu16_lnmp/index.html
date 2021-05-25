@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Ubuntu16_lnmp - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Ubuntu16_lnmp" />
+  <meta name="twitter:title" content="Ubuntu16_lnmp" />
+  <meta name="description" content="ubuntu16 lnmp php7.2">
+  <meta property="og:description" content="ubuntu16 lnmp php7.2">
+  <meta name="twitter:description" content="ubuntu16 lnmp php7.2">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/ubuntu16_lnmp/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/ubuntu16_lnmp/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Ubuntu16_lnmp</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">
+<span class="c1">########## Install NGINX ##############</span>
+
+<span class="c1"># Install software-properties-common package to give us add-apt-repository package</span>
+sudo apt-get install -y software-properties-common
+
+<span class="c1"># Install latest nginx version from community maintained ppa</span>
+sudo add-apt-repository ppa:nginx/stable
+
+<span class="c1"># Update packages after adding ppa</span>
+sudo apt-get update
+
+<span class="c1"># Install nginx</span>
+sudo apt-get install -y nginx
+
+<span class="c1"># Check status</span>
+sudo service nginx
+
+<span class="c1"># Start nginx if it is not already running</span>
+sudo service nginx start
+
+<span class="c1"># At this point you should have NGINX up and running, open http://localhost on your </span>
+<span class="c1"># browser and you should see a welcome page from NGINX</span>
+
+<span class="c1">######### Install PHP7.2 and PHP7.2-FPM ################</span>
+
+<span class="c1"># check what is the latest PHP version supplied by UBUNTU</span>
+sudo apt-cache show php
+
+
+<span class="c1"># Add Repository which gives us the latest php version 7.2</span>
+sudo add-apt-repository ppa:ondrej/php
+
+<span class="c1"># Lets now check what is the latest PHP version available now after the repository is added</span>
+sudo apt-cache show php
+
+<span class="c1"># Lets now install php7.2 and some important modules which we will need.</span>
+
+sudo apt-get install php7.2-cli php7.2-fpm php7.2-curl php7.2-gd php7.2-mysql php7.2-mbstring zip unzip
+
+<span class="c1"># Once done all basic modules will be installed now, lets check the version now</span>
+
+php -v
+
+
+
+<span class="c1"># Lets also check if the PHP7.2-FPM is running, if not start it</span>
+
+sudo service php7.2-fpm status
+
+sudo service php7.2-fpm start  <span class="c1"># (if the service isn&#39;t running already)</span>
+
+<span class="c1"># Now we need to configure the Gateway so that PHP-FPM uses the UNIX socket for executing PHP files.</span>
+<span class="c1"># For this we need to check where is the PHP7.2-fpm service running from and where are their configurations stored</span>
+
+sudo ps aux <span class="p">|</span> grep php <span class="c1"># (this will list php process)</span>
+
+<span class="c1"># You will see the output something like below depending on how many processes are running</span>
+
+<span class="c1"># root     13122  0.0  0.0 412040 14752 ?        Ss   12:17   0:00 php-fpm: master process (/etc/php/7.2/fpm/php-fpm.conf)</span>
+<span class="c1"># www-data 13123  0.0  0.0 412040  8424 ?        S    12:17   0:00 php-fpm: pool www</span>
+<span class="c1"># www-data 13124  0.0  0.0 412040  8424 ?        S    12:17   0:00 php-fpm: pool www</span>
+<span class="c1"># root     13126  0.0  0.0  11288   868 pts/1    S+   12:17   0:00 grep --color=auto php</span>
+
+<span class="c1"># You will see the php-fpm master process is its location as /etc/php/7.2/fpm/php-fpm.conf. We now need to check the socket details</span>
+<span class="c1"># from the PHP7.2-fpm by view this file.</span>
+
+vim /etc/php/7.2/fpm/php-fpm.conf
+
+<span class="c1"># You will see at the end of the file something like &#39;include=/etc/php/7.2/fpm/pool.d/*.conf&#39; which means this process manager is using configurations from</span>
+<span class="c1"># the pool.d directory. When viewing the /etc/php/7.2/fpm/pool.d/www.conf you will see that the PHP7.2-fpm (process manager) is </span>
+<span class="c1"># listening to the socket at &#39;listen = /run/php/php7.2-fpm.sock&#39;</span>
+<span class="c1"># Copy the socket location i.e. /run/php/php7.2-fpm.sock and we will use this socket to tell nginx to use this socket</span>
+
+vim /etc/nginx/site-available/default
+
+<span class="c1"># You will need to tell NGINX to process the index.php files as well so replace the following line</span>
+
+<span class="c1"># index index.html index.htm index.nginx-debian.html;</span>
+<span class="c1"># to</span>
+<span class="c1"># index index.html index.htm index.php;</span>
+
+<span class="c1"># Also you will see something like the following block for &#39;location&#39;</span>
+
+<span class="c1">#location ~ \.php$ {</span>
+<span class="c1">#       include snippets/fastcgi-php.conf;</span>
+<span class="c1">#</span>
+<span class="c1">#       # With php-fpm (or other unix sockets):</span>
+<span class="c1">#       fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;</span>
+<span class="c1">#       # With php-cgi (or other tcp sockets):</span>
+<span class="c1">#       fastcgi_pass 127.0.0.1:9000;</span>
+<span class="c1">#}</span>
+
+<span class="c1"># Make changes so to the above block so you have the following one:</span>
+
+location ~ <span class="se">\.</span>php$ <span class="o">{</span>
+       include snippets/fastcgi-php.conf<span class="p">;</span>
+<span class="c1">#</span>
+<span class="c1">#       # With php-fpm (or other unix sockets):</span>
+       fastcgi_pass unix:/run/php/php7.2-fpm.sock<span class="p">;</span>
+<span class="c1">#       # With php-cgi (or other tcp sockets):</span>
+<span class="c1">#       fastcgi_pass 127.0.0.1:9000;</span>
+<span class="o">}</span>
+
+<span class="c1"># Note we have uncommented the location, and fastcgi_pass lines and also pasted the correct socket that</span>
+<span class="c1"># is used by our php7.2-fpm (process manager)</span>
+
+
+<span class="c1"># lets now restart both nginx and php7.2-fpm</span>
+
+sudo service nginx reload
+sudo service php7.2-fpm restart
+
+
+<span class="c1"># Now lets create a index.php file within the document root i.e. root /var/www/html;</span>
+
+touch /var/www/html/index.php
+
+<span class="c1"># and put phpinfo() and save it.</span>
+
+
+<span class="c1"># now open http://localhost and you should see the screen with all php informaiton</span>
+
+
+
+
+
+
+
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/go_mysql%E6%97%B6%E5%8C%BA/" data-toggle="tooltip" data-placement="top" title="Go_mysql时区">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/debian_lnmp/" data-toggle="tooltip" data-placement="top" title="Debian_lnmp">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/go_mysql%E6%97%B6%E5%8C%BA/">Go_mysql时区</a></li>
+                    
+                    <li><a href="/posts/ceph%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F/">Ceph分布式存储系统</a></li>
+                    
+                    <li><a href="/posts/etcd%E5%AE%89%E8%A3%85/">Etcd安装</a></li>
+                    
+                    <li><a href="/posts/minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/">Minio对象存储</a></li>
+                    
+                    <li><a href="/posts/influxdb/">Influxdb</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

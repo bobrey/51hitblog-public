@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第五章：配置 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第五章：配置" />
+  <meta name="twitter:title" content="第五章：配置" />
+  <meta name="description" content="目录 5.1 配置系统 5.1.1 YAML语法与symfony惯例 5.1.2 求助，YAML文件把我的程序搞死了 5.2 配置文件概述 5.2.1 项目配置 5.2.2 应用配置 5.2.3 模块设置 5.3 环境 5.3.1 什么">
+  <meta property="og:description" content="目录 5.1 配置系统 5.1.1 YAML语法与symfony惯例 5.1.2 求助，YAML文件把我的程序搞死了 5.2 配置文件概述 5.2.1 项目配置 5.2.2 应用配置 5.2.3 模块设置 5.3 环境 5.3.1 什么">
+  <meta name="twitter:description" content="目录 5.1 配置系统 5.1.1 YAML语法与symfony惯例 5.1.2 求助，YAML文件把我的程序搞死了 5.2 配置文件概述 5.2.1 项目配置 5.2.2 应用配置 5.2.3 模块设置 5.3 环境 5.3.1 什么">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%BA%94%E7%AB%A0%E9%85%8D%E7%BD%AE/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%BA%94%E7%AB%A0%E9%85%8D%E7%BD%AE/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第五章：配置</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">25200 Words|Read in about 51 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_05_the_configuration_system"><a href="forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.1 配置系统<!-- raw HTML omitted --></a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_the_configuration_system">5.1 配置系统</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_yaml_syntax_and_symfony_conventions">5.1.1 YAML语法与symfony惯例</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_help_a_yaml_file_killed_my_app">5.1.2 求助，YAML文件把我的程序搞死了</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_overview_of_the_configuration_files">5.2 配置文件概述</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_project_configuration">5.2.1 项目配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_application_configuration">5.2.2 应用配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_module_configuration">5.2.3 模块设置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_environments">5.3 环境</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_what_is_an_environment">5.3.1 什么是环境？</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_configuration_cascade">5.3.2 配置层叠</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_the_configuration_cache">5.4 配置缓存</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_accessing_the_configuration_from_code">5.5 从代码里访问配置信息</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_the_sfconfig_class">5.5.1 sfConfig类</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_custom_application_settings_and_app_yml">5.5.2 自定义应用配置与app.yml</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_tips_for_getting_more_from_configuration_files">5.6 更多使用配置文件的技巧</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_using_constants_in_yaml_configuration_files">5.6.1 在YAML文件里使用常量</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_using_scriptable_configuration">5.6.2 在配置文件里使用脚本</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_sub_browsing_your_own_yaml_file">5.6.3 浏览你的YAML文件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#chapter_05_summary">5.7 总结</a></li>
+<li></li>
+</ul>
+<p><!-- raw HTML omitted -->为了达到简单易用的目的，symfony定义了一些惯例，这些惯例能够满足大多数情况的需求。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->另一方面，使用一系列简单而强大的配置文件，我们可以定制这个框架及应用的几乎所有的地方。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->使用这些配置文件可以为程序增加一些特殊的参数。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这一章介绍配置系统如何工作：<!-- raw HTML omitted --></p>
+<ul>
+<li><!-- raw HTML omitted -->symfony配置信息保存在YAML格式的文件里，当然也可以换成其它格式。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->配置文件分成项目、应用、模块这几个等级，分别存放在项目目录中对应子目录里。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->你可以定义几套不同的配置文件，symfony里面的一套配置文件称之为环境。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->配置文件里面定义的值可以在PHP代码里面取得。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->另外，symfony可以识别YAML里面的PHP代码等，这使得配置系统更灵活。<!-- raw HTML omitted --></li>
+</ul>
+<h2 id="chapter_05_the_configuration_system"><a href="forum.php?mod=viewthread&amp;tid=27&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.1 配置系统<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->不论什么用途，大多数web应用都有一些共同的特征。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->例如，有些区域只允许一部分用户访问；很多页面共用一个布局；表单填写验证失败后自动把用户输入的内容放进表单。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->框架定义了一些实现这些特性的结构，开发者通过配置系统进一步的调整它们。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这种策略可以节省大量开发时间，因为很多改变并不用改写代码，尽管实现这些改变需要很多代码。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这种策略也更有效率，因为这些信息可以存放在容易识别的位置。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->但是，这样的做法有两个严重缺点：<!-- raw HTML omitted --></p>
+<ul>
+<li><!-- raw HTML omitted -->开发者最后整天不停的写复杂的XML文件。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->使用PHP处理每个请求花费的时间更多了。<!-- raw HTML omitted --></li>
+</ul>
+<p><!-- raw HTML omitted -->考虑到这些缺点，同时symfony又要充分利用配置文件的优点。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->事实上，symfony的配置系统的目标是：<!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p><!-- raw HTML omitted -->强大：所有的可以配置的东西都可以用配置文件配置<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;li&gt;
+  &lt;span en=&quot;Customizable: The default configuration language is YAML, but it can be INI, XML, or whatever format the developer prefers.&quot;&gt;可定制：默认的配置语言是YAML，但也可以换成INI、XML，或者是别的格式 &lt;/li&gt; 
+      
+  &lt;li&gt;
+    &lt;span en=&quot;Fast: The configuration files are never processed by the application but by the configuration system, which compiles them into a fast-processing chunk of code for the PHP server.&quot;&gt;快速：应用本身不用处理配置文件，由配置系统处理配置文件，把配置文件编译成能够快速执行的PHP代码 &lt;/li&gt; &lt;/ul&gt; 
+        
+    &lt;h3&gt;
+      &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_sub_yaml_syntax_and_symfony_conventions&quot;&gt;&lt;span en=&quot;5.1.1 YAML Syntax and Symfony Conventions&quot;&gt;5.1.1 YAML语法与symfony惯例&lt;/a&gt;&lt;/h3&gt; 
+          
+      &lt;p&gt;
+        &lt;span en=&quot;For its configuration, symfony uses the YAML format by default, instead of more traditional INI or XML formats.&quot;&gt;symfony默认使用YAML格式存放配置信息，而不用传统的INI或者XML格式。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;YAML shows structure through indentation and is fast to write.&quot;&gt;YAML通过缩进表示结构而且写起来很快。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Its advantages and basic rules were already described in Chapter 1.&quot;&gt;它的特点与基本规则在第一章里面已经讲到了。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;However, you need to keep a few conventions in mind when writing YAML files.&quot;&gt;不过，在写YAML的时候，你还需要记住几条规则。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This section introduces several of the most prominent conventions.&quot;&gt;本节将介绍最常用的几个规则。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For a complete dissertation on the topic, read the dedicated chapter on the &lt;a href=&quot;http://www.yaml.org.&quot; target=&quot;_blank&quot;&gt;http://www.yaml.org.&lt;/a&gt;&amp;#8220;&gt;想完整的了解YAML，访问YAML网站（&lt;a href=&quot;http://www.yaml.org&quot; target=&quot;_blank&quot;&gt;http://www.yaml.org&lt;/a&gt;）。&lt;/span&gt;
+      &lt;/p&gt;
+          
+      &lt;p&gt;
+        &lt;span en=&quot;First of all, never use tabs in YAML files; use spaces instead.&quot;&gt;首先，绝不要在YAML文件里使用制表符（tab），应该使用空格。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;YAML parsers can't understand files with tabs, so indent your lines with spaces (a double blank is the symfony convention for indentation), as shown in Listing 5-1.&quot;&gt;YAML解析器不能解析制表符，所以请使用空格来缩进（在symfony里面使用两个空格缩进），如例5-1。&lt;/span&gt;
+      &lt;/p&gt;
+          
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Listing 5-1 - YAML Files Forbid Tabs&quot;&gt;例 5-1 &amp;#8211; YAML文件禁用制表符（tab）&lt;/span&gt;
+      &lt;/p&gt;
+          
+      &lt;pre&gt;&lt;code&gt;&amp;lt;span en=&quot;# Never use tabs&quot;&gt;# 绝不用制表符&amp;lt;/span&gt;
+</code></pre>
+</li>
+</ul>
+<p>all:
+-&gt; mail:
+-&gt; -&gt; webmaster:  &lt;a href=&ldquo;mailto:webmaster@example.com&rdquo;&gt;webmaster@example.com&lt;/a&gt;</p>
+<p>&lt;span en=&quot;# Use blanks instead&quot;&gt;# 而是使用空格&lt;/span&gt;
+all:
+mail:
+webmaster: &lt;a href=&ldquo;mailto:webmaster@example.com&rdquo;&gt;webmaster@example.com&lt;/a&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;If your parameters are strings starting or ending with spaces, contain special characters (such as the &amp;quot;octothorpe&amp;quot; (#) or comma), or key words such as &amp;quot;true, false&amp;quot; (where a string is intended) you must enclose the value in single quotes, as shown in Listing 5-2.&quot;&gt;如果你的参数是以空格开始或结束的字符串、包含特殊字符（例如“井号”（#）或逗号）、关键字例如“true、false”，你必须用单引号把它包起来，如例5-2。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;Listing 5-2 - Nonstandard Strings Should Be Enclosed in Single Quotes&quot;&gt;例 5-2 &amp;#8211; 非标准的字符串要用单引号包起来&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre&gt;&lt;code&gt;error1: This field is compulsory
+</code></pre>
+<p>error2: '  This field is compulsory  '
+error3: &lsquo;Don'&rsquo;t leave this field blank&rsquo;
+error4: &lsquo;Enter a # symbol to define an extension number&rsquo;
+i18n:   &lsquo;false&rsquo; # if we left off the quotes here, a boolean false would be returned<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;You can define long strings in multiple lines, and also multiple-line strings, with the special string headers (&lt;code&gt;&amp;gt;&lt;/code&gt; and &lt;code&gt;|&lt;/code&gt;) plus an additional indentation.&amp;#8221;&gt;利用特殊字符头（&lt;code&gt;&amp;gt;&lt;/code&gt; 或 &lt;code&gt;|&lt;/code&gt;）与一个缩进，长的字符串可以跨行表示。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Listing 5-3 demonstrates this convention.&quot;&gt;如例5-3。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 5-3 - Defining Long and Multiline Strings&quot;&gt;例 5-3 &amp;#8211; 定义长的多行字符串&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre&gt;&lt;code&gt;&amp;lt;span en=&quot;# Folded style, introduced by &amp;gt;&quot;&gt;# 由 &amp;gt; 开头的折叠式&amp;lt;/span&gt;
+</code></pre>
+<p>&lt;span en=&quot;# Each line break is folded to a space&quot;&gt;# 每一个换行被折叠成一个空格&lt;/span&gt;
+&lt;span en=&quot;# Makes YAML more readable&quot;&gt;# 使得YAML可读性更强&lt;/span&gt;
+accomplishment: &gt;
+Mark set a major league
+home run record in 1998.</p>
+<p>&lt;span en=&quot;# Literal style, introduced by |&quot;&gt;# 由 | 开头的原始式&lt;/span&gt;
+&lt;span en=&quot;# All line breaks count&quot;&gt;# 所有的换行都被保留&lt;/span&gt;
+&lt;span en=&quot;# Indentation doesn&rsquo;t appear in the resulting string&quot;&gt;# 缩进不会在结果字符串里出现&lt;/span&gt;
+stats: |
+65 Home Runs
+0.278 Batting Average<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;To define a value as an array, enclose the elements in square brackets or use the expanded syntax with dashes, as shown in Listing 5-4.&quot;&gt;如果要定义数组，需要用方括号把元素括起来或者使用展开的减号语法，如例 5-4。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 5-4 - YAML Array Syntax&quot;&gt;例 5-4 YAML数组语法&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre&gt;&lt;code&gt;&amp;lt;span en=&quot;# Shorthand syntax for arrays&quot;&gt;# 数组的短语法&amp;lt;/span&gt;
+</code></pre>
+<p>players: [ Mark McGwire, Sammy Sosa, Ken Griffey ]</p>
+<p>&lt;span en=&quot;# Expanded syntax for arrays&quot;&gt;# 数组的展开语法&lt;/span&gt;
+players:</p>
+<ul>
+<li>
+<p>Mark McGwire</p>
+</li>
+<li>
+<p>Sammy Sosa</p>
+</li>
+<li>
+<p>Ken Griffey<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>      &lt;p&gt;
+        &lt;span en=&quot;To define a value as an associative array, or hash, enclose the elements in curly brackets and always insert a spaces between the key and the value in the &lt;code&gt;key: value&lt;/code&gt; pair, and any list items separated by commas.&amp;#8221;&gt;如果要定义关联数组或者说哈希表，要用大括号把元素括起来，键与值 &lt;code&gt;key: value&lt;/code&gt; 中间保留一个空格。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You can also use the expanded syntax by adding indentation and a carriage return for every new key, as shown in Listing 5-5.&quot;&gt;也可以用展开语法，每一个新的键增加一个缩进与换行，如例5-5。&lt;/span&gt;
+      &lt;/p&gt;
+          
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Listing 5-5 - YAML Associative Array Syntax&quot;&gt;例 5-5 &amp;#8211; YAML关联数组语法&lt;/span&gt;
+      &lt;/p&gt;
+          
+      &lt;pre&gt;&lt;code&gt;&amp;lt;span en=&quot;# Incorrect syntax, blanks are missing after the colons and comma&quot;&gt;# 错误的语法，冒号还有逗号后缺少空格&amp;lt;/span&gt;
+</code></pre>
+</li>
+</ul>
+<p>mail: {webmaster:webmaster@example.com,contact:contact@example.com}</p>
+<p>&lt;span en=&quot;# Correct shorthand syntax for associative arrays&quot;&gt;# 关联数组的正确简写&lt;/span&gt;
+mail: { webmaster: &lt;a href=&ldquo;mailto:webmaster@example.com&rdquo;&gt;webmaster@example.com&lt;/a&gt;, contact: &lt;a href=&ldquo;mailto:contact@example.com&rdquo;&gt;contact@example.com&lt;/a&gt; }</p>
+<p>&lt;span en=&quot;# Expanded syntax for associative arrays&quot;&gt;# 关联数组的展开语法&lt;/span&gt;
+mail:
+webmaster: &lt;a href=&ldquo;mailto:webmaster@example.com&rdquo;&gt;webmaster@example.com&lt;/a&gt;
+contact:   &lt;a href=&ldquo;mailto:contact@example.com&rdquo;&gt;contact@example.com&lt;/a&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;To give a Boolean value, you can use the &lt;code&gt;false&lt;/code&gt; and &lt;code&gt;true&lt;/code&gt; values, provided they are not enclosed in quotes.&amp;#8221;&gt;要定义布尔值，你可以用 &lt;code&gt;false&lt;/code&gt; 和　&lt;code&gt;true&lt;/code&gt; 值，不要加引号。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 5-6 - YAML Boolean Values Syntax&quot;&gt;例 5-6 &amp;#8211; YAML 布尔值语法&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre&gt;&lt;code&gt;true_value:  true
+</code></pre>
+<p>false_value: false<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;Don't hesitate to add comments (starting with the hash mark, #) and extra spaces to values to make your YAML files more readable, as shown in Listing 5-7.&quot;&gt;请不要吝啬使用注释（以井号#开头）还有空格，这会使注释文件更易读，如例5-7。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 5-7 - YAML Comments Syntax and Value Alignment&quot;&gt;例 5-7 &amp;#8211; YAML 注释语法与值对齐&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre&gt;&lt;code&gt;&amp;lt;span en=&quot;# This is a comment line&quot;&gt;# 这是一个注释&amp;lt;/span&gt;
+</code></pre>
+<p>mail:
+webmaster: &lt;a href=&ldquo;mailto:webmaster@example.com&rdquo;&gt;webmaster@example.com&lt;/a&gt;
+contact:   &lt;a href=&ldquo;mailto:contact@example.com&rdquo;&gt;contact@example.com&lt;/a&gt;
+admin:     &lt;a href=&ldquo;mailto:admin@example.com&rdquo;&gt;admin@example.com&lt;/a&gt;   &lt;span en=&quot;# extra spaces allow nice alignment of values&quot;&gt;# 多的空格可以帮助对齐&lt;/span&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;In some symfony configuration files, you will sometimes see lines that start with a hash mark (and, as such, ignored by the YAML parsers) but look like usual settings lines.&quot;&gt;在某些symfony配置文件里面，你会发现一些行以#开头（YAML解析器会忽略这些行），但这些行看上去像普通的设置行。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is a symfony convention: the default configuration, inherited from other YAML files located in the symfony core, is repeated in commented lines in your application configuration, for your information.&quot;&gt;这是一个symfony的惯例：默认设置，从symfony内核里其他的YAML文件里面继承的设置，这些会在你的应用配置文件里面出现并用#注释起来，给你参考。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If you want to change the value of such a parameter, you need to uncomment the line first, as shown in Listing 5-8.&quot;&gt;如果你想改变这些参数，只要把注释去掉就可以了，如例5-8。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 5-8 - Default Configuration Is Shown Commented&quot;&gt;例 5-8 &amp;#8211; 注释里的默认配置&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre&gt;&lt;code&gt;&amp;lt;span en=&quot;The cache is off by default&quot;&gt;# 缓存的默认值是关闭&amp;lt;/span&gt;
+</code></pre>
+<p>settings:</p>
+<h1 id="cache-false">cache: false</h1>
+<p>&lt;span en=&quot;# If you want to change this setting, uncomment the line first&quot;&gt;# 如果你想修改这个值，去掉注释&lt;/span&gt;
+settings:
+cache: true<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;Symfony sometimes groups the parameter definitions into categories.&quot;&gt;symfony有时会把一些参数定义分类。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;All settings of a given category appear indented under the category header.&quot;&gt;一个分类里面的所有设置都放在分类头下面。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;ructuring long lists of key: value pairs by grouping them into categories improves the readability of the configuration.&quot;&gt;把长的 &lt;code&gt;key: value&lt;/code&gt; 列表分组能增强可读性。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Category headers start with a dot (&lt;code&gt;.&lt;/code&gt;).&amp;#8221;&gt;分类头以点（&lt;code&gt;.&lt;/code&gt;）开头。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Listing 5-9 shows an example of categories.&quot;&gt;如例5-9。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 5-9 - Category Headers Look Like Keys, But Start with a Dot&quot;&gt;例 5-9 &amp;#8211; 分类头与键类似，但是以.开头&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre&gt;&lt;code&gt;all:
+</code></pre>
+<p>.general:
+tax:        19.6</p>
+<p>mail:
+webmaster:  &lt;a href=&ldquo;mailto:webmaster@example.com&rdquo;&gt;webmaster@example.com&lt;/a&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;In this example, &lt;code&gt;mail&lt;/code&gt; is a key and &lt;code&gt;general&lt;/code&gt; is only a category header.&amp;#8221;&gt;在这个例子里，&lt;code&gt;mail&lt;/code&gt; 是一个键，&lt;code&gt;general&lt;/code&gt; 只是一个分类头。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Everything works as if the category header didn't exist, as shown in Listing 5-10.&quot;&gt;分类头可以当作不存在，如例5-10。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The &lt;code&gt;tax&lt;/code&gt; parameter is actually a direct child of the all key.&amp;#8221;&gt;&lt;code&gt;tax&lt;/code&gt; 参数实际上是 &lt;code&gt;all&lt;/code&gt; 键的直接子元素。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;However using categories helps symfony dealing with arrays that are beneath the &lt;code&gt;all&lt;/code&gt; key.&amp;#8221;&gt;However using categories helps symfony dealing with arrays that are beneath the &lt;code&gt;all&lt;/code&gt; key.&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 5-10 - Category Headers Are Only There for Readability and Are Actually Ignored&quot;&gt;例 5-10 &amp;#8211; 分类头只用于增强可读性，实际上可以忽略&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre&gt;&lt;code&gt;all:
+</code></pre>
+<p>tax:          19.6</p>
+<p>mail:
+webmaster:  &lt;a href=&ldquo;mailto:webmaster@example.com&rdquo;&gt;webmaster@example.com&lt;/a&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;blockquote class=&quot;sidebar&quot;&gt;
+            &lt;p class=&quot;title&quot;&gt;
+              &lt;span en=&quot;And if you don't like YAML&quot;&gt;如果你不喜欢YAML&lt;/span&gt;
+            &lt;/p&gt;
+            
+            &lt;p&gt;
+              &lt;span en=&quot;YAML is just an interface to define settings to be used by PHP code, so the configuration defined in YAML files ends up being transformed into PHP.&quot;&gt;YAML只是一个给PHP代码定义设置的界面，所以YAML里面定义的配置信息都会被转换成PHP代码。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;After browsing an application, check its cached configuration (in &lt;code&gt;cache/frontend/dev/config/&lt;/code&gt;, for instance). &amp;#8220;&gt;浏览一个应用，查看他的缓存的配置信息（例，在 &lt;code&gt;cache/myapp/dev/config/&lt;/code&gt;）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You will see the PHP files corresponding to your YAML configuration.&quot;&gt;你会发现YAML配置对应的PHP文件。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You will learn more about the configuration cache later in this chapter.&quot;&gt;这一章后面我们会详细介绍配置缓存。&lt;/span&gt;
+            &lt;/p&gt;
+            
+            &lt;p&gt;
+              &lt;span en=&quot;The good news is that if you don't want to use YAML files, you can still do what the configuration files do by hand, in PHP or via another format (XML, INI, and so on). &quot;&gt;好消息是如果你不喜欢YAML文件，你可以自己动手，使用PHP代码或者其他的格式（XML,INI等）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Throughout this book, you will meet alternative ways to define configuration without YAML, and you will even learn to replace the symfony configuration handlers (in Chapter 19).&quot;&gt;在本书中，你会遇到其他的不使用YAML定义配置的方法，在第19章你会了解如何替换symfony的配置文件处理器。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If you use them wisely, these tricks will enable you to bypass configuration files or define your own configuration format.&quot;&gt;如果你用好它们，你可以利用这些技巧绕开配置文件或者定义你自己的格式。&lt;/span&gt;
+            &lt;/p&gt;
+          &lt;/blockquote&gt;
+          
+          &lt;h3&gt;
+            &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_sub_help_a_yaml_file_killed_my_app&quot;&gt;&lt;span en=&quot;5.1.2 Help, a YAML File Killed My App!&quot;&gt;5.1.2 求助，YAML文件把我的程序搞死了&lt;/a&gt;&lt;/h3&gt; 
+            
+            &lt;p&gt;
+              &lt;span en=&quot;The YAML files are parsed into PHP hashes and arrays, and then the values are used in various parts of the application to modify the behavior of the view, the controller, or the model.&quot;&gt;YAML文件会被解析成PHP哈希与数组，然后这些值会在程序的不同地方改变视图，控制器或者模型的行为。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Many times, when there is a problem in a YAML file, it is not detected until the value actually needs to be used.&quot;&gt;很多时候，配置文件里面的问题直到用到的时候才被察觉。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Moreover, the error or exception that is thrown then is usually not clearly related to the YAML configuration file.&quot;&gt;而且，显示的错误信息通常不是明显与YAML配置文件相关的。&lt;/span&gt;
+            &lt;/p&gt;
+            
+            &lt;p&gt;
+              &lt;span en=&quot;If your application suddenly stops working after a configuration change, you should check that you didn't make any of the common mistakes of the inattentive YAML coder:&quot;&gt;如果改变了配置文件之后程序突然停止运行了，应该检查一下你是否犯了下面的常见的YAML错误：&lt;/span&gt;
+            &lt;/p&gt;
+            
+            &lt;ul&gt;
+              &lt;li&gt;
+                &lt;p&gt;
+                  &lt;span en=&quot;You miss a space between a key and its value:&quot;&gt;键和值中间缺少空格：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;pre&gt;&lt;code&gt;key1:value1      &amp;lt;span en=&quot;# A space is missing after the :&quot;&gt;# 冒号:后缺少空格&amp;lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+              &lt;/li&gt;
+              
+              &lt;li&gt;
+                &lt;p&gt;
+                  &lt;span en=&quot;Keys in a sequence are not indented the same way:&quot;&gt;数组里面的键应该按照同样的方式缩进：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;pre&gt;&lt;code&gt;all:
+</code></pre>
+<p>key1:  value1
+key2: value2  &lt;span en=&quot;# Indentation is not the same as the other sequence members&quot;&gt;# 缩进与其他的数组元素不同&lt;/span&gt;
+key3:  value3<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<pre><code>              &lt;li&gt;
+                &lt;p&gt;
+                  &lt;span en=&quot;There is a reserved YAML character in a key or a value, without string delimiters:&quot;&gt;键或值里有YAML保留字符而且没有用单引号：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;pre&gt;&lt;code&gt;message: tell him: go way    &amp;lt;span en=&quot;# :, [, ], { and } are reserved in YAML&quot;&gt;# :, [, ], { 和 } 是YAML保留字符&amp;lt;/span&gt;
+</code></pre>
+<p>message: &lsquo;tell him: go way&rsquo;  &lt;span en=&quot;# Correct syntax&quot;&gt;# 正确的语法&lt;/span&gt;<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<pre><code>              &lt;li&gt;
+                &lt;p&gt;
+                  &lt;span en=&quot;You are modifying a commented line:&quot;&gt;修改一个被注释了的行：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;pre&gt;&lt;code&gt;# key: value     &amp;lt;span en=&quot;# Will never be taken into account due to the leading #&quot;&gt;# 由于前面的#,这行永远不会生效&amp;lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+              &lt;/li&gt;
+              
+              &lt;li&gt;
+                &lt;p&gt;
+                  &lt;span en=&quot;You set values with the same key name twice at the same level:&quot;&gt;同一级别相同键的值设置了两次：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;pre&gt;&lt;code&gt;key1: value1
+</code></pre>
+<p>key2: value2
+key1: value3     &lt;span en=&quot;# key1 is defined twice, the value is the last one defined&quot;&gt;#key1定义了两次，取最后一次定义的值&lt;/span&gt;<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<pre><code>              &lt;li&gt;
+                &lt;p&gt;
+                  &lt;span en=&quot;You think that the setting takes a special type, while it is always a string, until you convert it:&quot;&gt;你认为设置值应该是一个特定的类型，实际上如果你不转换它，设置值永远是字符串：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;pre&gt;&lt;code&gt;income: 12,345   &amp;lt;span en=&quot;# Until you convert it, this is still a string&quot;&gt;# 除非你转换它，否则它永远是字符串&amp;lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+            
+            &lt;h2&gt;
+              &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_overview_of_the_configuration_files&quot;&gt;&lt;span en=&quot;5.2 Overview of the Configuration Files&quot;&gt;5.2 配置文件概述&lt;/span&gt;&lt;/a&gt;
+            &lt;/h2&gt;
+            
+            &lt;p&gt;
+              &lt;span en=&quot;Configuration is distributed into files, by subject.&quot;&gt;配置信息按照目的存放在不同的文件里。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The files contain parameter definitions, or settings.&quot;&gt;这些文件包含参数定义或者设置。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Some of these parameters can be overridden at several levels (project, application, and module); some are specific to a certain level.&quot;&gt;一些参数可以在不同的级别覆盖（项目、应用、模块）；一些只针对特定级别。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The next chapters will deal with the configuration files related to their main topic, and Chapter 19 will deal with advanced configuration.&quot;&gt;本节将介绍这些配置文件，第19章将更深入的介绍配置文件。&lt;/span&gt;
+            &lt;/p&gt;
+            
+            &lt;h3&gt;
+              &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_sub_project_configuration&quot;&gt;&lt;span en=&quot;5.2.1 Project Configuration&quot;&gt;5.2.1 项目配置&lt;/span&gt;&lt;/a&gt;
+            &lt;/h3&gt;
+            
+            &lt;p&gt;
+              &lt;span en=&quot;There are a few project configuration files by default.&quot;&gt;symfony项目有一些默认配置文件。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Here are the files that can be found in the &lt;code&gt;myproject/config/&lt;/code&gt; directory:&amp;#8221;&gt;下面是 &lt;code&gt;myproject/config/&lt;/code&gt; 目录下面的配置文件：&lt;/span&gt;
+            &lt;/p&gt;
+            
+            &lt;ul&gt;
+              &lt;li&gt;
+                &lt;span en=&quot;&lt;code&gt;ProjectConfiguration.class.php&lt;/code&gt;: This is the very first file included by any request or command.&amp;#8221;&gt;&lt;code&gt;ProjectConfiguration.class.php&lt;/code&gt;：这是任何页面或命令行方式PHP脚本执行的第一个文件。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It contains the path to the framework files, and you can change it to use a different installation.&quot;&gt;它包含symfony框架的路径，你可以把这个路径指定到另外一个symfony框架。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;See Chapter 19 for advanced usage of this file.&quot;&gt;第19章将会深入介绍这个文件的使用。&lt;/span&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;span en=&quot;&lt;code&gt;databases.yml&lt;/code&gt;: This is where you define the access and connection settings to the database (host, login, password, database name, and so on).&amp;#8221;&gt;&lt;code&gt;databases.yml&lt;/code&gt;：这个文件用来存放数据库连接设置（主机，登录名，密码等）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Chapter 8 will tell you more about it.&quot;&gt;第8章有更详细的介绍。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It can also be overridden at the application level.&quot;&gt;这个文件的配置信息可以在应用这一级别覆盖。&lt;/span&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;span en=&quot;&lt;code&gt;properties.ini&lt;/code&gt;: This file holds a few parameters used by the command line tool, including the project name and the connection settings for distant servers.&amp;#8221;&gt;&lt;code&gt;properties.ini&lt;/code&gt;：这个文件存放命令行工具需要的参数，包括项目名称，远程服务器的连接设置。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;See Chapter 16 for an overview of the features using this file.&quot;&gt;第16章将详细介绍此文件的功能。&lt;/span&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;span en=&quot;&lt;code&gt;rsync_exclude.txt, rsync_include.txt&lt;/code&gt;: This file specifies which directories and files must be excluded and/or included from the synchronization between servers.&amp;#8221;&gt;&lt;code&gt;rsync_exclude.txt, rsync_include.txt&lt;/code&gt;：这个文件定义同步服务器的时候哪些文件不需要同步。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It is discussed in Chapter 16.&quot;&gt;详见第16章。&lt;/span&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;span en=&quot;&lt;code&gt;schema.yml&lt;/code&gt;: This is the data access configuration file used by Propel and Doctrine (symfony&amp;#8217;s ORM layers).&amp;#8221;&gt;&lt;code&gt;schema.yml&lt;/code&gt;：这是用于Propel和Dcotrine（symfony的ORM层）数据访问配置文件。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It is used to make the ORM libraries work with the symfony classes and the data of your project.&quot;&gt;它们用来使Propel与symfony的类还有项目的数据协同工作。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;&lt;code&gt;schema.yml&lt;/code&gt; contains a representation of the project&amp;#8217;s relational data model.&amp;#8221;&gt;&lt;code&gt;schema.yml&lt;/code&gt; 包含项目的关系数据模型。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For Doctrine, this file is created in &lt;code&gt;config/doctrine/&lt;/code&gt;.&amp;#8221;&gt;对于Doctrine，这个文件被创建在 &lt;code&gt;config/doctrine/&lt;/code&gt;。&lt;/span&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+            
+            &lt;p&gt;
+              &lt;span en=&quot;These files are mostly used by external components or by the command line, or they need to be processed even before any YAML parsing program can be loaded by the framework.&quot;&gt;这些文件多数时候是被外部组件或者命令行使用，或者symfony在YAML解析程序载入之前就要用到它们。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;That's why some of them don't use the YAML format.&quot;&gt;所以有些文件不是YAML格式。&lt;/span&gt;
+            &lt;/p&gt;
+            
+            &lt;h3&gt;
+              &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_sub_application_configuration&quot;&gt;&lt;span en=&quot;5.2.2 Application Configuration&quot;&gt;5.2.2 应用配置&lt;/a&gt;&lt;/h3&gt; 
+              
+              &lt;p&gt;
+                &lt;span en=&quot;The main part of the configuration is the application configuration.&quot;&gt;配置的主要部分是应用配置。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It is defined in the front controller (in the &lt;code&gt;web/&lt;/code&gt; directory) for the main configuration, in YAML files located in the application &lt;code&gt;config/&lt;/code&gt; directory, in &lt;code&gt;i18n/&lt;/code&gt; directories for the internationalization files, and in the framework files for invisible&amp;#8211;although useful&amp;#8211;additional application configuration.&amp;#8221;&gt;前端控制器（在 &lt;code&gt;web/&lt;/code&gt; 目录）里定义主要的常量，YAML文件在应用目录的 &lt;code&gt;config/&lt;/code&gt; 目录里，&lt;code&gt;i18n/&lt;/code&gt; 目录里是国际化需要的文件，还有一些在框架文件里隐藏着的但是很有用的其他项目配置信息。&lt;/span&gt;
+              &lt;/p&gt;
+              
+              &lt;h4&gt;
+                &lt;span en=&quot;Application Configuration&quot;&gt;&lt;span en=&quot;Front Controller Configuration&quot;&gt;前端控制器&lt;/span&gt;&lt;/h4&gt; 
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;The very first application configuration is actually found in the front controller; that is the very first script executed by a request.&quot;&gt;前端控制器里存放了应用最开始的配置信息；它是一个请求最开始执行的脚本。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Take a look at the default &lt;code&gt;web/index.php&lt;/code&gt; in Listing 5-11.&amp;#8221;&gt;请看例5-11中默认的 &lt;code&gt;web/index.php&lt;/code&gt;。&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;p class=&quot;figure&quot;&gt;
+                  &lt;span en=&quot;Listing 5-11 - The Default Production Front Controller&quot;&gt;例 5-11 &amp;#8211; 默认的产品环境前端控制器&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->require_once<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->dirname<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted --><strong>FILE</strong><!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->.<!-- raw HTML omitted -->'/../config/ProjectConfiguration.class.php'<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->$configuration<!-- raw HTML omitted --> = ProjectConfiguration::<!-- raw HTML omitted -->getApplicationConfiguration<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;frontend&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;prod&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->false<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+sfContext::<!-- raw HTML omitted -->createInstance<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$configuration<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->dispatch<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<pre><code>                &lt;p&gt;
+                  &lt;span en=&quot;After defining the name of the application (&lt;code&gt;frontend&lt;/code&gt;), the environment (&lt;code&gt;prod&lt;/code&gt;), and the debug mode (&lt;code&gt;false&lt;/code&gt;), the application configuration is called before creating a context and dispatching.&amp;#8221;&gt;定义了应用名（&lt;code&gt;frontend&lt;/code&gt;）与环境（&lt;code&gt;prod&lt;/code&gt;），还有调试模式（&lt;code&gt;false&lt;/code&gt;）之后，先载入通用配置文件，然后继续分派请求。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;So a few useful methods are available in the application configuration class:&quot;&gt;这里定义了一些有用的常量：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;ul&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;$configuration-&gt;getRootDir()&lt;/code&gt;: Project root directory (normally, should remain at its default value, unless you change the file structure).&amp;#8221;&gt;&lt;code&gt;$configuration-&gt;getRootDir()&lt;/code&gt;：项目根目录（一般情况请保留默认值，除非想变更目录结构）。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;$configuration-&gt;getApplication()&lt;/code&gt;: Application name in the project. Necessary to compute file paths.&amp;#8221;&gt;&lt;code&gt;$configuration-&gt;getApplication()&lt;/code&gt;：项目中的应用名。需要它来生成文件路径。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;$configuration-&gt;getEnvironment()&lt;/code&gt;: Environment name (&lt;code&gt;prod&lt;/code&gt;, &lt;code&gt;dev&lt;/code&gt;, &lt;code&gt;test&lt;/code&gt;, or any other project-specific environment that you define). Will determine which configuration settings are to be used. Environments are explained later in this chapter.&amp;#8221;&gt;&lt;code&gt;$configuration-&gt;getEnvironment()&lt;/code&gt;：环境名（&lt;code&gt;prod&lt;/code&gt;、&lt;code&gt;dev&lt;/code&gt;、&lt;code&gt;test&lt;/code&gt; 或者其他你定义的本项目的环境）。用来决定使用哪一套配置信息。本章稍后会解释环境的概念。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;$configuration-&gt;isDebug()&lt;/code&gt;: Activation of the debug mode (see Chapter 16 for details).&amp;#8221;&gt;&lt;code&gt;$configuration-&gt;isDebug()&lt;/code&gt;：是否启用调试模式（详见第16章）。&lt;/span&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;If you want to change one of these values, you probably need an additional front controller.&quot;&gt;如果你要改变这些值，那么你可能需要另一个前端控制器。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The next chapter will tell you more about front controllers and how to create a new one.&quot;&gt;下一章将介绍前端控制器以及如何新建一个前端控制器。&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;h4&gt;
+                  &lt;span en=&quot;Main Application Configuration&quot;&gt;主要应用配置&lt;/span&gt;
+                &lt;/h4&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;The main application configuration is stored in files located in the &lt;code&gt;myproject/apps/frontend/config/&lt;/code&gt; directory:&amp;#8221;&gt;主应用配置存放在 &lt;code&gt;myproject/apps/frontend/config/&lt;/code&gt; 目录下的文件里：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;ul&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;app.yml&lt;/code&gt;: This file should contain the application-specific configuration; that is, global variables defining business or applicative logic specific to an application, which don&amp;#8217;t need to be stored in a database.&amp;#8221;&gt;&lt;code&gt;app.yml&lt;/code&gt;：这个文件存放应用相关的配置信息，包括定义业务或者程序逻辑的全局变量，这些都不需要存放在数据库里。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Tax rates, shipping fares, and e-mail addresses are often stored in this file.&quot;&gt;税率，运费，e-mail地址等经常存放在这个文件。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It is empty by default.&quot;&gt;这个文件默认是空的。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;frontendConfiguration.class.php&lt;/code&gt;: This class bootstraps the application, which means that it does all the very basic initializations to allow the application to start.&amp;#8221;&gt;&lt;code&gt;frontendConfiguration.class.php&lt;/code&gt;：这个文件引导应用，它会做所有的基础初始化来启动应用。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is where you can customize your directory structure or add application-specific constants (Chapter 19 provides more details).&quot;&gt;这里你可以定制目录结构或者增加应用相关的常量（详见第19章）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It inherits from the &lt;code&gt;sfApplicationConfiguration&lt;/code&gt; class.&amp;#8221;&gt;它继承自 &lt;code&gt;sfApplicationConfiguration&lt;/code&gt; 类。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;factories.yml&lt;/code&gt;: Symfony defines its own class to handle the view, the request, the response, the session, and so on.&amp;#8221;&gt;&lt;code&gt;factories.yml&lt;/code&gt;：symfony在这里定义处理视图、请求、回应、会话（session）等的类。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If you want to use your own classes instead, this is where you can specify them.&quot;&gt;如果你想用你自己的类取代symfony的类，你可以在这里定义它们。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Chapter 17 provides more information.&quot;&gt;详见第19章。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;filters.yml&lt;/code&gt;: Filters are portions of code executed for every request.&amp;#8221;&gt;&lt;code&gt;filters.yml&lt;/code&gt;：过滤器是在每个请求都被执行的一小段代码。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This file is where you define which filters are to be processed, and it can be overridden for each module.&quot;&gt;这个文件用来定义哪些过滤器需要被执行，每个模块都可以改写过滤器配置。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Chapter 6 discusses filters in more detail.&quot;&gt;详见第6章。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;routing.yml&lt;/code&gt;: The routing rules, which allow transforming unreadable and unbookmarkable URLs into &quot;smart&quot; and explicit ones, are stored in this file.&amp;#8221;&gt;&lt;code&gt;routing.yml&lt;/code&gt;：路由规则，能把难以理解的不好记忆的URL变成&amp;#8221;漂亮&amp;#8221;的直观形式。此配置文件用来存放这些信息。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For new applications, a few default rules exist.&quot;&gt;每个新应用都会有一些默认路由规则。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Chapter 9 is all about links and routing.&quot;&gt;详见第9章。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;settings.yml&lt;/code&gt;: The main settings of a symfony application are defined in this file.&amp;#8221;&gt;&lt;code&gt;settings.yml&lt;/code&gt;：这个文件存放symfony应用的主要配置信息。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is where you specify if your application has internationalization, its default language, the request timeout and whether caching is turned on.&quot;&gt;你的应用是否使用国际化功能，它的默认语言，请求timeout时间，是否开启缓存功能等都在这个文件里面定义。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;With a one-line change in this file, you can shut down the application so you can perform maintenance or upgrade one of its components.&quot;&gt;只要改变这个文件里的一行代码，你就可以关闭网站来执行维护升级。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The common settings and their use are described in Chapter 19.&quot;&gt;这些设置还有它们的用法详见第19章。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;view.yml&lt;/code&gt;: The structure of the default view (name of the layout, default style sheets and JavaScript files to be included, default content-type, and so on) is set in this file.&amp;#8221;&gt;&lt;code&gt;view.yml&lt;/code&gt;：这个文件里定义默认视图的结构（布局的名称，标题，还有meta标签；默认载入的样式表及Javascript；默认的content-type等）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Chapter 7 will tell you more about this file. &quot;&gt;详见第7章。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;These settings can be overridden for each module.&quot;&gt;这些配置信息可以在模块里改写。&lt;/span&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;p&gt;
+                  &lt;!--
+</code></pre>
+<!-- raw HTML omitted -->
+<p>&ndash;&gt;
+<!-- raw HTML omitted --></p>
+<pre><code>                &lt;h4&gt;
+                  &lt;span en=&quot;Internationalization Configuration&quot;&gt;国际化配置&lt;/span&gt;
+                &lt;/h4&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;Internationalized applications can display pages in several languages.&quot;&gt;国际化的应用可以显示多种语言。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This requires specific configuration.&quot;&gt;这需要特殊的配置。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;There are two configuration places for internationalization:&quot;&gt;国际化配置信息存放在如下两个地方：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;ul&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;The &lt;code&gt;factories.yml&lt;/code&gt; of the application &lt;code&gt;config/&lt;/code&gt; directory: This file defines the i18n factory and general translation options, such as the default culture for the translation, whether the translations come from files or a database, and their format.&amp;#8221;&gt;应用 &lt;code&gt;config/&lt;/code&gt; 目录里的 &lt;code&gt;factories.yml&lt;/code&gt;：这个文件定义国家化和一般翻译设置，例如原文的语言、在数据库还是文件里面存放翻译信息还有翻译信息的格式等。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;Translation files in the application &lt;code&gt;i18n/&lt;/code&gt; directory: These are basically dictionaries, giving a translation for each of the phrases used in the application templates so that the pages show translated text when the user switches language.&amp;#8221;&gt;应用 &lt;code&gt;i18n/&lt;/code&gt; 目录里的翻译文件：这些文件基本上是字典，里面包含程序模板里面出现的所有文字的翻译，这样切换语言的地方就会显示对应的翻译。&lt;/span&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;Note that the activation of the i18n features is set in the &lt;code&gt;settings.yml&lt;/code&gt; file.&amp;#8221;&gt;注意开启i18n（国际化）功能需要在 &lt;code&gt;setting.yml&lt;/code&gt; 文件里面设置。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You will find more information about these features in Chapter 13.&quot;&gt;详见第13章。&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;h3&gt;
+                  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_sub_module_configuration&quot;&gt;&lt;span en=&quot;5.2.3 Additional Application Configuration&quot;&gt;5.2.3 模块设置&lt;/span&gt;&lt;/a&gt;
+                &lt;/h3&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;By default, a module has no specific configuration.&quot;&gt;默认情况下，模块没有特别的配置信息。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But, if required, you can override some application-level settings for a given module.&quot;&gt;不过，如果你需要，你可以为某个模块覆盖应用级的配置。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, you might do this to include a specific JavaScript file for all actions of a module.&quot;&gt;例如，你需要修改一个模块里所有动作的HTML描述信息，或是载入一个特定的Javascript文件。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You can also choose to add new parameters restricted to a specific module to preserve encapsulation.&quot;&gt;你可以选择针对某个特定的模块增加新参数来实现保护性封装。&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;As you may have guessed, module configuration files must be located in a &lt;code&gt;myproject/apps/frontend/modules/mymodule/config/&lt;/code&gt; directory. These files are as follows:&amp;#8221;&gt;可能你已经猜到，模块配置文件必须放在 &lt;code&gt;myproject/apps/frontend/modules/mymodule/config/&lt;/code&gt; 目录里，模块配置信息有下面这几个文件：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;ul&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;generator.yml&lt;/code&gt;: For modules generated according to a database table (scaffoldings and administrations), this file defines how the interface displays rows and fields, and which interactions are proposed to the user (filters, sorting, buttons, and so on).&amp;#8221;&gt;&lt;code&gt;generator.yml&lt;/code&gt;：根据数据库表自动生成的模块（脚手架与管理后台）会用这个文件, 它用来定义界面怎么显示行和列，用户可以执行哪些操作（过滤器，排序，按钮等）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Chapter 14 will tell you more about it.&quot;&gt;详见第14章。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;module.yml&lt;/code&gt;: This file contains custom parameters specific to a module and action configuration.&amp;#8221;&gt;&lt;code&gt;module.yml&lt;/code&gt;：这个文件包含模块的特殊参数，还有行为的配置信息。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Chapter 6 provides more details.&quot;&gt;详见第6章。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;security.yml&lt;/code&gt;: This file sets access restrictions for actions.&amp;#8221;&gt;&lt;code&gt;security.yml&lt;/code&gt;：这个文件用来给动作设置访问限制。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is where you specify that a page can be viewed only by registered users or by a subset of registered users with special permissions.&quot;&gt;你可以在这里设置哪个页面只能给注册用户看或是一部分有特殊权限的注册用户看。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Chapter 6 will tell you more about it.&quot;&gt;详见第6章。&lt;/span&gt;
+                  &lt;/li&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;&lt;code&gt;view.yml&lt;/code&gt;: This file contains configuration for the views of one or all of the actions of a module.&amp;#8221;&gt;&lt;code&gt;view.yml&lt;/code&gt;：这个文件包含模块的一个或者所有动作的视图配置信息。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It overrides the application view.yml and is described in Chapter 7.&quot;&gt;它会覆盖应用级的 &lt;code&gt;view.yml&lt;/code&gt;，详见第7章。&lt;/span&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;Most module configuration files offer the ability to define parameters for all the views or all the actions of a module, or for a subset of them.&quot;&gt;大多数模块配置文件能让你为一个模块的所有视图或者动作定义参数，也可以只为模块里的一部份视图或者动作定义参数。&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;blockquote class=&quot;sidebar&quot;&gt;
+                  &lt;p class=&quot;title&quot;&gt;
+                    &lt;span en=&quot;Too many files?&quot;&gt;文件太多？&lt;/span&gt;
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    &lt;span en=&quot;You might be overwhelmed by the number of configuration files present in the application.&quot;&gt;可能应用里的配置文件太多了，使你受到了打击。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But please keep the following in mind:&quot;&gt;不过请注意：&lt;/span&gt;
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    &lt;span en=&quot;Most of the time, you don't need to change the configuration, since the default conventions match the most common requirements.&quot;&gt;大多数时候你都不用修改配置，因为默认的配置就能够满足大部分的需求。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Each configuration file is related to a particular feature, and the next chapters will detail their use one by one.&quot;&gt;每个配置文件与一个特定的功能相关，以后的章节会一个一个详细介绍它们的用法。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;When you focus on a single file, you can see clearly what it does and how it is organized.&quot;&gt;当你关注某一个配置文件的时候，你就能清楚的了解它的用途还有它的组织形式。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For professional web development, the default configuration is often not completely adapted.&quot;&gt;对于专业web开发，默认的配置不会经常被完全重写。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The configuration files allow for an easy modification of the symfony mechanisms without code.&quot;&gt;配置文件使你不用修改一行代码轻易地改变symfony的功能。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Imagine the amount of PHP code necessary to achieve the same amount of control.&quot;&gt;想想看要达到同样的目的需要多少PHP代码吧。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If all the configuration were located in one file, not only would the file be completely unreadable, but you could not redefine configuration at several levels (see the &amp;quot;Configuration Cascade&amp;quot; section later in this chapter).&quot;&gt;如果所有的配置文件都存放在同一个文件里，那么这个文件不仅仅会变得完全无法阅读，同样你也无法在不同的级别重新定义配置信息（请看本章后面的&amp;#8221;配置层叠&amp;#8221;小节）。&lt;/span&gt;
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    &lt;span en=&quot;The configuration system is one of the great strengths of symfony, because it makes symfony usable for almost every kind of web application, and not only for the ones for which the framework was originally designed.&quot;&gt;配置系统是symfony重大优点之一，它使symfony适合于几乎所有类型的web应用，不仅限于这个框架原本的设计目的。&lt;/span&gt;
+                  &lt;/p&gt;
+                &lt;/blockquote&gt;
+                
+                &lt;h2&gt;
+                  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_environments&quot;&gt;&lt;span en=&quot;5.3 Environments&quot;&gt;5.3 环境&lt;/span&gt;&lt;/a&gt;
+                &lt;/h2&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;During the course of application development, you will probably need to keep several sets of configuration in parallel.&quot;&gt;在开发应用的过程中，你可能同时需要好几套配置信息。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, you will need to have the connection settings for your tests database available during development, and the ones for your real data available for production.&quot;&gt;例如，开发过程中用来测试的数据库配置信息，还有产品环境中正式的数据库配置信息。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;To answer the need of concurrent configurations, symfony offers different environments.&quot;&gt;symfony为满足同时使用不同配置信息的需求，提供了不同的环境。&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;h3&gt;
+                  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_sub_what_is_an_environment&quot;&gt;&lt;span en=&quot;5.3.1 What Is an Environment?&quot;&gt;5.3.1 什么是环境？&lt;/span&gt;&lt;/a&gt;
+                &lt;/h3&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;An application can run in various environments.&quot;&gt;一个应用可以在不同的环境中运行。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The different environments share the same PHP code (apart from the front controller), but can have completely different configurations.&quot;&gt;不同的环境共享相同的PHP代码（前端控制器除外），但是配置信息可能完全不同。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For each application, symfony provides three default environments: production (&lt;code&gt;prod&lt;/code&gt;), test (&lt;code&gt;test&lt;/code&gt;), and development (&lt;code&gt;dev&lt;/code&gt;).&amp;#8221;&gt;symfony为每个应用提供三种默认的环境：产品（prod）、测试（test）和开发（dev）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You're also free to add as many custom environments as you wish.&quot;&gt;只要你愿意你可以无限制的增加环境的数量。&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;So basically, environments and configuration are synonyms.&quot;&gt;所以基本上，环境与配置是同义词。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, a test environment will log alerts and errors, while a &lt;code&gt;prod&lt;/code&gt; environment will only log errors.&amp;#8221;&gt;例如，测试环境会记录警告与错误，产品（&lt;code&gt;prod&lt;/code&gt;）环境只记录错误。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Cache acceleration is often deactivated in the &lt;code&gt;dev&lt;/code&gt; environment, but activated in the &lt;code&gt;test&lt;/code&gt; and &lt;code&gt;prod&lt;/code&gt; environments.&amp;#8221;&gt;缓存加速功能在开发（&lt;code&gt;dev&lt;/code&gt;）环境下通常是关闭的，但是在测试（&lt;code&gt;test&lt;/code&gt;）与产品（&lt;code&gt;prod&lt;/code&gt;）环境下开启。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The &lt;code&gt;dev&lt;/code&gt; and &lt;code&gt;test&lt;/code&gt; environments may need test data, stored in a database distinct from the one used in the production environment.&amp;#8221;&gt;&lt;code&gt;dev&lt;/code&gt; 与 &lt;code&gt;test&lt;/code&gt; 环境所需要的测试数据，存放在与产品环境不同的数据库里。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;So the database configuration will be different between the two environments.&quot;&gt;所以两种环境的数据库配置会有所不同。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;All environments can live together on the same machine, although a production server generally contains only the &lt;code&gt;prod&lt;/code&gt; environment.&amp;#8221;&gt;所有的环境可以在一台机器上共存，不过通常一台正式的服务器只包含 &lt;code&gt;prod&lt;/code&gt; 环境。&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;In the &lt;code&gt;dev&lt;/code&gt; environment, the logging and debugging settings are all enabled, since maintenance is more important than performance.&amp;#8221;&gt;在 &lt;code&gt;dev&lt;/code&gt; 环境下，日志与调试功能都是开启的，因为排除问题比性能更重要。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;On the contrary, the &lt;code&gt;prod&lt;/code&gt; environment has settings optimized for performance by default, so the production configuration turns off many features.&amp;#8221;&gt;相反，&lt;code&gt;prod&lt;/code&gt; 环境的配置默认是为性能优化的，所以产品环境会关闭一些功能。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;A good rule of thumb is to navigate in the development environment until you are satisfied with the feature you are working on, and then switch to the production environment to check its speed.&quot;&gt;建议呆在开发环境直到你对开发的功能满意为止，然后切换到产品环境测试速度。&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;The &lt;code&gt;test&lt;/code&gt; environment differs from the &lt;code&gt;dev&lt;/code&gt; and &lt;code&gt;prod&lt;/code&gt; environment in other ways.&amp;#8221;&gt;&lt;code&gt;test&lt;/code&gt; 环境又与 &lt;code&gt;dev&lt;/code&gt; 与 &lt;code&gt;prod&lt;/code&gt; 环境有所不同。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You interact with this environment solely through the command line for the purpose of functional testing and batch scripting.&quot;&gt;你只能通过命令行来访问这个环境，通常是做功能测试和执行批处理脚本。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Consequently, the &lt;code&gt;test&lt;/code&gt; environment is close to the production one, but it is not accessed through a web browser.&amp;#8221;&gt;因此，&lt;code&gt;test&lt;/code&gt; 环境与产品环境接近，但是不能通过浏览器访问。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It simulates the use of cookies and other HTTP specific components.&quot;&gt;它能模拟coookie与其它HTTP相关的组件。&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;To change the environment in which you're browsing your application, just change the front controller.&quot;&gt;改变你正在访问的应用的环境，只要改变前端控制器就可以了。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Until now, you have seen only the development environment, since the URLs used in the example called the development front controller:&quot;&gt;到目前为止，你只见过开发环境，因为例子里的URL都是开发环境前端控制器的：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;pre class=&quot;url&quot;&gt;&lt;code&gt;http://localhost/frontend_dev.php/mymodule/index&lt;/code&gt;&lt;/pre&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;However, if you want to see how the application reacts in production, call the production front controller instead:&quot;&gt;不过，如果你想看看应用在产品环境中的样子，可以执行产品环境的前端控制器：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;pre class=&quot;url&quot;&gt;&lt;code&gt;http://localhost/index.php/mymodule/index&lt;/code&gt;&lt;/pre&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;If your web server has &lt;code&gt;mod_rewrite&lt;/code&gt; enabled, you can even use the custom symfony rewriting rules, written in &lt;code&gt;web/.htaccess&lt;/code&gt;.&amp;#8221;&gt;如果你的web服务器支持mod_rewrite，你甚至可以在web/.htaccess里自定义symfony重写规则。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;They define the production front controller as the default execution script and allow for URLs like this:&quot;&gt;这些规则把产品环境的前端控制器作为默认的执行脚本能让URL看上去像这样：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;pre class=&quot;url&quot;&gt;&lt;code&gt;http://localhost/mymodule/index&lt;/code&gt;&lt;/pre&gt;
+                
+                &lt;blockquote class=&quot;sidebar&quot;&gt;
+                  &lt;p class=&quot;title&quot;&gt;
+                    &lt;span en=&quot;Environments and Servers&quot;&gt;环境与服务器&lt;/span&gt;
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    &lt;span en=&quot;Don't mix up the notions of environment and server.&quot;&gt;不要把环境与服务器的概念混淆了。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;In symfony, different environments are different configurations, and correspond to a front controller (the script that executes the request).&quot;&gt;在symfony里，不同的环境是指不同的配置信息，对应不同的前端控制器（执行请求的脚本）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Different servers correspond to different domain names in the URL.&quot;&gt;不同的服务器对应URL里的不同域名。&lt;/span&gt;
+                  &lt;/p&gt;
+                  
+                  &lt;pre class=&quot;url&quot;&gt;&lt;code&gt;http://localhost/frontend_dev.php/mymodule/index
+   _________ _______________
+    server     environment
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>                  &lt;p&gt;
+                    &lt;span en=&quot;Usually, developers work on applications in a development server, disconnected from the Internet and where all the server and PHP configuration can be changed at will.&quot;&gt;通常，开发人员在一台开发服务器上工作，这台服务器不与互联网相连，所有的服务与PHP配置文件都可以自由修改。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;When the time comes for releasing the application to production, the application files are transferred to the production server and made accessible to the end users.&quot;&gt;到了发布应用的时候，程序文件会传到生产服务器上然后最终用户才能访问得到。&lt;/span&gt;
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    &lt;span en=&quot;This means that many environments are available on each server.&quot;&gt;这意味着同一台服务器上可以有很多个环境。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, you can run in the production environment even on your development server.&quot;&gt;例如，你甚至可以在你的开发服务器上运行产品环境。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;However, most of the time, only the production environment should be accessible in the production server, to avoid public visibility of server configuration and security risks.&quot;&gt;不过，大多数时候，生产服务器上只能访问产品环境，这样可以避免服务器的配置信息泄露以减少安全方面的风险。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;To prevent accidental exposure of the non-production controllers on the production system, symfony adds a basic IP check to these front controllers, which will allow access only from localhost.&quot;&gt;To prevent accidental exposure of the non-production controllers on the production system, symfony adds a basic IP check to these front controllers, which will allow access only from localhost.&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If you want to have them accessible you can remove that, but think about the risk of having this accessible by anyone, as malicious users could guess the default &lt;code&gt;frontend_dev.php&lt;/code&gt; and get access to a lot of sensitive information.&amp;#8221;&gt;If you want to have them accessible you can remove that, but think about the risk of having this accessible by anyone, as malicious users could guess the default &lt;code&gt;frontend_dev.php&lt;/code&gt; and get access to a lot of sensitive information.&lt;/span&gt;
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    &lt;span en=&quot;To add a new environment, you don't need to create a directory or to use the symfony CLI.&quot;&gt;定义一个新环境，不需要建立目录或者使用symfony命令行工具。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Simply create a new front controller and change the environment name definition in it.&quot;&gt;只要建立一个新的前端控制器，修改这个前端控制器里面定义的环境名就可以了。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This environment inherits all the default configuration plus the settings that are common to all environments.&quot;&gt;这个环境会继承所有默认配置信息和所有环境的共同配置信息。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The next chapter will show you how to do this.&quot;&gt;下一章会有详细介绍。&lt;/span&gt;
+                  &lt;/p&gt;
+                &lt;/blockquote&gt;
+                
+                &lt;h3&gt;
+                  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_sub_configuration_cascade&quot;&gt;&lt;span en=&quot;5.3.2 Configuration Cascade&quot;&gt;5.3.2 配置层叠&lt;/span&gt;&lt;/a&gt;
+                &lt;/h3&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;The same setting can be defined more than once, in different places.&quot;&gt;同样的配置信息可以在不同的地方定义多次。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, you may want to set the mime-type of your pages to &lt;code&gt;text/html&lt;/code&gt; for all of the application, except for the pages of an rss module, which will need a &lt;code&gt;text/xml&lt;/code&gt; mime-type.&amp;#8221;&gt;例如，你想把你的程序的所有页面的mime-type定义成 &lt;code&gt;text/html&lt;/code&gt;，只有一个rss模块例外，这个模块需要 &lt;code&gt;text/xml&lt;/code&gt; 的mime-type。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Symfony gives you the ability to write the first setting in &lt;code&gt;frontend/config/view.yml&lt;/code&gt; and the second in &lt;code&gt;frontend/modules/rss/config/view.yml&lt;/code&gt;.&amp;#8221;&gt;symfony可以让你在 &lt;code&gt;frontend/config/view.yml&lt;/code&gt; 里面写第一个定义，然后在 &lt;code&gt;frontend/modules/rss/config/view.yml&lt;/code&gt; 里面写第二个定义。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The configuration system knows that a setting defined at the module level must override a setting defined at the application level.&quot;&gt;配置系统了解模块级别的定义一定要覆盖应用级的定义。&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &lt;span en=&quot;In fact, there are several configuration levels in symfony:&quot;&gt;实际上，symfony具有如下的配置级别：&lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;ul&gt;
+                  &lt;li&gt;
+                    &lt;span en=&quot;Granularity levels:&quot;&gt;粒度级别：&lt;/span&gt;&lt;/p&gt; &lt;ul&gt;
+                      &lt;li&gt;
+                        &lt;span en=&quot;The default configuration located in the framework&quot;&gt;框架里的默认配置&lt;/li&gt; 
+                        
+                        &lt;li&gt;
+                          &lt;span en=&quot;The global configuration for the whole project (in &lt;code&gt;myproject/config/&lt;/code&gt;)&amp;#8221;&gt;整个项目的全局配置（在 &lt;code&gt;myproject/config/&lt;/code&gt; 里）
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                          &lt;span en=&quot;The local configuration for an application of the project (in &lt;code&gt;myproject/apps/frontend/config/&lt;/code&gt;)&amp;#8221;&gt;项目中应用的配置（在 &lt;code&gt;myproject/apps/frontend/config/&lt;/code&gt; 里）
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                          &lt;span en=&quot;The local configuration restricted to a module (in &lt;code&gt;myproject/apps/frontend/modules/mymodule/config/&lt;/code&gt;)&amp;#8221;&gt;模块的配置（在 &lt;code&gt;myproject/apps/frontend/modules/mymodule/config/&lt;/code&gt; 里）
+                        &lt;/li&gt;&lt;/ul&gt; &lt;/li&gt; 
+                        
+                        &lt;li&gt;
+                          &lt;span en=&quot;•Environment levels:&quot;&gt;环境级别：&lt;/span&gt;&lt;/p&gt; &lt;ul&gt;
+                            &lt;li&gt;
+                              &lt;span en=&quot;Specific to one environment&quot;&gt;针对某一个环境&lt;/span&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                              &lt;span en=&quot;For all environments&quot;&gt;所有环境&lt;/span&gt;
+                            &lt;/li&gt;
+                          &lt;/ul&gt;
+                        &lt;/li&gt;&lt;/ul&gt; 
+                        
+                        &lt;p&gt;
+                          &lt;span en=&quot;Of all the properties that can be customized, many are environment-dependent.&quot;&gt;所有可以自定义的属性里，有一些是与环境有关的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Consequently, many YAML configuration files are divided by environment, plus a tail section for all environments.&quot;&gt;因此，很多YAML配置文件是按照环境分成了好几段，最后一段针对所有环境。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The result is that typical symfony configuration looks like Listing 5-12.&quot;&gt;因此一个典型的symfony配置文件类似于例 5-12。&lt;/span&gt;
+                        &lt;/p&gt;
+                        
+                        &lt;p class=&quot;figure&quot;&gt;
+                          &lt;span en=&quot;Listing 5-12 - The Structure of Symfony Configuration Files&quot;&gt;例 5-12 &amp;#8211; symfony配置文件的结构&lt;/span&gt;
+                        &lt;/p&gt;
+                        
+                        &lt;pre&gt;&lt;code&gt;&amp;lt;span en=&quot;# Production environment settings&quot;&gt;# 产品环境设置&amp;lt;/span&gt;
+</code></pre>
+<p>prod:
+&hellip;</p>
+<p>&lt;span en=&quot;# Development environment settings&quot;&gt;# 开发环境设置&lt;/span&gt;
+dev:
+&hellip;</p>
+<p>&lt;span en=&quot;# Test environment settings&quot;&gt;# 测试环境设置&lt;/span&gt;
+test:
+&hellip;</p>
+<p>&lt;span en=&quot;# Custom environment settings&quot;&gt;# 自定义环境设置&lt;/span&gt;
+myenv:
+&hellip;</p>
+<p>&lt;span en=&quot;# Settings for all environments&quot;&gt;# 所有环境的设置&lt;/span&gt;
+all:
+&hellip;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>                        &lt;p&gt;
+                          &lt;span en=&quot;In addition, the framework itself defines default values in files that are not located in the project tree structure, but in the &lt;code&gt;sfConfig::get(&amp;#8216;sf_symfony_lib_dir&amp;#8217;)/config/config/&lt;/code&gt; directory of your symfony installation. &amp;#8220;&gt;另外，symfony框架本身定义的默认值并不在项目的目录里，它们在你的symfony的 &lt;code&gt;sfConfig::get('sf_symfony_lib_dir'）/config/config/&lt;/code&gt; 目录里。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The default configuration is set in these files as shown in Listing 5-13.&quot;&gt;默认的配置信息在例5-13的文件里设置。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;These settings are inherited by all applications.&quot;&gt;所有的应用都会继承到这些设置。&lt;/span&gt;
+                        &lt;/p&gt;
+                        
+                        &lt;p class=&quot;figure&quot;&gt;
+                          &lt;span en=&quot;Listing 5-13 - The Default Configuration, in &lt;code&gt;sfConfig::get(&amp;#8216;sf_symfony_lib_dir&amp;#8217;)/config/config/settings.yml&lt;/code&gt;&amp;#8220;&gt;例 5-13 &amp;#8211; 默认配置信息, 在 &lt;code&gt;sfConfig::get('sf_symfony_lib_dir'）/config/config/settings.yml&lt;/code&gt; 里&lt;/span&gt;
+                        &lt;/p&gt;
+                        
+                        &lt;pre&gt;&lt;code&gt;&amp;lt;span en=&quot;# Default settings:&quot;&gt;# 默认设置:&amp;lt;/span&gt;
+</code></pre>
+<p>default:
+.actions:
+default_module:         default
+default_action:         index
+&hellip;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>                        &lt;p&gt;
+                          &lt;span en=&quot;These default definitions are repeated in the project, application, and module configuration files as comments, as shown in Listing 5-14, so that you know that some parameters are defined by default and that they can be modified.&quot;&gt;这些配置会在项目，应用，模块的配置信息里面以注释的形式反复出现，如例5-14所示，这样你就可以知道这些默认值并且可以修改它们。&lt;/span&gt;
+                        &lt;/p&gt;
+                        
+                        &lt;p class=&quot;figure&quot;&gt;
+                          &lt;span en=&quot;Listing 5-14 - The Default Configuration, Repeated for Information, in &lt;code&gt;frontend/config/settings.yml&lt;/code&gt;&amp;#8220;&gt;例 5-14 &amp;#8211; 默认配置信息， 在 &lt;code&gt;frontend/config/settings.yml&lt;/code&gt; 中出现以供参考&lt;/span&gt;
+                        &lt;/p&gt;
+                        
+                        &lt;pre&gt;&lt;code&gt;#all:
+</code></pre>
+<h1 id="actions">.actions:</h1>
+<h1 id="default_module---------default">default_module:         default</h1>
+<h1 id="default_action---------index">default_action:         index</h1>
+<h1 id="codepre">&hellip;<!-- raw HTML omitted --><!-- raw HTML omitted --></h1>
+<pre><code>                        &lt;p&gt;
+                          &lt;span en=&quot;This means that a property can be defined several times, and the actual value results from a definition cascade.&quot;&gt;这意味着一个属性可以多次定义，最后的取值取决于层叠的结构。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;A parameter definition in a named environment has precedence over the same parameter definition for all environments, which has precedence over a definition in the default configuration.&quot;&gt;任何一个特定环境里定义的参数优先于所有环境里定义的参数，所有环境里的参数优先于默认配置。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;A parameter definition at the module level has precedence over the same parameter definition at the application level, which has precedence over a definition at the project level.&quot;&gt;模块配置里的参数优先于应用级里定义的同样参数，应用里的参数优先于项目级。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This can be wrapped up in the following priority list:&quot;&gt;这可以通过下面的优先级列表来表示：&lt;/span&gt;
+                        &lt;/p&gt;
+                        
+                        &lt;ol&gt;
+                          &lt;li&gt;
+                            &lt;span en=&quot;Module&quot;&gt;模块 &lt;/li&gt; 
+                            
+                            &lt;li&gt;
+                              &lt;span en=&quot;Application&quot;&gt;应用 &lt;/li&gt; 
+                              
+                              &lt;li&gt;
+                                &lt;span en=&quot;Project&quot;&gt;项目 &lt;/li&gt; 
+                                
+                                &lt;li&gt;
+                                  &lt;span en=&quot;Specific environment&quot;&gt;特定的环境 &lt;/li&gt; 
+                                  
+                                  &lt;li&gt;
+                                    &lt;span en=&quot;All environments&quot;&gt;所有环境 &lt;/li&gt; 
+                                    
+                                    &lt;li&gt;
+                                      &lt;span en=&quot;Default&quot;&gt;默认 &lt;/li&gt; &lt;/ol&gt; 
+                                      
+                                      &lt;h2&gt;
+                                        &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_the_configuration_cache&quot;&gt;&lt;span en=&quot;5.4 The Configuration Cache&quot;&gt;5.4 配置缓存&lt;/span&gt;&lt;/a&gt;
+                                      &lt;/h2&gt;
+                                      
+                                      &lt;p&gt;
+                                        &lt;span en=&quot;Parsing YAML and dealing with the configuration cascade at runtime represent a significant overhead for each request.&quot;&gt;执行时解析YAML处理配置文件的层叠结构会增加每次请求的负担。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Symfony has a built-in configuration cache mechanism designed to speed up requests.&quot;&gt;symfony内建了配置文件缓存机制来提高请求速度。&lt;/span&gt;
+                                      &lt;/p&gt;
+                                      
+                                      &lt;p&gt;
+                                        &lt;span en=&quot;The configuration files, whatever their format, are processed by some special classes, called handlers, that transform them into fast-processing PHP code.&quot;&gt;不管什么格式的配置文件都需要一些特别的类来处理，又叫处理器，这些配置文件被转换成快速执行的PHP代码。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;In the development environment, the handlers check the configuration for changes at each request, to promote interactivity.&quot;&gt;开发环境里，处理着每次请求都会去检查配置文件的变化，这样提高交互性。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;They parse the recently modified files so that you can see a change in a YAML file immediately&quot;&gt;它们解析改变的配置文件使你能马上看到YAML改变的效果。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But in the production environment, the processing occurs once during the first request, and then the processed PHP code is stored in the cache for subsequent requests.&quot;&gt;但是在产品环境，这样的处理只在第一次请求时进行，处理得到的PHP代码被保存下来给后面的请求使用。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The performance is guaranteed, since every request in production will just execute some well-optimized PHP code.&quot;&gt;这样能提高性能，因为产品环境里的每次请求只需要执行一些优化过的PHP代码。&lt;/span&gt;
+                                      &lt;/p&gt;
+                                      
+                                      &lt;p&gt;
+                                        &lt;span en=&quot;For instance, if the &lt;code&gt;app.yml&lt;/code&gt; file contains this:&amp;#8221;&gt;例如，如果 &lt;code&gt;app.yml&lt;/code&gt; 文件内容如下：&lt;/span&gt;
+                                      &lt;/p&gt;
+                                      
+                                      &lt;pre&gt;&lt;code&gt;all:                   &amp;lt;span en=&quot;# Setting for all environments&quot;&gt;# 所有环境的设置&amp;lt;/span&gt;
+</code></pre>
+<p>mail:
+webmaster:         &lt;a href=&ldquo;mailto:webmaster@example.com&rdquo;&gt;webmaster@example.com&lt;/a&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>                                      &lt;p&gt;
+                                        &lt;span en=&quot;then the file &lt;code&gt;config_app.yml.php&lt;/code&gt; , located in the &lt;code&gt;cache/&lt;/code&gt; folder of your project, will contain this:&amp;#8221;&gt;那么 &lt;code&gt;cache/&lt;/code&gt;目录下的 &lt;code&gt;config_app.yml.php&lt;/code&gt; 文件,将包括下面的内容：&lt;/span&gt;
+                                      &lt;/p&gt;
+                                      
+                                      &lt;p&gt;
+                                        &lt;span en=&quot;As a consequence, most of the time, the YAML files aren't even parsed by the framework, which relies on the configuration cache instead.&quot;&gt;这样，大多数时候，symfony不需要去解析YAML文件，只需要执行cache里的配置信息就可以了。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;However, in the development environment, symfony will systematically compare the dates of modification of the YAML files and the cached files, and reprocess only the ones that have changed since the previous request.&quot;&gt;不过在开发环境,symfony会自动比较YAML文件还有配置缓存的修改时间，只重新处理上次请求后修改过的配置文件。&lt;/span&gt;
+                                      &lt;/p&gt;
+                                      
+                                      &lt;p&gt;
+                                        &lt;span en=&quot;This presents a major advantage over many PHP frameworks, where configuration files are compiled at every request, even in production.&quot;&gt;这是symfony与其他很多PHP框架相比的一个主要优势，这些PHP框架里的每次请求都会去处理配置文件，即使是产品环境。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Unlike Java, PHP doesn't share an execution context between requests.&quot;&gt;与Java不同，PHP不会在请求之间共享执行状态。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For other PHP frameworks, keeping the flexibility of XML configuration files requires a major performance hit to process all the configuration at every request.&quot;&gt;其他依赖XML配置文件的框架在每次请求时处理XML性能损失很大。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is not the case in symfony. Thanks to the cache system, the overhead caused by configuration is very low.&quot;&gt;symfony不存在这个问题，配置文件带来的速度影响很小。&lt;/span&gt;
+                                      &lt;/p&gt;
+                                      
+                                      &lt;p&gt;
+                                        &lt;span en=&quot;There is an important consequence of this mechanism.&quot;&gt;这样的机制带来一个重要的问题，如果你改变了产品环境的配置信息，你需要强制重新解析所有你修改过的配置文件，这样改变才能生效。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If you change the configuration in the production environment, you need to force the reparsing of all the configuration files for your modification to be taken into account.&quot;&gt;If you change the configuration in the production environment, you need to force the reparsing of all the configuration files for your modification to be taken into account.&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For that, you just need to clear the cache, either by deleting the content of the &lt;code&gt;cache/&lt;/code&gt; directory or, more easily, by calling the &lt;code&gt;cache:clear&lt;/code&gt; task:&amp;#8221;&gt;你只需要清除缓存就可以了，可以直接清空 &lt;code&gt;cache/&lt;/code&gt; 目录的内容，或是执行 &lt;code&gt;clear-cache&lt;/code&gt; 这个symfony任务：&lt;/span&gt;
+                                      &lt;/p&gt;
+                                      
+                                      &lt;pre&gt;&lt;code&gt;$ php symfony cache:clear&lt;/code&gt;&lt;/pre&gt;
+                                      
+                                      &lt;h2&gt;
+                                        &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_accessing_the_configuration_from_code&quot;&gt;&lt;span en=&quot;5.5 Accessing the Configuration from Code&quot;&gt;5.5 从代码里访问配置信息&lt;/span&gt;&lt;/a&gt;
+                                      &lt;/h2&gt;
+                                      
+                                      &lt;p&gt;
+                                        &lt;span en=&quot;All the configuration files are eventually transformed into PHP, and many of the settings they contain are automatically used by the framework, without further intervention.&quot;&gt;所有的配置文件最终都被转换成PHP代码，框架会自动使用很多设置。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;However, you sometimes need to access some of the settings defined in the configuration files from your code (in actions, templates, custom classes, and so on).&quot;&gt;不过，有时你需要在你的代码中（动作，模板，自定义类等）访问配置文件里定义的设置。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The settings defined in &lt;code&gt;settings.yml&lt;/code&gt;, &lt;code&gt;app.yml&lt;/code&gt;, and &lt;code&gt;module.yml&lt;/code&gt; are available through a special class called &lt;code&gt;sfConfig&lt;/code&gt;.&amp;#8221;&gt;&lt;code&gt;settings.yml&lt;/code&gt;、&lt;code&gt;apps.yml&lt;/code&gt;、&lt;code&gt;module.yml&lt;/code&gt;、&lt;code&gt;logging.yml&lt;/code&gt; 还有 &lt;code&gt;module.yml&lt;/code&gt; 可以通过一个特殊的 &lt;code&gt;sfConfig&lt;/code&gt; 类来访问。&lt;/span&gt;
+                                      &lt;/p&gt;
+                                      
+                                      &lt;h3&gt;
+                                        &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=27&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_05_sub_the_sfconfig_class&quot;&gt;&lt;span en=&quot;5.5.1 The &lt;code&gt;sfConfig&lt;/code&gt; Class&amp;#8221;&gt;5.5.1 &lt;code&gt;sfConfig&lt;/code&gt;类&lt;/span&gt;&lt;/a&gt;
+                                      &lt;/h3&gt;
+                                      
+                                      &lt;p&gt;
+                                        &lt;span en=&quot;You can access settings from within the application code through the &lt;code&gt;sfConfig&lt;/code&gt; class.&amp;#8221;&gt;你可以在程序代码里通过 &lt;code&gt;sfConfig&lt;/code&gt; 类访问配置信息。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It is a registry for configuration parameters, with a simple getter class method, accessible from every part of the code:&quot;&gt;它是一个配置信息的登记处，它有一些简单的存取方法，这些存取方法可以在程序的任何地方使用。&lt;/span&gt;
+                                      &lt;/p&gt;
+                                      
+                                      &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;co1&quot;&gt;&lt;span en=&quot;// Retrieve a setting&quot;&gt;// 取得一个设置&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->$parameter<!-- raw HTML omitted --> = sfConfig::<!-- raw HTML omitted -->get<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;param_name&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$default_value<!-- raw HTML omitted --><!-- raw HTML omitted -->）<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;li&gt;
+  &lt;span en=&quot;The name of the key, in lowercase&quot;&gt;键名, 小写形式 &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;The environment is not included, since your PHP code will have access only to the values defined for the environment in which it's executed.&quot;&gt;参数名字不包括环境名称，因为PHP代码只能访问到执行时所在的环境里定义的参数。&lt;/span&gt;
+  &lt;/p&gt;
+  
+  
+  &lt;p&gt;
+    &lt;span en=&quot;For instance, if you need to access the values defined in the &lt;code&gt;app.yml&lt;/code&gt; file shown in Listing 5-15, you will need the code shown in Listing 5-16.&amp;#8221;&gt;例如，如果你需要访问 &lt;code&gt;app.yml&lt;/code&gt; 里定义的值，见例5-15，你需要例5-16中的代码。&lt;/span&gt;
+  &lt;/p&gt;
+  
+  
+  &lt;p class=&quot;figure&quot;&gt;
+    &lt;span en=&quot;Listing 5-15 - Sample &lt;code&gt;app.yml&lt;/code&gt; Configuration&amp;#8221;&gt;例 5-15 &amp;#8211; app.yml 配置文件样本&lt;/span&gt;
+  &lt;/p&gt;
+  
+  
+  &lt;pre&gt;&lt;code&gt;all:
+</code></pre>
+<p>.general:
+tax:          19.6
+default_user:
+name:         John Doe
+mail:
+webmaster:    &lt;a href=&ldquo;mailto:webmaster@example.com&rdquo;&gt;webmaster@example.com&lt;/a&gt;
+contact:      &lt;a href=&ldquo;mailto:contact@example.com&rdquo;&gt;contact@example.com&lt;/a&gt;
+dev:
+mail:
+webmaster:    &lt;a href=&ldquo;mailto:dummy@example.com&rdquo;&gt;dummy@example.com&lt;/a&gt;
+contact:      &lt;a href=&ldquo;mailto:dummy@example.com&rdquo;&gt;dummy@example.com&lt;/a&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>  &lt;p class=&quot;figure&quot;&gt;
+    &lt;span en=&quot;Listing 5-16 - Accessing Configuration Settings in PHP in the &lt;code&gt;dev&lt;/code&gt; Environment&amp;#8221;&gt;例 5-16 &amp;#8211; 在 &lt;code&gt;dev&lt;/code&gt; 环境从PHP代码里访问配置信息&lt;/span&gt;
+  &lt;/p&gt;
+  
+  
+  &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw3&quot;&gt;echo&lt;/span&gt; sfConfig::&lt;span class=&quot;me2&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'app_tax'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;   &lt;span class=&quot;co1&quot;&gt;&lt;span en=&quot;// Remember that category headers are ignored&quot;&gt;// 请注意分类的头会被忽略掉&lt;/span&gt;
+</code></pre>
+<p>=&gt; <!-- raw HTML omitted -->&lsquo;19.6&rsquo;<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> sfConfig::<!-- raw HTML omitted -->get<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;app_default_user_name&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; <!-- raw HTML omitted -->&lsquo;John Doe&rsquo;<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> sfConfig::<!-- raw HTML omitted -->get<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;app_mail_webmaster&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; <!-- raw HTML omitted -->&lsquo;<a href="mailto:dummy@example.com">dummy@example.com</a>&rsquo;<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> sfConfig::<!-- raw HTML omitted -->get<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;app_mail_contact&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; <!-- raw HTML omitted -->&lsquo;<a href="mailto:dummy@example.com">dummy@example.com</a>&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&ndash;&gt;</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&ndash;&gt;</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%89%E7%AB%A0%E8%BF%90%E8%A1%8C/" data-toggle="tooltip" data-placement="top" title="第三章：运行">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AD%E7%AB%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B1%82/" data-toggle="tooltip" data-placement="top" title="第六章：深入了解控制器层">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">25200 Words|Read in about 51 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Grafana - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Grafana" />
+  <meta name="twitter:title" content="Grafana" />
+  <meta name="description" content="description">
+  <meta property="og:description" content="description">
+  <meta name="twitter:description" content="description">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/grafana/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/grafana/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Grafana</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <blockquote>
+<p>grafana 是一个开源的时序性统计和监控平台，支持例如 elasticsearch、graphite、influxdb 等众多的数据源，并以功能强大的界面编辑器著称。</p>
+</blockquote>
+<h2 id="数值类型的常用指标含义">数值类型的常用指标含义</h2>
+<ul>
+<li>count_ps
+<ul>
+<li>每秒的数量</li>
+</ul>
+</li>
+<li>count
+<ul>
+<li>每十秒的数量</li>
+</ul>
+</li>
+<li>mean_90
+<ul>
+<li>去除最高10%的数据后的平均值</li>
+</ul>
+</li>
+<li>upper_90
+<ul>
+<li>去除最高10%的数据后的最高值</li>
+</ul>
+</li>
+</ul>
+<h3 id="总量误区">总量误区</h3>
+<p>这里有一个常见的 grafana 误区，因为经常有用数值类型的 count_ps 来顺便获取每秒打点数量的情况，注意在这种情况下，一段时间内的打点总量需要使用 count_ps 的 avg 平均值来乘以这段时间的秒数来计算，而不是通过界面上的 Total 直接读取。</p>
+<p>这是因为，在界面上一条曲线能够展示的点的数量是有限的，grafana 会根据你的窗口宽度来决定返回的点数，因为像<code>一天</code>这样的时间段肯定没办法在界面上展示每一秒的点，毕竟总量为86400个点就算带鱼屏也不可能挤得下。对于无法展示的点，grafana 默认是使用 avg 平均值的行为来修正返回点的值，举个栗子，如下图：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/7/161fdbc178179680?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image"></p>
+<p>上图时间范围是一天，上部分为曲线面板的值，下部分为 面饼图表的值，并且上部分图标的曲线为 count 类型（十秒聚一次），可以看到 avg 平均值为 683，那么总量应该为 682 乘以 6 （如果是count_ps 这里则是60） 乘以 60 （一小时60分钟）再乘以 24 （一天24小时）得到589万，与图片中下部分的582万相近，因此上部分 total 的117万是一个完完全全让人误解的值，可以认为它毫无意义进而直接无视掉。</p>
+<h3 id="误差">误差</h3>
+<p>上文中我们计算出来的589万和界面上的582万其实也有一点误差，不过这是可以接受的，因为 statsd 一般情况下是 UDP 的形式（它其实有 TCP 的形式），所以如果想要完全正确的数据，那么最好把打点相关的数据也入库，从数据库里后置查询出来的才是完全可靠。</p>
+<h2 id="模板变量">模板变量</h2>
+<p>模板变量能够动态地控制面板中的查询语句，是十分重要的功能。经常可以在面板的左上角发现它们，如下图：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/7/161fdbc1780c323a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image"></p>
+<h3 id="模板变量的写法">模板变量的写法</h3>
+<p>模板变量支持 <code>$name</code> 和 <code>[[name]]</code> 的写法，针对 graphite 数据源主要使用前者，例如：<code>stats.timers.fe.test.$key.count_ps</code></p>
+<h3 id="新建模板变量">新建模板变量</h3>
+<p>grafana 界面上齿轮按钮 -&gt; Templating -&gt; 点击 New，即可出现类似如下的界面：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/7/161fdbc177fd2a08?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image"></p>
+<p>本段主要介绍 Query 类型的写法。</p>
+<ul>
+<li>Name
+<ul>
+<li>该变量的名称，不支持特殊字符例如$</li>
+</ul>
+</li>
+<li>Refresh
+<ul>
+<li>可选<code>Never</code>，<code>On Dashboard Load</code>和<code>On Time Range Change</code></li>
+<li>如果该变量的值经常动态增加的话则选 <code>On Time Range Change</code>，否则 <code>On Dashboard Load</code> 就足够了，Query 类型千万不要选 Never，否则变量只会在你点进来编辑变量时才会更新</li>
+</ul>
+</li>
+<li>Query
+<ul>
+<li>查询语句，例如 stats.timers.fe.test.*</li>
+<li>编写时 grafana 不会触发请求，需要在输入框外面点击一下，查询到的值就会显示在下边了</li>
+</ul>
+</li>
+</ul>
+<p>模板变量中的 Query 其实也支持模板变量，例如<code>stats.timers.fe.test.$key.*</code> 这样的语句，会在 $key 变量变化时自动刷新值，是不是有一点 MVVM 的感觉。这个功能用来联动多个模板变量可以大幅度减少 grafana 一次查询的时间。</p>
+<h3 id="模板变量的隐藏玩法">模板变量的隐藏玩法</h3>
+<p>模板变量甚至可以用在 grafana 的跳转中，这是连文档中都没有提及的一个隐藏玩法，在 <code>Link</code> 或者 <code>Dashboard</code> 里 URL 中任意位置填入 $name ，那么在用户点击该链接跳转时 grafana 同样会替换该变量来让你跳到正确的链接去。这和其他系统整合起来能够做到很不错的用户体验，例如跳转到 kibana 那边去查询日志。</p>
+<p>kibana 和 grafana 的时间范围格式并不一样，可以使用<a href="https://link.juejin.im?target=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F26981364">这篇文章</a> 中的 chrome 插件来解决。</p>
+<p>另外，Custom 模板变量可以允许用户在变量下拉框中自行输入值，也是一个经常用到的值，配合模板变量会和当前链接中的 querystring 部分的<code>var-${name}</code> 同步，配合起来可以轻松地从第三方系统中跳转到正确的 grafana 面板中来</p>
+<h2 id="grafana-面板编辑器">grafana 面板编辑器</h2>
+<p>以 Editor 权限的账号进入到任意面板中，点击某个图表继而点击小弹窗中的 Edit 按钮，即可进入图表的编辑器界面。对于编辑器本文只介绍图表的重要配置，Metrics，Legend 和 Display</p>
+<h3 id="metrcis">Metrcis</h3>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/7/161fdbc17a09bc8c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image"></p>
+<ul>
+<li>编辑模式
+<ul>
+<li>上图箭头指向的 <code>toggle editor mode</code> 可以控制编辑模式，关闭则需要手动输入查询语句，开启则是如上图的可以在界面上动态增删改的模式。</li>
+</ul>
+</li>
+<li>数据源
+<ul>
+<li><code>Panel data source</code> 一定要选对，否则查不到对应的路径，并且很有可能冒出来 Mock 数据让人一脸懵逼。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/7/161fdbc179e6e336?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image"></p>
+<p>开启动态编辑模式时可以在点击上图中每个框框，这时 grafana 会自动加载该位置在数据源中的值，并且你也可以在这里选择模板变量来动态控制。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/7/161fdbc179071a9c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image"></p>
+<p>点击尾巴上的加号，会冒出来对应数据源的函数，可以做一些高级的功能，这个也是本文下半部分的重点，稍后再做介绍。graphite 的函数比较多，其他数据源会少一些。</p>
+<h3 id="legend">Legend</h3>
+<p>Legend 主要控制曲线的名称和值的展示，比较简单，这里列出一下他们的含义</p>
+<ul>
+<li>As Table
+<ul>
+<li>是否以表格形式展示</li>
+</ul>
+</li>
+<li>To the right
+<ul>
+<li>是展示在图表右边还是在下面</li>
+</ul>
+</li>
+<li>Width
+<ul>
+<li>默认不填会自动伸缩，否则强制限定宽度</li>
+</ul>
+</li>
+<li>Min
+<ul>
+<li>面板时间段内的最小值</li>
+</ul>
+</li>
+<li>Avg
+<ul>
+<li>面板时间段内的平均值</li>
+</ul>
+</li>
+<li>Total
+<ul>
+<li>面板时间段内的值的总量，如上文所说获取数值类型的总量时这个 Total 是一个很让人误解的参数</li>
+</ul>
+</li>
+<li>Max
+<ul>
+<li>面板时间段内的最大值</li>
+</ul>
+</li>
+<li>Current
+<ul>
+<li>面板时间段内的当前值</li>
+</ul>
+</li>
+</ul>
+<h3 id="display">Display</h3>
+<p>Display 控制图表的点和线的展示，有一些比较重要的参数</p>
+<ul>
+<li>Draw Modes -&gt; Lines
+<ul>
+<li>是否绘制点之间的线段</li>
+</ul>
+</li>
+<li>Draw Modes -&gt; Points
+<ul>
+<li>是否绘制点</li>
+</ul>
+</li>
+<li>Hover info -&gt; Mode
+<ul>
+<li>悬浮面板上展示的方式，值为 <code>All serires</code>（展示该时间点的所有线段的值）和 <code>single</code>（只展示鼠标指着的那一条线段）</li>
+</ul>
+</li>
+<li>Hover info -&gt; Sort Order
+<ul>
+<li>悬浮面板上线条的排序，一般选择 Decreasing</li>
+</ul>
+</li>
+<li>Stacking &amp; Null value -&gt; Null value
+<ul>
+<li>这个比较重要，需要根据点的密度来动态决定，如果点少很容易让人误解两个点中间也存在点。</li>
+<li>点多时，选择 connected</li>
+<li>点少时，选择 null</li>
+</ul>
+</li>
+</ul>
+<h2 id="高级函数">高级函数</h2>
+<p>以 graphite 为例子，打点路径中的 KEY 只支持大小写字母、数字、中划线和下划线，这会导致前端的路径（经常包含 # 和 :path）存不下来，因此我们只能提前转译，例如将 # 转译为 ANCHOR，将 :path 转译为 PATH ，再将 / 转译为 -，这样在变量模板中展示的就是比较怪异的前端路径，不过好在我们有函数，可以在界面上把它替换回来。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/7/161fdbc19c39dcee?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image"></p>
+<p>点击编辑界面 Metrics 面板中编辑模式的加号，添加 <code>aliaSub</code> 函数，并依此填入上图的三种的替换规则，在界面上就可以看到如下图的正常路径了：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/7/161fdbc19c215f81?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image"></p>
+<p>aliaSub 只是其中一个简单的 alias 函数，用来处理曲线的名称，更多的函数是被用来处理单个查询的聚合、多条曲线的聚合、展示不同时间线、计算和过滤，本节会介绍其中一些经常用到的函数。</p>
+<h3 id="聚合单个查询的多条匹配曲线的总量-combine---sumseries">聚合单个查询的多条匹配曲线的总量 Combine -&gt; sumSeries</h3>
+<p>例如，假设 <code>stats_count.fe.test.*</code> 有几十个匹配值，那么这个查询就会在图表中展示几十条曲线，此时如何获取所有曲线的总值呢？不需要在打点时多打一份总量数据，直接使用 <code>sumSeries</code> 函数即可，<code>sumSeries(stats_count.fe.test.*)</code></p>
+<h3 id="时间线迁移-transform---timeshift">时间线迁移 Transform -&gt; timeShift</h3>
+<p>想要在这个时间段内同时展示前一天的的曲线？<code>timeShift(Query, '-1d')</code>即可</p>
+<h3 id="去除异常值-filter---removeabovevalue">去除异常值 Filter -&gt; removeAboveValue</h3>
+<p>如果数值类型中出现了异常的值，例如平均为 1秒 的情况下出现了几百万秒的情况，那么就可以通过众多的过滤函数在界面上直接过滤掉而不是去修改打点代码，<code>removeAboveValue(Query, 10000)</code>即可</p>
+<h3 id="重命名函数">重命名函数</h3>
+<ul>
+<li>alias
+<ul>
+<li>直接重命名该曲线，参数为曲线名称</li>
+</ul>
+</li>
+<li>aliasByNode(4, 5, 6)
+<ul>
+<li>将曲线命名为原名称的第4、5、6段</li>
+</ul>
+</li>
+<li>aliasSub
+<ul>
+<li>正则替换名称中的某一段</li>
+</ul>
+</li>
+</ul>
+<h3 id="多条曲线数值的聚合-special---groupbynode">多条曲线数值的聚合 Special -&gt; groupByNode</h3>
+<p>sumSeries 函数只能简单地将多条数据的最终值加起来，如果不是末尾位置的就不行了，而且也不支持除了 sum 外的功能，例如 avg 平均，使用 groupByNode 就可以动态地对指定位置的多个数值类型进行聚合了，如下图：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/7/161fdbc19c3fe585?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image"></p>
+<h3 id="计算多个-query-组成的成功率-calculate---aspercent">计算多个 Query 组成的成功率 Calculate -&gt; asPercent</h3>
+<p>假设我们有如下几条打点：</p>
+<pre><code>stats.timers.fe.test.error1.count
+stats.timers.fe.test.error2.count
+stats.timers.fe.test.error3.count
+stats.timers.fe.test.success.count
+复制代码
+</code></pre><p>此时想要计算 success 的成功比例，如何做呢？</p>
+<p>在这种相较复杂的情况下，就不能只靠一个 Query 来解决了，首先我们创建两个 Query，如下：</p>
+<pre><code>stats.timers.fe.test.*.count （Query 序列号为 #A）
+stats.timers.fe.test.success.count （Query 序列号为 #B）
+复制代码
+</code></pre><p>再创建第三个 Query，值为 <code>asPercent(#B, sumSeries(#A)</code>，顾名思义，首先将 #A 的查询聚合起来得到总值，再用 asPercent 来进行除法即可。</p>
+<p>通过如上的几个例子，可以看到函数强大的功能，即使是很复杂的在以前需要用后端代码来实现的部分，都可以通过多条Query和多个函数的互相嵌套来在界面上简单地实现。</p>
+<p>每个数据源都有对应的函数开发文档，例如 <a href="https://link.juejin.im?target=http%3A%2F%2Fgraphite.readthedocs.io%2Fen%2Flatest%2Ffunctions.html%23function-plugins">graphite</a>。grafana 正是凭借着对众多数据源以及函数的支持，才能在一个网页界面上完成这么多强大的功能。</p>
+<h2 id="其他">其他</h2>
+<h3 id="报警">报警</h3>
+<p>grafana 在 4.0 版本后增加了报警功能，不过 grafana 的报警属于数据源的后置查询，实时性不大能满足需求，我们公司有一个开源的 <a href="https://link.juejin.im?target=https%3A%2F%2Fgithub.com%2Feleme%2Fbanshee">banshee</a> ，就是为了解决这个问题。</p>
+<p>banshee 使用了<a href="https://link.juejin.im?target=https%3A%2F%2Fgithub.com%2Feleme%2Fbanshee%2Fblob%2Fmaster%2Fdocs%2Falgorithms.md">三西格马定律</a>，支持基于阈值和趋势的报警，同时提供开放的 API 和 webhook 并默认集成了 Slack。banshee 和数据源位于同一个位置（statsd 的后端），因此可以保证时效性，也因为报警的独立性质所以对 grafana 版本没有任何要求。</p>
+<h3 id="statsd-打点的限制">statsd 打点的限制</h3>
+<p>grafana 依赖的如果是时序性数据库，那么每一个 KEY 都会对应一个文件来存储数据，例如 <code>stats.timers.fe.test.*</code> 相当于 <code>stats/timers/fe/test</code> 文件夹下的所有文件，因此必须注意打点路径不要有过多的组合，比如将省份和市作为 KEY 时的组合很容易就能占到 1G 以上的数据导致磁盘爆掉。</p>
+<p>为了避免组合过多导致路径污染，请尽量保证每个 KEY 中格式化掉点，例如替换成下划线，另外打点路径可以尽量多加一点前缀，例如将<code>stats.timers.fe.test.*</code> 改为 <code>stats.timers.fe.test.v1.*</code> ，这样一旦污染后，清理数据时可以直接把 v1 整个文件夹删除而不是删除 test 这个根路径，用以保留你的历史正常的打点数据。</p>
+<h3 id="后端查询-grafana-数据">后端查询 grafana 数据</h3>
+<p>一般推荐使用 API KEY 来查询 grafana 的数据，Admin 权限账号可以在界面中生成上文三种权限的 API KEY，不过 grafana 默认会开启 Basic Auth，使用账号密码即可通过 grafana 的鉴权，例如<code>http://${account}:${password}@${grafana_host}/api/org</code>。</p>
+<p>当然，最好是拥有数据源的读权限来直接读取数据。</p>
+<h3 id="匿名模式">匿名模式</h3>
+<p>有时候用户确实没有 grafana 的账号，但他就是想看面板，怎么办？此时就得 grafana 的匿名模式出马了。</p>
+<p>grafana 配置文件中有 <code>auth.anonymous</code> 配置段，<code>enabled</code> 控制开关，<code>org_name</code> 控制开启匿名模式的组织，<code>org_role</code> 控制匿名者的权限。组织开启匿名意味着非登录用户能够直接跳过 grafana 无权限地查询数据源，因此请保证数据源的安全，例如限定内网访问。</p>
+<h2 id="最后">最后</h2>
+<p>本文介绍了 grafana 相对高级的一些使用技巧，除了可以看到 grafana 的强大功能以外，也应该注意到 grafana 只是一个时序性很强的统计监控平台，一些非时序性质的功能例如报错的聚合和报错的日志等应该交给更专业的去做，例如 sentry 和 ELK。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/idea%E6%B3%A8%E5%86%8C%E7%A0%81/" data-toggle="tooltip" data-placement="top" title="Idea注册码">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/%E5%9B%9B%E8%89%B2%E5%BB%BA%E6%A8%A1%E6%B3%95/" data-toggle="tooltip" data-placement="top" title="四色建模法">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/idea%E6%B3%A8%E5%86%8C%E7%A0%81/">Idea注册码</a></li>
+                    
+                    <li><a href="/posts/cms%E8%AF%86%E5%88%AB/">Cms识别</a></li>
+                    
+                    <li><a href="/posts/go_mysql/">Go_mysql</a></li>
+                    
+                    <li><a href="/posts/portainer_rancher/">Portainer_rancher</a></li>
+                    
+                    <li><a href="/posts/gorpc/">GoRPC通信</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

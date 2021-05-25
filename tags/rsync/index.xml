@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rsync on IT技术分享</title>
+    <link>https://www.51hint.com/tags/rsync/</link>
+    <description>Recent content in rsync on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Dec 2012 07:27:11 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/rsync/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rsync</title>
+      <link>https://www.51hint.com/posts/2012-12-27-rsync/</link>
+      <pubDate>Thu, 27 Dec 2012 07:27:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-27-rsync/</guid>
+      <description>rsync 同步两个服务器上的文件或者文件夹 ==================================================================================== 同步文件夹 查验并不真正执行 rsync -rv –dry-run –delete mydir linode: eg:</description>
+    </item>
+    
+  </channel>
+</rss>

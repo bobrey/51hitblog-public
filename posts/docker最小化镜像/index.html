@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Docker最小化镜像 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Docker最小化镜像" />
+  <meta name="twitter:title" content="Docker最小化镜像" />
+  <meta name="description" content="构建最小化镜像">
+  <meta property="og:description" content="构建最小化镜像">
+  <meta name="twitter:description" content="构建最小化镜像">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/docker%E6%9C%80%E5%B0%8F%E5%8C%96%E9%95%9C%E5%83%8F/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/docker%E6%9C%80%E5%B0%8F%E5%8C%96%E9%95%9C%E5%83%8F/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Docker最小化镜像</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h3 id="最开始镜像">最开始镜像</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">FROM golang:onbuild
+EXPOSE <span class="m">8080</span>
+</code></pre></div><blockquote>
+<p>构建完的docker image 700多M</p>
+</blockquote>
+<h3 id="更换基础镜像alpine">更换基础镜像alpine</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">FROM golang:alpine
+WORKDIR /app
+ADD . /app
+RUN <span class="nb">cd</span> /app <span class="o">&amp;&amp;</span> go build -o goapp
+EXPOSE <span class="m">8080</span>
+ENTRYPOINT ./goapp
+</code></pre></div><blockquote>
+<p>构建的image，只有不到400M。</p>
+</blockquote>
+<h2 id="分段编译">分段编译</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">FROM golang:alpine AS build-env
+WORKDIR /app
+ADD . /app
+RUN <span class="nb">cd</span> /app <span class="o">&amp;&amp;</span> go build -o goapp
+
+FROM alpine
+RUN apk update <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>   apk add ca-certificates <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>   update-ca-certificates <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>   rm -rf /var/cache/apk/*
+WORKDIR /app
+COPY --from<span class="o">=</span>build-env /app/goapp /app
+EXPOSE <span class="m">8080</span>
+ENTRYPOINT ./goapp
+</code></pre></div><blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">只有13M有么有
+$ docker images go-demo-muti-build
+REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE
+go-demo              latest              f562d6efa39c        <span class="m">3</span> minutes ago       707MB
+go-demo-alpine       latest              a16d2986dbd1        <span class="m">9</span> seconds ago       385MB
+go-demo-muti-build   latest              1b1237a8fe0e        <span class="m">20</span> seconds ago      13.5MB
+</code></pre></div></blockquote>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/docker%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/" data-toggle="tooltip" data-placement="top" title="Docker使用小结">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/golang%E9%9B%86%E7%BE%A4%E6%8E%92%E5%BA%8F/" data-toggle="tooltip" data-placement="top" title="Golang集群排序">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/docker%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/">Docker使用小结</a></li>
+                    
+                    <li><a href="/posts/docker%E5%AE%9E%E4%BE%8B%E5%A4%A7%E5%B0%8F/">Docker实例大小</a></li>
+                    
+                    <li><a href="/posts/nexus6p_%E5%88%B7%E5%85%A5magisk/">Nexus6p_刷入magisk</a></li>
+                    
+                    <li><a href="/posts/go%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%85%85/">Go笔记补充</a></li>
+                    
+                    <li><a href="/posts/kubernetes/">Kubernetes</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> PureLayout使用方法 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="PureLayout使用方法" />
+  <meta name="twitter:title" content="PureLayout使用方法" />
+  <meta name="description" content="PureLayout简介 PureLayout是一个简单但强大的Objective-C库，使用桥接头文件也能很好地适用于Swift语言。Pur">
+  <meta property="og:description" content="PureLayout简介 PureLayout是一个简单但强大的Objective-C库，使用桥接头文件也能很好地适用于Swift语言。Pur">
+  <meta name="twitter:description" content="PureLayout简介 PureLayout是一个简单但强大的Objective-C库，使用桥接头文件也能很好地适用于Swift语言。Pur">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/purelayoutshi-yong-fang-fa/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/purelayoutshi-yong-fang-fa/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">PureLayout使用方法</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Feb 13, 2017</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/swift/">swift</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>PureLayout简介</p>
+<p>PureLayout是一个简单但强大的Objective-C库，使用桥接头文件也能很好地适用于Swift语言。PureLayout为Auto Layout提供了对开发者更加友好的界面，简单清晰。</p>
+<p><a href="https://github.com/smileyborg/PureLayout">PureLayout下载地址</a>内含写好的例子，也是很不错的。</p>
+<p>使用方法</p>
+<p>使用的时候引入头文件：#import &ldquo;PureLayout.h”，尽量放pch文件里，不然每个界面都要引入，很麻烦。</p>
+<p>如果你喜欢用懒加载，那步骤就是，先把控件贴在父控件上，然后再设置约束。
+如果你喜欢直接初始化，那么就把所有控件初始化之后，再统一设置约束。
+比较推荐懒加载，代码看着清晰。可以自行选择。</p>
+<p>例子1</p>
+<pre><code>//红色view距离父控件左边20,距离父控件上边100
+[self.redView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:20.f];
+[self.redView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:100.f];
+//红色view的宽和高为100
+[self.redView autoSetDimensionsToSize:CGSizeMake(100, 100)];
+//蓝色view的左边,距离红色view的右边为30
+[self.blueView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.redView withOffset:30];
+//蓝色view,红色view等宽等高
+[@[self.blueView,self.redView] autoMatchViewsDimension:ALDimensionWidth];
+[@[self.blueView,self.redView] autoMatchViewsDimension:ALDimensionHeight];
+//蓝色view,红色view水平对齐
+[self.blueView autoAlignAxis:ALAxisHorizontal toSameAxisOfView:self.redView];
+[self.purpleView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:20.f];
+[self.purpleView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:250];
+[self.purpleView autoSetDimension:ALDimensionWidth toSize:150];
+[self.purpleView autoSetDimension:ALDimensionHeight toSize:150];
+
+//绿色View贴在紫色View上,距离父控件的上,左,下,右为15
+[self.greenView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(15, 15, 15, 15)];
+</code></pre>
+<p>效果见下图：
+<img src="http://upload-images.jianshu.io/upload_images/1982466-8336ea58523ef323.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>例子2</p>
+<pre><code>//红色view在父view的中心点
+[self.redView autoCenterInSuperview];
+//红色view的宽高为100
+[self.redView autoSetDimensionsToSize:CGSizeMake(100, 100)];
+
+//红色view,蓝色view左对齐
+[self.blueView autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self.redView];
+//蓝色View的上边距离红色view的下边是10
+[self.blueView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.redView withOffset:10];
+//蓝色View距离父view的右边为20
+[self.blueView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:20.f];
+//蓝色View的高度是红色View高度的一半
+[self.blueView autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:self.redView withMultiplier:0.5];
+</code></pre>
+<p>效果见下图：
+<img src="http://upload-images.jianshu.io/upload_images/1982466-59270f45866d852f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>例子3</p>
+<pre><code>NSArray *colorViews = @[self.redView, self.blueView, self.purpleView, self.greenView];
+[colorViews autoSetViewsDimension:ALDimensionHeight toSize:40.f];
+//间距为10,水平对齐,依次排列
+[colorViews autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:10.0 insetSpacing:YES matchedSizes:YES];
+//红色view相对于其父view水平对齐
+[self.redView autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+</code></pre>
+<p>效果见下图：
+<img src="http://upload-images.jianshu.io/upload_images/1982466-6f8a5ad65e8ed083.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这四句代码实现的功能是不是感觉很强大。
+结尾
+<a href="https://github.com/DavidGengChina/PureLayout-useMethod.git">Purelayout的demo</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/swiftgen/" data-toggle="tooltip" data-placement="top" title="swiftgen">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/dao-chu-ipa/" data-toggle="tooltip" data-placement="top" title="导出ipa">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/swiftgen/">swiftgen</a></li>
+                    
+                    <li><a href="/posts/swiftenv/">swiftenv</a></li>
+                    
+                    <li><a href="/posts/2016-06-08-swift2-2%E6%96%B0%E7%89%B9%E6%80%A7/">swift2.2新特性</a></li>
+                    
+                    <li><a href="/posts/2016-06-08-swift%E5%BC%82%E5%B8%B8/">swift异常</a></li>
+                    
+                    <li><a href="/posts/2015-06-22-swift/">swift</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Feb 13, 2017</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/swift/">swift</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

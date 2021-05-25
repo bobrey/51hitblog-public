@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> cordova插件_js - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="cordova插件_js" />
+  <meta name="twitter:title" content="cordova插件_js" />
+  <meta name="description" content="给下面这个例子中的插件起名叫&quot;Meaning of Life&quot;。创建插件前首先创建一个叫&quot;mol&quot;的文件夹">
+  <meta property="og:description" content="给下面这个例子中的插件起名叫&quot;Meaning of Life&quot;。创建插件前首先创建一个叫&quot;mol&quot;的文件夹">
+  <meta name="twitter:description" content="给下面这个例子中的插件起名叫&quot;Meaning of Life&quot;。创建插件前首先创建一个叫&quot;mol&quot;的文件夹">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/cordovacha-jian-_js/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/cordovacha-jian-_js/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">cordova插件_js</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Mar 2, 2017</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/nodejs/">nodejs</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <ul>
+<li>给下面这个例子中的插件起名叫&quot;Meaning of Life&quot;。创建插件前首先创建一个叫&quot;mol&quot;的文件夹(Meaning of Life&quot;的缩写)，在其中创建一个描述插件的plugin.xml文件，代码如下，它是由其他插件的plugin.xml复制过来修改的。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;plugin</span> <span class="na">xmlns=</span><span class="s">&#34;http://apache.org/cordova/ns/plugins/1.0&#34;</span> <span class="na">id=</span><span class="s">&#34;com.learningplugin.meaningoflife&#34;</span> <span class="na">version=</span><span class="s">&#34;1.0.0&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;name&gt;</span>mol<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Calculates the meaning of the life<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;author&gt;</span>Zhang San<span class="nt">&lt;/author&gt;</span>
+    <span class="nt">&lt;keywords&gt;</span>mol, meaning of life<span class="nt">&lt;/keywords&gt;</span>
+    <span class="nt">&lt;license&gt;</span>Apache 2.0 License<span class="nt">&lt;/license&gt;</span>
+    <span class="nt">&lt;engines&gt;</span>
+        <span class="nt">&lt;engine</span> <span class="na">name=</span><span class="s">&#34;cordova&#34;</span> <span class="na">version=</span><span class="s">&#34;5.0.0&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/engines&gt;</span> 
+    <span class="nt">&lt;js-module</span> <span class="na">src=</span><span class="s">&#34;mol.js&#34;</span> <span class="na">name=</span><span class="s">&#34;mol&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;clobbers</span> <span class="na">target=</span><span class="s">&#34;mol&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/js-module&gt;</span>
+    <span class="nt">&lt;info&gt;</span>This plugin exists to demonstrate how to build a simple, Javascript-Only plugin for Apache Cordova.<span class="nt">&lt;/info&gt;</span>
+ <span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div><p>plugin.xml中一些内容作为文档说明作者和目的。 其他的用于驱动plugman或Cordova CLI插件安装过程。下表列出不同的plugin.xml元素。</p>
+<blockquote>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>INSPIRATION DAYjs-module指js文件名，而这个文件会自动以<code>&lt;script</code>&gt;标签的形式添加到Cordova项目的起始页。通过在<em>js-module</em>中列出插件，可以减少开发者的工作。<strong>clobbers</strong>元素说明了<strong>module.exports</strong>自动添加到<strong>window</strong>对象，让插件方法能够在窗口级别使用。<!-- raw HTML omitted --></p>
+<p>这样就完成了创建一个简单插件的工作。</p>
+<ul>
+<li>为了证明它能起作用，创建一个简单的MoL Demo应用。首先在命令行工具中进入开发文件夹，输入以下CLI命令：</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">cordova creat simplePlugin com.learningplugin.simplePlugin SimplePlugin
+<span class="nb">cd</span> simplePlugin
+cordova platform add android
+cordova plugin add your_plugin_location
+</code></pre></div><ul>
+<li>创建一个名叫simpleplugin.html的页面，其中有一个按钮，点击后执行doMOL函数，调用了mol.calculateMOL()并用alert对话框显示结果。代码如下</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&#34;Content-Type&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;text/html;charset=utf-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;viewport&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width;&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;cordova.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span><span class="p">&gt;</span>
+
+        <span class="kd">function</span> <span class="nx">onBodyLoad</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;deviceready&#34;</span><span class="p">,</span> <span class="nx">onDeviceReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="p">};</span>
+
+        <span class="kd">function</span> <span class="nx">onDeviceReady</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+
+        <span class="kd">function</span> <span class="nx">doMol</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">mol</span><span class="p">.</span><span class="nx">calculateMOL</span><span class="p">();</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="err">&#34;</span><span class="nx">Meaning</span> <span class="k">of</span> <span class="nx">Life</span> <span class="o">=</span><span class="err">&#39;</span> <span class="o">+</span> <span class="nx">res</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Meaning of Life Demo<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span> <span class="na">onload</span><span class="o">=</span><span class="s">&#34;onBodyLoad()&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>MoL Demo<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+        This is a Cordova application that uses my custom Meaning of Life plugin.
+    <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;doMOL();&#34;</span><span class="p">&gt;</span>
+        Calculate Meaning of Life
+    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div><p><img src="https://segmentfault.com/img/bVmQtv" alt=""></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/reduce/" data-toggle="tooltip" data-placement="top" title="reduce">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/cordovacha-jian-_native/" data-toggle="tooltip" data-placement="top" title="Cordova插件_native">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/promise-and-rxjs/">Promise  and rxjs</a></li>
+                    
+                    <li><a href="/posts/promise-and-generators-yield/">Promise and generators (yield)</a></li>
+                    
+                    <li><a href="/posts/nvm/">nvm</a></li>
+                    
+                    <li><a href="/posts/untitled-3/">Yarn &#43; Webpack</a></li>
+                    
+                    <li><a href="/posts/uizi-dong-hua-ce-shi-zhi-protractor/">UI自动化测试之Protractor</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Mar 2, 2017</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/nodejs/">nodejs</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

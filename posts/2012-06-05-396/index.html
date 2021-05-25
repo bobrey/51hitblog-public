@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 成交量均线 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="成交量均线" />
+  <meta name="twitter:title" content="成交量均线" />
+  <meta name="description" content="在通常情况下，投资者在看盘时需要以下三个要点，称之为盘面“三看”。 一、看趋势，即密切关注大盘趋势的变化。 根据通道理论，股指一般会沿着某一趋势">
+  <meta property="og:description" content="在通常情况下，投资者在看盘时需要以下三个要点，称之为盘面“三看”。 一、看趋势，即密切关注大盘趋势的变化。 根据通道理论，股指一般会沿着某一趋势">
+  <meta name="twitter:description" content="在通常情况下，投资者在看盘时需要以下三个要点，称之为盘面“三看”。 一、看趋势，即密切关注大盘趋势的变化。 根据通道理论，股指一般会沿着某一趋势">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-06-05-396/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-06-05-396/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">成交量均线</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Jun 5, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/%E6%88%90%E4%BA%A4%E9%87%8F%E5%9D%87%E7%BA%BF/">成交量均线</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>在通常情况下，投资者在看盘时需要以下三个要点，称之为盘面“三看”。</p>
+<p>一、看趋势，即密切关注大盘趋势的变化。</p>
+<p>根据通道理论，股指一般会沿着某一趋势运行，直到政策面、宏观经济面发生重大变化，这一趋势才会逐渐改变。</p>
+<p>特别要指出的是，趋势的改变不可能在一夜之间完成，这就是所谓的“惯性”作用。</p>
+<p>二、看成交量。</p>
+<p>股谚语“量在价先”，“天量天价，地量地价”，说的就是“成交量比成交价更重要”这个道理，因为成交量可以决定</p>
+<p>成交价及其其后的股价走势。一般来说，在股指上升的过程中，成交量应该有所放大，因为只有这样才能维持其</p>
+<p>原有的走势。 如果把股指的上涨看成是列车行进速度的话，成交量就是列车的动力，股指的上涨就好像是列车 走上坡路，没有动力是万万不能的。而下跌就好像列车在走下坡路，不需要太大的动力或根本不需要动力，因为惯性起到了巨大的作用。</p>
+<p>三、看均线，即密切关注均线的走向。</p>
+<p>一般来说，股指在长时间上涨后，如果5日均线下穿10日均线就应该引起警惕。若10日均线下穿30日均线，就应该考虑了卖出股票。而当30日均线掉头下行时，则应果断离场，不管你此时是亏损还是盈利。这里提醒投资者需要的是，如果你在第一次均线死叉时没能出逃，股价很可能还有一次反抽的机会，这时大盘K线形态会形成一个双头或双顶，此时则是投资者最后的机会。 反之，若股指在长时间下跌后，如出现5日均线上穿10日均线，则应视作为一个较佳的短线买点；而若10日均线上穿30日均线，则可视之为中长线买点。</p>
+<p>上面所讲的“三看”是相辅相成的，“二看”和“一看”都是绝对不行的。更为重要的是，除了盘面“三看”之外，尤其应关注宏观经济面和政策面的变化，万万不可逆政策面而动，拿鸡蛋砸石头。</p>
+<p>——————————————————————————————————————————————</p>
+<p>看盘时要看是高开还是低开，它表示市场的意愿，是当天股价上涨还是下跌的一种表现。</p>
+<p>其次，在开市半小时内可以看股价变动的方向；一般说来，如果股价开得太高，半小时内就有可能回落，如果股价开得太低，半小时就有可能会回升。</p>
+<p>第三要看成交量的大小，如果高开又不回落，而且成交量有所放大，这只股票很有可能要上涨。</p>
+<p>第四要看股价，不仅要看现价，还要看昨天收盘价和今天开盘价、今天最高价和最低价、涨跌幅度等这样才能看得出现在的股价处在什么位置，看它是在上升还是在下降之中，是否有买入的价值。</p>
+<p>一般说来，下跌中的股票不要急于买，要等它止跌后再买。上升中的股票可以买，但要小心，不要被它套住。通过买卖手数的对比，一般看看出是买方的力量大还是卖方的力量大；如果卖方的力量大于买方，最好不要买。</p>
+<p>看盘时还要看现手数与现手累计数。现手数表明刚刚自动成交的那次成交量的大小，如果连续出现大量成交，则说明有很多人在买卖该股，值得注意。而如果半天也没有人买，则不大可能成为好股票。显手累计数就是总手数，总手数也叫做成交量，有时它是比股价更重要的指标。总手数与流通股数的比称为换手率，它说明持股人中有多少人是当天买入的，换手率高表明买卖该股的人多，股价容易上涨。如果不是刚上市的新股，却出现特大换手率（超过百分之五十），其股价则常常会在第二天就下跌，最还不要买入。</p>
+<p>个股涨幅过高后出货时股市操作的一种策略，因为利好正式公布之前往往有人提前获知，主力会拉股价，到利好公布时趁中小散户入场吸纳之际而抛售获利，股价失去了主力资金的支持，于是走软。</p>
+<p>一般说来，短线客都在利好兑现获利了结以回避股价下跌的风险或借股价调整之际抽回资金介入其他个股中，以赢得时间差。</p>
+<p>从中线看,如果利好属于“一次性交易”,如出售资产等,则股价以见顶为主,此时以出局为妙。如果利好持续有效,如资产重组、项目投入等,股价往往会先调后上,不妨继续持有</p>
+<p>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>***</p>
+<p>如果股价一直在均线的上方，而成交量一天比一天大，就是在涨势中，可以继续持有。 如果股价在均线的下面，成交量变小，该股就是在调整中。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-06-05-%E7%99%BE%E5%BA%A6%E7%9F%A5%E9%81%93%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%9C%A8%E6%83%B3%E4%BB%80%E4%B9%88/" data-toggle="tooltip" data-placement="top" title="百度知道中国人在想什么？">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-06-05-%E4%BA%A4%E6%98%93%E5%8E%9F%E5%88%99/" data-toggle="tooltip" data-placement="top" title="交易原则">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Jun 5, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/%E6%88%90%E4%BA%A4%E9%87%8F%E5%9D%87%E7%BA%BF/">成交量均线</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

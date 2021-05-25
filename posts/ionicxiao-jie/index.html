@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Ionic小结 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Ionic小结" />
+  <meta name="twitter:title" content="Ionic小结" />
+  <meta name="description" content="Ionic Changing the Platform http://localhost:8100/?ionicplatform=android http://localhost:8100/?ionicplatform=ios Using IOS Simulator ionic emulate ios -lc Remote Debugging - Android and Chrome adb device and chrome://inspect/#devices Remote Debugging - VS Code Plugin Plugin Add Third Party Libs npm install lodash --save Using Libraries import { myFunction } from &#39;theLibraryName&#39;; myFunction(); import myLibrary from &#39;theLibraryName&#39;; myLibrary.myFunction(); import lodash from &#39;lodash&#39;; lodash.capitalize(&lsquo;myStringToCapitalize&rsquo;); import { Component } from &#39;@angular/core&#39;; import { NavController } from &lsquo;ionic-angular&rsquo;; Type">
+  <meta property="og:description" content="Ionic Changing the Platform http://localhost:8100/?ionicplatform=android http://localhost:8100/?ionicplatform=ios Using IOS Simulator ionic emulate ios -lc Remote Debugging - Android and Chrome adb device and chrome://inspect/#devices Remote Debugging - VS Code Plugin Plugin Add Third Party Libs npm install lodash --save Using Libraries import { myFunction } from &#39;theLibraryName&#39;; myFunction(); import myLibrary from &#39;theLibraryName&#39;; myLibrary.myFunction(); import lodash from &#39;lodash&#39;; lodash.capitalize(&lsquo;myStringToCapitalize&rsquo;); import { Component } from &#39;@angular/core&#39;; import { NavController } from &lsquo;ionic-angular&rsquo;; Type">
+  <meta name="twitter:description" content="Ionic Changing the Platform http://localhost:8100/?ionicplatform=android http://localhost:8100/?ionicplatform=ios Using IOS Simulator ionic emulate ios -lc Remote Debugging - Android and Chrome adb …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/ionicxiao-jie/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/ionicxiao-jie/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Ionic小结</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Mar 1, 2017</h4>
+    </section>
+    <h5 id="wc">200 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <h1 id="ionic">Ionic</h1>
+<h2 id="changing-the-platform">Changing the Platform</h2>
+<ul>
+<li>http://localhost:8100/?ionicplatform=android</li>
+<li>http://localhost:8100/?ionicplatform=ios</li>
+</ul>
+<h2 id="using-ios-simulator">Using IOS Simulator</h2>
+<p><code>ionic emulate ios -lc</code></p>
+<h2 id="remote-debugging---android-and-chrome">Remote Debugging - Android and Chrome</h2>
+<p><code>adb device</code> and <code>chrome://inspect/#devices</code></p>
+<h2 id="remote-debugging---vs-code-plugin">Remote Debugging - VS Code Plugin</h2>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=vsmobile.cordova-tools">Plugin</a></p>
+<h2 id="add-third-party-libs">Add Third Party Libs</h2>
+<ul>
+<li><code>npm install lodash --save</code></li>
+<li>Using Libraries
+<ul>
+<li><code>import { myFunction } from 'theLibraryName';</code>  <strong>myFunction();</strong></li>
+<li><code>import myLibrary from 'theLibraryName';</code>  <strong>myLibrary.myFunction();</strong></li>
+<li><code>import lodash from 'lodash';</code>   <strong>lodash.capitalize(&lsquo;myStringToCapitalize&rsquo;);</strong></li>
+<li><code>import { Component } from '@angular/core';</code>   <strong>import { NavController } from &lsquo;ionic-angular&rsquo;;</strong></li>
+</ul>
+</li>
+<li>Type Definitions</li>
+</ul>
+<pre><code>npm install @types/lodash --save
+</code></pre><ul>
+<li>Console</li>
+</ul>
+<pre><code>import lodash from 'lodash'
+console.dir(lodash);
+</code></pre><ul>
+<li>
+<p><a href="https://github.com/driftyco/ionic-native">Ionic Native</a></p>
+</li>
+<li>
+<p><a href="http://ionicframework.com/docs/v2/resources/app-scripts/">@ionic/app-scripts Build Configuration</a></p>
+</li>
+<li>
+<p><a href="http://ionicframework.com/docs/v2/resources/ng2-translate/">i18n NG2-Translate</a></p>
+</li>
+<li>
+<p><a href="http://ionicframework.com/docs/v2/resources/service-worker/">Service Worker</a></p>
+</li>
+<li>
+<p><a href="http://blog.ionic.io/ionic-native-accessing-ios-photos-and-android-gallery-part-i/?_ga=1.243179842.1186956864.1487910768">Native Sample_Photos</a></p>
+</li>
+<li>
+<p><a href="https://blog.ionic.io/ionic-native-accessing-ios-photos-and-android-gallery-part-2/?_ga=1.179167588.1186956864.1487910768">Native Sample_Camera</a></p>
+</li>
+<li>
+<p><a href="http://blog.ionic.io/ionic-native-enabling-login-with-touch-id-for-ios/?_ga=1.212698580.1186956864.1487910768">Native Sample_TouchId</a></p>
+</li>
+</ul>
+<hr>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ionic g component FlashCard
+
+ionic g provider Data
+
+ionic g page AddItem
+
+ionic plugin add de.appplant.cordova.plugin.local-notification
+ionic plugin add phonegap-plugin-push --variable <span class="nv">SENDER_ID</span><span class="o">=</span><span class="m">12341234</span> --save
+
+
+ionic emulate android --livereload  
+ionic run android --livereload  
+
+chrome://inspect/#devices  
+tsconfig.json add    <span class="s2">&#34;sourceMap&#34;</span>: <span class="nb">true</span>
+package.json add     <span class="s2">&#34;config&#34;</span>: <span class="o">{</span> <span class="s2">&#34;ionic_source_map&#34;</span>: <span class="s2">&#34;source-map&#34;</span><span class="o">}</span>, 
+
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/nvm/" data-toggle="tooltip" data-placement="top" title="nvm">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/promise-and-generators-yield/" data-toggle="tooltip" data-placement="top" title="Promise and generators (yield)">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Mar 1, 2017</h4>
+    </section>
+    <h5 id="wc">200 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

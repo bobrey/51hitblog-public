@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Sikulix搞定小米安全提示 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Sikulix搞定小米安全提示" />
+  <meta name="twitter:title" content="Sikulix搞定小米安全提示" />
+  <meta name="description" content="public IntSetUpApp(String dev_Name) { // TODO Auto-generated constructor stub devName = dev_Name; flag = true; } //标签，用来表示我的循环内的代码是否一致执行 public static void setflag(boolean stflag) { flag = stflag; } //需要点击的地方，请自己调整 public static void settapflag(boolean stflag, int">
+  <meta property="og:description" content="public IntSetUpApp(String dev_Name) { // TODO Auto-generated constructor stub devName = dev_Name; flag = true; } //标签，用来表示我的循环内的代码是否一致执行 public static void setflag(boolean stflag) { flag = stflag; } //需要点击的地方，请自己调整 public static void settapflag(boolean stflag, int">
+  <meta name="twitter:description" content="public IntSetUpApp(String dev_Name) { // TODO Auto-generated constructor stub devName = dev_Name; flag = true; } //标签，用来表示我的循环内的代码是否一致执行 public static void setflag(boolean stflag) { flag = stflag; } …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2015-07-19-sikulix%E6%90%9E%E5%AE%9A%E5%B0%8F%E7%B1%B3%E5%AE%89%E5%85%A8%E6%8F%90%E7%A4%BA/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2015-07-19-sikulix%E6%90%9E%E5%AE%9A%E5%B0%8F%E7%B1%B3%E5%AE%89%E5%85%A8%E6%8F%90%E7%A4%BA/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">Sikulix搞定小米安全提示</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sun Jul 19, 2015</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/sikuli/">sikuli</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/sikulix/">sikulix</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>public IntSetUpApp(String dev_Name) {
+    // TODO Auto-generated constructor stub
+    devName = dev_Name;
+    flag = true;
+}
+
+//标签，用来表示我的循环内的代码是否一致执行
+public static void setflag(boolean stflag) {
+    flag = stflag;
+}
+
+//需要点击的地方，请自己调整
+public static void settapflag(boolean stflag, int x, int y) {
+    tapflag = stflag;
+    tapx = x;
+    tapy = y;
+}
+
+public void run() {
+    try {
+        System.out.println(Thread.currentThread().getName() + &quot;开始点击小米安全提示&quot;);
+
+        Runtime.getRuntime().exec(
+                &quot;adb -s &quot; + devName + &quot; shell input keyevent 26&quot;);
+        while (flag) {
+                            //这个时间根据自己的要求调整
+            Thread.sleep(15000);
+            if (tapflag) {
+                                    //循环次数也根据自己的要求调整
+                for (int i = 0; i &amp;lt; 2; i++) {
+                    Runtime.getRuntime().exec(
+                            &quot;adb -s &quot; + devName + &quot; shell input tap &quot;
+                                    + tapx + &quot; &quot; + tapy);
+                    // Runtime.getRuntime().exec(
+                    // &quot;adb -s &quot; + devName + &quot; shell input keyevent 26&quot;);
+                    Thread.sleep(1500);
+                    tapflag = false;
+                }
+            }
+        }
+
+    } catch (Exception e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+}
+</code></pre>
+<p>}<!-- raw HTML omitted --></p>
+<pre><code>&lt;p style=&quot;color: #000000&quot;&gt;
+  怎么调用这个方法呢？也是一个参考，如下：
+&lt;/p&gt;
+
+&lt;pre class=&quot;lang:java decode:true crayon-selected&quot;&gt; // 创建一个可重用固定线程数的线程池
+    ExecutorService pool = Executors.newSingleThreadExecutor();
+
+    // 创建实现了Runnable接口对象，Thread对象当然也实现了Runnable接口
+    IntSetUpApp mp = new IntSetUpApp(deviceName);
+
+    // 将线程放入池中运行
+    pool.execute(mp);
+
+    // 提前进行执行
+    // 红米NOTE，这里的设备名，自己获取，需要点击的地方也需要自己获取，我没有
+    if (deviceName.equals(&quot;79S4DAOZSSSK5SZT&quot;)) {
+        IntSetUpApp.settapflag(true, 525, 1165); 
+    }
+
+    //初始化你要执行的app
+           AppiumDriver appdriver = new AppiumDriver(new URL(urls), capabilities);
+
+    //这里的等待时间，最好跟你进程里面的时间对应起来，不然会有执行上的异常
+            TimeUnit.SECONDS.sleep(5);
+            //让进程内的循环释放，不在被占用
+    IntSetUpApp.setflag(false);
+    TimeUnit.SECONDS.sleep(10);
+    System.out.println(&quot;关闭小米安全提示进程&quot;);
+    // 关闭线程池
+    pool.shutdownNow();&lt;/pre&gt;
+
+&lt;p style=&quot;color: #000000&quot;&gt;
+  这里写的比较简陋，java这里处理方式，也请其他同学提供更加灵活的方式解决。
+&lt;/p&gt;
+
+&lt;p style=&quot;color: #000000&quot;&gt;
+  &lt;p style=&quot;color: #000000&quot;&gt;
+    &lt;p&gt;
+      估计实用性不大，塞sikuli的话，像评分这种窗口应该处理不了，因为不知道什么时候出现，即无法预计窗口出现的时间。
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      弄了&lt;br /&gt; 1.&lt;br /&gt; Eclipse/Intellij IDEA + Maven + Java + TestNG + ReportNG + YAML;&lt;br /&gt; 2.&lt;br /&gt; 加入了失败时自动截图，在ReportNG里面加入了失败截图链接的Log (主要在Jenkins上使用);&lt;br /&gt; 3.&lt;br /&gt; 根据网上某大神的指引，把Element独立成Yaml独立管理(依赖开发的配合)，把测试一些数据如测试帐户信息，测试失败时的错误提示独立成Yaml管理，减少Appium Java测试脚本的Hard Code。&lt;br /&gt; 4.&lt;br /&gt; 加入sikuli script和sikuli slides的api。&lt;br /&gt; 这东西挺好玩的，主要是sikuli slides可以使用google presentation，不用在本地储存PPTX文件，直接获取在线的，还可以跑指定某个slide。不过sikuli slides不支持Mac 10.9，我邮件问过开发者，10个月前就在解决这个问题，到现在还没解决，所以又加入了sikuli script的api。
+    &lt;/p&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2015-07-18-ps%E7%A3%A8%E7%9A%AE/" data-toggle="tooltip" data-placement="top" title="ps磨皮">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2015-07-22-ios-push-notification/" data-toggle="tooltip" data-placement="top" title="iOS push Notification">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sun Jul 19, 2015</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/sikuli/">sikuli</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/sikulix/">sikulix</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

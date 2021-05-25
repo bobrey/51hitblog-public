@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>harbor on IT技术分享</title>
+    <link>https://www.51hint.com/tags/harbor/</link>
+    <description>Recent content in harbor on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Aug 2019 20:35:22 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/harbor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Harbor</title>
+      <link>https://www.51hint.com/posts/harbor/</link>
+      <pubDate>Sat, 10 Aug 2019 20:35:22 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/harbor/</guid>
+      <description>安装 wget https://storage.googleapis.com/harbor-releases/release-1.8.0/harbor-offline-installer-v1.8.1.tgz tar zxvf cd harbor vim harbor hostname: 192.168.50.156 port: 5000 harbor_admin_password= 123456 data_volume: /usr/src/harbor/data location: /var/log/harbor vim docker-compose.yml ports: #需要改这里 - 5000:80 - 443:443 - 4443:4443 ./install docker-compose start/stop 使用 创建wyx用户 创建test项目 为test项目添加wyx往上，</description>
+    </item>
+    
+  </channel>
+</rss>

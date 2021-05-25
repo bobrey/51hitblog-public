@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Muilti-touch 双指缩放的实现探索 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Muilti-touch 双指缩放的实现探索" />
+  <meta name="twitter:title" content="Muilti-touch 双指缩放的实现探索" />
+  <meta name="description" content="本文转自：http://blog.csdn.net/barryhappy/article/details/7392326Multi-Touc">
+  <meta property="og:description" content="本文转自：http://blog.csdn.net/barryhappy/article/details/7392326Multi-Touc">
+  <meta name="twitter:description" content="本文转自：http://blog.csdn.net/barryhappy/article/details/7392326Multi-Touc">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-05-29-muilti-touch-%E5%8F%8C%E6%8C%87%E7%BC%A9%E6%94%BE%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A2%E7%B4%A2/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-05-29-muilti-touch-%E5%8F%8C%E6%8C%87%E7%BC%A9%E6%94%BE%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A2%E7%B4%A2/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">Muilti-touch 双指缩放的实现探索</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue May 29, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>本文转自：<!-- raw HTML omitted --><a href="http://blog.csdn.net/barryhappy/article/details/7392326">http://blog.csdn.net/barryhappy/article/details/7392326</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Multi-Touch（多点触控）可谓是现代智能手机最令人赞叹的功能之一，想当年乔爷第一次在iphone的发布会上演示多点触控功能的时候，台下的掌声和口哨声那叫热烈啊~~~~<!-- raw HTML omitted --></p>
+<p> </p>
+<p>本文主要讨论文字缩放，以TextView为例。</p>
+<p>先放上效果图吧：</p>
+<p><!-- raw HTML omitted -->  <!-- raw HTML omitted --></p>
+<p>两指缩放的基本原理：判断当前在TextView上的点有几个，当有两个（或更多时）点，并且点之间的距离在不断增大时，放大文字；反之缩小文字。设置文字的方法是调用textView的setTextSize(float)方法。</p>
+<p>要实现触摸事件，需要给textView加上setOnTouchListener(lisntener)方法。主类的代码可为：</p>
+<p>MainActivity.java</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>ZoomListener即是下面将要写的监听触摸事件的类。</p>
+<p> </p>
+<p>首先要实现OnTouchListener接口，然后重写方法</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>从这个方法中我们就可以获取实现两指缩放功能的全部信息。</p>
+<p> </p>
+<p>View v是触发事件的源，MotionEvent event即一个触摸事件。我们对屏幕的几乎所有操作都会触发事件，如点击、放开、滑动等。</p>
+<p>不同的事件在MotionEvent中有不同的id，我们可以根据event.getAction() &amp; MotionEvent.ACTION_MASK的结果来判断是何种事件。</p>
+<p> </p>
+<p>有如下事件使我们要用到的：</p>
+<p> </p>
+<ul>
+<li>MotionEvent.ACTION_DOWN：在第一个点被按下时触发</li>
+<li>MotionEvent.ACTION_UP:当屏幕上唯一的点被放开时触发</li>
+<li>MotionEvent.ACTION_POINTER_DOWN:当屏幕上已经有一个点被按住，此时再按下其他点时触发。</li>
+<li>MotionEvent.ACTION_POINTER_UP:当屏幕上有多个点被按住，松开其中一个点时触发（即非最后一个点被放开时）。</li>
+<li>MotionEvent.ACTION_MOVE：当有点在屏幕上移动时触发。值得注意的是，由于它的灵敏度很高，而我们的手指又不可能完全静止（即使我们感觉不到移动，但其实我们的手指也在不停地抖动），所以实际的情况是，基本上只要有点在屏幕上，此事件就会一直不停地被触发。</li>
+</ul>
+<p> </p>
+<p>举例子来说：当我们放一个食指到屏幕上时，触发ACTION_DOWN事件；再放一个中指到屏幕上，触发ACTION_POINTER_DOWN事件；此时再把食指或中指放开，都会触发ACTION_POINTER_UP事件；再放开最后一个手指，触发ACTION_UP事件；而同时在整个过程中，ACTION_MOVE事件会一直不停地被触发。</p>
+<p> </p>
+<p>event.getX(index)和event.getY(index)可以获取到指定index点的坐标，所以当屏幕上有两个点的时候，我们用如下方法来获取两点间的距离：</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p> </p>
+<p>由以上事件触发的原理，就可以根据被触发的不同事件来判断当前屏幕上的点的个数：</p>
+<p> </p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>然后在MotionEvent.ACTION_MOVE事件中，判断点的个数，如果大于等于2，就计算两点间的距离，如果距离增大就把字体放大，距离减少就把字体缩小。</p>
+<p> </p>
+<p>于是代码就成了：</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>经过检验，这种方法是能够实现缩放效果的。</p>
+<p> </p>
+<p>但是有了另外一个问题：就是由于ACTION_MOVE会因颤抖一直被触发，而每次触发的时候两点间的距离也总会有细小的变化，所以运行之后只要有两点在屏幕上，就总会在放大或缩小字体。</p>
+<p>经过一番思考，我想出了一个控制其灵敏度的方法，即在case MotionEvent.ACTION_MOVE时判断只有当距离变化大于一定程度时才会更改字体大小：</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>另外缩放的方法也改成了按比例缩放，完整的ZoomListenter代码：</p>
+<p> </p>
+<p>ZoomListenter.java:</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>这样，基本算是能达到预期的效果了。</p>
+<p> </p>
+<p>demo下载地址：<a href="http://download.csdn.net/detail/barryhappy/4171211">http://download.csdn.net/detail/barryhappy/4171211</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-05-29-%E7%BC%96%E5%86%99-android-%E8%A7%A6%E6%91%B8%E5%B1%8F%E6%89%8B%E5%8A%BF%E8%AF%86%E5%88%AB%E7%A8%8B%E5%BA%8F/" data-toggle="tooltip" data-placement="top" title="编写 Android 触摸屏手势识别程序">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-05-29-%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8D%8F%E8%AE%AE%E8%B0%83%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A8%8B%E5%BA%8F-url-scheme/" data-toggle="tooltip" data-placement="top" title="用自定义协议调用自己的程序  url scheme">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue May 29, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

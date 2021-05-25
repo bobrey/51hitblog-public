@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> A-GPS定位Android简单实现 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="A-GPS定位Android简单实现" />
+  <meta name="twitter:title" content="A-GPS定位Android简单实现" />
+  <meta name="description" content="先介绍一下A-GPS的基本知识 部分参考百度百科 A-GPS A-GPS技术是一种结合了网络基站信息和GPS信息对移动台进行定位的技术，可以在GSM/GP">
+  <meta property="og:description" content="先介绍一下A-GPS的基本知识 部分参考百度百科 A-GPS A-GPS技术是一种结合了网络基站信息和GPS信息对移动台进行定位的技术，可以在GSM/GP">
+  <meta name="twitter:description" content="先介绍一下A-GPS的基本知识 部分参考百度百科 A-GPS A-GPS技术是一种结合了网络基站信息和GPS信息对移动台进行定位的技术，可以在GSM/GP">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2014-01-14-a-gps%E5%AE%9A%E4%BD%8Dandroid%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2014-01-14-a-gps%E5%AE%9A%E4%BD%8Dandroid%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">A-GPS定位Android简单实现</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Jan 14, 2014</h4>
+    </section>
+    <h5 id="wc">2100 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>先介绍一下A-GPS的基本知识</p>
+<p>部分参考百度百科</p>
+<p>A-GPS</p>
+<p>A-GPS技术是一种结合了网络基站信息和GPS信息对移动台进行定位的技术，可以在GSM/GPRS、WCDMA、CDMA2000和TD-SCDMA网络中使用。该技术需要在手机内增加GPS接收机模块，并改造手机天线，同时要在移动网络上加建位置服务器、差分GPS基准站等设备。如果要提高该方案在室内等GPS信号屏蔽地区的定位有效性，该方案还提出需要增添类似于EOTD方案中的位测量单元（LMU）。</p>
+<p>A-GPS解决方案的优势:</p>
+<p>主要在其定位精度上。在室外等空旷地区，其精度在正常的GPS工作环境下，可达10米左右，堪称目前定位精度最高的一种定位技术。该技术的另一优点为：首次捕获GPS信号的时间一般仅需几秒，不像GPS的首次捕获时间可能要2～3分钟。</p>
+<p>应用</p>
+<p>A-GPS定位技术的主要功能是能够为终端用户提供高精度的位置信息。移动运营商采用基于A-GPS定位技术的位置服务后，终端用户可以方便快捷地获知自己或他人当前所处的位置，特别适用于车辆跟踪与导航系统以及具有特殊任务的车辆（运钞车、救护车、消防车等），能够大幅度提高车辆安全、运输效率和服务质量。　目前，国内移动通信市场日益发展，特别是随着3G商用的临近，中国移动和中国联通都制订和推出了各自的A-GPS方案。中国移动正在制订的A-GPS方案基于OMA的SUPL规范，是一种用户平面的解决方案；中国联通提供的gpsOne是MS-Assisted方式的A-GPS定位方案，也基于用户平面方式，目前只用于CDMA网络。</p>
+<p>原理</p>
+<p>A-GPS基本思想是通过在卫星信号接收效果较好的位置上设置若干参考GPS接收机，并利用AGPS服务器通过与终端的交互获得终端的粗位置，然后通过移动网络将该终端需要的星历和时钟等辅助数据发送给终端，由终端进行GPS定位测量。测量结束后，终端可自行计算位置结果或者将测量结果发回到AGPS服务器，服务器进行计算并将结果发回给终端。同时后台SP可获取位置信息为其它服务应用。</p>
+<p>A-GPS与传统导航的区别</p>
+<p>AGPS（Assisted GPS：辅助全球卫星定位系统）是结合 GSM / GPRS 与传统卫星定位，利用基地台代送辅助卫星信息，藉以缩减 GPS 芯片获取卫星信号的延迟时间，受遮盖的室内也能藉基地台讯号弥补，减轻 GPS 芯片对卫星的依赖度。 和纯 GPS、基地台三角定位比较，AGPS 能提供范围更广、更省电、速度更快的定位服务，理想误差范围在 10 公尺以内。</p>
+<p>AGPS手机首先工作步骤：</p>
+<p>1.将本身的基站地址通过网络传输到位置服务器；</p>
+<p>2.位置服务器根据该手机的大概位置传输与该位置相关的GPS辅助信息（包含GPS的星历和方位俯仰角等）到手机；</p>
+<p>3.该手机的AGPS模块根据辅助信息（以提升GPS信号的第一锁定时间TTFF能力）接收GPS原始信号；</p>
+<p>4.手机在接收到GPS原始信号后解调信号，计算手机到卫星的伪距（伪距为受各种GPS误差影响的距离），并将有关信息通过网络传输到位置服务器；</p>
+<p>5.位置服务器根据传来的GPS伪距信息和来自其他定位设备（如差分GPS基准站等）的辅助信息完成对GPS信息的处理，并估算该手机的位置</p>
+<p>6.位置服务器将该手机的位置通过网络传输到定位网关或应用平台。</p>
+<p>A-GPS与GPS区别</p>
+<p>GPS：全球卫星定位。</p>
+<p>AGPS：和GPS使用起来没有什么区别，因为AGPS是使用在GPS基础上的一项功能，打开GPS后可以通过设置开启或者关闭AGPS功能。A-GPS是要收上网费的。如果你有包月流量，倒也无所谓。如果只用集成方法，没有任何费用。只是定位搜星慢一些。 A-GPS就是利用移动基站提供的位置信息，帮助机身内置的GPS芯片的设备快速定位。</p>
+<p>AGPS技术与独立GPS技术相比，明显有几大优势:</p>
+<p>缩短定位时间：由于利用移动网络提供GPS辅助信息，不需要移动终端通过接收GPS卫星广播数据。由于卫星广播信道速率非常低，信号强度非常弱，这个时间通常会非常长。</p>
+<p>降低终端耗电量：由于不需要对卫星进行全频段扫描和跟踪，定位时间缩短，因此终端的耗电量大大降低。</p>
+<p>提升定位灵敏度：在靠近建筑物或者天气不好等相对恶劣环境下，由于有网络辅助数据，终端可直接锁定卫星定位，而此时GPS卫星信号非常微弱，独立GPS定位模式则往往终端会因为不能接收完所有的卫星星历和时钟等参数而导致定位失败。</p>
+<p>AGPS定位系统可获得用户的位置结果为后台应用服务：AGPS定位服务器可将定位结果提供给后台的SP/SI，SP/SI可在此基础上开发多种多样的与用户位置相关的业务和应用。</p>
+<p>借助移动网络定位，可在GPS定位失败时提供Cell ID定位结果：如被定位终端在室内或地下等环境时，无法实现GPS定位，则AGPS服务器会自动通过Cell ID方式获得被定位用户的粗精度位置提供给后台SP/SI，实现了定位服务的无缝连接。</p>
+<p>最后贴上主要程序代码。仅供参考：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p> </p>
+<p>AndroidManifest.xml需要添加相应的权限：</p>
+<!-- raw HTML omitted -->
+<p> </p>
+<p> </p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2014-01-09-android-%E5%88%A9%E7%94%A8surfaceview%E7%BB%98%E5%88%B6%E8%82%A1%E7%A5%A8%E6%BB%91%E5%8A%A8%E7%9B%B4%E7%BA%BF%E8%A7%A3%E5%86%B3%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/" data-toggle="tooltip" data-placement="top" title="Android: 利用SurfaceView绘制股票滑动直线解决延迟问题">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2014-01-14-android-gps-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A82/" data-toggle="tooltip" data-placement="top" title="android gps 简单入门2">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Jan 14, 2014</h4>
+    </section>
+    <h5 id="wc">2100 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>qq on IT技术分享</title>
+    <link>https://www.51hint.com/tags/qq/</link>
+    <description>Recent content in qq on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Jun 2012 09:25:17 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/qq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用DirectUI技术实现QQ界面</title>
+      <link>https://www.51hint.com/posts/2012-06-30-%E4%BD%BF%E7%94%A8directui%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0qq%E7%95%8C%E9%9D%A2/</link>
+      <pubDate>Sat, 30 Jun 2012 09:25:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-30-%E4%BD%BF%E7%94%A8directui%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0qq%E7%95%8C%E9%9D%A2/</guid>
+      <description>DirectUI技术说白了就是XML配置文件+图片+JavaScript控制界面。这点与网页css+图片+JavaScript十分相似，就是</description>
+    </item>
+    
+  </channel>
+</rss>

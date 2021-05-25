@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mapview on IT技术分享</title>
+    <link>https://www.51hint.com/tags/mapview/</link>
+    <description>Recent content in mapview on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Jan 2014 06:47:41 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/mapview/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android定位和地图开发实例</title>
+      <link>https://www.51hint.com/posts/2014-01-14-android%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%9C%B0%E5%9B%BE%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Tue, 14 Jan 2014 06:47:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-android%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%9C%B0%E5%9B%BE%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/</guid>
+      <description>在android开发中地图和定位是很多软件不可或缺的内容，这些特色功能也给人们带来了很多方便。 首先介绍一下地图包中的主要类： MapController ： 主要控制地图</description>
+    </item>
+    
+  </channel>
+</rss>

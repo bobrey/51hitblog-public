@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>debugger on IT技术分享</title>
+    <link>https://www.51hint.com/tags/debugger/</link>
+    <description>Recent content in debugger on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Oct 2014 01:18:18 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/debugger/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>chrome调试js</title>
+      <link>https://www.51hint.com/posts/2014-10-31-chrome%E8%B0%83%E8%AF%95js/</link>
+      <pubDate>Fri, 31 Oct 2014 01:18:18 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-10-31-chrome%E8%B0%83%E8%AF%95js/</guid>
+      <description>chrome下，引入的javascript每次都变更，VMｘｘｘ很难调试； 若在js中插入【debugger;】则很容易调试了；</description>
+    </item>
+    
+  </channel>
+</rss>

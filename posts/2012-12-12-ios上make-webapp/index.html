@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> ios上make webapp - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="ios上make webapp" />
+  <meta name="twitter:title" content="ios上make webapp" />
+  <meta name="description" content="用jQM、HTML5和iOS SDK构建MusicBrainz应用程序 人们对能够提供杂志排版功能的工具的需求同样很大。一些大受欢迎的工具包括F">
+  <meta property="og:description" content="用jQM、HTML5和iOS SDK构建MusicBrainz应用程序 人们对能够提供杂志排版功能的工具的需求同样很大。一些大受欢迎的工具包括F">
+  <meta name="twitter:description" content="用jQM、HTML5和iOS SDK构建MusicBrainz应用程序 人们对能够提供杂志排版功能的工具的需求同样很大。一些大受欢迎的工具包括F">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-12-12-ios%E4%B8%8Amake-webapp/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-12-12-ios%E4%B8%8Amake-webapp/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">ios上make webapp</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Dec 12, 2012</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/ios/">ios</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/jquery/">jquery</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/jquerymobile/">jquerymobile</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/webapp/">webapp</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#sdks-emulators-and-simulators">SDKs, Emulators and Simulators</a></li>
+        <li><a href="#device-labs">Device labs</a></li>
+        <li><a href="#mobile-javascript-libraries">Mobile JavaScript libraries</a></li>
+        <li><a href="#hybrid-web--native">Hybrid (web + native)</a></li>
+        <li><a href="#user-agent-switchers">User agent switchers</a></li>
+        <li><a href="#mobile-detection">Mobile detection</a></li>
+        <li><a href="#reporting-bugs">Reporting bugs</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#miscellaneous">Miscellaneous</a></li>
+        <li><a href="#the-list">The List</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>用jQM、HTML5和iOS SDK构建MusicBrainz应用程序</p>
+<p>人们对能够提供杂志排版功能的工具的需求同样很大。一些大受欢迎的工具包括FlipBoard(通过RSS/Twitter导入)、<!-- raw HTML omitted -->OnSwipe<!-- raw HTML omitted -->和<!-- raw HTML omitted -->PugPig<!-- raw HTML omitted -->。PugPig是一款开源HTML5排版平台，让我们可以为iPad、iPhone和安卓平台制作漂亮的报纸、杂志和图书。本教程将使用面向Xcode 4.2的PugPig框架插件，制作HTML5杂志</p>
+<p><a href="http://mobile.51cto.com/web-310906.htm">http://mobile.51cto.com/web-310906.htm</a></p>
+<p> </p>
+<p> </p>
+<p> </p>
+<h3 id="sdks-emulators-and-simulators">SDKs, Emulators and Simulators</h3>
+<p>Short of having access to a real phone, the next best thing is to have an emulator/simulator. And good news: all the major smartphones have SDKs available for you!</p>
+<p><a href="http://developer.apple.com/">iPhone SDK</a> (Mac OS X only) – the quintessential SDK for the quintessential smartphone. Includes iPhone simulator.</p>
+<p><a href="http://developer.android.com/sdk">Android SDK</a> (Mac OS X, Windows, and Linux)</p>
+<p><a href="http://developer.palm.com/">Palm webOS SDK</a> (Mac OS X, Windows, and Linux) – emulator for Palm Pre, Pixi, etc. Also check out Ares, the browser-based tool for creating web apps.</p>
+<p><a href="https://developer.mozilla.org/En/Mobile">Firefox Mobile emulator (aka Fennec)</a> – mobile version of Firefox being developed for new Nokias and soon Androids</p>
+<p><a href="http://www.opera.com/developer/tools/">Opera Mobile emulator</a> – this is the fastest emulator of the bunch, in terms of downloading and launching the program. Painless installation.</p>
+<p><a href="http://www.opera.com/mini/demo/">Opera Mini Simulator</a> (Browser-based Java applet) – In-browser simulator. Note that Opera Mini is different than Opera Mobile.</p>
+<p><a href="http://developer.windowsphone.com/windows-phone-7-series/">Windows Phone 7 Series emulator</a></p>
+<p>For a more complete list, see <a href="http://www.mobilexweb.com/emulators">Maximiliano Firtman’s Mobile Emulators &amp; Simulators: The Ultimate Guide</a></p>
+<h3 id="device-labs">Device labs</h3>
+<p>These are services which allow you to test on actual devices in a lab.</p>
+<p><a href="http://www.perfectomobile.com/">Perfecto Mobile</a></p>
+<p><a href="http://mite.keynote.com/">Keynote MITE (Mobile Interactive Testing Environment)</a> (Windows only) – a glorified user agent switcher. Doesn’t have testing of real devices.</p>
+<p><a href="http://www.deviceanywhere.com/">DeviceAnywhere</a> (Java-based software that runs on Windows and Mac OSX) – a service that lets you test on actual mobile devices sitting in labs around the world. It has a tendency to be a bit clunky, but there’s no real alternatives on the market. Only subscribe to this if you intend on supporting more than just smartphones.</p>
+<h3 id="mobile-javascript-libraries">Mobile JavaScript libraries</h3>
+<p>I’ve created <a href="http://davidbcalhoun.com/2010/mobile-javascript-libraries-and-frameworks">a separate entry for the mobile libraries and frameworks now available</a>.</p>
+<h3 id="hybrid-web--native">Hybrid (web + native)</h3>
+<p>The concept is simple: use what you know to create an app with HTML/CSS/JS and turn it into a marketable native app with one of these “wrapper” services.</p>
+<p><a href="http://www.phonegap.com/">PhoneGap</a></p>
+<p><a href="http://www.appcelerator.com/products/titanium-mobile-application-development/">appcelerator’s Titanium Mobile</a></p>
+<p><a href="http://www.quickconnectfamily.org/">QuickConnectFamily</a></p>
+<p><a href="http://rhomobile.com/">Rhomobile</a> (HTML-based)</p>
+<h3 id="user-agent-switchers">User agent switchers</h3>
+<p>Many websites sniff a browser’s user agent to detect if it’s a mobile device. As a developer this presents a challenge, because a lot of development is done on a desktop browser. With a user agent switcher, a developer can masquerade their desktop browser as a mobile browser.</p>
+<p><a href="https://addons.mozilla.org/en-US/firefox/addon/59/">Firefox addon: User Agent Switcher</a></p>
+<p>Safari: Enable the Develop toolbar (click on Safari -&gt; Preferences -&gt; Advanced) and click on Develop -&gt; User Agent. Select a predefined user agent or enter a custom agent by selecting “Other…”</p>
+<p>Chrome: There is no easy way to do this (note that the one user agent switcher extension for Chrome doesn’t work). Currently the only way is to set command line flags:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="mobile-detection">Mobile detection</h3>
+<p>On the server side, mobile detection is mostly done by user agent sniffing (thus the need for the user agent switchers above), but there are <a href="http://wiki.forum.nokia.com/index.php/Detecting_Mobile_Devices_on_Web_Services">a few other methods</a>.</p>
+<p>“Lite” user agent detection: these methods implement a simple server-side function (commonly in PHP) to detect common mobile user agents. There’s a few versions, mostly based on code by <a href="http://andymoore.info/">Andy Moore</a>. There’s one implemented in the <a href="http://plugins.svn.wordpress.org/wordpress-mobile-pack/trunk/plugins/wpmp_switcher/lite_detection.php">WordPress Mobile Pack</a>and <a href="http://wiki.forum.nokia.com/index.php/Detecting_Mobile_Devices_on_Web_Services">a similar one described on the Nokia developer forums</a>.</p>
+<p><a href="http://wurfl.sourceforge.net/">WURFL (Wireless Universal Resource File)</a> – a 10+ year old project that is still being used and gaining momentum. It’s beneficial because it’s open source and it offers a lot of valuable information about devices.</p>
+<p><a href="http://deviceatlas.com/">DeviceAtlas</a> – essentially a commercial version of WURFL</p>
+<h3 id="reporting-bugs">Reporting bugs</h3>
+<p>Everybody’s human. All this new cutting-edge stuff isn’t exactly bug-free. Help squash bugs by reporting them on the project’s website. For best results, show a simplified example of the bug in action (try not to post big hunks of code!).</p>
+<p><a href="https://bugs.webkit.org/">WebKit Bugzilla</a></p>
+<p><a href="http://source.android.com/report-bugs">Android: Report bugs</a></p>
+<h3 id="blogs">Blogs</h3>
+<p>Keep up to date! There’s new stuff happening all the time on the mobile web.</p>
+<p><a href="http://www.quirksmode.org/blog/">QuirksBlog</a> – blog of <a href="http://twitter.com/ppk">Peter-Paul Koch (PPK)</a>, who is known for documenting and researching cross-browser inconsistencies. As of the last several years he’s been focusing on documenting mobile browser bugs.</p>
+<p><a href="http://daringfireball.net/">Daring Fireball</a> – John Gruber’s blog with a cultlike following. Frequently reports on mobile happenings, especially stuff relating to Apple.</p>
+<p><a href="http://webkit.org/blog/">Surfin’ Safari – The WebKit Blog</a></p>
+<p><a href="http://android-developers.blogspot.com/">Android Developers blog</a></p>
+<p><a href="http://blogs.msdn.com/iemobile/">IE for Windows Phone Team Weblog</a></p>
+<p><a href="http://my.opera.com/operamobile/blog/">Opera Mobile Blog</a></p>
+<p><a href="http://blogs.blackberry.com/">Inside BlackBerry – The Official BlackBerry Blog</a></p>
+<p><a href="http://ymobileblog.com/">Yahoo! Mobile Blog</a></p>
+<p><a href="http://googlemobile.blogspot.com/">Google Mobile Blog</a></p>
+<h3 id="miscellaneous">Miscellaneous</h3>
+<p><a href="http://mobile.yahoo.com/devcenter">Yahoo! Blueprint</a> – framework for normalizing cross-browser issues across thousands of devices</p>
+<p> </p>
+<p>===========================================================================jmobile javascript   libraries and framework</p>
+<h3 id="the-list">The List</h3>
+<p><a href="http://www.sencha.com/products/touch/">Sencha Touch</a></p>
+<p><a href="http://www.phonegap.com/">PhoneGap</a> – native wrapper which provides access to native hardware through their own JavaScript APIs</p>
+<p><a href="http://jquerymobile.com/">jQuery Mobile</a> – a separate mobile UI which has jQuery as a dependency</p>
+<p><a href="http://developer.apple.com/iad/">iAd</a> – an update to Apple’s PastryKit, but probably intended only for ads</p>
+<p><a href="http://zeptojs.com/">Zepto.js</a></p>
+<p><a href="http://joapp.com/">Jo HTML5 Mobile App Framework</a></p>
+<p><a href="http://touch.sproutcore.com/hedwig/">Sproutcore Touch</a></p>
+<p><a href="http://unify.github.com/unify/">Unify</a></p>
+<p><a href="http://developer.yahoo.com/yui/3/">YUI3</a> – the desktop library has taken its first steps in supporting mobile (there’s no separate version just for mobile)</p>
+<p><a href="http://www.springsource.org/spring-mobile">Spring Mobile</a>: an extension to Spring MVC.</p>
+<p><a href="http://pyxismobile.com/">pyxis mobile</a></p>
+<p><a href="http://www.winktoolkit.org/">Wink Toolkit</a></p>
+<p><a href="http://chocolatechipmobile.wordpress.com/">ChocolateChip Mobile</a></p>
+<p><a href="http://webapp-net.com/">WebApp.Net</a></p>
+<p><a href="http://paularmstrongdesigns.com/projects/basejs/">baseJS</a></p>
+<p><a href="http://xuijs.com/">XUI</a></p>
+<p><a href="http://iwebkit.net/">iWebKit</a></p>
+<p><a href="http://www.jqtouch.com/">jQTouch</a></p>
+<p><a href="http://notes.sencha.com/post/1483278482/wed-like-to-extend-a-warm-welcome-to-one-of-our">MooTouch</a> – acquired and integrated into Sencha</p>
+<p><a href="http://code.google.com/p/iphone-universal/">UiUIKit (Universal iPhone UI Kit)</a></p>
+<p><a href="http://code.google.com/p/ciui-dev/">CiUI</a> – CNET iPhone UI</p>
+<p><a href="http://davidbcalhoun.com/2010/mobile-javascript-libraries-and-frameworks">UiUIKit</a></p>
+<p><a href="http://www.iui-js.org/">iUI</a> (<a href="http://code.google.com/p/iui/">on Google Code</a>) – the first library for the iPhone as far as I know.</p>
+<p><a href="http://davidbcalhoun.com/2009/pastrykit-digging-into-an-apple-pie">PastryKit</a> – Apple’s proprietary framework, peeked into just for curiousity (not recommended for use)</p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-12-12-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%85%B3%E9%94%AE/" data-toggle="tooltip" data-placement="top" title="负载均衡之大型在线系统实现的关键">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-12-15-spider%E6%AF%94%E8%BE%83/" data-toggle="tooltip" data-placement="top" title="spider比较">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2012-12-10-xcode4%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8Fbuild-settings%E5%8F%82%E6%95%B0workspace%E5%8F%8A%E8%81%94%E7%BC%96%E8%AE%BE%E7%BD%AE/">xcode4的环境变量，Build Settings参数，workspace及联编设置</a></li>
+                    
+                    <li><a href="/posts/2012-08-28-%E6%8E%A8%E8%8D%90%E7%BB%99ios%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E8%B5%84%E6%BA%90/">推荐给iOS设计师的工具和资源</a></li>
+                    
+                    <li><a href="/posts/2012-08-25-ios%E9%80%86%E5%90%91%E6%9D%82%E6%96%87/">ios逆向杂文</a></li>
+                    
+                    <li><a href="/posts/2012-08-06-java-php%E8%B7%A8%E5%9F%9F%E6%8F%90%E4%BA%A4/">java.php跨域提交</a></li>
+                    
+                    <li><a href="/posts/2012-07-04-pdf-view/">pdf view</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Dec 12, 2012</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/ios/">ios</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/jquery/">jquery</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/jquerymobile/">jquerymobile</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/webapp/">webapp</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

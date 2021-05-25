@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> swift的mutating关键字 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="swift的mutating关键字" />
+  <meta name="twitter:title" content="swift的mutating关键字" />
+  <meta name="description" content="swift的mutating关键字 在Swift中，包含三种类型(type): structure,enumeration,class 其中structure和enumeration是值类型(val">
+  <meta property="og:description" content="swift的mutating关键字 在Swift中，包含三种类型(type): structure,enumeration,class 其中structure和enumeration是值类型(val">
+  <meta name="twitter:description" content="swift的mutating关键字 在Swift中，包含三种类型(type): structure,enumeration,class 其中structure和enumeration是值类型(val">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/swiftde-mutatingguan-jian-zi/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/swiftde-mutatingguan-jian-zi/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">swift的mutating关键字</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Feb 15, 2017</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/swift/">swift</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#举例">举例</a></li>
+    <li><a href="#mutating">mutating</a></li>
+    <li><a href="#补充">补充</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h1 id="swift的mutating关键字">swift的mutating关键字</h1>
+<p>在Swift中，包含三种类型(type): structure,enumeration,class
+其中structure和enumeration是值类型(value type),class是引用类型(reference type)</p>
+<p>structure和enumeration也可以拥有方法(method)，其中方法可以为实例方法(instance method)，也可以为类方法(type method).
+虽然结构体和枚举可以定义自己的方法，但是默认情况下，实例方法中是不可以修改<strong>值类型的属性</strong>。</p>
+<h2 id="举例">举例</h2>
+<p>假如定义一个点结构体，该结构体有一个修改点位置的实例方法</p>
+<pre><code>struct Point {  
+    var x = 0, y = 0        
+    func moveXBy(x:Int,yBy y:Int) {  
+        self.x += x  
+        // Cannot invoke '+=' with an argument list of type '(Int, Int)'  
+        self.y += y  
+        // Cannot invoke '+=' with an argument list of type '(Int, Int)'  
+    }  
+}  
+</code></pre><p>编译器抛出错误，说明确实不能在实例方法中修改<strong>属性值</strong>。</p>
+<h2 id="mutating">mutating</h2>
+<p>为了能够在实例方法中修改属性值，可以在方法定义前添加关键字<strong>mutating</strong></p>
+<pre><code>struct Point {  
+    var x = 0, y = 0  
+      
+    mutating func moveXBy(x:Int,yBy y:Int) {  
+        self.x += x  
+        self.y += y  
+    }  
+}  
+  
+var p = Point(x: 5, y: 5)  
+  
+p.moveXBy(3, yBy: 3)  
+</code></pre><h2 id="补充">补充</h2>
+<p>另外，在值类型的实例方法中，也可以直接修改self属性值。</p>
+<pre><code>enum TriStateSwitch {  
+    case Off, Low, High  
+    mutating func next() {  
+        switch self {  
+        case Off:  
+            self = Low  
+        case Low:  
+            self = High  
+        case High:  
+            self = Off  
+        }  
+    }  
+}  
+var ovenLight = TriStateSwitch.Low  
+ovenLight.next()  
+// ovenLight is now equal to .High  
+ovenLight.next()  
+// ovenLight is now equal to .Off”  
+</code></pre><p>TriStateSwitch枚举定义了一个三个状态的开关，在next实例方法中动态改变self属性的值。
+当然，在引用类型中(即class)中的方法默认情况下就可以修改属性值，不存在以上问题。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/swiftlint/" data-toggle="tooltip" data-placement="top" title="SwiftLint">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/shi-yong-fan-xing-lai-you-hua-tableview-cells-de-shi-yong-ti-yan/" data-toggle="tooltip" data-placement="top" title="使用泛型来优化 TableView Cells 的使用体验">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/swiftlint/">SwiftLint</a></li>
+                    
+                    <li><a href="/posts/swift-objectmapperdejsonwomatupingu/">Swift ObjectMapperでJSONをマッピング</a></li>
+                    
+                    <li><a href="/posts/purelayoutshi-yong-fang-fa/">PureLayout使用方法</a></li>
+                    
+                    <li><a href="/posts/swiftgen/">swiftgen</a></li>
+                    
+                    <li><a href="/posts/swiftenv/">swiftenv</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Feb 15, 2017</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/swift/">swift</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

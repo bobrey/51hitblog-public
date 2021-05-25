@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on IT技术分享</title>
+    <link>https://www.51hint.com/tags/linux/</link>
+    <description>Recent content in linux on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Apr 2019 15:31:54 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu时间同步</title>
+      <link>https://www.51hint.com/posts/ubuntu%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Mon, 15 Apr 2019 15:31:54 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ubuntu%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/</guid>
+      <description>apt-get install dbus timedatectl set-timezone Asia/Shanghai ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime dpkg-reconfigure tzdata apt-get install ntpdate ntpdate cn.pool.ntp.org hwclock --systohc</description>
+    </item>
+    
+    <item>
+      <title>Locale设置</title>
+      <link>https://www.51hint.com/posts/locale%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Fri, 16 Nov 2018 11:32:11 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/locale%E8%AE%BE%E7%BD%AE/</guid>
+      <description>总是会遇到manpath: can&#39;t set the locale; make sure $LC_* and $LANG are correct这个错误。 sudo locale-gen &amp;#34;en_US.UTF-8&amp;#34; sudo dpkg-reconfigure locales //如果跳转到设置页面，可以选择默认的即可。 sudo vi /etc/default/locale 改为如下</description>
+    </item>
+    
+    <item>
+      <title>Arch Linux LNMP配置</title>
+      <link>https://www.51hint.com/arch.html</link>
+      <pubDate>Thu, 26 Apr 2018 19:47:25 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/arch.html</guid>
+      <description>升级Arch Linux sudo pacman -Syu 安装Nginx sudo pacman -S nginx-mainline systemctl status nginx sudo systemctl restart nginx sudo systemctl enable nginx nginx -v 安装MariaDB sudo pacman -S mariadb sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql sudo systemctl start mysqld systemctl status mysqld sudo systemclt enable mysqld sudo mysql_secure_installation mysql --version 安装p</description>
+    </item>
+    
+    <item>
+      <title>rsync同步文件件</title>
+      <link>https://www.51hint.com/posts/rsync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Thu, 26 Apr 2018 19:47:25 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/rsync%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6/</guid>
+      <description>向备机推数据 rsync -avzP --delete {localDir} root@{remoteHost}:{remoteDir} rsync -avzP --delete /tmp/rtest1 root@192.168.1.101:/tmp/ 参数说明： -a 参数，相当于-rlptgoD（-r 是递归 -l 是链接文件，意思是拷贝链接文件；-p 表示保持文件原有权</description>
+    </item>
+    
+    <item>
+      <title>linux禁止root远程登录</title>
+      <link>https://www.51hint.com/posts/2014-08-09-linux%E7%A6%81%E6%AD%A2root%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/</link>
+      <pubDate>Sat, 09 Aug 2014 02:39:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-09-linux%E7%A6%81%E6%AD%A2root%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/</guid>
+      <description>ssh登陆权限 禁止root通过ssh远程登陆 #vim /etc/ssh/sshd_config PermitRootLogin 将yes改为no， 这样root就不能远程登陆了。 使用普通账户登陆进去以后，使用root时候</description>
+    </item>
+    
+    <item>
+      <title>安装linux服务器后，应该做的几件事</title>
+      <link>https://www.51hint.com/posts/2014-08-09-%E5%AE%89%E8%A3%85linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E5%87%A0%E4%BB%B6%E4%BA%8B/</link>
+      <pubDate>Sat, 09 Aug 2014 02:20:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-09-%E5%AE%89%E8%A3%85linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E5%87%A0%E4%BB%B6%E4%BA%8B/</guid>
+      <description>安装linux一般作为lamp,vpn等 centos一键安装apache、mysql、php和phpmyadmin centos6 快速安装LAMP &amp;lt;p class=&amp;quot;title&amp;quot;&amp;gt; &amp;lt;p class=&amp;quot;title&amp;quot;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>wget 下载整个网站</title>
+      <link>https://www.51hint.com/posts/2013-08-15-wget-%E4%B8%8B%E8%BD%BD%E6%95%B4%E4%B8%AA%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Thu, 15 Aug 2013 06:36:57 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-08-15-wget-%E4%B8%8B%E8%BD%BD%E6%95%B4%E4%B8%AA%E7%BD%91%E7%AB%99/</guid>
+      <description>wget可以以递归的方式下载整站，并可以将下载的页面中的链接转换为本地链接。 wget加上参数之后，即可成为相当强大的下载工具。 wget -r -p -np -k http://xxx.com/abc/ -r,</description>
+    </item>
+    
+    <item>
+      <title>bash_02 [重定向]</title>
+      <link>https://www.51hint.com/posts/2013-01-10-bash_02-%E9%87%8D%E5%AE%9A%E5%90%91/</link>
+      <pubDate>Thu, 10 Jan 2013 09:21:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-10-bash_02-%E9%87%8D%E5%AE%9A%E5%90%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash_01</title>
+      <link>https://www.51hint.com/posts/2012-12-27-bash_01/</link>
+      <pubDate>Thu, 27 Dec 2012 06:55:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-27-bash_01/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vps推荐</title>
+      <link>https://www.51hint.com/posts/2012-12-25-vps%E6%8E%A8%E8%8D%90/</link>
+      <pubDate>Tue, 25 Dec 2012 02:56:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-25-vps%E6%8E%A8%E8%8D%90/</guid>
+      <description>1、お名前.com这个之前提到过，但是之前只有2G方案，今天发现多了4G和8G方案。号称日本第一服务器提供商，东京证券交易所上市公司GMO旗</description>
+    </item>
+    
+  </channel>
+</rss>

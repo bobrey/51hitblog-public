@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cordova on IT技术分享</title>
+    <link>https://www.51hint.com/categories/cordova/</link>
+    <description>Recent content in cordova on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Mar 2017 23:37:27 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/cordova/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code Push 热更新使用</title>
+      <link>https://www.51hint.com/posts/code-push-re-geng-xin-shi-yong/</link>
+      <pubDate>Mon, 06 Mar 2017 23:37:27 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/code-push-re-geng-xin-shi-yong/</guid>
+      <description>Code push CodePush是一个微软开发的云服务器。通过它，开发者可以直接在用户的设备上部署手机应用更新。 CodePush相当于一个中心仓库，开发</description>
+    </item>
+    
+  </channel>
+</rss>

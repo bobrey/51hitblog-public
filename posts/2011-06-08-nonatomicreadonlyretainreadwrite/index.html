@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> nonatomic,readonly,retain,readwrite - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="nonatomic,readonly,retain,readwrite" />
+  <meta name="twitter:title" content="nonatomic,readonly,retain,readwrite" />
+  <meta name="description" content="1.readonly表示这个属性是只读的，就是只生成getter方法，不会生成setter方法．2.readwrite，设置可供访问级别3.">
+  <meta property="og:description" content="1.readonly表示这个属性是只读的，就是只生成getter方法，不会生成setter方法．2.readwrite，设置可供访问级别3.">
+  <meta name="twitter:description" content="1.readonly表示这个属性是只读的，就是只生成getter方法，不会生成setter方法．2.readwrite，设置可供访问级别3.">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-06-08-nonatomicreadonlyretainreadwrite/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-06-08-nonatomicreadonlyretainreadwrite/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">nonatomic,readonly,retain,readwrite</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jun 8, 2011</h4>
+    </section>
+    <h5 id="wc">1200 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->1.readonly表示这个属性是只读的，就是只生成getter方法，不会生成setter方法．<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->2.readwrite，设置可供访问级别<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3.retain，是说明该属性在赋值的时候，先release之前的值，然后再赋新值给属性，引用再加1。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->4.nonatomic，非原子性访问，不加同步，多线程并发访问会提高性能。先释放原先变量，再将新变量retaii然后赋值；<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->      注意，如果不加此属性，则默认是两个访问方法都为原子型事务访问。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->/************************************************************************************************************************************************************************************************<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->atomic<!-- raw HTML omitted -->的意思就是setter/getter这个函数是一个原语操作。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->如果有多个线程同时调用setter的话，不会出现某一个线程执行setter全部语句之前，另一个线程开始执行setter情况，相当于函数头尾加了锁一样。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->nonatomic<!-- raw HTML omitted -->不保证setter/getter的原语行，所以你可能会取到不完整的东西。<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 比如setter函数里面改变两个成员变量，如果你用nonatomic的话，getter可能会取到只更改了其中一个变量时候的状态，这样取到的东西会有问题。<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted -->如果不需要多线程支持的话，当然nonatomic就够用了，另外由于不涉及锁操作，所以它执行相对快点<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->************************************************************************************************************************************************************************************************/<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->@property(nonatomic, retain) NSString <em>text;<!-- raw HTML omitted --> translates as<!-- raw HTML omitted --> “I have a member variable of type NSString</em> named ‘text’. I will want a getter/setter pair that uses the retain/release procedure.”<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  &lt;/br&gt;&lt;/br&gt;&lt;/span&gt;&lt;span&gt;&amp;#8211;&lt;/span&gt; &lt;span&gt; (UITextField &lt;/span&gt; &lt;span&gt;*&lt;/span&gt; &lt;span&gt;) userName { &lt;br /&gt;    &lt;/br&gt;&lt;/span&gt; &lt;span&gt;return&lt;/span&gt; &lt;span&gt; userName; &lt;br /&gt; } &lt;/p&gt; 
+  
+  &lt;p&gt;
+    &lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/span&gt;&lt;span&gt;&amp;#8211;&lt;/span&gt; &lt;span&gt; (&lt;/span&gt; &lt;span&gt;void&lt;/span&gt; &lt;span&gt;) setUserName:(UITextField &lt;/span&gt; &lt;span&gt;*&lt;/span&gt; &lt;span&gt;)userName_ { &lt;br /&gt;     [userName release]; &lt;br /&gt;     userName &lt;/br&gt;&lt;/br&gt;&lt;/span&gt; &lt;span&gt;=&lt;/span&gt; &lt;span&gt; [userName_ retain]; &lt;br /&gt; }&lt;/br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt; 
+    
+    &lt;div&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+      &lt;span&gt;&lt;span&gt;******************************************************************&lt;/span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+      &lt;span&gt;&lt;span&gt;&lt;span&gt;&lt;span&gt;@property(retain) UITextField &lt;/span&gt; &lt;span&gt;*&lt;/span&gt; &lt;span&gt;userName自动生成的代码&lt;/p&gt; 
+      
+      &lt;p&gt;
+        &lt;/br&gt;&lt;/br&gt;&lt;/span&gt;&lt;span&gt;&amp;#8211;&lt;/span&gt; &lt;span&gt; (UITextField &lt;/span&gt; &lt;span&gt;*&lt;/span&gt; &lt;span&gt;) userName { &lt;br /&gt;     UITextField &lt;/br&gt;&lt;/span&gt; &lt;span&gt;*&lt;/span&gt; &lt;span&gt;retval &lt;/span&gt; &lt;span&gt;=&lt;/span&gt; &lt;span&gt; nil; &lt;br /&gt;     @synchronized(self) { &lt;br /&gt;         retval &lt;/br&gt;&lt;/br&gt;&lt;/span&gt; &lt;span&gt;=&lt;/span&gt; &lt;span&gt; [[userName retain] autorelease]; &lt;br /&gt;     } &lt;br /&gt;     &lt;/br&gt;&lt;/br&gt;&lt;/span&gt; &lt;span&gt;return&lt;/span&gt; &lt;span&gt; retval; &lt;br /&gt; } &lt;/p&gt; 
+        
+        &lt;p&gt;
+          &lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/span&gt;&lt;span&gt;&amp;#8211;&lt;/span&gt; &lt;span&gt; (&lt;/span&gt; &lt;span&gt;void&lt;/span&gt; &lt;span&gt;) setUserName:(UITextField &lt;/span&gt; &lt;span&gt;*&lt;/span&gt; &lt;span&gt;)userName_ { &lt;br /&gt;     @synchronized(self) { &lt;br /&gt;         [userName release]; &lt;br /&gt;         userName &lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/span&gt; &lt;span&gt;=&lt;/span&gt; &lt;span&gt; [userName_ retain]; &lt;br /&gt;     } &lt;br /&gt; } &lt;/br&gt;&lt;/br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt; &lt;/div&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-06-08-set-a-breakpoint-in-malloc_error_break-to-debug/" data-toggle="tooltip" data-placement="top" title="set a breakpoint in malloc_error_break to debug">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-06-09-cc%E4%B8%ADtypedef-struct%E5%92%8Cstruct%E7%9A%84%E7%94%A8%E6%B3%95/" data-toggle="tooltip" data-placement="top" title="C/C&#43;&#43;中typedef struct和struct的用法">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-06-08-set-a-breakpoint-in-malloc_error_break-to-debug/">set a breakpoint in malloc_error_break to debug</a></li>
+                    
+                    <li><a href="/posts/2011-06-05-%E5%9F%BA%E4%BA%8Ecalayer%E7%9A%84%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB/">基于CALayer的简单动画</a></li>
+                    
+                    <li><a href="/posts/2011-06-02-xcode%E4%B8%AD%E4%BD%BF%E7%94%A8svn-scm-%E7%AE%A1%E7%90%86%E8%87%AA%E5%B7%B1%E7%9A%84source-code/">Xcode中使用SVN (SCM) 管理自己的source code</a></li>
+                    
+                    <li><a href="/posts/2011-06-01-calayer%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/">CALayer简单教程</a></li>
+                    
+                    <li><a href="/posts/2011-05-30-class%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8selector%E4%BB%A5%E5%8F%8A%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0-selimp/">Class类型，选择器Selector以及指针函数    [SEL,IMP]</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jun 8, 2011</h4>
+    </section>
+    <h5 id="wc">1200 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

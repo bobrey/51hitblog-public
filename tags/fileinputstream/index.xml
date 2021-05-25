@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FileInputStream on IT技术分享</title>
+    <link>https://www.51hint.com/tags/fileinputstream/</link>
+    <description>Recent content in FileInputStream on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Jun 2012 02:42:33 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/fileinputstream/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FileOutPutStream和FileInputStream</title>
+      <link>https://www.51hint.com/posts/2012-06-12-fileoutputstream%E5%92%8Cfileinputstream/</link>
+      <pubDate>Tue, 12 Jun 2012 02:42:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-12-fileoutputstream%E5%92%8Cfileinputstream/</guid>
+      <description>—————————————————————— 读取文件中的内容。</description>
+    </item>
+    
+    <item>
+      <title>android 读写文件d</title>
+      <link>https://www.51hint.com/posts/2012-06-12-android-%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6d/</link>
+      <pubDate>Tue, 12 Jun 2012 02:17:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-12-android-%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6d/</guid>
+      <description>默认情况下，任何应用创建的文件，数据库，sharedpreferences都应该是私有化的 位于/data/data/your_project</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Noejs封包与解包 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Noejs封包与解包" />
+  <meta name="twitter:title" content="Noejs封包与解包" />
+  <meta name="description" content="nodejsTCP封包和解包">
+  <meta property="og:description" content="nodejsTCP封包和解包">
+  <meta name="twitter:description" content="nodejsTCP封包和解包">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/noejs%E5%B0%81%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/noejs%E5%B0%81%E5%8C%85%E4%B8%8E%E8%A7%A3%E5%8C%85/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Noejs封包与解包</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <p>TCP是面向连接流传输的，其采用Nagle算法，在缓冲区对上层数据进行了处理。避免触发自动分片机制和网络上大量小数据包的同时也造成了粘包（小包合并）和半包（大包拆分）问题，导致数据没有消息保护边界，接收端接收到一次数据无法判断是否是一个完整数据包。那有什么方案可以解决这问题呢？</p>
+<p><strong>1、粘包问题解决方案及对比</strong></p>
+<p>很简单，既然消息没有边界，那我们在消息往下传之前给它加一个边界识别就好了。</p>
+<ul>
+<li>发送固定长度的消息</li>
+<li>使用特殊标记来区分消息间隔</li>
+<li>把消息的尺寸与消息一块发送</li>
+</ul>
+<p>第一种方案不够灵活；第二种有风险，如果数据内刚好有该特殊字符会出问题；第三种方案虽然要增加对消息头的解析，不过相对而言还是要安全一些。</p>
+<p><strong>2、分包与拆包</strong></p>
+<p>既然使用第三种方案，就必然涉及到封包和拆包的问题。</p>
+<p>首先肯定需要定义数据包的结构，这类似Http包一样，有包头和包体。包头其实上是个大小固定的结构体，其中有个结构体成员变量表示包体的长度，其他的结构体成员可根据需要自己定义。根据包头长度固定以及包头中含有包体长度的变量就能正确的拆分出一个完整的数据包。包体则存放数据内容。</p>
+<p><img src="https://files.jb51.net/file_images/article/201809/201809190859529.png" alt="img"></p>
+<p>在发送端，需要进行封包。封包就是给一段数据加上包头,这样一来数据包就分为包头和包体两部分内容了。</p>
+<p>在接受端，则需要进行拆包。主要流程如下：</p>
+<ol>
+<li>为每一个连接动态分配一个缓冲区,同时把此缓冲区和SOCKET关联.</li>
+<li>当接收到数据时首先把此段数据存放在缓冲区中.</li>
+<li>判断缓存区中的数据长度是否够一个包头的长度,如不够,则不进行拆包操作.</li>
+<li>根据包头数据解析出里面代表包体长度的变量.</li>
+<li>判断缓存区中除包头外的数据长度是否够一个包体的长度,如不够,则不进行拆包操作.</li>
+<li>取出整个数据包.这里的&quot;取&quot;的意思是不光从缓冲区中拷贝出数据包,而且要把此数据包从缓存区中删除掉.删除的办法就是把此包后面的数据移动到缓冲区的起始地址.</li>
+</ol>
+<p>其中对于缓冲区的设计，主要由俩种：</p>
+<p>\1. 采用动态变化的缓冲区暂存，根据数据大小调整缓冲区大小。这个方案有个缺点，为了避免缓冲区不断增长，每次解析出一个完整包后需要将缓冲区残留的数据拷贝到缓冲区首部，这增加了系统负载。</p>
+<p>\2. 采用环形缓冲区，定义两个指针,分别指向有效数据的头和尾.在存放数据和删除数据时只是进行头尾指针的移动</p>
+<p><img src="https://files.jb51.net/file_images/article/201809/2018091908595210.png" alt="img"> <img src="https://files.jb51.net/file_images/article/201809/2018091908595211.png" alt="img"></p>
+<p><strong>3、网络字节序和本机字节序</strong></p>
+<p>定义了消息结构之后，发送端和接收端还需要统一字节序。我们知道，不同机器的本机字节序不同，绝大多数X86机器都是小端字节序，然后还是由少数机器是大端存储的。因此在数据流进行传输时，必须先统一字节序。一般约定在传输时采用网络字节序（大端），统一用unicode编码。</p>
+<p><strong>4、代码实现</strong></p>
+<p>了解以上知识之后，我们现在之后要做什么了。发送端按定义的协议规则封包，接受端把接收到的buffer放入缓冲区，当缓冲区内有完整包时开始拆包。封包拆包过程需要注意，读写超过一个字节的数据时需要按大端字节序读取。下面看node的代码实现（只提供核心实现片段）：</p>
+<p>1）发送端封包：</p>
+<pre><code>let head = new Buffer(4);
+let jsonStr = JSON.stringify(json);
+let body = new Buffer(jsonStr);
+//超过一字节的大端写入
+head.writeInt32BE(body.byteLength, 0);
+let buffer = Buffer.concat([head, body]);
+</code></pre><p>2）接收端收到buffer入缓冲区：</p>
+<pre><code>let dataReadStart = 0; //新数据的起始位置
+let dataLength = buffer.length; // 要拷贝数据的长度
+let availableLen = _bufferLength - _dataLen; // 缓冲区剩余可用空间
+
+// buffer剩余空间不足够存储本次数据
+if (availableLen &lt; dataLength) {
+ let newLength = Math.ceil((_dataLen + dataLength) / _bufferLength) * _bufferLength;
+ let _tempBuffer = Buffer.alloc(newLength);
+ 
+ // 将旧数据复制到新buffer并且修正相关参数
+ if (_writePointer &lt; _readPointer) { // 数据存储在旧buffer的尾部+头部的顺序
+  let dataTailLen = _bufferLength - _readPointer;
+  _buffer.copy(_tempBuffer, 0, _readPointer, _readPointer + dataTailLen);
+  _buffer.copy(_tempBuffer, dataTailLen, 0, _writePointer);
+ } else { // 数据是按照顺序进行的完整存储
+  _buffer.copy(_tempBuffer, 0, _readPointer, _writePointer);
+ }
+ _bufferLength = newLength;
+ _buffer = _tempBuffer;
+ _tempBuffer = null;
+ _readPointer = 0;
+ _writePointer = _dataLen;
+
+ //存储新到来的buffer
+ buffer.copy(_buffer, _writePointer, dataReadStart, dataReadStart + dataLength);
+ _dataLen += dataLength;
+ _writePointer += dataLength;
+
+} else if (_writePointer + dataLength &gt; _bufferLength) {
+// 空间够用情况下，但是数据会冲破缓冲区尾部，部分存到缓冲区旧数据后，一部分存到缓冲区开始位置
+ // 缓冲区尾部剩余空间的长度
+ let bufferTailLength = _bufferLength - _writePointer;
+
+ // 数据尾部位置
+ let dataEndPosition = dataReadStart + bufferTailLength;
+ buffer.copy(_buffer, _writePointer, dataReadStart, dataEndPosition);
+
+ // data剩余未拷贝进缓存的长度
+ let restDataLen = dataLength - bufferTailLength;
+ buffer.copy(_buffer, 0, dataEndPosition, dataLength);
+
+ _dataLen = _dataLen + dataLength;
+ _writePointer = restDataLen
+
+} else { // 剩余空间足够存储数据，直接拷贝数据到缓冲区
+ buffer.copy(_buffer, _writePointer, dataReadStart, dataReadStart + dataLength);
+ _dataLen = _dataLen + dataLength;
+ _writePointer = _writePointer + dataLength
+}
+</code></pre><p>3）取出缓冲区所有完整数据包（收到的buffer入缓冲区后）</p>
+<pre><code>let _dataHeadLen = 4;
+timer &amp;&amp; clearInterval(timer);
+timer = setInterval(()=&gt;{
+ // 缓冲区数据不够解析出包头
+ if (_dataLen &lt; _dataHeadLen) {
+  console.log('数据长度小于包头规定长度，等待数据......')
+  clearInterval(timer);
+ }
+ // 解析包头长度
+ // 尾部最后剩余可读字节长度
+ let restDataLen = _bufferLength - _readPointer;
+ let dataLen = 0;
+ let headBuffer = Buffer.alloc(_dataHeadLen);
+ // 数据包为分段存储，不能直接解析出包头，先拼接
+ if (restDataLen &lt; _dataHeadLen) {
+  // 取出第一部分头部字节
+  _buffer.copy(headBuffer, 0, _readPointer, _bufferLength)
+  // 取出第二部分头部字节
+  let unReadHeadLen = _dataHeadLen - restDataLen;
+  _buffer.copy(headBuffer, restDataLen, 0, unReadHeadLen)
+  dataLen = headBuffer.readUInt32BE(0);
+
+ } else {
+  _buffer.copy(headBuffer, 0, _readPointer, _readPointer + _dataHeadLen);
+  dataLen = headBuffer.readUInt32BE(0);;
+ }
+
+ // 数据长度不够读取，直接返回
+ if (_dataLen - _dataHeadLen &lt; dataLen) {
+  log.info(&quot;缓冲区已有body数据长度小于包头定义body的长度，等待数据......&quot;)
+  clearInterval(timer);
+
+ } else { // 数据够读，读取数据包 
+  let package = Buffer.alloc(dataLen);
+  // 数据是分段存储，需要分两次读取
+  if (_bufferLength - _readPointer &lt; dataLen) {
+   let firstPartLen = _bufferLength - _readPointer;
+   // 读取第一部分，直接到字符尾部的数据
+   _buffer.copy(package, 0, _readPointer, firstPartLen + _readPointer);
+   // 读取第二部分，存储在开头的数据
+   let secondPartLen = dataLen - firstPartLen;
+   _buffer.copy(package, firstPartLen, 0, secondPartLen);
+   _readPointer = secondPartLen; //更新可读起点
+
+  } else { // 直接读取数据
+   _buffer.copy(package, 0, _readPointer, _readPointer + dataLen);
+   _readPointer += dataLen; //更新可读起点
+  }
+
+  _dataLen -= readData.length; //更新数据长度
+  // 已经读取完所有数据
+  if (_readPointer === _writePointer) {
+   clearInterval(timer)
+  }
+
+  //开始解包
+  callback(package);
+   
+ }
+}, 50);
+</code></pre><p>4）拆包得到数据</p>
+<pre><code>let headBytes = 4;
+let head = new Buffer(headBytes);
+buffer.copy(head, 0, 0, headBytes);
+let dataLen = head.readUInt32BE();
+const body = new Buffer(dataLen);
+buffer.copy(body, 0, headBytes, headBytes + dataLen)
+
+let content = null;
+try {
+ const str = body.toString('utf-8');
+ if(str === ''){
+  content = null;
+ }else{
+  content = JSON.parse(body);
+ }
+} catch (e) {
+ log.error('head指定body长度有问题')
+}
+//传递给业务层
+callback(content);
+</code></pre><p><strong>5、总结</strong></p>
+<p>从上面我们已经了解到了封包解包的一个过程。TCP是可靠传输的，同一时间在网络上只会有一个数据包，并且丢包会重传，因此不用担心丢包或者数据包乱序问题。UDP有消息保护边界，不需要进行拆包解包，然后其是非可靠传输，也需要解决其他一些问题，譬如丢包和数据包排序问题。</p>
+<p>上面进行数据包结构设计时只是简单地加了一个包体长度，事实上在业务场景可以自由增加需要的字段，譬如协议版本，协议类型等等。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/flutter%E5%AE%89%E8%A3%85/" data-toggle="tooltip" data-placement="top" title="Flutter安装">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/portainer_rancher/" data-toggle="tooltip" data-placement="top" title="Portainer_rancher">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/flutter%E5%AE%89%E8%A3%85/">Flutter安装</a></li>
+                    
+                    <li><a href="/posts/rabbitmq%E5%AE%9E%E7%8E%B0rpc/">RabbitMQ实现RPC</a></li>
+                    
+                    <li><a href="/posts/ntfs%E6%8C%82%E8%BD%BD/">Ntfs挂载</a></li>
+                    
+                    <li><a href="/posts/vagrant%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/">Vagrant一些配置</a></li>
+                    
+                    <li><a href="/posts/rabbitmq%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/">RabbitMQ消息中间件</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

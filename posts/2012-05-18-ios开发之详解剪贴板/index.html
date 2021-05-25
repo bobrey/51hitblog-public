@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> iOS开发之详解剪贴板 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="iOS开发之详解剪贴板" />
+  <meta name="twitter:title" content="iOS开发之详解剪贴板" />
+  <meta name="description" content="在iOS中，可以使用剪贴板实现应用程序之中以及应用程序之间实现数据的共享。比如你可以从iPhone QQ复制一个url，然后粘贴到safari">
+  <meta property="og:description" content="在iOS中，可以使用剪贴板实现应用程序之中以及应用程序之间实现数据的共享。比如你可以从iPhone QQ复制一个url，然后粘贴到safari">
+  <meta name="twitter:description" content="在iOS中，可以使用剪贴板实现应用程序之中以及应用程序之间实现数据的共享。比如你可以从iPhone QQ复制一个url，然后粘贴到safari">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-05-18-ios%E5%BC%80%E5%8F%91%E4%B9%8B%E8%AF%A6%E8%A7%A3%E5%89%AA%E8%B4%B4%E6%9D%BF/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-05-18-ios%E5%BC%80%E5%8F%91%E4%B9%8B%E8%AF%A6%E8%A7%A3%E5%89%AA%E8%B4%B4%E6%9D%BF/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">iOS开发之详解剪贴板</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri May 18, 2012</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#定义一个单元格类copytableviewcell在这个类的上显示快捷菜单实现复制功能">定义一个单元格类CopyTableViewCell，在这个类的上显示快捷菜单，实现复制功能。</a></li>
+        <li><a href="#实现copytableviewcell-实现粘贴">实现CopyTableViewCell ，实现粘贴：</a></li>
+        <li><a href="#复制一行数据">复制一行数据：</a></li>
+        <li><a href="#点击右上角的按钮粘贴将数据显示在title上">点击右上角的按钮粘贴，将数据显示在title上：</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading"></a></li>
+    <li><a href="#二图片复制粘贴">二、图片复制粘贴</a>
+      <ul>
+        <li><a href="#1在界面上放置两个uiimageview一个是图片的数据源一个是将图片粘贴到的地方copypasteimageviewcontroller-代码如下">1、在界面上放置两个uiimageview，一个是图片的数据源，一个是将图片粘贴到的地方。CopyPasteImageViewController 代码如下：</a></li>
+        <li><a href="#2当触摸图片的时候我们显示快捷菜单">2、当触摸图片的时候我们显示快捷菜单：</a></li>
+      </ul>
+    </li>
+    <li><a href="#效果">效果：</a>
+      <ul>
+        <li><a href="#1点击图片显示菜单按钮">1、点击图片，显示菜单按钮。</a></li>
+        <li><a href="#2点击复制将数据复制到剪贴板上">2、点击复制，将数据复制到剪贴板上：</a></li>
+        <li><a href="#3点击粘贴将数据粘贴到uiimageview上">3、点击粘贴，将数据粘贴到uiimageview上。</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>在iOS中，可以使用剪贴板实现应用程序之中以及应用程序之间实现数据的共享。比如你可以从iPhone QQ复制一个url，然后粘贴到safari浏览器中查看这个链接的内容。</p>
+<p>概述</p>
+<p>在iOS中下面三个控件，自身就有复制-粘贴的功能：</p>
+<p>1、UITextView</p>
+<p>2、UITextField</p>
+<p>3、UIWebView</p>
+<p>UIKit framework提供了几个类和协议方便我们在自己的应用程序中实现剪贴板的功能。</p>
+<p>1、UIPasteboard：我们可以向其中写入数据，也可以读取数据</p>
+<p>2、UIMenuController：显示一个快捷菜单，用来复制、剪贴、粘贴选择的项。</p>
+<p>3、UIResponder中的 canPerformAction:withSender:用于控制哪些命令显示在快捷菜单中。</p>
+<p>4、当快捷菜单上的命令点击的时候，UIResponderStandardEditActions将会被调用。</p>
+<p>下面这些项能被放置到剪贴板中</p>
+<p>1、UIPasteboardTypeListString —   字符串数组, 包含kUTTypeUTF8PlainText</p>
+<p>2、UIPasteboardTypeListURL —   URL数组，包含kUTTypeURL</p>
+<p>3、UIPasteboardTypeListImage —   图形数组, 包含kUTTypePNG 和kUTTypeJPEG</p>
+<p>4、UIPasteboardTypeListColor —   颜色数组</p>
+<p>剪贴板的类型分为两种：</p>
+<p>系统级：使用UIPasteboardNameGeneral和UIPasteboardNameFind，系统级应用程序关闭，或者卸载的数据不会丢失。</p>
+<p>应用程序级：通过设置，可以让数据在应用程序关闭之后仍然保存在剪贴板中，但是应用程序卸载之后数据就会失去。我们可用通过pasteboardWithName:create：来创建。</p>
+<p>了解这些之后，下面通过一系列的例子来说明如何在应用程序中使用剪贴板。</p>
+<p> </p>
+<p>例子：</p>
+<p>一、复制剪贴文本。</p>
+<p>下面通过一个例子，可以在tableview上显示一个快捷菜单，上面只有复制按钮，复制tableview上的数据之后，然后粘贴到title上。</p>
+<h3 id="定义一个单元格类copytableviewcell在这个类的上显示快捷菜单实现复制功能">定义一个单元格类CopyTableViewCell，在这个类的上显示快捷菜单，实现复制功能。</h3>
+<p>@interface CopyTableViewCell : UITableViewCell {</p>
+<p>id delegate;</p>
+<p>}</p>
+<p>@property (nonatomic, retain) id delegate;</p>
+<p>@end</p>
+<p> </p>
+<h3 id="实现copytableviewcell-实现粘贴">实现CopyTableViewCell ，实现粘贴：</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>定义CopyPasteTextController</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>实现CopyPasteTextController ：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>效果：</p>
+<h3 id="复制一行数据">复制一行数据：</h3>
+<!-- raw HTML omitted -->
+<p> </p>
+<h3 id="点击右上角的按钮粘贴将数据显示在title上">点击右上角的按钮粘贴，将数据显示在title上：</h3>
+<!-- raw HTML omitted -->
+<h2 id="heading"></h2>
+<h2 id="二图片复制粘贴">二、图片复制粘贴</h2>
+<p>下面通过一个例子，将图片复制和剪贴到另外一个UIImageView中间。</p>
+<h3 id="1在界面上放置两个uiimageview一个是图片的数据源一个是将图片粘贴到的地方copypasteimageviewcontroller-代码如下">1、在界面上放置两个uiimageview，一个是图片的数据源，一个是将图片粘贴到的地方。CopyPasteImageViewController 代码如下：</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="2当触摸图片的时候我们显示快捷菜单">2、当触摸图片的时候我们显示快捷菜单：</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>这里的快捷菜单，显示三个菜单项：剪贴、粘贴、复制：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="效果">效果：</h2>
+<h3 id="1点击图片显示菜单按钮">1、点击图片，显示菜单按钮。</h3>
+<!-- raw HTML omitted -->
+<h3 id="2点击复制将数据复制到剪贴板上">2、点击复制，将数据复制到剪贴板上：</h3>
+<!-- raw HTML omitted -->
+<h3 id="3点击粘贴将数据粘贴到uiimageview上">3、点击粘贴，将数据粘贴到uiimageview上。</h3>
+<!-- raw HTML omitted -->
+<h1 id="heading-1"></h1>
+<p>原文链接：<a href="http://blog.csdn.net/zhuqilin0/article/details/6661044">http://blog.csdn.net/zhuqilin0/article/details/6661044</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-05-18-%E5%85%B3%E4%BA%8Eicloud%E7%9A%84%E6%B3%A8%E5%86%8C%E5%88%B0%E4%BB%A3%E7%A0%81%E7%9A%84%E5%AE%9E%E7%8E%B0/" data-toggle="tooltip" data-placement="top" title="关于iCloud的注册，到代码的实现">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-05-18-%E7%A0%B4%E8%A7%A3%E5%B8%B8%E7%94%A8-win32-api/" data-toggle="tooltip" data-placement="top" title="破解常用 win32 API">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri May 18, 2012</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

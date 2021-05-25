@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Go小结4 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Go小结4" />
+  <meta name="twitter:title" content="Go小结4" />
+  <meta name="description" content="description">
+  <meta property="og:description" content="description">
+  <meta name="twitter:description" content="description">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%934/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%934/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Go小结4</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h3 id="方法">方法</h3>
+<ul>
+<li>
+<p>方法定义
+Golang 方法总是绑定对象实例，并隐式将实例作为第一实参 (receiver)
+<code>func (recevier type) methodName(参数列表)(返回值列表){}</code></p>
+<pre><code>// 无参数、无返回值
+func (t Test) method0() {
+}
+// 单参数、无返回值
+func (t Test) method1(i int) {
+}
+// 无参数、单返回值
+func (t Test) method3() (i int) {
+	return
+}
+// 多参数、无返回值
+func (t *Test) method7(x, y int) {
+}
+</code></pre><ul>
+<li>
+<p>结构体类型和该类型的一个方法</p>
+<pre><code>//结构体
+type User struct {
+	Name  string
+	Email string
+}
+    
+//方法
+func (u *User) Notify() {
+	fmt.Printf(&quot;%v : %v \n&quot;, u.Name, u.Email)
+}
+    
+func main() {
+	// 值类型调用方法
+	u1 := User{&quot;golang&quot;, &quot;golang@golang.com&quot;}
+	u1.Notify()
+    	
+	// 指针类型调用方法
+	u2 := User{&quot;go&quot;, &quot;go@go.com&quot;}
+	u3 := &amp;u2
+	u3.Notify()
+}
+</code></pre></li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>匿名字段
+可以像字段成员那样访问匿名字段方法，编译器负责查找</p>
+<pre><code>type User struct {
+	id   int
+	name string
+}
+  
+type Manager struct {
+	User
+}
+  
+func (self *User) ToString() string { // receiver = &amp;(Manager.User)
+	return fmt.Sprintf(&quot;User: %p, %v&quot;, self, self)
+}
+  
+func main() {
+	m := Manager{User{1, &quot;Tom&quot;}}
+	fmt.Printf(&quot;Manager: %p\n&quot;, &amp;m)
+	fmt.Println(m.ToString())
+}
+  
+</code></pre><p>通过匿名字段，可获得和继承类似的复用能力。依据编译器查找次序，只需在外层定义同名方法，就可以实现 &ldquo;override&rdquo;。</p>
+</li>
+<li>
+<p>方法集
+每个类型都有与之关联的方法集，这会影响到接口实现规则。</p>
+<pre><code>• 类型 T 方法集包含全部 receiver T 方法。
+• 类型 *T 方法集包含全部 receiver T + *T 方法。
+• 如类型 S 包含匿名字段 T，则 S 和 *S 方法集包含 T 方法。 
+• 如类型 S 包含匿名字段 *T，则 S 和 *S 方法集包含 T + *T 方法。 
+• 不管嵌入 T 或 *T，*S 方法集总是包含 T + *T 方法。
+</code></pre></li>
+<li>
+<p>表达式</p>
+<pre><code>instance.method(args...) ---&gt; &lt;type&gt;.func(instance, args...)
+</code></pre><ul>
+<li>
+<p>前者称为 method value，后者 method expression。</p>
+</li>
+<li>
+<p>区别在于 method value 绑定实例，而 method expression 则须显式传参。</p>
+</li>
+<li>
+<p>method value 会复制 receiver。</p>
+<pre><code>type User struct {
+	id   int
+	name string
+}
+    
+func (self *User) Test() {
+	fmt.Printf(&quot;%p, %v\n&quot;, self, self)
+}
+    
+func main() {
+	u := User{1, &quot;Tom&quot;}
+    
+	mValue := u.Test
+	mValue() // 隐式传递 receiver
+    
+	mExpression := (*User).Test
+	mExpression(&amp;u) // 显式传递 receiver
+}
+</code></pre></li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>自定义error</p>
+<pre><code>type PathError struct {
+	path       string
+	op         string
+	createTime string
+	message    string
+}
+  
+func (p *PathError) Error() string {
+	return fmt.Sprintf(&quot;path=%s \nop=%s \ncreateTime=%s \nmessage=%s&quot;, p.path,
+      p.op, p.createTime, p.message)
+}
+  
+  
+func Open(filename string) error {
+	file, err := os.Open(filename)
+	if err != nil {
+      return &amp;PathError{
+          path:       filename,
+          op:         &quot;read&quot;,
+          message:    err.Error(),
+          createTime: fmt.Sprintf(&quot;%v&quot;, time.Now()),
+      }
+	}
+  
+	defer file.Close()
+	return nil
+}
+  
+func main() {
+	err := Open(&quot;/Users/***/Desktop/go/src/test.txt&quot;)
+	switch v := err.(type) {
+	case *PathError:
+      fmt.Println(&quot;get path error,&quot;, v)
+	default:
+	}
+}
+</code></pre></li>
+</ul>
+<h3 id="接口">接口</h3>
+<pre><code>任何类型的方法集中只要拥有该接口'对应的全部方法'签名。
+就表示它 &quot;实现&quot; 了该接口，无须在该类型上显式声明实现了哪个接口
+</code></pre><ol>
+<li>
+<p>接口定义</p>
+<pre><code>type example interface{
+        Method1(参数列表) 返回值列表
+        Method2(参数列表) 返回值列表
+        …
+}
+</code></pre><p>当一个接口只包含一个方法时，按照 Go 语言的约定命名该接口时添加 -er 后缀。</p>
+<pre><code>type  Notifier interface {
+  Notify() error
+}
+</code></pre></li>
+<li>
+<p>执行机制</p>
+<p>接口对象由接口表 (interface table) 指针和数据指针组成</p>
+</li>
+<li>
+<p>接口转换</p>
+<pre><code>type User struct {
+	id   int
+	name string
+}
+   
+func (self *User) String() string {
+	return fmt.Sprintf(&quot;%d, %s&quot;, self.id, self.name)
+}
+   
+func main() {
+	var o interface{} = &amp;User{1, &quot;Tom&quot;}
+   
+	switch v := o.(type) {
+	case nil: // o == nil
+     fmt.Println(&quot;nil&quot;)
+	case fmt.Stringer: // interface
+     fmt.Println(v)
+	case func() string: // func
+     fmt.Println(v())
+	case *User: // *struct
+     fmt.Printf(&quot;%d, %s\n&quot;, v.id, v.name)
+	default:
+     fmt.Println(&quot;unknown&quot;)
+	}
+}
+//1, Tom
+</code></pre></li>
+<li>
+<p>接口技巧</p>
+<ul>
+<li>
+<p>让编译器检查，以确保某个类型实现接口。
+<code>var _ fmt.Stringer = (*Data)(nil)</code></p>
+</li>
+<li>
+<p>某些时候，让函数直接 &ldquo;实现&rdquo; 接口能省不少事。</p>
+<pre><code>type Tester interface {
+	Do()
+}
+     
+type FuncDo func()
+func (self FuncDo) Do() { self() }
+     
+func main() {
+	var t Tester = FuncDo(func() { println(&quot;Hello, World!&quot;) })
+	t.Do()
+}
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>面向对象特性</p>
+<ul>
+<li>
+<p><strong>接口</strong></p>
+</li>
+<li>
+<p><strong>继承</strong>使用组合的方式实现</p>
+<pre><code>type Animal struct {
+    Name string
+}
+     
+func (a *Animal) Say(message string) {
+    fmt.Printf(&quot;Animal[%v] say: %v\n&quot;, a.Name, message)
+}
+     
+type Dog struct {
+    Animal
+}
+</code></pre><p>Dog 将继承 Animal 的 Say 方法，以及其成员 Name</p>
+</li>
+<li>
+<p><strong>覆盖</strong></p>
+<pre><code>// override Animal.Say
+func (d *Dog) Say(message string) {
+    fmt.Printf(&quot;Dog[%v] say: %v\n&quot;, d.Name, message)
+}
+</code></pre><p>Dog.Say 将覆盖 Animal.Say</p>
+</li>
+<li>
+<p><strong>多态</strong></p>
+<p>接口可以用任何实现该接口的指针来实例化</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="并发">并发</h3>
+<ol>
+<li>
+<p>并发介绍并发和并行</p>
+<ul>
+<li>
+<p>A. 多线程程序在一个核的cpu上运行，就是并发。
+B. 多线程程序在多个核的cpu上运行，就是并行。</p>
+</li>
+<li>
+<p>协程：独立的栈空间，共享堆空间，调度由用户自己控制，本质上有点类似于用户级线程，这些用户级线程的调度也是自己实现的。
+线程：一个线程上可以跑多个协程，协程是轻量级的线程。</p>
+</li>
+<li>
+<p>goroutine 只是由官方实现的超级&quot;线程池&quot;。</p>
+<p>每个实力4~5KB的栈内存占用和由于实现机制而大幅减少的创建和销毁开销是go高并发的根本原因。</p>
+</li>
+<li>
+<p>并发不是并行：
+并发主要由切换时间片来实现&quot;同时&quot;运行，并行则是直接利用多核实现多线程的运行，go可以设置使用核数，以发挥多核计算机的能力。</p>
+<p>goroutine 奉行通过通信来共享内存，而不是共享内存来通信。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Goroutine</p>
+<blockquote>
+<p>需在函数调用语句前添加 go 关键字，就可创建并发执行单元
+goroutine 是一种非常轻量级的实现，可在单个进程里执行成千上万的并发任务。
+与之配套的 channel 类型，用以实现 &ldquo;以通讯来共享内存&rdquo; 的 CSP 模式
+可使用环境变量或标准库函数 runtime.GOMAXPROCS 修改，让调度器用多个线程实现多核并行，而不仅仅是并发。</p>
+</blockquote>
+</li>
+<li>
+<p>Chan</p>
+<blockquote>
+<p>其内部实现了同步，确保并发安全。多个goroutine同时访问，不需要加锁</p>
+</blockquote>
+</li>
+<li>
+<p>WaitGroup</p>
+<blockquote>
+<p>用于线程同步;它能够一直等到所有的goroutine执行完成，并且阻塞主线程的执行，直到所有的goroutine执行完成</p>
+<blockquote>
+<p>Add:添加或者减少等待goroutine的数量</p>
+</blockquote>
+<blockquote>
+<p>Done:相当于Add(-1)</p>
+</blockquote>
+<blockquote>
+<p>Wait:执行阻塞，直到所有的WaitGroup数量变成0</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<p>​</p>
+<pre><code>func main() {
+    wg := sync.WaitGroup{}
+
+    for i := 0; i &lt; 10; i++ {
+        wg.Add(1)
+        go calc(&amp;wg, i)
+    }
+
+    wg.Wait()
+    fmt.Println(&quot;all goroutine finish&quot;)
+}
+func calc(w *sync.WaitGroup, i int) {
+
+    fmt.Println(&quot;calc:&quot;, i)
+    time.Sleep(time.Second)
+    w.Done()
+}
+</code></pre><ol start="5">
+<li>
+<p>Context</p>
+<p>Context包，专门用来简化对于处理单个请求的多个goroutine之间与请求域的数据，取消信号，截止时间等相关操作</p>
+<pre><code>1. 不要将 Context 放入结构体，Context应该作为第一个参数传
+   入，命名为ctx。
+2. 相同的 Context 可以传递给在不同的goroutine；Context 是
+   并发安全的
+</code></pre><pre><code>var key string = &quot;name&quot;
+   
+func main() {
+	ctx, cancel := context.WithCancel(context.Background())
+	//附加值
+	valueCtx := context.WithValue(ctx, key, &quot;【监控1】&quot;)
+	go watch(valueCtx)
+	time.Sleep(10 * time.Second)
+	fmt.Println(&quot;可以了，通知监控停止&quot;)
+	cancel()
+	//为了检测监控过是否停止，如果没有监控输出，就表示停止了
+	time.Sleep(5 * time.Second)
+}
+func watch(ctx context.Context) {
+	for {
+     select {
+     case &lt;-ctx.Done():
+         //取出值
+         fmt.Println(ctx.Value(key), &quot;监控退出，停止了...&quot;)
+         return
+     default:
+         //取出值
+         fmt.Println(ctx.Value(key), &quot;goroutine监控中...&quot;)
+         time.Sleep(2 * time.Second)
+     }
+	}
+}
+//监控1】 goroutine监控中...
+【监控1】 goroutine监控中...
+【监控1】 goroutine监控中...
+【监控1】 goroutine监控中...
+【监控1】 goroutine监控中...
+可以了，通知监控停止
+【监控1】 监控退出，停止了...
+</code></pre><pre><code>func main() {
+	d := time.Now().Add(4 * time.Second)
+	// d := time.Now().Add(2 * time.Second)
+   
+	ctx, cancel := context.WithDeadline(context.Background(), d)
+   
+	defer cancel()
+   
+	select {
+	case &lt;-time.After(3 * time.Second):
+     fmt.Println(&quot;overslept&quot;)
+	case &lt;-ctx.Done():
+     fmt.Println(ctx.Err())
+	}
+   
+}
+//overslept
+</code></pre></li>
+</ol>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%933/" data-toggle="tooltip" data-placement="top" title="Go小结3">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%935/" data-toggle="tooltip" data-placement="top" title="Go小结5">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/go%E5%B0%8F%E7%BB%933/">Go小结3</a></li>
+                    
+                    <li><a href="/posts/go%E5%B0%8F%E7%BB%932/">Go小结2</a></li>
+                    
+                    <li><a href="/posts/go%E5%B0%8F%E7%BB%931/">Go小结1</a></li>
+                    
+                    <li><a href="/posts/%E6%9B%B4%E6%94%B9gvm%E9%BB%98%E8%AE%A4gopath/">更改gvm默认GoPATH</a></li>
+                    
+                    <li><a href="/posts/ssh%E4%B8%8D%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80/">Ssh不自动断开</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

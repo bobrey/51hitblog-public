@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> android开发 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="android开发" />
+  <meta name="twitter:title" content="android开发" />
+  <meta name="description" content="Retrofit http://www.jianshu.com/p/87c36d8dabce https://bng86.gitbooks.io/android-third-party-/content/retrofit.html https://github.com/bboyfeiyu/android-tech-frontier/tree/master/issue-7/Retrofit%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97 http://malinkang.com/AndroidNote/net/retrofit.html http://blog.chengyunfeng.com/?p=491 Picasso Square公司开源的一个Android图形缓存库,可以实现图片下载和缓存功能 http://malinkang.com/AndroidNote/net/picasso.html http://xiazdong.me/2014/10/03/picasso-tutorial/ Otto Otto 是Android系统的一个Event Bu">
+  <meta property="og:description" content="Retrofit http://www.jianshu.com/p/87c36d8dabce https://bng86.gitbooks.io/android-third-party-/content/retrofit.html https://github.com/bboyfeiyu/android-tech-frontier/tree/master/issue-7/Retrofit%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97 http://malinkang.com/AndroidNote/net/retrofit.html http://blog.chengyunfeng.com/?p=491 Picasso Square公司开源的一个Android图形缓存库,可以实现图片下载和缓存功能 http://malinkang.com/AndroidNote/net/picasso.html http://xiazdong.me/2014/10/03/picasso-tutorial/ Otto Otto 是Android系统的一个Event Bu">
+  <meta name="twitter:description" content="Retrofit http://www.jianshu.com/p/87c36d8dabce https://bng86.gitbooks.io/android-third-party-/content/retrofit.html …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2015-11-03-android%E5%BC%80%E5%8F%91/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2015-11-03-android%E5%BC%80%E5%8F%91/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">android开发</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Nov 3, 2015</h4>
+    </section>
+    <h5 id="wc">900 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/android/">Android</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/android%E5%BC%80%E5%8F%91/">android开发</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p> </p>
+<p>Retrofit</p>
+<p><a href="http://www.jianshu.com/p/87c36d8dabce">http://www.jianshu.com/p/87c36d8dabce</a></p>
+<p><a href="https://bng86.gitbooks.io/android-third-party-/content/retrofit.html">https://bng86.gitbooks.io/android-third-party-/content/retrofit.html</a></p>
+<p><a href="https://github.com/bboyfeiyu/android-tech-frontier/tree/master/issue-7/Retrofit%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97">https://github.com/bboyfeiyu/android-tech-frontier/tree/master/issue-7/Retrofit%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97</a></p>
+<p><a href="http://malinkang.com/AndroidNote/net/retrofit.html">http://malinkang.com/AndroidNote/net/retrofit.html</a></p>
+<p><a href="http://blog.chengyunfeng.com/?p=491">http://blog.chengyunfeng.com/?p=491</a></p>
+<p> </p>
+<p>Picasso</p>
+<p>Square公司开源的一个Android图形缓存库,可以实现图片下载和缓存功能</p>
+<p><a href="http://malinkang.com/AndroidNote/net/picasso.html">http://malinkang.com/AndroidNote/net/picasso.html</a></p>
+<p><a href="http://xiazdong.me/2014/10/03/picasso-tutorial/">http://xiazdong.me/2014/10/03/picasso-tutorial/</a></p>
+<p> </p>
+<p>Otto</p>
+<p>Otto 是Android系统的一个Event Bus模式类库。用来简化应用组件间的通信。</p>
+<p><a href="http://blog.chengyunfeng.com/?p=450">http://blog.chengyunfeng.com/?p=450</a></p>
+<p><a href="http://frodoking.github.io/2015/03/30/android-eventbus-otto-analysis/">http://frodoking.github.io/2015/03/30/android-eventbus-otto-analysis/</a></p>
+<p>android-common</p>
+<p>缓存(图片缓存、预取缓存、网络缓存)、公共View(下拉及底部加载更多ListView、底部加载更多ScrollView、滑动一页Gallery)</p>
+<p>及Android常用工具类(网络、下载、Android资源操作、shell、文件、Json、随机数、Collection等等)。</p>
+<p>Android常用工具类</p>
+<p>HttpUtils、DownloadManagerPro、ShellUtils、PackageUtils、PreferencesUtils、JSONUtils、FileUtils、ResourceUtils、StringUtils、</p>
+<p>ParcelUtils、RandomUtils、ArrayUtils、ImageUtils、ListUtils、MapUtils、ObjectUtils、SerializeUtils、SystemUtils、TimeUtils。</p>
+<p>AndroidAnnotations</p>
+<p>Android注解支持</p>
+<p><a href="http://www.trinea.cn/android/java-annotation-android-open-source-analysis/">http://www.trinea.cn/android/java-annotation-android-open-source-analysis/</a></p>
+<p><a href="http://blog.csdn.net/ljphhj/article/details/37601173">http://blog.csdn.net/ljphhj/article/details/37601173</a></p>
+<p><a href="http://www.cnblogs.com/Lileltp/p/Config_AndroidAnnotations.html">http://www.cnblogs.com/Lileltp/p/Config_AndroidAnnotations.html</a></p>
+<p><a href="http://blog.etongwl.com/archives/956.html">http://blog.etongwl.com/archives/956.html</a></p>
+<p> </p>
+<p>======================================================================================================================================================</p>
+<p>Android 开发最佳实践</p>
+<p>使用 Fragments来呈现UI视图</p>
+<p>使用 Activities 只是为了管理 Fragments</p>
+<p>网络请求，缓存，图片 执行请求后端服务器</p>
+<p>若果你选择使用Retrofit,那么考虑使用Picasso 来加载图片和缓存，同时使用OkHttp作为高效的网络请求。</p>
+<p>ProGuard 是一个在Android项目中广泛使用的压缩和混淆打包的源码的工具。</p>
+<p>com.futurice.project</p>
+<p>├─ network</p>
+<p>├─ models</p>
+<p>├─ managers</p>
+<p>├─ utils</p>
+<p>├─ fragments</p>
+<p>└─ views</p>
+<p>├─ adapters</p>
+<p>├─ actionbar</p>
+<p>├─ widgets</p>
+<p>└─ notifications</p>
+<p> </p>
+<p>xUtils</p>
+<p>ViewUtils android中得ioc（控制反转）框架，可以完全使用注解的方式来完成UI的绑定和事件绑定</p>
+<p>DbUtils简单易用又出色的ORM框架</p>
+<p> </p>
+<p>smartAndroid</p>
+<p>基于Android的强劲框架 <a href="http://www.aplesson.com/smartAndroid/demos/">http://www.aplesson.com/smartAndroid/demos/</a></p>
+<p>Activity &amp;基础类</p>
+<p>非空验证 &amp;解压缩类</p>
+<p>网络相关&amp;采集解析</p>
+<p>强劲动画特效&amp;映射反射</p>
+<p> </p>
+<pre><code>
+&amp;nbsp;
+
+&amp;nbsp;</code></pre>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2015-10-30-ios%E5%8A%A8%E7%94%BB-coreanimation/" data-toggle="tooltip" data-placement="top" title="iOS动画——CoreAnimation">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2015-11-04-vim%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/" data-toggle="tooltip" data-placement="top" title="vim环境下载">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2014-09-27-android%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E8%BD%AF%E4%BB%B6/">android全局代理软件</a></li>
+                    
+                    <li><a href="/posts/2014-04-25-android%E6%A8%A1%E6%8B%9F%E5%99%A8genymotion/">android模拟器Genymotion</a></li>
+                    
+                    <li><a href="/posts/2014-01-14-android%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%9C%B0%E5%9B%BE%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/">android定位和地图开发实例</a></li>
+                    
+                    <li><a href="/posts/2014-01-14-android-%E6%89%8B%E6%9C%BA%E5%AE%9A%E4%BD%8D%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Android 手机定位慢的解决方法</a></li>
+                    
+                    <li><a href="/posts/2013-12-09-android-something/">android -something</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Nov 3, 2015</h4>
+    </section>
+    <h5 id="wc">900 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/android/">Android</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/android%E5%BC%80%E5%8F%91/">android开发</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

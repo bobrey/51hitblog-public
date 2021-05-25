@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> XCode下的iOS单元测试 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="XCode下的iOS单元测试" />
+  <meta name="twitter:title" content="XCode下的iOS单元测试" />
+  <meta name="description" content="XCode下的iOS单元测试 [XCode 内置的OCUnit单元测试框架；但目前最好用的测试框架应该是GHUnit。 通过GHUnit&#43;OCMock组合，">
+  <meta property="og:description" content="XCode下的iOS单元测试 [XCode 内置的OCUnit单元测试框架；但目前最好用的测试框架应该是GHUnit。 通过GHUnit&#43;OCMock组合，">
+  <meta name="twitter:description" content="XCode下的iOS单元测试 [XCode 内置的OCUnit单元测试框架；但目前最好用的测试框架应该是GHUnit。 通过GHUnit&#43;OCMock组合，">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-05-18-xcode%E4%B8%8B%E7%9A%84ios%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-05-18-xcode%E4%B8%8B%E7%9A%84ios%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">XCode下的iOS单元测试</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri May 18, 2012</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>XCode下的iOS单元测试</p>
+<p>[XCode 内置的OCUnit单元测试框架；但目前最好用的测试框架应该是GHUnit。</p>
+<p>通过GHUnit+OCMock组合，我们可以在ios进行较强大的单元测试功能]</p>
+<p>OCUnit</p>
+<p>GHUnit</p>
+<p>OCMock</p>
+<p><a href="http://www.cocoachina.com/newbie/env/2012/0516/4257_2.html">http://www.cocoachina.com/newbie/env/2012/0516/4257_2.html</a></p>
+<p>————————————————————————–</p>
+<p>google的google-toolbox-for-mac工具在test unit上做了一层封装，</p>
+<p>可以简单、快速的完成脚本编写，提供完善的测试日志和报告，并提供部分</p>
+<p>简单的UI测试功能。</p>
+<p>————————————————————————-</p>
+<p>UI测试</p>
+<p>1&gt;注入式UI测试工具。优点是可以覆盖比较全的应用功能，缺点因为在源代码</p>
+<p>加入了必须的测试代码，而发布需要去除，有些混乱。</p>
+<p>（1）UISpec,提供了用例运行前的准备和运行的恢复功能，</p>
+<p>（2）UIQuery功能，以及较为完善的校验功能，但该工具的使用比较复杂，</p>
+<p>脚本的编写也很繁琐，虽然对UI可以query，但无法方便、清晰、直观的</p>
+<p>查看应用控件的属性。</p>
+<p>(3)Bromine,脚本编写简单，对控件的操作，完全模拟touch事件实现，</p>
+<p>但控件的定位通过对控件重画，并插入定位需要的信息，</p>
+<p>xpath的描述串也稍显复杂，校验功能相对较弱。</p>
+<p><a href="http://code.google.com/p/uispec/wiki/Documentation">http://code.google.com/p/uispec/wiki/Documentation</a></p>
+<p><a href="http://code.google.com/p/bromine/">http://code.google.com/p/bromine/</a></p>
+<p>2&gt;录放式UI测试工具。主要通过录放用户的操作行为，通过回放来完成</p>
+<p>对被测应用的功能测试，这类工具对UI的功能测试相对是比较弱的。</p>
+<p>(1)Instrument，是ios提供的主要用于分析应用的性能和用户行为的工具</p>
+<p>利用它可以完成对被测应用的简单的UI测试。</p>
+<p>(2)FoneMonke，是国外提供的一个开源的，免费的录放回放工具。</p>
+<p><a href="http://www.gorillalogic.com/fonemonkey">http://www.gorillalogic.com/fonemonkey</a></p>
+<p>3&gt;iOS4的UI Automation.用JavaScript驱动在应用上模拟用户行为，</p>
+<p>由Instruments的Automation工具执行.</p>
+<p><a href="http://disanji.net/2010/12/04/iphoneui">http://disanji.net/2010/12/04/iphoneui</a>_automation_testing-aspx/</p>
+<p><a href="http://alexvollmer.com/posts/2010/07/03/working-with-uiautomation/">http://alexvollmer.com/posts/2010/07/03/working-with-uiautomation/</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-05-18-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84ios%E7%9A%84%E6%BB%9A%E8%BD%AE%E9%80%89%E6%8B%A9%E5%99%A8%E9%99%84%E5%B8%A6%E5%86%9C%E5%8E%86%E9%80%89%E6%8B%A9%E5%99%A8%E5%AE%9E%E7%8E%B0/" data-toggle="tooltip" data-placement="top" title="自定义的iOS的滚轮选择器，附带农历选择器实现">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-05-28-android-canvas%E7%9A%84save-restore-translate-rotate%E7%94%A8%E6%B3%95%E4%BB%8B%E7%BB%8D/" data-toggle="tooltip" data-placement="top" title="Android canvas的save restore translate rotate用法介绍">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri May 18, 2012</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

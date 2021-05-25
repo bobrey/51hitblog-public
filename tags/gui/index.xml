@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GUI on IT技术分享</title>
+    <link>https://www.51hint.com/tags/gui/</link>
+    <description>Recent content in GUI on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Sep 2012 07:54:41 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/gui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GUI,CLI,TUI</title>
+      <link>https://www.51hint.com/posts/2012-09-01-guiclitui/</link>
+      <pubDate>Sat, 01 Sep 2012 07:54:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-09-01-guiclitui/</guid>
+      <description>CLI – Typing commands and editing files manually, fun, thought-provoking and often leads to troubleshooting TUI – Characterized by the /sbin/yast text-based UI, often using the NCurses library, it’s a text version of a GUI, as it were, and YaST in the TUI mode matches screen for screen with the GUI mode GUI – Characterized by the /sbin/yast2 X11 GUI interface, it’s run in</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tig on IT技术分享</title>
+    <link>https://www.51hint.com/tags/tig/</link>
+    <description>Recent content in tig on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Aug 2015 00:14:40 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/tig/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ios开发环境</title>
+      <link>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Thu, 20 Aug 2015 00:14:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git_vim_5 [tig]</title>
+      <link>https://www.51hint.com/posts/2012-12-20-vim_5-tig/</link>
+      <pubDate>Thu, 20 Dec 2012 09:59:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-vim_5-tig/</guid>
+      <description>tig text-mode interface for git ubuntu install tig #apt-get install tig mac install tig #brew install tig #brew install git-flow #brew install git-extras #brew install wget #brew install curl #brew install autojump {jumpstat j au} #brew install tree diff gui界面 #gitk 查看谁修改的文件 #git blame filename #tig blame filename 特定文件修改历史 #tig filename 查</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rva on IT技术分享</title>
+    <link>https://www.51hint.com/tags/rva/</link>
+    <description>Recent content in rva on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Aug 2016 07:58:53 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/rva/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RVA to file offset</title>
+      <link>https://www.51hint.com/posts/2016-08-02-rva-to-file-offset/</link>
+      <pubDate>Tue, 02 Aug 2016 07:58:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-08-02-rva-to-file-offset/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

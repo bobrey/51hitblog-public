@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第四章：基本页面的创建 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第四章：基本页面的创建" />
+  <meta name="twitter:title" content="第四章：基本页面的创建" />
+  <meta name="description" content="&lt;span en=&ldquo;Curiously, the first tutorial that programmers follow when learning a new language or a framework is the one that displays &ldquo;Hello, world!&rdquo; on the screen.&quot;&gt;很奇怪，每次学习新语言或者框架的第一个例子都是在屏幕上显">
+  <meta property="og:description" content="&lt;span en=&ldquo;Curiously, the first tutorial that programmers follow when learning a new language or a framework is the one that displays &ldquo;Hello, world!&rdquo; on the screen.&quot;&gt;很奇怪，每次学习新语言或者框架的第一个例子都是在屏幕上显">
+  <meta name="twitter:description" content="&lt;span en=&ldquo;Curiously, the first tutorial that programmers follow when learning a new language or a framework is the one that displays &ldquo;Hello, world!&rdquo; on the screen.&quot;&gt;很奇怪，每次 …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9F%BA%E6%9C%AC%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%88%9B%E5%BB%BA/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9F%BA%E6%9C%AC%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%88%9B%E5%BB%BA/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第四章：基本页面的创建</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">2100 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_04_creating_a_module_skeleton"><a href="forum.php?mod=viewthread&amp;tid=26&amp;extra=page%3D1#"><!-- raw HTML omitted -->4.1 建立模块框架<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_04_adding_a_page"><a href="forum.php?mod=viewthread&amp;tid=26&amp;extra=page%3D1#"><!-- raw HTML omitted -->4.2 增加一个页面<!-- raw HTML omitted --></a></a>
+      <ul>
+        <li><a href="#chapter_04_sub_adding_an_action"><a href="forum.php?mod=viewthread&amp;tid=26&amp;extra=page%3D1#"><!-- raw HTML omitted -->4.2.1 增加一个行为<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_04_sub_adding_a_template"><a href="forum.php?mod=viewthread&amp;tid=26&amp;extra=page%3D1#"><!-- raw HTML omitted -->4.2.2 增加一个模板<!-- raw HTML omitted --></a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Curiously, the first tutorial that programmers follow when learning a new language or a framework is the one that displays &ldquo;Hello, world!&rdquo; on the screen.&quot;&gt;很奇怪，每次学习新语言或者框架的第一个例子都是在屏幕上显示“Hello, world!”。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->目前为止所有利用人工智能来实现交谈的尝试的结果都很差，所以电脑能问候整个世界这种想法实在有些古怪。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->但是symfony并不比其他程序笨，证据是，你可以用symfony创建一个说“Hello, &lt;你的名字&gt;”的页面。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->本章会告诉你如何创建一个模块，也就是一组页面的集合体。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->你还将了解到如何建立一个页面，由于MVC，页面由一个行为和一个模板构成。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->链接和表单是web交互的基础，你将在这一章了解如何在模板里增加他们，如何用行为处理他们。<!-- raw HTML omitted --></p>
+<h2 id="chapter_04_creating_a_module_skeleton"><a href="forum.php?mod=viewthread&amp;tid=26&amp;extra=page%3D1#"><!-- raw HTML omitted -->4.1 建立模块框架<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->在第二章中我们介绍过，symfony把页面组织成模块。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->建立页面之前，你必须先建立一个模块，也就是一个symfony能识别的目录结构的一个空壳。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->symfony命令行工具能自动建立模块。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;You just need to call the <code>generate:module</code> task with the application name and the module name as arguments.”&gt;你只需要用symfony命令行工具执行 <code>generate:module</code> 任务并传应用名与模块名这两个参数给它就可以了。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;In the previous chapter, you created a <code>frontend</code> application.”&gt;在前一章里，你建立了 <code>frontend</code> 应用。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;To add a <code>content</code> module to this application, type the following commands:”&gt;如果要在这个应用里增加一个 <code>content</code> 模块，只需要在命令行下输入下面的命令：<!-- raw HTML omitted --></p>
+<pre><code>$ cd ~/myproject
+$ php symfony generate:module frontend content
+
+&gt;&gt; dir+      ~/myproject/apps/frontend/modules/content/actions
+&gt;&gt; file+     ~/myproject/apps/frontend/modules/content/actions/actions.class.php
+&gt;&gt; dir+      ~/myproject/apps/frontend/modules/content/templates
+&gt;&gt; file+     ~/myproject/apps/frontend/modules/content/templates/indexSuccess.php
+&gt;&gt; file+     ~/myproject/test/functional/frontend/contentActionsTest.php
+&gt;&gt; tokens    ~/myproject/test/functional/frontend/contentActionsTest.php
+&gt;&gt; tokens    ~/myproject/apps/frontend/modules/content/actions/actions.class.php
+&gt;&gt; tokens    ~/myproject/apps/frontend/modules/content/templates/indexSuccess.php
+</code></pre>
+<p>&lt;span en=&ldquo;Apart from the <code>actions/</code>, and <code>templates/</code> directories, this command created only three files.”&gt;除了 <code>actions/</code>，<code>templates/</code> 目录，这条命令只建立了三个文件。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The one in the <code>test/</code> folder concerns functional tests, and you don’t need to bother with it until Chapter 15.”&gt;<code>test/</code> 目录里的文件与单元测试有关，在第15章之前你都不用管它。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>actions.class.php</code> (shown in Listing 4-1) forwards to the default module congratulation page.”&gt;<code>actions.class.php</code>（见例4-1）做了一个到默认模块的成功页面的跳转。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>templates/indexSuccess.php</code> file is empty.”&gt;<code>templates/indexSuccess.php</code> 文件是空的。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;For each new module, symfony creates a default <code>index</code> action.”&gt;symfony为每一个新模块建立一个 <code>index</code> 行为。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;It is composed of an action method called <code>executeIndex</code> and a template file called <code>indexSuccess.php</code>.”&gt;它是由一个 <code>execueIndex</code> 的方法与一个叫 <code>indexSuccess.php</code> 的模板组成的。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The meanings of the <code>execute</code> prefix and <code>Success</code> suffix will be explained in Chapters 6 and 7, respectively.”&gt;<code>execute</code> 前缀与 <code>Success</code> 后缀的含义会在第6章与第7章中分别解释。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->现在你可以认为这是一种命名习惯。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在浏览器中输入下面的网址就可以看到这个页面（图4-1）：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;The default <code>index</code> action will not be used in this chapter, so you can remove the <code>executeIndex()</code> method from the <code>actions.class.php</code> file, and delete the indexSuccess.php file from the <code>templates/</code> directory.”&gt;本章不会用到这个默认的 <code>index</code> 行为，所以你可以把 <code>executeIndex()</code> 方法从 <code>actions.clas.php</code> 文件中去掉，并把 <code>indexSuccess.php</code> 文件从 <code>templates/</code> 目录中删除。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="res/F0401.jpg" alt="默认生成的index页面"></p>
+<h2 id="chapter_04_adding_a_page"><a href="forum.php?mod=viewthread&amp;tid=26&amp;extra=page%3D1#"><!-- raw HTML omitted -->4.2 增加一个页面<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->symfony里面，页面背后的逻辑放在行为里面，表现放在模板里。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->不需要逻辑的页面也需要一个空的行为。<!-- raw HTML omitted --></p>
+<h3 id="chapter_04_sub_adding_an_action"><a href="forum.php?mod=viewthread&amp;tid=26&amp;extra=page%3D1#"><!-- raw HTML omitted -->4.2.1 增加一个行为<!-- raw HTML omitted --></a></h3>
+<p>&lt;span en=&ldquo;The &ldquo;Hello, world!&rdquo; page will be accessible through a <code>show</code> action.”&gt;我们需要一个通过 <code>show</code> 行为来访问“Hello, world!”的页面。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;To create it, just add an <code>executeShow</code> method to the <code>contentActions</code> class, as shown in Listing 4-2.”&gt;要建立这个页面，只要在 <code>contentActions</code> 类里面增加一个 <code>executeShow</code> 方法，如例4-2。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;?php
+
+class contentActions extends sfActions
+{
+  public function executeShow()
+  {
+  }
+}
+</code></pre>
+<p>&lt;span en=&ldquo;The name of the action method is always <code>executeXxx()</code>, where the second part of the name is the action name with the first letter capitalized.”&gt;行为方法的名字永远是 <code>executeXxx()</code>，方法名字的第二部分的第一个字母总是大写。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->现在，如果你访问下面的网址：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;symfony will complain that the <code>showSuccess.php</code> template is missing.”&gt;Symfony会提示缺少 <code>showSuccess.php</code> 模板，这是正常的；在symfony里，一个页面永远是有一个行为与一个模板组成的。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_04_sub_adding_a_template"><a href="forum.php?mod=viewthread&amp;tid=26&amp;extra=page%3D1#"><!-- raw HTML omitted -->4.2.2 增加一个模板<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->行为需要一个模板来表现自己。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;A template is a file located in the <code>templates/</code> directory of a module, named by the action and the action termination.”&gt;模板是模块的 <code>templates/</code> 目录里的一个文件，模板名字由行为名与行为终止组成。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The default action termination is a &ldquo;success,&rdquo; so the template file to be created for the <code>show</code> action is to be called <code>showSuccess.php</code>.”&gt;默认的行为终止是“success”也就是成功，所以 <code>show</code> 行为的模板名是 <code>showSuccess.php</code>。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->理想的模板只包含显示代码，所以PHP代码越少越好。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->显示“Hello, world!”的页面的模板可以如同例4-3中的那么简单。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->如果需要在模板里执行一些PHP代码，你应该避免使用通常的PHP语法（如例4-4）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->相反，你应该在模板里面使用特殊的PHP语法，如例4-5所示，这样不是PHP程序员的人也能理解。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这样不仅最终生成的代码的缩进格式正确，而且可以让你把复杂的代码放在行为里面，因为只有控制语句（<!-- raw HTML omitted -->if<!-- raw HTML omitted -->, <!-- raw HTML omitted -->foreach<!-- raw HTML omitted -->, <!-- raw HTML omitted -->while<!-- raw HTML omitted --> 等）有特殊语法。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>###<!-- raw HTML omitted -->4.2.3 从行为传递信息给模板<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AD%E7%AB%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B1%82/" data-toggle="tooltip" data-placement="top" title="第六章：深入了解控制器层">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-3-%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" data-toggle="tooltip" data-placement="top" title="3 第十六章：应用管理工具">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">2100 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

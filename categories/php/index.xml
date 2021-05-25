@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>php on IT技术分享</title>
+    <link>https://www.51hint.com/categories/php/</link>
+    <description>Recent content in php on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Feb 2017 19:46:47 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/php/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Laravel Homestead</title>
+      <link>https://www.51hint.com/posts/laravel-homestead/</link>
+      <pubDate>Fri, 17 Feb 2017 19:46:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/laravel-homestead/</guid>
+      <description>Laravel strives to make the entire PHP development experience delightful, including your local development environment. Vagrant provides a simple, elegant way to manage and provision Virtual Machines. Homestead runs on any Windows, Mac, or Linux system, and includes the Nginx web server, PHP 7.1, MySQL, Postgres, Redis, Memcached, Node, and all of the other goodies you need to develop amazing Laravel applications. 包含的软件 Ubuntu 16.04 Git</description>
+    </item>
+    
+    <item>
+      <title>lumen</title>
+      <link>https://www.51hint.com/posts/lumen/</link>
+      <pubDate>Thu, 16 Feb 2017 20:28:18 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/lumen/</guid>
+      <description>Lumen The micro framework for build REST API, it&amp;rsquo;s very smart and very easy to use.
+Configuration  composer create-project laravel/lumen --prefer-dist edit app.php  Dotenv::load(__DIR__.&#39;/../&#39;); $app-&amp;gt;withFacades(); $app-&amp;gt;withEloquent(); rename .env.example to .env  APP_ENV=local APP_DEBUG=true APP_KEY=SomeRandomKey!!! APP_LOCALE=en APP_FALLBACK_LOCALE=en DB_CONNECTION=mysql DB_HOST=localhost:3306 DB_DATABASE=tutorial1 DB_USERNAME=tutorial1 DB_PASSWORD=tutorial1 CACHE_DRIVER=memcached SESSION_DRIVER=memcached QUEUE_DRIVER=database Model    artisan make:migration create_articles_table --create=articles
+  create migration file
+&amp;lt;?php use Illuminate\Database\Schema\Blueprint; use Illuminate\Database\Migrations\Migration; class CreateArticlesTable extends Migration { /** * Run the migrations.</description>
+    </item>
+    
+    <item>
+      <title>cakephp 发送邮件</title>
+      <link>https://www.51hint.com/posts/2015-08-18-cakephp-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Mon, 17 Aug 2015 15:53:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-18-cakephp-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu php_mail 发送电子邮件</title>
+      <link>https://www.51hint.com/posts/2015-08-17-ubuntu-php_mail-%E5%8F%91%E9%80%81%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Mon, 17 Aug 2015 06:54:36 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-17-ubuntu-php_mail-%E5%8F%91%E9%80%81%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>brew php-threads</title>
+      <link>https://www.51hint.com/posts/2015-06-15-brew-php-threads/</link>
+      <pubDate>Sun, 14 Jun 2015 15:28:03 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-06-15-brew-php-threads/</guid>
+      <description>echo insecure &amp;raquo; ~/.curlrc
+brew install php55 –with-thread-safety –without-snmp –with-imap
+brew install php55-pthreads –without-snmp
+brew install php55-mcrypt
+brew install php55-xdebug</description>
+    </item>
+    
+    <item>
+      <title>xdedug</title>
+      <link>https://www.51hint.com/posts/2014-11-20-xdedug/</link>
+      <pubDate>Thu, 20 Nov 2014 09:43:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-11-20-xdedug/</guid>
+      <description>#php -i
+  copy it to http://xdebug.org/wizard.php
+  download http://code.activestate.com/komodo/remotedebugging/
+Run: cp modules/xdebug.so /usr/lib/php/modules
+  vim /et/php.ini
+[XDebug]
+zend_extension = /usr/lib/php/modules/xdebug.so
+xdebug.remote_enable = On
+xdebug.idekey=”PHPSTORM”
+xdebug.remote_autostart = 1
+xdebug.remote_connect_back = 1
+xdebug.remote_handler = “dbgp”
+xdebug.remote_host = “127.0.0.1”
+xdebug.remote_port=9000
+xdebug.profiler_enable=On</description>
+    </item>
+    
+    <item>
+      <title>wordpress更改IP</title>
+      <link>https://www.51hint.com/posts/2014-07-28-wordpress%E6%9B%B4%E6%94%B9ip/</link>
+      <pubDate>Mon, 28 Jul 2014 09:04:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-28-wordpress%E6%9B%B4%E6%94%B9ip/</guid>
+      <description>修改wp-config.php define(&#39;WP_SITEURL&#39;, &#39;http://新的網址&#39;); define(&#39;WP_HOME&#39;, &#39;http://新的網址&#39;); UPDATE wp_options SET option_value = REPLACE(option_val</description>
+    </item>
+    
+    <item>
+      <title>cakephp 必须掌握的技巧</title>
+      <link>https://www.51hint.com/posts/2014-07-12-cakephp-%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Sat, 12 Jul 2014 08:11:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-12-cakephp-%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%8A%80%E5%B7%A7/</guid>
+      <description>&amp;lt;td class=&amp;quot;code&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;line number1 index0 alt2&amp;quot;&amp;gt; &amp;lt;code class=&amp;quot;php variable&amp;quot; style=&amp;quot;color: #aa7700 !important;&amp;quot;&amp;gt;$this&amp;lt;/code&amp;gt;&amp;lt;code class=&amp;quot;php plain&amp;quot;&amp;gt;-&amp;amp;gt;pageTitle = &amp;lt;/code&amp;gt;&amp;lt;code class=&amp;quot;php string&amp;quot; style=&amp;quot;color: blue !important;&amp;quot;&amp;gt;&#39;Title of your page.&#39;&amp;lt;/code&amp;gt;&amp;lt;code class=&amp;quot;php plain&amp;quot;&amp;gt;;&amp;lt;/code&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;td class=&amp;quot;code&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;line number1 index0 alt2&amp;quot;&amp;gt; &amp;lt;code class=&amp;quot;php variable&amp;quot; style=&amp;quot;color: #aa7700 !important;&amp;quot;&amp;gt;$this&amp;lt;/code&amp;gt;&amp;lt;code class=&amp;quot;php plain&amp;quot;&amp;gt;-&amp;amp;gt;_viewVars[&amp;lt;/code&amp;gt;&amp;lt;code class=&amp;quot;php string&amp;quot; style=&amp;quot;color: blue !important;&amp;quot;&amp;gt;&#39;somedata&#39;&amp;lt;/code&amp;gt;&amp;lt;code class=&amp;quot;php plain&amp;quot;&amp;gt;] = &amp;lt;/code&amp;gt;&amp;lt;code class=&amp;quot;php keyword&amp;quot; style=&amp;quot;font-weight: bold !important; color: #006699 !important;&amp;quot;&amp;gt;array&amp;lt;/code&amp;gt;&amp;lt;code class=&amp;quot;php plain&amp;quot;&amp;gt;(&amp;lt;/code&amp;gt;&amp;lt;code</description>
+    </item>
+    
+    <item>
+      <title>php show image,picture</title>
+      <link>https://www.51hint.com/posts/2014-07-08-php-show-imagepicture/</link>
+      <pubDate>Tue, 08 Jul 2014 04:37:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-08-php-show-imagepicture/</guid>
+      <description>} public function img2data(){ $this-&amp;gt;_imgfrom($this-&amp;gt;imgsrc); return $this-&amp;gt;imgdata=fread(fopen($this-&amp;gt;imgsrc,’rb’),filesize($t</description>
+    </item>
+    
+    <item>
+      <title>Get Client IP Using jQuery</title>
+      <link>https://www.51hint.com/posts/2014-06-02-get-client-ip-using-jquery/</link>
+      <pubDate>Mon, 02 Jun 2014 01:36:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-02-get-client-ip-using-jquery/</guid>
+      <description>1. One way This one gives you longitude/latitude and timezone.
+Try it! &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;$(document).ready( &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;function&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;() { $.getJSON( &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;&amp;quot;&amp;amp;lt;a href=&amp;quot;http://smart-ip.net/geoip-json?callback=?&amp;quot;&amp;gt;http://smart-ip.net/geoip-json?callback=?&amp;amp;lt;/a&amp;gt;&amp;quot;&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;, &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;function&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;(data){ alert( data.host); } );});&amp;lt;/code&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/table&amp;gt;  Returns:
+ &amp;lt;div&amp;gt; 2 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 3 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 4 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 5 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 6 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 7 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 8 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 9 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 10 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 11 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 12 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 13 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 14 &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;?</description>
+    </item>
+    
+    <item>
+      <title>配置Phpstorm与xampp, xdebug</title>
+      <link>https://www.51hint.com/posts/2014-06-02-%E9%85%8D%E7%BD%AEphpstorm%E4%B8%8Exampp-xdebug/</link>
+      <pubDate>Mon, 02 Jun 2014 01:12:44 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-02-%E9%85%8D%E7%BD%AEphpstorm%E4%B8%8Exampp-xdebug/</guid>
+      <description>&amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;ol start=&amp;quot;1&amp;quot;&amp;gt; &amp;lt;li&amp;gt; [XDebug] &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; zend_extension=&amp;amp;#8221;/opt/lampp/lib/php/extensions/xdebug.so&amp;amp;#8221; &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.remote_enable=true &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.remote_host=127.0.0.1 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.remote_port=9000 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.remote_handler=dbgp &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.profiler_enable=1 &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; xdebug.profiler_output_dir=&amp;amp;#8221;/opt/lampp/tmp&amp;amp;#8221; &amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>phpmyadmin max upload file size</title>
+      <link>https://www.51hint.com/posts/2014-01-27-phpmyadmin-max-upload-file-size/</link>
+      <pubDate>Mon, 27 Jan 2014 04:42:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-27-phpmyadmin-max-upload-file-size/</guid>
+      <description>memory_limit = 512M
+post_max_size = 80M
+upload_max_filesize = 200M</description>
+    </item>
+    
+    <item>
+      <title>bug跟踪系统</title>
+      <link>https://www.51hint.com/posts/2014-01-16-bug%E8%B7%9F%E8%B8%AA%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Thu, 16 Jan 2014 08:29:08 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-16-bug%E8%B7%9F%E8%B8%AA%E7%B3%BB%E7%BB%9F/</guid>
+      <description>Redmine 管理多项目极力推荐 JIRA 收费 YouTrack 简洁需要和intellj Idea配合发挥 Trac 简单好入门</description>
+    </item>
+    
+    <item>
+      <title>对于CallBack的简单阐述</title>
+      <link>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</link>
+      <pubDate>Wed, 30 Oct 2013 06:00:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</guid>
+      <description>一哥们被callback整得晕晕乎乎，解释了半天好像还是不太懂就整理一个微型例子。 逻辑页面处理，调用接口的方法 //一些调用UI页面啥之类的，</description>
+    </item>
+    
+    <item>
+      <title>mangoto 学习的一些资料</title>
+      <link>https://www.51hint.com/posts/2013-08-15-mangoto-%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%80%E4%BA%9B%E8%B5%84%E6%96%99/</link>
+      <pubDate>Thu, 15 Aug 2013 10:10:26 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-08-15-mangoto-%E5%AD%A6%E4%B9%A0%E7%9A%84%E4%B8%80%E4%BA%9B%E8%B5%84%E6%96%99/</guid>
+      <description>Magento Test Automation Framework http://www.slideshare.net/amakata/magento-test-automation-framework magento 插件等 http://blog.csdn.net/shuishui8310/article/category/640421/2 Nginx下magento的性能优化配置 http://www.gaojinbo.com/nginx%E4%B8%8Bmagento%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html Magento开发文档(一)：Magento入门 http://www.ruiwant.com/magento-for-dev-part-1-introduction-to-magento.html http://www.sunzhenghua.com/blog/index/directsearch/search_item/magento/blog_search/%E6%90%9C%20%E7%B4%A2/page/1 http://www.sunzhenghua.com/magento-development-systemxml http://www.sunzhenghua.com/magento-add-custom-fields-checkout-page http://blog.csdn.net/shuishui8310/article/month/2011/09 http://www.magentonotes.com/magent-cart-empty-use-different-template.html https://code.google.com/p/sis-css-css/source/browse/my/note/Magento-note.txt?spec=svn87&amp;amp;r=87 http://www.hellokeykey.com/ http://php186.com/content/list/magento/96.html</description>
+    </item>
+    
+    <item>
+      <title>交换两个变量的值，不引入第三个变量  【异或运算符】</title>
+      <link>https://www.51hint.com/posts/2012-12-20-%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC%E4%B8%8D%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97/</link>
+      <pubDate>Thu, 20 Dec 2012 10:28:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC%E4%B8%8D%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97/</guid>
+      <description>我们先熟悉一下异或运算法则： a ^ a = 0 a ^ b = b ^ a a ^ b ^ c = a ^ (b ^ c) = (a ^ b) ^ c; d = a ^ b ^ c 可以推出 a = d ^ b ^ c. a ^ b ^ a = b. 现在</description>
+    </item>
+    
+    <item>
+      <title>负载均衡之大型在线系统实现的关键</title>
+      <link>https://www.51hint.com/posts/2012-12-12-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%85%B3%E9%94%AE/</link>
+      <pubDate>Wed, 12 Dec 2012 01:20:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-12-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%85%B3%E9%94%AE/</guid>
+      <description>以上的这篇文章是早在去年的时候写的了，当时正在作休闲平台，一直在想着如何实现一个可扩充的支持百万人在线的游戏平台，后来思路有了，就写了那篇总</description>
+    </item>
+    
+    <item>
+      <title>php 多线程</title>
+      <link>https://www.51hint.com/posts/2012-10-27-php-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+      <pubDate>Sat, 27 Oct 2012 06:25:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-27-php-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+      <description>#!/bin/bash for i in 1 2 3 4 5 6 7 8 9 10 do /usr/local/php5/bin/php -q /home/wwwroot/words/test.php &amp;amp; done ~ 注意到在请求php代码的那行有一个&amp;amp;符号吗，这个是关键，不加的话是不能进行多线程的，&amp;am</description>
+    </item>
+    
+    <item>
+      <title>asterisk agi ,IVR</title>
+      <link>https://www.51hint.com/posts/2012-08-15-asterisk-agi/</link>
+      <pubDate>Wed, 15 Aug 2012 05:25:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-15-asterisk-agi/</guid>
+      <description>通过asterisk配置拨号规则 ${EXTEN}是通道变量 因为在sip.conf文件里会有#include XXX.conf 那说明可以把这个配置放到其他配置</description>
+    </item>
+    
+    <item>
+      <title>Asterisk manager API实现自动拨号</title>
+      <link>https://www.51hint.com/posts/2012-08-15-asterisk-manager-api%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7/</link>
+      <pubDate>Wed, 15 Aug 2012 05:17:38 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-15-asterisk-manager-api%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7/</guid>
+      <description>ami.conf文件是访问API的验证文件 该文件的内容要和asterisk内的/etc/asterisk/manager.conf 文件中的用</description>
+    </item>
+    
+    <item>
+      <title>snoopy（强大的PHP采集类）</title>
+      <link>https://www.51hint.com/posts/2012-08-08-snoopy%E5%BC%BA%E5%A4%A7%E7%9A%84php%E9%87%87%E9%9B%86%E7%B1%BB/</link>
+      <pubDate>Wed, 08 Aug 2012 08:32:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-08-snoopy%E5%BC%BA%E5%A4%A7%E7%9A%84php%E9%87%87%E9%9B%86%E7%B1%BB/</guid>
+      <description>抓取网页的内容 fetch 2 抓取网页的文本内容 (去除HTML标签) fetchtext 3抓取网页的链接，表单 fetchlinks fetchform 4 支持代理主机 5支持基本的用户名/密码验证 6 支持设置 user_agent, r</description>
+    </item>
+    
+    <item>
+      <title>java.php跨域提交</title>
+      <link>https://www.51hint.com/posts/2012-08-06-java-php%E8%B7%A8%E5%9F%9F%E6%8F%90%E4%BA%A4/</link>
+      <pubDate>Mon, 06 Aug 2012 10:18:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-06-java-php%E8%B7%A8%E5%9F%9F%E6%8F%90%E4%BA%A4/</guid>
+      <description>java=&amp;gt; php=&amp;gt; ================================================================================================================ java===&amp;gt; PHP===&amp;gt; meeting-edit</description>
+    </item>
+    
+    <item>
+      <title>jquery getjson跨域</title>
+      <link>https://www.51hint.com/posts/2012-08-06-jquery-getjson%E8%B7%A8%E5%9F%9F/</link>
+      <pubDate>Mon, 06 Aug 2012 06:49:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-06-jquery-getjson%E8%B7%A8%E5%9F%9F/</guid>
+      <description>在 jQuery 中，您可以通过使用JSONP 形式的回调函数来加载其他网域的JSON数据，如 “myurl?callback=?”。jQuery 将自动替换 ?</description>
+    </item>
+    
+    <item>
+      <title>cakephp 入门</title>
+      <link>https://www.51hint.com/posts/2012-08-06-cakephp-%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Mon, 06 Aug 2012 01:21:01 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-06-cakephp-%E5%85%A5%E9%97%A8/</guid>
+      <description>CakePHP 2.x十分钟博客教程 http://www.ruiwant.com/cakephp2-blog-tutorials-part-1-installation-and-configuration.html 很不错的文章。 ———————————————————————————————————————————————————</description>
+    </item>
+    
+    <item>
+      <title>zend server xdebug</title>
+      <link>https://www.51hint.com/posts/2012-08-03-zend-server-xdebug/</link>
+      <pubDate>Fri, 03 Aug 2012 05:34:18 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-03-zend-server-xdebug/</guid>
+      <description>Zend Server Community Edition on OS X Add this line to ~/.bash_profile OR ~/.profile # Zend Server Community Edition export PATH=”/usr/local/zend/bin:$PATH” #Your webserver should now be available on port 10088 and the Zend admin interface on port 10081 Open</description>
+    </item>
+    
+    <item>
+      <title>Comet (web技术)</title>
+      <link>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Fri, 20 Jul 2012 01:57:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</guid>
+      <description>Comet是一种用于web的技术，能使服务器能实时地将更新的信息传送到客户端，而无须客户端发出请求，目前有两种实现方式，长轮询和流。 实现方式</description>
+    </item>
+    
+    <item>
+      <title>zend server can’t connect to mysql</title>
+      <link>https://www.51hint.com/posts/2012-07-19-zend-server-cant-connect-to-mysql/</link>
+      <pubDate>Thu, 19 Jul 2012 11:23:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-19-zend-server-cant-connect-to-mysql/</guid>
+      <description>use command
+[ps aux|grep mysql]
+I find my.cnf in the [/usr/local/zend/mysql/data/my.cnf]
+but in fact,there is none!
+so ,what should we do
+just create my.cnf file.
+******************
+input the socket path
+[client]
+socket = /usr/local/zend/mysql/tmp/mysql.sock
+  ******************
+maybe it exist
+just open /usr/local/zend/mysql/data/my.cnffile
+comment it.
+//////////////////////////////////////////////////////
+#/usr/local/zend/bin/zendctl.sh stop-mysql
+#/usr/local/zend/bin/zendctl.sh start-mysql
+#sudo ln -s /private/tmp/mysql.sock /usr/local/zend/mysql/tmp/mysql.sock
+congratulation, it works!</description>
+    </item>
+    
+    <item>
+      <title>主流PHP框架间的比较（Zend Framework，CakePHP，CodeIgniter，Symfony，ThinkPHP，FleaPHP）</title>
+      <link>https://www.51hint.com/posts/2012-07-13-%E4%B8%BB%E6%B5%81php%E6%A1%86%E6%9E%B6%E9%97%B4%E7%9A%84%E6%AF%94%E8%BE%83zend-frameworkcakephpcodeignitersymfonythinkphpfleaphp/</link>
+      <pubDate>Fri, 13 Jul 2012 02:10:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-13-%E4%B8%BB%E6%B5%81php%E6%A1%86%E6%9E%B6%E9%97%B4%E7%9A%84%E6%AF%94%E8%BE%83zend-frameworkcakephpcodeignitersymfonythinkphpfleaphp/</guid>
+      <description>Zend Framework 优点： Zend Framework大量应用了PHP5中面向对象的新特征：接口、异常、抽象类、SPL等等。这些东西的应用让Zend Framewor</description>
+    </item>
+    
+  </channel>
+</rss>

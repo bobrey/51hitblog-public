@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>测试工具等 on IT技术分享</title>
+    <link>https://www.51hint.com/categories/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E7%AD%89/</link>
+    <description>Recent content in 测试工具等 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Nov 2014 05:28:31 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E7%AD%89/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>omnifocus2 for iphone</title>
+      <link>https://www.51hint.com/posts/2014-11-29-omnifocus2-for-iphone/</link>
+      <pubDate>Sat, 29 Nov 2014 05:28:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-11-29-omnifocus2-for-iphone/</guid>
+      <description>manateepens@hotmail.com Gh112211</description>
+    </item>
+    
+    <item>
+      <title>HttpFox:HTTP数据抓包和检测</title>
+      <link>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</link>
+      <pubDate>Wed, 16 Oct 2013 07:48:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</guid>
+      <description>HttpFox监视并且分析所有进出浏览器的HTTP网络传输： 如果熟悉网络监控类软件的话，使用HttpFox不会有任何的困难，即便您不熟悉，也</description>
+    </item>
+    
+    <item>
+      <title>测试宽带 shell</title>
+      <link>https://www.51hint.com/posts/2012-10-03-%E6%B5%8B%E8%AF%95%E5%AE%BD%E5%B8%A6-shell/</link>
+      <pubDate>Wed, 03 Oct 2012 05:33:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-03-%E6%B5%8B%E8%AF%95%E5%AE%BD%E5%B8%A6-shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Selenium</title>
+      <link>https://www.51hint.com/posts/2012-08-10-selenium/</link>
+      <pubDate>Fri, 10 Aug 2012 09:09:56 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-10-selenium/</guid>
+      <description>Selenium IDE 是selenium测试工具中的其中一个,是一个基于FireFox的Web测试开发环境，可以录制、编辑和调试测试。Selenium IDE包</description>
+    </item>
+    
+    <item>
+      <title>snoopy（强大的PHP采集类）</title>
+      <link>https://www.51hint.com/posts/2012-08-08-snoopy%E5%BC%BA%E5%A4%A7%E7%9A%84php%E9%87%87%E9%9B%86%E7%B1%BB/</link>
+      <pubDate>Wed, 08 Aug 2012 08:32:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-08-snoopy%E5%BC%BA%E5%A4%A7%E7%9A%84php%E9%87%87%E9%9B%86%E7%B1%BB/</guid>
+      <description>抓取网页的内容 fetch 2 抓取网页的文本内容 (去除HTML标签) fetchtext 3抓取网页的链接，表单 fetchlinks fetchform 4 支持代理主机 5支持基本的用户名/密码验证 6 支持设置 user_agent, r</description>
+    </item>
+    
+  </channel>
+</rss>

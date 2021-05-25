@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>上网 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/%E4%B8%8A%E7%BD%91/</link>
+    <description>Recent content in 上网 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Apr 2014 02:42:38 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/%E4%B8%8A%E7%BD%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>apn不能上网的解决办法</title>
+      <link>https://www.51hint.com/posts/2014-04-11-apn%E4%B8%8D%E8%83%BD%E4%B8%8A%E7%BD%91%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Fri, 11 Apr 2014 02:42:38 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-11-apn%E4%B8%8D%E8%83%BD%E4%B8%8A%E7%BD%91%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>apn没有编辑的地方，我从网上弄了一个描述文件装上，E网正常了。附上我的方法：safari打开网址http://www.unlockit.c</description>
+    </item>
+    
+  </channel>
+</rss>

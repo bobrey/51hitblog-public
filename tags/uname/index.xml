@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>uname on IT技术分享</title>
+    <link>https://www.51hint.com/tags/uname/</link>
+    <description>Recent content in uname on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Dec 2012 01:57:46 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/uname/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>查看linux版本</title>
+      <link>https://www.51hint.com/posts/2012-12-19-%E6%9F%A5%E7%9C%8Blinux%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Wed, 19 Dec 2012 01:57:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-19-%E6%9F%A5%E7%9C%8Blinux%E7%89%88%E6%9C%AC/</guid>
+      <description>查看系统版本</description>
+    </item>
+    
+  </channel>
+</rss>

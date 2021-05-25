@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> mysql_9_transaction - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="mysql_9_transaction" />
+  <meta name="twitter:title" content="mysql_9_transaction" />
+  <meta name="description" content="#表锁定 LOCK TABLES table_name[READ|WRITE] UNLOCK TABLES; ##级联删除数据 ON DELETE CASCAD -- CREATE TABLE studymysql.grade( -- grade_id int(11)NOT NULL AUTO_INCREMENT, -- grade_name varchar(255)NOT NULL, -- location varchar(355)NOT NULL, -- 位置 -- PRIMARY KEY(grade_no) -- )ENGINE=InnoDB; -- CREATE TABLE class( -- class_id int(11)NOT NULL AUTO_INCREMENT, -- class_name varchar(255)NOT NULL, -- grade_id int(11)NOT NULL, -- PRIMARY KEY(class_id ), -- KEY grade_no(grade_id ),">
+  <meta property="og:description" content="#表锁定 LOCK TABLES table_name[READ|WRITE] UNLOCK TABLES; ##级联删除数据 ON DELETE CASCAD -- CREATE TABLE studymysql.grade( -- grade_id int(11)NOT NULL AUTO_INCREMENT, -- grade_name varchar(255)NOT NULL, -- location varchar(355)NOT NULL, -- 位置 -- PRIMARY KEY(grade_no) -- )ENGINE=InnoDB; -- CREATE TABLE class( -- class_id int(11)NOT NULL AUTO_INCREMENT, -- class_name varchar(255)NOT NULL, -- grade_id int(11)NOT NULL, -- PRIMARY KEY(class_id ), -- KEY grade_no(grade_id ),">
+  <meta name="twitter:description" content="#表锁定 LOCK TABLES table_name[READ|WRITE] UNLOCK TABLES; ##级联删除数据 ON DELETE CASCAD -- CREATE TABLE studymysql.grade( -- grade_id int(11)NOT NULL AUTO_INCREMENT, -- grade_name varchar(255)NOT NULL, -- …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/mysql_9_transaction/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/mysql_9_transaction/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">mysql_9_transaction</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jul 17, 2017</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/mysql/">mysql</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <pre><code class="language-code" data-lang="code">
+#表锁定
+LOCK TABLES table_name[READ|WRITE]
+UNLOCK TABLES;
+
+
+
+##级联删除数据 ON DELETE CASCAD
+-- CREATE TABLE studymysql.grade(
+--   grade_id int(11)NOT NULL AUTO_INCREMENT,
+--   grade_name varchar(255)NOT NULL,
+--   location varchar(355)NOT NULL, -- 位置
+--   PRIMARY KEY(grade_no)
+-- )ENGINE=InnoDB;
+
+-- CREATE TABLE class(
+--   class_id int(11)NOT NULL AUTO_INCREMENT,
+--   class_name varchar(255)NOT NULL,
+--   grade_id int(11)NOT NULL,
+--   PRIMARY KEY(class_id ),
+--   KEY grade_no(grade_id ),
+--   CONSTRAINT class_ibfk_1
+--   FOREIGN KEY(grade_id )
+--   REFERENCES grade(grade_id )
+--   ON DELETE CASCADE    #找出受到MySQL ON DELETE CASCADE操作影响的表
+-- )ENGINE=InnoDB;
+
+
+#有时，当您从父表删除数据，可能想知道哪些表受MySQL DELETE CASCADE参照操作影响。那么可以执行以下 SQL 查询 - 
+USE information_schema;
+SELECT
+	table_name 
+FROM
+	referential_constraints 
+WHERE
+	constraint_schema = 'database_name' 
+	AND referenced_table_name = 'parent_table' 
+	AND delete_rule = 'CASCADE'
+			
+
+
+
+
+DELETE office,employee
+FROM office
+INNER JOIN employee ON office.office_id=employee.office_id
+WHERE office.office_id=1001;
+
+
+DELETE T1
+FROM T1
+LEFT JOIN T2 ON T1.key=T2.key
+WHERE T2.key IS NULL
+
+
+
+#预处理语句
+PREPARE stmt1 FROM 'SELECT product_code, product_name  FROM studymysql.product   WHERE product_code= ?'; 
+SET @pc='YT-3497130';
+EXECUTE stmt1 USING @pc; 
+DEALLOCATE PREPARE stmt1;
+
+
+
+
+
+#事务
+-- 开始事务
+start transaction;
+
+SELECT @order_id:=max(order_id) FROM studymysql.order;
+set @order_id=@order_id+1;
+ 
+-- insert a new order for customer 1020
+INSERT INTO studymysql.order(order_id, order_number,order_date,shipped_date,total_money,status,comment,customer_id)
+values(@order_id, 609095688,'2016-09-10 22:21','2016-09-11 12:20',1198,'0','comment ... ',1020);
+
+-- 插入两个商品信息
+insert into studymysql.order_detail(order_id,product_id,buy_number,price,total_money)
+values(@order_id, 47, 1, 999, 999), (@order_id, 51, 1, 199, 199);
+
+-- 提交事务
+COMMIT;      
+ 
+-- 查询上面执行的结果，是否有新插入的数据？
+SELECT *  FROM studymysql.order a
+inner join studymysql.order_detail b on a.order_id=b.order_id
+where a.order_id=@order_id;
+
+
+
+
+
+ALTER TABLE mytask  CHANGE COLUMN task_id task_id INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE mytask  ADD COLUMN complete DECIMAL(2,1) NULL AFTER description;
+ALTER TABLE mytask  DROP COLUMN description;
+ALTER TABLE mytask  RENAME TO work_items ;
+
+
+
+CREATE  TABLE IF NOT EXISTS test2 LIKE test1;
+
+
+
+
+SELECT CONCAT('DROP TABLE ',GROUP_CONCAT(CONCAT(@schema,'.',table_name)),';')
+SET @pattern='test%';
+SELECT @droplike;
+
+-- execute dynamic sql
+PREPARE stmt FROM @droplike;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+
+select * from product;
+select CONCAT(product_id,&quot;_&quot;,category_id) as pc from product;
+select CONCAT_WS(&quot;-&quot;,category_id,product_id) as cp from product;
+
+select GROUP_CONCAT(product_id) as cpids, category_id from product GROUP BY category_id
+select group_concat(CAST(product_id as char)) from product #返回逗号隔开的串
+select group_concat(Convert(product_id , char)) from product #返回逗号隔开的串
+
+
+
+
+</code></pre>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/mysql_8__temptable/" data-toggle="tooltip" data-placement="top" title="mysql_8__tempTable">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/mysql_11_select/" data-toggle="tooltip" data-placement="top" title="mysql_11_select">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/mysql_8__temptable/">mysql_8__tempTable</a></li>
+                    
+                    <li><a href="/posts/mysql_7_trigger/">mysql_7_trigger</a></li>
+                    
+                    <li><a href="/posts/mysql_6_procedure_err/">mysql_6_procedure_err</a></li>
+                    
+                    <li><a href="/posts/mysql_5__procedure1/">mysql_5__procedure1</a></li>
+                    
+                    <li><a href="/posts/mysql_4__inout/">mysql_4__inout</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jul 17, 2017</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/mysql/">mysql</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

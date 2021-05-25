@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ipad safari view source on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ipad-safari-view-source/</link>
+    <description>Recent content in ipad safari view source on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Jun 2012 02:25:51 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ipad-safari-view-source/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ipad safari 查看源代码</title>
+      <link>https://www.51hint.com/posts/2012-06-06-ipad-safari-%E6%9F%A5%E7%9C%8B%E6%BA%90%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Wed, 06 Jun 2012 02:25:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-06-ipad-safari-%E6%9F%A5%E7%9C%8B%E6%BA%90%E4%BB%A3%E7%A0%81/</guid>
+      <description>1.收藏任何页面，命名为“查看源代码” 替换书签url为javascript:var%20sourceWindow%20%3D%20windo</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gradle on IT技术分享</title>
+    <link>https://www.51hint.com/tags/gradle/</link>
+    <description>Recent content in gradle on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Oct 2013 02:37:03 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/gradle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gradle</title>
+      <link>https://www.51hint.com/posts/2013-10-01-gradle/</link>
+      <pubDate>Tue, 01 Oct 2013 02:37:03 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-01-gradle/</guid>
+      <description>Gradle是可以使用Groovy的DSL来书写构建脚本的构建系统。最大的好处在于它能利用Grooxy灵活的自定义构建顺序。支持依赖管理和多</description>
+    </item>
+    
+  </channel>
+</rss>

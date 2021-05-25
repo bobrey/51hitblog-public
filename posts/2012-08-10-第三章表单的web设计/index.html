@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第三章：表单的WEB设计 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第三章：表单的WEB设计" />
+  <meta name="twitter:title" content="第三章：表单的WEB设计" />
+  <meta name="description" content="目录 3.1 我们开始之前 3.2 原型模板 3.3 原型模板的定制 3.4 显示定制 3.4.1 字段上用renderRow()方法 3.4.2 在一个字段上使用render()方法 3.4.3 在一个字段">
+  <meta property="og:description" content="目录 3.1 我们开始之前 3.2 原型模板 3.3 原型模板的定制 3.4 显示定制 3.4.1 字段上用renderRow()方法 3.4.2 在一个字段上使用render()方法 3.4.3 在一个字段">
+  <meta name="twitter:description" content="目录 3.1 我们开始之前 3.2 原型模板 3.3 原型模板的定制 3.4 显示定制 3.4.1 字段上用renderRow()方法 3.4.2 在一个字段上使用render()方法 3.4.3 在一个字段">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%89%E7%AB%A0%E8%A1%A8%E5%8D%95%E7%9A%84web%E8%AE%BE%E8%AE%A1/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%89%E7%AB%A0%E8%A1%A8%E5%8D%95%E7%9A%84web%E8%AE%BE%E8%AE%A1/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第三章：表单的WEB设计</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">5400 Words|Read in about 11 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_03_before_we_start"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.1 我们开始之前<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_03_the_prototype_template"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2 原型模板<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_03_the_prototype_template_customization"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3 原型模板的定制<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_03_the_display_customization"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4 显示定制<!-- raw HTML omitted --></a></a>
+      <ul>
+        <li><a href="#chapter_03_sub_using_the_renderrow_method_on_a_field"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#">&lt;span en=&ldquo;3.4.1 Using the <code>renderRow()</code> method on a field”&gt;3.4.1 字段上用 <code>renderRow()</code> 方法<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_using_the_render_method_on_a_field"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#">&lt;span en=&ldquo;3.4.2 Using the <code>render()</code> method on a field”&gt;3.4.2 在一个字段上使用 <code>render()</code> 方法<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_using_the_renderlabel_method_on_a_field"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#">&lt;span en=&ldquo;3.4.3 Using the <code>renderLabel()</code> method on a field”&gt;3.4.3 在一个字段上使用 <code>renderLabel()</code> 方法<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_using_the_rendererror_method_on_a_field"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.4 在一个字段上使用 <!-- raw HTML omitted -->renderError()<!-- raw HTML omitted --> 方法<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_fine_grained_customization_of_error_messages"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.5 错误提示的精细定制<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_handling_hidden_fields"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.6 处理隐藏字段<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_handling_global_errors"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.7 处理总体错误<!-- raw HTML omitted --></a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_03_internationalization"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.5 国际化<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_03_interacting_with_the_developer"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.6 协作开发<!-- raw HTML omitted --></a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_before_we_start">3.1 我们开始之前</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_the_prototype_template">3.2 原型模板</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_the_prototype_template_customization">3.3 原型模板的定制</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_the_display_customization">3.4 显示定制</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_sub_using_the_renderrow_method_on_a_field">3.4.1 字段上用renderRow()方法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_sub_using_the_render_method_on_a_field">3.4.2 在一个字段上使用render()方法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_sub_using_the_renderlabel_method_on_a_field">3.4.3 在一个字段上使用renderLabel()方法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_sub_using_the_rendererror_method_on_a_field">3.4.4 在一个字段上使用renderError()方法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_sub_fine_grained_customization_of_error_messages">3.4.5 错误提示的精细定制</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_sub_handling_hidden_fields">3.4.6 处理隐藏字段</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_sub_handling_global_errors">3.4.7 处理总体错误</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_internationalization">3.5 国际化</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#chapter_03_interacting_with_the_developer">3.6 协作开发</a></li>
+<li></li>
+</ul>
+<p><!-- raw HTML omitted -->我们在第一章和第二章看到了，如合使用控件和验证规则创建表单。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;We used the <code>〈?php echo $form ?〉</code> statement to display them.”&gt;我们用了 <code>&lt;?php echo $form ?&gt;</code> 语句来显示它们。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当开发者把注意力集中在模型和业务逻辑上时，每次更改模板只修改一个字段（名字、控件…），甚至添加一个不必要的，这个语句允许开发者编写应用逻辑而不用考虑最终外观是如何的，这个语句适合于原型和初始开发阶段。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->一旦对象模型稳定了，风格样式固定了，WEB设计师就可以开始设计制作各个应用的表单。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->本章开始之前，你应该充分的熟悉symfony的模板系统和视图层。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_03_before_we_start"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.1 我们开始之前<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->我们现在将重温第一、二章阐述的留言板表单（图3-1）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这是网页设计师要读的技术概要：<!-- raw HTML omitted --></p>
+<ul>
+<li>&lt;span en=&ldquo;The form is made of four fields: <code>name</code>, <code>email</code>, <code>subject</code>, and <code>message</code>.”&gt;表单是由4个字段组成：<code>name</code>、<code>email</code>、<code>subject</code>、<code>message</code>。<!-- raw HTML omitted --></li>
+<li>&lt;span en=&ldquo;The form is handled by the <code>contact</code> module.”&gt;表单是由 <code>contact</code> 模块处理的。<!-- raw HTML omitted --></li>
+<li>&lt;span en=&ldquo;The <code>index</code> action passes on to the template a <code>form</code> variable representing the form.”&gt;<code>index</code> 行为传递给一个代表表单的 <code>form</code> 变量到模板。<!-- raw HTML omitted --></li>
+</ul>
+<p><!-- raw HTML omitted -->本章旨在展示，如何尽可能的定制表单的原型模板（例3-1）。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><img src="res/03_01.png" alt="" title="留言板表单"></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_03_the_prototype_template"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2 原型模板<!-- raw HTML omitted --></a></h2>
+<p>&lt;span en=&ldquo;As of now, we have used the <code>〈?php echo $form ?〉</code> statement in the prototype template in order to automatically generate the HTML needed to display the form.”&gt;现在，为了自动的生成需要显示表单的HTML，在原型模板中我们用了 <code>&lt;?php echo $form ?&gt;</code> 语句。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->表单是由字段组成的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在模板层面，每个字段又是由3个元素组成：<!-- raw HTML omitted --></p>
+<ul>
+<li><!-- raw HTML omitted --><!-- raw HTML omitted -->标签<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted --><!-- raw HTML omitted -->标签（或<!-- raw HTML omitted -->、<!-- raw HTML omitted -->标签等）<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->相关的错误提示<!-- raw HTML omitted --></li>
+</ul>
+<p>&lt;span en=&ldquo;The <code>〈?php echo $form ?〉</code> statement automatically generates all these elements, as Listing 3-2 shows in the case of an invalid submission.”&gt;<code>&lt;?php echo $form ?&gt;</code> 语句自动的生成所有的这些元素，如例3-2展示一个无效提交的情况。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->我们来把这个代码分开。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Figure 3-2 underlines the</p>
+<p>rows produced for each field.”&gt;图3-2横线之间的 <code>&lt;tr&gt;</code> 行产生每个字段。<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->对于每个字段，3块HTML代码已经被生成（图3-3），相匹配3个字段的元素。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Here is the HTML code generated for the <code>email</code> field:”&gt;这是为 <code>email</code> 字段生成的HTML代码：<!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p>&lt;span en=&ldquo;The <strong>label</strong>“&gt;<strong><!-- raw HTML omitted -->标签</strong><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+</li>
+<li>
+<p>&lt;span en=&ldquo;The <strong>form tag</strong>“&gt;<strong><!-- raw HTML omitted -->标签</strong><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+</li>
+<li>
+<p>&lt;span en=&ldquo;The <strong>error messages</strong>“&gt;<strong>错误提示</strong><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+</li>
+</ul>
+<p>&lt;li&gt;The email address is invalid.&lt;/li&gt;
+&lt;/ul&gt;<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;img title=&quot;<code>email</code> 字段的分解” src=”res/03_03.png”&gt;</p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_03_the_prototype_template_customization"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3 原型模板的定制<!-- raw HTML omitted --></a></h2>
+<p>&lt;span en=&ldquo;The <code>〈?php echo $form ?〉</code> statement can be enough for simple forms like the contact form.”&gt;<code>&lt;?php echo $form ?&gt;</code> 语句对于简单表单比如留言板表单足够了。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;And, as a matter of fact, it is just a shortcut for the <code>〈?php echo $form-&gt;render() ?〉</code> statement.”&gt;事实上，它只是 <code>&lt;?php echo $form-&gt;render() ?&gt;</code> 方法的快捷语句。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The usage of the <code>render()</code> method allows to pass on HTML attributes as an argument for each field.”&gt;对于每个字段的 <code>render()</code> 方法允许传递HTML属性作为一个参数。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Listing 3-3 shows how to add a <code>class</code> to the <code>email</code> field.”&gt;例3-3展示如何添加一个 <code>class</code> 到 <code>email</code> 字段。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->This allows to customize the form styles but does not provide the level of flexibility needed to customize the organization of the fields in the page.<!-- raw HTML omitted --></p>
+<h2 id="chapter_03_the_display_customization"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4 显示定制<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->Beyond the global customization allowed by the render() method, let’s see now how to break the display of each field down to gain in flexibility.<!-- raw HTML omitted --></p>
+<h3 id="chapter_03_sub_using_the_renderrow_method_on_a_field"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#">&lt;span en=&ldquo;3.4.1 Using the <code>renderRow()</code> method on a field”&gt;3.4.1 字段上用 <code>renderRow()</code> 方法<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->第一个方法是一个一个的生成字段。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;n fact, the <code>〈?php echo $form ?〉</code> statement is equivalent to calling the <code>renderRow()</code> method four times on the form, as shown in Listing 3-4.”&gt;事实上，<code>&lt;?php echo $form ?&gt;</code> 语句等价于在表单中调用 <code>renderRow()</code> 方法4次，如例3-4所示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;We access each field using the <code>form</code> object as a PHP array.”&gt;我们用 <code>form</code> 对象作为一个PHP数组访问每个字段。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>email</code> field can then be accessed via <code>$form['email']</code>.”&gt;<code>email</code> 字段可以通过 <code>$form['email']</code> 来访问。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>renderRow()</code> method displays the field as an HTML table row.”&gt;<code>renderRow()</code> 方法显示字段为一个HTML表格行。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The expression <code>$form[&amp;#8217;email&amp;#8217;]-&gt;renderRow()</code> generates a row for the <code>email</code> field.”&gt;表达式 <code>$form['email']-&gt;renderRow()</code> 生成的是一行 <code>email</code> 字段。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;By repeating the same kind of code for the three other fields <code>subject</code>, <code>email</code>, and <code>message</code>, we complete the display of the form.”&gt;用同一种代码替换其他3个字段 <code>subject</code>、<code>email</code>、<code>message</code>，我们完成表单的显示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->现在的模板和我们原来开始用的模板，功能完全一样。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->不管怎样，如果现实的是一样的，定制就更容易了。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>renderRow()</code> method takes two arguments: an HTML attributes array and a label name.”&gt;<code>renderRow()</code> 方法有两个参数：一个HTML属性数组和一个<!-- raw HTML omitted -->名字。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->例3-5用这些参数来定制表单（图3-4所展示）。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="res/03_04.png" alt="" title="用 renderRow() 方法显示定制的表单"></p>
+<p>&lt;span en=&ldquo;Let&rsquo;s have a closer look at the arguments sent to <code>renderRow()</code> in order to generate the <code>email</code> field:”&gt;为了生成 <code>email</code> 字段，我们仔细的看看传送到 <code>renderRow()</code> 的参数：<!-- raw HTML omitted --></p>
+<ul>
+<li>&lt;span en=&quot;<code>array(&amp;#8216;class&amp;#8217; =&gt; &amp;#8217;email&amp;#8217;)</code> adds the email class to the <code>input</code> tag”&gt;<code>array('class' =&gt; 'email')</code> 添加 <code>email</code> class属性到 <code>&lt;input&gt;</code> 标签<!-- raw HTML omitted --></li>
+</ul>
+<p>&lt;span en=&ldquo;It works the same way with the <code>message</code> field:”&gt;它与 <code>message</code> 字段的工作方式相同：<!-- raw HTML omitted --></p>
+<ul>
+<li>&lt;span en=&quot;<code>array()</code> means that we do not want to add any HTML attributes to the <code>textarea</code> tag”&gt;<code>array()</code> 意味着我们不要添加任何HTML属性到 <code>&lt;textarea&gt;</code> 标签<!-- raw HTML omitted --></li>
+<li>&lt;span en=&quot;<code>&amp;#8216;Your message&amp;#8217;</code> replaces the default label name”&gt;<code>'Your message'</code> 替换默认<!-- raw HTML omitted -->名字<!-- raw HTML omitted --></li>
+</ul>
+<p>&lt;span en=&ldquo;Every <code>renderRow()</code> method argument is optional, so none of them are required as we did for the name and subject fields.”&gt;每个 <code>renderRow()</code> 方法参数是可选的，so none of them are required as we did for the name and subject fields.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->即使 <!-- raw HTML omitted -->renderRow()<!-- raw HTML omitted --> 方法帮助定制各个字段的元素，通过HTML代码装饰这些元素，但也是有限的。如图3-5所示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;img title=&quot;<code>renderRow()</code> 和 <code>render()</code> 所使用的HTML结构” src=”res/03_05.png”&gt;</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->为了挣脱这个结构，每个字段都有一个方法呈现它的元素，如图3-6所示：<!-- raw HTML omitted --></p>
+<ul>
+<li>&lt;span en=&quot;<code>renderLabel()</code> : the label (the <code>label</code> tag tied to the field)”&gt;<code>renderLabel()</code>：<!-- raw HTML omitted -->标签（<code>&lt;label&gt;</code> 关联该字段）<!-- raw HTML omitted --></li>
+<li>&lt;span en=&quot;<code>render()</code> : the field tag itself (the <code>input</code> tag for instance)”&gt;<code>render()</code>：字段标签本身（例如 <code>&lt;input&gt;</code> 标签本身）<!-- raw HTML omitted --></li>
+<li>&lt;span en='<code>renderError()</code> : error messages (as a <code>〈ul class=&quot;error_list&quot;〉</code> list)’&gt;<code>renderError()</code>：错误提示（如一个 <code>&lt;ul class=&quot;error_list&quot;&gt;</code> 列表）<!-- raw HTML omitted --></li>
+</ul>
+<!-- raw HTML omitted -->
+<p><img src="res/03_06.png" alt="" title="方法可定制字段"></p>
+<p><!-- raw HTML omitted -->这些方法在本章的最后分析。<!-- raw HTML omitted --></p>
+<h3 id="chapter_03_sub_using_the_render_method_on_a_field"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#">&lt;span en=&ldquo;3.4.2 Using the <code>render()</code> method on a field”&gt;3.4.2 在一个字段上使用 <code>render()</code> 方法<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->假设我们要显示的表单有两个列。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;As shown in Figure 3-7, the <code>name</code> and <code>email</code> fields stand on the same row, when the <code>subject</code> and <code>message</code> fields stand on their own row.”&gt;如图3-7所示，<code>name</code> 和 <code>email</code> 字段是在同一行上面，<code>subject</code> 和 <code>message</code> 字段一行一个。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><img src="res/03_07.png" alt="" title="用几列显示表单"></p>
+<p><!-- raw HTML omitted -->我们必须要一个一个的生成每个字段。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;We already observed that we could use the <code>form</code> object as an associative array to access a field, using the field name as key.”&gt;我们已经看到了我们能用 <code>form</code> 对象作为一个关联数组来访问一个字段，用字段名字作为键。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;For example, the <code>email</code> field can be accessed with <code>$form['email']</code>.”&gt;例如，<code>email</code> 字段可以访问 <code>$form['email']</code>。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->例3-6展示如何实现表单有两列。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Just like the explicit use of the <code>render()</code> method on a field is not mandatory when using <code>〈?php echo $form ?〉</code>, we can rewrite the template as in Listing 3-7.”&gt;正如在字段上没有强制要使用 <code>render()</code> 方法，我们可以把模板写成例3-7这样。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Like with the form, each field can be customized by passing an HTML attribute array to the <code>render()</code> method.”&gt;每个字段可以传递一个HTML属性数组到 <code>render()</code> 方法来定制。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Listing 3-8 shows how to modify the HTML class of the <code>email</code> field.”&gt;例3-8展示如何修改 <code>email</code> 字段的HTML class属性。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_03_sub_using_the_renderlabel_method_on_a_field"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#">&lt;span en=&ldquo;3.4.3 Using the <code>renderLabel()</code> method on a field”&gt;3.4.3 在一个字段上使用 <code>renderLabel()</code> 方法<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->在前面所讲的当中，我们生成<!-- raw HTML omitted -->标签期间还没有定制。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Listing 3-9 uses the <code>renderLabel()</code> method in order to generate a label for each field.”&gt;例3-9用 <code>renderLabel()</code> 方法为每个字段生成一个<!-- raw HTML omitted -->标签。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->名字是根据字段名字自动生成的。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;It can be customized by passing an argument to the <code>renderLabel()</code> method as shown in Listing 3-10.”&gt;它可以由传递一个参数到 <code>renderLabel()</code> 方法来定制，如例3-10所示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;What&rsquo;s the point of the <code>renderLabel()</code> method if we send the label name as an argument?”&gt;为什么我们不简单的使用一个HTML <code>&lt;label&gt;</code> 标签？<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->为什么我们不仅仅使用一个HTML<!-- raw HTML omitted -->标签？<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;That is because the <code>renderLabel()</code> method generates the <code>label</code> tag and automatically adds a <code>for</code> attribute set to the identifier of the linked field (<code>id</code>). “&gt;那是因为 <code>renderLabel()</code> 方法生成 <code>&lt;label&gt;</code> 标签并自动的添加一个 <code>for</code> 属性关联字段的标示符（<code>id</code>）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这个确保字段将可访问；<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;when clicking on the <code>label</code>, the field is automatically focused:”&gt;当点击<!-- raw HTML omitted -->时，字段自动的得到焦点：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Moreover, HTML attributes can be added by passing a second argument to the <code>renderLabel()</code> method:”&gt;此外，<code>renderLabel()</code> 方法可以传递第2个参数做为HTML属性：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;In this example, the first argument is <code>null</code> so that the automatic generation of the <code>label</code> text is preserved.”&gt;本例中，第一个参数是 <code>null</code>，那么<!-- raw HTML omitted -->里面的文字则是经过加工自动生成的。<!-- raw HTML omitted --></p>
+<h3 id="chapter_03_sub_using_the_rendererror_method_on_a_field"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.4 在一个字段上使用 <!-- raw HTML omitted -->renderError()<!-- raw HTML omitted --> 方法<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->现在模板没有处理错误提示。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Listing 3-11 restores them using the <code>renderError()</code> method.”&gt;例3-11用 <code>renderError()</code> 方法来指定。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_03_sub_fine_grained_customization_of_error_messages"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.5 错误提示的精细定制<!-- raw HTML omitted --></a></h3>
+<p>&lt;span en=&ldquo;The <code>renderError()</code> method generates the list of the errors associated with a field.”&gt;<code>renderError()</code> 方法生成一个与字段相关联的错误提示列。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->只有该字段有错误时才生成HTML代码。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;By default, the list is generated as an unordered HTML list (</p>
+<p>).”&gt;默认，生成一个无序的HTML列（<code>&lt;ul&gt;</code>）。<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Even if this behavior suits most of the common cases, the <code>hasError()</code> and <code>getError()</code> methods allow us to access the errors directly.”&gt;尽管这种形式适合大多数情况，<code>hasError()</code> 和 <code>getError()</code> 方法允许我们直接访问错误提示。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Listing 3-12 shows how to customize the error messages for the <code>email</code> field.”&gt;例3-12展示如何为 <code>email</code> 字段定制错误提示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;In this example, the generated code is exactly the same as the code generated by the <code>renderError()</code> method.”&gt;在本例中，生成的代码和 <code>renderError()</code> 方法生成的代码完全相同。<!-- raw HTML omitted --></p>
+<h3 id="chapter_03_sub_handling_hidden_fields"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.6 处理隐藏字段<!-- raw HTML omitted --></a></h3>
+<p>&lt;span en=&ldquo;Suppose now there is a mandatory hidden field <code>referrer</code> in the form.”&gt;现在假设在表单中有一个必须要用到的隐藏字段 <code>referrer</code>。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当访问表单时这个字段储存用户的来路页面。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>〈?php echo $form ?〉</code> statement generates the HTML code for hidden fields and adds it when generating the last visible field, as shown in Listing 3-13.”&gt;<code>&lt;?php echo $form ?&gt;</code> 语句将隐藏字段生成在最后一个看得见的字段后面，如例3-13所示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;As you can notice in the generated code for the <code>referrer</code> hidden field, only the tag element has been added to the output.”&gt;你注意 <code>referrer</code> 隐藏字段生成的代码，只输出了标签元素。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->不会生成<!-- raw HTML omitted -->。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->What about the potential errors that could occur with this field?<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Even if the field is hidden，it can be corrupted during the processing either on purpose，or because there is an error in the code.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->These errors are not directly connected to the referrer field, but are summed up with the global errors.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->We will see in Chapter 5 that the notion of global errors is extended also to other cases.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Figure 3-8 shows how the error message is displayed when an error occurs on the referrer field, and Listing 3-14 shows the code generated for those errors.<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;You can render all hidden fields at once (including the CSRF&rsquo;s one) using the method <code>renderHiddenFields()</code>.”&gt;你可以用 <code>renderHiddenFields()</code> 一次呈现所有的隐藏字段（包含一个CSRF）。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><img src="res/03_08.png" alt="" title="显示总体错误提示"></p>
+<p><!-- raw HTML omitted -->例 3-14 – 生成总体错误提示<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_03_sub_handling_global_errors"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.7 处理总体错误<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->对于一个表单，有3种错误提示：<!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p><!-- raw HTML omitted -->关联到指定字段的错误提示<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->总体错误提示<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->错误来自隐藏字段或字段，不实际在表单中显示。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->那是使用全局错误归纳起来的<!-- raw HTML omitted --></p>
+</li>
+</ul>
+<p><!-- raw HTML omitted -->We already went over the implementation of error messages associated with a field, and Listing 3-15 shows the implementation of global error messages.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;The call to the <code>renderGlobalErrors()</code> method displays the global error list.”&gt;要调用 <code>renderGlobalErrors()</code> 方法显示总体错误提示列表。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;It is also possible to access the global errors using the <code>hasGlobalErrors()</code> and <code>getGlobalErrors()</code> methods, as shown in Listing 3-16.”&gt;它还可以用 <code>hasGlobalErrors()</code> 和 <code>getGlobalErrors()</code> 方法访问，如例3-16所示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Each global error has a name (<code>name</code>) and a message (<code>error</code>).”&gt;每个总体错误都有一个名字（<code>name</code>）和一个消息（<code>error</code>）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->The name is empty when there is a “real” global error, but when there is an error for a hidden field or a field that is not displayed, the name is the field label name.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Even if the template is now technically equivalent to the template we started with (Figure 3-8), the new one is now customizable.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><img src="res/03_08.png" alt="" title=""></p>
+<h2 id="chapter_03_internationalization"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.5 国际化<!-- raw HTML omitted --></a></h2>
+<p>&lt;span en=&ldquo;Every form element, such as <code>labels</code> and error messages, are automatically handled by the symfony internationalization system.”&gt;每一个表单元素，比如<!-- raw HTML omitted -->和错误提示，由symfony国际化系统自动处理。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;his means that the web designer has nothing special to do if they want to internationalize forms, even when they explicitly override a label with the <code>renderLabel()</code> method. “&gt;这意味着如果他们要使表单国际化，WEB设计师没有什么特别的要做，甚至当他们明确的用 <code>renderLabel()</code> 方法覆盖一个<!-- raw HTML omitted -->时。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->翻译会自动的考虑到的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->对于表单国际化更进一步的资料，请看第九章。<!-- raw HTML omitted --></p>
+<h2 id="chapter_03_interacting_with_the_developer"><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=118&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.6 协作开发<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->让我们用典型的表单开发情景的描述来结束本章：<!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p><!-- raw HTML omitted -->开发团队开始实现表单类以及行为。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The template is basically nothing more than the <code>〈?php echo $form ?〉</code> prototyping statement.”&gt;模板基本上无非就是写一句 <code>&lt;?php echo $form ?&gt;</code>。<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->在此期间，设计师设计风格样式，并应用到表单上：总体结构、错误提示显示规则等等。<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->一旦业务逻辑还有风格样式固定了，WEB设计团队就可以修改表单模板并定制。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->WEB设计团队只需要知道字段的名字，还有行为（action）要处理的表单的生命周期。<!-- raw HTML omitted --></p>
+</li>
+</ul>
+<p><!-- raw HTML omitted -->当第一个周期结束，业务规则修改和模板修改也就都完成了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->而不影响模板，所以不需要设计团队的介入，开发团队就可以了：<!-- raw HTML omitted --></p>
+<ul>
+<li><!-- raw HTML omitted -->修改表单的控件<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->定制错误提示<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->编辑、添加或删除验证规则<!-- raw HTML omitted --></li>
+</ul>
+<p><!-- raw HTML omitted -->Likewise, the designer team is free to perform any ergonomic or graphic changes without falling back on the development team.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->但下面这些涉及到两个团队间协调：<!-- raw HTML omitted --></p>
+<ul>
+<li><!-- raw HTML omitted -->重命名一个字段<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->添加或删除一个字段<!-- raw HTML omitted --></li>
+</ul>
+<p><!-- raw HTML omitted -->This cooperation makes sense as it involves changes in both business rules and form display.<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Like we stated at the beginning of this chapter, even if the form system cleanly separates the tasks, there is nothing like communication between the teams.<!-- raw HTML omitted --></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E7%BC%93%E5%AD%98/" data-toggle="tooltip" data-placement="top" title="第十二章：缓存">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0symfony%E6%A1%86%E6%9E%B6%E6%89%A9%E5%B1%95/" data-toggle="tooltip" data-placement="top" title="第十七章：Symfony框架扩展">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">5400 Words|Read in about 11 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>other on IT技术分享</title>
+    <link>https://www.51hint.com/categories/other/</link>
+    <description>Recent content in other on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Feb 2014 07:17:31 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/other/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SPDY简介</title>
+      <link>https://www.51hint.com/posts/2014-02-11-spdy%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Tue, 11 Feb 2014 07:17:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-02-11-spdy%E7%AE%80%E4%BB%8B/</guid>
+      <description>PDY是什么？ SPDY是Google开发的基于TCP，TLS的网络协议，用来传输web内容。HTTP2.0的第一个草案就是以SPDY为蓝本。</description>
+    </item>
+    
+  </channel>
+</rss>

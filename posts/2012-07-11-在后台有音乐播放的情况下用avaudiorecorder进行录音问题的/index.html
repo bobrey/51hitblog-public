@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 在后台有音乐播放的情况下用AVAudioRecorder进行录音问题的解决 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="在后台有音乐播放的情况下用AVAudioRecorder进行录音问题的解决" />
+  <meta name="twitter:title" content="在后台有音乐播放的情况下用AVAudioRecorder进行录音问题的解决" />
+  <meta name="description" content="这些天一直在纠结这个问题：在后台有音乐播放时，我用AVAudioRecorder进行录音，后台音乐被无情的停止了，直到最近才解决！解决方法如">
+  <meta property="og:description" content="这些天一直在纠结这个问题：在后台有音乐播放时，我用AVAudioRecorder进行录音，后台音乐被无情的停止了，直到最近才解决！解决方法如">
+  <meta name="twitter:description" content="这些天一直在纠结这个问题：在后台有音乐播放时，我用AVAudioRecorder进行录音，后台音乐被无情的停止了，直到最近才解决！解决方法如">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-07-11-%E5%9C%A8%E5%90%8E%E5%8F%B0%E6%9C%89%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%94%A8avaudiorecorder%E8%BF%9B%E8%A1%8C%E5%BD%95%E9%9F%B3%E9%97%AE%E9%A2%98%E7%9A%84/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-07-11-%E5%9C%A8%E5%90%8E%E5%8F%B0%E6%9C%89%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%94%A8avaudiorecorder%E8%BF%9B%E8%A1%8C%E5%BD%95%E9%9F%B3%E9%97%AE%E9%A2%98%E7%9A%84/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">在后台有音乐播放的情况下用AVAudioRecorder进行录音问题的解决</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jul 11, 2012</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>这些天一直在纠结这个问题：在后台有音乐播放时，我用AVAudioRecorder进行录音，后台音乐被无情的停止了，直到最近才解决！解决方法如下：</p>
+<p>首先，在开始录音之前，设置</p>
+<p>[[AVAudioSession sharedInstance] setActive:YES error:nil];</p>
+<p>[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];</p>
+<p>然后在录音结束后，既就是在它的回调函数</p>
+<p>– (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)aRecorder successfully:(BOOL)flag</p>
+<p>里加上：[[AVAudioSession sharedInstance] setActive:NO error:nil]; 即可。</p>
+<p>(用AVAudioPlayer来播放音乐也同样处理)</p>
+<p>AVAudioSession的Active属性，既就是设置你的音频会话的启动与关闭</p>
+<p>在你的录音结束后，一定要关闭AVAudioSession，后台音乐才会自己启动的。（网上的好多例子都只是启动它，但是并没有关闭，所以导致了AVAudioSession一直是激活状态，堵塞了后台音乐的正常播放）</p>
+<p>AVAudioSession的Category属性是设置其类别，它有一下几种类别:</p>
+<p>获取输入硬件 获取输出硬件 与IPOD混合 遵从振铃/静音</p>
+<p>AVAudioSessionCategoryAmbient 否 是 是 是</p>
+<p>AVAudioSessionCategorySoloAmbient 否 是 否 是</p>
+<p>AVAudioSessionCategoryPlayback 否 是 否 否</p>
+<p>AVAudioSessionCategoryRecord 是 否 否 否</p>
+<p>AVAudioSessionCategoryPlayAndRecord 是 是 否 否</p>
+<p>如果你想让你的音乐在程序退出后继续在后台播放，</p>
+<p>可以这样设置：</p>
+<p>[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];</p>
+<p>再在你工程的plist里加上</p>
+<p>在info.plist里面添加</p>
+<p><!-- raw HTML omitted -->Required background modes<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->App plays audio<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>即可。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-07-09-android-%E6%B5%8F%E8%A7%88%E5%99%A8/" data-toggle="tooltip" data-placement="top" title="android 浏览器">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-07-13-%E4%B8%BB%E6%B5%81php%E6%A1%86%E6%9E%B6%E9%97%B4%E7%9A%84%E6%AF%94%E8%BE%83zend-frameworkcakephpcodeignitersymfonythinkphpfleaphp/" data-toggle="tooltip" data-placement="top" title="主流PHP框架间的比较（Zend Framework，CakePHP，CodeIgniter，Symfony，ThinkPHP，FleaPHP）">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jul 11, 2012</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

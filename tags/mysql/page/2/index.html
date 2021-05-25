@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> mysql - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="mysql" />
+  <meta name="twitter:title" content="mysql" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/tags/mysql/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/tags/mysql/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  <header class="header-section ">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="page-heading">
+              <h1>#mysql</h1>
+              <hr class="small">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/mysql_5__procedure1/">
+                <h2 class="post-title">mysql_5__procedure1</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  DECLARE total_sale INT DEFAULT 0; DECLARE x, y, z INT DEFAULT 0; DECLARE total_count INT DEFAULT 0; SET total_count = 10; DECLARE total_products INT DEFAULT 0 SELECT COUNT(*) INTO total_products FROM studymysql.product &ndash; &ndash; 显示存储过程的特性 &ndash; 显示存储过程源代码 show procedure status ; SHOW CREATE PROCEDURE GetAllProducts; DELIMITER // CREATE PROCEDURE GetOfficeByProvince(IN provinceName VARCHAR(255)) BEGIN SELECT
+                  <a href="https://www.51hint.com/posts/mysql_5__procedure1/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/mysql/">mysql</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/mysql_4__inout/">
+                <h2 class="post-title">mysql_4__inout</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  CREATE DEFINER=`root`@`localhost` PROCEDURE `GetCustomerLevel`( in p_customerNumber int(11), out p_customerLevel varchar(10)) BEGIN DECLARE creditlim double; SELECT credit_limit INTO creditlim FROM studymysql.customer WHERE customer_id = p_customerNumber; IF creditlim &gt; 50000 THEN SET p_customerLevel = '金钻'; ELSEIF (creditlim &lt;= 50000 AND creditlim &gt;= 10000) THEN SET p_customerLevel = '黄金'; ELSEIF creditlim &lt; 10000 THEN SET p_customerLevel = '银牌'; END IF; END
+                  <a href="https://www.51hint.com/posts/mysql_4__inout/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/mysql/">mysql</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/mysql_1/">
+                <h2 class="post-title">mysql_1</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <p>SELECT id,
+(CASE WHEN shop_id = 13 THEN &lsquo;self&rsquo; WHEN shop_id != 13 THEN &lsquo;other&rsquo; ELSE &lsquo;sth&rsquo; END
+) AS shop
+FROM shifts
+ORDER BY id DESC
+LIMIT 100;</p>
+<p>SELECT IF (1 &gt; 13, &lsquo;yes&rsquo;, &lsquo;no&rsquo;);</p>
+<p>select (1+ cast(&lsquo;1&rsquo; as unsigned));</p>
+<p>select concat(&lsquo;mysql cast exam#&rsquo;, cast(2 as char));</p>
+<p>select cast(&lsquo;2016-01-01 11:11:11&rsquo; as datetime);</p>
+<p>select datediff(&lsquo;2018-01-02&rsquo;, &lsquo;2018-01-16&rsquo;);</p>
+<p>select str_to_date(&lsquo;14,10,2018&rsquo;, &lsquo;%d,%m,%Y&rsquo;);</p>
+<p>select str_to_date(&lsquo;123005&rsquo;,'%H%i%s');</p>
+<p>&ndash; select date_format(thedate, &lsquo;%Y %m %d&rsquo;) fdate;</p>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/mysql/">mysql</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2015-06-21-mysql-%E8%B0%83%E8%AF%95sql%E5%AE%A2%E6%88%B7%E7%AB%AF/">
+                <h2 class="post-title">mysql 调试sql客户端</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <h4 id="dbforge-studio-for-mysql可动态调试sql动态调试存储过程以及调试触发器">dbForge Studio for MySQL,可动态调试sql，动态调试存储过程，以及调试触发器</h4>
+<p>非常好用，极力推荐</p>
+<p> </p>
+<p><a href="https://www.devart.com/dbforge/mysql/studio/download.html">https://www.devart.com/dbforge/mysql/studio/download.html</a></p>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/mysql/">mysql</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2014-05-27-cakephp-error-database-connection-mysql-is-missing-or-could-not-be-created/">
+                <h2 class="post-title">CakePHP “Error: Database connection “Mysql” is missing, or could not be created”</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <p><code>sudo</code> <code>mkdir</code> <code>/var/mysql</code></p>
+<p><code>sudo</code> <code>ln</code> <code>-s ``/Applications/MAMP/tmp/mysql/mysql``.sock ``/var/mysql/mysql``.sock</code></p>
+<p> </p>
+<p>完美解决了</p>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/cakephp/">cakephp</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/mac/">mac</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/mysql/">mysql</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2013-03-19-ubuntu-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85lamp/">
+                <h2 class="post-title">ubuntu 一键安装lamp</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  打开终端 sudo apt-get install apache2 php5 libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql phpmyadmin 一键安装需要的组件. 期间会要求你输入mysql数据库的root用户密码，选择服务器类型［apache］,phpM
+                  <a href="https://www.51hint.com/posts/2013-03-19-ubuntu-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85lamp/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/apache/">apache</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/lamp/">lamp</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/mysql/">mysql</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/ubuntu/">ubuntu</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2012-12-23-centos-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85lamp/">
+                <h2 class="post-title">centos6 快速安装LAMP</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  配置Apache、MySQL、Tomcat服务开机自启动： &lt;br /&gt; 重启Apache、MySQL、Tomcat服务： &lt;br /&gt; 说明： ** Apache的配置
+                  <a href="https://www.51hint.com/posts/2012-12-23-centos-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85lamp/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/apache/">apache</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/lamp/">lamp</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/mysql/">mysql</a>&nbsp;
+                  
+                    #<a href="https://www.51hint.com/tags/php/">php</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2012-07-19-zend-server-cant-connect-to-mysql/">
+                <h2 class="post-title">zend server can’t connect to mysql</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <p>use command</p>
+<p>[ps aux|grep mysql]</p>
+<p>I find my.cnf in the [/usr/local/zend/mysql/data/my.cnf]</p>
+<p>but in fact,there is none!</p>
+<p>so ,what should we do</p>
+<p>just create my.cnf file.</p>
+<p>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong></p>
+<p>input the socket path</p>
+<p>[client]</p>
+<p>socket = /usr/local/zend/mysql/tmp/mysql.sock</p>
+<p> </p>
+<p> </p>
+<p>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong></p>
+<p>maybe it exist</p>
+<p>just  open <!-- raw HTML omitted --> /usr/local/zend/mysql/data/my.cnf<!-- raw HTML omitted --> file</p>
+<p>comment it.</p>
+<!-- raw HTML omitted -->
+<p>//////////////////////////////////////////////////////</p>
+<p>#/usr/local/zend/bin/zendctl.sh stop-mysql</p>
+<p>#/usr/local/zend/bin/zendctl.sh start-mysql</p>
+<p>#sudo ln -s /private/tmp/mysql.sock   /usr/local/zend/mysql/tmp/mysql.sock</p>
+<p>congratulation, it works!</p>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/mysql/">mysql</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2012-06-21-mysql-%E5%91%BD%E4%BB%A4/">
+                <h2 class="post-title">mysql 命令</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  show databases; 显示数据库 create database name; 创建数据库 use databasename; 选择数据库 drop database name 直接删除数据库，不提醒 show tables; 显示表 describe tablename; 显示具体的表结构 select 中加上distinct去除重复字段 mysqladmin
+                  <a href="https://www.51hint.com/posts/2012-06-21-mysql-%E5%91%BD%E4%BB%A4/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/mysql/">mysql</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+        </div>
+        
+          <ul class="pager main-pager">
+            
+              <li class="previous">
+                <a href="/tags/mysql/page/1">&larr; Newer Posts</a>
+              </li>
+            
+            
+          </ul>
+        
+      </div>
+    <div align="center" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/tags/mysql/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/tags/mysql/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/tags/mysql/">1</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/tags/mysql/page/2/">2</a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/tags/mysql/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

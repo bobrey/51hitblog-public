@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>db on IT技术分享</title>
+    <link>https://www.51hint.com/categories/db/</link>
+    <description>Recent content in db on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jul 2012 01:49:53 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/db/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenStack</title>
+      <link>https://www.51hint.com/posts/2012-07-20-openstack/</link>
+      <pubDate>Fri, 20 Jul 2012 01:49:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-20-openstack/</guid>
+      <description>OpenStack在国外慢慢的流行开来，不少企业和个人也在对它进行二次开发。从我个人理解，OpenStack作为一种免费的开源软件，可以用在</description>
+    </item>
+    
+    <item>
+      <title>mysql 命令</title>
+      <link>https://www.51hint.com/posts/2012-06-21-mysql-%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 21 Jun 2012 06:45:18 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-21-mysql-%E5%91%BD%E4%BB%A4/</guid>
+      <description>show databases; 显示数据库 create database name; 创建数据库 use databasename; 选择数据库 drop database name 直接删除数据库，不提醒 show tables; 显示表 describe tablename; 显示具体的表结构 select 中加上distinct去除重复字段 mysqladmin</description>
+    </item>
+    
+    <item>
+      <title>sql server 2008 mdf恢复数据库</title>
+      <link>https://www.51hint.com/posts/2012-05-14-sql-server-2008-mdf%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Mon, 14 May 2012 10:25:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-14-sql-server-2008-mdf%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description>attach 恢复 mdf和ldf之后 孤立帐户，就是某个数据库的帐户只有用户名而没有登录名，这样的用户在用户库的sysusers系统表中存在，而在mast</description>
+    </item>
+    
+  </channel>
+</rss>

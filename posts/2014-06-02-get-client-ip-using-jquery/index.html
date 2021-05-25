@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Get Client IP Using jQuery - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Get Client IP Using jQuery" />
+  <meta name="twitter:title" content="Get Client IP Using jQuery" />
+  <meta name="description" content="1. One way This one gives you longitude/latitude and timezone.
+Try it! &lt;td&gt; &lt;div&gt; &lt;div&gt; &lt;code&gt;$(document).ready( &lt;/code&gt;&lt;code&gt;function&lt;/code&gt;&lt;code&gt;() { $.getJSON( &lt;/code&gt;&lt;code&gt;&quot;&amp;lt;a href=&quot;http://smart-ip.net/geoip-json?callback=?&quot;&gt;http://smart-ip.net/geoip-json?callback=?&amp;lt;/a&gt;&quot;&lt;/code&gt;&lt;code&gt;, &lt;/code&gt;&lt;code&gt;function&lt;/code&gt;&lt;code&gt;(data){ alert( data.host); } );});&lt;/code&gt; &lt;/div&gt; &lt;/div&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;  Returns:
+ &lt;div&gt; 2 &lt;/div&gt; &lt;div&gt; 3 &lt;/div&gt; &lt;div&gt; 4 &lt;/div&gt; &lt;div&gt; 5 &lt;/div&gt; &lt;div&gt; 6 &lt;/div&gt; &lt;div&gt; 7 &lt;/div&gt; &lt;div&gt; 8 &lt;/div&gt; &lt;div&gt; 9 &lt;/div&gt; &lt;div&gt; 10 &lt;/div&gt; &lt;div&gt; 11 &lt;/div&gt; &lt;div&gt; 12 &lt;/div&gt; &lt;div&gt; 13 &lt;/div&gt; &lt;div&gt; 14 &lt;/div&gt; &lt;/td&gt; &lt;td&gt; &lt;div&gt; &lt;div&gt; &lt;code&gt;?">
+  <meta property="og:description" content="1. One way This one gives you longitude/latitude and timezone.
+Try it! &lt;td&gt; &lt;div&gt; &lt;div&gt; &lt;code&gt;$(document).ready( &lt;/code&gt;&lt;code&gt;function&lt;/code&gt;&lt;code&gt;() { $.getJSON( &lt;/code&gt;&lt;code&gt;&quot;&amp;lt;a href=&quot;http://smart-ip.net/geoip-json?callback=?&quot;&gt;http://smart-ip.net/geoip-json?callback=?&amp;lt;/a&gt;&quot;&lt;/code&gt;&lt;code&gt;, &lt;/code&gt;&lt;code&gt;function&lt;/code&gt;&lt;code&gt;(data){ alert( data.host); } );});&lt;/code&gt; &lt;/div&gt; &lt;/div&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt;  Returns:
+ &lt;div&gt; 2 &lt;/div&gt; &lt;div&gt; 3 &lt;/div&gt; &lt;div&gt; 4 &lt;/div&gt; &lt;div&gt; 5 &lt;/div&gt; &lt;div&gt; 6 &lt;/div&gt; &lt;div&gt; 7 &lt;/div&gt; &lt;div&gt; 8 &lt;/div&gt; &lt;div&gt; 9 &lt;/div&gt; &lt;div&gt; 10 &lt;/div&gt; &lt;div&gt; 11 &lt;/div&gt; &lt;div&gt; 12 &lt;/div&gt; &lt;div&gt; 13 &lt;/div&gt; &lt;div&gt; 14 &lt;/div&gt; &lt;/td&gt; &lt;td&gt; &lt;div&gt; &lt;div&gt; &lt;code&gt;?">
+  <meta name="twitter:description" content="1. One way This one gives you longitude/latitude and timezone.
+Try it! &lt;td&gt; &lt;div&gt; &lt;div&gt; &lt;code&gt;$(document).ready( &lt;/code&gt;&lt;code&gt;function&lt;/code&gt;&lt;code&gt;() { …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2014-06-02-get-client-ip-using-jquery/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2014-06-02-get-client-ip-using-jquery/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">Get Client IP Using jQuery</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jun 2, 2014</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/ip/">ip</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/jquery/">jquery</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-one-way">1. One way</a></li>
+    <li><a href="#2-two-way">2. Two way</a></li>
+    <li><a href="#3-three-way">3. Three way</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p> <!-- raw HTML omitted --></p>
+<h2 id="1-one-way">1. One way</h2>
+<p>This one gives you longitude/latitude and timezone.</p>
+<p><!-- raw HTML omitted -->Try it!<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>    &lt;td&gt;
+      &lt;div&gt;
+        &lt;div&gt;
+          &lt;code&gt;$(document).ready( &lt;/code&gt;&lt;code&gt;function&lt;/code&gt;&lt;code&gt;() { $.getJSON( &lt;/code&gt;&lt;code&gt;&quot;&amp;lt;a href=&quot;http://smart-ip.net/geoip-json?callback=?&quot;&gt;http://smart-ip.net/geoip-json?callback=?&amp;lt;/a&gt;&quot;&lt;/code&gt;&lt;code&gt;, &lt;/code&gt;&lt;code&gt;function&lt;/code&gt;&lt;code&gt;(data){ alert( data.host); } );});&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>Returns:</p>
+<!-- raw HTML omitted -->
+<pre><code>      &lt;div&gt;
+        2
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        3
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        4
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        5
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        6
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        7
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        8
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        9
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        10
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        11
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        12
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        13
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        14
+      &lt;/div&gt;
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      &lt;div&gt;
+        &lt;div&gt;
+          &lt;code&gt;?(&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;{&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;   &lt;/code&gt;&lt;code&gt;source: &lt;/code&gt;&lt;code&gt;&quot;smart-ip.net&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;   &lt;/code&gt;&lt;code&gt;host: &lt;/code&gt;&lt;code&gt;&quot;14.200.158.65&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;   &lt;/code&gt;&lt;code&gt;lang: &lt;/code&gt;&lt;code&gt;&quot;en&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;   &lt;/code&gt;&lt;code&gt;countryName: &lt;/code&gt;&lt;code&gt;&quot;Australia&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;   &lt;/code&gt;&lt;code&gt;countryCode: &lt;/code&gt;&lt;code&gt;&quot;AU&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;   &lt;/code&gt;&lt;code&gt;city: &lt;/code&gt;&lt;code&gt;&quot;South Sydney Municipality&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;   &lt;/code&gt;&lt;code&gt;region: &lt;/code&gt;&lt;code&gt;&quot;New South Wales&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;   &lt;/code&gt;&lt;code&gt;latitude: &lt;/code&gt;&lt;code&gt;&quot;-33.9000&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;   &lt;/code&gt;&lt;code&gt;longitude: &lt;/code&gt;&lt;code&gt;&quot;151.2000&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;   &lt;/code&gt;&lt;code&gt;timezone: &lt;/code&gt;&lt;code&gt;&quot;Australia/NSW&quot;&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;}&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;)&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="2-two-way">2. Two way</h2>
+<p>This one provides JSON.</p>
+<p><!-- raw HTML omitted -->Try it!<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>      &lt;div&gt;
+        2
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        3
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        4
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        5
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        6
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        7
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        8
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        9
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        10
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        11
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        12
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        13
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        14
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        15
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        16
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        17
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        18
+      &lt;/div&gt;
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      &lt;div&gt;
+        &lt;div&gt;
+          &lt;code&gt;function&lt;/code&gt; &lt;code&gt;myIP() {&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;    &lt;/code&gt;&lt;code&gt;if&lt;/code&gt; &lt;code&gt;(window.XMLHttpRequest) xmlhttp = &lt;/code&gt;&lt;code&gt;new&lt;/code&gt; &lt;code&gt;XMLHttpRequest();&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;    &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;xmlhttp = &lt;/code&gt;&lt;code&gt;new&lt;/code&gt; &lt;code&gt;ActiveXObject(&lt;/code&gt;&lt;code&gt;&quot;Microsoft.XMLHTTP&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt; &lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;    &lt;/code&gt;&lt;code&gt;xmlhttp.open(&lt;/code&gt;&lt;code&gt;&quot;GET&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;&lt;code&gt;&quot; &amp;lt;a href=&quot;http://api.hostip.info/get_html.php&quot;&gt;http://api.hostip.info/get_html.php&amp;lt;/a&gt; &quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;&lt;code&gt;false&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;    &lt;/code&gt;&lt;code&gt;xmlhttp.send();&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt; &lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;    &lt;/code&gt;&lt;code&gt;hostipInfo = xmlhttp.responseText.split(&lt;/code&gt;&lt;code&gt;&quot;n&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt; &lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;    &lt;/code&gt;&lt;code&gt;for&lt;/code&gt; &lt;code&gt;(i=0; hostipInfo.length &amp;gt;= i; i++) {&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;        &lt;/code&gt;&lt;code&gt;ipAddress = hostipInfo[i].split(&lt;/code&gt;&lt;code&gt;&quot;:&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;        &lt;/code&gt;&lt;code&gt;if&lt;/code&gt; &lt;code&gt;( ipAddress[0] == &lt;/code&gt;&lt;code&gt;&quot;IP&quot;&lt;/code&gt; &lt;code&gt;) &lt;/code&gt;&lt;code&gt;return&lt;/code&gt; &lt;code&gt;ipAddress[1];&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;    &lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt; &lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;    &lt;/code&gt;&lt;code&gt;return&lt;/code&gt; &lt;code&gt;false&lt;/code&gt;&lt;code&gt;;&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;}&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt; &lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;// console.log(myIP());&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>Returns:</p>
+<!-- raw HTML omitted -->
+<pre><code>      &lt;div&gt;
+        2
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        3
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        4
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        5
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        6
+      &lt;/div&gt;
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      &lt;div&gt;
+        &lt;div&gt;
+          &lt;code&gt;{&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;  &lt;/code&gt;&lt;code&gt;country_name: &lt;/code&gt;&lt;code&gt;&quot;UNITED STATES&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;  &lt;/code&gt;&lt;code&gt;country_code: &lt;/code&gt;&lt;code&gt;&quot;US&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;  &lt;/code&gt;&lt;code&gt;city: &lt;/code&gt;&lt;code&gt;&quot;(Unknown city)&quot;&lt;/code&gt;&lt;code&gt;,&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;  &lt;/code&gt;&lt;code&gt;ip: &lt;/code&gt;&lt;code&gt;&quot;14.200.158.65&quot;&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;}&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="3-three-way">3. Three way</h2>
+<p><!-- raw HTML omitted -->Try it!<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>      &lt;div&gt;
+        2
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        3
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        4
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        5
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        6
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        7
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        8
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        9
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        10
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        11
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        12
+      &lt;/div&gt;
+      
+      &lt;div&gt;
+        13
+      &lt;/div&gt;
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      &lt;div&gt;
+        &lt;div&gt;
+          &lt;code&gt;http:&lt;/code&gt;&lt;code&gt;//l2.io/ip.js&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;Syntax : http:&lt;/code&gt;&lt;code&gt;//l2.io/ip&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;Diplay Client IP address&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;--&amp;gt; x.x.x.x&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;Syntax : &amp;lt;script type=&lt;/code&gt;&lt;code&gt;&quot;text/javascript&quot;&lt;/code&gt; &lt;code&gt;src=&lt;/code&gt;&lt;code&gt;&quot;&amp;lt;a href=&quot;http://l2.io/ip.js&quot;&gt;http://l2.io/ip.js&amp;lt;/a&gt;&quot;&lt;/code&gt;&lt;code&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;Display Client IP address &lt;/code&gt;&lt;code&gt;in&lt;/code&gt; &lt;code&gt;your HTML page using javascript&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;--&amp;gt; document.write(&lt;/code&gt;&lt;code&gt;'x.x.x.x'&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;Syntax : &amp;lt;script type=&lt;/code&gt;&lt;code&gt;&quot;text/javascript&quot;&lt;/code&gt; &lt;code&gt;src=&lt;/code&gt;&lt;code&gt;&quot;&amp;lt;a href=&quot;http://l2.io/ip.js?var=myip&quot;&gt;http://l2.io/ip.js?var=myip&amp;lt;/a&gt;&quot;&lt;/code&gt;&lt;code&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;Set javascript variable &lt;/code&gt;&lt;code&gt;&quot;myip&quot;&lt;/code&gt; &lt;code&gt;to client IP address&lt;/code&gt;
+        &lt;/div&gt;
+        
+        &lt;div&gt;
+          &lt;code&gt;--&amp;gt; myip = &lt;/code&gt;&lt;code&gt;&quot;x.x.x.x&quot;&lt;/code&gt;&lt;code&gt;;&lt;/code&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2014-06-02-%E9%85%8D%E7%BD%AEphpstorm%E4%B8%8Exampp-xdebug/" data-toggle="tooltip" data-placement="top" title="配置Phpstorm与xampp, xdebug">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2014-06-09-xampp-phpmyadmin-%E4%B9%B1%E7%A0%81/" data-toggle="tooltip" data-placement="top" title="xampp phpmyadmin 乱码">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2012-12-12-ios%E4%B8%8Amake-webapp/">ios上make webapp</a></li>
+                    
+                    <li><a href="/posts/2012-08-06-java-php%E8%B7%A8%E5%9F%9F%E6%8F%90%E4%BA%A4/">java.php跨域提交</a></li>
+                    
+                    <li><a href="/posts/2012-07-04-dwz%E5%AF%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A1%86%E6%9E%B6jquery-ria-framework/">DWZ富客户端框架(jQuery RIA framework),</a></li>
+                    
+                    <li><a href="/posts/2012-06-28-jquery-%E5%8A%A8%E7%94%BB/">jquery 动画</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jun 2, 2014</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/ip/">ip</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/jquery/">jquery</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

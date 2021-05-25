@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Umijs_davjs入门 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Umijs_davjs入门" />
+  <meta name="twitter:title" content="Umijs_davjs入门" />
+  <meta name="description" content="umijs和dvajs入门">
+  <meta property="og:description" content="umijs和dvajs入门">
+  <meta name="twitter:description" content="umijs和dvajs入门">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/umijs_davjs%E5%85%A5%E9%97%A8/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/umijs_davjs%E5%85%A5%E9%97%A8/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Umijs_davjs入门</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <p>UmiJS是一个可插拔的企业级 react 应用框架，具体可查看 <a href="https://www.jishuwen.com/jump/aHR0cHM6Ly91bWlqcy5vcmcvemgvZ3VpZGUvIyVFNyU4OSVCOSVFNiU4MCVBNw==">官网文档</a></p>
+<p>DvaJS是dva 首先是一个基于 redux 和 redux-saga 的数据流方案，然后为了简化开发体验，dva 还额外内置了 react-router 和 fetch，所以也可以理解为一个轻量级的应用框架。官网地址： <a href="https://www.jishuwen.com/jump/aHR0cHM6Ly9kdmFqcy5jb20=">https://dvajs.com</a></p>
+<h3 id="创建项目">创建项目</h3>
+<p>创建UmiJS项目很简单，根据文档的 <a href="https://www.jishuwen.com/jump/aHR0cHM6Ly91bWlqcy5vcmcvemgvZ3VpZGUvY3JlYXRlLXVtaS1hcHAuaHRtbCMlRTQlQkIlOEIlRTclQkIlOEQtY3JlYXRlLXVtaQ==">通过脚手架创建项目</a> 步骤就行了，这里不多描述。</p>
+<p>提示安装类型：</p>
+<p>Select the boilerplate type 选择</p>
+<p><code>antd</code> 是蚂蚁金服的React UI框架，它的设计非常精美，其官网地址： <a href="https://www.jishuwen.com/jump/aHR0cHM6Ly9hbnQuZGVzaWduL2luZGV4LWNuJUUzJTgwJTgyJUU4JUJGJTk5JUU5JTg3JThDJUU1JThBJUEwJUU0JUI4JUFBVUklRTYlQTElODYlRTYlOUUlQjYlRTUlOEYlQUElRTYlOTglQUYlRTQlQjglQkElRTQlQkElODYlRTklQTElQjklRTclOUIlQUUlRTYlOTUlQjAlRTYlOEQlQUUlRTUlQjElOTUlRTclQTQlQkElRTclQkUlOEUlRTglQTclODIlRTQlQkElOUIlRTMlODAlODI=">https://ant.design/index-cn。这里加个UI框架只是为了项目数据展示美观些。</a></p>
+<h3 id="配置代理">配置代理</h3>
+<p>下面插点数据，既然是用户管理系统就需要一些用户信息，利用mock制造一些json数据： <code>http://jsonplaceholder.typicode.com/users</code> ，由于跨域等问题，还是将这个地址反代自己地址吧。根据 <code>UmiJS</code> 问题的 <a href="https://www.jishuwen.com/jump/aHR0cHM6Ly91bWlqcy5vcmcvemgvY29uZmlnLyNwcm94eQ==">Proxy</a> 配置，需要在项目目录下的 <code>.umirc.js</code> 或者 <code>config/config.js</code> 添加编辑：</p>
+<pre><code>&quot;proxy&quot;: {
+  &quot;/api&quot;: {
+    &quot;target&quot;: &quot;http://jsonplaceholder.typicode.com/&quot;,
+    &quot;changeOrigin&quot;: true,
+    &quot;pathRewrite&quot;: { &quot;^/api&quot; : &quot;&quot; }
+  }
+}
+</code></pre><p>然后启动项目 <code>yarn start</code> 访问地址： <code>http://localhost:8000/api/users</code> 是否成功。</p>
+<h3 id="生成路由">生成路由</h3>
+<p>编写路由前有必要先了解下 <code>UmiJS</code> 路由运行方式： <a href="https://www.jishuwen.com/jump/aHR0cHM6Ly91bWlqcy5vcmcvemgvZ3VpZGUvcm91dGVyLmh0bWw=">UmiJS 路由</a> ，路由就是应用不同的页面组成的，如果地址栏是 <code>/user/</code> 则页面应该是 <code>src/pages/user.js</code> 。当然你可以手动新建个 <code>js/css</code> 文件，不过 <code>UmiJS</code> 提供 <code>npx</code> 新建路由的方式：</p>
+<pre><code>yarn global add npx # 安装npx模块
+ 
+npx umi g page user # 新建/user路由
+</code></pre><p>然后可以在 <code>http://localhost:8000/user</code> 访问了。</p>
+<h3 id="构造-model-和-services">构造 model 和 services</h3>
+<p>如果在 <code>src/model</code> 和 <code>src/services</code> 目录下新建文件名字和 <code>src/pages</code> 相同，Umi会自动注入同名业务代码。</p>
+<p>可以利用 <code>DvaJS</code> 中的 <code>fetch</code> 方式访问接口获取数据，然后在 <code>src/utils/request.js</code> 编写一层 <code>fetch</code> 封装方法：</p>
+<pre><code>import fetch from 'dva/fetch';
+ 
+function checkStatus(response) {
+  if (response.status &gt;= 200 &amp;&amp; response.status &lt; 300) {
+    return response;
+  }
+ 
+  const error = new Error(response.statusText);
+  error.response = response;
+  throw error;
+}
+ 
+/**
+* Requests a URL, returning a promise.
+*
+ * @param  {string} url       The URL we want to request
+ * @param  {object} [options] The options we want to pass to &quot;fetch&quot;
+ * @return {object}           An object containing either &quot;data&quot; or &quot;err&quot;
+*/
+export default async function request(url, options) {
+  const response = await fetch(url, options);
+ 
+  checkStatus(response);
+ 
+  const data = await response.json();
+ 
+  const ret = {
+    data,
+    headers: {},
+  };
+ 
+  if (response.headers.get('x-total-count')) {
+    ret.headers['x-total-count'] = response.headers.get('x-total-count');
+  }
+ 
+  return ret;
+}
+</code></pre><p>关于具体的 <code>Fetch</code> 资料可以到网上查阅。</p>
+<p>然后建立请求接口的文件，在新建 <code>src/services/user.js</code> ：</p>
+<pre><code>import { PAGE_SIZE } from '../constants'
+import request from '@/utils/request'
+ 
+export function queryUserList({ page = 1 }) {
+  return request(`/api/users?_page=${page}&amp;_limit=${PAGE_SIZE}`);
+}
+</code></pre><p>这里的请求是 <code>_page</code> 是当前页码， <code>_limit</code> 是当前页码数据数量。</p>
+<p>在 <code>src/constants.js</code> 编写：</p>
+<pre><code>export const PAGE_SIZE = 5;
+</code></pre><p>当然可以在请求参数里写死。</p>
+<p>请求服务业务写完了，下面写 <code>models</code> 层业务，该业务主要是处理数据和逻辑， <code>DvaJS</code> 通过 <code>model</code> 的概念把一个领域的模型管理起来，包含同步更新 <code>state</code> 的 <code>reducers</code> ，处理异步逻辑的 <code>effects</code> ，订阅数据源的 <code>subscriptions</code> ：</p>
+<p>新建 <code>src/models/users.js</code></p>
+<pre><code>import { queryUserList } from '@/services/users';
+ 
+export default {
+  namespace: 'users',
+  state: {
+    list: [],
+    total: null,
+    page: null,
+  },
+  reducers: {
+    // 保存数据
+    save(state, { payload: { data: list, total, page } }) {
+      // 复制数组，将list, total, page内容复制到state
+      return { ...state, list, total, page };
+    },
+  },
+  effects: {
+    // 访问接口获取数据 并且保存数据
+    *fetchUserList({ payload: { page = 1 } }, { call, put }) {
+      const { data, headers } = yield call(queryUserList, { page });
+      yield put({
+        type: 'save',
+        payload: {
+          data,
+          total: parseInt(headers['x-total-count'], 10) ,
+          page: parseInt(page, 10)
+        }
+      });
+    },
+  },
+  subscriptions: {
+    // https://github.com/dvajs/dva/issues/174
+    setup({ dispatch, history }) {
+      return history.listen(({ pathname, query }) =&gt; {
+        // 进入'/users'地址触发fetchUserList
+        if (pathname === '/users') {
+          dispatch({ type: 'fetchUserList', payload: query });
+        }
+      });
+    },
+  },
+};
+</code></pre><p>看着有点多，但里面内容基本都是固定规范，详细的说明可以去 <code>DvaJS</code> <a href="https://www.jishuwen.com/jump/aHR0cHM6Ly9kdmFqcy5jb20vYXBpLyNtb2RlbA==">官网文档 Model</a> 查阅：</p>
+<ul>
+<li><code>namespace</code> ：表示在全局 <code>state</code> 上的唯一名称</li>
+<li><code>state</code> ：表示初始值</li>
+<li><code>reducers</code> ：用于处理同步操作，唯一可以修改 <code>state</code> 的地方</li>
+<li><code>effects</code> ：以 <code>key/value</code> 格式定义 <code>effect</code> 。用于处理异步操作和业务逻辑，不直接修改 <code>state</code></li>
+<li><code>subscriptions</code> ：用于订阅一个数据源，然后根据需要 dispatch 相应的 action</li>
+</ul>
+<h3 id="构建-ui">构建 UI</h3>
+<p>修改 <code>src/pages/users.js</code> ：</p>
+<pre><code>import { connect } from 'dva';
+import { Table, Pagination, Popconfirm } from 'antd';
+import styles from './users.css';
+import { PAGE_SIZE } from '../constants';
+ 
+/**
+* 用户列表管理
+* @param dispatch DvaJS dispatch函数 用于触发action 的函数 详解：https://dvajs.com/guide/concepts.html#dispatch-%E5%87%BD%E6%95%B0
+* @param dataSource 用户列表信息
+* @param total 总数据数量
+* @param loading 加载状态
+* @param current 当前页码
+* @returns {*}
+* @constructor
+*/
+function Users({ dispatch, list: dataSource, loading, total, page: current }) {
+  function deleteHandler(id) {
+    console.warn(`TODO: ${id}`);
+  }
+ 
+  /**
+   * 页码改变的回调
+   * @param page 改变后的页码
+   * @param pageSize 每页条数
+   */
+  function onChangeUserPagination(page, pageSize) {
+    dispatch({
+      type: 'users/fetchUserList',
+      payload: {
+        page: page
+      }, // 需要传递的信息
+    });
+  }
+  const columns = [
+    {
+      title: '用户名',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: '电子邮件',
+      dataIndex: 'email',
+      key: 'email',
+    },
+    {
+      title: '个人网站',
+      dataIndex: 'website',
+      key: 'website',
+    },
+    {
+      title: '操作',
+      key: 'operation',
+      render: (text, { id }) =&gt; (
+        &lt;span className={styles.operation}&gt;
+           &lt;Button&gt;编辑&lt;/Button&gt;
+          &lt;Popconfirm title=&quot;Confirm to delete?&quot; onConfirm={deleteHandler.bind(null, id)}&gt;
+             &lt;Button&gt;删除&lt;/Button&gt;
+          &lt;/Popconfirm&gt;
+        &lt;/span&gt;
+      ),
+    },
+  ];
+  return (
+    &lt;div className={styles.normal}&gt;
+      &lt;div&gt;
+        &lt;Table
+          loading={loading}
+          columns={columns}
+          dataSource={dataSource}
+          rowKey={record =&gt; record.id}
+          pagination={false}
+        /&gt;
+        &lt;Pagination
+          className=&quot;ant-table-pagination&quot;
+          total={total} // 数据总数
+          current={current} // 当前页数
+          pageSize={PAGE_SIZE} // 每页条数
+          onChange={onChangeUserPagination}
+        /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+ 
+function mapStateToProps(state) {
+  const { list, total, page } = state.users;
+  return {
+    list,
+    total,
+    page,
+    loading: state.loading.models.users,
+  };
+}
+ 
+export default connect(mapStateToProps)(Users);
+</code></pre><p>这个页面用到了 <code>antd</code> 的表格和分页俩个组件，渲染组件是标准的 <code>React</code> 函数组件，接受带数据的 <code>props</code> 对象。</p>
+<p>上面是进入页面获取数据，如果是主动性获取数据也很简单：先注释 <code>src/moudel/users.js</code> 中的 <code>subscriptions</code> 订阅模式模块，然后在 <code>src/pages/users.js</code> 添加按钮：</p>
+<pre><code>function getUserListData() {
+    dispatch({
+      type: 'users/fetchUserList',
+      payload: {}, // 需要传递的信息
+    });
+  }
+...
+  return (
+    &lt;div className={styles.normal}&gt;
+      &lt;div&gt;
+        &lt;Button type=&quot;primary&quot; onClick={getUserListData}&gt;获取用户数据&lt;/Button&gt;
+        &lt;Table
+          loading={loading}
+          columns={columns}
+          dataSource={dataSource}
+          rowKey={record =&gt; record.id}
+          pagination={false}
+        /&gt;
+...
+</code></pre><p>就这样一个简单的页面构建完成。所以完整的功能页面就不在这篇文章详细的编写了，整个业务逻辑和上述过程差不多。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/redux_toolkit/" data-toggle="tooltip" data-placement="top" title="Redux_toolkit">&larr; Previous Post</a>
+                </li>
+                 
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/react_redux%E8%AE%B2%E8%A7%A3/">React_redux讲解</a></li>
+                    
+                    <li><a href="/posts/redux_toolkit/">Redux_toolkit</a></li>
+                    
+                    <li><a href="/posts/gorm%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2/">Gorm关联查询</a></li>
+                    
+                    <li><a href="/posts/%E5%BE%AE%E4%BF%A1%E6%8C%91%E4%B8%80%E6%8C%91/">微信挑一挑</a></li>
+                    
+                    <li><a href="/posts/k8s_ingress/">K8s_ingress nginx</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

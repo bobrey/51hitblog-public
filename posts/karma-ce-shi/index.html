@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Karma 测试 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Karma 测试" />
+  <meta name="twitter:title" content="Karma 测试" />
+  <meta name="description" content="Karma 测试环境 之前写过的测试都是针对简单的工具方法，用的 mocha &#43; chai 写，最近在研究前端路由，想写写测试代码，遇到 window.location，突然意">
+  <meta property="og:description" content="Karma 测试环境 之前写过的测试都是针对简单的工具方法，用的 mocha &#43; chai 写，最近在研究前端路由，想写写测试代码，遇到 window.location，突然意">
+  <meta name="twitter:description" content="Karma 测试环境 之前写过的测试都是针对简单的工具方法，用的 mocha &#43; chai 写，最近在研究前端路由，想写写测试代码，遇到 window.location，突然意">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/karma-ce-shi/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/karma-ce-shi/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Karma 测试</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/nodejs/">nodejs</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#开始搭环境">开始搭环境</a></li>
+    <li><a href="#babel">Babel</a></li>
+    <li><a href="#webpack加入">Webpack加入</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h1 id="karma-测试环境">Karma 测试环境</h1>
+<p>之前写过的测试都是针对简单的工具方法，用的 mocha + chai 写，最近在研究前端路由，想写写测试代码，遇到 window.location，突然意识到前后端的差异问题，需要一个浏览器环境，于是想到之前用过的 Karma + phamtonjs 环境，搭的过程中遇到一些坑，因为涉及到了 Babel 和 commonjs 模块系统，于是这里记录分享下。</p>
+<h2 id="开始搭环境">开始搭环境</h2>
+<ol>
+<li>由于 Karma 只是一个 Test Runner，咱们的测试框架和断言库还是需要的，于是先装这些东西：</li>
+</ol>
+<pre><code>npm install --save-dev karma karma-mocha karma-chai
+
+对于 npm 版本 &gt;=3.0 的话，这几个 peerDependencies：
+&gt; npm install --save-dev mocha chai
+
+这些装完后，利用 karma-cli 来初始化一份配置文件：
+&gt; ./node_modules/.bin/karma init
+</code></pre><p>按照提示填写配置即可，完成后生成一份 karma.config.js，把里面 singleRun 设成 <strong>false</strong>，结束。</p>
+<ol start="2">
+<li>接下来给 Karma 准备 Browsers 了，我这里选择 PhantomJS（在上面初始化 Karma 配置的时候就可以选了），不过这东西的安装过程是真的纠结：</li>
+</ol>
+<pre><code>&gt; npm install --save-dev karma-phantomjs-launcher phantomjs-prebuilt
+</code></pre><ol start="3">
+<li>然后贴出一部分配置</li>
+</ol>
+<pre><code>module.exports = function (config) {  
+  config.set({
+    basePath: './',
+    frameworks: [ 'mocha', 'chai' ],
+    files: [
+      'src/**/*.js',
+      'test/**/*.js'
+    ],
+    plugins: [
+      'karma-mocha',
+      'karma-chai',
+      'karma-mocha-reporter',
+      'karma-phantomjs-launcher'
+    ],
+    reporters: [ 'mocha' ],
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: false,
+    browsers: [ 'PhantomJS' ],
+    singleRun: true,
+    concurrency: Infinity
+  })
+}
+</code></pre><p>这些顺利安装完后，并且你的配置文件正确配置的情况下，理应是可以跑了，然而我现在的工作流已经深度依赖于 Babel + commonjs 模块系统，所以如果你和我一样的话，那么我们的环境还没搭好</p>
+<h2 id="babel">Babel</h2>
+<p>这边我用的 Babel 版本是 v6.0+，根据 Babel 官网 说的：<code>npm install --save-dev karma-babel-preprocessor</code>
+并在配置里添加预处理配置：</p>
+<pre><code>plugins: [  
+  ...
+  'karma-babel-preprocessor',
+  ...
+],
+preprocessors: {  
+  &quot;src/**/*.js&quot;: [ &quot;babel&quot; ],
+  &quot;test/**/*.js&quot;: [ &quot;babel&quot; ]
+},
+</code></pre><p>然而即便是这样也还是不行，考虑到 Babel 是将 ES6 的模块系统转换为 commonjs 的模块系统，而 Karma 是直接把匹配到的脚本放在浏览器环境里跑的，浏览器环境里肯定没有 require、module.exports 这种东西，所以在看了几个例子之后，发现还需要 karma-commonjs 这个东西。
+<code> npm install --save-dev karma-commonjs</code></p>
+<p>完整的配置文件如下：</p>
+<pre><code>module.exports = function(config) {  
+  config.set({
+    basePath: './',
+    frameworks: [ 'mocha', 'chai', 'commonjs' ],
+    files: [
+      'src/**/*.js',
+      'test/**/*.js'
+    ],
+    exclude: [
+    ],
+    preprocessors: {
+      'src/**/*.js': [ 'babel', 'commonjs' ],
+      'test/**/*.js': [ 'babel', 'commonjs' ]
+    },
+    plugins: [
+      'karma-mocha',
+      'karma-chai',
+      'karma-mocha-reporter',
+      'karma-commonjs',
+      'karma-babel-preprocessor',
+      'karma-phantomjs-launcher'
+    ],
+    reporters: [ 'mocha' ],
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: false,
+    browsers: [ 'PhantomJS' ],
+    singleRun: true,
+    concurrency: Infinity
+  })
+}
+</code></pre><p>好了，现在只需要在 npm scripts 里加上一条：</p>
+<pre><code>scripts: {  
+  test: 'karma start'
+}
+</code></pre><h2 id="webpack加入">Webpack加入</h2>
+<p>上面的 karma-commonjs 有个问题，它只能加载配置里 files 选项匹配的模块，这一点很不方便，于是想到 webpack 是否可以和 karma 协同工作，果然是有的，于是找我最终使用了这个方式。
+<code>npm install --save-dev karma-webpack</code></p>
+<p>karma-webpack 提供了两种方式加载测试文件，配置如下：</p>
+<pre><code>files: [  
+  'test/*_test.js',
+  'test/**/*_test.js'
+],
+preprocessors: {  
+  'test/*_test.js': ['webpack'],
+  'test/**/*_test.js': ['webpack']
+},
+webpack: {  
+  module: {
+    loaders: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
+    ]
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('test')
+    })
+  ]
+}
+</code></pre><p>此时，被加入 files 配置匹配的文件都被认为是入口点（entry），并加上 webpack 的预处理配置即可（有了 webpack 结合 commonjs 的模块系统，就不需要手动加入项目源码了，仅引入测试代码就行）。不过下面这种方式更加简单，只需要一个文件：</p>
+<pre><code>// tests.webpack.js
+// require all modules ending in &quot;.spec.js&quot; from the
+// current directory and all subdirectories
+var testsContext = require.context(&quot;./test&quot;, true, /\.spec\.js$/)  
+testsContext.keys().forEach(testsContext)  
+</code></pre><p>本质上就是把所有匹配到的文件都 require 一遍，比如我上面就把所有 test 文件夹下的 .spec.js 结尾的文件都跑了一遍，Karma 的配置也稍微精简了点。</p>
+<pre><code>files: [  
+  'tests.webpack.js'
+],
+preprocessors: {  
+  'tests.webpack.js': [ 'webpack' ]
+},
+webpack: {  
+  module: {
+    loaders: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
+    ]
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('test')
+    })
+  ]
+}
+
+</code></pre><p>项目如果比较大，代码量较多的时候，webpack 打包会比较慢（对于打开 watch 选项的同学，可能会比较崩溃），大家自己取舍吧。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/polyfill-ni-zi-jiao-ben-tian-bu-jiu-liu-lan-qi-dui-html5de-zhi-chi-que-xian/" data-toggle="tooltip" data-placement="top" title="polyfill（腻子脚本）填补旧浏览器对html5的支持缺陷">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/uizi-dong-hua-ce-shi-zhi-protractor/" data-toggle="tooltip" data-placement="top" title="UI自动化测试之Protractor">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/react/">React &#43; Webpack &#43; Babel</a></li>
+                    
+                    <li><a href="/posts/babel/">Babel</a></li>
+                    
+                    <li><a href="/posts/autoprefixer/">AutoPrefixer</a></li>
+                    
+                    <li><a href="/posts/aws-sns-js/">aws sns js</a></li>
+                    
+                    <li><a href="/posts/2015-04-13-nodejs/">nodejs</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/nodejs/">nodejs</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

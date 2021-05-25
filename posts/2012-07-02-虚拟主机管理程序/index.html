@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 虚拟主机管理程序 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="虚拟主机管理程序" />
+  <meta name="twitter:title" content="虚拟主机管理程序" />
+  <meta name="description" content="Kloxo的前身是lxadmin，是一款免费的虚拟主机管理系统，安装简单，功能强大，可以快速地在red hat,centos系列linux系统">
+  <meta property="og:description" content="Kloxo的前身是lxadmin，是一款免费的虚拟主机管理系统，安装简单，功能强大，可以快速地在red hat,centos系列linux系统">
+  <meta name="twitter:description" content="Kloxo的前身是lxadmin，是一款免费的虚拟主机管理系统，安装简单，功能强大，可以快速地在red hat,centos系列linux系统">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-07-02-%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8F/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-07-02-%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8F/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">虚拟主机管理程序</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jul 2, 2012</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/ispconfig/">ISPConfig</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/kioxo/">KIoxo</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/zpanel/">ZPanel</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/">虚拟主机</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>Kloxo的前身是lxadmin，是一款免费的虚拟主机<!-- raw HTML omitted -->管理系统<!-- raw HTML omitted -->，安装简单，功能强大，可以快速地在red hat,centos系列<!-- raw HTML omitted -->linux系统<!-- raw HTML omitted -->的主机上搭建LAMP环境。安装后可以绑定40个主域名（不限子域名个数），可以到官方网站申请无限域名的授权。</p>
+<p><a href="http://baike.baidu.com/view/3569360.htm">http://baike.baidu.com/view/3569360.htm</a></p>
+<p>[我的Linux,让Linux更易用]ISPConfig 是Linux的一款开源的虚拟主机管理程序，带Web控制面板，可通过Web控制面板管理虚拟主机、开设网站、开设邮箱、开设和管理mysql数据库、支 持DNS解析和监控服务器运行状况,IPTable防火墙 Shell 服务管理等功能。支持中文。</p>
+<p>官网下载 <!-- raw HTML omitted --><a href="http://www.ispconfig.org/ispconfig-3/download/">http://www.ispconfig.org/ispconfig-3/download/</a><!-- raw HTML omitted --> <!-- raw HTML omitted -->此安装脚本装的是3.0.2.2,且是官方的最新版本</p>
+<p>脚本下载</p>
+<p><a href="http://www.wdlinux.cn/in_scripts/ispconfig3_install.sh.txt" title="http://www.wdlinux.cn/in_scripts/ispconfig3_install.sh.txt">http://www.wdlinux.cn/in_scripts/ispconfig3_install.sh.txt</a></p>
+<p>下载后执行</p>
+<p>sh ispconfig3_install.sh.txt</p>
+<p>即开始安装</p>
+<p>安装教程 <a href="http://www.wdlinux.cn/doc/ispconfig3_install.doc" title="http://www.wdlinux.cn/doc/ispconfig3_install.doc">http://www.wdlinux.cn/doc/ispconfig3_install.doc</a></p>
+<p>在线演示 <!-- raw HTML omitted --><a href="http://ispconfig.wdlinux.cn:8001">http://ispconfig.wdlinux.cn:8001</a><!-- raw HTML omitted --><a href="http://www.wdlinux.cn/ispconfig-3.0.2.2">http://www.wdlinux.cn/ispconfig-3.0.2.2</a><!-- raw HTML omitted --></p>
+<p>ZPanel是一个免费的虚拟主机控制面板,支持Windows,Linux,UNIX和MacOSX等多个操作系统的服务器。ZPanel能使家用或专业服务器成为一个完全成熟，易于使用和管理的网站托管服务器。 对于易于使用的控制面板，用户可以创建和管理MySQL数据库，电子邮件信箱，代理和分销的名单，也能在一台服务器设置托管多个域名。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><a href="http://www.wdlinux.cn/ispconfig-3.0.2.2"> </a></p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-06-30-%E4%BD%BF%E7%94%A8directui%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0qq%E7%95%8C%E9%9D%A2/" data-toggle="tooltip" data-placement="top" title="使用DirectUI技术实现QQ界面">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-07-02-%E5%83%8Fgoogle%E4%B8%80%E6%A0%B7%E5%8A%A0%E4%B8%80%E4%B8%AA%E4%B8%A4%E6%AD%A5%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81/" data-toggle="tooltip" data-placement="top" title="像google一样加一个两步密码验证">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jul 2, 2012</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/ispconfig/">ISPConfig</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/kioxo/">KIoxo</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/zpanel/">ZPanel</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/">虚拟主机</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

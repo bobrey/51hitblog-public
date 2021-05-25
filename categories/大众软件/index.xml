@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>大众软件 on IT技术分享</title>
+    <link>https://www.51hint.com/categories/%E5%A4%A7%E4%BC%97%E8%BD%AF%E4%BB%B6/</link>
+    <description>Recent content in 大众软件 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 Aug 2016 08:14:12 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/%E5%A4%A7%E4%BC%97%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>修复bizp破损文件</title>
+      <link>https://www.51hint.com/posts/2016-08-25-%E4%BF%AE%E5%A4%8Dbizp%E7%A0%B4%E6%8D%9F%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Thu, 25 Aug 2016 08:14:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-08-25-%E4%BF%AE%E5%A4%8Dbizp%E7%A0%B4%E6%8D%9F%E6%96%87%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>010 Editor</title>
+      <link>https://www.51hint.com/posts/2016-08-25-010-editor/</link>
+      <pubDate>Thu, 25 Aug 2016 04:34:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-08-25-010-editor/</guid>
+      <description>010 Editor 用户名:www.budingwang.com 注册码:CR96-4B9C-6470-303F 用户名:www.budingwang.com 注</description>
+    </item>
+    
+    <item>
+      <title>免费ssl证书 letsencrypt</title>
+      <link>https://www.51hint.com/posts/2016-05-26-%E5%85%8D%E8%B4%B9ssl%E8%AF%81%E4%B9%A6-letsencrypt/</link>
+      <pubDate>Thu, 26 May 2016 03:09:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-05-26-%E5%85%8D%E8%B4%B9ssl%E8%AF%81%E4%B9%A6-letsencrypt/</guid>
+      <description>git clone https://github.com/letsencrypt/letsencrypt cd letsencrypt ./letsencrypt-auto –agree-tos –email flyhawk007online@gmail.com certonly –webroot -w /home/www/wwwroot/51hint -d 51hint.com /etc/letsencrypt/live/51hint.com &amp;lt;VirtualHost *:443&amp;gt; SSLEngine on SSLCertificateFile /etc/letsencrypt/live/51hint.com/cert.pem SSLCertificateKeyFile /etc/letsencrypt/live/51hint.com/privkey.pem SSLCertificateChainFile /etc/letsencrypt/live/51hint.com/chain.pem &amp;lt;Directory home/www/wwwroot/51hint/&amp;gt; AllowOverride All Order allow,deny Allow from all DocumentRoot home/www/wwwroot/51hint/ ServerName 51hint.com ErrorLog logs/51hint-error_log CustomLog logs/51hint-access_log common sudo crontab -e 0 3</description>
+    </item>
+    
+    <item>
+      <title>charles破解 sn 注册码</title>
+      <link>https://www.51hint.com/posts/2016-05-25-charles%E7%A0%B4%E8%A7%A3-sn-%E6%B3%A8%E5%86%8C%E7%A0%81/</link>
+      <pubDate>Wed, 25 May 2016 02:25:01 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-05-25-charles%E7%A0%B4%E8%A7%A3-sn-%E6%B3%A8%E5%86%8C%E7%A0%81/</guid>
+      <description>charles是一个非常好用的跨平台代理工具，比fiddler功能更多，支持socks代理。 方便购买的还是请自己购买，对于学生党和屌丝党，我</description>
+    </item>
+    
+    <item>
+      <title>mamp ssl</title>
+      <link>https://www.51hint.com/posts/2016-05-24-mamp-ssl/</link>
+      <pubDate>Tue, 24 May 2016 05:30:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-05-24-mamp-ssl/</guid>
+      <description>and load it again $ launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist and unload it again $ launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist generate a private key (will request a password twice) $ openssl genrsa -des3 -out server.key 1024 generate certificate signing request (same password as above) $ openssl req -new -key server.key -out server.csr Answer the questions Country Name (2 letter code) [AU]: CA State or Province Name (full name) [Some-State]: Quebec Locality Name</description>
+    </item>
+    
+    <item>
+      <title>完全卸载intellij,pycharm</title>
+      <link>https://www.51hint.com/posts/2016-02-15-%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BDintellijpycharm/</link>
+      <pubDate>Mon, 15 Feb 2016 02:11:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-02-15-%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BDintellijpycharm/</guid>
+      <description>On Windows and Linux platforms IDEA stores its caches, configuration and plugins in the user’s home directory (profile directory). On Windows platform it’s usually \Documents and Settings&amp;lt;USER ACCOUNT NAME&amp;gt;&amp;amp;IntelliJIdeaXX. On Windows Vista, Windows 7 and later Windows versions the profile directory is \Users&amp;lt;USER ACCOUNT NAME&amp;gt;. For Unix/Linux the home directory is ~/.IntelliJIdeaXX (~ is usually an alias for /home/) XX represents product</description>
+    </item>
+    
+    <item>
+      <title>删除W3 Total Cache</title>
+      <link>https://www.51hint.com/posts/2016-02-12-%E5%88%A0%E9%99%A4w3-total-cache/</link>
+      <pubDate>Fri, 12 Feb 2016 06:11:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-02-12-%E5%88%A0%E9%99%A4w3-total-cache/</guid>
+      <description>完全删除步骤 首先，清空缓存；删除 /wp-content/cache下所有文件及其文件夹等 接着，插件管理中删除W3 Total Cache 插件 然后，删除wp-co</description>
+    </item>
+    
+    <item>
+      <title>vim环境下载</title>
+      <link>https://www.51hint.com/posts/2015-11-04-vim%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Wed, 04 Nov 2015 06:17:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-04-vim%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/</guid>
+      <description>vim 下载配置 $ ln -s ~/.vimrc xxx/vim/vimrc iterm2 Solarized Light.itermcolors</description>
+    </item>
+    
+    <item>
+      <title>数据可视化</title>
+      <link>https://www.51hint.com/posts/2015-09-07-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+      <pubDate>Mon, 07 Sep 2015 04:49:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-09-07-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+      <description>Spss那样强大的统计分析功能。 Matlab的功能更加强大，但需要较为深厚的编程基础，比较适合科学方面的可视化项目。 Excel是最流行最常用</description>
+    </item>
+    
+    <item>
+      <title>docker machine使用</title>
+      <link>https://www.51hint.com/posts/2015-08-19-docker-machine%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 19 Aug 2015 00:10:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-19-docker-machine%E4%BD%BF%E7%94%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sikulix搞定小米安全提示</title>
+      <link>https://www.51hint.com/posts/2015-07-19-sikulix%E6%90%9E%E5%AE%9A%E5%B0%8F%E7%B1%B3%E5%AE%89%E5%85%A8%E6%8F%90%E7%A4%BA/</link>
+      <pubDate>Sun, 19 Jul 2015 02:10:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-19-sikulix%E6%90%9E%E5%AE%9A%E5%B0%8F%E7%B1%B3%E5%AE%89%E5%85%A8%E6%8F%90%E7%A4%BA/</guid>
+      <description>public IntSetUpApp(String dev_Name) { // TODO Auto-generated constructor stub devName = dev_Name; flag = true; } //标签，用来表示我的循环内的代码是否一致执行 public static void setflag(boolean stflag) { flag = stflag; } //需要点击的地方，请自己调整 public static void settapflag(boolean stflag, int</description>
+    </item>
+    
+    <item>
+      <title>ps磨皮</title>
+      <link>https://www.51hint.com/posts/2015-07-18-ps%E7%A3%A8%E7%9A%AE/</link>
+      <pubDate>Sat, 18 Jul 2015 11:29:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-18-ps%E7%A3%A8%E7%9A%AE/</guid>
+      <description>&amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;img style=&amp;quot;font-style: inherit&amp;quot; src=&amp;quot;http://p3.pstatp.com/large/6200/2812245777&amp;quot; alt=&amp;quot;《PS教程》Photoshop使用高反差保留给人物磨皮&amp;quot; /&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #5d5d5d&amp;quot;&amp;gt; &amp;lt;img style=&amp;quot;font-style: inherit&amp;quot;</description>
+    </item>
+    
+    <item>
+      <title>pycharm4 注册码</title>
+      <link>https://www.51hint.com/posts/2015-06-21-pycharm4-%E6%B3%A8%E5%86%8C%E7%A0%81/</link>
+      <pubDate>Sun, 21 Jun 2015 06:50:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-06-21-pycharm4-%E6%B3%A8%E5%86%8C%E7%A0%81/</guid>
+      <description>用户名：pycharmLicense key:(包括LICENSE BEGIN和LICENSE END部分）===== LICENSE BEGIN =====2581-D3</description>
+    </item>
+    
+    <item>
+      <title>adobe ps 试用</title>
+      <link>https://www.51hint.com/posts/2015-05-05-adobe-ps-%E8%AF%95%E7%94%A8/</link>
+      <pubDate>Tue, 05 May 2015 03:12:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-05-05-adobe-ps-%E8%AF%95%E7%94%A8/</guid>
+      <description>adobe photoshop等无限试用 删除“/Library/Application Support/Adobe/ ”文件夹下的“SLStore”和“SLCache”文件夹，并清</description>
+    </item>
+    
+    <item>
+      <title>误删chrome书签，恢复方法</title>
+      <link>https://www.51hint.com/posts/2015-02-28-%E8%AF%AF%E5%88%A0chrome%E4%B9%A6%E7%AD%BE%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 28 Feb 2015 02:05:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-28-%E8%AF%AF%E5%88%A0chrome%E4%B9%A6%E7%AD%BE%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/</guid>
+      <description>&amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; %LOCALAPPDATA%\Google\Chrome\User Data\User Data\Default\ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; Windows XP/2003: &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; %USERPROFILE%\Local Settings\Application Data\Google\Chrome\User Data\Default\ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; 举个例子：C:\Documents and Settings\用户名\Local Settings\Application Data\Google\Chrome\User Data\Default &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; Mac: &amp;lt;/p&amp;gt; &amp;lt;p</description>
+    </item>
+    
+    <item>
+      <title>omnifocus2 for iphone</title>
+      <link>https://www.51hint.com/posts/2014-11-29-omnifocus2-for-iphone/</link>
+      <pubDate>Sat, 29 Nov 2014 05:28:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-11-29-omnifocus2-for-iphone/</guid>
+      <description>manateepens@hotmail.com Gh112211</description>
+    </item>
+    
+    <item>
+      <title>Mac版Adobe Photoshop CS6 与破解补丁下载–注册机&#43;序列号&#43;修改HOSTS完美可升级激活法及详细图文安装教程（强烈推荐）</title>
+      <link>https://www.51hint.com/posts/2014-11-25-mac%E7%89%88adobe-photoshop-cs6-%E4%B8%8E%E7%A0%B4%E8%A7%A3%E8%A1%A5%E4%B8%81%E4%B8%8B%E8%BD%BD-%E6%B3%A8%E5%86%8C%E6%9C%BA%E5%BA%8F%E5%88%97%E5%8F%B7%E4%BF%AE%E6%94%B9hosts%E5%AE%8C/</link>
+      <pubDate>Tue, 25 Nov 2014 11:45:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-11-25-mac%E7%89%88adobe-photoshop-cs6-%E4%B8%8E%E7%A0%B4%E8%A7%A3%E8%A1%A5%E4%B8%81%E4%B8%8B%E8%BD%BD-%E6%B3%A8%E5%86%8C%E6%9C%BA%E5%BA%8F%E5%88%97%E5%8F%B7%E4%BF%AE%E6%94%B9hosts%E5%AE%8C/</guid>
+      <description>&amp;lt;div class=&amp;quot;crayon-num crayon-striped-num&amp;quot; style=&amp;quot;font-weight: inherit !important;color: #555555 !important&amp;quot;&amp;gt; 1 &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td class=&amp;quot;crayon-code&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;crayon-pre&amp;quot; style=&amp;quot;color: #ffffff !important&amp;quot;&amp;gt; &amp;lt;div id=&amp;quot;crayon-54746b19030ec729245770-0&amp;quot; class=&amp;quot;crayon-line&amp;quot; style=&amp;quot;font-weight: inherit !important&amp;quot;&amp;gt; 127.0.0.1 lmlicenses.wip4.adobe.com &amp;lt;/div&amp;gt; &amp;lt;div id=&amp;quot;crayon-54746b19030ec729245770-1&amp;quot; class=&amp;quot;crayon-line crayon-striped-line&amp;quot; style=&amp;quot;font-weight: inherit !important&amp;quot;&amp;gt; 127.0.0.1 lm.licenses.adobe.com &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;div class=&amp;quot;crayon-main&amp;quot;&amp;gt; &amp;lt;table class=&amp;quot;crayon-table&amp;quot;&amp;gt; &amp;lt;tr class=&amp;quot;crayon-row&amp;quot;&amp;gt; &amp;lt;td class=&amp;quot;crayon-nums &amp;quot; style=&amp;quot;color: #333333 !important&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;crayon-nums-content&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;crayon-num&amp;quot; style=&amp;quot;font-weight: inherit !important&amp;quot;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;crayon-num crayon-striped-num&amp;quot; style=&amp;quot;font-weight: inherit !important;color: #555555 !important&amp;quot;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>3d</title>
+      <link>https://www.51hint.com/posts/2014-11-23-3d-2/</link>
+      <pubDate>Sun, 23 Nov 2014 04:32:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-11-23-3d-2/</guid>
+      <description>123Design Google SketchUp CINEMA4D 3DMAX是游戏、建筑景观工业的标准。 MAYA是用来做动画片的。 ================================ https://tinkercad.com/ http://www.mattercontrol.com/ http://www.123dapp.com/design 苹果MAC系统用3D建模软件Cheetah 3D介绍 Forml</description>
+    </item>
+    
+    <item>
+      <title>Omnifocus 2 for mac license</title>
+      <link>https://www.51hint.com/posts/2014-09-07-omnifocus-2-for-mac-license/</link>
+      <pubDate>Sun, 07 Sep 2014 00:56:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-09-07-omnifocus-2-for-mac-license/</guid>
+      <description>&amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; Serial: GZQJ-TSPJ-INPZ-LBFA-LPZQ-DEFL-PZQ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; Name: mojado &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; Serial: FFBR-YIRA-FYAX-HJDY-FIYH-JEFF-IYH &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; Name: mojado &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; Serial: CQUJ-EIYE-IAJV-TMCA-UJPL-NEFU-JPL &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; 请直接从官网下载 官方程序，然后用上述license激活。</description>
+    </item>
+    
+    <item>
+      <title>修改日语键盘 日本键盘 日本笔记本键盘</title>
+      <link>https://www.51hint.com/posts/2014-07-28-%E4%BF%AE%E6%94%B9%E6%97%A5%E8%AF%AD%E9%94%AE%E7%9B%98/</link>
+      <pubDate>Mon, 28 Jul 2014 06:10:08 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-28-%E4%BF%AE%E6%94%B9%E6%97%A5%E8%AF%AD%E9%94%AE%E7%9B%98/</guid>
+      <description>&amp;lt;div class=&amp;quot;content-list-media&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;content-list-image clearfix&amp;quot;&amp;gt; &amp;lt;a href=&amp;quot;https://i2.wp.com/www.51hint.com/wp-content/uploads/2014/07/aa1.jpg&amp;quot;&amp;gt;&amp;lt;img class=&amp;quot;alignnone size-full wp-image-1820&amp;quot; src=&amp;quot;https://i2.wp.com/www.51hint.com/wp-content/uploads/2014/07/aa1.jpg?fit=499%2C240&amp;quot; alt=&amp;quot;aa&amp;quot; srcset=&amp;quot;https://i2.wp.com/www.51hint.com/wp-content/uploads/2014/07/aa1.jpg?w=499 499w, https://i2.wp.com/www.51hint.com/wp-content/uploads/2014/07/aa1.jpg?resize=300%2C144 300w&amp;quot; sizes=&amp;quot;(max-width: 499px) 100vw, 499px&amp;quot; data-recalc-dims=&amp;quot;1&amp;quot; /&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;content-list-text&amp;quot;&amp;gt; 手动查找并安装驱动程序&amp;lt;br /&amp;gt; 选择手动查找并安装驱动程序→从计算机的驱动程序列表中</description>
+    </item>
+    
+    <item>
+      <title>Disqus是什么</title>
+      <link>https://www.51hint.com/posts/2014-07-10-disqus%E6%98%AF%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Thu, 10 Jul 2014 13:49:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-10-disqus%E6%98%AF%E4%BB%80%E4%B9%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>最好的OCR识别软件：ABBYY FineReader</title>
+      <link>https://www.51hint.com/posts/2014-07-10-%E6%9C%80%E5%A5%BD%E7%9A%84ocr%E8%AF%86%E5%88%AB%E8%BD%AF%E4%BB%B6abbyy-finereader/</link>
+      <pubDate>Thu, 10 Jul 2014 13:40:24 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-10-%E6%9C%80%E5%A5%BD%E7%9A%84ocr%E8%AF%86%E5%88%AB%E8%BD%AF%E4%BB%B6abbyy-finereader/</guid>
+      <description>ABBYYFineReader 是世界排名第一的OCR 文字识别工具，提供高效和精准的文档识别、数据提取解决方案，支持多国字符和彩色文件识别，主要用于将扫描图像 从pdf提取</description>
+    </item>
+    
+    <item>
+      <title>科学上网|免费VPN|翻墙利器</title>
+      <link>https://www.51hint.com/posts/2014-07-06-%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E5%85%8D%E8%B4%B9vpn%E7%BF%BB%E5%A2%99%E5%88%A9%E5%99%A8/</link>
+      <pubDate>Sat, 05 Jul 2014 15:21:26 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-06-%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E5%85%8D%E8%B4%B9vpn%E7%BF%BB%E5%A2%99%E5%88%A9%E5%99%A8/</guid>
+      <description>HotspotSheild http://www.hotspotshield.com/ 这个犹如瑞士军刀存在，大家应该比较熟悉； 可惜它被抢了，只留下手机端能用；不过现在好多手机都有热点功能， 以大家的聪明才智应该知道咋用了是吧</description>
+    </item>
+    
+    <item>
+      <title>kvm 安装windows系统</title>
+      <link>https://www.51hint.com/posts/2014-04-11-kvm-%E5%AE%89%E8%A3%85windows%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Fri, 11 Apr 2014 07:07:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-11-kvm-%E5%AE%89%E8%A3%85windows%E7%B3%BB%E7%BB%9F/</guid>
+      <description>在不支持WIN的KVM VPS上安装WIN 《LINUX vps 运行 Windows》 http://www.stuchina.net/archives/386 在KVM架构的VPS上安装任意windows系统 http://www.chinaz.com/server/2014/0122/336575.shtml http://www.zxsdw.com/index.php/archives/541/</description>
+    </item>
+    
+    <item>
+      <title>ssh 搭建翻墙通道</title>
+      <link>https://www.51hint.com/posts/2014-04-08-ssh-%E6%90%AD%E5%BB%BA%E7%BF%BB%E5%A2%99%E9%80%9A%E9%81%93/</link>
+      <pubDate>Tue, 08 Apr 2014 08:17:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-08-ssh-%E6%90%AD%E5%BB%BA%E7%BF%BB%E5%A2%99%E9%80%9A%E9%81%93/</guid>
+      <description>自建简易翻墙 这样就在本地建立了一个SOCKS代理，SOCKS工作在TCP层。浏览器等可以设置代理为SOCKS 127.0.0.1:3128。这</description>
+    </item>
+    
+    <item>
+      <title>wp安装插件</title>
+      <link>https://www.51hint.com/posts/2014-03-31-wp%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Sun, 30 Mar 2014 15:42:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-03-31-wp%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6/</guid>
+      <description>装了Contact Form 7，Easy Privacy Policy，SEO SearchTerms Tagging 2，Simple Tags插件</description>
+    </item>
+    
+    <item>
+      <title>SPDY简介</title>
+      <link>https://www.51hint.com/posts/2014-02-11-spdy%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Tue, 11 Feb 2014 07:17:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-02-11-spdy%E7%AE%80%E4%BB%8B/</guid>
+      <description>PDY是什么？ SPDY是Google开发的基于TCP，TLS的网络协议，用来传输web内容。HTTP2.0的第一个草案就是以SPDY为蓝本。</description>
+    </item>
+    
+    <item>
+      <title>测试工具整理</title>
+      <link>https://www.51hint.com/posts/2014-01-24-%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</link>
+      <pubDate>Fri, 24 Jan 2014 00:24:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-24-%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</guid>
+      <description>市场主流测试工具与开源工具的对应列表 测试工具类型 开源工具 市场主流工具 测试管理工具 TestLink TestDirect 配置管理工具 CVS、VSS、SVN ClearCase BUG管理工具 Bug</description>
+    </item>
+    
+    <item>
+      <title>bug跟踪系统</title>
+      <link>https://www.51hint.com/posts/2014-01-16-bug%E8%B7%9F%E8%B8%AA%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Thu, 16 Jan 2014 08:29:08 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-16-bug%E8%B7%9F%E8%B8%AA%E7%B3%BB%E7%BB%9F/</guid>
+      <description>Redmine 管理多项目极力推荐 JIRA 收费 YouTrack 简洁需要和intellj Idea配合发挥 Trac 简单好入门</description>
+    </item>
+    
+    <item>
+      <title>wufoo 在线创建表单</title>
+      <link>https://www.51hint.com/posts/2014-01-16-wufoo-%E5%9C%A8%E7%BA%BF%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%8D%95/</link>
+      <pubDate>Thu, 16 Jan 2014 08:00:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-16-wufoo-%E5%9C%A8%E7%BA%BF%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%8D%95/</guid>
+      <description>在线创建表单神器 http://www.wufoo.com/ 国内反应液是相当的快，很快整出来一个 金数据，可以去瞅瞅，很是本土化，相当不错，呵呵</description>
+    </item>
+    
+    <item>
+      <title>Intellij IDEA CE 自动生成 serialVersionUID</title>
+      <link>https://www.51hint.com/posts/2013-11-14-intellij-idea-ce-%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90-serialversionuid/</link>
+      <pubDate>Thu, 14 Nov 2013 05:26:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-14-intellij-idea-ce-%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90-serialversionuid/</guid>
+      <description>IDEA的Inspector对serialVersionUID检测默认是关闭的，因此如果你的class是Serialization，那么需要</description>
+    </item>
+    
+    <item>
+      <title>IntelliJ IDEA 12 注册码 IDEA序列号 License Key</title>
+      <link>https://www.51hint.com/posts/2013-11-08-intellij-idea-12-%E6%B3%A8%E5%86%8C%E7%A0%81-idea%E5%BA%8F%E5%88%97%E5%8F%B7-license-key/</link>
+      <pubDate>Fri, 08 Nov 2013 04:00:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-08-intellij-idea-12-%E6%B3%A8%E5%86%8C%E7%A0%81-idea%E5%BA%8F%E5%88%97%E5%8F%B7-license-key/</guid>
+      <description>user name：JavaDeveloper serial number：92547-KY2BB-QZ0S1-PEZCV-HUT8Q-6RYY4</description>
+    </item>
+    
+    <item>
+      <title>maven 帮助</title>
+      <link>https://www.51hint.com/posts/2013-11-08-maven-%E5%B8%AE%E5%8A%A9/</link>
+      <pubDate>Fri, 08 Nov 2013 00:29:27 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-08-maven-%E5%B8%AE%E5%8A%A9/</guid>
+      <description>http://mvnrepository.com/http://search.maven.org/ 这两个网站的帮助实在是大啊，重点标记一下，嘿嘿~~</description>
+    </item>
+    
+    <item>
+      <title>日本一些博客投稿格式</title>
+      <link>https://www.51hint.com/posts/2013-11-07-%E6%97%A5%E6%9C%AC%E4%B8%80%E4%BA%9B%E5%8D%9A%E5%AE%A2%E6%8A%95%E7%A8%BF%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Thu, 07 Nov 2013 07:07:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-07-%E6%97%A5%E6%9C%AC%E4%B8%80%E4%BA%9B%E5%8D%9A%E5%AE%A2%E6%8A%95%E7%A8%BF%E6%A0%BC%E5%BC%8F/</guid>
+      <description>&amp;lt;td&amp;gt; エンドポイントURL &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 投稿方式 &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; &amp;lt;a href=&amp;quot;http://blog.dtiblog.com/&amp;quot;&amp;gt;DTI ブログ&amp;lt;/a&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; http://blog.dtiblog.com/xmlrpc.php &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; XML-RPC metaWeblog API (int) &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; &amp;lt;a href=&amp;quot;http://blog.fc2.com/&amp;quot;&amp;gt;FC2 ブログ&amp;lt;/a&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; http://blog.fc2.com/xmlrpc.php &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; XML-RPC</description>
+    </item>
+    
+    <item>
+      <title>HttpFox:HTTP数据抓包和检测</title>
+      <link>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</link>
+      <pubDate>Wed, 16 Oct 2013 07:48:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</guid>
+      <description>HttpFox监视并且分析所有进出浏览器的HTTP网络传输： 如果熟悉网络监控类软件的话，使用HttpFox不会有任何的困难，即便您不熟悉，也</description>
+    </item>
+    
+    <item>
+      <title>查看outlook密码</title>
+      <link>https://www.51hint.com/posts/2013-10-10-%E6%9F%A5%E7%9C%8Boutlook%E5%AF%86%E7%A0%81/</link>
+      <pubDate>Thu, 10 Oct 2013 00:04:24 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-10-%E6%9F%A5%E7%9C%8Boutlook%E5%AF%86%E7%A0%81/</guid>
+      <description>您是否有经常忘记密码的习惯； 虽然outlook还能正常收发邮件，单项更换客户端了 却发现密码忘记了，只能看见 *******了， 正好这款工具，帮</description>
+    </item>
+    
+    <item>
+      <title>按钮工厂，在线制作按钮</title>
+      <link>https://www.51hint.com/posts/2013-10-04-%E6%8C%89%E9%92%AE%E5%B7%A5%E5%8E%82%E5%9C%A8%E7%BA%BF%E5%88%B6%E4%BD%9C%E6%8C%89%E9%92%AE/</link>
+      <pubDate>Fri, 04 Oct 2013 04:16:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-04-%E6%8C%89%E9%92%AE%E5%B7%A5%E5%8E%82%E5%9C%A8%E7%BA%BF%E5%88%B6%E4%BD%9C%E6%8C%89%E9%92%AE/</guid>
+      <description>在线制作按钮，按钮工厂 http://button.tugai.net/ 制作的非常漂亮</description>
+    </item>
+    
+    <item>
+      <title>git-config 配置文件</title>
+      <link>https://www.51hint.com/posts/2012-12-21-git-config-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Fri, 21 Dec 2012 08:11:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-21-git-config-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <description>~/.gitconfig 是最常用的； 对应配置命令要加上–global git配置文件 ~/.gitconfig [user] name = fly email = flyhawk007hm@hotmail.com [core] editor = vim [alias] ci = commit -a -v co = checkout st = status br = branch throw = reset –hard HEAD throwh = reset –</description>
+    </item>
+    
+    <item>
+      <title>sublime Text；cavas</title>
+      <link>https://www.51hint.com/posts/2012-12-21-sublime-textcavas/</link>
+      <pubDate>Fri, 21 Dec 2012 05:45:36 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-21-sublime-textcavas/</guid>
+      <description>http://www.sublimetext.com/ 图片序列制作成cavas动画 http://www.sublimetext.com/~jps/animated_gifs_the_hard_way.html</description>
+    </item>
+    
+    <item>
+      <title>opencv 人脸识别</title>
+      <link>https://www.51hint.com/posts/2012-12-21-opencv-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/</link>
+      <pubDate>Fri, 21 Dec 2012 05:41:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-21-opencv-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/</guid>
+      <description>正确安装Opencv2.3的python包,这个版本的包和之前不同，需要事先安装numpy，否则无法正常使用 将opencv安装目录里的\da</description>
+    </item>
+    
+    <item>
+      <title>在 Ubuntu 12.04 上安装和配置邮件服务</title>
+      <link>https://www.51hint.com/posts/2012-12-20-%E5%9C%A8-ubuntu-12-04-%E4%B8%8A%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Thu, 20 Dec 2012 10:06:38 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-%E5%9C%A8-ubuntu-12-04-%E4%B8%8A%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/</guid>
+      <description>前段时间把一台 FreeBSD 邮件服务器移到了 Ubuntu 虚拟机，又痛苦的配置了一次邮件服务器，配置完后再写一遍 Puppet 代码，把整个配置过程代码化，然后再重建一次虚拟机测</description>
+    </item>
+    
+    <item>
+      <title>git_vim_5 [tig]</title>
+      <link>https://www.51hint.com/posts/2012-12-20-vim_5-tig/</link>
+      <pubDate>Thu, 20 Dec 2012 09:59:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-vim_5-tig/</guid>
+      <description>tig text-mode interface for git ubuntu install tig #apt-get install tig mac install tig #brew install tig #brew install git-flow #brew install git-extras #brew install wget #brew install curl #brew install autojump {jumpstat j au} #brew install tree diff gui界面 #gitk 查看谁修改的文件 #git blame filename #tig blame filename 特定文件修改历史 #tig filename 查</description>
+    </item>
+    
+    <item>
+      <title>vim_4 [buffers]</title>
+      <link>https://www.51hint.com/posts/2012-12-20-vim_4-buffers/</link>
+      <pubDate>Thu, 20 Dec 2012 09:14:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-vim_4-buffers/</guid>
+      <description>vim 缓冲区操作 查看帮助 #:h buffers 窗口和buffers是不同的 #:vs “foo” 查看buffers #:ls 切换缓冲 #b 1 tab 切换缓冲区 # .vimrc #当前行号 set laststatus=2 set statusline=%F:\ %l #tab</description>
+    </item>
+    
+    <item>
+      <title>软件推荐</title>
+      <link>https://www.51hint.com/posts/2012-12-19-%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</link>
+      <pubDate>Wed, 19 Dec 2012 02:31:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-19-%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/</guid>
+      <description>1、StarUML 一款知名的免费开源的UML建模工具。 2、ArgoUML 另一个著名的开源UML建模软件，ArgoUML支持Windows、M</description>
+    </item>
+    
+    <item>
+      <title>Eclipse插件大全 挑选最牛的TOP30</title>
+      <link>https://www.51hint.com/posts/2012-09-25-eclipse%E6%8F%92%E4%BB%B6%E5%A4%A7%E5%85%A8-%E6%8C%91%E9%80%89%E6%9C%80%E7%89%9B%E7%9A%84top30/</link>
+      <pubDate>Tue, 25 Sep 2012 01:15:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-09-25-eclipse%E6%8F%92%E4%BB%B6%E5%A4%A7%E5%85%A8-%E6%8C%91%E9%80%89%E6%9C%80%E7%89%9B%E7%9A%84top30/</guid>
+      <description>Eclipse插件大全 挑选最牛的TOP30 http://developer.51cto.com/art/201007/214478.htm PyDev – Eclipse的Python开发环境 EasyEclipse for LAMP CFEclipse Spket IDE …..</description>
+    </item>
+    
+    <item>
+      <title>adobe CS6</title>
+      <link>https://www.51hint.com/posts/2012-09-22-adobe-cs6/</link>
+      <pubDate>Sat, 22 Sep 2012 11:13:23 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-09-22-adobe-cs6/</guid>
+      <description>http://app.wepost.me/adobe-cs6-download-collection-and-crack/ http://mac.pcbeta.com/viewthread.php?tid=100536 http://bbs.weiphone.com/read-htm-tid-4738165.html</description>
+    </item>
+    
+    <item>
+      <title>Everything, Start FTP Server</title>
+      <link>https://www.51hint.com/posts/2012-08-22-everything-start-ftp-server/</link>
+      <pubDate>Wed, 22 Aug 2012 14:02:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-22-everything-start-ftp-server/</guid>
+      <description>Everything:速度最快的文件名搜索工具 Star FtP Server</description>
+    </item>
+    
+    <item>
+      <title>PhpStorm注册码</title>
+      <link>https://www.51hint.com/posts/2012-08-14-phpstorm%E6%B3%A8%E5%86%8C%E7%A0%81/</link>
+      <pubDate>Tue, 14 Aug 2012 08:04:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-14-phpstorm%E6%B3%A8%E5%86%8C%E7%A0%81/</guid>
+      <description>User Name : EMBRACE License Key : 现在官网已经更新到WebStorm 11、PhpStorm 10，找到一个很便捷的方法，不需要注册码了。安装完成，打开软件看到输入</description>
+    </item>
+    
+    <item>
+      <title>git windows 客户端解决方法</title>
+      <link>https://www.51hint.com/posts/2012-08-13-git-windows-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 13 Aug 2012 12:10:57 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-13-git-windows-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>在Windows中添加一个HOME环境变量，值为%USERPROFILE%，如下图： 在“开始》运行”中打开%Home%，新建一个名为“_ne</description>
+    </item>
+    
+    <item>
+      <title>版本管理 git</title>
+      <link>https://www.51hint.com/posts/2012-08-13-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86-git/</link>
+      <pubDate>Mon, 13 Aug 2012 08:55:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-13-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86-git/</guid>
+      <description>更新代码方式的另一种方法(git pull是git fetch和git merge命令的一个组合) 从git中删除文件 提交修改 如果想省掉提交之前的 git</description>
+    </item>
+    
+    <item>
+      <title>macvim,vim 命令及其配制</title>
+      <link>https://www.51hint.com/posts/2012-08-09-vivim-%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 09 Aug 2012 02:18:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-vivim-%E5%91%BD%E4%BB%A4/</guid>
+      <description>vimrc</description>
+    </item>
+    
+    <item>
+      <title>StartExplorer Eclipse Plug-in</title>
+      <link>https://www.51hint.com/posts/2012-08-06-startexplorer-eclipse-plug-in/</link>
+      <pubDate>Mon, 06 Aug 2012 02:52:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-06-startexplorer-eclipse-plug-in/</guid>
+      <description>StartExplorer Eclipse Plug-in</description>
+    </item>
+    
+    <item>
+      <title>ultraedit上实现php语法高亮、智能提示、编译和调试</title>
+      <link>https://www.51hint.com/posts/2012-06-28-ultraedit%E4%B8%8A%E5%AE%9E%E7%8E%B0php%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Thu, 28 Jun 2012 06:07:03 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-28-ultraedit%E4%B8%8A%E5%AE%9E%E7%8E%B0php%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95/</guid>
+      <description>语法高亮 视图–&amp;gt;查看方式—&amp;gt;php 智能提示，自动完成 高级–&amp;gt;配置–&amp;gt;编辑器–&amp;gt;自动完成–&amp;gt;勾选自动显示…</description>
+    </item>
+    
+    <item>
+      <title>Bullzip Pdf Printer打印机</title>
+      <link>https://www.51hint.com/posts/2011-12-08-bullzip-pdf-printer%E6%89%93%E5%8D%B0%E6%9C%BA/</link>
+      <pubDate>Thu, 08 Dec 2011 05:33:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-08-bullzip-pdf-printer%E6%89%93%E5%8D%B0%E6%9C%BA/</guid>
+      <description>Bullzip PDF Printer是個相當好用的PDF轉檔軟體，可提供給個人或10人以下營利單位免費使用。這軟體可在我們的Windows系統中建立一個PDF</description>
+    </item>
+    
+    <item>
+      <title>DiskAid 5.0.3  crack&amp;sn</title>
+      <link>https://www.51hint.com/posts/2011-11-28-diskaid-5-0-3-cracksn/</link>
+      <pubDate>Mon, 28 Nov 2011 08:16:27 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-28-diskaid-5-0-3-cracksn/</guid>
+      <description>1.下载 diskaid 5.0.3 disk503 2.编辑hosts文件，在其中加入127.0.0.1 www.digidna.net， 方法：在顶部选择“前往”-“前往文件夹”，</description>
+    </item>
+    
+    <item>
+      <title>Photoshop CS5 破解版 &#43; 序列号</title>
+      <link>https://www.51hint.com/posts/2011-11-11-photoshop-cs5-%E7%A0%B4%E8%A7%A3%E7%89%88-%E5%BA%8F%E5%88%97%E5%8F%B7/</link>
+      <pubDate>Fri, 11 Nov 2011 07:33:38 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-11-photoshop-cs5-%E7%A0%B4%E8%A7%A3%E7%89%88-%E5%BA%8F%E5%88%97%E5%8F%B7/</guid>
+      <description>先安装photoshop cs5 (install) 叫你输入序列号的时候, 选trial serial 然后在安装. 安装好之后. 不要开，现在用terminal (新手指南: 去右上角的</description>
+    </item>
+    
+    <item>
+      <title>MacPorts  Error: Checksum mismatch</title>
+      <link>https://www.51hint.com/posts/2011-09-21-macport-error-checksum-mismatch/</link>
+      <pubDate>Wed, 21 Sep 2011 01:38:14 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-21-macport-error-checksum-mismatch/</guid>
+      <description>Checksum (md5) mismatch for expat-2.0.1.tar.gz Error: Checksum (sha1) mismatch for expat-2.0.1.tar.gz Error: Checksum (rmd160) mismatch for expat-2.0.1.tar.gz Error: Target org.macports.checksum returned: Unable to verify file checksums Error: Status 1 encountered during processing. 这种情况下，需要清理一下依赖关系，重新安装expat包 $sudo port clean –all expat$sudo port install expat</description>
+    </item>
+    
+    <item>
+      <title>net2ftp安装</title>
+      <link>https://www.51hint.com/posts/2011-09-19-net2ftp%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 19 Sep 2011 05:11:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-19-net2ftp%E5%AE%89%E8%A3%85/</guid>
+      <description>**大家在往自己的FTP服务器里上传文件的时候，常常使用一些FTP客户端软件，例如CuteFTP或者flashFTP，他们都受到你的网络连接</description>
+    </item>
+    
+    <item>
+      <title>Vim改装成一个IDE编程环境</title>
+      <link>https://www.51hint.com/posts/2011-09-01-vim%E6%94%B9%E8%A3%85%E6%88%90%E4%B8%80%E4%B8%AAide%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Thu, 01 Sep 2011 10:31:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-01-vim%E6%94%B9%E8%A3%85%E6%88%90%E4%B8%80%E4%B8%AAide%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83/</guid>
+      <description>Linux下编程一直被诟病的一点是: 没有一个好用的IDE, 但是听说Linux牛人, 黑客之类的也都不用IDE. 但是对我等从Windows平台转</description>
+    </item>
+    
+    <item>
+      <title>Mac でAll in one Eclipse</title>
+      <link>https://www.51hint.com/posts/2011-09-01-mac-%E3%81%A7all-in-one-eclipse/</link>
+      <pubDate>Thu, 01 Sep 2011 10:27:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-01-mac-%E3%81%A7all-in-one-eclipse/</guid>
+      <description>Ec+lipseのダウンロードサイトからEclipseIDEforJavaEEDevelopersのMacOS用のものをダウンロードし、所定</description>
+    </item>
+    
+    <item>
+      <title>myeclipse 9.0 for mac</title>
+      <link>https://www.51hint.com/posts/2011-08-19-myeclipse-9-0-for-mac/</link>
+      <pubDate>Fri, 19 Aug 2011 07:43:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-19-myeclipse-9-0-for-mac/</guid>
+      <description>MyEclipse9.0 forMac下载地址:http://downloads.myeclipseide.co… nstaller-macosx.dmg首先下载激活</description>
+    </item>
+    
+    <item>
+      <title>在MAC OS下，启动TextMate弹”Your serial has been revoked”的解决方法。</title>
+      <link>https://www.51hint.com/posts/2011-08-19-%E5%9C%A8mac-os%E4%B8%8B%E5%90%AF%E5%8A%A8textmate%E5%BC%B9your-serial-has-been-revoked%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 19 Aug 2011 07:38:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-19-%E5%9C%A8mac-os%E4%B8%8B%E5%90%AF%E5%8A%A8textmate%E5%BC%B9your-serial-has-been-revoked%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>&amp;lt;p style=&amp;quot;padding: 0px; margin: 0px;&amp;quot;&amp;gt; 1)In the terminal of MAC, enter:&amp;lt;span&amp;gt; &amp;lt;/span&amp;gt;&amp;lt;strong style=&amp;quot;font-weight: bold;&amp;quot;&amp;gt;defaults delete com.macromates.textmate&amp;lt;/strong&amp;gt;&amp;lt;span&amp;gt; &amp;lt;/span&amp;gt;. &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;padding: 0px; margin: 0px;&amp;quot;&amp;gt; 2)In the terminal of MAC, modify the TextMate file in the setup directory of yours(mine is : /Applications/TextMate.app/Contents/MacOS/TextMate), then replace the date to future date in order to be not expired. &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;padding: 0px; margin: 0px;&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;padding: 0px; margin: 0px;&amp;quot;&amp;gt; the restart TextMate and input</description>
+    </item>
+    
+    <item>
+      <title>现有 Xcode Projects加入 git版本库管理</title>
+      <link>https://www.51hint.com/posts/2011-08-02-%E7%8E%B0%E6%9C%89-xcode-projects%E5%8A%A0%E5%85%A5-git%E7%89%88%E6%9C%AC%E5%BA%93%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Tue, 02 Aug 2011 08:45:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-02-%E7%8E%B0%E6%9C%89-xcode-projects%E5%8A%A0%E5%85%A5-git%E7%89%88%E6%9C%AC%E5%BA%93%E7%AE%A1%E7%90%86/</guid>
+      <description>一、关闭xcode项目二、打开terminal三、进入到项目目录四、$git init$ git commit -a -m “init commit”$ git add .$ git commit -a -m “initia</description>
+    </item>
+    
+  </channel>
+</rss>

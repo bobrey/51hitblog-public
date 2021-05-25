@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> osip2和eXosip2协议[1] - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="osip2和eXosip2协议[1]" />
+  <meta name="twitter:title" content="osip2和eXosip2协议[1]" />
+  <meta name="description" content="Osip2是一个开放源代码的sip协议栈，是开源代码中不多使用C语言写的协议栈之一，它具有短小简洁的特点，专注于sip底层解析使得它的效率比">
+  <meta property="og:description" content="Osip2是一个开放源代码的sip协议栈，是开源代码中不多使用C语言写的协议栈之一，它具有短小简洁的特点，专注于sip底层解析使得它的效率比">
+  <meta name="twitter:description" content="Osip2是一个开放源代码的sip协议栈，是开源代码中不多使用C语言写的协议栈之一，它具有短小简洁的特点，专注于sip底层解析使得它的效率比">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-1/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-1/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">osip2和eXosip2协议[1]</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Sep 28, 2011</h4>
+    </section>
+    <h5 id="wc">1200 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/open-source/">open source</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>Osip2是一个开放源代码的sip协议栈，是开源代码中不多使用C语言写的协议栈之一，它具有短小简洁的特点，专注于sip底层解析使得它的效率比较高</p>
+<p>eXosip2是Osip2的一个<!-- raw HTML omitted -->扩展协议<!-- raw HTML omitted -->集，它部分封装了Osip2协议栈，使得它更容易被使用。</p>
+<p>exosip2增加了call、dialog、registration、subscription等过程的解析，使得实用性更强。</p>
+<p>//========================================================================================================================</p>
+<p>osip2协议栈分为三部分：sip协议的语法分析，sip协议的过程分析和协议栈框架。</p>
+<p>1&raquo;sip协议的语法分析</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->　　主要是osipparser2部分，目前支持RFC3261和RFC3265定义的sip协议消息，<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> 　　包括INVITE、ACK、OPTIONS、CANCEL、BYE、SUBSCRIBE、NOTIFY、MESSAGE、REFER和INFO。不支持RFC3262定义的PRACK。 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->　　遵循RFC3264关于SDP的<!-- raw HTML omitted -->offer/answer<!-- raw HTML omitted -->模式。带有SDP的语法分析。<!-- raw HTML omitted --> 支持MD5加解密算法。支持Authorization、www_authenticate和proxy_authenticate<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>2&raquo;sip协议的过程分析</p>
+<p><!-- raw HTML omitted -->       主要是osip2部分，基于RFC3261、RFC3264和RFC3265的sip协议描述过程，围绕transaction这一层来实现sip的解析。<!-- raw HTML omitted --> Transaction是指一个发送方和接收方的交互过程，由请求和应答组成。请求分为Invite类型和Non-Invite类型。应答分为响应型的应答和确认型的应答。<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->       响应型的应答是指这个应答仅代表对方收到请求。请求经过处理后都必须返回确认型的应答。响应型的应答有1xx，确认型的应答包括2xx、3xx、4xx、5xx和6xx。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->      一个transaction由一个请求和一个或多个响应型应答、一个确认型应答组成。<!-- raw HTML omitted --></p>
+<p> </p>
+<p>3&raquo;sip协议框架</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->主要有三部分：底层套接字接收/发送，模块间通信管道，上层调用api接口。<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->    Osip2并不实现底层套接字的接收/发送，由eXosip2实现；<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->   上层调用的api接口大致有两类：sip协议的调用接口和sdp协议的调用接口。<!-- raw HTML omitted --> EXosip封装了大部分的sip协议调用接口<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->//********************************************************************************************************************************//<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->exosip2协议栈的分析<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->     exosip是osip2协议的封装和调用。它实现了作为单个sip终端的大部分功能，如register、call、subscription等<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->     exsiop使用udpsocket套接字实现底层sip协议的接受和奉送，并且封装了sip消息的解释器。<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-2/" data-toggle="tooltip" data-placement="top" title="ortp流媒体协议 [2]">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-2/" data-toggle="tooltip" data-placement="top" title="osip2和eXosip2协议[2]">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-2/">ortp流媒体协议 [2]</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-1/">ortp流媒体协议 [1]</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Sep 28, 2011</h4>
+    </section>
+    <h5 id="wc">1200 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/open-source/">open source</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

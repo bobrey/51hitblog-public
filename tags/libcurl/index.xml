@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>libcurl on IT技术分享</title>
+    <link>https://www.51hint.com/tags/libcurl/</link>
+    <description>Recent content in libcurl on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Aug 2012 02:16:36 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/libcurl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iphone 上编译curl 库</title>
+      <link>https://www.51hint.com/posts/2012-08-15-iphone-%E4%B8%8A%E7%BC%96%E8%AF%91curl-%E5%BA%93/</link>
+      <pubDate>Wed, 15 Aug 2012 02:16:36 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-15-iphone-%E4%B8%8A%E7%BC%96%E8%AF%91curl-%E5%BA%93/</guid>
+      <description>其中–host代表平台，例子为iOS模拟器，如果是device真机把i386-apple-darwin改为arm-apple-darwin。</description>
+    </item>
+    
+  </channel>
+</rss>

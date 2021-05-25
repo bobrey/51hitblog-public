@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Gorm关联查询 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Gorm关联查询" />
+  <meta name="twitter:title" content="Gorm关联查询" />
+  <meta name="description" content="gorm关联查询">
+  <meta property="og:description" content="gorm关联查询">
+  <meta name="twitter:description" content="gorm关联查询">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/gorm%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/gorm%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Gorm关联查询</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <p>定义了一个 <code>User</code> 和 <code>Company</code>, <code>User</code> 中可以包含多个 <code>Company</code>, 如下:</p>
+<pre><code>type User struct {
+        ID        int        `gorm:&quot;TYPE:int(11);NOT NULL;PRIMARY_KEY;INDEX&quot;`
+        Name      string     `gorm:&quot;TYPE: VARCHAR(255); DEFAULT:'';INDEX&quot;`
+        Companies []Company  `gorm:&quot;FOREIGNKEY:UserId;ASSOCIATION_FOREIGNKEY:ID&quot;`
+        CreatedAt time.Time  `gorm:&quot;TYPE:DATETIME&quot;`
+        UpdatedAt time.Time  `gorm:&quot;TYPE:DATETIME&quot;`
+        DeletedAt *time.Time `gorm:&quot;TYPE:DATETIME;DEFAULT:NULL&quot;`
+}
+
+type Company struct {
+        gorm.Model
+        Industry int    `gorm:&quot;TYPE:INT(11);DEFAULT:0&quot;`
+        Name     string `gorm:&quot;TYPE:VARCHAR(255);DEFAULT:'';INDEX&quot;`
+        Job      string `gorm:&quot;TYPE:VARCHAR(255);DEFAULT:''&quot;`
+        UserId   int    `gorm:&quot;TYPE:int(11);NOT NULL;INDEX&quot;`
+}
+</code></pre><p>在查询 <code>User</code> 时希望把 <code>Company</code> 的信息也一并查询, 有以下三种方法:</p>
+<h2 id="related">Related</h2>
+<p>使用 <code>Related</code> 方法, 需要把把 <code>User</code> 查询好, 然后根据 <code>User</code> 定义中指定的 <code>FOREIGNKEY</code> 去查找 <code>Company</code>, 如果没定义, 则调用时需要指定, 如下:</p>
+<pre><code>var u User
+db.First(&amp;u)
+db.Model(&amp;u).Related(&amp;u.Companies).Find(&amp;u.Companies)
+User` 列表时遍历列表一一查询 `Company
+</code></pre><h2 id="association">Association</h2>
+<p>使用 <code>Association</code> 方法, 需要把把 <code>User</code> 查询好, 然后根据 <code>User</code> 定义中指定的 <code>AssociationForeignKey</code> 去查找 <code>Company</code>, <strong>必须定义</strong>, 如下:</p>
+<pre><code>var u User
+db.First(&amp;u)
+db.Model(&amp;u).Association(&quot;Companies&quot;).Find(&amp;u.Companies)
+</code></pre><h2 id="preload">Preload</h2>
+<p>使用 <code>Preload</code> 方法, 在查询 <code>User</code> 时先去获取 <code>Company</code> 的记录, 如下:</p>
+<pre><code>// 查询单条 user
+var u User
+db.Debug().Preload(&quot;Companies&quot;).First(&amp;u)
+// 对应的 sql 语句
+// SELECT * FROM users LIMIT 1;
+// SELECT * FROM companies WHERE user_id IN (1);
+
+// 查询所有 user
+var list []User
+db.Debug().Preload(&quot;Companies&quot;).Find(&amp;list)
+// 对应的 sql 语句
+// SELECT * FROM users;
+// SELECT * FROM companies WHERE user_id IN (1,2,3...);
+</code></pre><hr>
+<p>本文中是一对多, 一对一的也是类似的, 完整代码见: <a href="https://github.com/jouyouyun/examples/tree/master/gorm/related">GORM Related</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/git%E4%B8%A2%E5%BC%83%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9/" data-toggle="tooltip" data-placement="top" title="Git丢弃本地修改">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/react_redux%E8%AE%B2%E8%A7%A3/" data-toggle="tooltip" data-placement="top" title="React_redux讲解">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/%E5%BE%AE%E4%BF%A1%E6%8C%91%E4%B8%80%E6%8C%91/">微信挑一挑</a></li>
+                    
+                    <li><a href="/posts/k8s_ingress/">K8s_ingress nginx</a></li>
+                    
+                    <li><a href="/posts/go%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">Go开源项目</a></li>
+                    
+                    <li><a href="/posts/fastlane%E8%87%AA%E5%8A%A8%E5%8C%96%E6%89%93%E5%8C%85/">Fastlane自动化打包</a></li>
+                    
+                    <li><a href="/posts/%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8/">端口复用</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

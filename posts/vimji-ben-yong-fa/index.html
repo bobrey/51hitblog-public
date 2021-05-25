@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> vim基本用法 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="vim基本用法" />
+  <meta name="twitter:title" content="vim基本用法" />
+  <meta name="description" content="简明 VIM 练级攻略 http://coolshell.cn/articles/5426.html command: p ce &mdash;&mdash;&mdash;-&gt; To change until end of a word cw &mdash;&mdash;&mdash;-&gt; delete a words and places you insert mode c$ &mdash;&mdash;&mdash;-&gt; delete the whole line and place insert mode CTRL-G ----------&gt; show the file name and status % ----------&gt; place the cursor on ay (,{,[ then Mgoes to its match. / ----------&gt; search FORWARD ? ----------&gt; search BACKWARD To substitute">
+  <meta property="og:description" content="简明 VIM 练级攻略 http://coolshell.cn/articles/5426.html command: p ce &mdash;&mdash;&mdash;-&gt; To change until end of a word cw &mdash;&mdash;&mdash;-&gt; delete a words and places you insert mode c$ &mdash;&mdash;&mdash;-&gt; delete the whole line and place insert mode CTRL-G ----------&gt; show the file name and status % ----------&gt; place the cursor on ay (,{,[ then Mgoes to its match. / ----------&gt; search FORWARD ? ----------&gt; search BACKWARD To substitute">
+  <meta name="twitter:description" content="简明 VIM 练级攻略 http://coolshell.cn/articles/5426.html command: p ce &mdash;&mdash;&mdash;-&gt; To change until end of a word cw &mdash;&mdash;&mdash;-&gt; delete a words and places you insert mode c$ …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/vimji-ben-yong-fa/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/vimji-ben-yong-fa/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">vim基本用法</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jan 27, 2017</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/vim/">vim</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>简明 VIM 练级攻略
+<a href="http://coolshell.cn/articles/5426.html">http://coolshell.cn/articles/5426.html</a></p>
+<p>command:
+p
+ce 	 &mdash;&mdash;&mdash;-&gt; To change until end of a word
+cw	 &mdash;&mdash;&mdash;-&gt; delete a words and places you insert mode 
+c$	 &mdash;&mdash;&mdash;-&gt; delete the whole line and place insert mode</p>
+<pre><code>CTRL-G  ----------&gt; show the file name and status
+%	----------&gt; place the cursor on ay (,{,[ then Mgoes to its match.
+/	----------&gt; search FORWARD
+?       ----------&gt; search BACKWARD  		
+
+ To substitute new for the first old in a line type    	   :s /old/new
+     To substitute new for all 'old's on a line type	   :s /old/new/g
+     To substitute all occurrences in the file type	   	   :%s /old/new/g
+     To ask for confirmation each time add 'c'		       :%s /old/new/gc
+     To substitute phrases between two line #'s type	   :#,#s /old/new/g
+
+:!command  executes an external command.		   :!ls
+v  motion  :w FILENAME  saves the  selected lines in file
+:r FILENAME  retrieves disk file FILENAME 		   :r !ls	
+
+
+Type  o  to open a line BELOW the cursor and start Insert mode.
+Type  O  to open a line ABOVE the cursor.
+
+Type  I  to insert at the begining of the line
+Type  A  to insert text after the end of the line.
+
+The  e  command moves to the end of a word.
+
+
+Type  CTRL-W CTRL-W  to jump to another window
+
+When typing : command, press CTRL-D to see possible completions.
+Press &lt;TAB&gt; to use one completion.
+
+1.
+	Type 5w number powered movement
+2.
+	Find word under cursor, * and #
+3.
+	Repeate the previous command, just press .
+4.
+	CTRL-R for redo
+
+5.
+	f&lt;	jump foward and land on the &lt; character
+	t&lt;	jump forward and land right before the &lt; character
+	
+	t: jump up to a character
+	f: jump onto a character
+	*: search for other instances of the word under your cursor
+	;: go to the next instance when you’ve jumped to a character
+	,: go to the previous instance when you’ve jumped to a character
+		
+7.
+    ): move forward one sentence
+    }: move forward one paragraph
+
+
+    H: move to the top of the screen
+    M: move to the middle of the screen
+    L: move to the bottom of the screen
+
+    ^E: scroll up one line
+    ^Y: scroll down one line
+    ^U: move up half a screen
+    ^D: move down half a screen
+    ^F: move down a page 
+    ^B: move up a page 
+
+    Ctrl-i: jump to your previous navigation location
+    Ctrl-o: jump back to where you were
+
+
+8.
+    cm: change whatever you define as a movement, e.g. a word, or a sentence, or a paragraph.
+    C: change the current line from where you’re at
+    s: substitute from where you are to the next command (noun)
+    S: substitute the entire current line
+    
+    Eg 
+       cis  -&gt; Change inside sentence
+
+9.
+    ~: changing case
+    x: delete the character under the cursor
+    X: delete the character before the cursor
+    dm: delete whatever you define as a movement, e.g. a word, or a sentence, or a paragraph.
+    dt.: delete delete from where you are to the period
+    J: join the current line with the next one (delete what’s between)
+
+10.
+    yy: yank the current line
+    p : paster text after the current cursor
+    P : paster text before the current cursor
+    ddp: swiching lines of text
+
+11.
+    Js: Got to the next misspelled word
+    [s: Go to the last misspelled word
+    z=: When on a misspelled word, get some suggestion
+    zg: Mark a misspelled word as correct
+    zw: Mark a good word as misspelled
+</code></pre>
+<p>===================================================
+1.
+iw: inside word
+aw: around word</p>
+<pre><code>    Eg:
+        daw: Delete around a word
+2.
+    is: inside sentence
+    as: around sentence  
+
+    Eg:
+        cis: Change inside a sentence
+
+3.
+    paragraphs: ip and ap
+    single quotes: i' and a'
+    double quotes: i&quot; and a&quot;        
+
+    words:          iw and aw
+    sentences:      is and as
+    paragraphs:     ip and ap
+    single quotes:  i' and a'
+    double quotes:  i&quot; and a&quot;
+    back ticks:     i` and a`
+    parenthesis:    i( and a(
+    brackets:       i[ and a[
+    braces:         i{ and a{
+    tags:           it and at
+
+4.
+    v:      character-based Visual Mode
+    V:      line-based Visual Mode
+    Ctrl-v: paragraphs Visual Mode
+
+5.
+    vi(:    Select inside of parenthesis
+    vi[:    Select inside of brackets
+    v2i{:   Select everything inside the second tier braces
+
+
+6.
+   vwwy:    Enter visual mode,select two more words of text, and copy them
+   Vjjd:    Enter line-based visual mode and delete a couple of lines below
+   vip:     Visual select an entire paragraph
+   vipyjjp: Visual select an entire paragraph then paste it down below
+
+7.
+   qa:      start recording a macro named &quot;a&quot;
+   q:       stop recording
+   @a:      play back the macro
+</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/iterm2zheng-li/" data-toggle="tooltip" data-placement="top" title="iterm2整理">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/vim-an-zhuang-vundle-guan-li-cha-jian/" data-toggle="tooltip" data-placement="top" title="vim 安装 vundle 管理插件">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2015-11-04-vim%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/">vim环境下载</a></li>
+                    
+                    <li><a href="/posts/2015-10-28-vim%E6%8F%92%E4%BB%B6/">vim插件</a></li>
+                    
+                    <li><a href="/posts/2015-09-08-macvim%E9%85%8D%E5%88%B6%E5%AD%A6%E4%B9%A0/">macvim配制学习</a></li>
+                    
+                    <li><a href="/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">ios开发环境</a></li>
+                    
+                    <li><a href="/posts/2012-12-25-vim_6-grep-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">vim_6 [grep  简单使用]</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jan 27, 2017</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/vim/">vim</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

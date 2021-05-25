@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Go笔记补充 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Go笔记补充" />
+  <meta name="twitter:title" content="Go笔记补充" />
+  <meta name="description" content="go学习补充">
+  <meta property="og:description" content="go学习补充">
+  <meta name="twitter:description" content="go学习补充">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/go%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%85%85/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/go%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%85%85/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Go笔记补充</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <ol start="11">
+<li>
+<p>try err的方式</p>
+<p>if data, err := func (); err != nil{</p>
+<p>}else{</p>
+<p>}</p>
+</li>
+<li>
+<p>slice
+<code> s2 = append(s2[:3], s2[4:]…)</code></p>
+</li>
+<li>
+<p>struct
+工厂函数</p>
+</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go">    <span class="kd">func</span> <span class="nf">createTreeNode</span><span class="p">(</span><span class="nx">value</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">TreeNode</span><span class="p">{</span>
+        <span class="k">return</span> <span class="o">&amp;</span><span class="nx">TreeNode</span><span class="p">{</span><span class="nx">value</span><span class="p">:</span><span class="nx">value</span><span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div><hr>
+<ol>
+<li></li>
+</ol>
+<p>type(
+byte    int8
+rune    int32
+)</p>
+<ol start="2">
+<li>
+<p>iota 同行 位同一值；碰到const iota重置为0</p>
+<p>str: = &ldquo;abe&rdquo;
+str[0]</p>
+</li>
+<li>
+<p>switch 强制执行下一个case语句，用fallthrough语句</p>
+</li>
+<li>
+<p>goto; break; continue； 配合Lable标签进行跳转</p>
+</li>
+<li>
+<p>var p *int
+p = new (int) //指向新分配的一块空间</p>
+<p>p := new (int)
+*p = 11</p>
+<p>数组Array
+a := [20]int{3:5, 19:1}  //第19位元素位1
+a := [&hellip;]int{1,2,3,4}
+a := [&hellip;]int {99:1}
+p := new([10]int)
+a := [2][3]int{
+{1:1},
+{2:2}} //[[0 1 0] [0 0 2]]</p>
+</li>
+</ol>
+<p>​</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//数组指针作为函数参数
+</span><span class="c1"></span><span class="nx">a</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span>
+<span class="kd">func</span> <span class="nf">modify</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="kt">int</span><span class="p">){</span>
+    <span class="p">(</span><span class="o">*</span><span class="nx">p</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="mi">666</span>
+<span class="p">}</span>
+<span class="nf">modify</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">a</span><span class="p">)</span>
+</code></pre></div><ol start="6">
+<li></li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"> <span class="nx">切片Slice</span>
+    <span class="nx">使用len获取元素个数</span><span class="err">，</span><span class="nx">cap获取容量</span><span class="err">；</span> <span class="nx">一般使用make创建</span> <span class="nf">mak</span><span class="p">([]</span><span class="nx">T</span><span class="p">,</span> <span class="nx">len</span><span class="p">,</span> <span class="nx">cap</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nx">s1</span> <span class="p">[]</span><span class="kt">int</span>
+    <span class="nx">s</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{}</span>
+    <span class="nx">s1</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="nx">s2</span> <span class="o">:=</span> <span class="nx">s1</span><span class="p">[:]</span>
+    <span class="nx">append</span> <span class="p">:</span> <span class="nx">copy</span>
+</code></pre></div><pre><code>s := a[3:5]  //从数组内取出   【切片】
+s[1] = 333  //会改变原数组a的数值
+
+
+//切片作为函数参数；引用传递
+func sort (s []int){
+}
+</code></pre>
+<ol start="7">
+<li>
+<p>map
+m := make(map[int]map[int]string)
+a, ok := m[key11]</p>
+<p>//测试键值对是否存在
+if _, ok := map1[key1]; ok {
+}</p>
+</li>
+</ol>
+<p>​ <br>
+for i,v := range slice{
+} <br>
+for i,v := range map{
+}</p>
+<pre><code>sm := make([]map[int]string, 5)
+
+//排序
+sort.Ints(s)
+
+
+//map做函数参数； 引用传递
+func ff(m map[int]string){
+}
+</code></pre>
+<ol start="8">
+<li>函数function}</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">A</span><span class="p">(</span><span class="nx">a</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span> <span class="kt">int</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span>
+    <span class="p">}</span>
+    <span class="nf">A</span><span class="p">(</span><span class="nx">args</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div><pre><code>func Add(a,b int) (sum int){
+    sum = a + b
+    return
+}
+
+//函数作为参数；回调函数
+func callback(y int, f func(int,int)){}
+
+
+type FuncType func(int, int) int //函数类型的变量
+var fTest FuncType
+fTest = Add
+fTest(10,20)
+</code></pre>
+<p>​</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//匿名函数同样被称为闭包
+</span><span class="c1"></span><span class="nx">big</span> <span class="o">:=</span> <span class="kd">func</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span> <span class="kt">int</span><span class="p">)(</span><span class="nx">max</span> <span class="kt">int</span><span class="p">){</span>
+    <span class="nx">max</span> <span class="p">=</span> <span class="nx">x</span> <span class="p">&gt;</span> <span class="nx">y</span> <span class="err">?</span> <span class="nx">x</span> <span class="p">:</span><span class="nx">y</span>
+    <span class="k">return</span>
+<span class="p">}(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+  <span class="c1">//返回值为匿名函数
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">getPrintMessage</span><span class="p">()</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// returns an anonymous function
+</span><span class="c1"></span>    <span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">message</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// gets anonymous function and calls it
+</span><span class="c1"></span><span class="nx">printfunc</span> <span class="o">:=</span> <span class="nf">getPrintMessage</span><span class="p">()</span>
+<span class="nf">printfunc</span><span class="p">(</span><span class="s">&#34;Hello anonymous function using caller!&#34;</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//闭包-&gt;有函数内部的子函数才能读取局部变量
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">outer</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// variable
+</span><span class="c1"></span>    <span class="nx">text</span> <span class="o">:=</span> <span class="s">&#34;Modified &#34;</span> <span class="o">+</span> <span class="nx">name</span>
+
+    <span class="c1">// closure. function has access to text even after exiting this block
+</span><span class="c1"></span>    <span class="nx">foo</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="c1">// return the closure
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nx">foo</span>
+<span class="p">}</span>
+<span class="c1">// foo is a closure
+</span><span class="c1"></span><span class="nx">foo</span> <span class="o">:=</span> <span class="nf">outer</span><span class="p">(</span><span class="s">&#34;hello&#34;</span><span class="p">)</span>
+<span class="c1">// calling a closure
+</span><span class="c1"></span><span class="nf">foo</span><span class="p">()</span>
+</code></pre></div><pre><code>/闭包，返回一个匿名函数
+func closure(x int) func(int) int {
+    return func (y int) int {
+        return x+Y
+    }
+}
+f := closure(10)   
+fmt.Println(f(1))  
+
+
+
+
+
+defer是逆序向上调用的！
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">Go么有异常机制</span><span class="err">，</span><span class="nx">但有panic</span><span class="o">/</span><span class="err">【</span><span class="k">defer</span><span class="err">】</span><span class="nx">内的recover模式来处理错误</span>
+<span class="nx">Panic可以在任何地方引发</span><span class="err">，</span><span class="nx">但recover只有在defer调用的函数用中有效</span>
+
+<span class="kd">func</span> <span class="nf">B</span> <span class="p">(){</span>
+    <span class="k">defer</span> <span class="kd">func</span><span class="p">(){</span>
+        <span class="k">if</span> <span class="nx">err</span><span class="o">:=</span> <span class="nb">recover</span><span class="p">();</span> <span class="nx">err</span><span class="o">!=</span> <span class="kc">nil</span><span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Recover in B&#34;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>    
+    <span class="nb">panic</span><span class="p">(</span><span class="s">&#34;Panic in B&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">//B() --&gt; Recover in B
+</span></code></pre></div><pre><code>os.args 获取命令行参数
+import _ from &quot;xx&quot;;  _操作其实是为了调用包里面的init函数；
+</code></pre>
+<ol start="9">
+<li>struct 结构</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"> <span class="nx">p</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Person</span><span class="p">{</span>  <span class="c1">//初始化时获得指针
+</span><span class="c1"></span>        <span class="nx">Name</span><span class="p">:</span> <span class="err">&#39;</span><span class="nx">fly</span><span class="err">&#39;</span><span class="p">,</span>
+        <span class="nx">Age</span><span class="p">:</span> <span class="mi">21</span>
+    <span class="p">}</span>
+    <span class="kd">func</span> <span class="nf">A</span><span class="p">(</span><span class="nx">per</span> <span class="o">*</span><span class="nx">Person</span><span class="p">){}</span>
+</code></pre></div><pre><code>//匿名结构
+p := &amp;struct { //tags 带标签的结构体
+    Name string  &quot;姓名&quot;          
+    Age int
+}{
+    Name: 'fly',
+    Aget: 21
+}
+
+//结构嵌套匿名结构
+type person struct{
+    Name string
+    Age int
+    Contact struct{
+        Phone,City string
+    }
+}
+p := person{Name: &quot;cc&quot;, Aget: 22}
+p.Phone = &quot;12012&quot;   //通过这种方式初始化匿名结构
+p.City = &quot;beijing&quot;
+
+
+
+//struct组合
+type human struct {
+    Sex int
+}
+type student struct{
+    human
+    Name string
+    Age int
+}
+p := &amp;student{Name: &quot;ff&quot;, Age:32, human:human{Sex:1}}
+
+//结构体指针作为匿名字段
+type student2 struct{
+    *human
+    aget
+}
+
+//结构体作为函数参数
+//值传递               //引用传递
+testA (s Student){     testB(p *Student){
+}                      }
+</code></pre>
+<ol start="10">
+<li></li>
+</ol>
+<blockquote>
+<p>rand.Seed(666)  //rand.Seed(time.Now().UnixNano())</p>
+<p>rand.Int()      //如果种子参数一样，每次程序运行的随机数都一样</p>
+<p>​    rand.Intn(100)  // 限制在100以内
+​</p>
+</blockquote>
+<pre><code>封装：通过方法实现
+继承：通过匿名字段实现
+多态：通过接口实现
+
+make(T): 只适用于slice切片、map、channel
+</code></pre>
+<ol start="11">
+<li>
+<p>method方法
+func (p *A) add(int)(result int){}</p>
+<p>//继承方法
+type Person struct {
+name string
+}
+func (p *Person) PrintInfo{
+}
+type Student struct {
+Person
+id int
+}
+s := Studen{Person{name:&lsquo;li&rsquo;},id:11}
+s.PrintInfo()</p>
+</li>
+<li>
+<p>interface接口
+只要拥有该接口的所有方法签名，即实现该接口</p>
+<p>type Shape interface{
+Area() float32
+}
+type Sequare struct{
+side float32
+}
+func (sq *Sequare) Area() float32{
+return sq.side * sq.side
+}</p>
+<p>sq := &amp;Sequare{5}           // sq := new (Sequare)  sq.side = 5 <br>
+var shape Shape
+shape = sq</p>
+<p>//多态
+func PrintArea(i Shape){
+fmt.Println(i.Area())
+}</p>
+</li>
+</ol>
+<p>​ <br>
+//空接口
+var any interface {} = xxx //任意类型
+type Any interface {}
+var val Any</p>
+<pre><code>//测试是否实现了某个接口T
+if sv,ok := v.(T); ok{
+}
+
+
+if s, ok := shape.(*Sequare); ok {   //类型断言 【超集.(子集)】
+}
+
+
+//类型判断type-switch
+switch shape.(type){
+    case *Sequare:
+    case *Circle:
+    default:
+}
+</code></pre>
+<p>​</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//将slice切片赋值到空接口切片
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">interfaceSlice</span> <span class="p">[]</span><span class="kd">interface</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kd">interface</span><span class="p">{},</span> <span class="nb">len</span><span class="p">(</span><span class="nx">dataSlice</span><span class="p">))</span>
+<span class="k">for</span> <span class="nx">i</span><span class="p">,</span><span class="nx">d</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">dataSlice</span> <span class="p">{</span>
+    <span class="nx">interfaceSlice</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">d</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="nf">SetData</span><span class="p">(</span><span class="nx">data</span> <span class="kd">interface</span><span class="p">{}){</span>
+    <span class="nx">n</span><span class="p">.</span><span class="nx">data</span> <span class="p">=</span> <span class="nx">data</span>
+<span class="p">}</span>
+</code></pre></div><pre><code>//接口转换
+ type Humaner interface{  //超集
+    sayHi()
+}
+type Personer interface { //子集
+    Humaner
+    sing(lrc string)
+}
+type Student struct{
+    id int
+    name string
+}
+func (s *Student)sayHi(){
+    fmt.Println(&quot;student id name&quot;,s.id,s.name)
+}
+func (s *Student)sing(lrc string){
+    fmt.Println(&quot;student is sing&quot;,lrc)
+}
+
+var ip Personer     //子集
+var ih Humaner      //超集
+
+ip = &amp;Student{333,&quot;cc&quot;} 
+ih = ip                       //子集转换为超集
+ih.sayHi()
+</code></pre>
+<p>​ <br>
+​ <br>
+13.
+​    reflection发射
+​    //TypeOf  ValueOf 获取目标信息  -&gt;Field-&gt;[Name; Type]</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">Info</span><span class="p">(</span><span class="nx">o</span> <span class="nx">Interface</span><span class="p">{}){</span>
+    <span class="nx">t</span> <span class="o">:=</span> <span class="nx">reflect</span><span class="p">.</span><span class="nf">TypeOf</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span>
+   <span class="c1">// fmt.Println(&#34;Type: &#34;,t.Name())
+</span><span class="c1"></span>
+    <span class="nx">v</span> <span class="o">:=</span> <span class="nx">reflect</span><span class="p">.</span><span class="nf">ValueOf</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span>
+    <span class="c1">//fmt.Println(&#34;Value: &#34;,v)
+</span><span class="c1"></span>
+    <span class="k">for</span> <span class="nx">i</span><span class="o">:=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="p">&lt;</span><span class="nx">t</span><span class="p">.</span><span class="nf">NumField</span><span class="p">();</span><span class="nx">i</span><span class="o">++</span><span class="p">{</span>
+        <span class="nx">f</span> <span class="o">:=</span> <span class="nx">t</span><span class="p">.</span><span class="nf">Field</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+        <span class="nx">val</span> <span class="o">:=</span> <span class="nx">v</span><span class="p">.</span><span class="nf">Field</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="nx">f</span><span class="p">.</span><span class="nx">Type</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="p">&lt;</span><span class="nx">t</span><span class="p">.</span><span class="nf">NumMethod</span><span class="p">();</span><span class="nx">i</span><span class="o">++</span><span class="p">{</span>
+        <span class="nx">m</span> <span class="o">:=</span> <span class="nx">t</span><span class="p">.</span><span class="nf">Method</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span><span class="nx">m</span><span class="p">.</span><span class="nx">Type</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//获取类型
+</span><span class="c1"></span><span class="k">if</span> <span class="nx">k</span><span class="o">:=</span> <span class="nx">t</span><span class="p">.</span><span class="nf">Kind</span><span class="p">();</span> <span class="nx">k</span><span class="o">!=</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">Struct</span><span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div><pre><code>//更改数值
+ x := 11
+ v := relfect.ValueOf(&amp;x)
+ v.Elem().SetInt(333)
+
+v  = v.Elem()
+f := v.FieldByName(&quot;Name&quot;)
+if f.IsValid() &amp;&amp; f.Kind() == reflect.String{
+    f.SetString(&quot;xx&quot;)
+}
+
+//方法调用
+v := reflect.ValueOf(u)
+mv := v.MethodByName(&quot;Sayhi&quot;)
+args := []reflect.Value{relfect.ValueOf(&quot;fly&quot;)}
+mv.Call(args)
+</code></pre>
+<p>​</p>
+<p>13
+concurrency并发</p>
+<p>​    Chanel是goroutine沟通的桥梁，大多是阻塞同步的；【make创建；close关闭；引用类型】</p>
+<p>​    untime.GOMAXPROCS(runtime.NumCPU()) 并行计算CPU核数</p>
+<p>​    runtime.Gosched()让出cpu时间片</p>
+<p>​    runtime.Goexit()立即终止当前goroutine
+​</p>
+<pre><code>c := make(chan bool)
+go func (){
+    fmt.Println(&quot;go go...&quot;)
+    c&lt;-true
+    close(c)
+}()
+/*for v := range c{
+    fmt.Println(v)
+}*/
+&lt;-c  //取出chanel数据
+
+//缓存
+c := make(chan bool, 10)
+
+//sync同步
+wg := sync.WaitGroup{}
+wg.Add(10)
+for i:=0; i&lt;10;i++{
+    go Go(&amp;wg, i)
+}
+wg.Wait()
+func Go(wg *sync.WaitGroup, index int){
+    ...
+    wg.Done()
+}
+
+//Select随机选择chan
+//空select阻塞main函数 select{}
+</code></pre>
+<p>​</p>
+<hr>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/kubernetes/" data-toggle="tooltip" data-placement="top" title="Kubernetes">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/nexus6p_%E5%88%B7%E5%85%A5magisk/" data-toggle="tooltip" data-placement="top" title="Nexus6p_刷入magisk">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/kubernetes/">Kubernetes</a></li>
+                    
+                    <li><a href="/posts/google_cloud_functions/">Google_cloud_functions</a></li>
+                    
+                    <li><a href="/posts/go%E6%8E%92%E5%BA%8F/">Go排序</a></li>
+                    
+                    <li><a href="/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">Redis使用场景</a></li>
+                    
+                    <li><a href="/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/">Redis命令参考</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

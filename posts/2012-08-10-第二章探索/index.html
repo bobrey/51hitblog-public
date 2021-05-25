@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第二章：探索 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第二章：探索" />
+  <meta name="twitter:title" content="第二章：探索" />
+  <meta name="description" content="&lt;li class=&quot;h2&quot;&gt; &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_the_mvc_pattern&quot;&gt; &lt;span en=&quot;2.1 The MVC Pattern&quot;&gt;2.1 MVC模式&lt;/span&gt;&lt;/a&gt; &lt;/li&gt; &lt;li class=&quot;h3&quot;&gt; &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_sub_mvc_layering&quot;&gt; &lt;span en=&quot;2.1.1 MVC Layering&quot;&gt;2.1.1 MVC层次&lt;/span&gt;&lt;/a">
+  <meta property="og:description" content="&lt;li class=&quot;h2&quot;&gt; &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_the_mvc_pattern&quot;&gt; &lt;span en=&quot;2.1 The MVC Pattern&quot;&gt;2.1 MVC模式&lt;/span&gt;&lt;/a&gt; &lt;/li&gt; &lt;li class=&quot;h3&quot;&gt; &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_sub_mvc_layering&quot;&gt; &lt;span en=&quot;2.1.1 MVC Layering&quot;&gt;2.1.1 MVC层次&lt;/span&gt;&lt;/a">
+  <meta name="twitter:description" content="&lt;li class=&quot;h2&quot;&gt; &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_the_mvc_pattern&quot;&gt; &lt;span en=&quot;2.1 The MVC …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E6%8E%A2%E7%B4%A2/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E6%8E%A2%E7%B4%A2/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第二章：探索</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">26000 Words|Read in about 52 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <!-- raw HTML omitted -->
+<pre><code>&lt;li class=&quot;h2&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_the_mvc_pattern&quot;&gt; &lt;span en=&quot;2.1 The MVC Pattern&quot;&gt;2.1 MVC模式&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h3&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_sub_mvc_layering&quot;&gt; &lt;span en=&quot;2.1.1 MVC Layering&quot;&gt;2.1.1 MVC层次&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h3&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_sub_layer_separation_beyond_mvc&quot;&gt; &lt;span en=&quot;2.1.2 Layer Separation Beyond MVC&quot;&gt;2.1.2 MVC以外的分离方式&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h3&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_sub_symfony_s_mvc_implementation&quot;&gt; &lt;span en=&quot;2.1.3 Symfony's MVC Implementation&quot;&gt;2.1.3 Symfony的MVC实现方式&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h3&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_sub_symfony_core_classes&quot;&gt; &lt;span en=&quot;2.1.4 Symfony Core Classes&quot;&gt;2.1.4 Symfony核心类&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h2&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_code_organization&quot;&gt; &lt;span en=&quot;2.2 Code Organization&quot;&gt;2.2 代码组织&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h3&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_sub_project_structure_applications_modules_and_actions&quot;&gt; &lt;span en=&quot;2.2.1 Project Structure: Applications, Modules, and Actions&quot;&gt;2.2.1 项目结构：应用、模块与动作&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h3&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_sub_file_tree_structure&quot;&gt; &lt;span en=&quot;2.2.2 File Tree Structure&quot;&gt;2.2.2 目录结构&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h2&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_common_instruments&quot;&gt; &lt;span en=&quot;2.3 Common Instruments&quot;&gt;2.3 常用工具&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h3&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_sub_parameter_holders&quot;&gt; &lt;span en=&quot;2.3.1 Parameter Holders&quot;&gt;2.3.1 参数储存器&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h3&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_sub_constants&quot;&gt; &lt;span en=&quot;2.3.2 Constants&quot;&gt;2.3.2 常量&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h3&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_sub_class_autoloading&quot;&gt; &lt;span en=&quot;2.3.3 Class Autoloading&quot;&gt;2.3.3 类自动载入&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;h2&quot;&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#chapter_02_summary&quot;&gt; &lt;span en=&quot;2.4 Summary&quot;&gt;2.4 总结&lt;/span&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&quot;foot&quot;&gt;
+  &amp;nbsp;
+&lt;/li&gt;&lt;/ul&gt; 
+
+&lt;p&gt;
+  &lt;span en=&quot;At first glance, the code behind a symfony-driven application can seem quite daunting.&quot;&gt;用symfony开发的程序乍看起来有些吓人。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It consists of many directories and scripts, and the files are a mix of PHP classes, HTML, and even an intermingling of the two.&quot;&gt;它包含很多目录和脚本，有PHP类，HTML甚至两者的混合。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You'll also see references to classes that are otherwise nowhere to be found within the application folder, and the directory depth stretches to six levels.&quot;&gt;程序里面有些类很难找到定义的地方，目录深达6层。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But once you understand the reason behind all of this seeming complexity, you'll suddenly feel like it's so natural that you wouldn't trade the symfony application structure for any other.&quot;&gt;不过一旦你了解了这些背后的原因，就会突然发现这其实是很自然的，symfony程序的结构就应该是这样。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This chapter explains away that intimidated feeling.&quot;&gt;读完本章你的这种害怕的想法就会消失。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;h2&gt;
+  &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_the_mvc_pattern&quot;&gt;&lt;span en=&quot;2.1 The MVC Pattern&quot;&gt;2.1 MVC模式&lt;/span&gt;&lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;Symfony is based on the classic web design pattern known as the MVC architecture, which consists of three levels:&quot;&gt;symfony基于MVC架构这个经典的Web设计模式，MVC架构包含三层：&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;The Model represents the information on which the application operates--its business logic.&quot;&gt;模型（model）代表程序操作的信息&amp;#8211;业务逻辑。&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;The View renders the model into a web page suitable for interaction with the user.&quot;&gt;视图（view）将模型用网页的形式展现出来从而与用户进行交互。&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;span en=&quot;The Controller responds to user actions and invokes changes on the model or view as appropriate.&quot;&gt;控制器（controller）通过调用合适的模型或者视图来回应用户的动作。&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;Figure 2-1 illustrates the MVC pattern.&quot;&gt;图 2-1 解释了MVC模式。&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;span en=&quot;The MVC architecture separates the business logic (model) and the presentation (view), resulting in greater maintainability.&quot;&gt;MVC架构把业务逻辑（模型）与展示（视图）分开，从而大大提高了可维护性。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, if your application should run on both standard web browsers and handheld devices, you just need a new view; you can keep the original controller and model.&quot;&gt;例如，如果你的程序需要能同时在标准web浏览器与手持设备上面运行，你只需要一个新的视图（view），而无需改变原来的控制器（controller）与模型（model）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;he controller helps to hide the detail of the protocol used for the request (HTTP, console mode, mail, and so on) from the model and the view.&quot;&gt;控制器（controller）把请求（request）的协议（HTTP，命令行模式，邮件等）与模型和视图分开来。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;And the model abstracts the logic of the data, which makes the view and the action independent of, for instance, the type of database used by the application.&quot;&gt;模型抽象化逻辑与数据，从而独立于视图与动作（action），例如，程序使用的数据库类型。&lt;/span&gt; &lt;/li&gt; 
+  
+  &lt;p class=&quot;figure&quot;&gt;
+    &lt;span en=&quot;Figure 2-1 - The MVC pattern&quot;&gt;图 2-1 &amp;#8211; MVC模式&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;MVC模式&quot; src=&quot;res/F0201.png&quot; /&gt;
+  &lt;/p&gt;
+  
+  &lt;h3&gt;
+    &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_sub_mvc_layering&quot;&gt;&lt;span en=&quot;MVC Layering&quot;&gt;2.1.1 MVC层次&lt;/span&gt;&lt;/a&gt;
+  &lt;/h3&gt;
+  
+  &lt;p&gt;
+    &lt;span en=&quot;To help you understand MVC's advantages, let's see how to convert a basic PHP application to an MVC-architectured application.&quot;&gt;为了帮助你理解MVC的好处，让我们看看如何将一个基本的PHP程序转换成一个MVC架构的程序。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;A list of posts for a weblog application will be a perfect example.&quot;&gt;这里我们用一个显示blog文章的程序作例子。&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;h4&gt;
+    &lt;span en=&quot;Flat Programming&quot;&gt;单一文件（平面的）编程&lt;/span&gt;
+  &lt;/h4&gt;
+  
+  &lt;p&gt;
+    &lt;span en=&quot;In a flat PHP file, displaying a list of database entries might look like the script presented in Listing 2-1.&quot;&gt;从数据库里面显示数据的一般写法跟例2-1类似。&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p class=&quot;figure&quot;&gt;
+    &lt;span en=&quot;Listing 2-1 - A Flat Script&quot;&gt;例 2-1 &amp;#8211; 单一文件脚本&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt;
+</code></pre>
+<p> 
+<!-- raw HTML omitted -->// 连接、选择数据库<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$link<!-- raw HTML omitted --> = <!-- raw HTML omitted -->mysql_connect<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;localhost&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;myuser&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;mypassword&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->mysql_select_db<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;blog_db&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// 执行SQL查询<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$result<!-- raw HTML omitted --> = <!-- raw HTML omitted -->mysql_query<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;SELECT date, title FROM post&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+ 
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;List of Posts&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;List of Posts&lt;/h1&gt;
+&lt;table&gt;
+&lt;tr&gt;&lt;th&gt;Date&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;/tr&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->// 在HTML打印结果<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->while<!-- raw HTML omitted --> <!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$row<!-- raw HTML omitted --> = <!-- raw HTML omitted -->mysql_fetch_array<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$result<!-- raw HTML omitted -->, MYSQL_ASSOC<!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->\t<!-- raw HTML omitted -->&lt;tr&gt;<!-- raw HTML omitted -->\n<!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->printf<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->\t<!-- raw HTML omitted --><!-- raw HTML omitted -->\t<!-- raw HTML omitted -->&lt;td&gt; %s &lt;/td&gt;<!-- raw HTML omitted -->\n<!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$row<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;date&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->printf<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->\t<!-- raw HTML omitted --><!-- raw HTML omitted -->\t<!-- raw HTML omitted -->&lt;td&gt; %s &lt;/td&gt;<!-- raw HTML omitted -->\n<!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$row<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;title&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->\t<!-- raw HTML omitted -->&lt;/tr&gt;<!-- raw HTML omitted -->\n<!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->// 关闭连接<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->mysql_close<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>  &lt;p&gt;
+    &lt;span en=&quot;That's quick to write, fast to execute, and impossible to maintain.&quot;&gt;这样的代码写起来很快，执行也快，但是几乎没法维护。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The following are the major problems with this code:&quot;&gt;下面是这种代码的主要问题：&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;span en=&quot;There is no error-checking (what if the connection to the database fails?).&quot;&gt;没有错误检查（如果数据库连接失败怎么办？） &lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span en=&quot;HTML and PHP code are mixed, even interwoven together.&quot;&gt;HTML与PHP代码混合在一起，甚至是在PHP代码里输出HTML标签。&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;span en=&quot;The code is tied to a MySQL database.&quot;&gt;只能适用于MySQL数据库。&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;h4&gt;
+    &lt;span en=&quot;Isolating the Presentation&quot;&gt;分离显示&lt;/h4&gt; 
+    
+    &lt;p&gt;
+      &lt;span en=&quot;The echo and printf calls in Listing 2-1 make the code difficult to read.&quot;&gt;例2-1中的 &lt;code&gt;echo&lt;/code&gt; 与 &lt;code&gt;printf&lt;/code&gt; 使代码难以阅读。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Modifying the HTML code to enhance the presentation is a hassle with the current syntax.&quot;&gt;如果要修改HTML代码来改进外观的话就需要改动PHP代码。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;So the code can be split into two parts.&quot;&gt;因此代码应该分割成两部分。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;First, the pure PHP code with all the business logic goes in a controller script, as shown in Listing 2-2.&quot;&gt;首先，把纯粹的包含了所有业务逻辑的PHP代码放在一个控制器（controller）脚本里，见例2-2。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-2 - The Controller Part, in index.php&quot;&gt;例 2-2 &amp;#8211; index.php 控制器（controller）部分&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt;
+</code></pre>
+<p> 
+<!-- raw HTML omitted -->// 连接、选择数据库<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$link<!-- raw HTML omitted --> = <!-- raw HTML omitted -->mysql_connect<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;localhost&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;myuser&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;mypassword&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->mysql_select_db<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;blog_db&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// 执行SQL查询<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$result<!-- raw HTML omitted --> = <!-- raw HTML omitted -->mysql_query<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;SELECT date, title FROM post&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// 填充视图的数组<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$posts<!-- raw HTML omitted --> = <!-- raw HTML omitted -->array<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->while<!-- raw HTML omitted --> <!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$row<!-- raw HTML omitted --> = <!-- raw HTML omitted -->mysql_fetch_array<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$result<!-- raw HTML omitted -->, MYSQL_ASSOC<!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$posts<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted --> = <!-- raw HTML omitted -->$row<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->// 关闭数据库<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->mysql_close<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// Requiring the view<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->require<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;view.php&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+      &lt;span en=&quot;The HTML code, containing template-like PHP syntax, is stored in a view script, as shown in Listing 2-3.&quot;&gt;HTML代码，包括一些类似模板的PHP语法，存放在一个显示脚本里，见例2-3。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-3 - The View Part, in view.php&quot;&gt;例 2-3 &amp;#8211; view.php 显示部分&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&amp;lt;html&amp;gt;
+</code></pre>
+<p>&lt;head&gt;
+&lt;title&gt;List of Posts&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;List of Posts&lt;/h1&gt;
+&lt;table&gt;
+&lt;tr&gt;&lt;th&gt;Date&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;/tr&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->foreach<!-- raw HTML omitted --> <!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$posts<!-- raw HTML omitted --> <!-- raw HTML omitted -->as<!-- raw HTML omitted --> <!-- raw HTML omitted -->$post<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->: <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+&lt;tr&gt;
+&lt;td&gt;&lt;?php <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$post<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;date&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted --> ?&gt;&lt;/td&gt;
+&lt;td&gt;&lt;?php <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$post<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;title&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted --> ?&gt;&lt;/td&gt;
+&lt;/tr&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->endforeach<!-- raw HTML omitted -->; <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;<!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+      &lt;span en=&quot;A good rule of thumb to determine whether the view is clean enough is that it should contain only a minimum amount of PHP code, in order to be understood by an HTML designer without PHP knowledge.&quot;&gt;按照经验来说视图是否足够干净取决于它是否仅包括最少的PHP代码，使得没有PHP知识HTML设计师能够理解。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The most common statements in views are echo, if/endif, foreach/endforeach, and that's about all.&quot;&gt;视图里最常用的语句是 &lt;code&gt;echo&lt;/code&gt;, &lt;code&gt;if/endif&lt;/code&gt;, &lt;code&gt;foreach/endforeach&lt;/code&gt;。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Also, there should not be PHP code echoing HTML tags.&quot;&gt;另外，不应用PHP代码输出HTML标签。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;All the logic is moved to the controller script, and contains only pure PHP code, with no HTML inside.&quot;&gt;所有的逻辑都移到了控制器（controller）脚本，并且仅包含纯PHP代码，没有HTML。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;As a matter of fact, you should imagine that the same controller could be reused for a totally different presentation, perhaps in a PDF file or an XML structure.&quot;&gt;事实上，你可以想象同样的控制器可以有完全不同的表现，例如PDF文件或者XML结构。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;h4&gt;
+      &lt;span en=&quot;Isolating the Data Manipulation&quot;&gt;分离数据处理&lt;/span&gt;
+    &lt;/h4&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Most of the controller script code is dedicated to data manipulation.&quot;&gt;大部分控制器（controller）脚本代码专注于数据处理。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But what if you need the list of posts for another controller, say one that would output an RSS feed of the weblog posts?&quot;&gt;但是假如你需要另一个显示文章列表的控制器，例如输出blog文章的RSS种子的控制器呢？&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;What if you want to keep all the database queries in one place, to avoid code duplication?&quot;&gt;如果你想把所有的数据库查询放在一个地方，避免代码重复呢？&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;What if you decide to change the data model so that the &lt;code&gt;post&lt;/code&gt; table gets renamed &lt;code&gt;weblog_post&lt;/code&gt;?&amp;#8221;&gt;如果你决定改变数据模型因为 &lt;code&gt;post&lt;/code&gt; 表名改成了 &lt;code&gt;weblog_post&lt;/code&gt; 呢？&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;What if you want to switch to PostgreSQL instead of MySQL?&quot;&gt;如果你想把数据库从MySQL换成PostgreSQL呢？&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;In order to make all that possible, you need to remove the data-manipulation code from the controller and put it in another script, called the model, as shown in Listing 2-4.&quot;&gt;为了让上面这些假设成为现实，你需要把数据处理代码从控制器里面去掉并把它们放在另外的脚本里面，我们称之为模型，如例2-4所示。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-4 - The Model Part, in &lt;code&gt;model.php&lt;/code&gt;&amp;#8220;&gt;例 2-4 &amp;#8211; &lt;code&gt;model.php&lt;/code&gt; 模型部分&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt;
+</code></pre>
+<p> 
+<!-- raw HTML omitted -->function<!-- raw HTML omitted --> getAllPosts<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->// 连接、选择数据库<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$link<!-- raw HTML omitted --> = <!-- raw HTML omitted -->mysql_connect<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;localhost&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;myuser&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;mypassword&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->mysql_select_db<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;blog_db&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// 执行SQL查询<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$result<!-- raw HTML omitted --> = <!-- raw HTML omitted -->mysql_query<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;SELECT date, title FROM post&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// 填充数组<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$posts<!-- raw HTML omitted --> = <!-- raw HTML omitted -->array<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->while<!-- raw HTML omitted --> <!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$row<!-- raw HTML omitted --> = <!-- raw HTML omitted -->mysql_fetch_array<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$result<!-- raw HTML omitted -->, MYSQL_ASSOC<!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$posts<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted --> = <!-- raw HTML omitted -->$row<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->// 关闭数据库<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->mysql_close<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->$posts<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+      &lt;span en=&quot;The revised controller is presented in Listing 2-5.&quot;&gt;修改过的控制器如例 2-5 所示。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-5 - The Controller Part, Revised, in &lt;code&gt;index.php&lt;/code&gt;&amp;#8220;&gt;例 2-5 &amp;#8211; &lt;code&gt;index.php&lt;/code&gt; 修改过的控制器&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt;
+</code></pre>
+<p> 
+<!-- raw HTML omitted -->// 调用模型<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->require_once<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;model.php&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// 检索出一列帖子<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$posts<!-- raw HTML omitted --> = getAllPosts<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// 调用视图<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->require<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;view.php&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+      &lt;span en=&quot;The controller becomes easier to read.&quot;&gt;这样控制器的可读性变强了。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Its sole task is to get the data from the model and pass it to the view.&quot;&gt;它唯一的任务是从模型中取得数据然后传给视图。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;In more complex applications, the controller also deals with the request, the user session, the authentication, and so on.&quot;&gt;在更复杂的程序里，控制器还要处理请求、用户session、身份验证等。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The use of explicit names for the functions of the model even makes code comments unnecessary in the controller.&quot;&gt;控制器中使用了直观地函数名使得我们不用注释就能读懂。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;The model script is dedicated to data access and can be organized accordingly.&quot;&gt;模型脚本将专注于数据访问的内容组织在一起。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;All parameters that don't depend on the data layer (like request parameters) must be given by the controller and not accessed directly by the model.&quot;&gt;所有与数据层无关的参数（例如请求参数）必须由控制器提供而不能直接被模型访问到。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The model functions can be easily reused in another controller.&quot;&gt;模型函数可以方便的在另一个控制器里面重用。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;h3&gt;
+      &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_sub_layer_separation_beyond_mvc&quot;&gt;&lt;span en=&quot;Layer Separation Beyond MVC&quot;&gt;2.1.2 MVC以外的分离方式&lt;/span&gt;&lt;/a&gt;
+    &lt;/h3&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;So the principle of the MVC architecture is to separate the code into three layers, according to its nature. Data logic code is placed within the model, presentation code within the view, and application logic within the controller.&quot;&gt;MVC架构的原理是把代码根据类型分成三层。数据逻辑代码放在模型里，表现代码放在视图里，应用逻辑代码放在控制器里。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Other additional design patterns can make the coding experience even easier.&quot;&gt;还有其它的设计模式甚至可以使编写代码变得更加容易。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The model, view, and controller layers can be further subdivided.&quot;&gt;模型，视图，控制器层还可以进一步细分。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;h4&gt;
+      &lt;span en=&quot;Database Abstraction&quot;&gt;数据库抽象&lt;/span&gt;
+    &lt;/h4&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;The model layer can be split into a data access layer and a database abstraction layer.&quot;&gt;模型层可以分成数据访问层与数据库抽象层。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;That way, data access functions will not use database-dependent query statements, but call some other functions that will do the queries themselves.&quot;&gt;这样，数据访问函数不使用与数据库有关的查询语句，由其它的函数执行。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If you change your database system later, only the database abstraction layer will need updating.&quot;&gt;如果换数据库系统，只需要修改数据库抽象层。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;A sample database abstraction layer is presented in Listing 2-6, followed by an example of a MySQL-specific data access layer in Listing 2-7.&quot;&gt;例2-6是MySQL的数据库抽象层的例子，随后的例2-7是一个简单的数据访问层。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-6 - The Database Abstraction Part of the Model&quot;&gt;例 2-6 &amp;#8211; 模型的数据库抽象层部分&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt;
+</code></pre>
+<p> 
+<!-- raw HTML omitted -->function<!-- raw HTML omitted --> open_connection<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$host<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$user<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$password<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->mysql_connect<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$host<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$user<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$password<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->function<!-- raw HTML omitted --> close_connection<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->mysql_close<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->function<!-- raw HTML omitted --> query_database<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$query<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$database<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->mysql_select_db<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$database<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->mysql_query<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$query<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->function<!-- raw HTML omitted --> fetch_results<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$result<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->mysql_fetch_array<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$result<!-- raw HTML omitted -->, MYSQL_ASSOC<!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-7 - The Data Access Part of the Model&quot;&gt;例 2-7 &amp;#8211; 模型的数据访问层&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;function&lt;/span&gt; getAllPosts&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->// 连接数据库<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$link<!-- raw HTML omitted --> = open_connection<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;localhost&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;myuser&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;mypassword&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// 执行SQL查询<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$result<!-- raw HTML omitted --> = query_database<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;SELECT date, title FROM post&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;blog_db&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// 填充数组<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$posts<!-- raw HTML omitted --> = <!-- raw HTML omitted -->array<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->while<!-- raw HTML omitted --> <!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$row<!-- raw HTML omitted --> = fetch_results<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$result<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$posts<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted --> = <!-- raw HTML omitted -->$row<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->// 关闭连接<!-- raw HTML omitted -->
+close_connection<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$link<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->$posts<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+      &lt;span en=&quot;You can check that no database-engine dependent functions can be found in the data access layer, making it database-independent.&quot;&gt;可以看到数据访问层的部分没有数据库引擎有关的函数，从而不依赖于特定的数据库。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Additionally, the functions created in the database abstraction layer can be reused for many other model functions that need access to the database.&quot;&gt;另外，建立数据库抽象层的函数可以在很多其它的模型函数中重用。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;blockquote class=&quot;note&quot;&gt;
+      &lt;p&gt;
+        &lt;span en=&quot;The examples in Listings 2-6 and 2-7 are still not very satisfactory, and there is some work left to do to have a full database abstraction (abstracting the SQL code through a database-independent query builder, moving all functions into a class, and so on).&quot;&gt;例2-6与例2-7的例子并不十分让人满意，要完成一个完整的数据库抽象层还有很多事情要做（通过数据库无关的查询生成器抽象SQL代码，把所有的函数放到一个类，等等）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But the purpose of this book is not to show you how to write all that code by hand, and you will see in Chapter 8 that symfony natively does all the abstraction very well.&quot;&gt;但是这本书的目的不是手把手教你怎么写一个数据库抽象层，在第8章里你会看到symfony本身是如何把这些抽象做好的。&lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/blockquote&gt;
+    
+    &lt;h4&gt;
+      &lt;span en=&quot;View Elements&quot;&gt;视图元素&lt;/span&gt;
+    &lt;/h4&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;The view layer can also benefit from some code separation.&quot;&gt;视图层也可以通过分离代码来优化。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;A web page often contains consistent elements throughout an application:&quot;&gt;应用程序中的网页往往会包含一些固定的元素：&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;the page headers, the graphical layout, the footer, and the global navigation.&quot;&gt;页头，图形版面设计，页脚以及全局导航。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Only the inner part of the page changes.&quot;&gt;只有网页的中间部分变化。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;That's why the view is separated into a layout and a template.&quot;&gt;所以我们把视图分成布局（layout）与模板。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The layout is usually global to the application, or to a group of pages.&quot;&gt;布局（layout）一般是整个程序通用的，或者一组页面公用。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The template only puts in shape the variables made available by the controller.&quot;&gt;模板只负责把控制器的变量显示出来。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Some logic is needed to make these components work together, and this view logic layer will keep the name view.&quot;&gt;我们需要一些逻辑使这些零件（components）和在一起能够起作用，这就是视图逻辑。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;According to these principles, the view part of Listing 2-3 can be separated into three parts, as shown in Listings 2-8, 2-9, and 2-10.&quot;&gt;根据这些原则，例2-3的视图部分可以分成3部分，如例2-8,2-9,2-10所示。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-8 - The Template Part of the View, in &lt;code&gt;mytemplate.php&lt;/code&gt;&amp;#8220;&gt;例 2-8 &amp;#8211; mytemplate.php 视图的模板部分&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&amp;lt;h1&amp;gt;List of Posts&amp;lt;/h1&amp;gt;
+</code></pre>
+<p>&lt;table&gt;
+&lt;tr&gt;&lt;th&gt;Date&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;/tr&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->foreach<!-- raw HTML omitted --> <!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$posts<!-- raw HTML omitted --> <!-- raw HTML omitted -->as<!-- raw HTML omitted --> <!-- raw HTML omitted -->$post<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->: <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+&lt;tr&gt;
+&lt;td&gt;&lt;?php <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$post<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;date&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted --> ?&gt;&lt;/td&gt;
+&lt;td&gt;&lt;?php <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$post<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;title&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted --> ?&gt;&lt;/td&gt;
+&lt;/tr&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->endforeach<!-- raw HTML omitted -->; <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+&lt;/table&gt;<!-- raw HTML omitted --></p>
+<pre><code>    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-9 - The View Logic Part of the View&quot;&gt;例 2-9 &amp;#8211; 视图的视图逻辑部分&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt;
+</code></pre>
+<p> 
+<!-- raw HTML omitted -->$title<!-- raw HTML omitted --> = <!-- raw HTML omitted -->&lsquo;List of Posts&rsquo;<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->$posts<!-- raw HTML omitted --> = getAllPosts<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<pre><code>    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-10 - The Layout Part of the View&quot;&gt;例 2-10 &amp;#8211; 视图的布局部分&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&amp;lt;html&amp;gt;
+</code></pre>
+<p>&lt;head&gt;
+&lt;title&gt;&lt;?php <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$title<!-- raw HTML omitted --> ?&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->include<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;mytemplate.php&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->; <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+&lt;/body&gt;
+&lt;/html&gt;<!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+    &lt;/p&gt;
+    
+    &lt;h4&gt;
+      &lt;span en=&quot;Action and Front Controller&quot;&gt;动作与前段控制器&lt;/span&gt;
+    &lt;/h4&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;The controller doesn't do much in the previous example, but in real web applications, the controller has a lot of work.&quot;&gt;在上一个例子里，控制器（controller）并没有作太多事情，但是在真正的web应用程序里面，控制器要做很多事情。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;An important part of this work is common to all the controllers of the application.&quot;&gt;这些事情中的一些重要部分对于所有的控制器都要做。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The common tasks include request handling, security handling, loading the application configuration, and similar chores.&quot;&gt;这些事情包括处理请求、安全处理、载入应用程序配置信息，以及一些杂事。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is why the controller is often divided into a front controller, which is unique for the whole application, and actions, which contain only the controller code specific to one page.&quot;&gt;所以控制器经常被分成整个应用程序唯一的前端控制器和只负责某个特定页面的动作。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;One of the great advantages of a front controller is that it offers a unique entry point to the whole application.&quot;&gt;前端控制器的一个很大的好处就是整个应用程序唯一的入口。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If you ever decide to close the access to the application, you will just need to edit the front controller script.&quot;&gt;如果你决定关闭应用程序，你只要修改前端控制器脚本。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;In an application without a front controller, each individual controller would need to be turned off.&quot;&gt;如果一个应用程序没有前端控制器，那就要单独的关掉每一个控制器。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;h4&gt;
+      &lt;span en=&quot;Object Orientation&quot;&gt;面向对象&lt;/span&gt;
+    &lt;/h4&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;All the previous examples use procedural programming.&quot;&gt;所有前面的例子都是面向过程的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The OOP capabilities of modern languages make the programming even easier, since objects can encapsulate logic, inherit from one another, and provide clean naming conventions.&quot;&gt;现代编程语言的面向对象特性能简化编程，因为对象可以封装逻辑，继承，以及提供干净的命名规则。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Implementing an MVC architecture in a language that is not object-oriented raises namespace and code-duplication issues, and the overall code is difficult to read.&quot;&gt;在非面向对象的语言里面实现MVC架构会引起命名空间及代码重复的问题，代码会比较难以阅读。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Object orientation allows developers to deal with such things as the view object, the controller object, and the model classes, and to transform all the functions in the previous examples into methods.&quot;&gt;开发者通过面向对象的方式可以通过视图对象，控制器对象，模型对象把之前例子里面的函数转换成方法。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It is a must for MVC architectures.&quot;&gt;这是MVC架构必须的。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;blockquote class=&quot;tip&quot;&gt;
+      &lt;p&gt;
+        &lt;span en=&quot;If you want to learn more about design patterns for web applications in an object-oriented context, read Patterns of Enterprise Application Architecture by Martin Fowler (Addison-Wesley, ISBN: 0-32112-742-0).&quot;&gt;如果你想更详细的了解面向对象环境中的web应用程序设计模式，请阅读《Patterns of Enterprise Application Architecture》（作者:Martin Fowler, 出版 Addison-Wesley, ISBN: 0-32112-742-0）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Code examples in Fowler's book are in Java or C#, but are still quite readable for a PHP developer.&quot;&gt;这本书里面的代码用Java或者C#写的，PHP开发者也可以读一读。&lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/blockquote&gt;
+    
+    &lt;h3&gt;
+      &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_sub_symfony_s_mvc_implementation&quot;&gt;&lt;span en=&quot;Symfony's MVC Implementation&quot;&gt;2.1.3 Symfony的MVC实现方式&lt;/span&gt;&lt;/a&gt;
+    &lt;/h3&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Hold on a minute.&quot;&gt;暂停一下。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For a single page listing the posts in a weblog, how many components are required?&quot;&gt;先来看看一个显示blog文章列表的页面，有多少部分组成？&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;As illustrated in Figure 2-2, we have the following parts:&quot;&gt;如图2-2所示，由下面的部分组成：&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;Model layer &quot;&gt;模型层&lt;/span&gt; &lt;ul&gt;
+          &lt;li&gt;
+            &lt;span en=&quot;Database abstraction&quot;&gt;数据库抽象&lt;/span&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;span en=&quot;Data access&quot;&gt;数据访问&lt;/span&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      
+      &lt;li&gt;
+        &lt;span en=&quot;View layer &quot;&gt;视图层&lt;/span&gt; &lt;ul&gt;
+          &lt;li&gt;
+            &lt;span en=&quot;View&quot;&gt;视图&lt;/span&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;span en=&quot;Template&quot;&gt;模板&lt;/span&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;span en=&quot;Layout&quot;&gt;布局&lt;/span&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      
+      &lt;li&gt;
+        &lt;span en=&quot;Controller layer&quot;&gt;控制器层&lt;/span&gt; &lt;ul&gt;
+          &lt;li&gt;
+            &lt;span en=&quot;Front controller&quot;&gt;前端控制器&lt;/span&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;span en=&quot;Action&quot;&gt;动作&lt;/span&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Seven scripts--a whole lot of files to open and to modify each time you create a new page!&quot;&gt;7个脚本&amp;#8211;每次修改一个页面需要打开这么多文件！&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;However, symfony makes things easy.&quot;&gt;可是，symfony做了些简化。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;While taking the best of the MVC architecture, symfony implements it in a way that makes application development fast and painless.&quot;&gt;虽然使用最好的MVC架构，但是symfony的方式使得开发程序更加快速容易。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;First of all, the front controller and the layout are common to all actions in an application.&quot;&gt;首先，前端控制器是应用程序里所有动作共用的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You can have multiple controllers and layouts, but you need only one of each.&quot;&gt;可以有多个控制器与多个布局，但是只需要一个前端控制器。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The front controller is pure MVC logic component, and you will never need to write a single one, because symfony will generate it for you.&quot;&gt;前端控制器是纯MVC逻辑组件，你不必自己写一个，因为symfony会为你生成一个。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;The other good news is that the classes of the model layer are also generated automatically, based on your data structure.&quot;&gt;另外一个好消息是模型层的类也是根据数据结构自动生成的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is the job of the ORM library, which provides class skeletons and code generation.&quot;&gt;这是由Propel库完成的，它有类的构架与代码生成功能。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If the ORM finds foreign key constraints or date fields, it will provide special accessor and mutator methods that will make data manipulation a piece of cake.&quot;&gt;如果Propel找到外键或者日期字段，它会生成特殊的存取方法，这使得数据处理非常容易。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;And the database abstraction is totally invisible to you, because it is handled natively by PHP Data Objects.&quot;&gt;另外，数据库抽象也是完全看不见的，它是由PDO来处理的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;So if you decide to change your database engine at anytime, you have zero code to refactor. &quot;&gt;所以如果你决定更换数据库引擎，你不必重写代码。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You just need to change one configuration parameter.&quot;&gt;你只要修改配置参数就可以了。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;And the last thing is that the view logic can be easily translated as a simple configuration file, with no programming needed.&quot;&gt;最后一件事情，视图逻辑可以很容易的转换成一个配置文件，不需要编写程序。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Figure 2-2 - Symfony workflow&quot;&gt;图 2-2 &amp;#8211; symfony工作流程&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;img alt=&quot;Symfony workflow&quot; src=&quot;res/F0202.png&quot; /&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;That means that the list of posts described in our example would require only three files to work in symfony, as shown in Listings 2-11, 2-12, and 2-13.&quot;&gt;这就是说在symfony里面显示文章的例子需要3个文件，如例2-11，2-12，2-13所示。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-11 - list Action, in &lt;code&gt;myproject/apps/myapp/modules/weblog/actions/actions.class.php&lt;/code&gt;&amp;#8220;&gt;例 2-11 &amp;#8211; list 动作，&lt;code&gt;myproject/apps/myapp/modules/weblog/actions/actions.class.php&lt;/code&gt;&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt;
+</code></pre>
+<p> 
+<!-- raw HTML omitted -->class<!-- raw HTML omitted --> weblogActions <!-- raw HTML omitted -->extends<!-- raw HTML omitted --> sfActions
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->public<!-- raw HTML omitted --> <!-- raw HTML omitted -->function<!-- raw HTML omitted --> executeList<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->posts<!-- raw HTML omitted --> = PostPeer::<!-- raw HTML omitted -->doSelect<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->new<!-- raw HTML omitted --> Criteria<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-12 - list Template, in &lt;code&gt;myproject/apps/myapp/modules/weblog/templates/listSuccess.php&lt;/code&gt;&amp;#8220;&gt;例 2-12 &amp;#8211; list 模板，&lt;code&gt;myproject/apps/myapp/modules/weblog/templates/listSuccess.php&lt;/code&gt;&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;&amp;lt;?php&lt;/span&gt; slot&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'title'&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;'List of Posts'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kw2&quot;&gt;?&amp;gt;&lt;/span&gt;
+</code></pre>
+<p> 
+&lt;h1&gt;List of Posts&lt;/h1&gt;
+&lt;table&gt;
+&lt;tr&gt;&lt;th&gt;Date&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;/tr&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->foreach<!-- raw HTML omitted --> <!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$posts<!-- raw HTML omitted --> <!-- raw HTML omitted -->as<!-- raw HTML omitted --> <!-- raw HTML omitted -->$post<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->: <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+&lt;tr&gt;
+&lt;td&gt;&lt;?php <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$post<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getDate<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> ?&gt;&lt;/td&gt;
+&lt;td&gt;&lt;?php <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$post<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getTitle<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> ?&gt;&lt;/td&gt;
+&lt;/tr&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->endforeach<!-- raw HTML omitted -->; <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+&lt;/table&gt;<!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+      &lt;span en=&quot;In addition, you will still need to define a layout, as shown in Listing 2-13, but it will be reused many times.&quot;&gt;另外，你需要定义一个布局，如例2-14，但是它可以多次重用。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Listing 2-13 - Layout, in &lt;code&gt;myproject/apps/myapp/templates/layout.php&lt;/code&gt;&amp;#8220;&gt;例 2-13 &amp;#8211; list 视图，&lt;code&gt;myproject/apps/myapp/modules/weblog/config/view.yml&lt;/code&gt;&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre class=&quot;php&quot;&gt;&amp;lt;html&amp;gt;
+</code></pre>
+<p>&lt;head&gt;
+&lt;title&gt;&lt;?php include_slot<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;title&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --> ?&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+<!-- raw HTML omitted -->&lt;?php<!-- raw HTML omitted --> <!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$sf_content<!-- raw HTML omitted --> <!-- raw HTML omitted -->?&gt;<!-- raw HTML omitted -->
+&lt;/body&gt;
+&lt;/html&gt;<!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+      &lt;span en=&quot;And that is really all you need.&quot;&gt;这些就是全部的了。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is the exact code required to display the very same page as the flat script shown earlier in Listing 2-1.&quot;&gt;你只需要这些代码来显示与例2-1完全一样的页面。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The rest (making all the components work together) is handled by symfony.&quot;&gt;余下的事情（使所有的组成部分共同工作）由symfony来处理。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If you count the lines, you will see that creating the list of posts in an MVC architecture with symfony doesn't require more time or coding than writing a flat file.&quot;&gt;如果你计算行数，会发现用MVC架构的symfony来实现显示文章列表花的时间和编写的代码不比写一个普通脚本要多。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Nevertheless, it gives you huge advantages, notably clear code organization, reusability, flexibility, and much more fun.&quot;&gt;不过，这样做的巨大好处是，代码组织得十分清楚，可重用，灵活性还有更多的乐趣。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;And as a bonus, you have XHTML conformance, debug capabilities, easy configuration, database abstraction, smart URL routing, multiple environments, and many more development tools.&quot;&gt;作为奖励，你会得到XHTML兼容性，调试能力，简单的配置，数据库抽象，智能URL定向，多种环境，还有很多开发工具。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;h3&gt;
+      &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_sub_symfony_core_classes&quot;&gt;&lt;span en=&quot;Symfony Core Classes&quot;&gt;2.1.4 Symfony核心类&lt;/span&gt;&lt;/a&gt;
+    &lt;/h3&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;The MVC implementation in symfony uses several classes that you will meet quite often in this book:&quot;&gt;在本书里你会经常碰到symfony的MVC核心的几个类：&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;&lt;code&gt;sfController&lt;/code&gt; is the controller class. It decodes the request and hands it to the action.&amp;#8221;&gt;&lt;code&gt;sfController&lt;/code&gt; 控制器类。它解析请求并交给动作处理。&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;&lt;code&gt;sfRequest&lt;/code&gt; stores all the request elements (parameters, cookies, headers, and so on).&amp;#8221;&gt;&lt;code&gt;sfRequest&lt;/code&gt; 保存所有的请求元素（参数，cookie，请求的头 等）。&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;&lt;code&gt;sfResponse&lt;/code&gt; contains the response headers and contents.&amp;#8221;&gt;&lt;code&gt;sfResponse&lt;/code&gt; 包含回应的头和内容。它的内容最终会转化为HTML传给用户。&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;The context (retrieved by &lt;code&gt;sfContext::getInstance()&lt;/code&gt;) stores a reference to all the core objects and the current configuration; it is accessible from everywhere.&amp;#8221;&gt;context singleton （由 &lt;code&gt;sfContext::getInstance()&lt;/code&gt; 取得）保存所有核心对象还有当前的配置的引用，它可以从任何地方访问到。&lt;/span&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;You will learn more about these objects in Chapter 6.&quot;&gt;在第6章你会了解到更多这些对象的信息。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;As you can see, all the symfony classes use the sf prefix, as do the symfony core variables in the templates.&quot;&gt;如你所见，所有的symfon类都有一个sf前缀，很多symfony模板中的核心变量也是这样。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This should avoid name collisions with your own classes and variables, and make the core framework classes sociable and easy to recognize.&quot;&gt;这样可以避免与你的类名与变量名重复，并使框架核心类更像是一家人，更好辨认。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;blockquote class=&quot;note&quot;&gt;
+      &lt;p&gt;
+        &lt;span en=&quot;Among the coding standards used in symfony, UpperCamelCase is the standard for class and variable naming.&quot;&gt;在symfony的编码规范中，开头字母大写的驼峰字（UpperCamelCase）是变量名与类名的标准。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Two exceptions exist: core symfony classes start with sf, which is lowercase, and variables found in templates use the underscore-separated syntax.&quot;&gt;只有两个例外：核心symfony类以小写的sf开头，模板里面的变量使用小写下划线的方式。&lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/blockquote&gt;
+    
+    &lt;h2&gt;
+      &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_code_organization&quot;&gt;&lt;span en=&quot;2.2 Code Organization&quot;&gt;2.2 代码组织&lt;/span&gt;&lt;/a&gt;
+    &lt;/h2&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Now that you know the different components of a symfony application, you're probably wondering how they are organized.&quot;&gt;现在你了解了symfony应用程序的各个组成部分，你可能会想知道它们是怎么组织的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Symfony organizes code in a project structure and puts the project files into a standard tree structure.&quot;&gt;symfon按照项目组织代码，项目文件放在标准的树结构里。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;h3&gt;
+      &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_sub_project_structure_applications_modules_and_actions&quot;&gt;&lt;span en=&quot;2.2.1 Project Structure: Applications, Modules, and Actions&quot;&gt;2.2.1 项目结构：应用、模块与动作&lt;/span&gt;&lt;/a&gt;
+    &lt;/h3&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;In symfony, a project is a set of services and operations available under a given domain name, sharing the same object model.&quot;&gt;一个symfony项目由一个域名下的服务与操作组成，它们共享同样的对象模型。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Inside a project, the operations are grouped logically into applications.&quot;&gt;在一个项目里，操作按照逻辑划分成不同的应用程序。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;An application can normally run independently of the other applications of the same project.&quot;&gt;同一个项目里面的不同应用程序相互独立。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;In most cases, a project will contain two applications:&quot;&gt;大多数情况，一个项目会包含两个应用程序：&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;one for the front-office and one for the back-office, sharing the same database.&quot;&gt;一个是前台，一个后台，它们共享同一个数据库。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But you can also have one project containing many mini-sites, with each site as a different application.&quot;&gt;不过一个项目也可以包含很多小网站，每一个站点是一个不同的应用程序。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Note that hyperlinks between applications must be in the absolute form.&quot;&gt;注意应用程序间的链接必须用绝对形式。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Each application is a set of one or more modules.&quot;&gt;每个应用程序由一个或更多模块组成。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;A module usually represents a page or a group of pages with a similar purpose.&quot;&gt;模块就是功能相近的一个页面或者一组页面。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For example, you might have the modules &lt;code&gt;home&lt;/code&gt;, &lt;code&gt;articles&lt;/code&gt;, &lt;code&gt;help&lt;/code&gt;, &lt;code&gt;shoppingCart&lt;/code&gt;, &lt;code&gt;account&lt;/code&gt;, and so on.&amp;#8221;&gt;例如，模块 &lt;code&gt;home&lt;/code&gt;、&lt;/code&gt;articles&lt;/code&gt;、&lt;/code&gt;help&lt;/code&gt;、&lt;/code&gt;shoppingCart&lt;/code&gt;、&lt;/code&gt;account&lt;/code&gt; 等。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Modules hold actions, which represent the various actions that can be done in a module.&quot;&gt;模块包含动作，也就是说一个模块可以包含多个动作。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For example, a shoppingCart module can have add, show, and update actions.&quot;&gt;例如，&lt;code&gt;shoppingCart&lt;/code&gt; 模块也许会有 &lt;code&gt;add&lt;/code&gt;、&lt;code&gt;show&lt;/code&gt; 与 &lt;code&gt;update&lt;/code&gt; 等动作。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Generally, actions can be described by a verb.&quot;&gt;一般来说，动作的名字是动词。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Dealing with actions is almost like dealing with pages in a classic web application, although two actions can result in the same page (for instance, adding a comment to a post in a weblog will redisplay the post with the new comment).&quot;&gt;动作就好像一般的web应用程序的页面一样，尽管两个动作可能显示同样的页面（例如，在给文章留言后还会把文章显示出来）。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;blockquote class=&quot;tip&quot;&gt;
+      &lt;p&gt;
+        &lt;span en=&quot;If this represents too many levels for a beginning project, it is very easy to group all actions into one single module, so that the file structure can be kept simple.&quot;&gt;如果你认为这么做对于一个刚开始的项目来说层次太多了，你可以很方便的把所有的动作集中到一个模块里，这样文件结构就简单了。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;When the application gets more complex, it will be time to organize actions into separate modules.&quot;&gt;当应用程序越来越复杂，你就需要把这些动作分开放到不同的模块。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;As mentioned in Chapter 1, rewriting code to improve its structure or readability (but preserving its behavior) is called refactoring, and you will do this a lot when applying RAD principles.&quot;&gt;本书第1章提到，通过重写代码来改善结构与可读性（同样保留功能）被称为重构，当你应用RAD原则的时候经常需要这么做。&lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/blockquote&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Figure 2-3 shows a sample code organization for a weblog project, in a project/application/module/action structure.&quot;&gt;图 2-3 是一个blog项目的代码组织结构图，按照项目/应用程序/模块/动作来划分。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But be aware that the actual file tree structure of the project will differ from the setup shown in the figure.&quot;&gt;但注意项目的实际文件结构可能会与图里面的不一样。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Figure 2-3 - Example of code organization&quot;&gt;图 2-3 &amp;#8211; 代码组织结构例子&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;img alt=&quot;Example of code organization&quot; src=&quot;res/F0203.png&quot; /&gt;
+    &lt;/p&gt;
+    
+    &lt;h3&gt;
+      &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_sub_file_tree_structure&quot;&gt;&lt;span en=&quot;2.2.2 File Tree Structure&quot;&gt;2.2.2 目录结构&lt;/span&gt;&lt;/a&gt;
+    &lt;/h3&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;All web projects generally share the same types of contents, such as the following:&quot;&gt;所有的web项目都有这些内容：&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;A database, such as MySQL or PostgreSQL&quot;&gt;一个数据库，例如MySQL或者PostgreSQL&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;Static files (HTML, images, JavaScript files, style sheets, and so on)&quot;&gt;静态文件（HTML, 图片， JavaScript文件，样式表等）&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;Files uploaded by the site users and administrators&quot;&gt;网站管理员与用户上传的文件&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;PHP classes and libraries&quot;&gt;PHP类与函数库&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;Foreign libraries (third-party scripts)&quot;&gt;外部库（第三方脚本）&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;Batch files (scripts to be launched by a command line or via a cron table)&quot;&gt;批处理文件（用于命令行或者cron的脚本）&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;Log files (traces written by the application and/or the server)&quot;&gt;日志文件（应用程序或者服务器的留下的脚印）&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;span en=&quot;Configuration files&quot;&gt;配置文件&lt;/span&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Symfony provides a standard file tree structure to organize all these contents in a logical way, consistent with the architecture choices (MVC pattern and project/application/module grouping).&quot;&gt;symfony用一种合理的目录结构组织所有这些内容，这种树形结与symfony的架构（MVC模式与应用程序/项目/模块分组）相符合。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is the tree structure that is automatically created when initializing every project, application, or module.&quot;&gt;这个目录结构是在项目，应用程序，模块初始化的时候自动生成的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Of course, you can customize it completely, to reorganize the files and directories at your convenience or to match your client's requirements.&quot;&gt;当然，为了满足客户的需求你可以完全自定义这个结构。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;h4&gt;
+      &lt;span en=&quot;Root Tree Structure&quot;&gt;根目录结构&lt;/span&gt;
+    &lt;/h4&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;These are the directories found at the root of a symfony project:&quot;&gt;下面是一个symfony项目根目录下的文件：&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre&gt;&lt;code&gt;apps/
+</code></pre>
+<p>frontend/
+backend/
+cache/
+config/
+data/
+sql/
+doc/
+lib/
+model/
+log/
+plugins/
+test/
+bootstrap/
+unit/
+functional/
+web/
+css/
+images/
+js/
+uploads/<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+      &lt;span en=&quot;Table 2-1 describes the contents of these directories.&quot;&gt;表 2-1 介绍了这些目录的内容。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Table 2-1 - Root Directories&quot;&gt;表 2-1 &amp;#8211; 根目录&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;table class=&quot;doc_table&quot; cellspacing=&quot;0&quot;&gt;
+      &lt;tr&gt;
+        &lt;th&gt;
+          &lt;span en=&quot;Directory&quot;&gt;目录&lt;/span&gt;
+        &lt;/th&gt;
+        
+        &lt;th&gt;
+          &lt;span en=&quot;Description&quot;&gt;描述&lt;/span&gt;
+        &lt;/th&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;apps/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Contains one directory for each application of the project (typically, &lt;code&gt;frontend&lt;/code&gt; and &lt;code&gt;backend&lt;/code&gt; for the front and back office).&amp;#8221;&gt;包含此项目内所有应用程序（一般情况，&lt;code&gt;frontend&lt;/code&gt; 与 &lt;code&gt;backend&lt;/code&gt; 分别代表前台与后台）。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;cache/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Contains the cached version of the configuration, and (if you activate it) the cache version of the actions and templates of the project.&quot;&gt;包含了配置文件的缓存，如果你开了动作和模板，还有这两个部分的缓存。&lt;/span&gt;&lt;span en=&quot;The cache mechanism (detailed in Chapter 12) uses these files to speed up the answer to web requests.&quot;&gt;缓存机制（详见第12章）把这些信息存在文件里面加快响应web请求的速度。&lt;/span&gt;&lt;span en=&quot;Each application will have a subdirectory here, containing preprocessed PHP and HTML files.&quot;&gt;每个应用程序都会有一个子目录，包含了预处理的PHP与HTML文件。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;config/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Holds the general configuration of the project.&quot;&gt;存放项目的配置信息。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;data/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Here, you can store the data files of the project, like a database schema, a SQL file that creates tables, or even a SQLite database file.&quot;&gt;这里可以存放项目的数据文件，例如数据库schema，包含了建立数据表的SQL文件，或者一个SQLite数据库文件。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;doc/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;A default place to store project documentation&quot;&gt;存放项目文档，包括你自己的文档和PHPdoc生成的文档。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;lib/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Dedicated to foreign classes or libraries.&quot;&gt;主要用来存放外部类或者库。&lt;/span&gt;&lt;span en=&quot;Here, you can add the code that needs to be shared among your applications.&quot;&gt;这里的内容整个项目都能访问到。&lt;/span&gt;&lt;span en=&quot;The &lt;code&gt;model/&lt;/code&gt; subdirectory stores the object model of the project (described in Chapter 8).&amp;#8221;&gt;&lt;code&gt;model/&lt;/code&gt; 子目录存放项目的对象模型（详见第8章）。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;log/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Stores the applicable log files generated directly by symfony.&quot;&gt;存放symfony生成的应用程序的日志文件。&lt;/span&gt;&lt;span en=&quot;It can also contain web server log files, database log files, or log files from any part of the project.&quot;&gt;也可以放web服务器的日志文件，数据库日志文件，或者项目的任何地方的日志文件。&lt;/span&gt;&lt;span en=&quot;Symfony creates one log file per application and per environment (log files are discussed in Chapter 16).&quot;&gt;symfony自动为项目的每一个应用程序的每一个环境生成一个日志文件（日志文件详见第16章）。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;plugins/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Stores the plug-ins installed in the application (plug-ins are discussed in Chapter 17).&quot;&gt;存放安装在项目里的插件（插件详见第17章）。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;test/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Contains unit and functional tests written in PHP and compatible with the symfony testing framework (discussed in Chapter 15).&quot;&gt;包含PHP写的与symfony测试框架兼容的单元与功能测试（详见第15章）。&lt;/span&gt;&lt;span en=&quot;During the project setup, symfony automatically adds some stubs with a few basic tests.&quot;&gt;项目初始化的时候，symfony会自动建立一些基本的测试。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;web/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;The root for the web server.&quot;&gt;web服务器的根目录。&lt;/span&gt;&lt;span en=&quot;The only files accessible from the Internet are the ones located in this directory.&quot;&gt;所有从因特网能够直接访问的文件都在这个目录里。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    
+    &lt;h4&gt;
+      &lt;span en=&quot;Application Tree Structure&quot;&gt;应用程序目录结构&lt;/span&gt;
+    &lt;/h4&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;The tree structure of all application directories is the same:&quot;&gt;所有应用程序的目录结构都是一样的：&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre&gt;&lt;code&gt;apps/
+</code></pre>
+<p>[应用程序名]/
+config/
+i18n/
+lib/
+modules/
+templates/
+layout.php<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+      &lt;span en=&quot;Table 2-2 describes the application subdirectories.&quot;&gt;表 2-2 介绍了应用程序的子目录。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Table 2-2 - Application Subdirectories&quot;&gt;表 2-2 &amp;#8211; 应用程序的子目录&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;table class=&quot;doc_table&quot; cellspacing=&quot;0&quot;&gt;
+      &lt;tr&gt;
+        &lt;th&gt;
+          &lt;span en=&quot;Directory&quot;&gt;目录&lt;/span&gt;
+        &lt;/th&gt;
+        
+        &lt;th&gt;
+          &lt;span en=&quot;Description&quot;&gt;描述&lt;/span&gt;
+        &lt;/th&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;config/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Holds a hefty set of YAML configuration files.&quot;&gt;包含一些YAML格式的配置文件。&lt;/span&gt;&lt;span en=&quot;This is where most of the application configuration is, apart from the default parameters that can be found in the framework itself.&quot;&gt;大部分应用程序的配置信息都在这里，symfony框架自己的默认配置除外。&lt;/span&gt;&lt;span en=&quot;Note that the default parameters can still be overridden here if needed.&quot;&gt;注意需要的话默认值可以修改。详见第5章。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;i18n/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Contains files used for the internationalization of the application--mostly interface translation files (Chapter 13 deals with internationalization).&quot;&gt;包含应用程序的国际化文件&amp;#8211;大部分的界面翻译文件（详见第13章）。&lt;/span&gt;&lt;span en=&quot;You can bypass this directory if you choose to use a database for internationalization.&quot;&gt;如果你用数据库存放翻译信息可以忽略这个目录。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;lib/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Contains classes and libraries that are specific to the application.&quot;&gt;包含应用程序用到的类与库。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;modules/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Stores all the modules that contain the features of the application.&quot;&gt;存放应用程序的所有功能模块。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;templates/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Lists the global templates of the application--the ones that are shared by all modules.&quot;&gt;包含应用程序的全局模板&amp;#8211;所有模块公用的模板。&lt;/span&gt;&lt;span en=&quot;By default, it contains a layout.php file, which is the main layout in which the module templates are inserted.&quot;&gt;默认情况，这个目录会有一个layout.php文件，这是模块默认的主布局模板。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    
+    &lt;blockquote class=&quot;note&quot;&gt;
+      &lt;p&gt;
+        &lt;span en=&quot;The &lt;code&gt;i18n/&lt;/code&gt;, &lt;code&gt;lib/&lt;/code&gt;, and &lt;code&gt;modules/&lt;/code&gt; directories are empty for a new application.&amp;#8221;&gt;新应用程序的 &lt;code&gt;i18n/&lt;/code&gt;、&lt;code&gt;lib/&lt;/code&gt; 与 &lt;code&gt;modules/&lt;/code&gt; 目录是空的。&lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/blockquote&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;The classes of an application are not able to access methods or attributes in other applications of the same project.&quot;&gt;一个应用程序的类的方法或属性不能被同一个项目的其他应用程序访问到。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Also note that hyperlinks between two applications of the same project must be in absolute form.&quot;&gt;另外，同一项目的两个应用程序之间的超链接必须用绝对形式。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You need to keep this last constraint in mind during initialization, when you choose how to divide your project into applications.&quot;&gt;开始把项目分成不同的应用程序的时候，这个限制就存在了。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;h4&gt;
+      &lt;span en=&quot;Module Tree Structure&quot;&gt;模块目录结构&lt;/span&gt;
+    &lt;/h4&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;Each application contains one or more modules.&quot;&gt;每个应用程序包括一个或更多的模块。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Each module has its own subdirectory in the &lt;code&gt;modules&lt;/code&gt; directory, and the name of this directory is chosen during the setup.&amp;#8221;&gt;在 &lt;code&gt;modules&lt;/code&gt; 目录中每个模块都有它自己的子目录，这个目录的名字是模块初始化的时候确定的。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;This is the typical tree structure of a module:&quot;&gt;下面是一个典型的模块目录结构：&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre&gt;&lt;code&gt;apps/
+</code></pre>
+<p>[应用程序名]/
+modules/
+[模块名]/
+actions/
+actions.class.php
+config/
+lib/
+templates/
+indexSuccess.php<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+      &lt;span en=&quot;Table 2-3 describes the module subdirectories.&quot;&gt;表 2-3 介绍了模块子目录结构。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Table 2-3 - Module Subdirectories&quot;&gt;表 2-3 &amp;#8211; 模块子目录&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;table class=&quot;doc_table&quot; cellspacing=&quot;0&quot;&gt;
+      &lt;tr&gt;
+        &lt;th&gt;
+          &lt;span en=&quot;Directory&quot;&gt;目录&lt;/span&gt;
+        &lt;/th&gt;
+        
+        &lt;th&gt;
+          &lt;span en=&quot;Description&quot;&gt;描述&lt;/span&gt;
+        &lt;/th&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;actions&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Generally contains a single class file named &lt;code&gt;actions.class.php&lt;/code&gt;, in which you can store all the actions of the module.&amp;#8221;&gt;一般只有一个文件actions.class.php，这个文件里面包含了模块的所有动作。&lt;/span&gt;&lt;span en=&quot;You can also write different actions of a module in separate files.&quot;&gt;模块的不同动作也可以分开写在不同的文件里。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;config/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Can contain custom configuration files with local parameters for the module.&quot;&gt;可以存放模块的配置信息。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;lib/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Stores classes and libraries specific to the module.&quot;&gt;存放模块的类与库。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;templates/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Contains the templates corresponding to the actions of the module.&quot;&gt;存放模块里所有动作的模板。&lt;/span&gt;&lt;span en=&quot;A default template, called &lt;code&gt;indexSuccess.php&lt;/code&gt;, is created during module setup.&amp;#8221;&gt;模块初始化的时候，会建立一个默认模板 &lt;code&gt;indexSuccess.php&lt;/code&gt;。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+    
+    &lt;blockquote class=&quot;note&quot;&gt;
+      &lt;p&gt;
+        &lt;span en=&quot;The &lt;code&gt;config/&lt;/code&gt;, and &lt;code&gt;lib/&lt;/code&gt; directories are not created automatically for a new module so you will need to create them manually if required&amp;#8221;&gt;&lt;code&gt;config/&lt;/code&gt;，和&lt;code&gt;lib/&lt;/code&gt; 目录，对于一个新模块是不会自动创建的，因此，如果你需要的话，你需要手动创建他们&lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/blockquote&gt;
+    
+    &lt;h4&gt;
+      &lt;span en=&quot;Web Tree Structure&quot;&gt;web目录结构&lt;/span&gt;
+    &lt;/h4&gt;
+    
+    &lt;p&gt;
+      &lt;span en=&quot;There are very few constraints for the &lt;code&gt;web&lt;/code&gt; directory, which is the directory of publicly accessible files.&amp;#8221;&gt;&lt;code&gt;web&lt;/code&gt; 目录的限制很少，这里存放的是互联网可以访问得到的文件。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Following a few basic naming conventions will provide default behaviors and useful shortcuts in the templates.&quot;&gt;模板的默认行为还有helper里包含了几个基本的命名规则。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Here is an example of a &lt;code&gt;web&lt;/code&gt; directory structure:&amp;#8221;&gt;下面是一个 &lt;code&gt;web&lt;/code&gt; 目录的结构的例子：&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;pre&gt;&lt;code&gt;web/
+</code></pre>
+<p>css/
+images/
+js/
+uploads/<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>    &lt;p&gt;
+      &lt;span en=&quot;Conventionally, the static files are distributed in the directories listed in Table 2-4.&quot;&gt;表 2-4 介绍了web目录的内容。&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;figure&quot;&gt;
+      &lt;span en=&quot;Table 2-4 - Typical Web Subdirectories&quot;&gt;表 2-4 &amp;#8211; 典型的web目录的子目录&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;table class=&quot;doc_table&quot; cellspacing=&quot;0&quot;&gt;
+      &lt;tr&gt;
+        &lt;th&gt;
+          &lt;span en=&quot;Directory&quot;&gt;目录&lt;/span&gt;
+        &lt;/th&gt;
+        
+        &lt;th&gt;
+          &lt;span en=&quot;Description&quot;&gt;描述&lt;/span&gt;
+        &lt;/th&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;css/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Contains style sheets with a &lt;code&gt;.css&lt;/code&gt; extension.&amp;#8221;&gt;存放 &lt;code&gt;.css&lt;/code&gt; 结尾的样式表文件。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;images/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Contains images with a &lt;code&gt;.jpg&lt;/code&gt;, &lt;code&gt;.png&lt;/code&gt;, or &lt;code&gt;.gif&lt;/code&gt; extension.&amp;#8221;&gt;存放 &lt;code&gt;.jpg&lt;/code&gt;、&lt;code&gt;.png&lt;/code&gt; 与 &lt;code&gt;.gif&lt;/code&gt; 扩展名的图片文件。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;js/&lt;/code&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;span en=&quot;Contains JavaScript files with a &lt;code&gt;.js&lt;/code&gt; extension.&amp;#8221;&gt;存放 &lt;code&gt;.js&lt;/code&gt; s扩展名的JavaScript文件。&lt;/span&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+      
+      &lt;tr&gt;
+        &lt;td&gt;
+          &lt;code&gt;uploads/&lt;/code&gt;&lt;/p&gt; 
+          
+          &lt;td&gt;
+            &lt;span en=&quot;Can contain the files uploaded by the users.&quot;&gt;只能存放用户上传的文件。&lt;/span&gt;&lt;span en=&quot;Even though the directory usually contains images, it is distinct from the images directory so that the synchronization of the development and production servers does not affect the uploaded images.&quot;&gt;虽然这个目录通常会存放图片我们还是把这个目录与图片目录分开，这样同步开发服务器与正式服务器的时候不会影响上传的文件。&lt;/span&gt;
+          &lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; 
+          
+          &lt;blockquote class=&quot;note&quot;&gt;
+            &lt;p&gt;
+              &lt;span en=&quot;Even though it is highly recommended that you maintain the default tree structure, it is possible to modify it for specific needs, such as to allow a project to run on a server with different tree structure rules and coding conventions.&quot;&gt;虽然强烈建议维持默认的目录结构，但是你还是可以进行修改，例如一个项目要运行在不同的目录结构与命名规则的服务器上。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Refer to Chapter 19 for more information about modifying the file tree structure.&quot;&gt;修改目录结构详见第19章。&lt;/span&gt;
+            &lt;/p&gt;
+          &lt;/blockquote&gt;
+          
+          &lt;h2&gt;
+            &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_common_instruments&quot;&gt;&lt;span en=&quot;2.3 Common Instruments&quot;&gt;2.3 常用工具&lt;/span&gt;&lt;/a&gt;
+          &lt;/h2&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;A few techniques are used repeatedly in symfony, and you will meet them quite often in this book and in your own projects.&quot;&gt;有些技巧在symfony里面很常用，在项目中你会经常碰到他们。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;These include parameter holders, constants, and class autoloading.&quot;&gt;这包括参数存储器，常量，还有类自动加载。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;h3&gt;
+            &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_sub_parameter_holders&quot;&gt;&lt;span en=&quot;2.3.1 Parameter Holders&quot;&gt;2.3.1 参数储存器&lt;/span&gt;&lt;/a&gt;
+          &lt;/h3&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;Many of the symfony classes contain a parameter holder.&quot;&gt;很多symfony类都包含一个参数存储器。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It is a convenient way to encapsulate attributes with clean getter and setter methods.&quot;&gt;参数存储器用简便的方式封装了获取方法与设置方法。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, the sfRequest class holds a parameter holder that you can retrieve by calling the getParameterHolder() method.&quot;&gt;例如，sfResponse类包含了一个可以通过执行getParameterHolder()方法获得参数存储器。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Each parameter holder stores data the same way, as illustrated in Listing 2-14.&quot;&gt;每一个参数存储器都用同样的方式存取数据，如例2-14所示。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 2-14 - Using the &lt;code&gt;sfRequest&lt;/code&gt; Parameter Holder&amp;#8221;&gt;例 2-14 &amp;#8211; 使用 &lt;code&gt;sfResponse&lt;/code&gt; 参数存储器&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$request&lt;/span&gt;-&amp;gt;&lt;span class=&quot;me1&quot;&gt;getParameterHolder&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;-&amp;gt;&lt;span class=&quot;me1&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'foo'&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;'bar'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;
+</code></pre>
+<p><!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$request<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getParameterHolder<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->get<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foo&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; <!-- raw HTML omitted -->&lsquo;bar&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;Most of the classes using a parameter holder provide proxy methods to shorten the code needed for get/set operations.&quot;&gt;大部分类通过使用参数存储器的proxy方法来减少get/set操作的代码量。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is the case for the sfRequest object, so you can do the same as in Listing 2-14 with the code of Listing 2-15.&quot;&gt;下面是 &lt;code&gt;sfResponse&lt;/code&gt; 对象的例子，例2-15可以达到例2-14同样效果。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 2-15 - Using the &lt;code&gt;sfRequest&lt;/code&gt; Parameter Holder Proxy Methods&amp;#8221;&gt;例2-15 &amp;#8211; 使用 &lt;code&gt;sfRequest&lt;/code&gt; 参数存储器的proxy方法&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$request&lt;/span&gt;-&amp;gt;&lt;span class=&quot;me1&quot;&gt;setParameter&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'foo'&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;'bar'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;
+</code></pre>
+<p><!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$request<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getParameter<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foo&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; <!-- raw HTML omitted -->&lsquo;bar&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;The parameter holder getter accepts a default value as a second argument.&quot;&gt;参数存储器的getter方法可以有第二个参数作为默认值。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This provides a useful fallback mechanism that is much more concise than possible with a conditional statement. See Listing 2-16 for an example.&quot;&gt;这样在取值失败的时候比较简洁。见例2-16。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 2-16 - Using the Attribute Holder Getter's Default Value&quot;&gt;例 2-16 &amp;#8211; 使用参数存储器的get方法的默认值&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// 'foobar' 参数没有定义, 所以getter返回空值&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$request<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getParameter<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foobar&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; <!-- raw HTML omitted -->null<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->// 利用条件判断给一个默认值<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->if<!-- raw HTML omitted --> <!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$request<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->hasParameter<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foobar&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$request<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getParameter<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foobar&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->else<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->&lsquo;default&rsquo;<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+=&gt; <!-- raw HTML omitted -->default<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->// 但是使用第二个默认值参数要快的多<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$request<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getParameter<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foobar&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;default&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; <!-- raw HTML omitted -->default<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;Some symfony core classes also use a parameter holder that supports namespaces (thanks to the sfNamespacedParameterHolder class).&quot;&gt;参数存储器还支持命名空间（得益于 &lt;code&gt;sfNamespacedParameterHolder&lt;/code&gt; 类）。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If you specify a third argument to a setter or a getter, it is used as a namespace, and the parameter will be defined only within that namespace. Listing 2-17 shows an example.&quot;&gt;如果你给设置方法或者获取方法指定第三个参数，这个参数代表命名空间，那么这个参数就只会在这个命名空间里定义或者取值。见例2-17&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 2-17 - Using the &lt;code&gt;sfUser&lt;/code&gt; Parameter Holder Namespace&amp;#8221;&gt;例 2-17 &amp;#8211; &lt;code&gt;sfUser &lt;/code&gt; 参数存储器的命名空间&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$user&lt;/span&gt;-&amp;gt;&lt;span class=&quot;me1&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'foo'&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;'bar1'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;
+</code></pre>
+<p><!-- raw HTML omitted -->$user<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->setAttribute<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foo&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;bar2&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;my/name/space&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$user<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getAttribute<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foo&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; <!-- raw HTML omitted -->&lsquo;bar1&rsquo;<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> <!-- raw HTML omitted -->$user<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getAttribute<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foo&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->null<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;my/name/space&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+=&gt; <!-- raw HTML omitted -->&lsquo;bar2&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;Of course, you can add a parameter holder to your own classes to take advantage of their syntax facilities.&quot;&gt;当然，你还可以给你自己的类增加参数存储器来获得这些好处。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Listing 2-18 shows how to define a class with a parameter holder.&quot;&gt;例2-18告诉我们如何定义一个有参数存储器的类。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 2-18 - Adding a Parameter Holder to a Class&quot;&gt;例 2-18 &amp;#8211; 给类增加参数存储器&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;class&lt;/span&gt; MyClass
+</code></pre>
+<p><!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+protected <!-- raw HTML omitted -->$parameterHolder<!-- raw HTML omitted --> = <!-- raw HTML omitted -->null<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->public<!-- raw HTML omitted --> <!-- raw HTML omitted -->function<!-- raw HTML omitted --> initialize<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$parameters<!-- raw HTML omitted --> = <!-- raw HTML omitted -->array<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->parameterHolder<!-- raw HTML omitted --> = <!-- raw HTML omitted -->new<!-- raw HTML omitted --> sfParameterHolder<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->parameterHolder<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->add<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->$parameters<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->public<!-- raw HTML omitted --> <!-- raw HTML omitted -->function<!-- raw HTML omitted --> getParameterHolder<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->parameterHolder<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>          &lt;h3&gt;
+            &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_sub_constants&quot;&gt;&lt;span en=&quot;Constants&quot;&gt;2.3.2 常量&lt;/span&gt;&lt;/a&gt;
+          &lt;/h3&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;You will not find any constants in symfony because by their very nature you can't change their value once they are defined.&quot;&gt;symfony里的常量少得出奇，这是因为PHP的一大缺点：常量定义后就不能改变了。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Symfony uses its own configuration object, called sfConfig, which replaces constants. &quot;&gt;所以symfony使用自己的配置对象，称作sfConfig，用来取代常量。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It provides static methods to access parameters from everywhere.&quot;&gt;它提供了在任何地方存取参数的静态方法。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Listing 2-19 demonstrates the use of sfConfig class methods.&quot;&gt;例2-20演示了sfConfig类的方法。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;figure&quot;&gt;
+            &lt;span en=&quot;Listing 2-19 - Using the &lt;code&gt;sfConfig&lt;/code&gt; Class Methods Instead of Constants&amp;#8221;&gt;例 2-19 &amp;#8211; 使用 sfConfig 类方法取代常量&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// PHP常量&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->define<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;FOO&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;bar&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> FOO;
+ 
+<!-- raw HTML omitted -->// symfony 使用sfConfig对象<!-- raw HTML omitted -->
+sfConfig::<!-- raw HTML omitted -->set<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foo&rsquo;<!-- raw HTML omitted -->, <!-- raw HTML omitted -->&lsquo;bar&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->echo<!-- raw HTML omitted --> sfConfig::<!-- raw HTML omitted -->get<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;foo&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;The &lt;code&gt;sfConfig&lt;/code&gt; methods support default values, and you can call the &lt;code&gt;sfConfig::set()&lt;/code&gt; method more than once on the same parameter to change its value.&amp;#8221;&gt;&lt;code&gt;sfConfig&lt;/code&gt; 方法支持默认值，并且 &lt;code&gt;sfConfig::set()&lt;/code&gt; 方法可以多次调用来设置同一个参数的值。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Chapter 5 discusses sfConfig methods in more detail.&quot;&gt;第5章详细讨论了sfConfig方法。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;h3&gt;
+            &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_sub_class_autoloading&quot;&gt;&lt;span en=&quot;Class Autoloading&quot;&gt;2.3.3 类自动载入&lt;/span&gt;&lt;/a&gt;
+          &lt;/h3&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;Usually, when you use a class method or create an object in PHP, you need to include the class definition first:&quot;&gt;一般来说，当你在PHP中要用一个类来创建一个对象的时候，你需要首先包含这个类的定义。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw1&quot;&gt;include_once&lt;/span&gt; &lt;span class=&quot;st0&quot;&gt;'classes/MyClass.php'&lt;/span&gt;;
+</code></pre>
+<p><!-- raw HTML omitted -->$myObject<!-- raw HTML omitted --> = <!-- raw HTML omitted -->new<!-- raw HTML omitted --> MyClass<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<pre><code>          &lt;p&gt;
+            &lt;span en=&quot;On large projects with many classes and a deep directory structure, keeping track of all the class files to include and their paths can be time consuming.&quot;&gt;在大型项目上有许多类还有很深的目录，找到并调用所有的类文件还有他们的路径很浪费时间。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;By providing an &lt;code&gt;spl_autoload_register()&lt;/code&gt; function, symfony makes &lt;code&gt;include_once&lt;/code&gt; statements unnecessary, and you can write directly:&amp;#8221;&gt;由于有 &lt;code&gt;spl_autoload_register()&lt;/code&gt; 函数，symfony使得 &lt;code&gt;include_once&lt;/code&gt; 语句成为为不必要的，你可以直接写：&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;pre&gt;&lt;code&gt;$myObject = new MyClass();&lt;/code&gt;&lt;/pre&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;Symfony will then look for a &lt;code&gt;MyClass&lt;/code&gt; definition in all files ending with &lt;code&gt;class.php&lt;/code&gt; in one of the project&amp;#8217;s &lt;code&gt;lib/&lt;/code&gt; directories.&amp;#8221;&gt;symfony会在项目的 &lt;code&gt;lib/&lt;/code&gt; 目录里的所有用 &lt;code&gt;class.php&lt;/code&gt; 结尾的PHP文件里寻找 &lt;code&gt;MyClass&lt;/code&gt; 的定义。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If the class definition is found, it will be included automatically.&quot;&gt;如果找到，就自动包含它。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;So if you store all your classes in &lt;code&gt;lib/&lt;/code&gt; directories, you don&amp;#8217;t need to include classes anymore.&amp;#8221;&gt;所以你可以把所有的类放在 &lt;code&gt;lib/&lt;/code&gt; 目录，你再也不必包含他们。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;That's why symfony projects usually do not contain any &lt;code&gt;include_once&lt;/code&gt; or &lt;code&gt;require_once&lt;/code&gt; statements.&amp;#8221;&gt;所以symfony项目通常没有 &lt;code&gt;include&lt;/code&gt; 或者 &lt;code&gt;require&lt;/code&gt; 语句。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;blockquote class=&quot;note&quot;&gt;
+            &lt;p&gt;
+              &lt;span en=&quot;For better performance, the symfony autoloader scans a list of directories (defined in an internal configuration file) during the first request.&quot;&gt;为了提高效率，第一次symfony自动在一个目录列表（在配置文件里面定义）里寻找。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;It then registers all the classes these directories contain and stores the class/file correspondence in a PHP file as an associative array.&quot;&gt;然后symfony把这些目录里的所有类和文件的关联存放在一个PHP数组里。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;That way, future requests don't need to do the directory scan anymore.&quot;&gt;这样，以后的自动载入就不需要扫描整个目录了。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is why you need to clear the cache every time you add or move a class file in your project by calling the &lt;code&gt;symfony cache:clear command&lt;/code&gt; (except in the development environment, where symfony clears the cache when it cannot find a class).&amp;#8221;&gt;所以你每次在项目里面增加一个类都需要通过symfony clear-cache命令清空symfony缓存。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You will learn more about the cache in Chapter 12, and about the autoloading configuration in Chapter 19.&quot;&gt;缓存详见第12章，自动载入配置文件详见第19章。&lt;/span&gt;
+            &lt;/p&gt;
+          &lt;/blockquote&gt;
+          
+          &lt;h2&gt;
+            &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=24&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_02_summary&quot;&gt;&lt;span en=&quot;Summary&quot;&gt;2.4 总结&lt;/span&gt;&lt;/a&gt;
+          &lt;/h2&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;Using an MVC framework forces you to divide and organize your code according to the framework's conventions.&quot;&gt;使用MVC框架迫使你按照框架的规定把代码分开。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Presentation code goes to the view, data manipulation code goes to the model, and the request manipulation logic goes to the controller.&quot;&gt;显示的代码归到视图里，数据处理的代码归到模型，请求处理逻辑归到控制器。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This makes applying the MVC pattern both very helpful and at the same time quite restrictive.&quot;&gt;这对MVC模式的应用程序很有用，也是一个约束。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;Symfony is an MVC framework written in PHP.&quot;&gt;symfony是一个PHP5写的MVC框架。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Its structure is designed to get the best out of the MVC pattern, whilst maintaining great ease of use.&quot;&gt;它的结构充分发挥了MVC模式的好处，但也非常容易使用。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Thanks to its versatility and configurability, symfony is suitable for all web application projects.&quot;&gt;这要感谢他的全面性与可配置性。&lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;span en=&quot;Now that you understand the underlying theory behind symfony, you are almost ready to develop your first application.&quot;&gt;现在你已经了解了symfony背后的原理，差不多该是开发你的第一个应用程序的时候了。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But before that, you need a symfony installation up and running on your development server.&quot;&gt;但是在这之前，你需要在你的开发服务器上安装一套symfony并运行起来。&lt;/span&gt;
+          &lt;/p&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-3-%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" data-toggle="tooltip" data-placement="top" title="3 第十六章：应用管理工具">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%E6%80%A7%E8%83%BD/" data-toggle="tooltip" data-placement="top" title="第十八章：性能">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">26000 Words|Read in about 52 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

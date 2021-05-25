@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>swift on IT技术分享</title>
+    <link>https://www.51hint.com/tags/swift/</link>
+    <description>Recent content in swift on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Feb 2017 20:47:23 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>swift3 noescape</title>
+      <link>https://www.51hint.com/posts/swift3-noescape/</link>
+      <pubDate>Tue, 21 Feb 2017 20:47:23 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swift3-noescape/</guid>
+      <description>noescape は Swift 1.2 で導入された、関数オブジェクトのディレクティブです。@noescape を関数オブジェクトの直前につけると、関数オブジェクトが同期的に</description>
+    </item>
+    
+    <item>
+      <title>swift3</title>
+      <link>https://www.51hint.com/posts/swift3/</link>
+      <pubDate>Tue, 21 Feb 2017 19:41:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swift3/</guid>
+      <description>removing currying カリー化関数宣言構文を削除 func foo(x: Int)(y: Int) の有効性は限定的で、実装が複雑になるから削除する必要があります。 // Before: func curried(x: Int)(y: String) -&amp;gt; Float { return Float(x) + Float(y)! } // After: func curried(x: Int)</description>
+    </item>
+    
+    <item>
+      <title>Swiftのプロパティーと初期化とConvenience initializer</title>
+      <link>https://www.51hint.com/posts/swiftnopuropateitochu-qi-hua-toconvenience-initializer/</link>
+      <pubDate>Tue, 21 Feb 2017 17:16:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swiftnopuropateitochu-qi-hua-toconvenience-initializer/</guid>
+      <description>init周りのConvenienceとかDesignatedとかのエラーが出たけどなんのことか分からなかったので調査。 基本的なinit 一番簡</description>
+    </item>
+    
+    <item>
+      <title>使用泛型来优化 TableView Cells 的使用体验</title>
+      <link>https://www.51hint.com/posts/shi-yong-fan-xing-lai-you-hua-tableview-cells-de-shi-yong-ti-yan/</link>
+      <pubDate>Wed, 15 Feb 2017 17:02:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/shi-yong-fan-xing-lai-you-hua-tableview-cells-de-shi-yong-ti-yan/</guid>
+      <description>Swift 泛型强大，可以方便地使用泛型来处理 UITableViewCells 和 UICollectionViewCells。 介绍 我不喜欢使用字符串做标识符，我认为使用常量要比字符串</description>
+    </item>
+    
+    <item>
+      <title>swift的mutating关键字</title>
+      <link>https://www.51hint.com/posts/swiftde-mutatingguan-jian-zi/</link>
+      <pubDate>Wed, 15 Feb 2017 16:52:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swiftde-mutatingguan-jian-zi/</guid>
+      <description>swift的mutating关键字 在Swift中，包含三种类型(type): structure,enumeration,class 其中structure和enumeration是值类型(val</description>
+    </item>
+    
+    <item>
+      <title>SwiftLint</title>
+      <link>https://www.51hint.com/posts/swiftlint/</link>
+      <pubDate>Tue, 14 Feb 2017 20:35:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swiftlint/</guid>
+      <description>SwiftLint A tool to enforce Swift style and conventions, loosely based on GitHub&amp;rsquo;s Swift Style Guide. SwiftLint hooks into Clang and SourceKit to use the AST representation of your source files for more accurate results.
+Installation  Homebrew: brew install swiftlint CocoaPods: pod &#39;SwiftLint&#39;  Usage Xcode
+ Integrate SwiftLint into an Xcode scheme to get warnings and errors displayed in the IDE. Just add a new &amp;ldquo;Run Script Phase&amp;rdquo; with:  if which swiftlint &amp;gt;/dev/null; then swiftlint else echo &amp;ldquo;warning: SwiftLint not installed, download from https://github.</description>
+    </item>
+    
+    <item>
+      <title>Swift ObjectMapperでJSONをマッピング</title>
+      <link>https://www.51hint.com/posts/swift-objectmapperdejsonwomatupingu/</link>
+      <pubDate>Tue, 14 Feb 2017 20:23:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swift-objectmapperdejsonwomatupingu/</guid>
+      <description>Swift ObjectMapperでJSON データのマッピング ObjectMapper を使うとそんなこんながとても簡単に実現できました。こいつはなかなか便利な奴です。 https://github.com/Hearst-DD/ObjectMapper Alamofire</description>
+    </item>
+    
+    <item>
+      <title>PureLayout使用方法</title>
+      <link>https://www.51hint.com/posts/purelayoutshi-yong-fang-fa/</link>
+      <pubDate>Mon, 13 Feb 2017 18:17:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/purelayoutshi-yong-fang-fa/</guid>
+      <description>PureLayout简介 PureLayout是一个简单但强大的Objective-C库，使用桥接头文件也能很好地适用于Swift语言。Pur</description>
+    </item>
+    
+    <item>
+      <title>swiftgen</title>
+      <link>https://www.51hint.com/posts/swiftgen/</link>
+      <pubDate>Mon, 13 Feb 2017 18:03:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swiftgen/</guid>
+      <description>swiftgen The Swift code generator for your assets, storyboards, Localizable.strings
+install  via cocopods If you&amp;rsquo;re using CocoaPods, you can simply add pod &amp;lsquo;SwiftGen&amp;rsquo; to your Podfile. Homebrew brew update brew install swiftgen   usage  swiftgen images [OPTIONS] DIR swiftgen strings [OPTIONS] FILE swiftgen storyboards [OPTIONS] DIR swiftgen colors [OPTIONS] FILE swiftgen fonts [OPTIONS] DIR  ref:https://github.com/SwiftGen/SwiftGen</description>
+    </item>
+    
+    <item>
+      <title>swiftenv</title>
+      <link>https://www.51hint.com/posts/swiftenv/</link>
+      <pubDate>Mon, 13 Feb 2017 17:51:04 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/swiftenv/</guid>
+      <description>Homebrew Install swiftenv 1.Install swiftenv
+brew install kylef/formulae/swiftenv 2.config profile
+echo &amp;#39;if which swiftenv &amp;gt; /dev/null; then eval &amp;#34;$(swiftenv init -)&amp;#34;; fi&amp;#39; &amp;gt;&amp;gt; ~/.zshrc Uninstalling swiftenv 1.remove swiftenv from .zshrc
+2.remove .swiftenv
+swiftenv uninstall 2.2 rm -fr ~/.swiftenv 3.Uninstall any swiftenv packages
+Install swift Version swiftenv install 2.2 or swiftenv install DEVELOPMENT-SNAPSHOT-2016-05-09-a swiftenv rehash which swift swiftenv which swift swiftenv which lldb project mkdir swift cd swift swiftenv local DEVELOPMENT-SNAPSHOT-2016-05-09-a swift build --init ref:https://realm.</description>
+    </item>
+    
+    <item>
+      <title>swift2.2新特性</title>
+      <link>https://www.51hint.com/posts/2016-06-08-swift2-2%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Wed, 08 Jun 2016 02:42:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-06-08-swift2-2%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+      <description>&amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; 修改后的 AnySequence.init：&amp;lt;br /&amp;gt; &amp;lt;figure class=&amp;quot;highlight stylus&amp;quot;&amp;gt; &amp;lt;table&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td class=&amp;quot;code&amp;quot;&amp;gt; &amp;lt;pre&amp;gt;&amp;lt;span class=&amp;quot;line&amp;quot;&amp;gt; public struct AnySequence&amp;amp;lt;Element&amp;amp;gt; : SequenceType { &amp;lt;/span&amp;gt; public init&amp;lt;S: SequenceTypewhereS.Generator.Element== Element,S.SubSequence: SequenceType,S.SubSequence.Generator.Element== Element,S.SubSequence.SubSequence== S.SubSequence&amp;gt;(_ base: S) { &amp;hellip; }}</description>
+    </item>
+    
+    <item>
+      <title>swift异常</title>
+      <link>https://www.51hint.com/posts/2016-06-08-swift%E5%BC%82%E5%B8%B8/</link>
+      <pubDate>Wed, 08 Jun 2016 02:40:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-06-08-swift%E5%BC%82%E5%B8%B8/</guid>
+      <description>异常处理机制是很多现代编程语言必备的特性，而且基本上都使用了do/try/catch语法。如果没有使用异常捕捉语句，编译器（预编译器/静态分</description>
+    </item>
+    
+    <item>
+      <title>swift</title>
+      <link>https://www.51hint.com/posts/2015-06-22-swift/</link>
+      <pubDate>Mon, 22 Jun 2015 06:48:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-06-22-swift/</guid>
+      <description>KakuEiha / crm — Bitbucket https://bitbucket.org/KakuEiha/crm The Swift Programming Language: The Basics https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309 Swift_cn http://numbbbbb.gitbooks.io/-the-swift-programming-language-/content/index.html Xcode Plugins – NSHipster http://nshipster.com/xcode-plugins/ LLDB调试器 http://southpeak.github.io/blog/2015/01/25/gong-ju-pian-:lldbdiao-shi-qi/ Picker Viewによる選択 – swiftによるiOSアプリ開発入門 http://swiftdev.blog.fc2.com/blog-entry-13.html expr import UIKit http://www.starfelix.com/blog/2014/03/17/lldbdiao-shi-ming-ling-chu-tan/ frame variable self.bookings NSKeyedUnarchiver.unarchiveObjectWithData(aaclass as NSData) http://dev.classmethod.jp/smartphone/iphone/swift-oss/</description>
+    </item>
+    
+  </channel>
+</rss>

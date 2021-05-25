@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on IT技术分享</title>
+    <link>https://www.51hint.com/categories/linux/</link>
+    <description>Recent content in linux on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Jul 2016 02:47:56 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>inet_aton和inet_network和inet_addr</title>
+      <link>https://www.51hint.com/posts/2016-07-08-inet_aton%E5%92%8Cinet_network%E5%92%8Cinet_addr/</link>
+      <pubDate>Fri, 08 Jul 2016 02:47:56 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-07-08-inet_aton%E5%92%8Cinet_network%E5%92%8Cinet_addr/</guid>
+      <description>210.25.132.181属于IP地址的ASCII表示法，也就是字符串形式。英语叫做IPv4 numbers-and-dots notation。 如果把210.25.132</description>
+    </item>
+    
+    <item>
+      <title>wireshark过滤</title>
+      <link>https://www.51hint.com/posts/2016-03-08-wireshark%E8%BF%87%E6%BB%A4/</link>
+      <pubDate>Tue, 08 Mar 2016 01:34:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-03-08-wireshark%E8%BF%87%E6%BB%A4/</guid>
+      <description>wireshark过滤无用信息，ack,pdu等 !(frame.len == 1468 or frame.len ==523) and tcp.len&amp;gt;0 and !tcp.reassembled_in and !ssl</description>
+    </item>
+    
+    <item>
+      <title>mail命令发送邮件</title>
+      <link>https://www.51hint.com/posts/2015-11-09-mail%E5%91%BD%E4%BB%A4%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Mon, 09 Nov 2015 02:15:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-09-mail%E5%91%BD%E4%BB%A4%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim环境下载</title>
+      <link>https://www.51hint.com/posts/2015-11-04-vim%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Wed, 04 Nov 2015 06:17:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-04-vim%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/</guid>
+      <description>vim 下载配置 $ ln -s ~/.vimrc xxx/vim/vimrc iterm2 Solarized Light.itermcolors</description>
+    </item>
+    
+    <item>
+      <title>macvim配制学习</title>
+      <link>https://www.51hint.com/posts/2015-09-08-macvim%E9%85%8D%E5%88%B6%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 08 Sep 2015 07:01:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-09-08-macvim%E9%85%8D%E5%88%B6%E5%AD%A6%E4%B9%A0/</guid>
+      <description>在线学习教程 https://danielmiessler.com/study/vim/ vim cheatsheet www.worldtimzone.com/res/vi.html Vim Cheat Sheet www.fprintf.net/vimCheatSheet.html 安装： $ brew install macvim vim的精髓就是强大的插件支持，当然最繁琐的也是配置的插件，幸运的是github上已经有了很完善的</description>
+    </item>
+    
+    <item>
+      <title>ios开发环境</title>
+      <link>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Thu, 20 Aug 2015 00:14:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker machine使用</title>
+      <link>https://www.51hint.com/posts/2015-08-19-docker-machine%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 19 Aug 2015 00:10:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-19-docker-machine%E4%BD%BF%E7%94%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux下sendmail发送邮件</title>
+      <link>https://www.51hint.com/posts/2015-08-14-linux%E4%B8%8Bsendmail%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Fri, 14 Aug 2015 01:43:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-14-linux%E4%B8%8Bsendmail%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <description>-s后面是主题 然后是邮箱 最后是你要发送的文本内容</description>
+    </item>
+    
+    <item>
+      <title>docker使用教程总结</title>
+      <link>https://www.51hint.com/posts/2015-06-07-docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 07 Jun 2015 13:45:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-06-07-docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%E6%80%BB%E7%BB%93/</guid>
+      <description>容器自动启动</description>
+    </item>
+    
+    <item>
+      <title>aws ec2  generate public key from pem</title>
+      <link>https://www.51hint.com/posts/2015-06-01-aws-ec2-generate-public-key-from-pem/</link>
+      <pubDate>Mon, 01 Jun 2015 13:55:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-06-01-aws-ec2-generate-public-key-from-pem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>误删chrome书签，恢复方法</title>
+      <link>https://www.51hint.com/posts/2015-02-28-%E8%AF%AF%E5%88%A0chrome%E4%B9%A6%E7%AD%BE%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 28 Feb 2015 02:05:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-28-%E8%AF%AF%E5%88%A0chrome%E4%B9%A6%E7%AD%BE%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/</guid>
+      <description>&amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; %LOCALAPPDATA%\Google\Chrome\User Data\User Data\Default\ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; Windows XP/2003: &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; %USERPROFILE%\Local Settings\Application Data\Google\Chrome\User Data\Default\ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; 举个例子：C:\Documents and Settings\用户名\Local Settings\Application Data\Google\Chrome\User Data\Default &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; Mac: &amp;lt;/p&amp;gt; &amp;lt;p</description>
+    </item>
+    
+    <item>
+      <title>centos7__安装必做几件事情</title>
+      <link>https://www.51hint.com/posts/2015-02-22-centos7__%E5%AE%89%E8%A3%85%E5%BF%85%E5%81%9A%E5%87%A0%E4%BB%B6%E4%BA%8B%E6%83%85/</link>
+      <pubDate>Sun, 22 Feb 2015 03:00:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-22-centos7__%E5%AE%89%E8%A3%85%E5%BF%85%E5%81%9A%E5%87%A0%E4%BB%B6%E4%BA%8B%E6%83%85/</guid>
+      <description>http://www.hkpug.net/2014/09/18/%E5%AE%89%E8%A3%9D-centos-7-%E5%BE%8C%E5%BF%85%E5%81%9A%E7%9A%84%E4%B8%83%E4%BB%B6%E4%BA%8B/ https://www.linode.com/docs/websites/lamp/lamp-server-on-centos-7 https://linode.com/docs/websites/hosting-a-website/</description>
+    </item>
+    
+    <item>
+      <title>ubuntu nginx虚拟主机</title>
+      <link>https://www.51hint.com/posts/2015-02-20-ubuntu-nginx%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/</link>
+      <pubDate>Fri, 20 Feb 2015 14:14:30 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-20-ubuntu-nginx%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/</guid>
+      <description>&amp;lt;td width=&amp;quot;200&amp;quot;&amp;gt; Linux Mint 17 &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; Nginx Version &amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; Nginx 1.6.2 &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; IP -1 &amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; 10.0.2.15 &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr bgcolor=&amp;quot;#FFFFFF&amp;quot;&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; IP -2 &amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; 10.0.2.15 &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr bgcolor=&amp;quot;#FFFFFF&amp;quot;&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; Domain Name -1 &amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; support.2daygeek.com &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr bgcolor=&amp;quot;#FFFFFF&amp;quot;&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; Domain Name -2 &amp;lt;/td&amp;gt; &amp;lt;td width=&amp;quot;100&amp;quot;&amp;gt; dev.2daygeek.com &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;td width=&amp;quot;200&amp;quot;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>ubuntu安装nginx</title>
+      <link>https://www.51hint.com/posts/2015-02-19-ubuntu%E5%AE%89%E8%A3%85nginx/</link>
+      <pubDate>Thu, 19 Feb 2015 13:15:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-19-ubuntu%E5%AE%89%E8%A3%85nginx/</guid>
+      <description>一、安装nginx #sudo apt-get update #sudo apt-get install nginx 二、安装php #sudo apt-get install php5-fpm php5-mysql #sudo vim /etc/php5/fpm/php.ini 修改【 cgi.fix_pathinfo=0 】 #sudo service php5-fpm restart 三、php和nginx联动 #sudo vim /etc/nginx/sites-available/default 修改【 server { listen 80 default_server; listen [::]:80 default_server ipv6only=on; root /usr/share/nginx/html;</description>
+    </item>
+    
+    <item>
+      <title>openssl 导出pfx</title>
+      <link>https://www.51hint.com/posts/2015-02-07-openssl-%E5%AF%BC%E5%87%BApfx/</link>
+      <pubDate>Sat, 07 Feb 2015 12:43:44 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-07-openssl-%E5%AF%BC%E5%87%BApfx/</guid>
+      <description>To extract the Private Key from the .pfx file: # openssl pkcs12 -in code_signing_certificate_.pfx -nocerts -nodes -out mykey.pem To extract the Software Publisher Certificate from the .pfx file: # openssl pkcs12 -in code_signing_certificate.pfx -nokeys -out mycert.pem Next you will need to download the Verisign Intermediate CA Certificates for Code Signing Certificate. At the time of this writing, these were available at the forllowing URL: https://knowledge.verisign.com/support/code-signing-support/index?page=content&amp;amp;id=AR1739 openssl smime -sign -in profile.mobileconfig</description>
+    </item>
+    
+    <item>
+      <title>搭建webdav</title>
+      <link>https://www.51hint.com/posts/2014-11-29-%E6%90%AD%E5%BB%BAwebdav/</link>
+      <pubDate>Sat, 29 Nov 2014 12:54:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-11-29-%E6%90%AD%E5%BB%BAwebdav/</guid>
+      <description>添加webdav 认证 创建文件/var/www/DavLock sudo chown www-data:www-data /var/www/DavLock sudo service apache2 restart 才能解决不能写入的问题。</description>
+    </item>
+    
+    <item>
+      <title>virtualbox  鼠标隐藏</title>
+      <link>https://www.51hint.com/posts/2014-09-28-virtualbox-%E9%BC%A0%E6%A0%87%E9%9A%90%E8%97%8F/</link>
+      <pubDate>Sun, 28 Sep 2014 13:12:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-09-28-virtualbox-%E9%BC%A0%E6%A0%87%E9%9A%90%E8%97%8F/</guid>
+      <description>在Virtualbox虚拟机下，突然发现鼠标使用不正常。出现2个鼠标，一个是Ubuntu主机下面的鼠标，一个是Window7下的鼠标，但是W</description>
+    </item>
+    
+    <item>
+      <title>You are running VMware Workstation through an incompatible hypervisor.  You cannot power on a virtual machine until this hypervisor is disabled.</title>
+      <link>https://www.51hint.com/posts/2014-09-27-you-are-running-vmware-workstation-through-an-incompatible-hypervisor-you-cannot-power-on-a-virtual-machine-until-this-hypervisor-is-disabled/</link>
+      <pubDate>Sat, 27 Sep 2014 13:31:24 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-09-27-you-are-running-vmware-workstation-through-an-incompatible-hypervisor-you-cannot-power-on-a-virtual-machine-until-this-hypervisor-is-disabled/</guid>
+      <description>You are running VMware Workstation through an incompatible hypervisor. You cannot power on a virtual machine until this hypervisor is disabled. 同样的问题，按照以下红字编辑vmx文件已解决！Using virtualization technology has helped me reduce I.T. costs within an office and development/production website environments. I primarily use VMware products such</description>
+    </item>
+    
+    <item>
+      <title>How to Install IonCube Loaders in Ubuntu System</title>
+      <link>https://www.51hint.com/posts/2014-08-25-how-to-install-ioncube-loaders-in-ubuntu-system/</link>
+      <pubDate>Mon, 25 Aug 2014 13:47:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-25-how-to-install-ioncube-loaders-in-ubuntu-system/</guid>
+      <description>Step 1: Download IonCube Loaders
+Download latest ioncube loaders on your system from ioncube from ioncube download page or use following command to download ioncube.
+For 32bit Systems:
+# wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86.tar.gz
+For 64bit Systems:
+# wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
+This article is written on 32bit system using PHP 5.4.26 on CentOS, For the next commands check what version of php and which operating system are you using.
+After downloading IonCube loaders archive file, extract it and place it to a permanent place.</description>
+    </item>
+    
+    <item>
+      <title>linux禁止root远程登录</title>
+      <link>https://www.51hint.com/posts/2014-08-09-linux%E7%A6%81%E6%AD%A2root%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/</link>
+      <pubDate>Sat, 09 Aug 2014 02:39:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-09-linux%E7%A6%81%E6%AD%A2root%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/</guid>
+      <description>ssh登陆权限 禁止root通过ssh远程登陆 #vim /etc/ssh/sshd_config PermitRootLogin 将yes改为no， 这样root就不能远程登陆了。 使用普通账户登陆进去以后，使用root时候</description>
+    </item>
+    
+    <item>
+      <title>安装linux服务器后，应该做的几件事</title>
+      <link>https://www.51hint.com/posts/2014-08-09-%E5%AE%89%E8%A3%85linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E5%87%A0%E4%BB%B6%E4%BA%8B/</link>
+      <pubDate>Sat, 09 Aug 2014 02:20:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-09-%E5%AE%89%E8%A3%85linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%BA%94%E8%AF%A5%E5%81%9A%E7%9A%84%E5%87%A0%E4%BB%B6%E4%BA%8B/</guid>
+      <description>安装linux一般作为lamp,vpn等 centos一键安装apache、mysql、php和phpmyadmin centos6 快速安装LAMP &amp;lt;p class=&amp;quot;title&amp;quot;&amp;gt; &amp;lt;p class=&amp;quot;title&amp;quot;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>linux的最佳防火墙</title>
+      <link>https://www.51hint.com/posts/2014-08-09-linux%E7%9A%84%E6%9C%80%E4%BD%B3%E9%98%B2%E7%81%AB%E5%A2%99/</link>
+      <pubDate>Sat, 09 Aug 2014 02:19:26 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-09-linux%E7%9A%84%E6%9C%80%E4%BD%B3%E9%98%B2%E7%81%AB%E5%A2%99/</guid>
+      <description>linux 安装csf防火墙 一、 下载安装CSF #wget http://configserver.com/free/csf.tgz #tar zxf csf.tgz #cd csf sh install.sh 检测iptalbes模块: #perl /etc/csf/csftest.pl 二、 配置CSF CSF配置文件地址：/etc/csf/cs</description>
+    </item>
+    
+    <item>
+      <title>修改ssh默认端口</title>
+      <link>https://www.51hint.com/posts/2014-08-09-%E4%BF%AE%E6%94%B9ssh%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3/</link>
+      <pubDate>Sat, 09 Aug 2014 02:18:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-09-%E4%BF%AE%E6%94%B9ssh%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3/</guid>
+      <description>修改ssh默认22端口 修改配置文件 #vim /etc/ssh/sshd_config 找到Port22这一段，修改为 Port22 Port 6616; 保存退出 重启ssh服务生效 #/etc/init.d/sshd restart ssh同时工作在22和6616端口上</description>
+    </item>
+    
+    <item>
+      <title>301重定向</title>
+      <link>https://www.51hint.com/posts/2014-08-04-301%E9%87%8D%E5%AE%9A%E5%90%91/</link>
+      <pubDate>Mon, 04 Aug 2014 14:13:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-04-301%E9%87%8D%E5%AE%9A%E5%90%91/</guid>
+      <description>网站从xxx.com 301重定向到www.xxx.com php代码301重定向 apache的.htaccess301重定向 rewriteEngine on rewriteCond %{http_host} ^nikeswimminggoggles.com[NC] rewriteRule ^(.*)$ http://www.nikeswimminggoggles.com/$1 [R=301,L]</description>
+    </item>
+    
+    <item>
+      <title>ubuntu ll命令</title>
+      <link>https://www.51hint.com/posts/2014-08-04-ubuntu-ll%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 04 Aug 2014 14:09:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-04-ubuntu-ll%E5%91%BD%E4%BB%A4/</guid>
+      <description>需要编辑home下用户目录下 sudo vi .bashrc 找到 # some more ls aliases #alias ll=’ls -la’ 去掉前面的#号。重新登陆即可</description>
+    </item>
+    
+    <item>
+      <title>ubuntu 配置 vnc ；win远程桌面访问</title>
+      <link>https://www.51hint.com/posts/2014-04-25-ubuntu-%E9%85%8D%E7%BD%AE-vnc-win%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%AE%BF%E9%97%AE/</link>
+      <pubDate>Thu, 24 Apr 2014 15:17:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-25-ubuntu-%E9%85%8D%E7%BD%AE-vnc-win%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%AE%BF%E9%97%AE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>telnet  脚本 发信</title>
+      <link>https://www.51hint.com/posts/2014-03-04-telnet-%E8%84%9A%E6%9C%AC-%E5%8F%91%E4%BF%A1/</link>
+      <pubDate>Tue, 04 Mar 2014 02:09:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-03-04-telnet-%E8%84%9A%E6%9C%AC-%E5%8F%91%E4%BF%A1/</guid>
+      <description>start.bat tellogin.vbs</description>
+    </item>
+    
+    <item>
+      <title>Wireshark抓包</title>
+      <link>https://www.51hint.com/posts/2014-01-16-wireshark%E6%8A%93%E5%8C%85/</link>
+      <pubDate>Thu, 16 Jan 2014 06:49:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-16-wireshark%E6%8A%93%E5%8C%85/</guid>
+      <description>Wireshark是一个非常好用的抓包工具，当我们遇到一些和网络相关的问题时， 可以通过这个工具进行分析，不过要说明的是，这只是一个工具，用法</description>
+    </item>
+    
+    <item>
+      <title>Burp Suite抓包</title>
+      <link>https://www.51hint.com/posts/2014-01-14-burp-suite/</link>
+      <pubDate>Tue, 14 Jan 2014 09:30:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-burp-suite/</guid>
+      <description>Burp Suite 一款相当不错的抓包工具，推荐使用 **urp Suite是一个Web应用程序集成攻击平台，它包含了一系列burp工具，这些工具之间有大量接口可以互相</description>
+    </item>
+    
+    <item>
+      <title>移动社交社区MocoSpace的架构</title>
+      <link>https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84-2/</link>
+      <pubDate>Fri, 25 Oct 2013 08:08:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84-2/</guid>
+      <description>This is a guest post by Jamie Hall, Co-founder &amp;amp; CTO of MocoSpace, describing the architecture for their mobile social network. This is a timely architecture to learn from as it combines several hot trends: it is very large, mobile, and social. What they think is especially cool about their system is: how it optimizes for device/browser fragmentation on the mobile Web; their multi-tiered, read/write, local/distributed caching system; selecting PostgreSQL</description>
+    </item>
+    
+    <item>
+      <title>移动社交社区MocoSpace的架构</title>
+      <link>https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Fri, 25 Oct 2013 08:06:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84/</guid>
+      <description>MocoSpace.com 是一家移动社交网站，有1200多万注册用户，每个月30亿的 PV ，是美国最大的移动社区。我们来看看 MocoSpace 是如何来架构他们的网站的。先来看看他们的统</description>
+    </item>
+    
+    <item>
+      <title>postfix</title>
+      <link>https://www.51hint.com/posts/2013-10-23-postfix/</link>
+      <pubDate>Wed, 23 Oct 2013 00:02:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-23-postfix/</guid>
+      <description>mail server [postfix + ] http://www.aconus.com/~oyaji/centos/smtp-centos.htm http://centossrv.com/postfix.shtml http://kajuhome.com/postfix.shtml http://centos.server-manual.com/ http://morizyun.github.io/blog/postfix-centos-sakura-vps-aws/ http://www.server-world.info/query?os=CentOS_5&amp;amp;p=mail http://www.server-world.info/en/note?os=CentOS_5&amp;amp;p=mail http://www.server-world.info/query?os=CentOS_6&amp;amp;p=mail 稍后整理</description>
+    </item>
+    
+    <item>
+      <title>HttpFox:HTTP数据抓包和检测</title>
+      <link>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</link>
+      <pubDate>Wed, 16 Oct 2013 07:48:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</guid>
+      <description>HttpFox监视并且分析所有进出浏览器的HTTP网络传输： 如果熟悉网络监控类软件的话，使用HttpFox不会有任何的困难，即便您不熟悉，也</description>
+    </item>
+    
+    <item>
+      <title>git tag 导出版本</title>
+      <link>https://www.51hint.com/posts/2013-10-01-git-tag-%E5%AF%BC%E5%87%BA%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Tue, 01 Oct 2013 08:12:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-01-git-tag-%E5%AF%BC%E5%87%BA%E7%89%88%E6%9C%AC/</guid>
+      <description>如果你的 tag 名是 1.0，可以按照如下方式导出。 导出并压缩为 zip 格式: 导出并压缩为 tar.bz2 格式: 导出并压缩为 tar.gz 格式: 这是把标签为v0.1的项目文档重定向</description>
+    </item>
+    
+    <item>
+      <title>wget 下载整个网站</title>
+      <link>https://www.51hint.com/posts/2013-08-15-wget-%E4%B8%8B%E8%BD%BD%E6%95%B4%E4%B8%AA%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Thu, 15 Aug 2013 06:36:57 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-08-15-wget-%E4%B8%8B%E8%BD%BD%E6%95%B4%E4%B8%AA%E7%BD%91%E7%AB%99/</guid>
+      <description>wget可以以递归的方式下载整站，并可以将下载的页面中的链接转换为本地链接。 wget加上参数之后，即可成为相当强大的下载工具。 wget -r -p -np -k http://xxx.com/abc/ -r,</description>
+    </item>
+    
+    <item>
+      <title>goagent 快速搭建 教程</title>
+      <link>https://www.51hint.com/posts/2013-08-03-goagent-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA-%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sat, 03 Aug 2013 08:27:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-08-03-goagent-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA-%E6%95%99%E7%A8%8B/</guid>
+      <description>Facebook都已经上市了，大陆百姓还是上不去！对于有关部门的不作为，谷歌为大家带来了一把梯子，可以用来翻出那堵墙。所以，要想拓宽眼界，畅</description>
+    </item>
+    
+    <item>
+      <title>ubuntu 一键安装lamp</title>
+      <link>https://www.51hint.com/posts/2013-03-19-ubuntu-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85lamp/</link>
+      <pubDate>Tue, 19 Mar 2013 05:17:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-03-19-ubuntu-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85lamp/</guid>
+      <description>打开终端 sudo apt-get install apache2 php5 libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql phpmyadmin 一键安装需要的组件. 期间会要求你输入mysql数据库的root用户密码，选择服务器类型［apache］,phpM</description>
+    </item>
+    
+    <item>
+      <title>bash_02 [重定向]</title>
+      <link>https://www.51hint.com/posts/2013-01-10-bash_02-%E9%87%8D%E5%AE%9A%E5%90%91/</link>
+      <pubDate>Thu, 10 Jan 2013 09:21:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-10-bash_02-%E9%87%8D%E5%AE%9A%E5%90%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rsync</title>
+      <link>https://www.51hint.com/posts/2012-12-27-rsync/</link>
+      <pubDate>Thu, 27 Dec 2012 07:27:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-27-rsync/</guid>
+      <description>rsync 同步两个服务器上的文件或者文件夹 ==================================================================================== 同步文件夹 查验并不真正执行 rsync -rv –dry-run –delete mydir linode: eg:</description>
+    </item>
+    
+    <item>
+      <title>bash_01</title>
+      <link>https://www.51hint.com/posts/2012-12-27-bash_01/</link>
+      <pubDate>Thu, 27 Dec 2012 06:55:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-27-bash_01/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim_6 [grep  简单使用]</title>
+      <link>https://www.51hint.com/posts/2012-12-25-vim_6-grep-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 25 Dec 2012 05:05:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-25-vim_6-grep-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>vim 使用</description>
+    </item>
+    
+    <item>
+      <title>vps推荐</title>
+      <link>https://www.51hint.com/posts/2012-12-25-vps%E6%8E%A8%E8%8D%90/</link>
+      <pubDate>Tue, 25 Dec 2012 02:56:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-25-vps%E6%8E%A8%E8%8D%90/</guid>
+      <description>1、お名前.com这个之前提到过，但是之前只有2G方案，今天发现多了4G和8G方案。号称日本第一服务器提供商，东京证券交易所上市公司GMO旗</description>
+    </item>
+    
+    <item>
+      <title>centos6 快速安装LAMP</title>
+      <link>https://www.51hint.com/posts/2012-12-23-centos-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85lamp/</link>
+      <pubDate>Sun, 23 Dec 2012 02:07:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-23-centos-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85lamp/</guid>
+      <description>配置Apache、MySQL、Tomcat服务开机自启动： &amp;lt;br /&amp;gt; 重启Apache、MySQL、Tomcat服务： &amp;lt;br /&amp;gt; 说明： ** Apache的配置</description>
+    </item>
+    
+    <item>
+      <title>git-config 配置文件</title>
+      <link>https://www.51hint.com/posts/2012-12-21-git-config-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Fri, 21 Dec 2012 08:11:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-21-git-config-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <description>~/.gitconfig 是最常用的； 对应配置命令要加上–global git配置文件 ~/.gitconfig [user] name = fly email = flyhawk007hm@hotmail.com [core] editor = vim [alias] ci = commit -a -v co = checkout st = status br = branch throw = reset –hard HEAD throwh = reset –</description>
+    </item>
+    
+    <item>
+      <title>在 Ubuntu 12.04 上安装和配置邮件服务</title>
+      <link>https://www.51hint.com/posts/2012-12-20-%E5%9C%A8-ubuntu-12-04-%E4%B8%8A%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Thu, 20 Dec 2012 10:06:38 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-%E5%9C%A8-ubuntu-12-04-%E4%B8%8A%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/</guid>
+      <description>前段时间把一台 FreeBSD 邮件服务器移到了 Ubuntu 虚拟机，又痛苦的配置了一次邮件服务器，配置完后再写一遍 Puppet 代码，把整个配置过程代码化，然后再重建一次虚拟机测</description>
+    </item>
+    
+    <item>
+      <title>查看linux版本</title>
+      <link>https://www.51hint.com/posts/2012-12-19-%E6%9F%A5%E7%9C%8Blinux%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Wed, 19 Dec 2012 01:57:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-19-%E6%9F%A5%E7%9C%8Blinux%E7%89%88%E6%9C%AC/</guid>
+      <description>查看系统版本</description>
+    </item>
+    
+    <item>
+      <title>vim_2 [fuzzyFinder]  查找文件</title>
+      <link>https://www.51hint.com/posts/2012-12-05-vim_2-fuzzyfinder-%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Wed, 05 Dec 2012 10:32:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-05-vim_2-fuzzyfinder-%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6/</guid>
+      <description>FuzzyFinder 找文件 unzip vim-fuzzyFinder.zip -d ~/.vim unzip vim-l9.zip -d ~/.vim 生成帮助文档 :helpctags ~/.vim/doc :h fuf 在项目文件夹下 模糊匹配文件名 :FufCoverageFile 精确匹配文件名 :FufCoverageFile! 若匹配目录 则在字母后面加上/ 若只匹配某后缀名如er</description>
+    </item>
+    
+    <item>
+      <title>vim_1 [snipmate]</title>
+      <link>https://www.51hint.com/posts/2012-12-05-vim_1-snipmate/</link>
+      <pubDate>Wed, 05 Dec 2012 10:12:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-05-vim_1-snipmate/</guid>
+      <description>vim 代码片段 代码片段 下载snipmate.zip cd ~/.vim unzip snipmate.zip -d ~/.vim snipmate使用方法 输入代码小片段关键词，然后[tab]</description>
+    </item>
+    
+    <item>
+      <title>vim_0  [ctag]</title>
+      <link>https://www.51hint.com/posts/2012-12-05-vim_0-ctag/</link>
+      <pubDate>Wed, 05 Dec 2012 09:53:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-05-vim_0-ctag/</guid>
+      <description>ctags 命令生成tags文件 找到代码定义使用[ctrl + []返回到当前代码使用[ctrl + o]</description>
+    </item>
+    
+    <item>
+      <title>git_2 [reject]; 提交被拒绝</title>
+      <link>https://www.51hint.com/posts/2012-12-05-git_2-reject-%E6%8F%90%E4%BA%A4%E8%A2%AB%E6%8B%92%E7%BB%9D/</link>
+      <pubDate>Wed, 05 Dec 2012 04:26:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-05-git_2-reject-%E6%8F%90%E4%BA%A4%E8%A2%AB%E6%8B%92%E7%BB%9D/</guid>
+      <description>push 被reject 不能简单的git pull，然后git push；否则会造成版本混乱 git fetch origin git rebase origin/master 若还有conflict，则修改冲突文件，然后 git add</description>
+    </item>
+    
+    <item>
+      <title>git_1   github生成个人页面</title>
+      <link>https://www.51hint.com/posts/2012-12-04-git_1-github%E7%94%9F%E6%88%90%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2/</link>
+      <pubDate>Tue, 04 Dec 2012 09:29:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-04-git_1-github%E7%94%9F%E6%88%90%E4%B8%AA%E4%BA%BA%E9%A1%B5%E9%9D%A2/</guid>
+      <description>在github 创建个人网页 mkdir flyhawk007.github.com cd flyhawk007.github.com git init touch README git add README git remote add origin git@github.com:flyhawk007/flyhawk007.github.com.git echo “hello ,index.html” &amp;gt;index.html git add . git ci git push -u origin master 生成静态网站 jekyll https://github.com/mojombo/jekyll/wiki 高亮显</description>
+    </item>
+    
+    <item>
+      <title>git_0  init</title>
+      <link>https://www.51hint.com/posts/2012-12-04-git_0-init/</link>
+      <pubDate>Tue, 04 Dec 2012 08:37:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-04-git_0-init/</guid>
+      <description>sudo apt-get install git sudo apt-get install tig //git diff 类似 git init git config –global user.name “xxxx” git config –global user.email “xxx@xxx.com” git config –global core.editor vim git config –glo</description>
+    </item>
+    
+    <item>
+      <title>glassfish3 搭建集群</title>
+      <link>https://www.51hint.com/posts/2012-11-20-glassfish3-%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Tue, 20 Nov 2012 05:20:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-20-glassfish3-%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/</guid>
+      <description>glassfish 性能越来越优越，在一些性能上远远超过tomcat 并实现j2ee新的规范，在集群方面也越来越出色，相信在不久将在祖国大地上盛开繁茂。 Glassfish 3.1 – Clustering</description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://www.51hint.com/posts/2012-11-16-git/</link>
+      <pubDate>Fri, 16 Nov 2012 01:15:27 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-16-git/</guid>
+      <description>Git 是分散式的版本控制系統, 從架設、簡易操作、設定, 此篇主要是整理 基本操作、遠端操作 等. 註: Git 的範圍太廣了, 把這篇當作是初學入門就好了. 注意事</description>
+    </item>
+    
+    <item>
+      <title>负载均衡软件 Nginx, Haproxy,LVS比较</title>
+      <link>https://www.51hint.com/posts/2012-10-25-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%BD%AF%E4%BB%B6-nginx-haproxylvs%E6%AF%94%E8%BE%83/</link>
+      <pubDate>Thu, 25 Oct 2012 07:05:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-25-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%BD%AF%E4%BB%B6-nginx-haproxylvs%E6%AF%94%E8%BE%83/</guid>
+      <description>1、NGINX Nginx的优点: 性能好，可以负载超过1万的并发。 功能多，除了负载均衡，还能作Web服务器，而且可以通过Geo模块来实现流量分</description>
+    </item>
+    
+    <item>
+      <title>tomcat  long-pulling</title>
+      <link>https://www.51hint.com/posts/2012-10-17-tomcat-long-pulling/</link>
+      <pubDate>Wed, 17 Oct 2012 04:30:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-17-tomcat-long-pulling/</guid>
+      <description>tomcat 对于comet和异步IO的支持 际是使用,需要增加对NIO的支持，要做的仅仅是在server.xml里边修改connector： ================================================================ ** **要用</description>
+    </item>
+    
+    <item>
+      <title>glassfish启动及其部署</title>
+      <link>https://www.51hint.com/posts/2012-10-17-glassfish%E5%90%AF%E5%8A%A8%E5%8F%8A%E5%85%B6%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Wed, 17 Oct 2012 02:31:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-17-glassfish%E5%90%AF%E5%8A%A8%E5%8F%8A%E5%85%B6%E9%83%A8%E7%BD%B2/</guid>
+      <description>1到glashfish目录下运行 asadminstart-domain domain1 运行完后不像TOMCAT的控制台下启动的样子,别给忽悠了 2.可以检查下了 http://localhost:8080/ 3.进入控制台 http://localhost:4848/ 用户名: admin 密码</description>
+    </item>
+    
+    <item>
+      <title>基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建</title>
+      <link>https://www.51hint.com/posts/2012-10-03-%E5%9F%BA%E4%BA%8Ertmp%E5%8D%8F%E8%AE%AE-%E9%87%87%E7%94%A8red5%E4%BB%A5%E5%8F%8Aflowplayer%E7%9A%84%E6%B5%81%E5%AA%92%E4%BD%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Wed, 03 Oct 2012 06:00:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-03-%E5%9F%BA%E4%BA%8Ertmp%E5%8D%8F%E8%AE%AE-%E9%87%87%E7%94%A8red5%E4%BB%A5%E5%8F%8Aflowplayer%E7%9A%84%E6%B5%81%E5%AA%92%E4%BD%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</guid>
+      <description>基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建 此套网站使用red5提供的rtmp流媒体服务，用户前端使用FlowPl</description>
+    </item>
+    
+    <item>
+      <title>Centos6最小化安装中设置网卡默认启动</title>
+      <link>https://www.51hint.com/posts/2012-10-01-centos6%E6%9C%80%E5%B0%8F%E5%8C%96%E5%AE%89%E8%A3%85%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%BD%91%E5%8D%A1%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</link>
+      <pubDate>Mon, 01 Oct 2012 04:02:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-01-centos6%E6%9C%80%E5%B0%8F%E5%8C%96%E5%AE%89%E8%A3%85%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%BD%91%E5%8D%A1%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</guid>
+      <description>Centos 6.0版本提供了一个”最小化”（Minimal）安装的选项。这是一个非常好的改进，因为系统中再也不会存在那些不必要的文件和服务，这样我们就</description>
+    </item>
+    
+    <item>
+      <title>yum</title>
+      <link>https://www.51hint.com/posts/2012-09-03-yum/</link>
+      <pubDate>Mon, 03 Sep 2012 09:19:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-09-03-yum/</guid>
+      <description>readhat 5.4 [x86_64] yum 命令使用centos5 源更新 一、查看服务器版本 #lsb_release -a 二、 卸载yum #rpm -qa | grep yum # rpm -qa | grep yum | xargs rpm -e –nodeps #reboot 三、 下载yum包 #wget http://mirror.centos.org/centos/5/os/x86_64/CentOS/yum-3.2.22-39.el5.centos.noarch.rpm #wget</description>
+    </item>
+    
+    <item>
+      <title>vmware 增加虚拟硬盘</title>
+      <link>https://www.51hint.com/posts/2012-08-31-vmware-%E5%A2%9E%E5%8A%A0%E8%99%9A%E6%8B%9F%E7%A1%AC%E7%9B%98/</link>
+      <pubDate>Fri, 31 Aug 2012 06:21:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-31-vmware-%E5%A2%9E%E5%8A%A0%E8%99%9A%E6%8B%9F%E7%A1%AC%E7%9B%98/</guid>
+      <description>参考：http://hi.baidu.com/vanhsvtclwsuvze/item/562b5f37fb499c85c3cf2970</description>
+    </item>
+    
+    <item>
+      <title>Comet (web技术)</title>
+      <link>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Fri, 20 Jul 2012 01:57:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</guid>
+      <description>Comet是一种用于web的技术，能使服务器能实时地将更新的信息传送到客户端，而无须客户端发出请求，目前有两种实现方式，长轮询和流。 实现方式</description>
+    </item>
+    
+    <item>
+      <title>虚拟主机管理程序</title>
+      <link>https://www.51hint.com/posts/2012-07-02-%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Mon, 02 Jul 2012 05:10:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-02-%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BA%8F/</guid>
+      <description>Kloxo的前身是lxadmin，是一款免费的虚拟主机管理系统，安装简单，功能强大，可以快速地在red hat,centos系列linux系统</description>
+    </item>
+    
+    <item>
+      <title>find-grep  搜索文件，文件内容，字符串</title>
+      <link>https://www.51hint.com/posts/2012-06-22-find-grep-%E6%90%9C%E7%B4%A2%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Fri, 22 Jun 2012 03:17:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-22-find-grep-%E6%90%9C%E7%B4%A2%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>一键安装VPN（xen或者Linux服务器PPTPD一键安装包）</title>
+      <link>https://www.51hint.com/posts/2012-04-25-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85vpnxen%E6%88%96%E8%80%85linux%E6%9C%8D%E5%8A%A1%E5%99%A8pptpd%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%8C%85/</link>
+      <pubDate>Wed, 25 Apr 2012 03:19:18 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-04-25-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85vpnxen%E6%88%96%E8%80%85linux%E6%9C%8D%E5%8A%A1%E5%99%A8pptpd%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%8C%85/</guid>
+      <description>一键安装VPN在你的xen vps或者Linux服务器，非常简单的安装，自动生成用户名和密码。 系统要求：CentOS 5 32bits/64bits 安装命令： wget http://down.vpsma.com/vpn/pptpd.sh;sh ./pptpd.sh; 等待一</description>
+    </item>
+    
+    <item>
+      <title>Speex编/解码API的使用 及其speex 回声消除</title>
+      <link>https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/</link>
+      <pubDate>Fri, 02 Mar 2012 04:01:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/</guid>
+      <description>Speex编/解码API的使用 http://www.haogongju.net/art/153209实践linux, alsa下的speex 回</description>
+    </item>
+    
+    <item>
+      <title>音频编解码-speex库的使用方法</title>
+      <link>https://www.51hint.com/posts/2012-03-02-%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81-speex%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 02 Mar 2012 02:39:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81-speex%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+      <description>Speex是近年来开发出的一套功能强大的语音引擎，能够实现高质量和低比特率的编码。它不仅提供了基于码激励线性预测（CELP）算法的编/解码模</description>
+    </item>
+    
+    <item>
+      <title>Convert Speex file into MP3</title>
+      <link>https://www.51hint.com/posts/2012-03-02-convert-speex-file-into-mp3/</link>
+      <pubDate>Fri, 02 Mar 2012 02:33:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-convert-speex-file-into-mp3/</guid>
+      <description>Speex to Mp3 using ffmpeg and lame In one of the project we receive a speex(.spx) file from client and we have to play on browser as well as in local machine.
+So i am using ffmpeg and lame to do this job.It is 2 step process.
+Step 1
+****Speex(.spx) file first need to covert into wave(.wav) file using ffmpeg.
+&amp;lt;table border=&amp;quot;0&amp;quot; cellspacing=&amp;quot;0&amp;quot; cellpadding=&amp;quot;0&amp;quot;&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; 1 &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;ffmpeg -i filename.</description>
+    </item>
+    
+    <item>
+      <title>使用ituneMobileDevice.dll和CoreFundation.dll连接iphone等</title>
+      <link>https://www.51hint.com/posts/2012-03-02-%E4%BD%BF%E7%94%A8itunemobiledevice-dll%E5%92%8Ccorefundation-dll%E8%BF%9E%E6%8E%A5iphone%E7%AD%89/</link>
+      <pubDate>Fri, 02 Mar 2012 02:05:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-%E4%BD%BF%E7%94%A8itunemobiledevice-dll%E5%92%8Ccorefundation-dll%E8%BF%9E%E6%8E%A5iphone%E7%AD%89/</guid>
+      <description>.:: CORE SECURITY TECHNOLOGIES :: http://oss.coresecurity.com/projects/iphonedbg.html libimobiledevice http://www.libimobiledevice.org/ iphuc http://code.google.com/p/iphuc/source/checkout 如何使用.net实现iPhone和电脑之间的文件传输 http://www.flyblog.info/catprogramming/486.html iphonebrowser http://code.google.com/p/iphonebrowser/ itouchBrowser http://code.google.com/p/itouchbrowser/source/browse/#svn%2Ftrunk%2FitouchBrowser iphonefs http://code.google.com/p/iphonefs/source/browse/#svn%2Ftrunk%2FiPhoneFS%2FiPhoneDriveFilesystem%2FProperties iphonelist http://code.google.com/p/iphonelist/source/browse/#svn%2Ftrunk%2FiPhoneGUI</description>
+    </item>
+    
+    <item>
+      <title>snprintf函数说明</title>
+      <link>https://www.51hint.com/posts/2012-02-17-snprintf%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Fri, 17 Feb 2012 04:24:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-17-snprintf%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/</guid>
+      <description>int snprintf(char *restrict buf, size_t n, const char * restrict format, …);函数说明:最多从源串中拷贝n－1个字符到目标串中，然后再在后面加一个。所以如果目标串的大小为n的话，将不会溢出。</description>
+    </item>
+    
+    <item>
+      <title>语音和视频的捕获、编码解码以及渲染–开源技术大全</title>
+      <link>https://www.51hint.com/posts/2012-02-16-%E8%AF%AD%E9%9F%B3%E5%92%8C%E8%A7%86%E9%A2%91%E7%9A%84%E6%8D%95%E8%8E%B7%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81%E4%BB%A5%E5%8F%8A%E6%B8%B2%E6%9F%93-%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%A4%A7/</link>
+      <pubDate>Thu, 16 Feb 2012 10:03:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-%E8%AF%AD%E9%9F%B3%E5%92%8C%E8%A7%86%E9%A2%91%E7%9A%84%E6%8D%95%E8%8E%B7%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81%E4%BB%A5%E5%8F%8A%E6%B8%B2%E6%9F%93-%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%A4%A7/</guid>
+      <description>1. **MediaStreamer2: http://www.linphone.org/ ** **http://hi.baidu.com/zui_chu_de_meng_xiang/blog/item/71d2d952ebaad6561038c286.html ** Mediastreamer2 是一个支持多种平台的轻量级的流技术引擎，主要适合于开发语音和视频电话应用程序。该引擎主要为 linphone 的多媒体流的收发，包括语音和视频的</description>
+    </item>
+    
+    <item>
+      <title>转换文件格式wav2raw</title>
+      <link>https://www.51hint.com/posts/2012-02-14-%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8Fwav2raw/</link>
+      <pubDate>Tue, 14 Feb 2012 03:37:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-14-%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8Fwav2raw/</guid>
+      <description>l//=====================================================================// 因为raw格式的音频文件是没有文件头的，所以去掉wav文件的前20个字节 即可。 len= read(ifd,buf,20); memset(buf,0,20); //erase the wav header write(ofd,buf,20); while( (len=read(ifd,buf,200)) &amp;gt;0){ write(ofd,buf,len); } close(ifd); close(odf);</description>
+    </item>
+    
+    <item>
+      <title>mediastream2使用指南</title>
+      <link>https://www.51hint.com/posts/2012-02-13-mediastream2%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Mon, 13 Feb 2012 10:44:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-13-mediastream2%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>定义 Filter: 媒体库中处理数据的组件。一个filter有0到数个输入流和0到数个输出流。 下面是可以使用Filter的例子: 捕获音频或者视频数据. 播放</description>
+    </item>
+    
+    <item>
+      <title>gdb输出格式 &amp;&amp; 查看内存</title>
+      <link>https://www.51hint.com/posts/2012-02-13-gdb%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98/</link>
+      <pubDate>Mon, 13 Feb 2012 06:38:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-13-gdb%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F-%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98/</guid>
+      <description>一般来说，GDB会根据变量的类型输出变量的值。但你也可以自定义GDB的输出的格式。例如，你想输出一个整数的十六进制，或是二进制来查看这个整型</description>
+    </item>
+    
+    <item>
+      <title>window7装centos5双系统</title>
+      <link>https://www.51hint.com/posts/2012-02-12-window7%E8%A3%85centos5%E5%8F%8C%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Sun, 12 Feb 2012 14:32:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-12-window7%E8%A3%85centos5%E5%8F%8C%E7%B3%BB%E7%BB%9F/</guid>
+      <description>一、 在C盘根目录下建立menu.lst文件，用记事本编辑，将以下内容粘贴进去后，保存退出 color blue/green yellow/red white/magenta white/magenta timeout 30 default /default title CentOS kernel (hd0,0)/isolinux/vmlinuz initrd (hd0,0)/isolinux/initrd.img PS：“hd0,0”这</description>
+    </item>
+    
+    <item>
+      <title>Debug Assistant Library (DAL) 是一个辅助调试运行时库。</title>
+      <link>https://www.51hint.com/posts/2012-02-11-debug-assistant-library-dal-%E6%98%AF%E4%B8%80%E4%B8%AA%E8%BE%85%E5%8A%A9%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BA%93/</link>
+      <pubDate>Fri, 10 Feb 2012 17:23:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-11-debug-assistant-library-dal-%E6%98%AF%E4%B8%80%E4%B8%AA%E8%BE%85%E5%8A%A9%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BA%93/</guid>
+      <description>DAL目前支持的语言：C、C++、Objective-C、Objective-C++。 DAL目前支持的平台：标准C/C++、Windows (</description>
+    </item>
+    
+    <item>
+      <title>ssh不仅仅是远程登录管理主机</title>
+      <link>https://www.51hint.com/posts/2012-02-10-ssh%E4%B8%8D%E4%BB%85%E4%BB%85%E6%98%AF%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E7%AE%A1%E7%90%86%E4%B8%BB%E6%9C%BA/</link>
+      <pubDate>Fri, 10 Feb 2012 09:20:36 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-10-ssh%E4%B8%8D%E4%BB%85%E4%BB%85%E6%98%AF%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E7%AE%A1%E7%90%86%E4%B8%BB%E6%9C%BA/</guid>
+      <description>建立 HTTP 隧道 如果你需要访问线上集群中某台内网主机，那么你可以这样 当运行完毕以后，打开本地浏览器访问 http://localhost:31609</description>
+    </item>
+    
+    <item>
+      <title>IP数据包头长度 IHL</title>
+      <link>https://www.51hint.com/posts/2012-02-09-ip%E6%95%B0%E6%8D%AE%E5%8C%85%E5%A4%B4%E9%95%BF%E5%BA%A6-ihl/</link>
+      <pubDate>Thu, 09 Feb 2012 10:21:01 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-09-ip%E6%95%B0%E6%8D%AE%E5%8C%85%E5%A4%B4%E9%95%BF%E5%BA%A6-ihl/</guid>
+      <description>如图所示，此为IP包的表头格式，对应图中的信息，我们可以计算出，每一行的总长度都为32bit。 在看TCP/IP协议卷一的时候，看到IP首部长</description>
+    </item>
+    
+    <item>
+      <title>ar和nm命令的使用</title>
+      <link>https://www.51hint.com/posts/2011-12-09-ar%E5%92%8Cnm%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 09 Dec 2011 06:24:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-09-ar%E5%92%8Cnm%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>当我们的程式中有经常使用的模块，而且这种模块在其他程式中也会用到，这时按照软件重用的思想，我们应该将他们生成库，使得以后编程能够减少研发代码</description>
+    </item>
+    
+  </channel>
+</rss>

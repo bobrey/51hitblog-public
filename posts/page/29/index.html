@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Posts - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Posts" />
+  <meta name="twitter:title" content="Posts" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  <header class="header-section ">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="page-heading">
+              <h1>Posts</h1>
+              <hr class="small">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2015-02-07-openssl-%E5%AF%BC%E5%87%BApfx/">
+                <h2 class="post-title">openssl 导出pfx</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  To extract the Private Key from the .pfx file: # openssl pkcs12 -in code_signing_certificate_.pfx -nocerts -nodes -out mykey.pem To extract the Software Publisher Certificate from the .pfx file: # openssl pkcs12 -in code_signing_certificate.pfx -nokeys -out mycert.pem Next you will need to download the Verisign Intermediate CA Certificates for Code Signing Certificate. At the time of this writing, these were available at the forllowing URL: https://knowledge.verisign.com/support/code-signing-support/index?page=content&amp;id=AR1739 openssl smime -sign -in profile.mobileconfig
+                  <a href="https://www.51hint.com/posts/2015-02-07-openssl-%E5%AF%BC%E5%87%BApfx/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2014-11-29-%E6%90%AD%E5%BB%BAwebdav/">
+                <h2 class="post-title">搭建webdav</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>添加webdav 认证</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>创建文件/var/www/DavLock</p>
+<p>sudo chown www-data:www-data /var/www/DavLock</p>
+<p>sudo service apache2 restart</p>
+<p> </p>
+<p>才能解决不能写入的问题。</p>
+<p> </p>
+<p> </p>
+<p> </p>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/webdav/">webdav</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2014-11-29-omnifocus2-for-iphone/">
+                <h2 class="post-title">omnifocus2 for iphone</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <p><a href="mailto:manateepens@hotmail.com">manateepens@hotmail.com</a></p>
+<p>Gh112211</p>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/omnifocus2/">omnifocus2</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2014-11-25-mac%E7%89%88adobe-photoshop-cs6-%E4%B8%8E%E7%A0%B4%E8%A7%A3%E8%A1%A5%E4%B8%81%E4%B8%8B%E8%BD%BD-%E6%B3%A8%E5%86%8C%E6%9C%BA%E5%BA%8F%E5%88%97%E5%8F%B7%E4%BF%AE%E6%94%B9hosts%E5%AE%8C/">
+                <h2 class="post-title">Mac版Adobe Photoshop CS6 与破解补丁下载–注册机&#43;序列号&#43;修改HOSTS完美可升级激活法及详细图文安装教程（强烈推荐）</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  &lt;div class=&quot;crayon-num crayon-striped-num&quot; style=&quot;font-weight: inherit !important;color: #555555 !important&quot;&gt; 1 &lt;/div&gt; &lt;/div&gt; &lt;/td&gt; &lt;td class=&quot;crayon-code&quot;&gt; &lt;div class=&quot;crayon-pre&quot; style=&quot;color: #ffffff !important&quot;&gt; &lt;div id=&quot;crayon-54746b19030ec729245770-0&quot; class=&quot;crayon-line&quot; style=&quot;font-weight: inherit !important&quot;&gt; 127.0.0.1 lmlicenses.wip4.adobe.com &lt;/div&gt; &lt;div id=&quot;crayon-54746b19030ec729245770-1&quot; class=&quot;crayon-line crayon-striped-line&quot; style=&quot;font-weight: inherit !important&quot;&gt; 127.0.0.1 lm.licenses.adobe.com &lt;/div&gt; &lt;/div&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/table&gt; &lt;div class=&quot;crayon-main&quot;&gt; &lt;table class=&quot;crayon-table&quot;&gt; &lt;tr class=&quot;crayon-row&quot;&gt; &lt;td class=&quot;crayon-nums &quot; style=&quot;color: #333333 !important&quot;&gt; &lt;div class=&quot;crayon-nums-content&quot;&gt; &lt;div class=&quot;crayon-num&quot; style=&quot;font-weight: inherit !important&quot;&gt; &lt;/div&gt; &lt;div class=&quot;crayon-num crayon-striped-num&quot; style=&quot;font-weight: inherit !important;color: #555555 !important&quot;&gt;
+                  <a href="https://www.51hint.com/posts/2014-11-25-mac%E7%89%88adobe-photoshop-cs6-%E4%B8%8E%E7%A0%B4%E8%A7%A3%E8%A1%A5%E4%B8%81%E4%B8%8B%E8%BD%BD-%E6%B3%A8%E5%86%8C%E6%9C%BA%E5%BA%8F%E5%88%97%E5%8F%B7%E4%BF%AE%E6%94%B9hosts%E5%AE%8C/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2014-11-23-3d-2/">
+                <h2 class="post-title">3d</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  123Design Google SketchUp CINEMA4D 3DMAX是游戏、建筑景观工业的标准。 MAYA是用来做动画片的。 ================================ https://tinkercad.com/ http://www.mattercontrol.com/ http://www.123dapp.com/design 苹果MAC系统用3D建模软件Cheetah 3D介绍 Forml
+                  <a href="https://www.51hint.com/posts/2014-11-23-3d-2/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/3d/">3d</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2014-11-20-xdedug/">
+                <h2 class="post-title">xdedug</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <ol>
+<li></li>
+</ol>
+<p>#php -i</p>
+<ol start="2">
+<li></li>
+</ol>
+<p>copy it to <a href="http://xdebug.org/wizard.php">http://xdebug.org/wizard.php</a></p>
+<ol start="3">
+<li></li>
+</ol>
+<p>download <a href="http://code.activestate.com/komodo/remotedebugging/">http://code.activestate.com/komodo/remotedebugging/</a></p>
+<p>Run: cp modules/xdebug.so /usr/lib/php/modules</p>
+<ol start="4">
+<li></li>
+</ol>
+<p>vim /et/php.ini</p>
+<p>[XDebug]</p>
+<p>zend_extension = /usr/lib/php/modules/xdebug.so</p>
+<p>xdebug.remote_enable = On</p>
+<p>xdebug.idekey=”PHPSTORM”</p>
+<p>xdebug.remote_autostart = 1</p>
+<p>xdebug.remote_connect_back = 1</p>
+<p>xdebug.remote_handler = “dbgp”</p>
+<p>xdebug.remote_host = “127.0.0.1”</p>
+<p>xdebug.remote_port=9000</p>
+<p>xdebug.profiler_enable=On</p>
+
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/xdedug/">xdedug</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2014-11-16-%E5%9C%A8%E6%97%A5%E6%9C%AC%E8%BD%A6%E6%A3%80%E5%8E%9F%E6%9D%A5%E5%A6%82%E6%AD%A4%E7%AE%80%E5%8D%95/">
+                <h2 class="post-title">在日本车检原来如此简单</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2014-11-15-arduino-%E6%8E%A7%E5%88%B6%E9%97%A8%E9%94%81/">
+                <h2 class="post-title">arduino 控制门锁</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  Servo motor (I used the HS-322HD) 4. Arduino Uno + Programming Cable Prepare Your System Download and install the Arduino IDE from http://arduino.cc/en/Main/Software. Install node.js from http://nodejs.org/ Install the ngrok utility from https://ngrok.com/download https://www.twilio.com/blog/2014/03/build-your-own-lockitron-with-twilio-arduino-and-node-js.html http://developer.51cto.com/art/201404/435187.htm Parts A lock Duct tape + Cardboard Servo motor (I used the HS-322HD) 4. Arduino Uno + Programming Cable Prepare Your System Download and install the Arduino IDE from http://arduino.cc/en/Main/Software. Install node.js from http://nodejs.org/ Install
+                  <a href="https://www.51hint.com/posts/2014-11-15-arduino-%E6%8E%A7%E5%88%B6%E9%97%A8%E9%94%81/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2014-11-15-%E4%BB%A3%E7%A0%81%E6%98%AF%E5%A6%82%E4%BD%95%E6%8E%A7%E5%88%B6%E7%A1%AC%E4%BB%B6%E7%9A%84/">
+                <h2 class="post-title">代码是如何控制硬件的</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  &lt;p&gt; 那么，翻开数字电路相关教材，最前面几页。 &lt;/p&gt; &lt;p&gt; 一般它都会告诉你，三极管/场效应管类似继电器（一种通过线圈产生磁场、然后用磁场控制物理开关的通
+                  <a href="https://www.51hint.com/posts/2014-11-15-%E4%BB%A3%E7%A0%81%E6%98%AF%E5%A6%82%E4%BD%95%E6%8E%A7%E5%88%B6%E7%A1%AC%E4%BB%B6%E7%9A%84/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+
+            </article>
+          
+            <article class="post-preview">
+              <a href="https://www.51hint.com/posts/2014-11-13-%E5%AD%A6%E5%8D%95%E7%89%87%E6%9C%BA%E9%9C%80%E8%A6%81%E5%AD%A6%E7%9A%84%E8%AF%AD%E8%A8%80/">
+                <h2 class="post-title">学单片机需要学的语言</h2>
+
+                
+              </a>
+
+              <p class="post-meta">
+                
+              </p>
+              <div class="post-entry">
+                
+                  学单片机需要学C语言，学Keil、WAVE、IAR、ICC、MPLAB软件的使用，学汇编语言；在用到上位机界面编程时，需要学C++、VC++
+                  <a href="https://www.51hint.com/posts/2014-11-13-%E5%AD%A6%E5%8D%95%E7%89%87%E6%9C%BA%E9%9C%80%E8%A6%81%E5%AD%A6%E7%9A%84%E8%AF%AD%E8%A8%80/" class="post-read-more">[Read More]</a>
+                
+              </div>
+
+              
+                <span class="post-meta">
+                  
+                    #<a href="https://www.51hint.com/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a>&nbsp;
+                  
+                </span>
+              
+
+            </article>
+          
+        </div>
+        
+          <ul class="pager main-pager">
+            
+              <li class="previous">
+                <a href="/posts/page/28">&larr; Newer Posts</a>
+              </li>
+            
+            
+              <li class="next">
+                <a href="/posts/page/30">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    <div align="center" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/posts/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/28/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/28/">28</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/posts/page/29/">29</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/30/">30</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/posts/page/90/">90</a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/30/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/posts/page/90/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

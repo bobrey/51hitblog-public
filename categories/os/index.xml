@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OS on IT技术分享</title>
+    <link>https://www.51hint.com/categories/os/</link>
+    <description>Recent content in OS on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Mar 2020 21:04:09 +0800</lastBuildDate><atom:link href="https://www.51hint.com/categories/os/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Centos8安装docker</title>
+      <link>https://www.51hint.com/posts/centos8%E5%AE%89%E8%A3%85docker/</link>
+      <pubDate>Wed, 11 Mar 2020 21:04:09 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/centos8%E5%AE%89%E8%A3%85docker/</guid>
+      <description>使用dnf添加docker源 dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo dnf repolist -v dnf list docker-ce --showduplicates | sort -r 安装docker dnf install docker-ce --nobest start systemctl enable --now docker systemctl status docker 添加用户到docker组 usermod -aG docker $USER id $USER 关闭防火墙</description>
+    </item>
+    
+    <item>
+      <title>Win7旗舰版永久激活密钥 Windows7正版密匙</title>
+      <link>https://www.51hint.com/posts/2016-07-30-win7%E6%97%97%E8%88%B0%E7%89%88%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BB%E5%AF%86%E9%92%A5-windows7%E6%AD%A3%E7%89%88%E5%AF%86%E5%8C%99/</link>
+      <pubDate>Sat, 30 Jul 2016 11:51:23 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-07-30-win7%E6%97%97%E8%88%B0%E7%89%88%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BB%E5%AF%86%E9%92%A5-windows7%E6%AD%A3%E7%89%88%E5%AF%86%E5%8C%99/</guid>
+      <description>安装好windows7系统后右击计算机–属性–更改产品密匙 输入以下密匙; RHTBY-VWY6D-QJRJ9-JGQ3X-Q2289 HT6VR-XMPDJ-2VBFV-R9PFY-3VP7R 6K2KY-BFH24-PJW6W-9GK29-TMPWP或22</description>
+    </item>
+    
+    <item>
+      <title>mac install imagemagic</title>
+      <link>https://www.51hint.com/posts/2016-05-13-mac-install-imagemagic/</link>
+      <pubDate>Fri, 13 May 2016 01:59:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-05-13-mac-install-imagemagic/</guid>
+      <description>   </description>
+    </item>
+    
+    <item>
+      <title>git 导出干净包</title>
+      <link>https://www.51hint.com/posts/2015-12-01-git-%E5%AF%BC%E5%87%BA%E5%B9%B2%E5%87%80%E5%8C%85/</link>
+      <pubDate>Tue, 01 Dec 2015 01:11:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-12-01-git-%E5%AF%BC%E5%87%BA%E5%B9%B2%E5%87%80%E5%8C%85/</guid>
+      <description>git archive master | tar -x -C /somewhere/else Most of the time that I need to ‘export’ something from git, I want a compressed archive in any case so I do something like this. git archive master | bzip2 &amp;gt;source-tree.tar.bz2 ZIP archive: git archive –format zip –output /full/path/to/zipfile.zip master</description>
+    </item>
+    
+    <item>
+      <title>curio9无限试用</title>
+      <link>https://www.51hint.com/posts/2015-11-12-curio9%E6%97%A0%E9%99%90%E8%AF%95%E7%94%A8/</link>
+      <pubDate>Thu, 12 Nov 2015 05:47:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-12-curio9%E6%97%A0%E9%99%90%E8%AF%95%E7%94%A8/</guid>
+      <description>Curio.app 就是利用cache，反复刷试用而已</description>
+    </item>
+    
+    <item>
+      <title>mail命令发送邮件</title>
+      <link>https://www.51hint.com/posts/2015-11-09-mail%E5%91%BD%E4%BB%A4%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Mon, 09 Nov 2015 02:15:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-09-mail%E5%91%BD%E4%BB%A4%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swift</title>
+      <link>https://www.51hint.com/posts/2015-06-22-swift/</link>
+      <pubDate>Mon, 22 Jun 2015 06:48:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-06-22-swift/</guid>
+      <description>KakuEiha / crm — Bitbucket https://bitbucket.org/KakuEiha/crm The Swift Programming Language: The Basics https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309 Swift_cn http://numbbbbb.gitbooks.io/-the-swift-programming-language-/content/index.html Xcode Plugins – NSHipster http://nshipster.com/xcode-plugins/ LLDB调试器 http://southpeak.github.io/blog/2015/01/25/gong-ju-pian-:lldbdiao-shi-qi/ Picker Viewによる選択 – swiftによるiOSアプリ開発入門 http://swiftdev.blog.fc2.com/blog-entry-13.html expr import UIKit http://www.starfelix.com/blog/2014/03/17/lldbdiao-shi-ming-ling-chu-tan/ frame variable self.bookings NSKeyedUnarchiver.unarchiveObjectWithData(aaclass as NSData) http://dev.classmethod.jp/smartphone/iphone/swift-oss/</description>
+    </item>
+    
+    <item>
+      <title>误删chrome书签，恢复方法</title>
+      <link>https://www.51hint.com/posts/2015-02-28-%E8%AF%AF%E5%88%A0chrome%E4%B9%A6%E7%AD%BE%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 28 Feb 2015 02:05:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-28-%E8%AF%AF%E5%88%A0chrome%E4%B9%A6%E7%AD%BE%E6%81%A2%E5%A4%8D%E6%96%B9%E6%B3%95/</guid>
+      <description>&amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; %LOCALAPPDATA%\Google\Chrome\User Data\User Data\Default\ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; Windows XP/2003: &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; %USERPROFILE%\Local Settings\Application Data\Google\Chrome\User Data\Default\ &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; 举个例子：C:\Documents and Settings\用户名\Local Settings\Application Data\Google\Chrome\User Data\Default &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;color: #5e6a72&amp;quot;&amp;gt; Mac: &amp;lt;/p&amp;gt; &amp;lt;p</description>
+    </item>
+    
+    <item>
+      <title>sublime text3 build lua</title>
+      <link>https://www.51hint.com/posts/2014-10-24-sublime-text3-build-lua/</link>
+      <pubDate>Fri, 24 Oct 2014 08:09:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-10-24-sublime-text3-build-lua/</guid>
+      <description>{
+“cmd”: [“lua”, “$file”],
+“file_regex”: “^lua: (…*?):([0-9]*):?([0-9]*)”,
+“selector”: “source.lua”
+}</description>
+    </item>
+    
+    <item>
+      <title>SPDY简介</title>
+      <link>https://www.51hint.com/posts/2014-02-11-spdy%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Tue, 11 Feb 2014 07:17:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-02-11-spdy%E7%AE%80%E4%BB%8B/</guid>
+      <description>PDY是什么？ SPDY是Google开发的基于TCP，TLS的网络协议，用来传输web内容。HTTP2.0的第一个草案就是以SPDY为蓝本。</description>
+    </item>
+    
+    <item>
+      <title>Wireshark抓包</title>
+      <link>https://www.51hint.com/posts/2014-01-16-wireshark%E6%8A%93%E5%8C%85/</link>
+      <pubDate>Thu, 16 Jan 2014 06:49:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-16-wireshark%E6%8A%93%E5%8C%85/</guid>
+      <description>Wireshark是一个非常好用的抓包工具，当我们遇到一些和网络相关的问题时， 可以通过这个工具进行分析，不过要说明的是，这只是一个工具，用法</description>
+    </item>
+    
+    <item>
+      <title>Fiddler抓包</title>
+      <link>https://www.51hint.com/posts/2014-01-14-fiddler%E6%8A%93%E5%8C%85/</link>
+      <pubDate>Tue, 14 Jan 2014 09:39:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-fiddler%E6%8A%93%E5%8C%85/</guid>
+      <description>Fiddler是最强大最好用的Web调试工具之一，它能记录所有客户端和服务器的http和https请求，允许你监视，设置断点，甚至修改输入输</description>
+    </item>
+    
+    <item>
+      <title>Burp Suite抓包</title>
+      <link>https://www.51hint.com/posts/2014-01-14-burp-suite/</link>
+      <pubDate>Tue, 14 Jan 2014 09:30:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-burp-suite/</guid>
+      <description>Burp Suite 一款相当不错的抓包工具，推荐使用 **urp Suite是一个Web应用程序集成攻击平台，它包含了一系列burp工具，这些工具之间有大量接口可以互相</description>
+    </item>
+    
+    <item>
+      <title>移动社交社区MocoSpace的架构</title>
+      <link>https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84-2/</link>
+      <pubDate>Fri, 25 Oct 2013 08:08:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84-2/</guid>
+      <description>This is a guest post by Jamie Hall, Co-founder &amp;amp; CTO of MocoSpace, describing the architecture for their mobile social network. This is a timely architecture to learn from as it combines several hot trends: it is very large, mobile, and social. What they think is especially cool about their system is: how it optimizes for device/browser fragmentation on the mobile Web; their multi-tiered, read/write, local/distributed caching system; selecting PostgreSQL</description>
+    </item>
+    
+    <item>
+      <title>移动社交社区MocoSpace的架构</title>
+      <link>https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Fri, 25 Oct 2013 08:06:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84/</guid>
+      <description>MocoSpace.com 是一家移动社交网站，有1200多万注册用户，每个月30亿的 PV ，是美国最大的移动社区。我们来看看 MocoSpace 是如何来架构他们的网站的。先来看看他们的统</description>
+    </item>
+    
+    <item>
+      <title>HttpFox:HTTP数据抓包和检测</title>
+      <link>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</link>
+      <pubDate>Wed, 16 Oct 2013 07:48:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-16-httpfoxhttp%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8C%85%E5%92%8C%E6%A3%80%E6%B5%8B/</guid>
+      <description>HttpFox监视并且分析所有进出浏览器的HTTP网络传输： 如果熟悉网络监控类软件的话，使用HttpFox不会有任何的困难，即便您不熟悉，也</description>
+    </item>
+    
+    <item>
+      <title>git tag 导出版本</title>
+      <link>https://www.51hint.com/posts/2013-10-01-git-tag-%E5%AF%BC%E5%87%BA%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Tue, 01 Oct 2013 08:12:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-01-git-tag-%E5%AF%BC%E5%87%BA%E7%89%88%E6%9C%AC/</guid>
+      <description>如果你的 tag 名是 1.0，可以按照如下方式导出。 导出并压缩为 zip 格式: 导出并压缩为 tar.bz2 格式: 导出并压缩为 tar.gz 格式: 这是把标签为v0.1的项目文档重定向</description>
+    </item>
+    
+    <item>
+      <title>查看linux版本</title>
+      <link>https://www.51hint.com/posts/2012-12-19-%E6%9F%A5%E7%9C%8Blinux%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Wed, 19 Dec 2012 01:57:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-19-%E6%9F%A5%E7%9C%8Blinux%E7%89%88%E6%9C%AC/</guid>
+      <description>查看系统版本</description>
+    </item>
+    
+  </channel>
+</rss>

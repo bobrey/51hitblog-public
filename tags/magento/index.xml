@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>magento on IT技术分享</title>
+    <link>https://www.51hint.com/tags/magento/</link>
+    <description>Recent content in magento on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Mar 2013 15:01:55 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/magento/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于magento的名字转化为符合国内的习惯</title>
+      <link>https://www.51hint.com/posts/2013-03-20-%E5%85%B3%E4%BA%8Emagento%E7%9A%84%E5%90%8D%E5%AD%97%E8%BD%AC%E5%8C%96%E4%B8%BA%E7%AC%A6%E5%90%88%E5%9B%BD%E5%86%85%E7%9A%84%E4%B9%A0%E6%83%AF/</link>
+      <pubDate>Tue, 19 Mar 2013 15:01:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-03-20-%E5%85%B3%E4%BA%8Emagento%E7%9A%84%E5%90%8D%E5%AD%97%E8%BD%AC%E5%8C%96%E4%B8%BA%E7%AC%A6%E5%90%88%E5%9B%BD%E5%86%85%E7%9A%84%E4%B9%A0%E6%83%AF/</guid>
+      <description>安装中文包后的前台翻译很生硬，找到中文包下的Mage_Customer，用记事本打开，找到First Name，然后把后面的翻译改为自己习惯的</description>
+    </item>
+    
+  </channel>
+</rss>

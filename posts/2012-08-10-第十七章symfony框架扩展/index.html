@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第十七章：Symfony框架扩展 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第十七章：Symfony框架扩展" />
+  <meta name="twitter:title" content="第十七章：Symfony框架扩展" />
+  <meta name="description" content="目录 17.1 事件（Events） 17.1.1 如何理解事件 17.1.2 声明事件监听器 17.1.3 在监听器处理前声明调度器 17.1.4 更改方法的返回值 17.1.5 内建事件 17.1.6 在哪里注册监听器？ 17.2 Factories 17.3 插件">
+  <meta property="og:description" content="目录 17.1 事件（Events） 17.1.1 如何理解事件 17.1.2 声明事件监听器 17.1.3 在监听器处理前声明调度器 17.1.4 更改方法的返回值 17.1.5 内建事件 17.1.6 在哪里注册监听器？ 17.2 Factories 17.3 插件">
+  <meta name="twitter:description" content="目录 17.1 事件（Events） 17.1.1 如何理解事件 17.1.2 声明事件监听器 17.1.3 在监听器处理前声明调度器 17.1.4 更改方法的返回值 17.1.5 内建事件 17.1.6 在哪里注册监听器？ 17.2 Factories 17.3 插件">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0symfony%E6%A1%86%E6%9E%B6%E6%89%A9%E5%B1%95/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0symfony%E6%A1%86%E6%9E%B6%E6%89%A9%E5%B1%95/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第十七章：Symfony框架扩展</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">9100 Words|Read in about 19 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_17_events"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1 事件（Events）</a></a>
+      <ul>
+        <li><a href="#chapter_17_sub_understanding_events"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.1 如何理解事件</a></a></li>
+        <li><a href="#chapter_17_sub_notifying_an_event_listener"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.2 声明事件监听器</a></a></li>
+        <li><a href="#chapter_17_sub_notifying_the_dispatcher_of_an_event_until_a_listener_handles_it"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.3 在监听器处理前声明调度器</a></a></li>
+        <li><a href="#chapter_17_sub_changing_the_return_value_of_a_method"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.4 更改方法的返回值</a></a></li>
+        <li><a href="#chapter_17_sub_built_in_events"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.5 内建事件</a></a></li>
+        <li><a href="#chapter_17_sub_where_to_register_listeners"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.6 在哪里注册监听器？</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_17_factories"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.2 Factories</a></a></li>
+    <li><a href="#chapter_17_plug_ins"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.3 插件</a></a>
+      <ul>
+        <li><a href="#chapter_17_sub_finding_symfony_plug_ins"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.3.1 寻找symfony插件</a></a></li>
+        <li><a href="#chapter_17_sub_installing_a_plug_in"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.3.2 安装插件</a></a></li>
+        <li><a href="#chapter_17_sub_anatomy_of_a_plug_in"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.3.3 解读插件</a></a></li>
+        <li><a href="#chapter_17_sub_how_to_write_a_plug_in"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.3.6 如何写一个插件</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_17_summary"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.4 总结</a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_events">17.1 事件（Events）</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_understanding_events">17.1.1 如何理解事件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_notifying_an_event_listener">17.1.2 声明事件监听器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_notifying_the_dispatcher_of_an_event_until_a_listener_handles_it">17.1.3 在监听器处理前声明调度器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_changing_the_return_value_of_a_method">17.1.4 更改方法的返回值</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_built_in_events">17.1.5 内建事件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_where_to_register_listeners">17.1.6 在哪里注册监听器？</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_factories">17.2 Factories</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_plug_ins">17.3 插件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_finding_symfony_plug_ins">17.3.1 寻找symfony插件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_installing_a_plug_in">17.3.2 安装插件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_anatomy_of_a_plug_in">17.3.3 解读插件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_doctrine">17.3.4 Doctrine</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_propel">17.3.5 Propel</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_sub_how_to_write_a_plug_in">17.3.6 如何写一个插件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#chapter_17_summary">17.4 总结</a></li>
+</ul>
+<p>最终，你会需要改变symfony的行为（behavior）。无论你需要更改一个类的行为，或者添加你自己的自定义功能，时刻将不可避免地发生，因为所有客户的特殊要求没有哪个框架可以预测。实际上，这种现象十分普遍，symfony提供一种机制来扩展现有的类，超越简单的类继承。你甚至可以通过修改工厂设置替换symfony核心类。建立的任何一个扩展都可以很容易的打包成一个插件，因此，可以在其他应用中重新使用，或交给其他symfony开发者使用。</p>
+<h2 id="chapter_17_events"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1 事件（Events）</a></h2>
+<p>PHP不支持多重继承，这意味着一个类不可能继承一个以上的其他类。也不能添加一个新的方法到一个现有的类或者覆盖现有的方法。为了突破这连个限制，要使框架具有真正的可扩展性，symfony提供一个_事件系统_，灵感来自Cocoa通知中心，还有基于<a href="http://en.wikipedia.org/wiki/Observer_pattern">观测者设计模式</a>。</p>
+<h3 id="chapter_17_sub_understanding_events"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.1 如何理解事件</a></h3>
+<p>一些symfony类在生存周期的各个时刻会有“注意事件调度”。例如，当用户改变他们的语言时，user对象会有一个 <code>change_culture</code> 的事件发生。这就像在项目范围内大喊：“我做了你想做的事件”。</p>
+<p>当一个事件触发时，你可以决定做某件特别的事。例如，每次 <code>change_culture</code> 事件出现时你可以保存用户的国家和语言到数据表。为了做到这一点，需要_注册一个时间监听器_，换句话说，必须声明一个当事件触发时将被调用的函数，例17-1展示如何在用户的 <code>change_culture</code> 事件上注册一个监听器。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>所有事件和监听器的注册是由一个叫做_事件调度器_的特殊对象来管理的。经过 <code>ProjectConfiguration</code> 实例化，这个对象在symfony里面的任何地方都有效，而大多数symfony对象提供一个 <code>getEventDispatcher()</code> 方法来直接访问。使用调度器的 <code>connect()</code> 方法，当事件触发时，可以注册任何PHP回调（要么是一个类的方法，要么是一个函数）来被被调用。<code>connect()</code> 的第一个参数是事件标示符，这是一个命名空间和名字组成的字符串。第二个参数是一个PHP回调。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>一旦函数被事件调度器注册了，则等待直到事件被触发。事件调度器记录所有的事件监听器，而且知道当一个事件发生时调用哪一个。但调用这些方法或函数，调度器传一个 <code>sfEvent</code> 对象作为参数。</p>
+<p>事件对象储存关于通知的事件的信息。事件通知器可以取得是因为 <code>getSubject()</code> 方法，还有由于使用时间对象作为一个数组，事件参数是可以访问的（例如，当通知 <code>user.change_culture</code> 的时候，<code>$event['culture']</code> 可以用于取得 <code>culture</code> 参数）。</p>
+<p>事件系统可以添加一个现有的类或更改它的方法，而不使用继承。</p>
+<h3 id="chapter_17_sub_notifying_an_event_listener"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.2 声明事件监听器</a></h3>
+<p>就像symfony类告知事件发生了一样，你自己的类可以提供运行时扩展和告知事件的某些阶段。例如，我们说你的应用访问俄一些第三方服务器，你编写一个 <code>sfRestRequest</code> 类来处理请求的REST逻辑。一个好的想法是每次这个类产生一个新的请求时触发一个事件。这将使附加日志和缓存能力功能变得容易。例17-2展示了需要在 <code>fetch()</code> 方法中添加的代码来达到声明事件监听的目的。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>事件调度器的 <code>notify()</code> 方法要一个 <code>sfEvent</code> 对象作为参数；这是和传递给时间监听器相同的对象。这个对象总是携带notifier的参考（这就是为什么事件实例用 <code>this</code> 来初始化）和事件标识。可选的，也接受一个参数关联数组，给监听器一个影响notifier逻辑的途径。</p>
+<h3 id="chapter_17_sub_notifying_the_dispatcher_of_an_event_until_a_listener_handles_it"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.3 在监听器处理前声明调度器</a></h3>
+<p>使用 <code>notify()</code> 方法，你能确信所有注册到事件的监听器已经执行。然而，在一些情况下，你需要准许监听器停止这个事件并使其他的监听器再关注这个事件。这种情况下，你可以使用 <code>notifyUntil()</code> 方法代替 <code>notify()</code> 方法。调度器会执行所有监听，直到其中一个返回 <code>true</code>，并会阻止事件的关注。换句话说，<code>notifyUntil()</code> 方法像在项目范围大喊：“我做了。如果有人处理，我就不告诉其他人了”。例17-3展示了如何通过魔术方法 <code>__call()</code> 使用这项技术来在运行时给一个存在的类添加方法。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>一个注册到 <code>rest_request.method_not_found</code> 事件上的事件监听器可以测试 <code>$method</code> 请求和决定如何处理它，或传到下一个事件监听器上。例17-4中，你会看到使用这个技术第三方类是如何在运行时把 <code>put()</code> 和 <code>delete()</code> 方法添加到 <code>sfRestRequest</code> 类上的。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>实际上，<code>notifyUntill()</code> 方法给PHP提供了多继承的能力，或者说mixins（其它第三方类提供的扩展PHP类的方法）。现在你可以给不能使用继承的类插入新的方法了。这发生在运行时。使用symfony时你不会被PHP类能力所限制了。</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_17_sub_changing_the_return_value_of_a_method"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.4 更改方法的返回值</a></h3>
+<p>你可能会想到如何使监听器不是单纯的使用事件传递来的信息，而可以修改它，去修改 <code>notifier</code> 的原始逻辑。如果你想这么做，你应该使用 <code>filter()</code> 方法而不是 <code>notify()</code> 方法。所有的监听器调用时使用两个参数，一个事件对象，一个是filter的值。事件监听器必须返回这个值，不管更改与否。例17-5展示了如何使用 <code>fliter()</code> 方法过滤一个web服务器的响应和转移回应中的特殊字符。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_17_sub_built_in_events"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.5 内建事件</a></h3>
+<p>许多symfony类有内建事件，来准许你通过不修改symfony类来扩展symfony框架。表17-1列出了这些事件，种类和参数。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  &lt;strong&gt;Notifiers&lt;/strong&gt;
+&lt;/th&gt;
+
+&lt;th&gt;
+  &lt;strong&gt;参数&lt;/strong&gt;
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  lot of classes
+&lt;/td&gt;
+
+&lt;td&gt;
+  priority
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfException
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfAutoloadConfigHandler
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfCommand* classes
+&lt;/td&gt;
+
+&lt;td&gt;
+  priority
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfTask
+&lt;/td&gt;
+
+&lt;td&gt;
+  arguments, options
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfTask
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfTask
+&lt;/td&gt;
+
+&lt;td&gt;
+  command_manager
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfProjectConfiguration
+&lt;/td&gt;
+
+&lt;td&gt;
+  method, arguments
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfComponent
+&lt;/td&gt;
+
+&lt;td&gt;
+  method, arguments
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfContext
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfContext
+&lt;/td&gt;
+
+&lt;td&gt;
+  method, arguments
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfController
+&lt;/td&gt;
+
+&lt;td&gt;
+  module, action
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfController
+&lt;/td&gt;
+
+&lt;td&gt;
+  method, arguments
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfController
+&lt;/td&gt;
+
+&lt;td&gt;
+  module, action
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfWebDebug
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfWebDebugPanelView
+&lt;/td&gt;
+
+&lt;td&gt;
+  parameter
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfDoctrinePluginConfiguration
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfDoctrinePluginConfiguration
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfDoctrinePluginConfiguration
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Doctrine_Manager
+&lt;/td&gt;
+
+&lt;td&gt;
+  connection, database
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+
+&lt;td&gt;
+  object
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+
+&lt;td&gt;
+  object
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+
+&lt;td&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+
+&lt;td&gt;
+  configuration
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfFormSymfony
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfFormSymfony
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfFormSymfony
+&lt;/td&gt;
+
+&lt;td&gt;
+  error
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfFormSymfony
+&lt;/td&gt;
+
+&lt;td&gt;
+  method, arguments
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfMailer
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfPluginManager
+&lt;/td&gt;
+
+&lt;td&gt;
+  channel, plugin, is_package
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfPluginManager
+&lt;/td&gt;
+
+&lt;td&gt;
+  channel, plugin
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfPluginManager
+&lt;/td&gt;
+
+&lt;td&gt;
+  channel, plugin
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfPluginManager
+&lt;/td&gt;
+
+&lt;td&gt;
+  channel, plugin
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfPropelPluginConfiguration
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfPropelBaseTask
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfPropelDatabase
+&lt;/td&gt;
+
+&lt;td&gt;
+  name, database
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+
+&lt;td&gt;
+  object
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+
+&lt;td&gt;
+  object
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+
+&lt;td&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+
+&lt;td&gt;
+  configuration
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfWebRequest
+&lt;/td&gt;
+
+&lt;td&gt;
+  path_info
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfRequest
+&lt;/td&gt;
+
+&lt;td&gt;
+  method, arguments
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfResponse
+&lt;/td&gt;
+
+&lt;td&gt;
+  method, arguments
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfResponse, sfException
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfRouting
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfCacheClearTask
+&lt;/td&gt;
+
+&lt;td&gt;
+  app, type, env
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfTestBaseTask
+&lt;/td&gt;
+
+&lt;td&gt;
+  arguments, options
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfViewParameterHolder
+&lt;/td&gt;
+
+&lt;td&gt;
+  &amp;#8211;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfUser
+&lt;/td&gt;
+
+&lt;td&gt;
+  culture
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfUser
+&lt;/td&gt;
+
+&lt;td&gt;
+  method, arguments
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfBasicSecurityUser
+&lt;/td&gt;
+
+&lt;td&gt;
+  authenticated
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfView
+&lt;/td&gt;
+
+&lt;td&gt;
+  format, response, request
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfView
+&lt;/td&gt;
+
+&lt;td&gt;
+  method, arguments
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  sfViewCacheManager
+&lt;/td&gt;
+
+&lt;td&gt;
+  response, uri, new
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>你可以自由在这些事件上注册监听。只是需要注意是注册到 <code>notifyUntil</code> 类型事件监听器需要返回布尔值，注册到 <code>filter</code> 类型事件的监听器需要返回过滤后的值。</p>
+<p>要注意的是事件的命名空间不是非要匹配类。例如，所有的symfony类都会在需要写一些内容到日志文件中（和web调试工具条）时发起一个 <code>application.log</code> 事件。</p>
+<!-- raw HTML omitted -->
+<p>你自己的类可以做同样的事，并在必要时发起symfony事件。</p>
+<h3 id="chapter_17_sub_where_to_register_listeners"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.1.6 在哪里注册监听器？</a></h3>
+<p>事件监听器需要在请求周期的早期被注册。经验上，注册监听器的正确位置是应用的控制配置类中，这个类有一个可以使用在 <code>configure()</code> 方法中的事件调度器的参考。例17-6展示了如何在上个例子中的 <code>rest_request</code> 事件中注册一个监听器：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>插件（往下看）可以注册它们自己的事件监听器。可以在插件的 <code>config/config.yml</code> 文件中做这些，在应用初始化和通过 <code>$this-&gt;dispatcher</code> 使用事件制度器时执行。</p>
+<h2 id="chapter_17_factories"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.2 Factories</a></h2>
+<p>factory是对某命令所用类的定义。symfony依靠factories作为它的核心功能，就像控制器和用户session。例如，当框架需要建立一个新的请求对象的时候，它会在factory的定义里搜索用来创建这个对象的类名。请求对象默认的factory定义是 <code>sfWebRequest</code>，所以symfony建立这个类的对象来处理请求。使用factory定义最大的好处就是十分容易修改框架的核心功能：只要修改他的factory定义，然后symfony将使用自定义的请求类替代原有定义。</p>
+<p>factory定义存放在 <code>factories.yml</code> 配置文件中。例17-7展示了默认的factory定义文件。每一个定义是由自动载入类的名字和（可选）一系列的参数组成。例如，用户session储存factory（在 <code>storage:</code> 键下面）使用了一个 <code>session_name</code> 参数来命名在客户电脑上的cookie，由此来建立一个永久的用户session。</p>
+<!-- raw HTML omitted -->
+<pre><code>-
+prod:
+  logger:
+    class:   sfNoLogger
+    param:
+      level:   err
+      loggers: ~
+
+test:
+  storage:
+    class: sfSessionTestStorage
+    param:
+      session_path: %SF_TEST_CACHE_DIR%/sessions
+
+  response:
+    class: sfWebResponse
+    param:
+      send_http_headers: false
+
+  mailer:
+    param:
+      delivery_strategy: none
+
+dev:
+  mailer:
+    param:
+      delivery_strategy: none
+
+all:
+  routing:
+    class: sfPatternRouting
+    param:
+      generate_shortest_url:            true
+      extra_parameters_as_query_string: true
+
+  view_cache_manager:
+    class: sfViewCacheManager
+    param:
+      cache_key_use_vary_headers: true
+      cache_key_use_host_name:    true
+</code></pre>
+<p>改变factory最好的办法就是建立一个新的继承自默认factory的类并加入新的方法。例如，用户会话 facotry设置为 <code>myUser</code> 类</p>
+<p>（位于 <code>frontend/lib/</code>）并继承自 <code>sfUser</code>。利用已存在的factory去使用相同的机制。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_17_plug_ins"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.3 插件</a></h2>
+<p>你也许会需要重用自行开发的symfony应用中的一些代码。如果可以把这些代码包装为单一的类：把这个类放在其他应用的 <code>lib/</code> 目录下，自动载入机制会处理其他的事情。但是如果这些代码是分散的，不单只是一个文件，就像是一个完整的管理界面生成器用的主题或者是一组自动完成你所喜欢的特殊效果的Javascript文件和辅助函数，单纯复制这些文件不是最好的解决方案。</p>
+<p>插件提供了一个把分散在一系列文件中的代码包装起来并能在几个项目中重新使用的方法。在插件里，你能包装类、过滤器、event listeners、助手、配置、命令、schema、模型扩展、fixture、web素材等等。插件易于安装、升级、卸载。他们可以发布为 <code>.tgz</code> 压缩包、PEAR包，或者直接从版本库里检出。打包为PEAR的插件有利于管理关联关系，易于升级和自动维护。symfony载入机制会把插件考虑在内，项目中可以像使用symfony的功能一样使用插件提供的功能。</p>
+<p>因此，通常来说，插件就是symfony打包的扩展。有了插件，不仅可以在不同的应用中使用你的代码，而且可以使用其他的第三方的扩展程序。</p>
+<h3 id="chapter_17_sub_finding_symfony_plug_ins"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.3.1 寻找symfony插件</a></h3>
+<p>symfony官方网站上有一个用来发布symfony插件的网页。可以通过以下网址访问：</p>
+<!-- raw HTML omitted -->
+<p>每一个插件都有自己独立的页面，包含了详细的安装指南和文档。</p>
+<p>其中的一些插件是社区贡献的，一些是symfony核心开发组发布的。symfony核心开发组发布的插件包括下面这些：</p>
+<ul>
+<li><code>sfFeed2Plugin</code>：自动处理RSS和Atom feeds</li>
+<li><code>sfThumbnailPlugin</code>：创建缩略图 —— 例如上传图片</li>
+<li><code>sfMediaLibraryPlugin</code>：允许上传和管理媒体文件，包括一个富文本编辑器的扩展（可以实现在富文本编辑器里选择图片）</li>
+<li><code>sfGuardPlugin</code>：在symfony标准安全功能上提供验证，认证和其他用户管理功能</li>
+<li><code>sfSuperCachePlugin</code>：将页面写入网页根目录下的cache目录，使服务器直接输出这些内容，从而最大限度的提高速度</li>
+<li><code>sfErrorLoggerPlugin</code>：把404和505错误记录到数据库中，提供一个管理模块来浏览这些错误</li>
+<li><code>sfSslRequirementPlugin</code>：为行为（action）提供了SSL加密支持</li>
+</ul>
+<p>你应该经常去symfony官网上看一下插件，那里会随时增加新的插件，他们会给你的web应用开发带来很多便捷。</p>
+<p>除了symfony官网之外，还有另外一种方式来发布插件，提供压缩文件的插件下载，或是在PEAR频道中，或者它们放在公开的版本控制库中。</p>
+<h3 id="chapter_17_sub_installing_a_plug_in"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.3.2 安装插件</a></h3>
+<p>插件安装过程会因为不同的打包方式而有所不同。可以在插件下载页找到说明文件或者安装指南。同时，在安装了插件后都需要更新一下symfony缓存。</p>
+<p>插件是在项目级别安装的应用。接下来章节中讨论的所有的方法都是把插件安装到 <code>myproject/plugins/pluginName/</code> 目录。</p>
+<h4 id="pear插件">PEAR插件</h4>
+<p>symfony官网上列出的插件都是PEAR包形式的。<code>plugins.symfony-project.org</code>。要安装这样的插件，打 <code>plugin:install</code> 命令与一个插件名字，如例17-9所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>另一种方法是，你可以把插件下载到硬盘中，然后从硬盘上安装。这种模式下把频道名字替换为插件包的完整路径名，如例17-10所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>一些插件存在PEAR频道中。需要用 <code>plugin:install</code> 命令，来安装，别忘了设置频道名字，如例17-11所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>所以无论是从symfony官网、symfony PEAR频道或者是下载的PEAR包安装、这三种方式都用了PEAR包，都可用术语“PEAR插件”来表示。</p>
+<p><code>plugin:install</code> 命令还有一些选项，如例17-12。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="压缩包形式的插件">压缩包形式的插件</h4>
+<p>一些插件发布的是一个压缩包。只要解压缩到项目的 <code>plugins/</code> 目录就能完成安装。如果插件包含 <code>web/</code> 子目录，不要忘了运行 <code>plugin:publish-assets</code> 命令在 <code>web/</code> 目录下创建相应的符号链接，如例17-13。最后，不要忘了清除缓存。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="从版本库安装插件">从版本库安装插件</h4>
+<p>插件有时候放在他们的版本库中。只要检出到 <code>plugins/</code> 目录即可，但如果你的项目本身就在版本控制下就会有一些问题。</p>
+<p>另一种选择，你可以声明插件是依赖于外部库，这样，每次更新你的项目源代码的时候也会更新插件的源代码。例如，Subversion在 <code>svn:externals</code> 中配置外部依赖。因此你能修改这个属性然后更新源代码来增加插件，如例17-14所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="激活插件模块">激活插件模块</h4>
+<p>一些插件包含完整的模块。模块插件和标准插件的区别就是模块插件不会在 <code>myproject/apps/frontend/modules/</code> 目录（易于更新）。他们还需要在 <code>settings.yml</code> 中激活，如例17-15。</p>
+<!-- raw HTML omitted -->
+<pre><code>all:
+  .settings:
+    enabled_modules:  [default, sfMyPluginModule]
+</code></pre>
+<p>这是为了避免当插件模块在应用不需要的时候出现，这会导致安全违例。试想一个插件提供了 <code>frontend</code> 和 <code>backend</code> 模块。你会让 <code>frontend</code> 模块只在你的 <code>frontend</code> 应用中工作，<code>backend</code> 模块旨在 <code>backend</code> 应用中工作。这就是为什么插件模块默认是不激活的。</p>
+<!-- raw HTML omitted -->
+<h4 id="列出已安装的插件">列出已安装的插件</h4>
+<p>看一下项目的 <code>plugins/</code> 目录就能知道哪些插件已经安装好了，<code>plugin:list</code> 命令告诉你一些更多的信息：每个已安装插件的版本号，频道名字（见例17-16）。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="升级和卸载插件">升级和卸载插件</h4>
+<p>要去卸载一个PEAR插件，只需要在项目根目录执行 <code>plugin:uninstall</code> 如例17-17。需要在插件名前加入安装的频道名（使用 <code>plugin:list</code> 来确认频道名）。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>要卸载一个压缩包形式的插件或者一个SVN插件，需要手工从项目的 <code>plugins/</code> 和 <code>web/</code> 目录把文件移除，然后清空缓存。</p>
+<p>要升级一个插件，可以使用 <code>plugin:upgrade</code> 命令（用PEAR安装的插件）或做一个 <code>svn update</code>（如果是从版本库中获得的插件）。压缩包形式的插件升级不是很方便。</p>
+<h3 id="chapter_17_sub_anatomy_of_a_plug_in"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.3.3 解读插件</a></h3>
+<p>插件是用PHP语言写的。如果你能了解应用是如何组织的，你就能了解插件的结构了。</p>
+<h4 id="插件文件结构">插件文件结构</h4>
+<p>插件目录组织有点类似一个项目目录。插件文件必须放在正确的目录，这样才能在symfony需要的时候自动载入。</p>
+<!-- raw HTML omitted -->
+<pre><code>pluginName/
+  config/
+    routing.yml        // 路由配置文件
+    app.yml            // 插件默认设置
+    *schema.yml        // 数据schema
+    *schema.xml
+    config.php         // 特定的插件配置
+  data/
+    generator/
+      sfPropelAdmin
+        */             // 管理后台生成主题
+          template/
+          skeleton/
+    fixtures/
+      *.yml            // fixtures文件
+  lib/
+    *.php              // 类
+    helper/
+      *.php            // 助手
+    model/
+      *.php            // 模型类
+    task/
+      *Task.class.php  // 命令
+  modules/
+    */                 // 模型
+      actions/
+        actions.class.php
+      config/
+        module.yml
+        view.yml
+        security.yml
+      templates/
+        *.php
+  web/
+    *                  // 素材
+</code></pre>
+<h4 id="插件能做的事">插件能做的事</h4>
+<p>插件能包含很多东西。他们的内容可以在通过命令行调用任务的时候和程序运行的时候处理。但要让插件正常工作的话，你必须注意以下几个方面：</p>
+<ul>
+<li>数据模型是由 <code>propel-</code> 命令。当在项目中调用 <code>propel:build --classes</code> 或 <code>doctrine:build --classes</code> 时，你重建了项目模型和所有的插件模型。注意Propel插件schema必须在 <code>plugins.pluginName.lib.model</code> 中有一个包（package）属性，如例17-19所示。如果用Doctrine，该命令会在插件目录里面自动生成类。</li>
+</ul>
+<!-- raw HTML omitted -->
+<pre><code>propel:
+  _attributes:    { package: plugins.myPlugin.lib.model }
+  my_plugin_foobar:
+    _attributes:    { phpName: myPluginFoobar }
+      id:
+      name:           { type: varchar, size: 255, index: unique }
+      ...
+</code></pre>
+<ul>
+<li>插件配置文件必须包含在插件配置类中（<code>PluginNameConfiguration.class.php</code>）。这个文件是在应用和项目配置之后执行，所以symfony已经在那时引导了。你可以利用这个文件，例如，要扩展现有的类 with event listeners and behaviors.</li>
+<li>fixtures文件位于插件的 <code>data/fixtures/</code> 目录，由 <code>propel:data-load</code> 或 <code>doctrine:data-load</code> 命令处理。</li>
+<li>自定义类会自动载入，就如你放在 <code>lib/</code> 目录下的一样。</li>
+<li>助手会在模板调用 <code>use_helper()</code> 的时候自动找到。他们必须在一个插件的 <code>lib/</code> 目录的 <code>helper/</code> 子目录下。</li>
+<li>如果用propel，模型类在 <code>myplugin/lib/model/</code> 意味着模型类是由propel生成器生成的（在 <code>myplugin/lib/model/om/</code> 和 <code>myplugin/lib/model/map/</code>）。他们会自动被载入。小心你可以在自己的项目目录中覆写生成的插件模型类。</li>
+<li>如果用Doctrine，ORM在 <code>myplugin/lib/model/Plugin*.class.php</code> 生成基类、在 <code>lib/model/myplugin/</code> 生成具体类。这个意味着你可以在应用中更容易得覆盖模型类。</li>
+<li>插件安装后即可以使用它的命令。一个插件可以添加新的命令或改写已有的命令。把一个插件名当作命令的命名空间来使用是一个最好的经验。输入 <code>php symfony</code> 命令业获得命令列表，其中包含了插件的命令。</li>
+<li>模块提供了新的行为来访问外部，也就是在你应用的 <code>enabled_modules</code> 设置中声明的那些。</li>
+<li>Web素材（图片、JS脚本、CSS样式表等等）需要给服务器使用。当你通过命令行安装了一个插件的时候，如果服务器允许的话symfony会建立一个项目 <code>web/</code> 目录的符号连接，或者copy一份模块 <code>web/</code> 目录下的内容到项目中。如果是通过压缩包或者版本控制安装的插件，你必 须手动复制插件的 <code>web/</code> 目录（插件的README应有提示）。</li>
+</ul>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="手工设置插件">手工设置插件</h4>
+<p><code>plugin:install</code> 无法处理一些元素，所以需要在安装过程中手动设置：</p>
+<ul>
+<li>Custom routing should be added either by the plugin code on the <code>routing.load_configuration</code> event or manually to the application <code>routing.yml</code>.</li>
+<li>自定义的过滤器应该在应用的 <code>filters.yml</code> 中手动增加。</li>
+<li>自定义的factories必须在应用的 <code>factories.yml</code> 中手动增加。</li>
+</ul>
+<p>通常来说，所有的配置都可以归结于一个需要手动配置的应用配置文件。需要这样手工配置的插件应该会包含一个 <code>README</code> 文件详细介绍安装过程。</p>
+<h4 id="为应用定制插件">为应用定制插件</h4>
+<p>想要定制插件的时候，绝对不要去修改在 <code>plugins/</code> 目录下的代码。如果修改了，在更新插件的时候，所有的修改都会丢失的。为了可以自定义，插件提供了自定义的设置，这些设置是可以覆盖的。</p>
+<p>设计优秀的插件可以在应用的 <code>app.yml</code>，如例17-20所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>通常模块设置和他们的默认值都会在插件的 <code>README</code> 文件中有说明。</p>
+<p>可以在你的应用中创建同名模块来替换插件模块的默认内容。这不是真正的覆写，因为是使用应用中的元素来替换掉插件中的同名元素。如果创建和插件同名模板和配置文件将会工作的很好。</p>
+<p>另一方面，如果插件要提供一个用来覆写它本身的行为的模块的话，插件模块中的 <code>actions.class.php</code> 必须为空并且是从自动载入类中继承的，因此类的方法也可以通过应用模块的 <code>actions.class.php</code>，如例17-21所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>  &lt;th&gt;
+    自定义schema名
+  &lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td&gt;
+    config/schema.yml
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    schema.custom.yml
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td&gt;
+    config/foobar_schema.yml
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    foobar_schema.custom.yml
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td&gt;
+    plugins/myPlugin/config/schema.yml
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    myPlugin-schema.custom.yml
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;td&gt;
+    plugins/myPlugin/config/foo_schema.yml
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    myPlugin_foo-schema.custom.yml
+  &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_17_sub_how_to_write_a_plug_in"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.3.6 如何写一个插件</a></h3>
+<p><code>plugin:install</code> 只能安装那些包装为PEAR包的插件。记住这些插件可以发布在symfony官网、PEAR频道，或下载的文件。因此，如果你想要制作一个插件，最好把它包装为PEAR压缩文件包。另外，PEAR包的插件易于升级，可以声明关联, 并自动将资源文件部署在<code>web/</code> 目录中。</p>
+<h4 id="文件组织">文件组织</h4>
+<p>假设你开发了一个新的功能并想把它打包为一个插件。第一步是有逻辑的组织文件，让symfony载入机制可以在需要的时候找到它们。为了这个目的，你必须用例17-18给出的结构。例17-22展示了插件 <code>sfSamplePlugin</code> 文件的结构示例。</p>
+<!-- raw HTML omitted -->
+<pre><code>sfSamplePlugin/
+  README
+  LICENSE
+  config/
+    schema.yml
+    sfSamplePluginConfiguration.class.php
+  data/
+    fixtures/
+      fixtures.yml
+  lib/
+    model/
+      sfSampleFooBar.php
+      sfSampleFooBarPeer.php
+    task/
+      sfSampleTask.class.php
+    validator/
+      sfSampleValidator.class.php
+  modules/
+    sfSampleModule/
+      actions/
+        actions.class.php
+      config/
+        security.yml
+      lib/
+        BasesfSampleModuleActions.class.php
+      templates/
+        indexSuccess.php
+  web/
+    css/
+      sfSampleStyle.css
+    images/
+      sfSampleImage.png
+</code></pre>
+<p>对于开发来说，插件目录的位置（例17-22中的 <code>sfSamplePlugin/</code>）并不重要。它可以在硬盘的任何地方。</p>
+<!-- raw HTML omitted -->
+<h4 id="建立packagexml文件">建立package.xml文件</h4>
+<p>插件制作下一步就是在插件根目录增加一个 <code>package.xml</code> 文件。 <code>package.xml</code> 遵循PEAR语法。看一下例17-23典型的symfony插件</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>这里有趣的部分是 <code>&lt;contents&gt;</code> 和 <code>&lt;dependencies&gt;</code> 标签，我们会在下面介绍。其余的标签，对symfony没有什么特别的意义，关于 <code>package.xml</code> 格式详细信息你可以参考<!-- raw HTML omitted -->PEAR在线手册<!-- raw HTML omitted -->。</p>
+<h4 id="contents">Contents</h4>
+<p><code>&lt;contents&gt;</code> 标签是用来描述插件的文件结构的。这会让PEAR知道哪些文件要复制到什么地方。文件结构用 <code>&lt;dir&gt;</code> 和 <code>&lt;file&gt;</code> 标签。所有 <code>&lt;file&gt;</code> 标签必须有一个 <code>role=&quot;data&quot;</code> 属性。例17-23的<code>&lt;contents&gt;</code> 部分描述了与例17-22完全一致的目录结构。</p>
+<!-- raw HTML omitted -->
+<h4 id="插件依赖性">插件依赖性</h4>
+<p>插件是设计用来和一些版本的PHP、PEAR、symfony、PEAR包或者其他插件一起工作的。在 <code>&lt;dependencies&gt;</code> 标签声明这些依赖性告诉了PEAR在安装时要检查这些包是否已经安装了，如果没有，会给出异常信息。</p>
+<p>你需要声明PHP，PEAR和symfony的依赖性，最小的需求，要保证至少其中之一对应了你的安装。如果你不知道该设置什么，建立设置PHP5.2.4、PEAR1.4和symfony1.3。</p>
+<p>另外，建议在每个插件里设置一个最高允许的symfony版本号。这会导致在更高本版的框架下试着使用插件时会产生一个错误讯息，同时这会帮助插件作者在重新发布插件前确认插件在此版本下工作是否正常。在下载或者升级的时候得到一个错误信息总好过于插件遇到错误时不报错。</p>
+<p>如果你的插件有依赖关系，用户可以使用下面一条语句来安装你的插件和它的全部依赖：</p>
+<!-- raw HTML omitted -->
+<h4 id="打包插件">打包插件</h4>
+<p>PEAR组件有一个命令（<code>pear package</code>）用来创建 <code>.tgz</code> 压缩文件包，例17-24是从一个包含 <code>package.xml</code> 目录中使用的例子。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>当你的插件打包好之后，自行安装测试一下，如例17-25所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>就如 <code>&lt;contents&gt;</code> 标签描述的，包里的文件最终会放在你的项目的不同的目录下，例17-26展示了 <code>sfSamplePlugin</code> 的文件安装后的位置。</p>
+<!-- raw HTML omitted -->
+<pre><code>plugins/
+  sfSamplePlugin/
+    README
+    LICENSE
+    config/
+      schema.yml
+      sfSamplePluginConfiguration.class.php
+    data/
+      fixtures/
+        fixtures.yml
+    lib/
+      model/
+        sfSampleFooBar.php
+        sfSampleFooBarPeer.php
+      task/
+        sfSampleTask.class.php
+      validator/
+        sfSampleValidator.class.php
+    modules/
+      sfSampleModule/
+        actions/
+          actions.class.php
+        config/
+          security.yml
+        lib/
+          BasesfSampleModuleActions.class.php
+        templates/
+          indexSuccess.php
+web/
+  sfSamplePlugin/               ## 复制或者做链接，这取决于系统
+    css/
+      sfSampleStyle.css
+    images/
+      sfSampleImage.png
+</code></pre>
+<p>在应用中测试插件是否正常。如果工作正常，你可以准备在其他项目中使用它或者发布到symfony社区去。</p>
+<h4 id="在symfony项目主页发布你的插件">在symfony项目主页发布你的插件</h4>
+<p>通过 <code>symfony-project.org</code> 网站发布的symfony插件拥有广大的用户。只要遵循这些步骤，你自己的插件也能通过这种方式发布：</p>
+<ol>
+<li>确保 <code>README</code> 文件描述了如何去安装和使用你的插件，<code>LICENSE</code> 文件说明了详细的许可信息。用 <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> 语法格式来组织 <code>README</code> 文件。</li>
+<li>创建一个symfony账户（<code>http://www.symfony-project.org/user/new</code>），然后创建插件（<code>http://www.symfony-project.org/plugins/new</code>）。</li>
+<li>调用 <code>pear package</code> 命令为你的插件创建一个PEAR包，然后测试。该PEAR包命名必须是 <code>sfSamplePlugin-1.0.0.tgz</code>（1.0.0是插件的版本）。</li>
+<li>上传你的PEAR包（<code>sfSamplePlugin-1.0.0.tgz</code>）。</li>
+<li>5.你的插件现在一定出现在了插件<a href="http://www.symfony-project.org/plugins/">列表</a>中了。</li>
+</ol>
+<p>如果遵循这个流程，用户只要在项目目录中输入以下命令就能安装你的插件了：</p>
+<!-- raw HTML omitted -->
+<h4 id="命名约定">命名约定</h4>
+<p>保持 <code>plugins/</code> 目录干净，确保所有的插件名字用的都是驼峰命名方法并且都用 <code>Plugin</code>（例如，<code>shoppingCartPlugin</code>、<code>feedPlugin</code> 等等）。在命名你的插件前，检查一下是否已经有插件叫这个名字了。</p>
+<!-- raw HTML omitted -->
+<p>插件应该有一个 <code>LICENSE</code> 文件来描述使用的条件并选定使用范围。我们也建议增加一个 <code>README</code> 文件来描述版本更改，插件的目标，它的作用，安装和配置指引，等等。</p>
+<h2 id="chapter_17_summary"><a href="forum.php?mod=viewthread&amp;tid=56&amp;extra=page%3D1#">17.4 总结</a></h2>
+<p>symfony类声名了事件，让它们可以在应用层被更改。事件机制允许多重继承和PHP禁止的动态覆盖。因此尽管你不许要修改核心类——factories的配置文件，但是还是能十分方便的扩展symfony的功能。</p>
+<p>很多扩展已经有了；他们被打包为插件，可以通过symfony命令行方便的安装，升级，卸载。建立一个插件就和建立一个PEAR包一样容易，这就让它可以在在多个应用中重复使用。</p>
+<p>symfony包含了许多插件，你甚至可以加入你自己的。所以现在你知道了如何去做，我们希望你能通过很多有用的扩展来加强symfony内核！</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%89%E7%AB%A0%E8%A1%A8%E5%8D%95%E7%9A%84web%E8%AE%BE%E8%AE%A1/" data-toggle="tooltip" data-placement="top" title="第三章：表单的WEB设计">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-11-%E7%AC%AC%E4%B8%89%E5%A4%A9%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/" data-toggle="tooltip" data-placement="top" title="第三天：数据模型">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">9100 Words|Read in about 19 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

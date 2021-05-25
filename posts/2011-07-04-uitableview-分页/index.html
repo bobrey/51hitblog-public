@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> uitableview 分页 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="uitableview 分页" />
+  <meta name="twitter:title" content="uitableview 分页" />
+  <meta name="description" content="&lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: &#39;Segoe UI&#39;, Calibri, &#39;Myriad Pro&#39;, Myriad, &#39;Trebuchet MS&#39;, Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt; 实现的思路： &lt;/p&gt; &lt;ul style=&quot;margin-top: 0.4em; margin-right: 0px; margin-bottom: 1em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: &#39;Segoe UI&#39;, Calibri, &#39;Myriad Pro&#39;, Myriad, &#39;Trebuchet MS&#39;, Helvetica, Arial, sans-serif; line-height: 19px;">
+  <meta property="og:description" content="&lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: &#39;Segoe UI&#39;, Calibri, &#39;Myriad Pro&#39;, Myriad, &#39;Trebuchet MS&#39;, Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt; 实现的思路： &lt;/p&gt; &lt;ul style=&quot;margin-top: 0.4em; margin-right: 0px; margin-bottom: 1em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: &#39;Segoe UI&#39;, Calibri, &#39;Myriad Pro&#39;, Myriad, &#39;Trebuchet MS&#39;, Helvetica, Arial, sans-serif; line-height: 19px;">
+  <meta name="twitter:description" content="&lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: &#39;Segoe UI&#39;, …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-07-04-uitableview-%E5%88%86%E9%A1%B5/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-07-04-uitableview-%E5%88%86%E9%A1%B5/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">uitableview 分页</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jul 4, 2011</h4>
+    </section>
+    <h5 id="wc">3300 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+  实现的思路：
+&lt;/p&gt;
+
+&lt;ul style=&quot;margin-top: 0.4em; margin-right: 0px; margin-bottom: 1em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+  &lt;li style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 2.5em; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; list-style-position: outside; &quot;&gt;
+    基本上就是数据源里先只放10条, 点击最后一个cell时, 添加更多的数据到数据源中.。
+  &lt;/li&gt;
+  &lt;li style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 2.5em; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; list-style-position: outside; &quot;&gt;
+    处理&amp;#8221;加载更多&amp;#8221;的那个cell的选择事件,触发一个方法来加载更多数据到列表。
+  &lt;/li&gt;
+  &lt;li style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 2.5em; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; list-style-position: outside; &quot;&gt;
+    indexPathForRow插入数据。
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+  实现过程如下：
+&lt;/p&gt;
+
+&lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+  &lt;span id=&quot;more-1272&quot; style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot;&gt;&lt;/span&gt;&lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;
+&lt;/p&gt;
+
+&lt;blockquote style=&quot;margin-top: 1em; margin-right: 25%; margin-bottom: 1em; margin-left: 0px; padding-top: 0.6em; padding-right: 1em; padding-bottom: 0.6em; padding-left: 2.4em; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; min-height: 40px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: dotted; border-right-style: dotted; border-bottom-style: dotted; border-left-style: dotted; border-top-color: rgb(221, 221, 221); border-right-color: rgb(221, 221, 221); border-bottom-color: rgb(221, 221, 221); border-left-color: rgb(221, 221, 221); font-style: italic; background-image: url(http://wangjun.easymorse.com/wp-content/themes/mystique/images/blockquote.png); background-attachment: initial; background-origin: initial; background-clip: initial; background-position: 4px 0%; background-repeat: no-repeat no-repeat; &quot;&gt;
+  &lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-color: rgb(255, 255, 255); color: rgb(71, 71, 71); font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+    #import &lt;UIKit/UIKit.h&gt;
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-color: rgb(255, 255, 255); color: rgb(71, 71, 71); font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+    @interface iphone_tableMoreViewController : UIViewController &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&lt;UITableViewDelegate,UITableViewDataSource&gt;{ &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    IBOutlet UITableView *myTableView; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    NSMutableArray *items; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myri
+</code></pre>
+<p>ad Pro', Myriad, &lsquo;Trebuchet MS&rsquo;, Helvetica, Arial, sans-serif; &quot; /&gt;} <!-- raw HTML omitted -->@property (nonatomic,retain) UITableView *myTableView; <!-- raw HTML omitted -->@property (nonatomic,retain) NSMutableArray *items; <!-- raw HTML omitted -->@end
+<!-- raw HTML omitted --></p>
+<pre><code>  &lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-color: rgb(255, 255, 255); color: rgb(71, 71, 71); font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+    #import &amp;#8220;iphone_tableMoreViewController.h&amp;#8221; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;@implementation iphone_tableMoreViewController &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;@synthesize items,myTableView; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&amp;#8211; (void)viewDidLoad { &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    [super viewDidLoad]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    items=[[NSMutableArray alloc] initWithCapacity:0]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    for (int i=0; i&lt;10; i++) { &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;        [items addObject:[NSString stringWithFormat:@&amp;#8221;cell %i&amp;#8221;,i]]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    } &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;} &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&amp;#8211; (void)didReceiveMemoryWarning { &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    [super didReceiveMemoryWarning]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;}
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-color: rgb(255, 255, 255); color: rgb(71, 71, 71); font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+    &amp;#8211; (void)viewDidUnload { &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    items=nil; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    self.myTableView=nil; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;} &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&amp;#8211; (void)dealloc { &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    [self.myTableView release]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    [items release]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    [super dealloc]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;}
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-color: rgb(255, 255, 255); color: rgb(71, 71, 71); font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+    &amp;#8211; (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margi
+</code></pre>
+<p>n-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: &lsquo;Segoe UI&rsquo;, Calibri, &lsquo;Myriad Pro&rsquo;, Myriad, &lsquo;Trebuchet MS&rsquo;, Helvetica, Arial, sans-serif; &quot; /&gt;    int count = [items count]; <!-- raw HTML omitted -->    return  count + 1; <!-- raw HTML omitted -->} <!-- raw HTML omitted -->– (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath { <!-- raw HTML omitted -->    static NSString *tag=@”tag”; <!-- raw HTML omitted -->    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:tag]; <!-- raw HTML omitted -->    if (cell==nil) { <!-- raw HTML omitted -->        cell=[[[UITableViewCell alloc] initWithFrame:CGRectZero <!-- raw HTML omitted -->                                     reuseIdentifier:tag] autorelease]; <!-- raw HTML omitted -->    }    <!-- raw HTML omitted -->    if([indexPath row] == ([items count])) { <!-- raw HTML omitted -->        //创建loadMoreCell <!-- raw HTML omitted -->        cell.textLabel.text=@”More..”; <!-- raw HTML omitted -->    }else { <!-- raw HTML omitted -->    cell.textLabel.text=[items objectAtIndex:[indexPath row]];    <!-- raw HTML omitted -->    } <!-- raw HTML omitted -->    return cell; <!-- raw HTML omitted -->} <!-- raw HTML omitted -->– (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath { <!-- raw HTML omitted -->   
+<!-- raw HTML omitted --></p>
+<pre><code>  &lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-color: rgb(255, 255, 255); color: rgb(71, 71, 71); font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+        if (indexPath.row == [items count]) { &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;        UITableViewCell *loadMoreCell=[tableView cellForRowAtIndexPath:indexPath]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;        loadMoreCell.textLabel.text=@&amp;#8221;loading more …&amp;#8221;; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;        [self performSelectorInBackground:@selector(loadMore) withObject:nil]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;       &lt;span style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot;&gt;[tableView deselectRowAtIndexPath:ind&lt;br /&gt; exPath animated:YES]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&lt;/span&gt;        return; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    } &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    //其他cell的事件 &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;} &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;-(void)loadMore &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;{ &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    NSMutableArray *more; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    more=[[NSMutableArray alloc] initWithCapacity:0]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    for (int i=0; i&lt;10; i++) { &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;        [more addObject:[NSString stringWithFormat:@&amp;#8221;cell ++%i&amp;#8221;,i]]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    } &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    //加载你的数据 &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    [self performSelectorOnMainThread:@selector(appendTableWith:) withObject:more waitUntilDone:NO]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    [more release]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;} &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;-(void) appendTableWith:(NSMutableArray *)data &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;{ &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    for (int i=0;i&lt;[data count];i++) { &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;        [items addObject:[data objectAtIndex:i]]; &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;    } 
+  &lt;/p&gt;
+  
+  &lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+    &lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&lt;span style=&quot;color: rgb(71, 71, 71); background-color: rgb(255, 255, 255); &quot;&gt;    NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:10]; &lt;/span&gt;&lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&lt;span style=&quot;color: rgb(71, 71, 71); background-color: rgb(255, 255, 255); &quot;&gt;    for (int ind = 0; ind &lt; [data count]; ind++) { &lt;/span&gt;&lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&lt;span style=&quot;color: rgb(71, 71, 71); background-color: rgb(255, 255, 255); &quot;&gt;        &lt;/span&gt;&lt;span style=&quot;color: rgb(102, 51, 255); background-color: rgb(255, 255, 255); &quot;&gt;NSIndexPath&lt;/span&gt;&lt;span style=&quot;color: rgb(71, 71, 71); background-color: rgb(255, 255, 255); &quot;&gt;    *newPath =  [&lt;/span&gt;&lt;span style=&quot;color: rgb(102, 0, 204); background-color: rgb(255, 255, 255); &quot;&gt;NSIndexPath&lt;/span&gt;&lt;span style=&quot;color: rgb(71, 71, 71); &quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); &quot;&gt; inde&lt;br /&gt; xPathForRow:[items &lt;/span&gt;&lt;span style=&quot;background-color: rgb(204, 102, 204); &quot;&gt;indexOfObject&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); &quot;&gt;:[data objectAtIndex:ind]] inSection:0]; &lt;/span&gt;&lt;/span&gt;&lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&lt;span style=&quot;color: rgb(71, 71, 71); background-color: rgb(255, 255, 255); &quot;&gt;        [insertIndexPaths addObject:newPath]; &lt;/span&gt;&lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&lt;span style=&quot;color: rgb(71, 71, 71); background-color: rgb(255, 255, 255); &quot;&gt;    } &lt;/span&gt;&lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&lt;span style=&quot;color: rgb(71, 71, 71); background-color: rgb(255, 255, 255); &quot;&gt;   &lt;/span&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot;&gt;&lt;span style=&quot;color: rgb(71, 71, 71); &quot;&gt;[self.myTableView &lt;/span&gt;&lt;span style=&quot;color: rgb(153, 153, 255); &quot;&gt;&lt;strong&gt;insertRowsAtIndexPaths:insertIndexPaths&lt;/strong&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(71, 71, 71); &quot;&gt; withRowAnimation:UITableViewRowAnimationFade]; &lt;/span&gt;&lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(71, 71, 71); background-color: rgb(255, 255, 255); &quot;&gt;    &lt;/span&gt;&lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&lt;span style=&quot;color: rgb(71, 71, 71); background-color: rgb(255, 255, 255); &quot;&gt;} &lt;/span&gt;&lt;br style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; &quot; /&gt;&lt;span style=&quot;color: rgb(71, 71, 71); background-color: rgb(255, 255, 255); &quot;&gt;@end&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+  源代码：&lt;a href=&quot;http://easymorse-iphone.googlecode.com/svn/trunk/iphone.tableMore/&quot; style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; color: rgb(0, 113, 187); outline-style: none; outline-width: initial; outline-color: initial; &quot; title=&quot;http://easymorse-iphone.googlecode.com/svn/trunk/iphone.tableMore/&quot;&gt;http://easymorse-iphone.googlecode.com/svn/trunk/iphone.tableMore/&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: 'Segoe UI', Calibri, 'Myriad Pro', Myriad, 'Trebuchet MS', Helvetica, Arial, sans-serif; line-height: 19px; &quot;&gt;
+  from:http://wangjun.easymorse.com/?p=1272
+&lt;/p&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-06-30-uilabel-%E6%A0%B9%E6%8D%AE%E5%86%85%E5%AE%B9%E8%87%AA%E9%80%82%E5%BA%94size/" data-toggle="tooltip" data-placement="top" title="UIlabel 根据内容自适应size">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-07-08-c-%E5%87%BD%E6%95%B0%E7%9C%81%E7%95%A5%E5%8F%B7%E7%9A%84%E7%94%A8%E6%B3%95/" data-toggle="tooltip" data-placement="top" title="c&#43;&#43; 函数省略号的用法">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-06-30-uilabel-%E6%A0%B9%E6%8D%AE%E5%86%85%E5%AE%B9%E8%87%AA%E9%80%82%E5%BA%94size/">UIlabel 根据内容自适应size</a></li>
+                    
+                    <li><a href="/posts/2011-06-30-post%E8%A1%A8%E5%8D%95%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/">post表单两种方式</a></li>
+                    
+                    <li><a href="/posts/2011-06-29-uilocalnotification-%E6%9C%AC%E5%9C%B0%E9%80%9A%E7%9F%A5/">UILocalNotification 本地通知</a></li>
+                    
+                    <li><a href="/posts/2011-06-29-uiimage-%E5%9B%BE%E7%89%87%E7%9A%84%E6%94%BE%E5%A4%A7%E4%B8%8E%E7%BC%A9%E5%B0%8F/">UIImage 图片的放大与缩小</a></li>
+                    
+                    <li><a href="/posts/2011-06-28-uipasteboard-%E5%89%AA%E8%B4%B4%E6%9D%BF/">UIPasteboard 剪贴板</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jul 4, 2011</h4>
+    </section>
+    <h5 id="wc">3300 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

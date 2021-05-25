@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第三章：运行 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第三章：运行" />
+  <meta name="twitter:title" content="第三章：运行" />
+  <meta name="description" content="目录 3.1 先决条件 3.1.1 第三方软件 3.1.2 命令行界面 3.1.3 PHP配置 3.2 Symfony的安装 3.2.1 初始化项目目录 3.2.2 选择Symfony的版本 3.2.3 选择Symfony的安装">
+  <meta property="og:description" content="目录 3.1 先决条件 3.1.1 第三方软件 3.1.2 命令行界面 3.1.3 PHP配置 3.2 Symfony的安装 3.2.1 初始化项目目录 3.2.2 选择Symfony的版本 3.2.3 选择Symfony的安装">
+  <meta name="twitter:description" content="目录 3.1 先决条件 3.1.1 第三方软件 3.1.2 命令行界面 3.1.3 PHP配置 3.2 Symfony的安装 3.2.1 初始化项目目录 3.2.2 选择Symfony的版本 3.2.3 选择Symfony的安装">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%89%E7%AB%A0%E8%BF%90%E8%A1%8C/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%89%E7%AB%A0%E8%BF%90%E8%A1%8C/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第三章：运行</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">5300 Words|Read in about 11 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_03_prerequisites"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.1 先决条件<!-- raw HTML omitted --></a></a>
+      <ul>
+        <li><a href="#chapter_03_sub_third_party_software"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.1.1 第三方软件<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_command_line_interface"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.1.2 命令行界面<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_php_configuration"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.1.3 PHP配置<!-- raw HTML omitted --></a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_03_symfony_installation"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2 Symfony的安装<!-- raw HTML omitted --></a></a>
+      <ul>
+        <li><a href="#chapter_03_sub_initializing_the_project_directory"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2.1 初始化项目目录<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_choosing_the_symfony_version"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2.2 选择Symfony的版本<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_choosing_the_symfony_installation_location"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2.3 选择Symfony的安装位置<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_installing_symfony"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2.4 安装Symfony<!-- raw HTML omitted --></a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_03_project_setup"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3 项目的设置<!-- raw HTML omitted --></a></a>
+      <ul>
+        <li><a href="#chapter_03_sub_project_creation"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3.1 项目的创建<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_configuring_the_database"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3.2 配置数据库<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_application_creation"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3.3 应用的创建<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_directory_structure_rights"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3.4 目录权限<!-- raw HTML omitted --></a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_03_web_server_configuration"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4 web服务器配置<!-- raw HTML omitted --></a></a>
+      <ul>
+        <li><a href="#chapter_03_sub_the_ugly_way"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.1 丑陋的方式<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_03_sub_the_secure_way"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.2 安全的方式<!-- raw HTML omitted --></a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_03_using_the_sandbox"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.5 使用沙箱<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_03_summary"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.6 总结<!-- raw HTML omitted --></a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_prerequisites">3.1 先决条件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_third_party_software">3.1.1 第三方软件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_command_line_interface">3.1.2 命令行界面</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_php_configuration">3.1.3 PHP配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_symfony_installation">3.2 Symfony的安装</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_initializing_the_project_directory">3.2.1 初始化项目目录</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_choosing_the_symfony_version">3.2.2 选择Symfony的版本</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_choosing_the_symfony_installation_location">3.2.3 选择Symfony的安装位置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_installing_symfony">3.2.4 安装Symfony</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_project_setup">3.3 项目的设置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_project_creation">3.3.1 项目创建</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_configuring_the_database">3.3.1 配置数据库</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_application_creation">3.3.2 应用的创建</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_directory_structure_rights">3.3.3 目录权限</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_web_server_configuration">3.4 web服务器配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_the_ugly_way">3.4.1 丑陋的方式</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_sub_the_secure_way">3.4.2 安全的方式</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_using_the_sandbox">3.5 使用沙箱（Sandbox）</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#chapter_03_summary">3.6 总结</a></li>
+</ul>
+<p><!-- raw HTML omitted -->正如你前一章学到的，symfony框架是一组用PHP写下得文件。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->symfony项目要用这些文件。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Symfony要求版本至少PHP 5.2.4。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->检查一下你是否安装了，打开命令行输入这个命名：<!-- raw HTML omitted --></p>
+<pre><code>$ php -v
+
+PHP 5.3.1 (cli) (built: Jan  6 2010 20:54:10) 
+Copyright (c) 1997-2009 The PHP Group
+Zend Engine v2.3.0, Copyright (c) 1998-2009 Zend Technologies
+</code></pre>
+<p><!-- raw HTML omitted -->如果版本数字是5.2.4或更高，然后我们马上开始本章。<!-- raw HTML omitted --></p>
+<h2 id="chapter_03_prerequisites"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.1 先决条件<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->安装symfony之前，你需要检测你的电脑已正确安装和配置。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->花时间认真读本章，并按照所有步骤所要求过的来检查你的配置，因为会为你继续下面的内容节省时间。<!-- raw HTML omitted --></p>
+<h3 id="chapter_03_sub_third_party_software"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.1.1 第三方软件<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->首先，你需要检查你的电脑对于web开发有一个友好的工作环境。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;At a minimum, you need a web server (Apache, for instance), a database engine (MySQL, PostgreSQL, SQLite, or any &lt;a target=&quot;_target&rdquo; href=&quot;<!-- raw HTML omitted --><a href="http://www.php.net/PDO%22%3EPDO">http://www.php.net/PDO&quot;&gt;PDO</a><!-- raw HTML omitted -->-compatible<!-- raw HTML omitted --> database engine), and PHP 5.2.4 or later.”&gt;最低限度，你需要一个web服务器（例如，Apache），一个数据库引擎（MySQL、PostgreSQL、SQLite，或一些支持<!-- raw HTML omitted -->PDO<!-- raw HTML omitted -->的数据库引擎），还有PHP 5.2.4或更高。<!-- raw HTML omitted --></p>
+<h3 id="chapter_03_sub_command_line_interface"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.1.2 命令行界面<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->Symfony框架自带了一个命令行工具，自动为你做一些事情。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果你是类Unix OS用户，你会感觉到家了。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;If you run a Windows system, it will also work fine, but you will just have to type a few commands at the <code>cmd</code> prompt.”&gt;如果你运行Windows系统，那同样会运行的很好，但你只是必须输入少量的命令在 <code>cmd</code> 提示。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_03_sub_php_configuration"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.1.3 PHP配置<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->每种操作系统的PHP配置可能都有所不同，甚至不同的Linux发行版之间，你需要检查你的PHP配置满足PHP最低要求。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;First, ensure that you have PHP 5.2.4 as a minimum installed by using the <code>phpinfo()</code> built-in function or by running <code>php -v</code> on the command line.”&gt;首先，确保你运行 <code>phpinfo()</code> 内建函数或在命令行运行 <code>php -v</code> 查看版本号，满足PHP 5.2.4最低安装要求。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在一些配置上要注意，你可能安装了两个不同的PHP版本：一个对于命令行，和另外一个对WEB。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->然后，在这个URL网址下载symfony配置检查器脚本：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->保存该脚本在你当前WEB根目录下任意地方。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->从命令行运行配置检查器脚本：<!-- raw HTML omitted --></p>
+<pre><code>$ php check_configuration.php
+</code></pre>
+<p><!-- raw HTML omitted -->如果你的PHP配置有问题，命令行会提示输出文字提示你要修改什么东西，还有要怎么修改。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->你也可以从一个浏览器中运行检查器，并能看到如何解决问题。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;That&rsquo;s because PHP can have a distinct <code>php.ini</code> configuration file for these two environments, with different settings.”&gt;因为PHP对于两种环境具有不同的 <code>php.ini</code> 配置，使用不同的设置。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_03_symfony_installation"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2 Symfony的安装<!-- raw HTML omitted --></a></h2>
+<h3 id="chapter_03_sub_initializing_the_project_directory"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2.1 初始化项目目录<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->在安装symfony之前，你首先需要创建一个目录，保存所有Jobeet有关的文件<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->或者在Windows平台上：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_03_sub_choosing_the_symfony_version"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2.2 选择Symfony的版本<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->现在，你需要安装symfony。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;As the symfony framework has several stable versions, you need to choose the one you want to install by reading the &lt;a target=&quot;_blank&rdquo; href=&quot;<!-- raw HTML omitted --><a href="http://www.symfony-project.org/installation%22%3Einstallation">http://www.symfony-project.org/installation&quot;&gt;installation</a><!-- raw HTML omitted --> page<!-- raw HTML omitted --> on the symfony website.”&gt;symfony有几个稳定的版本，你需要先到symfony网站上仔细的阅读官方 <!-- raw HTML omitted -->Installation（安装）<!-- raw HTML omitted --> 页面，然后你就知道如何选择一个你所需要安装的版本。<!-- raw HTML omitted --></p>
+<h3 id="chapter_03_sub_choosing_the_symfony_installation_location"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2.3 选择Symfony的安装位置<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->您可以安装symfony的在您的计算机上的任何地方，或将其嵌入到您的某个项目。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->但后者是我们推荐的，因为会与其他项目完全彼此独立。升级您的本地安装的symfony不会导致你的项目发生意外。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这意味着你将能够有不同的版本symfony的项目，你可以升级你认为合适的一个。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;As a best practice, many people install the symfony framework files in the <code>lib/vendor</code> project directory.”&gt;作为一个最佳实践，许多人安装symfony框架文件在项目的 <code>lib/vendor</code> 目录中。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->那么我们先创建这个目录：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_03_sub_installing_symfony"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.2.4 安装Symfony<!-- raw HTML omitted --></a></h3>
+<h4 id="span-eninstalling-from-an-archive从一个归档安装span"><!-- raw HTML omitted -->从一个归档安装<!-- raw HTML omitted --></h4>
+<p><!-- raw HTML omitted -->最简单的方式安装symfony是从symfony网站上选择你需要的版本下载归档。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Go to the installation page for the version you have just chosen, symfony &lt;a target=&quot;_blank&rdquo; href=&quot;<!-- raw HTML omitted --><a href="http://www.symfony-project.org/i">http://www.symfony-project.org/i</a> … t;&gt;1.4<!-- raw HTML omitted --><!-- raw HTML omitted --> for instance.”&gt;到官方 Installation 页面下载你选择的版本，例如symfony <!-- raw HTML omitted -->1.4<!-- raw HTML omitted --> 。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Under the &ldquo;Source Download&rdquo; section, you will find the archive in <code>.tgz</code> or in <code>.zip</code> format.”&gt;在 <strong>“Source Download”</strong> 那一栏，你会看到 <code>.tgz</code> 或者 <code>.zip</code> 格式的归档。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Download the archive, put it under the freshly created <code>lib/vendor/</code> directory, un-archive it, and rename the directory to <code>symfony</code>:”&gt;然后并下载下来，放在新创建的的 <code>lib/vendor/</code> 目录，解压，并重命名目录为 <code>symfony</code> ：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->在Windows平台，用Windows资源管理器解压zip文件。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;After you rename the directory to <code>symfony</code>, there should be a directory structure similar to <code>c:\dev\sfproject\lib\vendor\symfony.</code>“&gt;你命名目录为 <code>symfony</code> 之后，目录结构则应该差不多像这样 <code>c:\dev\sfproject\lib\vendor\symfony</code> 。<!-- raw HTML omitted --></p>
+<h4 id="span-eninstalling-from-subversion-recommended从subversion安装建议span"><!-- raw HTML omitted -->从Subversion安装（建议）<!-- raw HTML omitted --></h4>
+<p>&lt;span en=&ldquo;If your project use Subversion, it is even better to use the <code>svn:externals</code> property to embed symfony into your project in the <code>lib/vendor/</code> directory:”&gt;如果你使用Subversion，用其 <code>svn:externals</code> 属性甚至能更好的用于将symfony嵌入到你项目的 <code>lib/vendor/</code> 目录：</p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->如果一切顺利，此命令将运行你目前编辑器给你的机会来配置外部的Subversion源。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->如果你是保守的，你可以引导你的项目到一个特定的版本（一个subversion标签）<!-- raw HTML omitted -->：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Whenever a new release comes out (as announced on the symfony &lt;a target=&quot;_blank&rdquo; href=&quot;<!-- raw HTML omitted --><a href="http://www.symfony-project.org/blog/%22%3Eblog">http://www.symfony-project.org/blog/&quot;&gt;blog</a><!-- raw HTML omitted --><!-- raw HTML omitted -->), you will need to change the URL to the new version.”&gt;每当一个新版本推出时（会在官方symfony<!-- raw HTML omitted -->博客<!-- raw HTML omitted -->上宣布），你将需要更改URL地址到新的版本。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果你要时刻保持最新版本，则使用 1.4 branch：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Using the branch makes your project benefit from bug fixes automatically whenever you run an <code>svn update</code>.”&gt;使用branch的好处是，无论何时你只要运行一个 <code>svn update</code>，则会自动修复symfony框架本身最新出现的BUG。<!-- raw HTML omitted --></p>
+<h4 id="span-eninstallation-verification验证安装span"><!-- raw HTML omitted -->验证安装<!-- raw HTML omitted --></h4>
+<p>&lt;span en=&ldquo;Now that symfony is installed, check that everything is working by using the symfony command line to display the symfony version (note the capital <code>V</code>):”&gt;现在symfony安装完了，那么我检查一下是否好了，在symfony命令行里输入下面的命令（注意有大写的 <code>V</code>），如果看到结果显示出了symfony版本，则表示一切都是正常的：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->在Windows平台：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;After you have created your project (below), running this command also displays the path to the symfony installation directory, which is stored in <code>config/ProjectConfiguration.class.php.</code>“&gt;你创建了你的项目之后（下面），运行这个命了还显示symfony安装目录的路径，这个是储存在 <code>config/ProjectConfiguration.class.php</code> 里。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果当你检查这个时，symfony路径是绝对的（这个应该不是默认的，如果你按照下面的指示），对于更好的移植性，更改它成类似下面这样：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->你的项目可以在你的电脑上任何位置移动，然后他仍然会工作。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_03_project_setup"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3 项目的设置<!-- raw HTML omitted --></a></h2>
+<p>&lt;span en=&ldquo;In symfony, <strong>applications</strong> sharing the same data model are regrouped into <strong>projects</strong>. For most projects, you will have two different applications: a frontend and a backend.”&gt;在symfony里面，<strong>应用</strong> 共享相同的数据模型重组进 <strong>项目</strong>，你将会有两个不同的应用：一个前台和一个后台。<!-- raw HTML omitted --></p>
+<h3 id="chapter_03_sub_project_creation"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3.1 项目的创建<!-- raw HTML omitted --></a></h3>
+<p>&lt;span en=&ldquo;From the <code>sfproject/</code> directory, run the symfony <code>generate:project</code> task to actually create the symfony project:”&gt;从 <code>sfprojects/</code> 目录，运行symfony的 <code>generate:project</code> 命令来实际创建symfony项目：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->在Windows平台：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;The <code>generate:project</code> task generates the default structure of directories and files needed for a symfony project.”&gt;<code>generate:project</code> 命令生成对于一个symfony项目所需要的默认文件、目录结构。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;The <code>generate:project</code> task has also created a symfony shortcut in the project root directory to shorten the number of characters you have to write when running a task.”&gt;<code>generate:project</code> 命令还可以创建一个symfony快捷方式在项目根目录中，来缩短你运行一个命令时所拼写字符的数目。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;So, from now on, instead of using the fully qualified path to the symfony program, you can use the <code>symfony</code> shortcut.”&gt;所以，从现在开始，你可以用 <code>symfony</code> 快捷方式，而不是使用全路径的symfony程序。<!-- raw HTML omitted --></p>
+<h3 id="chapter_03_sub_configuring_the_database"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3.2 配置数据库<!-- raw HTML omitted --></a></h3>
+<p>&lt;span en=&ldquo;The symfony framework supports all PDO-supported databases (MySQL, PostgreSQL, SQLite, Oracle, MSSQL, &hellip;) out of the box. On top of &lt;a target=&quot;_blank&rdquo; href=&quot;<!-- raw HTML omitted --><a href="http://www.php.net/PDO%22%3EPDO">http://www.php.net/PDO&quot;&gt;PDO</a><!-- raw HTML omitted --><!-- raw HTML omitted -->, symfony comes bundled with two ORM tools: Propel and Doctrine.”&gt;symfony框架支持所有的<!-- raw HTML omitted -->PDO<!-- raw HTML omitted -->所支持的数据库（MySQL、PostgreSQL、SQLite、Oracle、MSSQL、…）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->symfony自带了两个ORM工具：Propel和Doctrine。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当创建一个新项目，Doctrine是默认激活的。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Configuring the database used by Doctrine is as simple as using the <code>configure:database</code> task:”&gt;用 <code>configure:database</code> 命令来配置Doctrine所使用的数据库就是那么简单：<!-- raw HTML omitted --></p>
+<pre><code>$ php symfony configure:database &quot;mysql:host=localhost;dbname=dbname&quot; root mYsEcret
+</code></pre>
+<p>&lt;span en=&ldquo;The <code>configure:database</code> task takes three arguments: the &lt;a target=&quot;_blank&rdquo; href=&quot;<!-- raw HTML omitted --><a href="http://www.php.net/manual/en/pdo.drivers.php%22%3EPDO">http://www.php.net/manual/en/pdo.drivers.php&quot;&gt;PDO</a><!-- raw HTML omitted --> DSN, the username, and the password to access the database.”&gt;<code>configure:database</code> 命令来访问数据库带有三个参数：<!-- raw HTML omitted -->PDO DSN<!-- raw HTML omitted -->、用户名、密码。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果你不需要密码来访问你的数据库，则忽略第三个删除。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_03_sub_application_creation"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3.3 应用的创建<!-- raw HTML omitted --></a></h3>
+<p>&lt;span en=&ldquo;Now, create the frontend application by running the <code>generate:app</code> task:”&gt;现在，运行 <code>generate:app</code> 命令创建前台应用：<!-- raw HTML omitted --></p>
+<pre><code>$ php symfony generate:app frontend
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Based on the application name given as an argument, the <code>generate:app</code> task creates the default directory structure needed for the application under the <code>apps/frontend/</code> directory.”&gt;基于应用的名称作为一个参数，<code>generate:app</code> 命令会在 <code>apps/frontend</code> 目录下创建默认所需的目录结构：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_03_sub_directory_structure_rights"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.3.4 目录权限<!-- raw HTML omitted --></a></h3>
+<p>&lt;span en=&ldquo;Before trying to access your newly created project, you need to set the write permissions on the <code>cache/</code> and <code>log/</code> directories to the appropriate levels, so that both your web server and command line user can write to them:”&gt;在访问你新创建的项目之前，你需要把 <code>cache/</code> 和 <code>log/</code> 目录适当的设置成适当的程度，以便你的WEB服务器和命令行都能写入：<!-- raw HTML omitted --></p>
+<pre><code>$ symfony project:permissions
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_03_web_server_configuration"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4 web服务器配置<!-- raw HTML omitted --></a></h2>
+<h3 id="chapter_03_sub_the_ugly_way"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.1 丑陋的方式<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->如果你在你的WEB服务器的WEB根目录下某个地方创建了项目目录，你已经能在WEB浏览器中访问项目。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Of course, as there is no configuration, it is very fast to set up, but try to access the <code>config/databases.yml</code> file in your browser to understand the bad consequences of such a lazy attitude.”&gt;当然，作为没有经过任何配置的，建起来很快，但在你的浏览器中尝试访问 <code>config/databases.yml</code> 文件，就会了解这样一个懒惰的态度的不良后果。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果用户知道你的网站是用symfony开发的，他可能会访问到一些敏感文件。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&quot;<strong>Never ever use this setup on a production server</strong>, and read the next section to learn how to configure your web server properly.”&gt;<strong>永远不要在产品服务器上使用这种配置</strong>，并阅读下一节学习怎样正确的配置你的WEB服务器。<!-- raw HTML omitted --></p>
+<h3 id="chapter_03_sub_the_secure_way"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.4.2 安全的方式<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->一个好的WEB实践是只把需要被WEB浏览器访问的文件放在WEB根目录下，比如CSS、JavaScript、图片。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;By default, we recommend storing these files under the <code>web/</code> sub-directory of a symfony project.”&gt;默认情况下，一个symfony项目我们建议把这些文件放在 <code>web/</code> 子目录下。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;If you have a look at this directory, you will find some sub-directories for web assets (<code>css/</code> and <code>images/</code>) and the two front controller files.”&gt;如果你看过这个目录，你会发现一些存放WEB资源的子目录（<code>css/</code> 和 <code>images/</code>）和两个前段控制器文件。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->前段控制器仅仅是个PHP文件，需要放在WEB根目录下。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->从浏览器可以隐藏所有其他PHP文件。这样做对于安全性是很有益处的。<!-- raw HTML omitted --></p>
+<h4 id="span-enweb-server-configurationweb服务器的配置span"><!-- raw HTML omitted -->web服务器的配置<!-- raw HTML omitted --></h4>
+<p><!-- raw HTML omitted -->现在是更改你的Apache服务器的时候了。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Locate and open the <code>httpd.conf</code> configuration file and add the following configuration at the end:”&gt;找到并打开 <code>httpd.conf</code> 配置文件并添加下面这些配置在其末尾：<!-- raw HTML omitted --></p>
+<pre><code>&lt;span en=&quot;# Be sure to only have this line once in your configuration&quot;&gt;# 确保必须要有这行&lt;/span&gt;
+NameVirtualHost 127.0.0.1:8080
+
+&lt;span en=&quot;# This is the configuration for your project&quot;&gt;# 这是对于你项目的配置&lt;/span&gt;
+Listen 127.0.0.1:8080
+
+&lt;VirtualHost 127.0.0.1:8080&gt;
+  DocumentRoot &quot;/home/sfprojects/web&quot;
+  DirectoryIndex index.php
+  &lt;Directory &quot;/home/sfprojects/web&quot;&gt;
+    AllowOverride All
+    Allow from All
+  &lt;/Directory&gt;
+  
+  Alias /sf /home/sfprojects/lib/vendor/symfony/data/web/sf
+  &lt;Directory &quot;/home/sfprojects/lib/vendor/symfony/data/web/sf&quot;&gt;
+    AllowOverride All
+    Allow from All
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;This configuration makes Apache listen to port <code>8080</code> on your machine, so the website will be accessible at the following URL:”&gt;这个配置使Apache在你的机器监听 <code>8080</code> 端口，因此，重启Apache之后，将会用这个URL网址访问网站：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;You can change <code>8080</code> to any number, but favour numbers greater than <code>1024</code> as they do not require administrator rights.”&gt;你可以更改 <code>8080</code> 为另外一些数字，但数字最好大于 <code>1024</code>，因为他们不需要管理员权限。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="span-entest-the-new-configuration测试新配置span"><!-- raw HTML omitted -->测试新配置<!-- raw HTML omitted --></h4>
+<p>&lt;span en=&ldquo;Restart Apache, and check that you now have access to the new application by opening a browser and typing <code>http://localhost:8080/index.php/</code>, or <code>http://www.myproject.com.localhost/index.php/</code> depending on the Apache configuration you chose in the previous section.”&gt;重启Apache并检查，你现在访问这个新应用，打开一个浏览器并输入 <code>http://localhost:8080/index.php/</code>，或者 <code>http://www.myproject.com.localhost/index.php/</code> ，这取决于在前一节你选择的Apache配置。<!-- raw HTML omitted --></p>
+<p><img src="res/congratulations.png" alt="祝贺您"></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->你应该也尝试在开发环境访问应用（关于环境更多信息见下一节）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->输入这个URL地址：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;The web debug toolbar should show in the top right corner, including small icons proving that your <code>sf/</code> alias configuration is correct.”&gt;WEB调试工具栏应该显示在右上角，看到了小图标，则证明你的 <code>sf/</code> 别名配置是正确的。<!-- raw HTML omitted --></p>
+<p><img src="res/web_debug_toolbar.png" alt="WEB调试工具栏"></p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_03_using_the_sandbox"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.5 使用沙箱<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->如果你的目的只是尝试一下symfony，继续读本章，我们会以最快的方式让你上手。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->最快的方式试验symfony就是安装symfony沙箱。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->沙箱是一个易于安装的、预打包过的symfony项目，已经配置过了一些明显的默认配置。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这是一个非常好的方式来练习使用symfony的不正确安装的麻烦。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;You can download the symfony sandbox in <code>.tgz</code> or <code>.zip</code> format from the symfony installation page or at the following URLs:”&gt;你可以从以下URL下载 <code>.tgz</code> 或 <code>.zip</code> 格式的symfony沙箱：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_03_summary"><a href="forum.php?mod=viewthread&amp;tid=25&amp;extra=page%3D1#"><!-- raw HTML omitted -->3.6 总结<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->选择沙箱绝对是最好的，测试运行symfony，其中包含预先设定的symfony环境。<!-- raw HTML omitted --></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-4-%E7%AC%AC%E4%B8%80%E7%AB%A0%E4%BB%8B%E7%BB%8D/" data-toggle="tooltip" data-placement="top" title="4 第一章：介绍">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%BA%94%E7%AB%A0%E9%85%8D%E7%BD%AE/" data-toggle="tooltip" data-placement="top" title="第五章：配置">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">5300 Words|Read in about 11 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

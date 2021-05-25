@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CoreAnimation on IT技术分享</title>
+    <link>https://www.51hint.com/tags/coreanimation/</link>
+    <description>Recent content in CoreAnimation on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Oct 2015 00:29:34 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/coreanimation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS动画——CoreAnimation</title>
+      <link>https://www.51hint.com/posts/2015-10-30-ios%E5%8A%A8%E7%94%BB-coreanimation/</link>
+      <pubDate>Fri, 30 Oct 2015 00:29:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-10-30-ios%E5%8A%A8%E7%94%BB-coreanimation/</guid>
+      <description>&amp;lt;pre&amp;gt;&amp;lt;span style=&amp;quot;color: #0000ff&amp;quot;&amp;gt;@interface&amp;lt;/span&amp;gt; ViewController () { CALayer *_viewLayer; } @end@implementationViewController (void)viewDidLoad { [super viewDidLoad]; _viewLayer = [CALayer layer]; _viewLayer.frame = CGRectMake(, , 100, 100); [_viewLayer setBackgroundColor:[UIColor greenColor].CGColor]; _viewLayer.opacity = 0.25; [self.view.layer addSublayer:_viewLayer]; //Do any additional setup after loading the view, typically from a nib.} (IBAction)click:(id)sender { CGAffineTransform moveTransforam = CGAffineTransformMakeTranslation(180, 200); [_viewLayer setAffineTransform:moveTransforam]; _viewLayer.opacity = 1; }&amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; 在显式动画中，不需要修</description>
+    </item>
+    
+  </channel>
+</rss>

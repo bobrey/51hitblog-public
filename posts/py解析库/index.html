@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Py解析库 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Py解析库" />
+  <meta name="twitter:title" content="Py解析库" />
+  <meta name="description" content="python解析库">
+  <meta property="og:description" content="python解析库">
+  <meta name="twitter:description" content="python解析库">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/py%E8%A7%A3%E6%9E%90%E5%BA%93/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/py%E8%A7%A3%E6%9E%90%E5%BA%93/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Py解析库</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h1 id="xpath">xpath</h1>
+<ol>
+<li>XPath常用规则</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nodename</code></td>
+<td>选取此节点的所有子节点</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>从当前节点选取直接子节点</td>
+</tr>
+<tr>
+<td><code>//</code></td>
+<td>从当前节点选取子孙节点</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>选取当前节点</td>
+</tr>
+<tr>
+<td><code>..</code></td>
+<td>选取当前节点的父节点</td>
+</tr>
+<tr>
+<td><code>@</code></td>
+<td>选取属性</td>
+</tr>
+</tbody>
+</table>
+<p>这里列出了XPath的常用匹配规则，示例如下：<code>//title[@lang='eng']</code></p>
+<p>这就是一个XPath规则，它代表选择所有名称为<code>title</code>，同时属性<code>lang</code>的值为<code>eng</code>的节点</p>
+<p>2.多属性匹配</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">&lt;li class=&#34;li li-first&#34; name=&#34;item&#34;&gt;&lt;a href=&#34;link.html&#34;&gt;first item&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[contains(@class, &#34;li&#34;) and @name=&#34;item&#34;]/a/text()&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div><p>3.运算符及其介绍</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>or</code></td>
+<td>或</td>
+<td><code>age=19 or age=20</code></td>
+<td>如果<code>age</code>是19，则返回<code>true</code>。如果<code>age</code>是21，则返回<code>false</code></td>
+</tr>
+<tr>
+<td><code>and</code></td>
+<td>与</td>
+<td><code>age&gt;19 and age&lt;21</code></td>
+<td>如果<code>age</code>是20，则返回<code>true</code>。如果<code>age</code>是<code>18</code>，则返回<code>false</code></td>
+</tr>
+<tr>
+<td><code>mod</code></td>
+<td>计算除法的余数</td>
+<td><code>5 mod 2</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>`</td>
+<td>`</td>
+<td>计算两个节点集</td>
+<td>`//book</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>加法</td>
+<td><code>6 + 4</code></td>
+<td>10</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>减法</td>
+<td><code>6 - 4</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>乘法</td>
+<td><code>6 * 4</code></td>
+<td>24</td>
+</tr>
+<tr>
+<td><code>div</code></td>
+<td>除法</td>
+<td><code>8 div 4</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>等于</td>
+<td><code>age=19</code></td>
+<td>如果<code>age</code>是19，则返回<code>true</code>。如果<code>age</code>是20，则返回<code>false</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>不等于</td>
+<td><code>age!=19</code></td>
+<td>如果<code>age</code>是18，则返回<code>true</code>。如果<code>age</code>是19，则返回<code>false</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>小于</td>
+<td><code>age&lt;19</code></td>
+<td>如果<code>age</code>是18，则返回<code>true</code>。如果<code>age</code>是19，则返回<code>false</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>小于或等于</td>
+<td><code>age&lt;=19</code></td>
+<td>如果<code>age</code>是19，则返回<code>true</code>。如果<code>age</code>是20，则返回<code>false</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>大于</td>
+<td><code>age&gt;19</code></td>
+<td>如果<code>age</code>是20，则返回<code>true</code>。如果<code>age</code>是19，则返回<code>false</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>大于或等于</td>
+<td><code>age&gt;=19</code></td>
+<td>如果<code>age</code>是19，则返回<code>true</code>。如果<code>age</code>是18，则返回<code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p>4.按序选择</p>
+<blockquote>
+<p>利用中括号传入索引的方法获取特定次序的节点</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">rom</span> <span class="n">lxml</span> <span class="kn">import</span> <span class="nn">etree</span>
+ 
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">&lt;div&gt;
+</span><span class="s1">    &lt;ul&gt;
+</span><span class="s1">         &lt;li class=&#34;item-0&#34;&gt;&lt;a href=&#34;link1.html&#34;&gt;first item&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">         &lt;li class=&#34;item-1&#34;&gt;&lt;a href=&#34;link2.html&#34;&gt;second item&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">         &lt;li class=&#34;item-inactive&#34;&gt;&lt;a href=&#34;link3.html&#34;&gt;third item&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">         &lt;li class=&#34;item-1&#34;&gt;&lt;a href=&#34;link4.html&#34;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">         &lt;li class=&#34;item-0&#34;&gt;&lt;a href=&#34;link5.html&#34;&gt;fifth item&lt;/a&gt;
+</span><span class="s1">     &lt;/ul&gt;
+</span><span class="s1"> &lt;/div&gt;
+</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[1]/a/text()&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[last()]/a/text()&#39;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[position()&lt;3]/a/text()&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[last()-2]/a/text()&#39;</span><span class="p">)</span>
+
+</code></pre></div><p>5.节点轴选择 Xpath轴</p>
+<blockquote>
+<p>节点轴选择方法，包括获取子元素、兄弟元素、父元素、祖先元素等</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+ 
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">&lt;div&gt;
+</span><span class="s1">    &lt;ul&gt;
+</span><span class="s1">         &lt;li class=&#34;item-0&#34;&gt;&lt;a href=&#34;link1.html&#34;&gt;&lt;span&gt;first item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">         &lt;li class=&#34;item-1&#34;&gt;&lt;a href=&#34;link2.html&#34;&gt;second item&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">         &lt;li class=&#34;item-inactive&#34;&gt;&lt;a href=&#34;link3.html&#34;&gt;third item&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">         &lt;li class=&#34;item-1&#34;&gt;&lt;a href=&#34;link4.html&#34;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+</span><span class="s1">         &lt;li class=&#34;item-0&#34;&gt;&lt;a href=&#34;link5.html&#34;&gt;fifth item&lt;/a&gt;
+</span><span class="s1">     &lt;/ul&gt;
+</span><span class="s1"> &lt;/div&gt;
+</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[1]/ancestor::*&#39;</span><span class="p">)</span>   
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[1]/ancestor::div&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[1]/attribute::*&#39;</span><span class="p">)</span>
+
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[1]/child::a[@href=&#34;link1.html&#34;]&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[1]/descendant::span&#39;</span><span class="p">)</span>
+
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[1]/following::*[2]&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//li[1]/following-sibling::*&#39;</span><span class="p">)</span>
+
+
+<span class="err">第一次选择时，我们调用了</span><span class="n">ancestor轴</span><span class="err">，可以获取所有祖先节点。其后需要跟两个冒号，然后是节点的选择器，这里我们直接使用</span><span class="o">*</span><span class="err">，表示匹配所有节点，因此返回结果是第一个</span><span class="n">li节点的所有祖先节点</span><span class="err">，包括</span><span class="n">html</span><span class="err">、</span><span class="n">body</span><span class="err">、</span><span class="n">div和ul</span><span class="err">。</span>
+
+<span class="err">第二次选择时，我们又加了限定条件，这次在冒号后面加了</span><span class="n">div</span><span class="err">，这样得到的结果就只有</span><span class="n">div这个祖先节点了</span><span class="err">。</span>
+
+<span class="err">第三次选择时，我们调用了</span><span class="n">attribute轴</span><span class="err">，可以获取所有属性值，其后跟的选择器还是</span><span class="o">*</span><span class="err">，这代表获取节点的所有属性，返回值就是</span><span class="n">li节点的所有属性值</span><span class="err">。</span>
+
+
+
+
+<span class="err">第四次选择时，我们调用了</span><span class="n">child轴</span><span class="err">，可以获取所有直接子节点。这里我们又加了限定条件，选取</span><span class="n">href属性为link1</span><span class="o">.</span><span class="n">html的a节点</span><span class="err">。</span>
+
+<span class="err">第五次选择时，我们调用了</span><span class="n">descendant轴</span><span class="err">，可以获取所有子孙节点。这里我们又加了限定条件获取</span><span class="n">span节点</span><span class="err">，所以返回的结果只包含</span><span class="n">span节点而不包含a节点</span><span class="err">。</span>
+
+
+
+
+<span class="err">第六次选择时，我们调用了</span><span class="n">following轴</span><span class="err">，可以获取当前节点之后的所有节点。这里我们虽然使用的是</span><span class="o">*</span><span class="err">匹配，但又加了索引选择，所以只获取了第二个后续节点。</span>
+
+<span class="err">第七次选择时，我们调用了</span><span class="n">following</span><span class="o">-</span><span class="n">sibling轴</span><span class="err">，可以获取当前节点之后的所有同级节点。这里我们使用</span><span class="o">*</span><span class="err">匹配，所以获取了所有后续同级节点。</span>
+
+</code></pre></div><blockquote>
+<p><code>xpath轴：preceding-sibling</code>，其能够获取当前节点的所有同级哥哥节点</p>
+<blockquote>
+<blockquote>
+<p>注意括号里的标号，<strong>1代表着离当前节点最近的一个哥哥节点，数字越大表示离当前节点越远</strong></p>
+</blockquote>
+</blockquote>
+<p><code>following-sibling</code>，跟<code>preceding-sibling</code>类似，它的作用是获取当前节点的所有同级弟弟节点，</p>
+<blockquote>
+<blockquote>
+<p><strong>1 代表离当前节点最近的一个弟弟节点，数字越大表示离当前节点越远</strong>；</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="beautiful-soup">Beautiful Soup</h1>
+<h3 id="一节点选择器">一，节点选择器</h3>
+<blockquote>
+<h4 id="1获取名称">(1)获取名称</h4>
+<p>可以利用<code>name</code>属性获取节点的名称。这里还是以上面的文本为例，选取<code>title</code>节点，然后调用<code>name</code>属性就可以得到节点名称</p>
+<h4 id="2获取属性">(2)获取属性</h4>
+<p>每个节点可能有多个属性，比如<code>id</code>和<code>class</code>等，选择这个节点元素后，可以调用<code>attrs</code>获取所有属性</p>
+<blockquote>
+<p><code>print(soup.p.attrs['name'])</code></p>
+</blockquote>
+<blockquote>
+<p>还有一种更简单的获取方式：可以不用写<code>attrs</code>，直接在节点元素后面加中括号，传入属性名就可以获取属性值了<code>print(soup.p['class'])</code></p>
+</blockquote>
+<h4 id="3获取内容">3)获取内容</h4>
+<p>可以利用<code>string</code>属性获取节点元素包含的文本内容</p>
+</blockquote>
+<p>####关联选择</p>
+<blockquote>
+<h4 id="1子节点和子孙节点">(1)子节点和子孙节点</h4>
+<p>选取节点元素之后，如果想要获取它的直接子节点，可以调用<code>contents</code>属性</p>
+<blockquote>
+<p>我们可以调用<code>children</code>属性得到相应的结果</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">children</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span>
+
+<span class="err">如果要得到所有的子孙节点的话，可以调用</span><span class="n">descendants属性</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">descendants</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span>
+
+    
+</code></pre></div></blockquote>
+<h4 id="2父节点和祖先节点">(2)父节点和祖先节点</h4>
+<p>如果要获取某个节点元素的父节点，可以调用<code>parent</code>属性</p>
+<blockquote>
+<p>如果想获取所有的祖先节点，可以调用<code>parents</code>属性：<code>print(list(enumerate(soup.a.parents)))</code></p>
+</blockquote>
+<h4 id="3兄弟节点">3)兄弟节点</h4>
+<p>上面说明了子节点和父节点的获取方式，如果要获取同级的节点（也就是兄弟节点）</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Next Sibling&#39;</span><span class="p">,</span> <span class="n">soup</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">next_sibling</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Prev Sibling&#39;</span><span class="p">,</span> <span class="n">soup</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">previous_sibling</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Next Siblings&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">next_siblings</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Prev Siblings&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">previous_siblings</span><span class="p">)))</span>
+
+</code></pre></div><h4 id="4提取信息">(4)提取信息</h4>
+<p>前面讲解了关联元素节点的选择方法，如果想要获取它们的一些信息，比如文本、属性等，也用同样的方法</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">next_sibling</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">next_sibling</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">parents</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">parents</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">])</span>
+</code></pre></div></blockquote>
+<h3 id="二方法选择器">二，方法选择器</h3>
+<blockquote>
+<p>Beautiful Soup还为我们提供了一些查询方法，比如<code>find_all()</code>和<code>find()</code>等，调用它们，然后传入相应的参数，就可以灵活查询了
+<code>find_all(name , attrs , recursive , text , **kwargs)</code></p>
+<blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;ul&#39;</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;list-1&#39;</span><span class="p">}))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;elements&#39;</span><span class="p">}))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;element&#39;</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;link&#39;</span><span class="p">)))</span>
+</code></pre></div></blockquote>
+<p><strong>find_parents()和find_parent()</strong>：前者返回所有祖先节点，后者返回直接父节点。</p>
+<p><strong>find_next_siblings()和find_next_sibling()</strong>：前者返回后面所有的兄弟节点，后者返回后面第一个兄弟节点。</p>
+<p><strong>find_previous_siblings()和find_previous_sibling()</strong>：前者返回前面所有的兄弟节点，后者返回前面第一个兄弟节点。</p>
+<p><strong>find_all_next()和find_next()</strong>：前者返回节点后所有符合条件的节点，后者返回第一个符合条件的节点。</p>
+<p><strong>find_all_previous()和find_previous()</strong>：前者返回节点后所有符合条件的节点，后者返回第一个符合条件的节点。</p>
+</blockquote>
+<h3 id="三css选择器">三，CSS选择器</h3>
+<blockquote>
+<p>使用CSS选择器时，只需要调用<code>select()</code>方法，传入相应的CSS选择器即可</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;.panel .panel-heading&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;ul li&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;#list-2 .element&#39;</span><span class="p">))</span>
+</code></pre></div><h1 id="pyquery">pyquery</h1>
+<p>1.css</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;#container .list li&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;#container .list li&#39;</span><span class="p">)))</span>
+</code></pre></div><p>2.查找节点</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">lis</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lis</span><span class="p">)</span>
+
+<span class="mi">1</span><span class="o">&gt;</span>
+	<span class="err">查找子节点，那么可以用</span><span class="n">children</span><span class="p">()</span><span class="err">方法</span>
+<span class="mi">2</span><span class="o">&gt;</span>
+	<span class="err">用</span><span class="n">parent</span><span class="p">()</span><span class="err">方法来获取某个节点的父节点</span>
+<span class="mi">3</span><span class="o">&gt;</span>
+	<span class="err">获取兄弟节点，可以使用</span><span class="n">siblings</span><span class="p">()</span><span class="err">方法</span>
+
+</code></pre></div><p>3.节点操作
+1.<code>addClass</code>和<code>removeClass</code>;
+2.也可以用<code>attr()</code>方法对属性进行操作。此外，还可以用<code>text()</code>和<code>html()</code>方法来改变节点内部的内容3.<code>remove()</code>方法就是移除</p>
+<p>4.伪类选择器</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:first-child&#39;</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:last-child&#39;</span><span class="p">)</span>
+
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:nth-child(2)&#39;</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:gt(2)&#39;</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:nth-child(2n)&#39;</span><span class="p">)</span>
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/py%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-toggle="tooltip" data-placement="top" title="Py正则表达式">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/py%E6%96%87%E4%BB%B6%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/" data-toggle="tooltip" data-placement="top" title="Py文件打开方式">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/py%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Py正则表达式</a></li>
+                    
+                    <li><a href="/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">Redis使用场景</a></li>
+                    
+                    <li><a href="/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/">Redis命令参考</a></li>
+                    
+                    <li><a href="/posts/beego%E7%9A%84session%E5%85%B1%E4%BA%AB%E5%8F%8A%E5%BE%AE%E6%9C%8D%E5%8A%A1/">Beego的session共享及微服务</a></li>
+                    
+                    <li><a href="/posts/%E5%A4%9A%E7%BA%A7%E5%88%86%E9%94%80%E8%AE%BE%E8%AE%A1/">多级分销设计</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

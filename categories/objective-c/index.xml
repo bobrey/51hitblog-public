@@ -1,0 +1,2064 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>objective-c on IT技术分享</title>
+    <link>https://www.51hint.com/categories/objective-c/</link>
+    <description>Recent content in objective-c on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 May 2016 00:34:37 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/objective-c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>osx,ios抓包</title>
+      <link>https://www.51hint.com/posts/2016-05-10-osxios%E6%8A%93%E5%8C%85/</link>
+      <pubDate>Tue, 10 May 2016 00:34:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-05-10-osxios%E6%8A%93%E5%8C%85/</guid>
+      <description>OS X Programs OS X supports a wide range of packet trace programs, as described in the following sections.Charles HTTP Proxy Charlesis an HTTP proxy that allows you to view all of the HTTP and HTTPS traffic between your machine and the Internet.CPA Cocoa Packet Analyzeris a native OS X implementation of a network protocol analyzer and packet sniffer.Debookee Debookeeis a OS X application which allows you to see what</description>
+    </item>
+    
+    <item>
+      <title>xcodebuild 导出ipa</title>
+      <link>https://www.51hint.com/posts/2016-04-26-xcodebuild-%E5%AF%BC%E5%87%BAipa/</link>
+      <pubDate>Tue, 26 Apr 2016 07:05:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-04-26-xcodebuild-%E5%AF%BC%E5%87%BAipa/</guid>
+      <description>xcode7 以后编译需要plist文件； exportOptions.plist 编译xarchive，导出ipa文件</description>
+    </item>
+    
+    <item>
+      <title>UITableViewCell 隐藏分割线</title>
+      <link>https://www.51hint.com/posts/2016-04-06-uitableviewcell-%E9%9A%90%E8%97%8F%E5%88%86%E5%89%B2%E7%BA%BF/</link>
+      <pubDate>Wed, 06 Apr 2016 01:23:24 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-04-06-uitableviewcell-%E9%9A%90%E8%97%8F%E5%88%86%E5%89%B2%E7%BA%BF/</guid>
+      <description>ios9以后uitableviewcell的subviews的层次发生变化 打印UIVIew层次 找到分割线，做处理 必须在</description>
+    </item>
+    
+    <item>
+      <title>ios,android bug，访问工具</title>
+      <link>https://www.51hint.com/posts/2016-01-06-iosandroid-bug%E8%AE%BF%E9%97%AE%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 06 Jan 2016 00:21:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-01-06-iosandroid-bug%E8%AE%BF%E9%97%AE%E5%B7%A5%E5%85%B7/</guid>
+      <description>instabug https://instabug.com/applications/airapp/sdk/ Fabric[ https://www.fabric.io]1</description>
+    </item>
+    
+    <item>
+      <title>iOS动画——CoreAnimation</title>
+      <link>https://www.51hint.com/posts/2015-10-30-ios%E5%8A%A8%E7%94%BB-coreanimation/</link>
+      <pubDate>Fri, 30 Oct 2015 00:29:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-10-30-ios%E5%8A%A8%E7%94%BB-coreanimation/</guid>
+      <description>&amp;lt;pre&amp;gt;&amp;lt;span style=&amp;quot;color: #0000ff&amp;quot;&amp;gt;@interface&amp;lt;/span&amp;gt; ViewController () { CALayer *_viewLayer; } @end@implementationViewController (void)viewDidLoad { [super viewDidLoad]; _viewLayer = [CALayer layer]; _viewLayer.frame = CGRectMake(, , 100, 100); [_viewLayer setBackgroundColor:[UIColor greenColor].CGColor]; _viewLayer.opacity = 0.25; [self.view.layer addSublayer:_viewLayer]; //Do any additional setup after loading the view, typically from a nib.} (IBAction)click:(id)sender { CGAffineTransform moveTransforam = CGAffineTransformMakeTranslation(180, 200); [_viewLayer setAffineTransform:moveTransforam]; _viewLayer.opacity = 1; }&amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; 在显式动画中，不需要修</description>
+    </item>
+    
+    <item>
+      <title>ios开发环境</title>
+      <link>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Thu, 20 Aug 2015 00:14:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iOS BLE</title>
+      <link>https://www.51hint.com/posts/2015-07-30-ios-ble/</link>
+      <pubDate>Thu, 30 Jul 2015 02:48:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-30-ios-ble/</guid>
+      <description>Core Bluetooth
+http://southpeak.github.io/blog/2014/07/29/core-bluetoothkuang-jia-zhi-%5B%3F%5D-:centralyu-peripheral/
+ Arduino Tutorial: Integrating Bluetooth LE and iOS with Swift – Ray Wenderlich
+http://www.raywenderlich.com/85900/arduino-tutorial-integrating-bluetooth-le-ios-swift</description>
+    </item>
+    
+    <item>
+      <title>iOS push Notification</title>
+      <link>https://www.51hint.com/posts/2015-07-22-ios-push-notification/</link>
+      <pubDate>Wed, 22 Jul 2015 01:57:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-22-ios-push-notification/</guid>
+      <description>Apple Push Notification Services in iOS 6 Tutorial: Part 1/2 – Ray Wenderlich
+http://www.raywenderlich.com/32960/apple-push-notification-services-in-ios-6-tutorial-part-1
+ ApnsPHP
+https://github.com/immobiliare/ApnsPHP
+  Easy APNS
+http://www.easyapns.com/apple-delegate
+ download zipapns_php</description>
+    </item>
+    
+    <item>
+      <title>ios开发10大实用工具</title>
+      <link>https://www.51hint.com/posts/2015-07-18-ios%E5%BC%80%E5%8F%9110%E5%A4%A7%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Sat, 18 Jul 2015 11:01:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-18-ios%E5%BC%80%E5%8F%9110%E5%A4%A7%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xcode 推荐插件</title>
+      <link>https://www.51hint.com/posts/2015-07-03-xcode-%E6%8E%A8%E8%8D%90%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Fri, 03 Jul 2015 14:58:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-03-xcode-%E6%8E%A8%E8%8D%90%E6%8F%92%E4%BB%B6/</guid>
+      <description>Dash [Dash is an API Documentation Browser] https://kapeli.com/dash &amp;lt;p&amp;gt; &amp;amp;nbsp; &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; &amp;amp;nbsp; &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; &amp;amp;nbsp; &amp;lt;/p&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Underscore模板的使用</title>
+      <link>https://www.51hint.com/posts/2014-07-17-underscore%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 17 Jul 2014 06:13:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-17-underscore%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>取到的json数据，利用Underscore【js】模板来呈现数据；</description>
+    </item>
+    
+    <item>
+      <title>btooth</title>
+      <link>https://www.51hint.com/posts/2014-06-13-btooth/</link>
+      <pubDate>Fri, 13 Jun 2014 08:39:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-13-btooth/</guid>
+      <description>blog.csdn.net/jimoduwu/article/details/8917104 doruby.com/blog/2013/08/15/core-bluetooth-for-ios/ www.cnblogs.com/foxmin/archive/2012/03/14/2396462.html stackoverflow.com/questions/11652693/how-to-use-core-bluetooth-framework-get-data stackoverflow.com/questions/11540812/how-to-read-information-from-core-bluetooth-device www.raywenderlich.com/52080/introduction-core-bluetooth-building-heart-rate-monitor 图灵社区 : 阅读 : 从零开始使用JavaScript编写数据表格控件（一） www.ituring.com.cn/article/25068 cal js</description>
+    </item>
+    
+    <item>
+      <title>CoreBluetooth</title>
+      <link>https://www.51hint.com/posts/2014-06-13-corebluetooth/</link>
+      <pubDate>Fri, 13 Jun 2014 00:31:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-13-corebluetooth/</guid>
+      <description>蓝牙添加后台支持服务</description>
+    </item>
+    
+    <item>
+      <title>php 开发环境等</title>
+      <link>https://www.51hint.com/posts/2014-06-11-php-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AD%89/</link>
+      <pubDate>Wed, 11 Jun 2014 01:19:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-11-php-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AD%89/</guid>
+      <description>这个网站学习资料非常不错 http://www.phptherightway.com/ Vagrant会创建一些共享文件夹，用来给你在主机和虚拟机之间共享代码用。也就是说，你可以在主机上写好程序，然后在</description>
+    </item>
+    
+    <item>
+      <title>xampp phpmyadmin 乱码</title>
+      <link>https://www.51hint.com/posts/2014-06-09-xampp-phpmyadmin-%E4%B9%B1%E7%A0%81/</link>
+      <pubDate>Mon, 09 Jun 2014 03:27:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-09-xampp-phpmyadmin-%E4%B9%B1%E7%A0%81/</guid>
+      <description>修改 //xampp/mysql/bin/my.ini</description>
+    </item>
+    
+    <item>
+      <title>二进制和资源文件自检</title>
+      <link>https://www.51hint.com/posts/2014-02-23-%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%92%8C%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E8%87%AA%E6%A3%80/</link>
+      <pubDate>Sun, 23 Feb 2014 08:12:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-02-23-%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%92%8C%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E8%87%AA%E6%A3%80/</guid>
+      <description>我们把自己的程序发布到app store，但是不能保证每一个用户都是从app store下载官方app，也不能保证每一个用户都不越狱。 换句话说，</description>
+    </item>
+    
+    <item>
+      <title>ios自定义键盘</title>
+      <link>https://www.51hint.com/posts/2014-02-23-ios%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%AE%E7%9B%98/</link>
+      <pubDate>Sun, 23 Feb 2014 08:05:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-02-23-ios%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%AE%E7%9B%98/</guid>
+      <description>盘缓存与安全键盘 ** ** 大部分中文应用弹出的默认键盘是简体中文输入法键盘，在输入用户名和密码的时候，如果使用简体中文输入法键盘，输入英文字符和数</description>
+    </item>
+    
+    <item>
+      <title>阻止GDB依附</title>
+      <link>https://www.51hint.com/posts/2014-02-23-%E9%98%BB%E6%AD%A2gdb%E4%BE%9D%E9%99%84/</link>
+      <pubDate>Sun, 23 Feb 2014 07:41:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-02-23-%E9%98%BB%E6%AD%A2gdb%E4%BE%9D%E9%99%84/</guid>
+      <description>GDB是大多数hackers的首选，阻止GDB依附到应用的常规办法是： 但遗憾的是，iPhone真实的运行环境是没有sys/ptrace.h抛</description>
+    </item>
+    
+    <item>
+      <title>iOS APP网络分析之rvictl（可以捕捉除了Wifi以外的网络类型）</title>
+      <link>https://www.51hint.com/posts/2014-01-24-ios-app%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%E4%B9%8Brvictl%E5%8F%AF%E4%BB%A5%E6%8D%95%E6%8D%89%E9%99%A4%E4%BA%86wifi%E4%BB%A5%E5%A4%96%E7%9A%84%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Fri, 24 Jan 2014 01:56:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-24-ios-app%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%E4%B9%8Brvictl%E5%8F%AF%E4%BB%A5%E6%8D%95%E6%8D%89%E9%99%A4%E4%BA%86wifi%E4%BB%A5%E5%A4%96%E7%9A%84%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B/</guid>
+      <description>iOS应用（包括移动应用）的网络分析，一般采用将移动设备上的流量导入到PC机上，利用PC上成熟的数据包分析工具例如wireshark等来进行</description>
+    </item>
+    
+    <item>
+      <title>iOS开发工具——网络封包分析工具Charles,抓包</title>
+      <link>https://www.51hint.com/posts/2013-12-25-ios%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-%E7%BD%91%E7%BB%9C%E5%B0%81%E5%8C%85%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7charles/</link>
+      <pubDate>Wed, 25 Dec 2013 01:37:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-12-25-ios%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-%E7%BD%91%E7%BB%9C%E5%B0%81%E5%8C%85%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7charles/</guid>
+      <description>简介 Charles是在Mac下常用的截取网络封包的工具，在做iOS开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。</description>
+    </item>
+    
+    <item>
+      <title>ios-arc不错的文章</title>
+      <link>https://www.51hint.com/posts/2013-11-08-ios-arc%E4%B8%8D%E9%94%99%E7%9A%84%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Fri, 08 Nov 2013 04:47:35 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-08-ios-arc%E4%B8%8D%E9%94%99%E7%9A%84%E6%96%87%E7%AB%A0/</guid>
+      <description>手把手教你ARC——iOS/Mac开发ARC入门和使用 http://onevcat.com/2012/06/arc-hand-by-hand/ iPhone开发之深入浅出 (7) — ARC总结 http://www.yifeiyang.net/development-of-the-iphone-simply-7/ 两篇总结的非常好，可以好好品味下，呵呵</description>
+    </item>
+    
+    <item>
+      <title>ios7 新增功能</title>
+      <link>https://www.51hint.com/posts/2013-11-07-ios7-%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Thu, 07 Nov 2013 04:59:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-07-ios7-%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD/</guid>
+      <description>动态UIKit 新增了UIDynamicItem委托，用来为UIView制定动态行为，当然其他任何对象都能通过实现这组接口来定义动态行为，只不</description>
+    </item>
+    
+    <item>
+      <title>从storyboard生成本地化字符串</title>
+      <link>https://www.51hint.com/posts/2013-11-06-%E4%BB%8Estoryboard%E7%94%9F%E6%88%90%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Wed, 06 Nov 2013 06:31:09 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-06-%E4%BB%8Estoryboard%E7%94%9F%E6%88%90%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>从NewStuff.strings 拷贝 字符串到 Main.strings(English), Main.strings(Chinese Simplified)等。</description>
+    </item>
+    
+    <item>
+      <title>对于CallBack的简单阐述</title>
+      <link>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</link>
+      <pubDate>Wed, 30 Oct 2013 06:00:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</guid>
+      <description>一哥们被callback整得晕晕乎乎，解释了半天好像还是不太懂就整理一个微型例子。 逻辑页面处理，调用接口的方法 //一些调用UI页面啥之类的，</description>
+    </item>
+    
+    <item>
+      <title>手把手教你ARC——iOS/Mac开发ARC入门和使用</title>
+      <link>https://www.51hint.com/posts/2013-10-24-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0arc-iosmac%E5%BC%80%E5%8F%91arc%E5%85%A5%E9%97%A8%E5%92%8C%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 24 Oct 2013 00:13:14 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-24-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0arc-iosmac%E5%BC%80%E5%8F%91arc%E5%85%A5%E9%97%A8%E5%92%8C%E4%BD%BF%E7%94%A8/</guid>
+      <description>本文适合人群：对iOS开发有一定基础，熟悉iOS开发中内存管理的Reference Counting机制，对ARC机制有听闻很向往但是一直由于</description>
+    </item>
+    
+    <item>
+      <title>eclipse &#43; maven</title>
+      <link>https://www.51hint.com/posts/2013-10-03-eclipse-maven/</link>
+      <pubDate>Thu, 03 Oct 2013 07:20:56 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-03-eclipse-maven/</guid>
+      <description>http://www.micmiu.com/software/build/eclipse-maven-web-lib/ http://wenku.baidu.com/view/c2a452bcc77da26925c5b063 空了整理出来一个pdf文件来</description>
+    </item>
+    
+    <item>
+      <title>パソコンチェア　椅子 いす ダイニングチェア オフィスチェア　机　ホワイト 白家具 白い家具 カントリー</title>
+      <link>https://www.51hint.com/posts/2013-10-03-%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3%E3%83%81%E3%82%A7%E3%82%A2-%E6%A4%85%E5%AD%90-%E3%81%84%E3%81%99-%E3%83%80%E3%82%A4%E3%83%8B%E3%83%B3%E3%82%B0%E3%83%81%E3%82%A7%E3%82%A2-%E3%82%AA/</link>
+      <pubDate>Thu, 03 Oct 2013 03:58:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-03-%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3%E3%83%81%E3%82%A7%E3%82%A2-%E6%A4%85%E5%AD%90-%E3%81%84%E3%81%99-%E3%83%80%E3%82%A4%E3%83%8B%E3%83%B3%E3%82%B0%E3%83%81%E3%82%A7%E3%82%A2-%E3%82%AA/</guid>
+      <description>http://store.shopping.yahoo.co.jp/crescent/temignon-c.html 価格：11,130円（税込） 特別価格：6,280円（税込）</description>
+    </item>
+    
+    <item>
+      <title>some thing about .mobileconfig file</title>
+      <link>https://www.51hint.com/posts/2013-08-15-some-thing-about-mobileconfig-file/</link>
+      <pubDate>Wed, 14 Aug 2013 15:07:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-08-15-some-thing-about-mobileconfig-file/</guid>
+      <description>Getting a device UDID from .mobileconfig http://stackoverflow.com/questions/5781314/getting-a-device-udid-from-mobileconfig
+  I cannot get the informations of response from iPhone device in Phase2 https://discussions.apple.com/thread/3089948?start=0&amp;amp;tstart=0
+  Over-the-air IPhone Setup Using a Signed .mobileconfig File http://www.rootmanager.com/iphone-ota-configuration/iphone-ota-setup-with-signed-mobileconfig.html
+  http://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/iPhoneOTAConfiguration.pdf</description>
+    </item>
+    
+    <item>
+      <title>test banner</title>
+      <link>https://www.51hint.com/posts/2013-07-08-test-banner/</link>
+      <pubDate>Mon, 08 Jul 2013 08:26:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-07-08-test-banner/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Object-C与标准C/C&#43;&#43;混合编程</title>
+      <link>https://www.51hint.com/posts/2013-03-01-object-c%E4%B8%8E%E6%A0%87%E5%87%86cc%E6%B7%B7%E5%90%88%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Fri, 01 Mar 2013 07:46:26 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-03-01-object-c%E4%B8%8E%E6%A0%87%E5%87%86cc%E6%B7%B7%E5%90%88%E7%BC%96%E7%A8%8B/</guid>
+      <description>objective-C/C++开发语言了。除了Cocoa相关框架和库之外，像Boost、STL以及标准ANSI C运行时库均可使用 方式: using namespace std;</description>
+    </item>
+    
+    <item>
+      <title>git_3 [octopress; 博客系统]</title>
+      <link>https://www.51hint.com/posts/2012-12-15-git_3-octopress-%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Sat, 15 Dec 2012 07:09:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-15-git_3-octopress-%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</guid>
+      <description>查看系统版本 #lsb_release -a 安装git #sudo apt-get update; sudo apt-get install git #git clone https://github.com/imathis/octopress.git instlal RVM with ruby #curl -L https://get.rvm.io | bash -s stable –ruby #source xxxxx # cd octopress/ install gem # cat Gemfile # gem install bundler # bundle install begin # vim Rakefile # rake install # rake preview # ls public deploy</description>
+    </item>
+    
+    <item>
+      <title>ios上make webapp</title>
+      <link>https://www.51hint.com/posts/2012-12-12-ios%E4%B8%8Amake-webapp/</link>
+      <pubDate>Wed, 12 Dec 2012 09:10:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-12-ios%E4%B8%8Amake-webapp/</guid>
+      <description>用jQM、HTML5和iOS SDK构建MusicBrainz应用程序 人们对能够提供杂志排版功能的工具的需求同样很大。一些大受欢迎的工具包括F</description>
+    </item>
+    
+    <item>
+      <title>xcode4的环境变量，Build Settings参数，workspace及联编设置</title>
+      <link>https://www.51hint.com/posts/2012-12-10-xcode4%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8Fbuild-settings%E5%8F%82%E6%95%B0workspace%E5%8F%8A%E8%81%94%E7%BC%96%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Mon, 10 Dec 2012 11:01:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-10-xcode4%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8Fbuild-settings%E5%8F%82%E6%95%B0workspace%E5%8F%8A%E8%81%94%E7%BC%96%E8%AE%BE%E7%BD%AE/</guid>
+      <description>一、xcode4中的环境变量 build成功后的，最终产品路径－－可以在Build Settings参数的Per-configuration Build Products</description>
+    </item>
+    
+    <item>
+      <title>cocos2d-x 一些编辑器</title>
+      <link>https://www.51hint.com/posts/2012-11-05-cocos2d-x-%E4%B8%80%E4%BA%9B%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+      <pubDate>Mon, 05 Nov 2012 05:12:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-05-cocos2d-x-%E4%B8%80%E4%BA%9B%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
+      <description>Action Editor SpriteHelper &amp;amp; LevelHelper Author’s blog Download from Mac Store SpriteHelperFree SpriteHelper LevelHelper “Video” Youtube: http://www.youtube.com/watch?v=YoVMSuwsATk Youku: http://v.youku.com/v_show/id_XMjU2NjU1OTIw.html News on cocos2d-x: http://www.cocos2d-x.org/news/14 CocosBuilder: http://cocosbuilder.com/ (can only be used in ios games) SceneDesigner: https://github.com/andrew0/SceneDesigner CocoShop: http://www.cocos2d-iphone.org/forum/topic/15668 (can only be used in ios games) – Abandoned project Map Editor Tiled Map Editor , free, cross platform, based on</description>
+    </item>
+    
+    <item>
+      <title>XCode 4: create both .h and .cpp when adding a new file</title>
+      <link>https://www.51hint.com/posts/2012-11-02-xcode-4-create-both-h-and-cpp-when-adding-a-new-file/</link>
+      <pubDate>Fri, 02 Nov 2012 01:27:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-02-xcode-4-create-both-h-and-cpp-when-adding-a-new-file/</guid>
+      <description>This might be what we can call a regression from Apple. Surprisingly, XCode4 doesn’t create both .cpp and .h files at the same time when adding a new C++ file, unlike XCode3. Fixing this happens inside /Developer/Library/Xcode/Templates/File Templates/C and C++ folder, so:
+&amp;lt;table border=&amp;quot;0&amp;quot; cellspacing=&amp;quot;0&amp;quot; cellpadding=&amp;quot;0&amp;quot;&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; 1 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 2 &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;cd&amp;lt;/code&amp;gt; &amp;lt;code&amp;gt;/Developer/Library/Xcode/Templates/File&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;\ Templates&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;/C&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;\ and\ C++&amp;lt;/code&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;cp&amp;lt;/code&amp;gt; &amp;lt;code&amp;gt;Header\ File.xctemplate&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;/___FILEBASENAME___&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;.h C++\ File.xctemplate/&amp;lt;/code&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/table&amp;gt;  Now to make the .</description>
+    </item>
+    
+    <item>
+      <title>NSTimer、 NSTask、 NSThread 和 NSRunloop 之间的区别</title>
+      <link>https://www.51hint.com/posts/2012-09-06-nstimer-nstask-nsthread-%E5%92%8C-nsrunloop-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Thu, 06 Sep 2012 02:50:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-09-06-nstimer-nstask-nsthread-%E5%92%8C-nsrunloop-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>NSTimer、 NSTask、 NSThread 和 NSRunloop 之间的区别： /*****************************/ NSTimer是一个计时器对象，方法调用在对未来的选择对象。 NSTask类是一个过程，一种</description>
+    </item>
+    
+    <item>
+      <title>ios开发用类库</title>
+      <link>https://www.51hint.com/posts/2012-08-29-ios%E5%BC%80%E5%8F%91%E7%94%A8%E7%B1%BB%E5%BA%93/</link>
+      <pubDate>Wed, 29 Aug 2012 11:06:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-29-ios%E5%BC%80%E5%8F%91%E7%94%A8%E7%B1%BB%E5%BA%93/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>推荐给iOS设计师的工具和资源</title>
+      <link>https://www.51hint.com/posts/2012-08-28-%E6%8E%A8%E8%8D%90%E7%BB%99ios%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E8%B5%84%E6%BA%90/</link>
+      <pubDate>Tue, 28 Aug 2012 03:03:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-28-%E6%8E%A8%E8%8D%90%E7%BB%99ios%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E8%B5%84%E6%BA%90/</guid>
+      <description>IOS 设计界面及其图标等资源网站 http://www.csdn.net/article/2012-03-12/313010/4</description>
+    </item>
+    
+    <item>
+      <title>ios逆向杂文</title>
+      <link>https://www.51hint.com/posts/2012-08-25-ios%E9%80%86%E5%90%91%E6%9D%82%E6%96%87/</link>
+      <pubDate>Sat, 25 Aug 2012 10:05:44 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-25-ios%E9%80%86%E5%90%91%E6%9D%82%E6%96%87/</guid>
+      <description>Mobile Installation 是 iOS 中负责安装 IPA 的 Framework，，通过 IDA 分析 /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/PrivateFrameworks/MobileInstallation.framework/MobileInstallation 可知它导出了以下 API： Name Address Ordinal —- ——- ——- _MobileInstallationArchive 00000F80 _MobileInstallationBrowse 00000FE0 _MobileInstallationCheckCapabilitiesMatch 00000BE0 _MobileInstallationCopySafeHarbors 00000CA4 _MobileInstallationInstall 00001144 _MobileInstallationLookup 00001034 _MobileInstallationLookupArchives 00000E70 _MobileInstallationProcessRestoredContainer 00000E10 _MobileInstallationRegisterSafeHarbor 00000D58 _MobileInstallationRemoveArchive</description>
+    </item>
+    
+    <item>
+      <title>AVCaptureSession获取摄像流</title>
+      <link>https://www.51hint.com/posts/2012-08-23-avcapturesession%E8%8E%B7%E5%8F%96%E6%91%84%E5%83%8F%E6%B5%81/</link>
+      <pubDate>Thu, 23 Aug 2012 08:43:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-23-avcapturesession%E8%8E%B7%E5%8F%96%E6%91%84%E5%83%8F%E6%B5%81/</guid>
+      <description>第一步：初始化AVCaptureSession，添加输入，输出源 第二步：实现AVCaptureVideoDataOutputSampleBu</description>
+    </item>
+    
+    <item>
+      <title>获取ios系统中已安装程序(MobileInstallation方式)</title>
+      <link>https://www.51hint.com/posts/2012-08-23-%E8%8E%B7%E5%8F%96ios%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%B7%B2%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8Fmobileinstallation%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Thu, 23 Aug 2012 04:24:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-23-%E8%8E%B7%E5%8F%96ios%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%B7%B2%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8Fmobileinstallation%E6%96%B9%E5%BC%8F/</guid>
+      <description>获取ios系统中已安装程序</description>
+    </item>
+    
+    <item>
+      <title>strong，retain，weak，assign自匹配宏</title>
+      <link>https://www.51hint.com/posts/2012-08-23-strongretainweakassign%E8%87%AA%E5%8C%B9%E9%85%8D%E5%AE%8F/</link>
+      <pubDate>Thu, 23 Aug 2012 04:16:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-23-strongretainweakassign%E8%87%AA%E5%8C%B9%E9%85%8D%E5%AE%8F/</guid>
+      <description>有时我们写个代码开源出来给别人用时，会被其他开发者抱怨编译不了，很多情况是版本的问题，尤其现在ARC的出现后关于weak，strong的问题</description>
+    </item>
+    
+    <item>
+      <title>LLVM 4.0 Xcode 4.4 带来的新语法</title>
+      <link>https://www.51hint.com/posts/2012-08-23-llvm-4-0-xcode-4-4-%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%96%B0%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Thu, 23 Aug 2012 04:14:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-23-llvm-4-0-xcode-4-4-%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%96%B0%E8%AF%AD%E6%B3%95/</guid>
+      <description>NSArray LiteralsPreviously: *NSDictionary LiteralsPreviously: *NSNumber LiteralsPreviously: *more interesting new literals (or rather new uses of literals):</description>
+    </item>
+    
+    <item>
+      <title>ipa 提取工具</title>
+      <link>https://www.51hint.com/posts/2012-08-23-ipa-%E6%8F%90%E5%8F%96%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Thu, 23 Aug 2012 03:56:08 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-23-ipa-%E6%8F%90%E5%8F%96%E5%B7%A5%E5%85%B7/</guid>
+      <description>从下载的ipa文件中，提取资源。 点击下载 Extract 本站也提供另一种python方法[ 从ipa提取png图片]2 [ ]1</description>
+    </item>
+    
+    <item>
+      <title>右拉刷新(EGORefreshPlus)–EGORefresh库的扩展</title>
+      <link>https://www.51hint.com/posts/2012-08-23-%E5%8F%B3%E6%8B%89%E5%88%B7%E6%96%B0egorefreshplus-egorefresh%E5%BA%93%E7%9A%84%E6%89%A9%E5%B1%95/</link>
+      <pubDate>Thu, 23 Aug 2012 03:53:14 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-23-%E5%8F%B3%E6%8B%89%E5%88%B7%E6%96%B0egorefreshplus-egorefresh%E5%BA%93%E7%9A%84%E6%89%A9%E5%B1%95/</guid>
+      <description>最近看到有些软件有有拉刷新的功能，刚好今晚闲来无事自己就研究研究，改了改之前用到的EGORefresh库，实现了右拉刷新。 具体支持： 1.下拉</description>
+    </item>
+    
+    <item>
+      <title>ios如何判断当前网络的运营商</title>
+      <link>https://www.51hint.com/posts/2012-08-23-ios%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E7%BD%91%E7%BB%9C%E7%9A%84%E8%BF%90%E8%90%A5%E5%95%86/</link>
+      <pubDate>Thu, 23 Aug 2012 03:48:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-23-ios%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E7%BD%91%E7%BB%9C%E7%9A%84%E8%BF%90%E8%90%A5%E5%95%86/</guid>
+      <description>Mobile Network Code http://en.wikipedia.org/wiki/Mobile_Network_Code#C 参考‘http://www.iloss.me/2012/07/21/ios%E5%A6%82%E4%BD%95%E5%88%A4%E</description>
+    </item>
+    
+    <item>
+      <title>socket</title>
+      <link>https://www.51hint.com/posts/2012-08-23-socket/</link>
+      <pubDate>Wed, 22 Aug 2012 23:11:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-23-socket/</guid>
+      <description>htonl() &amp;lt;p&amp;gt; 简述：&amp;lt;br /&amp;gt; 将主机的无符号短整形数转换成网络字节顺序。&amp;lt;br /&amp;gt; #include &amp;lt;winsock.h&amp;gt;&amp;lt;br /&amp;gt; u_short PASCAL FAR htons( u_short hostshort);&amp;lt;br /&amp;gt; hostshort：主机字节顺序表达的1</description>
+    </item>
+    
+    <item>
+      <title>phonefactor 电话二次认证</title>
+      <link>https://www.51hint.com/posts/2012-08-22-phonefactor-%E7%94%B5%E8%AF%9D%E4%BA%8C%E6%AC%A1%E8%AE%A4%E8%AF%81/</link>
+      <pubDate>Wed, 22 Aug 2012 13:52:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-22-phonefactor-%E7%94%B5%E8%AF%9D%E4%BA%8C%E6%AC%A1%E8%AE%A4%E8%AF%81/</guid>
+      <description>http://www.cybernet.co.jp/phonefactor/service/</description>
+    </item>
+    
+    <item>
+      <title>iOS下微信语音播放之切换听筒和扬声器的方法解决方案</title>
+      <link>https://www.51hint.com/posts/2012-08-22-ios%E4%B8%8B%E5%BE%AE%E4%BF%A1%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%94%BE%E4%B9%8B%E5%88%87%E6%8D%A2%E5%90%AC%E7%AD%92%E5%92%8C%E6%89%AC%E5%A3%B0%E5%99%A8%E7%9A%84%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Wed, 22 Aug 2012 13:38:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-22-ios%E4%B8%8B%E5%BE%AE%E4%BF%A1%E8%AF%AD%E9%9F%B3%E6%92%AD%E6%94%BE%E4%B9%8B%E5%88%87%E6%8D%A2%E5%90%AC%E7%AD%92%E5%92%8C%E6%89%AC%E5%A3%B0%E5%99%A8%E7%9A%84%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iphone 上编译curl 库</title>
+      <link>https://www.51hint.com/posts/2012-08-15-iphone-%E4%B8%8A%E7%BC%96%E8%AF%91curl-%E5%BA%93/</link>
+      <pubDate>Wed, 15 Aug 2012 02:16:36 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-15-iphone-%E4%B8%8A%E7%BC%96%E8%AF%91curl-%E5%BA%93/</guid>
+      <description>其中–host代表平台，例子为iOS模拟器，如果是device真机把i386-apple-darwin改为arm-apple-darwin。</description>
+    </item>
+    
+    <item>
+      <title>awakeFromNib 和ViewDidLoad initWithCoder</title>
+      <link>https://www.51hint.com/posts/2012-08-09-awakefromnib-%E5%92%8Cviewdidload-initwithcoder/</link>
+      <pubDate>Thu, 09 Aug 2012 08:33:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-awakefromnib-%E5%92%8Cviewdidload-initwithcoder/</guid>
+      <description>awakeFromNib 当.nib文件被加载的时候，会发送一个awakeFromNib的消息到.nib文件中的每个对象，每个对象都可以定义自己的awakeFrom</description>
+    </item>
+    
+    <item>
+      <title>Nib/Xib文件的产生，编译和运行本质</title>
+      <link>https://www.51hint.com/posts/2012-08-09-nibxib%E6%96%87%E4%BB%B6%E7%9A%84%E4%BA%A7%E7%94%9F%E7%BC%96%E8%AF%91%E5%92%8C%E8%BF%90%E8%A1%8C%E6%9C%AC%E8%B4%A8/</link>
+      <pubDate>Thu, 09 Aug 2012 08:31:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-nibxib%E6%96%87%E4%BB%B6%E7%9A%84%E4%BA%A7%E7%94%9F%E7%BC%96%E8%AF%91%E5%92%8C%E8%BF%90%E8%A1%8C%E6%9C%AC%E8%B4%A8/</guid>
+      <description>转自：http://www.cocoachina.com/bbs/read.php?tid-18161-page-1.html 虽然大家经常使</description>
+    </item>
+    
+    <item>
+      <title>TouchXML</title>
+      <link>https://www.51hint.com/posts/2012-08-09-touchxml/</link>
+      <pubDate>Thu, 09 Aug 2012 08:23:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-touchxml/</guid>
+      <description>准备工作： 去http://code.google.com/p/touchcode/downloads/list下载最新的TouchXML代码</description>
+    </item>
+    
+    <item>
+      <title>更加灵活的“ performSelector”</title>
+      <link>https://www.51hint.com/posts/2012-08-09-%E6%9B%B4%E5%8A%A0%E7%81%B5%E6%B4%BB%E7%9A%84-performselector/</link>
+      <pubDate>Thu, 09 Aug 2012 08:22:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-%E6%9B%B4%E5%8A%A0%E7%81%B5%E6%B4%BB%E7%9A%84-performselector/</guid>
+      <description>I want to invoke a selector of a method that has the usual NSError** argument: -(int) getItemsSince:(NSDate *)when dataSelector:(SEL)getDataSelector error:(NSError**)outError { NSArray *data = nil; if([service respondsToSelector:getDataSelector]) { data = [service performSelector:getDataSelector withObject:when withObject:outError]; // etc. … which the compiler doesn’t like: warning: passing argument 3 of ‘performSelector:</description>
+    </item>
+    
+    <item>
+      <title>发送消息 performSelector</title>
+      <link>https://www.51hint.com/posts/2012-08-09-%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF-performselector/</link>
+      <pubDate>Thu, 09 Aug 2012 08:20:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF-performselector/</guid>
+      <description>发送消息与函数调用的不同 Objective-C的消息传送如下图所示 : Objective-C的消息传送 发送消息的过程，可以总结为以下内容 : 首先</description>
+    </item>
+    
+    <item>
+      <title>NSNotificationCenter 的使用</title>
+      <link>https://www.51hint.com/posts/2012-08-09-nsnotificationcenter-%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 09 Aug 2012 08:18:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-nsnotificationcenter-%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>定义一个方法 -(void) update{ } 对象注册，并关连消息 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:@”update” object:nil] 在要发出通知消息的地方 [[NSNotificationCenter defaultCenter] postNotificationNam</description>
+    </item>
+    
+    <item>
+      <title>iphone多线程的使用</title>
+      <link>https://www.51hint.com/posts/2012-08-09-iphone%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 09 Aug 2012 08:17:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-iphone%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>多线程之NSInvocationOperation 多线程编程是防止主线程堵塞，增加运行效率等等的最佳方法。 而原始的多线程方法存在很多的毛病，</description>
+    </item>
+    
+    <item>
+      <title>创建含有category的静态库,selector not recognized的解决方案</title>
+      <link>https://www.51hint.com/posts/2012-07-19-%E5%88%9B%E5%BB%BA%E5%90%AB%E6%9C%89category%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93selector-not-recognized%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Thu, 19 Jul 2012 05:46:09 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-19-%E5%88%9B%E5%BB%BA%E5%90%AB%E6%9C%89category%E7%9A%84%E9%9D%99%E6%80%81%E5%BA%93selector-not-recognized%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>一、异常的原因 在连接一个含有category的静态库的时候，往往会得到一个运行时exception “selector not recognized”</description>
+    </item>
+    
+    <item>
+      <title>如何在静态库中使用XIB等资源</title>
+      <link>https://www.51hint.com/posts/2012-07-19-%E5%A6%82%E4%BD%95%E5%9C%A8%E9%9D%99%E6%80%81%E5%BA%93%E4%B8%AD%E4%BD%BF%E7%94%A8xib%E7%AD%89%E8%B5%84%E6%BA%90/</link>
+      <pubDate>Thu, 19 Jul 2012 04:45:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-19-%E5%A6%82%E4%BD%95%E5%9C%A8%E9%9D%99%E6%80%81%E5%BA%93%E4%B8%AD%E4%BD%BF%E7%94%A8xib%E7%AD%89%E8%B5%84%E6%BA%90/</guid>
+      <description>新建bundler ，然后从静态库访问此bundler iOS Library With Resources http://iphone.galloway.me.uk/iphone-sdktutorials/ios-library-with-resources/ http://blog.csdn.net/startexcel/article/details/7393342 Download sample project.</description>
+    </item>
+    
+    <item>
+      <title>ios 图片特效</title>
+      <link>https://www.51hint.com/posts/2012-07-18-ios-%E5%9B%BE%E7%89%87%E7%89%B9%E6%95%88/</link>
+      <pubDate>Wed, 18 Jul 2012 08:53:56 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-18-ios-%E5%9B%BE%E7%89%87%E7%89%B9%E6%95%88/</guid>
+      <description>１．图像的逆反处理算法 逆反处理的算法如下： 设r，g，b分别为源图像像素f（i，j）的红，绿，蓝分量值，rr，gg，bb分别为处理后像素g（i</description>
+    </item>
+    
+    <item>
+      <title>在后台有音乐播放的情况下用AVAudioRecorder进行录音问题的解决</title>
+      <link>https://www.51hint.com/posts/2012-07-11-%E5%9C%A8%E5%90%8E%E5%8F%B0%E6%9C%89%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%94%A8avaudiorecorder%E8%BF%9B%E8%A1%8C%E5%BD%95%E9%9F%B3%E9%97%AE%E9%A2%98%E7%9A%84/</link>
+      <pubDate>Wed, 11 Jul 2012 08:27:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-11-%E5%9C%A8%E5%90%8E%E5%8F%B0%E6%9C%89%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%94%A8avaudiorecorder%E8%BF%9B%E8%A1%8C%E5%BD%95%E9%9F%B3%E9%97%AE%E9%A2%98%E7%9A%84/</guid>
+      <description>这些天一直在纠结这个问题：在后台有音乐播放时，我用AVAudioRecorder进行录音，后台音乐被无情的停止了，直到最近才解决！解决方法如</description>
+    </item>
+    
+    <item>
+      <title>uiwebview</title>
+      <link>https://www.51hint.com/posts/2012-07-04-uiwebview/</link>
+      <pubDate>Wed, 04 Jul 2012 10:09:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-04-uiwebview/</guid>
+      <description>uiwebview 和objc互相调用 UIWebView01 UIWebView02 callfromjavascript</description>
+    </item>
+    
+    <item>
+      <title>pdf view</title>
+      <link>https://www.51hint.com/posts/2012-07-04-pdf-view/</link>
+      <pubDate>Wed, 04 Jul 2012 10:05:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-04-pdf-view/</guid>
+      <description>PDFビューワの作り方 (4) – テキストの抽出 http://news.mynavi.jp/column/iphone/036/index.html iPadで動く電子書籍アプリを作ってみる(2) http://lab.klab.org/young/2010/11/ipad%E3%81%A7%E5%8B%95%E3%81%8F%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B2/</description>
+    </item>
+    
+    <item>
+      <title>TestFlight——完美的iOS app测试方案</title>
+      <link>https://www.51hint.com/posts/2012-07-04-testflight-%E5%AE%8C%E7%BE%8E%E7%9A%84ios-app%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Wed, 04 Jul 2012 09:03:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-04-testflight-%E5%AE%8C%E7%BE%8E%E7%9A%84ios-app%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88/</guid>
+      <description>TestFlight——完美的iOS app测试方案 http://www.onevcat.com/2012/01/testflight/ https://testflightapp.com/</description>
+    </item>
+    
+    <item>
+      <title>像google一样加一个两步密码验证</title>
+      <link>https://www.51hint.com/posts/2012-07-02-%E5%83%8Fgoogle%E4%B8%80%E6%A0%B7%E5%8A%A0%E4%B8%80%E4%B8%AA%E4%B8%A4%E6%AD%A5%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81/</link>
+      <pubDate>Mon, 02 Jul 2012 05:47:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-02-%E5%83%8Fgoogle%E4%B8%80%E6%A0%B7%E5%8A%A0%E4%B8%80%E4%B8%AA%E4%B8%A4%E6%AD%A5%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81/</guid>
+      <description>&amp;lt;p&amp;gt; &amp;lt;a title=&amp;quot;google 两步验证&amp;quot; href=&amp;quot;http://support.google.com/accounts/bin/topic.py?hl=zh-Hans&amp;amp;topic=28786&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;google的两步密码验证&amp;lt;/a&amp;gt;出来已经</description>
+    </item>
+    
+    <item>
+      <title>APP STORE安装程序失败，一直处在“等待中”，无法删除</title>
+      <link>https://www.51hint.com/posts/2012-06-28-app-store%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E5%A4%B1%E8%B4%A5%E4%B8%80%E7%9B%B4%E5%A4%84%E5%9C%A8%E7%AD%89%E5%BE%85%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4/</link>
+      <pubDate>Thu, 28 Jun 2012 06:12:27 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-28-app-store%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E5%A4%B1%E8%B4%A5%E4%B8%80%E7%9B%B4%E5%A4%84%E5%9C%A8%E7%AD%89%E5%BE%85%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4/</guid>
+      <description>找到文件目录下（用ifile等查看文件的工具）找到var/mobile/Media/Downloads/下manifest.plist打开修</description>
+    </item>
+    
+    <item>
+      <title>lotus 安装等</title>
+      <link>https://www.51hint.com/posts/2012-06-21-lotus-%E5%AE%89%E8%A3%85%E7%AD%89/</link>
+      <pubDate>Thu, 21 Jun 2012 06:48:23 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-21-lotus-%E5%AE%89%E8%A3%85%E7%AD%89/</guid>
+      <description>Lotus Domino 8.5安装专题视频教程合集 http://g.lotusoa.com/thread-798-1-1.html 如何注册批量notes用户的视频教程 http://bbs.lotusoa.com/thread-531-1-1.html ///////////////////////////////////////////////////////////////// Domino_Web_Access_配置 Domino8安装与配置手册</description>
+    </item>
+    
+    <item>
+      <title>ios-长按实现图标抖动和删除的代码例子</title>
+      <link>https://www.51hint.com/posts/2012-06-21-ios-%E9%95%BF%E6%8C%89%E5%AE%9E%E7%8E%B0%E5%9B%BE%E6%A0%87%E6%8A%96%E5%8A%A8%E5%92%8C%E5%88%A0%E9%99%A4%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BE%8B%E5%AD%90/</link>
+      <pubDate>Thu, 21 Jun 2012 06:37:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-21-ios-%E9%95%BF%E6%8C%89%E5%AE%9E%E7%8E%B0%E5%9B%BE%E6%A0%87%E6%8A%96%E5%8A%A8%E5%92%8C%E5%88%A0%E9%99%A4%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BE%8B%E5%AD%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>六大实用的移动开发辅助工具</title>
+      <link>https://www.51hint.com/posts/2012-06-21-%E5%85%AD%E5%A4%A7%E5%AE%9E%E7%94%A8%E7%9A%84%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Thu, 21 Jun 2012 06:34:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-21-%E5%85%AD%E5%A4%A7%E5%AE%9E%E7%94%A8%E7%9A%84%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7/</guid>
+      <description>Easy APNS – 基于PHP&amp;amp;MySQL的苹果推送网络服务 假如你是一个iPhone开发人员，可能听过Apple Push Notification service (APNs)。Easy APN</description>
+    </item>
+    
+    <item>
+      <title>ASIHttpRequest所需要的FrameWork</title>
+      <link>https://www.51hint.com/posts/2012-06-06-asihttprequest%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84framework/</link>
+      <pubDate>Wed, 06 Jun 2012 05:53:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-06-asihttprequest%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84framework/</guid>
+      <description>每次在工程中添加ASIHttpRequest都记不住要加哪些库 libz.dylib SystemConfiguration.framework CFNetwork.framework MobileCoreServices.framework 添加之后，项目可以编译通过。</description>
+    </item>
+    
+    <item>
+      <title>ipad safari 查看源代码</title>
+      <link>https://www.51hint.com/posts/2012-06-06-ipad-safari-%E6%9F%A5%E7%9C%8B%E6%BA%90%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Wed, 06 Jun 2012 02:25:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-06-ipad-safari-%E6%9F%A5%E7%9C%8B%E6%BA%90%E4%BB%A3%E7%A0%81/</guid>
+      <description>1.收藏任何页面，命名为“查看源代码” 替换书签url为javascript:var%20sourceWindow%20%3D%20windo</description>
+    </item>
+    
+    <item>
+      <title>Android横屏竖屏切换</title>
+      <link>https://www.51hint.com/posts/2012-06-04-android%E6%A8%AA%E5%B1%8F%E7%AB%96%E5%B1%8F%E5%88%87%E6%8D%A2/</link>
+      <pubDate>Mon, 04 Jun 2012 06:26:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-04-android%E6%A8%AA%E5%B1%8F%E7%AB%96%E5%B1%8F%E5%88%87%E6%8D%A2/</guid>
+      <description>要让程序界面保持一个方向，不随手机方向转动而变化的处理办法： 在AndroidManifest.xml里面配置一下就可以了。加入这一行andr</description>
+    </item>
+    
+    <item>
+      <title>用自定义协议调用自己的程序  url scheme</title>
+      <link>https://www.51hint.com/posts/2012-05-29-%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8D%8F%E8%AE%AE%E8%B0%83%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A8%8B%E5%BA%8F-url-scheme/</link>
+      <pubDate>Tue, 29 May 2012 08:36:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-29-%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8D%8F%E8%AE%AE%E8%B0%83%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A8%8B%E5%BA%8F-url-scheme/</guid>
+      <description>custom url scheme http://xujiwei.com/blog/ios-app-custom-url-scheme-design/ apple url scheme http://wiki.akosma.com/IPhone_URL_Schemes#iTunes 用自定义协议调用自己的程序 http://blog.csdn.net/kmyhy/article/details/6702244</description>
+    </item>
+    
+    <item>
+      <title>XCode下的iOS单元测试</title>
+      <link>https://www.51hint.com/posts/2012-05-18-xcode%E4%B8%8B%E7%9A%84ios%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Fri, 18 May 2012 08:30:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-xcode%E4%B8%8B%E7%9A%84ios%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</guid>
+      <description>XCode下的iOS单元测试 [XCode 内置的OCUnit单元测试框架；但目前最好用的测试框架应该是GHUnit。 通过GHUnit+OCMock组合，</description>
+    </item>
+    
+    <item>
+      <title>自定义的iOS的滚轮选择器，附带农历选择器实现</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84ios%E7%9A%84%E6%BB%9A%E8%BD%AE%E9%80%89%E6%8B%A9%E5%99%A8%E9%99%84%E5%B8%A6%E5%86%9C%E5%8E%86%E9%80%89%E6%8B%A9%E5%99%A8%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Fri, 18 May 2012 08:12:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84ios%E7%9A%84%E6%BB%9A%E8%BD%AE%E9%80%89%E6%8B%A9%E5%99%A8%E9%99%84%E5%B8%A6%E5%86%9C%E5%8E%86%E9%80%89%E6%8B%A9%E5%99%A8%E5%AE%9E%E7%8E%B0/</guid>
+      <description>这个控件并不是对iOS自带的UIPickerView贴图，而是重新实现，我一周多的成果，期间走了不少弯路。哈！ 此控件开发的原因： 最近公司有个</description>
+    </item>
+    
+    <item>
+      <title>自定义UIPickerView</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E8%87%AA%E5%AE%9A%E4%B9%89uipickerview/</link>
+      <pubDate>Fri, 18 May 2012 07:43:26 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E8%87%AA%E5%AE%9A%E4%B9%89uipickerview/</guid>
+      <description>@interface MyPicker : UIPickerView – (id)initWithFrame:(CGRect)frame { if (self = [super initWithFrame:frame]) { // Initialization code } return self; } – (void)drawRect:(CGRect)rect { UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 234)]; img.image = [UIImage imageNamed:@”picker_small.png”]; [self addSubview:img]; [img</description>
+    </item>
+    
+    <item>
+      <title>Path 2.0 大部分效果分享</title>
+      <link>https://www.51hint.com/posts/2012-05-18-path-2-0-%E5%A4%A7%E9%83%A8%E5%88%86%E6%95%88%E6%9E%9C%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Fri, 18 May 2012 07:32:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-path-2-0-%E5%A4%A7%E9%83%A8%E5%88%86%E6%95%88%E6%9E%9C%E5%88%86%E4%BA%AB/</guid>
+      <description>源码由论坛会员zgrubby分享 实现了大部分Path 2.0 特效 注（iOS5 only），文章最后有源码下载 tableview添加手势检测代码 &amp;lt;td&amp;gt; &amp;lt;a href=&amp;quot;http://www.cocoachina.com/cms/uploads/soft/111222/Path2DemoPrj.zip&amp;quot;</description>
+    </item>
+    
+    <item>
+      <title>读取iOS代理设置的代码</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E8%AF%BB%E5%8F%96ios%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E7%9A%84%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Fri, 18 May 2012 07:28:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E8%AF%BB%E5%8F%96ios%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E7%9A%84%E4%BB%A3%E7%A0%81/</guid>
+      <description>用过ASIHTTPRequest这个开源网络库，它可以读取代理设置，于是我在源码中发现读取代理设置的方法，我已把代码提取出来： NSDictionary *proxySettings = NSMakeCollectable([(NSDictionary *)CFNetworkCopySystemProxySettings() autorelease]); NSArray</description>
+    </item>
+    
+    <item>
+      <title>用cocos2d实现液体流动效果</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E7%94%A8cocos2d%E5%AE%9E%E7%8E%B0%E6%B6%B2%E4%BD%93%E6%B5%81%E5%8A%A8%E6%95%88%E6%9E%9C/</link>
+      <pubDate>Fri, 18 May 2012 07:27:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E7%94%A8cocos2d%E5%AE%9E%E7%8E%B0%E6%B6%B2%E4%BD%93%E6%B5%81%E5%8A%A8%E6%95%88%E6%9E%9C/</guid>
+      <description>论坛会员zlbdemon寻求Feed Me Oil游戏里对里面的石油类似的液体 以及其流动效果实现思路，下面的代码是论坛会员muzer给提供的一种实</description>
+    </item>
+    
+    <item>
+      <title>开源的电子书阅读器项目</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E5%BC%80%E6%BA%90%E7%9A%84%E7%94%B5%E5%AD%90%E4%B9%A6%E9%98%85%E8%AF%BB%E5%99%A8%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Fri, 18 May 2012 07:20:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E5%BC%80%E6%BA%90%E7%9A%84%E7%94%B5%E5%AD%90%E4%B9%A6%E9%98%85%E8%AF%BB%E5%99%A8%E9%A1%B9%E7%9B%AE/</guid>
+      <description>iphone平台上开源的电子书阅读器项目 https://github.com/vfr/Readerhttps://github.com/brow/leaveshttps://github.com/schwa/iOS-PDF-Readerhttps://github.com/andrewBatutin/IPa&amp;amp;#8230;bbitHoleReaderhttps://github.com/mobfarm/FastPdfKithttps://github.com/search?type=Repositories&amp;amp;language=Objective-C&amp;amp;q=Reader&amp;amp;repo=&amp;amp;langOverride=&amp;amp;x=1&amp;amp;y=8&amp;amp;start_value=1</description>
+    </item>
+    
+    <item>
+      <title>Objective-C与JavaScript的交互</title>
+      <link>https://www.51hint.com/posts/2012-05-18-objective-c%E4%B8%8Ejavascript%E7%9A%84%E4%BA%A4%E4%BA%92/</link>
+      <pubDate>Fri, 18 May 2012 07:15:56 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-objective-c%E4%B8%8Ejavascript%E7%9A%84%E4%BA%A4%E4%BA%92/</guid>
+      <description>UIWebView是iOS最常用的SDK之一，它有一个stringByEvaluatingJavaScriptFromString方法可以将</description>
+    </item>
+    
+    <item>
+      <title>webview和js的交互封装源码分享</title>
+      <link>https://www.51hint.com/posts/2012-05-18-webview%E5%92%8Cjs%E7%9A%84%E4%BA%A4%E4%BA%92%E5%B0%81%E8%A3%85%E6%BA%90%E7%A0%81%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Fri, 18 May 2012 07:15:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-webview%E5%92%8Cjs%E7%9A%84%E4%BA%A4%E4%BA%92%E5%B0%81%E8%A3%85%E6%BA%90%E7%A0%81%E5%88%86%E4%BA%AB/</guid>
+      <description>webview和js的交互封装源码分享： https://github.com/marcuswestin/WebViewJavascriptB</description>
+    </item>
+    
+    <item>
+      <title>一种自动的将自定义类序列化为JSON的方法</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E4%B8%80%E7%A7%8D%E8%87%AA%E5%8A%A8%E7%9A%84%E5%B0%86%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%BAjson%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 18 May 2012 07:10:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E4%B8%80%E7%A7%8D%E8%87%AA%E5%8A%A8%E7%9A%84%E5%B0%86%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%BAjson%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>近因为项目需求，需要将一些自定义的类序列化为JSON，网上有很多好用的第三方序列化工具，但都只能自动序列化一些基本类型，如NSNumber,</description>
+    </item>
+    
+    <item>
+      <title>图标控件-股票图</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E5%9B%BE%E6%A0%87%E6%8E%A7%E4%BB%B6-%E8%82%A1%E7%A5%A8%E5%9B%BE/</link>
+      <pubDate>Fri, 18 May 2012 07:05:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E5%9B%BE%E6%A0%87%E6%8E%A7%E4%BB%B6-%E8%82%A1%E7%A5%A8%E5%9B%BE/</guid>
+      <description>zhiyu-chartee-0.1-release-5-g97995e9 数据用的YAHOO 财经API。 github源 http://github.com/zhiyu/chartee</description>
+    </item>
+    
+    <item>
+      <title>录制屏幕以及音效的混合实现源码分享</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E5%BD%95%E5%88%B6%E5%B1%8F%E5%B9%95%E4%BB%A5%E5%8F%8A%E9%9F%B3%E6%95%88%E7%9A%84%E6%B7%B7%E5%90%88%E5%AE%9E%E7%8E%B0%E6%BA%90%E7%A0%81%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Fri, 18 May 2012 07:03:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E5%BD%95%E5%88%B6%E5%B1%8F%E5%B9%95%E4%BB%A5%E5%8F%8A%E9%9F%B3%E6%95%88%E7%9A%84%E6%B7%B7%E5%90%88%E5%AE%9E%E7%8E%B0%E6%BA%90%E7%A0%81%E5%88%86%E4%BA%AB/</guid>
+      <description>国外的论坛中有一个人写了一个叫做ScreenCaptureView的自定义View(具体代码可自选google)，其主要的原理就是定时的绘屏</description>
+    </item>
+    
+    <item>
+      <title>iOS开发之详解剪贴板</title>
+      <link>https://www.51hint.com/posts/2012-05-18-ios%E5%BC%80%E5%8F%91%E4%B9%8B%E8%AF%A6%E8%A7%A3%E5%89%AA%E8%B4%B4%E6%9D%BF/</link>
+      <pubDate>Fri, 18 May 2012 06:51:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-ios%E5%BC%80%E5%8F%91%E4%B9%8B%E8%AF%A6%E8%A7%A3%E5%89%AA%E8%B4%B4%E6%9D%BF/</guid>
+      <description>在iOS中，可以使用剪贴板实现应用程序之中以及应用程序之间实现数据的共享。比如你可以从iPhone QQ复制一个url，然后粘贴到safari</description>
+    </item>
+    
+    <item>
+      <title>关于iCloud的注册，到代码的实现</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E5%85%B3%E4%BA%8Eicloud%E7%9A%84%E6%B3%A8%E5%86%8C%E5%88%B0%E4%BB%A3%E7%A0%81%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Fri, 18 May 2012 06:46:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E5%85%B3%E4%BA%8Eicloud%E7%9A%84%E6%B3%A8%E5%86%8C%E5%88%B0%E4%BB%A3%E7%A0%81%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
+      <description>1.需要传件一个新的app id，要是有了一个的话，保证着个app id 不是一个通配符的那种。 2.创建完成之后，你要做的是开启这项功能，就跟开发推</description>
+    </item>
+    
+    <item>
+      <title>如何在UIAlertView中显示进度条</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E5%A6%82%E4%BD%95%E5%9C%A8uialertview%E4%B8%AD%E6%98%BE%E7%A4%BA%E8%BF%9B%E5%BA%A6%E6%9D%A1/</link>
+      <pubDate>Fri, 18 May 2012 06:42:56 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E5%A6%82%E4%BD%95%E5%9C%A8uialertview%E4%B8%AD%E6%98%BE%E7%A4%BA%E8%BF%9B%E5%BA%A6%E6%9D%A1/</guid>
+      <description>如果要添加一个进度条，只要先创建并设置好一个UIProgressView的实例 再利用addSubview方法添加到alertView中即可。</description>
+    </item>
+    
+    <item>
+      <title>ios 开发高效类库</title>
+      <link>https://www.51hint.com/posts/2012-05-18-ios-%E5%BC%80%E5%8F%91%E9%AB%98%E6%95%88%E7%B1%BB%E5%BA%93/</link>
+      <pubDate>Fri, 18 May 2012 06:42:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-ios-%E5%BC%80%E5%8F%91%E9%AB%98%E6%95%88%E7%B1%BB%E5%BA%93/</guid>
+      <description>KissXml——xml解析库 相关教程：http://www.iteye.com/topic/625849 http://sencho.blog.163.com/blog/static/83056228201151743110540/ 很方便的一个xml解析器，支持X</description>
+    </item>
+    
+    <item>
+      <title>创建IOS 5 News Stand应用程序之一 – 外观</title>
+      <link>https://www.51hint.com/posts/2012-05-18-%E5%88%9B%E5%BB%BAios-5-news-stand%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E4%B9%8B%E4%B8%80-%E5%A4%96%E8%A7%82/</link>
+      <pubDate>Fri, 18 May 2012 03:27:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-18-%E5%88%9B%E5%BB%BAios-5-news-stand%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E4%B9%8B%E4%B8%80-%E5%A4%96%E8%A7%82/</guid>
+      <description>iOS 5提供了一个新的framework Newsstand framework，它允许把应用程序运行于News Stand中。实际上，News Stand相当于一个特</description>
+    </item>
+    
+    <item>
+      <title>設定ショートカットをホーム画面に追加する方法</title>
+      <link>https://www.51hint.com/posts/2012-04-17-%E8%A8%AD%E5%AE%9A%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%92%E3%83%9B%E3%83%BC%E3%83%A0%E7%94%BB%E9%9D%A2%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Tue, 17 Apr 2012 02:59:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-04-17-%E8%A8%AD%E5%AE%9A%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%92%E3%83%9B%E3%83%BC%E3%83%A0%E7%94%BB%E9%9D%A2%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/</guid>
+      <description>設定ショートカットをホーム画面に追加する方法 http://ipark-tajimi.com/article/14182211.html</description>
+    </item>
+    
+    <item>
+      <title>UTI iPhone支持依文件后缀名打开应用</title>
+      <link>https://www.51hint.com/posts/2012-03-19-uti-iphone%E6%94%AF%E6%8C%81%E4%BE%9D%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80%E5%90%8D%E6%89%93%E5%BC%80%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Mon, 19 Mar 2012 06:51:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-19-uti-iphone%E6%94%AF%E6%8C%81%E4%BE%9D%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80%E5%90%8D%E6%89%93%E5%BC%80%E5%BA%94%E7%94%A8/</guid>
+      <description>文件类型处理是iphone os 3.2新增的，与已经存在的自定义URL方案是不同的。你能注册你的应用程序来处理特定的文件类型并且任何应用程序 使用</description>
+    </item>
+    
+    <item>
+      <title>AES 加密</title>
+      <link>https://www.51hint.com/posts/2012-03-19-aes-%E5%8A%A0%E5%AF%86/</link>
+      <pubDate>Mon, 19 Mar 2012 06:50:09 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-19-aes-%E5%8A%A0%E5%AF%86/</guid>
+      <description>C++ AES 加密算法 头文件： #ifndef AES_H #define AES_H #include #include #include using namespace std; class AES { // 默认 PKCS5Padding public: static char commkey[16]; char m_key[16]; AES(const char *key = AES::commkey); private: typedef unsigned char byte; static const int KEY_SIZE = 16; //密钥长度为128位 static const int N_ROUND = 11; byte plainText[16]; //</description>
+    </item>
+    
+    <item>
+      <title>iphone/ipod/ipad上显示同步字幕的m4b文件自动生成工具</title>
+      <link>https://www.51hint.com/posts/2012-03-15-iphoneipodipad%E4%B8%8A%E6%98%BE%E7%A4%BA%E5%90%8C%E6%AD%A5%E5%AD%97%E5%B9%95%E7%9A%84m4b%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Thu, 15 Mar 2012 14:20:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-15-iphoneipodipad%E4%B8%8A%E6%98%BE%E7%A4%BA%E5%90%8C%E6%AD%A5%E5%AD%97%E5%B9%95%E7%9A%84m4b%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/</guid>
+      <description>m4b格式有声读物自动生成器：可以将mp3和lrc字幕转换为能够在iPhone/iPad上显示动态字幕的有声读物m4b格式，完美支持ipho</description>
+    </item>
+    
+    <item>
+      <title>Speex编/解码API的使用 及其speex 回声消除</title>
+      <link>https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/</link>
+      <pubDate>Fri, 02 Mar 2012 04:01:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-speex%E7%BC%96%E8%A7%A3%E7%A0%81api%E7%9A%84%E4%BD%BF%E7%94%A8-%E5%8F%8A%E5%85%B6speex-%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4/</guid>
+      <description>Speex编/解码API的使用 http://www.haogongju.net/art/153209实践linux, alsa下的speex 回</description>
+    </item>
+    
+    <item>
+      <title>音频编解码-speex库的使用方法</title>
+      <link>https://www.51hint.com/posts/2012-03-02-%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81-speex%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 02 Mar 2012 02:39:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81-speex%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</guid>
+      <description>Speex是近年来开发出的一套功能强大的语音引擎，能够实现高质量和低比特率的编码。它不仅提供了基于码激励线性预测（CELP）算法的编/解码模</description>
+    </item>
+    
+    <item>
+      <title>Convert Speex file into MP3</title>
+      <link>https://www.51hint.com/posts/2012-03-02-convert-speex-file-into-mp3/</link>
+      <pubDate>Fri, 02 Mar 2012 02:33:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-convert-speex-file-into-mp3/</guid>
+      <description>Speex to Mp3 using ffmpeg and lame In one of the project we receive a speex(.spx) file from client and we have to play on browser as well as in local machine.
+So i am using ffmpeg and lame to do this job.It is 2 step process.
+Step 1
+****Speex(.spx) file first need to covert into wave(.wav) file using ffmpeg.
+&amp;lt;table border=&amp;quot;0&amp;quot; cellspacing=&amp;quot;0&amp;quot; cellpadding=&amp;quot;0&amp;quot;&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; 1 &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;ffmpeg -i filename.</description>
+    </item>
+    
+    <item>
+      <title>使用ituneMobileDevice.dll和CoreFundation.dll连接iphone等</title>
+      <link>https://www.51hint.com/posts/2012-03-02-%E4%BD%BF%E7%94%A8itunemobiledevice-dll%E5%92%8Ccorefundation-dll%E8%BF%9E%E6%8E%A5iphone%E7%AD%89/</link>
+      <pubDate>Fri, 02 Mar 2012 02:05:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-02-%E4%BD%BF%E7%94%A8itunemobiledevice-dll%E5%92%8Ccorefundation-dll%E8%BF%9E%E6%8E%A5iphone%E7%AD%89/</guid>
+      <description>.:: CORE SECURITY TECHNOLOGIES :: http://oss.coresecurity.com/projects/iphonedbg.html libimobiledevice http://www.libimobiledevice.org/ iphuc http://code.google.com/p/iphuc/source/checkout 如何使用.net实现iPhone和电脑之间的文件传输 http://www.flyblog.info/catprogramming/486.html iphonebrowser http://code.google.com/p/iphonebrowser/ itouchBrowser http://code.google.com/p/itouchbrowser/source/browse/#svn%2Ftrunk%2FitouchBrowser iphonefs http://code.google.com/p/iphonefs/source/browse/#svn%2Ftrunk%2FiPhoneFS%2FiPhoneDriveFilesystem%2FProperties iphonelist http://code.google.com/p/iphonelist/source/browse/#svn%2Ftrunk%2FiPhoneGUI</description>
+    </item>
+    
+    <item>
+      <title>Xcode4   设置作者名称和公司名称</title>
+      <link>https://www.51hint.com/posts/2012-02-21-xcode4-%E8%AE%BE%E7%BD%AE%E4%BD%9C%E8%80%85%E5%90%8D%E7%A7%B0%E5%92%8C%E5%85%AC%E5%8F%B8%E5%90%8D%E7%A7%B0/</link>
+      <pubDate>Tue, 21 Feb 2012 07:30:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-21-xcode4-%E8%AE%BE%E7%BD%AE%E4%BD%9C%E8%80%85%E5%90%8D%E7%A7%B0%E5%92%8C%E5%85%AC%E5%8F%B8%E5%90%8D%E7%A7%B0/</guid>
+      <description>在XCode中新建文件后，默认生成的头文件中都带有创建人，时间，版权信息如下： // // Created by on 12-2-5. // Copyright 2012年 __MyCompanyName__. All rights reserved. // 从XCode4.2版本起，</description>
+    </item>
+    
+    <item>
+      <title>xcode debug</title>
+      <link>https://www.51hint.com/posts/2012-02-20-xcode-debug/</link>
+      <pubDate>Mon, 20 Feb 2012 03:16:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-20-xcode-debug/</guid>
+      <description>调试 追加变量 NSZombieEnabled NSAutoreleaseFreedObjectCheckEnabled NSDebugEnabled 值设置为YES -[NSException raise] objc_exception_throw</description>
+    </item>
+    
+    <item>
+      <title>snprintf函数说明</title>
+      <link>https://www.51hint.com/posts/2012-02-17-snprintf%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Fri, 17 Feb 2012 04:24:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-17-snprintf%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/</guid>
+      <description>int snprintf(char *restrict buf, size_t n, const char * restrict format, …);函数说明:最多从源串中拷贝n－1个字符到目标串中，然后再在后面加一个。所以如果目标串的大小为n的话，将不会溢出。</description>
+    </item>
+    
+    <item>
+      <title>语音和视频的捕获、编码解码以及渲染–开源技术大全</title>
+      <link>https://www.51hint.com/posts/2012-02-16-%E8%AF%AD%E9%9F%B3%E5%92%8C%E8%A7%86%E9%A2%91%E7%9A%84%E6%8D%95%E8%8E%B7%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81%E4%BB%A5%E5%8F%8A%E6%B8%B2%E6%9F%93-%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%A4%A7/</link>
+      <pubDate>Thu, 16 Feb 2012 10:03:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-%E8%AF%AD%E9%9F%B3%E5%92%8C%E8%A7%86%E9%A2%91%E7%9A%84%E6%8D%95%E8%8E%B7%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81%E4%BB%A5%E5%8F%8A%E6%B8%B2%E6%9F%93-%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%A4%A7/</guid>
+      <description>1. **MediaStreamer2: http://www.linphone.org/ ** **http://hi.baidu.com/zui_chu_de_meng_xiang/blog/item/71d2d952ebaad6561038c286.html ** Mediastreamer2 是一个支持多种平台的轻量级的流技术引擎，主要适合于开发语音和视频电话应用程序。该引擎主要为 linphone 的多媒体流的收发，包括语音和视频的</description>
+    </item>
+    
+    <item>
+      <title>Play and Record Audio concurrently</title>
+      <link>https://www.51hint.com/posts/2012-02-16-play-and-record-audio-concurrently/</link>
+      <pubDate>Thu, 16 Feb 2012 09:57:01 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-play-and-record-audio-concurrently/</guid>
+      <description>First, setup your audio session to record audio:
+Then tell the device you want to record and play audio at the same time:
+Then, and this is the key, allow the volume from the speakers to also be loud when recording:</description>
+    </item>
+    
+    <item>
+      <title>麦克风检测类库SCListener   &amp;&amp; 声音播放</title>
+      <link>https://www.51hint.com/posts/2012-02-16-%E9%BA%A6%E5%85%8B%E9%A3%8E%E6%A3%80%E6%B5%8B%E7%B1%BB%E5%BA%93sclistener-%E5%A3%B0%E9%9F%B3%E6%92%AD%E6%94%BE/</link>
+      <pubDate>Thu, 16 Feb 2012 09:52:14 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-%E9%BA%A6%E5%85%8B%E9%A3%8E%E6%A3%80%E6%B5%8B%E7%B1%BB%E5%BA%93sclistener-%E5%A3%B0%E9%9F%B3%E6%92%AD%E6%94%BE/</guid>
+      <description>SCListener是一个麦克风检测的类库，由stephencelis发布，这是一个Singleton。 下载地址 http://gist.gi</description>
+    </item>
+    
+    <item>
+      <title>接近感应传感器使用</title>
+      <link>https://www.51hint.com/posts/2012-02-16-%E6%8E%A5%E8%BF%91%E6%84%9F%E5%BA%94%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 16 Feb 2012 09:44:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-%E6%8E%A5%E8%BF%91%E6%84%9F%E5%BA%94%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%BF%E7%94%A8/</guid>
+      <description>[[UIDevice currentDevice] setProximityMonitoringEnabled:YES]; AVAudioPlayer,当用户靠近接近感应器时,用听筒播放</description>
+    </item>
+    
+    <item>
+      <title>iphone检测耳机插入/拔出以及是否存在麦克风</title>
+      <link>https://www.51hint.com/posts/2012-02-16-iphone%E6%A3%80%E6%B5%8B%E8%80%B3%E6%9C%BA%E6%8F%92%E5%85%A5%E6%8B%94%E5%87%BA%E4%BB%A5%E5%8F%8A%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E9%BA%A6%E5%85%8B%E9%A3%8E/</link>
+      <pubDate>Thu, 16 Feb 2012 09:38:24 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-iphone%E6%A3%80%E6%B5%8B%E8%80%B3%E6%9C%BA%E6%8F%92%E5%85%A5%E6%8B%94%E5%87%BA%E4%BB%A5%E5%8F%8A%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E9%BA%A6%E5%85%8B%E9%A3%8E/</guid>
+      <description>做过一个iphone项目XF…，程序的主要功能类似于能录音的卡拉OK。程序会播放选定的歌曲的伴奏音，使用者可以对着麦克风歌唱，程序则会录下使</description>
+    </item>
+    
+    <item>
+      <title>iPhone开发 — 确认网络环境 3G/WIFI</title>
+      <link>https://www.51hint.com/posts/2012-02-16-iphone%E5%BC%80%E5%8F%91-%E7%A1%AE%E8%AE%A4%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83-3gwifi/</link>
+      <pubDate>Thu, 16 Feb 2012 09:24:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-iphone%E5%BC%80%E5%8F%91-%E7%A1%AE%E8%AE%A4%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83-3gwifi/</guid>
+      <description>Reachability Apple 的 例程 Reachability 中介绍了取得/检测网络状态的方法。在你的程序中使用 Reachability 只须将该例程中的 Reachability.h 和 Reachability.m 拷贝到你的工程中。 然后将 SystemConfiguration.framework 添加进工程： Reachability 中定义了3种网</description>
+    </item>
+    
+    <item>
+      <title>图片拉伸</title>
+      <link>https://www.51hint.com/posts/2012-02-16-%E5%9B%BE%E7%89%87%E6%8B%89%E4%BC%B8/</link>
+      <pubDate>Thu, 16 Feb 2012 09:20:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-%E5%9B%BE%E7%89%87%E6%8B%89%E4%BC%B8/</guid>
+      <description>(UIColor *)colorWithPatternImage:(UIImage *)image [[UIImageView alloc] initWithImage:[origintalImage stretchableImageWithLeftCapWidth:leftCapWidth topCapHeight:topCapHeight]] leftCapWidth 和 topCapHeight所指定的四边不会被拉伸 rightCapWIdth = image.width – leftCapWidth – 1, bottomCapHeight同理 举个例子一个图片像素是80</description>
+    </item>
+    
+    <item>
+      <title>去除iPhone icon的光晕效果</title>
+      <link>https://www.51hint.com/posts/2012-02-16-%E5%8E%BB%E9%99%A4iphone-icon%E7%9A%84%E5%85%89%E6%99%95%E6%95%88%E6%9E%9C/</link>
+      <pubDate>Thu, 16 Feb 2012 09:16:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-%E5%8E%BB%E9%99%A4iphone-icon%E7%9A%84%E5%85%89%E6%99%95%E6%95%88%E6%9E%9C/</guid>
+      <description>用Xcode创建英语程序的时候，系统会自动给你的icon四角添加圆角效果，并且在icon的上部添加光晕效果，有些时候会使得icon看不太清楚</description>
+    </item>
+    
+    <item>
+      <title>通过iphone听筒播放声音的代码</title>
+      <link>https://www.51hint.com/posts/2012-02-16-%E9%80%9A%E8%BF%87iphone%E5%90%AC%E7%AD%92%E6%92%AD%E6%94%BE%E5%A3%B0%E9%9F%B3%E7%9A%84%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Thu, 16 Feb 2012 09:16:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-%E9%80%9A%E8%BF%87iphone%E5%90%AC%E7%AD%92%E6%92%AD%E6%94%BE%E5%A3%B0%E9%9F%B3%E7%9A%84%E4%BB%A3%E7%A0%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>转换文件格式wav2raw</title>
+      <link>https://www.51hint.com/posts/2012-02-14-%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8Fwav2raw/</link>
+      <pubDate>Tue, 14 Feb 2012 03:37:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-14-%E8%BD%AC%E6%8D%A2%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8Fwav2raw/</guid>
+      <description>l//=====================================================================// 因为raw格式的音频文件是没有文件头的，所以去掉wav文件的前20个字节 即可。 len= read(ifd,buf,20); memset(buf,0,20); //erase the wav header write(ofd,buf,20); while( (len=read(ifd,buf,200)) &amp;gt;0){ write(ofd,buf,len); } close(ifd); close(odf);</description>
+    </item>
+    
+    <item>
+      <title>MPMoviePlayerController的用法和播放时只有声音没有图像的解决办法</title>
+      <link>https://www.51hint.com/posts/2012-02-14-mpmovieplayercontroller%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E6%92%AD%E6%94%BE%E6%97%B6%E5%8F%AA%E6%9C%89%E5%A3%B0%E9%9F%B3%E6%B2%A1%E6%9C%89%E5%9B%BE%E5%83%8F%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E/</link>
+      <pubDate>Tue, 14 Feb 2012 02:19:26 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-14-mpmovieplayercontroller%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E6%92%AD%E6%94%BE%E6%97%B6%E5%8F%AA%E6%9C%89%E5%A3%B0%E9%9F%B3%E6%B2%A1%E6%9C%89%E5%9B%BE%E5%83%8F%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E/</guid>
+      <description>说明： 1、scalingMode属性决定的是添加的视频播放器的填充方式。 2、请一定要调用moviePlayer.view的setFrame方</description>
+    </item>
+    
+    <item>
+      <title>MPMusicPlayerController和MPMediaPickerController打造如iPod功能类似的播放器</title>
+      <link>https://www.51hint.com/posts/2012-02-14-mpmusicplayercontroller%E5%92%8Cmpmediapickercontroller%E6%89%93%E9%80%A0%E5%A6%82ipod%E5%8A%9F%E8%83%BD%E7%B1%BB%E4%BC%BC%E7%9A%84%E6%92%AD%E6%94%BE%E5%99%A8/</link>
+      <pubDate>Tue, 14 Feb 2012 02:17:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-14-mpmusicplayercontroller%E5%92%8Cmpmediapickercontroller%E6%89%93%E9%80%A0%E5%A6%82ipod%E5%8A%9F%E8%83%BD%E7%B1%BB%E4%BC%BC%E7%9A%84%E6%92%AD%E6%94%BE%E5%99%A8/</guid>
+      <description>在《iPhone开发秘籍》里面看到了MPMusicPlayerController类，发现要做一个播放器竟然只需要三行核心代码，实在是很无语</description>
+    </item>
+    
+    <item>
+      <title>mediastream2使用指南</title>
+      <link>https://www.51hint.com/posts/2012-02-13-mediastream2%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Mon, 13 Feb 2012 10:44:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-13-mediastream2%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>定义 Filter: 媒体库中处理数据的组件。一个filter有0到数个输入流和0到数个输出流。 下面是可以使用Filter的例子: 捕获音频或者视频数据. 播放</description>
+    </item>
+    
+    <item>
+      <title>iphone,ipad 通过itms-services 在线安装app</title>
+      <link>https://www.51hint.com/posts/2012-02-13-iphoneipad-%E9%80%9A%E8%BF%87itms-services-%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85app/</link>
+      <pubDate>Mon, 13 Feb 2012 09:14:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-13-iphoneipad-%E9%80%9A%E8%BF%87itms-services-%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85app/</guid>
+      <description>点击xxx.app下载 xxx.plist内容为 items assets kind software-package url http://blog.s135.com/demo/ios/jhsmyt.ipa kind display-image needs-shine url http://xxx/ios/xxx_logo.png kind full-size-image needs-shine url http://bxxxx/ios/jxxx_logo.png metadata bundle-identifier com.xxx bundle-version 1.0.0 kind software subtitle xxxx title xxxxxxxxx.plist //========================================================================================// 二维码下载方式</description>
+    </item>
+    
+    <item>
+      <title>QLPreviewController来预览文档，png，excel，pdf</title>
+      <link>https://www.51hint.com/posts/2012-02-11-qlpreviewcontroller%E6%9D%A5%E9%A2%84%E8%A7%88%E6%96%87%E6%A1%A3pngexcelpdf/</link>
+      <pubDate>Fri, 10 Feb 2012 17:27:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-11-qlpreviewcontroller%E6%9D%A5%E9%A2%84%E8%A7%88%E6%96%87%E6%A1%A3pngexcelpdf/</guid>
+      <description>QLPreviewController来预览文档，png，excel，pdf [ http://iphonedevelopertips.com/data-file-management/preview-documents-with-qlpreviewcontroller.html][1] Xcode-DocumentPreviewer.zip</description>
+    </item>
+    
+    <item>
+      <title>Debug Assistant Library (DAL) 是一个辅助调试运行时库。</title>
+      <link>https://www.51hint.com/posts/2012-02-11-debug-assistant-library-dal-%E6%98%AF%E4%B8%80%E4%B8%AA%E8%BE%85%E5%8A%A9%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BA%93/</link>
+      <pubDate>Fri, 10 Feb 2012 17:23:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-11-debug-assistant-library-dal-%E6%98%AF%E4%B8%80%E4%B8%AA%E8%BE%85%E5%8A%A9%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BA%93/</guid>
+      <description>DAL目前支持的语言：C、C++、Objective-C、Objective-C++。 DAL目前支持的平台：标准C/C++、Windows (</description>
+    </item>
+    
+    <item>
+      <title>gdb 显示结构体</title>
+      <link>https://www.51hint.com/posts/2012-02-09-gdb-%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%84%E4%BD%93/</link>
+      <pubDate>Thu, 09 Feb 2012 02:32:04 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-09-gdb-%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%84%E4%BD%93/</guid>
+      <description>在gdb设置:set print pretty on (gdb) p *xxx ptype——————查看结构体定义 set print pretty on/off——-设置结构体显示时的样子 show print pretty——查看 ===========================================</description>
+    </item>
+    
+    <item>
+      <title>pdf 加页</title>
+      <link>https://www.51hint.com/posts/2012-02-06-pdf-%E5%8A%A0%E9%A1%B5/</link>
+      <pubDate>Mon, 06 Feb 2012 11:43:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-06-pdf-%E5%8A%A0%E9%A1%B5/</guid>
+      <description>UIGraphicsBeginPDFContextToFile(pdfFileName, CGRectZero, nil); for (int j = 1; j &amp;lt;= pageCount; j++) { NSMutableArray *markerList = [[AppDocument sharedDocument] loadWhiteboardFromFilePath:[NSString stringWithFormat:@”%@/%d”,path,j]]; DLog(@”%@”,[NSSt</description>
+    </item>
+    
+    <item>
+      <title>ios web  app</title>
+      <link>https://www.51hint.com/posts/2012-01-31-ios-web-app/</link>
+      <pubDate>Tue, 31 Jan 2012 01:57:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-31-ios-web-app/</guid>
+      <description>App化 1、放到桌面 其实这个最简单啦，点浏览器的加号，就会有一个菜单，添加到屏幕就行。 2、设置图标和启动画面 添加到屏幕后，默认的是一个白色图</description>
+    </item>
+    
+    <item>
+      <title>websocket API</title>
+      <link>https://www.51hint.com/posts/2012-01-30-websocket-api/</link>
+      <pubDate>Mon, 30 Jan 2012 08:52:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-30-websocket-api/</guid>
+      <description>websocket已经受到firefox4、chrome4、opera10以及safari5等浏览器的支持， webscoket api最伟大之处在于服务器和客</description>
+    </item>
+    
+    <item>
+      <title>iOS Apps Over the Air</title>
+      <link>https://www.51hint.com/posts/2012-01-30-ios-apps-over-the-air/</link>
+      <pubDate>Mon, 30 Jan 2012 03:51:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-01-30-ios-apps-over-the-air/</guid>
+      <description>通过http://testflightapp.com 可以在线注册测试非常方便；不用花钱注册idp了，哈哈 http://aaronparecki.com/How_to_Distribute_your_iOS_Apps_Over_the_Air http://hockeykit.</description>
+    </item>
+    
+    <item>
+      <title>如何判断touch是子视图还是离开视图</title>
+      <link>https://www.51hint.com/posts/2011-12-19-%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%ADtouch%E6%98%AF%E5%AD%90%E8%A7%86%E5%9B%BE%E8%BF%98%E6%98%AF%E7%A6%BB%E5%BC%80%E8%A7%86%E5%9B%BE/</link>
+      <pubDate>Mon, 19 Dec 2011 11:26:08 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-19-%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%ADtouch%E6%98%AF%E5%AD%90%E8%A7%86%E5%9B%BE%E8%BF%98%E6%98%AF%E7%A6%BB%E5%BC%80%E8%A7%86%E5%9B%BE/</guid>
+      <description>touch移动事件，是移动到当前的子视图中， 还是移动到当前视图以外了。 办法是，继承UIView，覆盖touchesMoved方法： – (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{</description>
+    </item>
+    
+    <item>
+      <title>ios,启动动画</title>
+      <link>https://www.51hint.com/posts/2011-12-19-ios%E5%90%AF%E5%8A%A8%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Mon, 19 Dec 2011 10:29:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-19-ios%E5%90%AF%E5%8A%A8%E5%8A%A8%E7%94%BB/</guid>
+      <description>找到了方案 使用 AVAnimator: http://www.modejong.com/AVAnimator/ glgif : https://github.com/jamesu/glgif 用 上面两个载入动画，然后 Root View Controller 使用 UINavigationController ，在它之前创建一个 SplashViewController (这里里面实现动画)， 动画完成后 NavigationController push MainController 参考：http://s</description>
+    </item>
+    
+    <item>
+      <title>合成图片</title>
+      <link>https://www.51hint.com/posts/2011-12-19-%E5%90%88%E6%88%90%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Mon, 19 Dec 2011 10:26:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-19-%E5%90%88%E6%88%90%E5%9B%BE%E7%89%87/</guid>
+      <description>在ios中将两张图片合成一张图片。 – (void)generateImageToPhotoAlbum{ NSLog(@”Save image to photo album.”); UIGraphicsBeginImageContext(CGSizeMake(1024,768)); [drawImage.image drawInRect:self.frame]; UIImage *foregroundImage = [UIImage imageWithCGImage:(CGImageRef)foregroundLayer.contents]; [foregroundImage drawInRect:self.frame blendMode:kCGBlendModeNormal alpha:1.0]; UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext(); UIGraphicsEndImageContext(); UIImageWriteToSavedPhotosAlbum(newImage,nil,nil,nil); } 参考： http://marshal.easymorse.com/archives/4054</description>
+    </item>
+    
+    <item>
+      <title>人脸识别demo</title>
+      <link>https://www.51hint.com/posts/2011-12-19-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%ABdemo/</link>
+      <pubDate>Mon, 19 Dec 2011 10:14:57 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-19-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%ABdemo/</guid>
+      <description>1。此项目使用opencv库，需要 libopencv_core.a libopencv_imgproc.a, libopencv_objdetect.a 拖入到自己的项目。 2。添加Accelerate.framework 3。添加-lstdc++ and -lz to Other Linker</description>
+    </item>
+    
+    <item>
+      <title>80行脚本全自动批量编译打包iphone app</title>
+      <link>https://www.51hint.com/posts/2011-12-12-80%E8%A1%8C%E8%84%9A%E6%9C%AC%E5%85%A8%E8%87%AA%E5%8A%A8%E6%89%B9%E9%87%8F%E7%BC%96%E8%AF%91%E6%89%93%E5%8C%85iphone-app/</link>
+      <pubDate>Mon, 12 Dec 2011 10:06:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-12-80%E8%A1%8C%E8%84%9A%E6%9C%AC%E5%85%A8%E8%87%AA%E5%8A%A8%E6%89%B9%E9%87%8F%E7%BC%96%E8%AF%91%E6%89%93%E5%8C%85iphone-app/</guid>
+      <description>1.准备一个干净的xcode项目作为模板 2.复制一份模板，用脚本设置好正确的信息，及资源文件 3.自动编译打包 gen_project.sh 从模板拷贝替换，生成新项目目录</description>
+    </item>
+    
+    <item>
+      <title>捏拢Demo: SimpleGestures-iPad</title>
+      <link>https://www.51hint.com/posts/2011-12-12-%E6%8D%8F%E6%8B%A2demo-simplegestures-ipad/</link>
+      <pubDate>Mon, 12 Dec 2011 10:04:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-12-%E6%8D%8F%E6%8B%A2demo-simplegestures-ipad/</guid>
+      <description>mp3-&amp;gt;caf 终端: /usr/bin/afconvert -f caff -d LEI16 Boing.mp3 Boing.caf ➤➤ 默认图片和声音➤➤ 创建手势识别器➤➤ 初始化显示值➤➤ 类加上通知中心 kvc(中) iBook 功能 – 放大縮小(中)</description>
+    </item>
+    
+    <item>
+      <title>分享一段代码帮助调试</title>
+      <link>https://www.51hint.com/posts/2011-12-12-%E5%88%86%E4%BA%AB%E4%B8%80%E6%AE%B5%E4%BB%A3%E7%A0%81%E5%B8%AE%E5%8A%A9%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Mon, 12 Dec 2011 09:56:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-12-%E5%88%86%E4%BA%AB%E4%B8%80%E6%AE%B5%E4%BB%A3%E7%A0%81%E5%B8%AE%E5%8A%A9%E8%B0%83%E8%AF%95/</guid>
+      <description>有时程序崩溃根本不知错误发生在什么地方。比如程序出现EXEC_BAD_ACCESS的时候，虽然大部分情况使用设定NSZombieEnable</description>
+    </item>
+    
+    <item>
+      <title>从ipa提取png图片</title>
+      <link>https://www.51hint.com/posts/2011-12-12-%E4%BB%8Eipa%E6%8F%90%E5%8F%96png%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Mon, 12 Dec 2011 09:52:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-12-%E4%BB%8Eipa%E6%8F%90%E5%8F%96png%E5%9B%BE%E7%89%87/</guid>
+      <description>将png打包加入ipa之前对png进行一种特殊格式存放，要读取此格式就要破解apple所采用的png 格式了。 iPhone PNG Images Normalizer Pythonipin.py.zip 使用方法也很就简单，解</description>
+    </item>
+    
+    <item>
+      <title>Pdf渲染的小窍门</title>
+      <link>https://www.51hint.com/posts/2011-12-12-pdf%E6%B8%B2%E6%9F%93%E7%9A%84%E5%B0%8F%E7%AA%8D%E9%97%A8/</link>
+      <pubDate>Mon, 12 Dec 2011 09:34:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-12-pdf%E6%B8%B2%E6%9F%93%E7%9A%84%E5%B0%8F%E7%AA%8D%E9%97%A8/</guid>
+      <description>我们都知道，在iPhone/iPad显示pdf的基本方法有两个，一个是使用UIWebView直接加载pdf文件，另一个是使用Core Grap</description>
+    </item>
+    
+    <item>
+      <title>ios5 icon 去掉gloss effect</title>
+      <link>https://www.51hint.com/posts/2011-12-09-ios5-icon-%E5%8E%BB%E6%8E%89gloss-effect/</link>
+      <pubDate>Fri, 09 Dec 2011 06:35:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-09-ios5-icon-%E5%8E%BB%E6%8E%89gloss-effect/</guid>
+      <description>之前在ios4中，通过在project summary里添加一个key-value: Icon already includes gloss effects = YES 成功把gloss effect去掉。 现在用io</description>
+    </item>
+    
+    <item>
+      <title>how to setup voice chat over wifi and 3g   network?</title>
+      <link>https://www.51hint.com/posts/2011-12-09-how-to-setup-voice-chat-over-wifi-and-3g-network/</link>
+      <pubDate>Fri, 09 Dec 2011 06:20:57 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-09-how-to-setup-voice-chat-over-wifi-and-3g-network/</guid>
+      <description>Voice “chat” could be one of many things like: using the voice features of a cellular network to a conference call. using the voice features of a cellular network with a PBX server that supports conference calls. using a VOIP solution using a SIP stack with a SIP server using a XMPP Jingle solution (I believe the google voice service uses this) using your own</description>
+    </item>
+    
+    <item>
+      <title>iphone 预览文档，png、excel、pdf</title>
+      <link>https://www.51hint.com/posts/2011-12-09-iphone-%E9%A2%84%E8%A7%88%E6%96%87%E6%A1%A3pngexcelpdf/</link>
+      <pubDate>Fri, 09 Dec 2011 06:10:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-09-iphone-%E9%A2%84%E8%A7%88%E6%96%87%E6%A1%A3pngexcelpdf/</guid>
+      <description>使用 QLpreviewController 开源框架 将会非常方便的预览 png图片，excel文件或者pdf文件。 使用方法也很简单 #import &amp;lt;QuickLook/QuickLook.h&amp;gt; @interface TestViewController:UITableViewController{ NSArray *arrayOfDocuments; } @end – (id)init{ if(self=[super init]){ arrayOfDocuments = [[NSArray alloc] initWithO</description>
+    </item>
+    
+    <item>
+      <title>设置TTLauncherView的行高</title>
+      <link>https://www.51hint.com/posts/2011-12-09-%E8%AE%BE%E7%BD%AEttlauncherview%E7%9A%84%E8%A1%8C%E9%AB%98/</link>
+      <pubDate>Fri, 09 Dec 2011 05:39:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-09-%E8%AE%BE%E7%BD%AEttlauncherview%E7%9A%84%E8%A1%8C%E9%AB%98/</guid>
+      <description>今天用TTLauncherView做应用的首界面，发现TTLauncherView默认是以9宫格方式显示，但我的首页只有6个按钮，只需要显示</description>
+    </item>
+    
+    <item>
+      <title>如何用NSLog输出NSRange,CGRect等结构体</title>
+      <link>https://www.51hint.com/posts/2011-12-08-%E5%A6%82%E4%BD%95%E7%94%A8nslog%E8%BE%93%E5%87%BAnsrangecgrect%E7%AD%89%E7%BB%93%E6%9E%84%E4%BD%93/</link>
+      <pubDate>Thu, 08 Dec 2011 10:28:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-08-%E5%A6%82%E4%BD%95%E7%94%A8nslog%E8%BE%93%E5%87%BAnsrangecgrect%E7%AD%89%E7%BB%93%E6%9E%84%E4%BD%93/</guid>
+      <description>使用对应的转换 NSStringFromCGPoint NSStringFromCGSize NSStringFromCGRect NSStringFromCGAffineTransform NSStringFromUIEdgeInsets 比如 NSLog(@”rect1: %@”, NSStringFromCGRect(rect1));</description>
+    </item>
+    
+    <item>
+      <title>iOS5中的UDID</title>
+      <link>https://www.51hint.com/posts/2011-11-22-ios5%E4%B8%AD%E7%9A%84uuid/</link>
+      <pubDate>Tue, 22 Nov 2011 09:55:01 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-22-ios5%E4%B8%AD%E7%9A%84uuid/</guid>
+      <description>在ios5中，UDID已不再被推荐使用，在将来的版本中，这个功能可能会消失。所以我们得探寻它的取代方法，能唯一标识设备的东西。往往硬件上有唯</description>
+    </item>
+    
+    <item>
+      <title>一个编码检测的工具类</title>
+      <link>https://www.51hint.com/posts/2011-11-22-%E4%B8%80%E4%B8%AA%E7%BC%96%E7%A0%81%E6%A3%80%E6%B5%8B%E7%9A%84%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
+      <pubDate>Tue, 22 Nov 2011 08:57:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-22-%E4%B8%80%E4%B8%AA%E7%BC%96%E7%A0%81%E6%A3%80%E6%B5%8B%E7%9A%84%E5%B7%A5%E5%85%B7%E7%B1%BB/</guid>
+      <description>最近做了一个项目，里面遇到了很多关于文件转码的处理，在做文件转码之前，首先要判断的就是文件编码格式是什么，为此我还专门翻看了很多文章，当项目</description>
+    </item>
+    
+    <item>
+      <title>如何创建NSThread的run loop</title>
+      <link>https://www.51hint.com/posts/2011-11-22-%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAnsthread%E7%9A%84run-loop/</link>
+      <pubDate>Tue, 22 Nov 2011 08:36:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-22-%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BAnsthread%E7%9A%84run-loop/</guid>
+      <description>虽然iphone为我们提供了简单易于操作的. iphone多线程编程提议用NSOperation和NSOperationQueue; 有时运行一</description>
+    </item>
+    
+    <item>
+      <title>ios5 打开系统设置</title>
+      <link>https://www.51hint.com/posts/2011-11-22-ios5-%E6%89%93%E5%BC%80%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Tue, 22 Nov 2011 07:19:08 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-22-ios5-%E6%89%93%E5%BC%80%E7%B3%BB%E7%BB%9F%E8%AE%BE%E7%BD%AE/</guid>
+      <description>ios5 的sdk可以直接打开setting页面了； 一、 Location Services的setting页面 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@”prefs:ro</description>
+    </item>
+    
+    <item>
+      <title>ios序列化与反序列化</title>
+      <link>https://www.51hint.com/posts/2011-11-16-ios%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</link>
+      <pubDate>Wed, 16 Nov 2011 03:25:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-16-ios%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ios不错的开源类库及其自己制作framework</title>
+      <link>https://www.51hint.com/posts/2011-11-15-ios%E4%B8%8D%E9%94%99%E7%9A%84%E5%BC%80%E6%BA%90%E7%B1%BB%E5%BA%93%E5%8F%8A%E5%85%B6%E8%87%AA%E5%B7%B1%E5%88%B6%E4%BD%9Cframework/</link>
+      <pubDate>Tue, 15 Nov 2011 05:31:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-15-ios%E4%B8%8D%E9%94%99%E7%9A%84%E5%BC%80%E6%BA%90%E7%B1%BB%E5%BA%93%E5%8F%8A%E5%85%B6%E8%87%AA%E5%B7%B1%E5%88%B6%E4%BD%9Cframework/</guid>
+      <description>1.json-framework 编码解码2.GTMBase64base64编码解码3.TouchXMLxml解析4.SFHFKeychainUtils安全保存用户密码到k</description>
+    </item>
+    
+    <item>
+      <title>无需重新编译而更改app资源内容的简单方法</title>
+      <link>https://www.51hint.com/posts/2011-11-14-%E6%97%A0%E9%9C%80%E9%87%8D%E6%96%B0%E7%BC%96%E8%AF%91%E8%80%8C%E6%9B%B4%E6%94%B9app%E8%B5%84%E6%BA%90%E5%86%85%E5%AE%B9%E7%9A%84%E7%AE%80%E5%8D%95%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 14 Nov 2011 10:38:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-14-%E6%97%A0%E9%9C%80%E9%87%8D%E6%96%B0%E7%BC%96%E8%AF%91%E8%80%8C%E6%9B%B4%E6%94%B9app%E8%B5%84%E6%BA%90%E5%86%85%E5%AE%B9%E7%9A%84%E7%AE%80%E5%8D%95%E6%96%B9%E6%B3%95/</guid>
+      <description>若只修改简单的图标，plist等文件内容，则只需要对更改后app使用命令行重新进行数字签名， 而不需要再次对整个程序进行再编译。 #codesign -f -v -s [Identify] [appPath]Identify 是</description>
+    </item>
+    
+    <item>
+      <title>防止你的iPhone程序遭盗版</title>
+      <link>https://www.51hint.com/posts/2011-11-14-%E9%98%B2%E6%AD%A2%E4%BD%A0%E7%9A%84iphone%E7%A8%8B%E5%BA%8F%E9%81%AD%E7%9B%97%E7%89%88/</link>
+      <pubDate>Mon, 14 Nov 2011 09:50:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-14-%E9%98%B2%E6%AD%A2%E4%BD%A0%E7%9A%84iphone%E7%A8%8B%E5%BA%8F%E9%81%AD%E7%9B%97%E7%89%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xcode4  生成app 位置</title>
+      <link>https://www.51hint.com/posts/2011-11-14-xcode4-%E7%94%9F%E6%88%90app-%E4%BD%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 14 Nov 2011 09:31:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-14-xcode4-%E7%94%9F%E6%88%90app-%E4%BD%8D%E7%BD%AE/</guid>
+      <description>/Users/用户名/Library/Developer/Xcode/DerivedData/产品名称-fylcrwghjxojxcgaej</description>
+    </item>
+    
+    <item>
+      <title>stretchableImageWithLeftCapWidth:topCapHeight:函数用法 总结</title>
+      <link>https://www.51hint.com/posts/2011-11-14-stretchableimagewithleftcapwidthtopcapheight%E5%87%BD%E6%95%B0%E7%94%A8%E6%B3%95-%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 14 Nov 2011 09:29:14 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-14-stretchableimagewithleftcapwidthtopcapheight%E5%87%BD%E6%95%B0%E7%94%A8%E6%B3%95-%E6%80%BB%E7%BB%93/</guid>
+      <description>1.-(UIImage *)stretchableImageWithLeftCapWidth:(NSInteger)leftCapWidth topCapHeight:(NSInteger)topCapHeight 这个函数时UIImage的一个实例函数，它的功能是创建一个内容可拉伸，而边角不拉伸的图片；需要两个参数，第一个是不可拉伸区域和左边框的</description>
+    </item>
+    
+    <item>
+      <title>XCode4如何调试程序</title>
+      <link>https://www.51hint.com/posts/2011-11-09-xcode4%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 09 Nov 2011 03:06:45 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-11-09-xcode4%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F/</guid>
+      <description>XCode4设置不太一样: 在Edit–&amp;gt;Scheme里面 找到Arguments 1).EXC_BAD_ACCESS 试图访问非法内存,导致SIGBUS或者SIGSEGV</description>
+    </item>
+    
+    <item>
+      <title>animation  调用animationDidStop区分</title>
+      <link>https://www.51hint.com/posts/2011-10-30-animation-%E8%B0%83%E7%94%A8animationdidstop%E5%8C%BA%E5%88%86/</link>
+      <pubDate>Sun, 30 Oct 2011 08:47:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-10-30-animation-%E8%B0%83%E7%94%A8animationdidstop%E5%8C%BA%E5%88%86/</guid>
+      <description>–(void)animationDidStop🙁CAAnimation*)theAnimation finished🙁BOOL)flag{</description>
+    </item>
+    
+    <item>
+      <title>ios各种动画效果</title>
+      <link>https://www.51hint.com/posts/2011-10-26-ios%E5%90%84%E7%A7%8D%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/</link>
+      <pubDate>Wed, 26 Oct 2011 10:47:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-10-26-ios%E5%90%84%E7%A7%8D%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>修改系统音量的方法</title>
+      <link>https://www.51hint.com/posts/2011-10-26-%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E9%9F%B3%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Wed, 26 Oct 2011 10:33:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-10-26-%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E9%9F%B3%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>1&amp;gt; MPVolumeView 在屏幕中创建一个音量条，来取代原来侧边键出来的大喇叭； 可实现同步设置，但是音量只是由用户手动拖动音量条来控制。 MPVolumeView *volumeView = [ [ [MPVolumeView alloc] initWithFrame:window.bounds] autorease]; [window addSubview:volumeView]; volumeView.showsVolumeSlider =</description>
+    </item>
+    
+    <item>
+      <title>UItableView 横向滚动</title>
+      <link>https://www.51hint.com/posts/2011-10-26-uitableview-%E6%A8%AA%E5%90%91%E6%BB%9A%E5%8A%A8/</link>
+      <pubDate>Wed, 26 Oct 2011 10:20:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-10-26-uitableview-%E6%A8%AA%E5%90%91%E6%BB%9A%E5%8A%A8/</guid>
+      <description>============================================================================================== (UITableViewCell)tableView🙁UITableView)aTableView cellForRowAtIndexPat</description>
+    </item>
+    
+    <item>
+      <title>Other Linkder Flags 设置</title>
+      <link>https://www.51hint.com/posts/2011-10-03-other-linkder-flags-%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Mon, 03 Oct 2011 10:38:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-10-03-other-linkder-flags-%E8%AE%BE%E7%BD%AE/</guid>
+      <description>linker bug that prevents -ObjC from loading objects files from static libraries that contain only categoriesand no classes. The workaround is to use the -all_load or -force_load flags. -all_load forces the linker to load all object files from every archive it sees, even those without Objective-C code.</description>
+    </item>
+    
+    <item>
+      <title>navigationController.toolbar 添加按钮</title>
+      <link>https://www.51hint.com/posts/2011-09-29-navigationcontroller-toolbar-%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/</link>
+      <pubDate>Thu, 29 Sep 2011 07:14:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-29-navigationcontroller-toolbar-%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE/</guid>
+      <description>toolbar添加完按钮不显示 self.navigationController.toolbarHidden=NO;UIBarButtonI</description>
+    </item>
+    
+    <item>
+      <title>Quartz2d</title>
+      <link>https://www.51hint.com/posts/2011-09-28-quartz2d/</link>
+      <pubDate>Wed, 28 Sep 2011 05:32:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-28-quartz2d/</guid>
+      <description>Quartz转换实现的原理，Quartz把绘图分成两个部分， 用户空间，即和设备无关， 设备空间； 用户空间和设备空间中间存在一个转换矩阵：CTM</description>
+    </item>
+    
+    <item>
+      <title>gdb调试 查看变量值 struct</title>
+      <link>https://www.51hint.com/posts/2011-09-28-gdb%E8%B0%83%E8%AF%95-%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%80%BC-struct/</link>
+      <pubDate>Wed, 28 Sep 2011 04:03:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-28-gdb%E8%B0%83%E8%AF%95-%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%80%BC-struct/</guid>
+      <description>最近才发现可以用ptype来获取到结构体的结构信息，进而取得变量的值 还可以在调试过程中调用函数来获取你想要的输出。 #include&amp;lt;stdio.h&amp;gt; int debug_cat(vec *v){ printf(“v</description>
+    </item>
+    
+    <item>
+      <title>CAAnimation，CAAnimationGroup</title>
+      <link>https://www.51hint.com/posts/2011-09-28-caanimationcaanimationgroup/</link>
+      <pubDate>Wed, 28 Sep 2011 03:24:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-28-caanimationcaanimationgroup/</guid>
+      <description>// &amp;lt;p class=&amp;quot;p1&amp;quot; style=&amp;quot;line-height: normal;&amp;quot;&amp;gt; &amp;lt;span style=&amp;quot;color: #333333; line-height: normal;&amp;quot;&amp;gt;// AnimationTestV2&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p1&amp;quot; style=&amp;quot;line-height: normal;&amp;quot;&amp;gt; &amp;lt;span style=&amp;quot;color: #333333; line-height: normal;&amp;quot;&amp;gt;//&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p1&amp;quot; style=&amp;quot;line-height: normal;&amp;quot;&amp;gt; &amp;lt;span style=&amp;quot;color: #333333; line-height: normal;&amp;quot;&amp;gt;// Created by jtone on 11-8-9.&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p1&amp;quot; style=&amp;quot;line-height: normal;&amp;quot;&amp;gt; &amp;lt;span style=&amp;quot;color: #333333; line-height: normal;&amp;quot;&amp;gt;// Copyright 2011&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #333333; line-height: normal;&amp;quot;&amp;gt;年&amp;</description>
+    </item>
+    
+    <item>
+      <title>CAAnimation动画</title>
+      <link>https://www.51hint.com/posts/2011-09-28-caanimation%E5%8A%A8%E7%94%BB-2/</link>
+      <pubDate>Wed, 28 Sep 2011 03:22:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-28-caanimation%E5%8A%A8%E7%94%BB-2/</guid>
+      <description>动画分隐式动画和显式动画CAAnimatione采用了CAMediaTiming协议,可以调整时间,包括持续时间,速度,重复次数;采用了CA</description>
+    </item>
+    
+    <item>
+      <title>CAAnimation动画</title>
+      <link>https://www.51hint.com/posts/2011-09-28-caanimation%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Wed, 28 Sep 2011 02:45:26 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-28-caanimation%E5%8A%A8%E7%94%BB/</guid>
+      <description>动画分隐式动画和显式动画CAAnimatione采用了CAMediaTiming协议,可以调整时间,包括持续时间,速度,重复次数;采用了CA</description>
+    </item>
+    
+    <item>
+      <title>NSDate、NSCalendar获取时间之差</title>
+      <link>https://www.51hint.com/posts/2011-09-20-nsdatenscalendar%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E4%B9%8B%E5%B7%AE/</link>
+      <pubDate>Tue, 20 Sep 2011 01:46:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-20-nsdatenscalendar%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E4%B9%8B%E5%B7%AE/</guid>
+      <description>//======================================================================================================= NSCanlendar 一些方法属性 1. 创建或初始化可用以下方法 + (id)currentCalendar; 取得当前用户的逻辑日历(logical calendar) + (id)autoupdatingCurrentCalendar; 取得当前用户的逻辑日历(logical calendar), …… – (id)initWithCalendarIdentifier:(NSString *)identifier;</description>
+    </item>
+    
+    <item>
+      <title>输入关联软键盘事件</title>
+      <link>https://www.51hint.com/posts/2011-09-16-%E8%BE%93%E5%85%A5%E5%85%B3%E8%81%94%E8%BD%AF%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</link>
+      <pubDate>Fri, 16 Sep 2011 08:44:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-16-%E8%BE%93%E5%85%A5%E5%85%B3%E8%81%94%E8%BD%AF%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</guid>
+      <description>//=================================================================================================================// m_userName.keyboardType=UIKeyboardTypeNumberPad; //设置键盘属性（KeyboardType） m_userName.returnKeyType = UIReturnKeyNext; //设置ruturn键类型 m_userName.delegate= self; – (BOOL)textFieldShouldReturn:(UITextField *)textField{ //在这里面写入单击键盘RETURE键，之后相应的</description>
+    </item>
+    
+    <item>
+      <title>touch 单击、双击</title>
+      <link>https://www.51hint.com/posts/2011-09-15-touch-%E5%8D%95%E5%87%BB%E5%8F%8C%E5%87%BB/</link>
+      <pubDate>Thu, 15 Sep 2011 07:16:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-15-touch-%E5%8D%95%E5%87%BB%E5%8F%8C%E5%87%BB/</guid>
+      <description>UITouch *touch = [touches anyObject]; NSUInteger tapCount = [touch tapCount]; NSValue *curPtValue = [NSValue valueWithCGPoint:curPoint]; if ((0==tapCount) ||(1 == tapCount)) { [self performSelector:@selector(simpleTap:) withObject:curPtValue afterDelay:.4]; } if (2 == tapCount) { [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(simpleTap:) object:curPtValue]; [self performSelector:@selector(doubleTap:) withObject:curPtValue afterDelay:.4]; }</description>
+    </item>
+    
+    <item>
+      <title>NSUserDefault 保存配置</title>
+      <link>https://www.51hint.com/posts/2011-09-15-nsuserdefault-%E4%BF%9D%E5%AD%98%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 15 Sep 2011 07:10:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-15-nsuserdefault-%E4%BF%9D%E5%AD%98%E9%85%8D%E7%BD%AE/</guid>
+      <description>当程序进入后台时，注册通知 – (void)applicationWillResignActive:(UIApplication *)application { [UIApplication sharedApplication].idleTimerDisabled = NO; [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationAppSettingChanged:) name:NSUserDefaultsDidChangeNotificationobject:nil]; } 当由后台进入前台时，根据通知触发相应事件 //======================================================================================// – (void)notificationAppSettingChanged:(NSNotification *)notify{ NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; NSInteger pa = [defaults integerFor</description>
+    </item>
+    
+    <item>
+      <title>角度与弧度的转换</title>
+      <link>https://www.51hint.com/posts/2011-09-15-%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6%E7%9A%84%E8%BD%AC%E6%8D%A2/</link>
+      <pubDate>Thu, 15 Sep 2011 07:00:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-15-%E8%A7%92%E5%BA%A6%E4%B8%8E%E5%BC%A7%E5%BA%A6%E7%9A%84%E8%BD%AC%E6%8D%A2/</guid>
+      <description>iphone里面角度和弧度经常要转换 比如旋转一个图片，你要用到CGAffineTransformMakeRotation，他就需要一个弧度值</description>
+    </item>
+    
+    <item>
+      <title>iphone 后台程序</title>
+      <link>https://www.51hint.com/posts/2011-09-15-iphone-%E5%90%8E%E5%8F%B0%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Thu, 15 Sep 2011 06:36:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-15-iphone-%E5%90%8E%E5%8F%B0%E7%A8%8B%E5%BA%8F/</guid>
+      <description>点击home键，程序就会进入后台直至进入挂起状态，程序会依次调用下列函数 可以这么说,除了这三种服务允许以我们通常认为的多任务机制在后台运行,</description>
+    </item>
+    
+    <item>
+      <title>NSLog 调试Debug和Release状态的控制及其  printf,fprint输出文件的控制</title>
+      <link>https://www.51hint.com/posts/2011-09-14-nslog-%E8%B0%83%E8%AF%95debug%E5%92%8Crelease%E7%8A%B6%E6%80%81%E7%9A%84%E6%8E%A7%E5%88%B6%E5%8F%8A%E5%85%B6-printffprint%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6%E7%9A%84%E6%8E%A7%E5%88%B6/</link>
+      <pubDate>Wed, 14 Sep 2011 10:08:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-14-nslog-%E8%B0%83%E8%AF%95debug%E5%92%8Crelease%E7%8A%B6%E6%80%81%E7%9A%84%E6%8E%A7%E5%88%B6%E5%8F%8A%E5%85%B6-printffprint%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6%E7%9A%84%E6%8E%A7%E5%88%B6/</guid>
+      <description>选择TARGETS 的 info的[Build Settings][GCC4.2 – Preprocessing]里面找preprocessormarco，然后自己定义一个宏。没有</description>
+    </item>
+    
+    <item>
+      <title>阻止ios锁屏</title>
+      <link>https://www.51hint.com/posts/2011-09-11-%E9%98%BB%E6%AD%A2ios%E9%94%81%E5%B1%8F/</link>
+      <pubDate>Sun, 11 Sep 2011 07:36:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-11-%E9%98%BB%E6%AD%A2ios%E9%94%81%E5%B1%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>合并iPhone模拟器和真机通用的静态类库</title>
+      <link>https://www.51hint.com/posts/2011-09-09-%E5%90%88%E5%B9%B6iphone%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%92%8C%E7%9C%9F%E6%9C%BA%E9%80%9A%E7%94%A8%E7%9A%84%E9%9D%99%E6%80%81%E7%B1%BB%E5%BA%93-2/</link>
+      <pubDate>Fri, 09 Sep 2011 02:31:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-09-%E5%90%88%E5%B9%B6iphone%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%92%8C%E7%9C%9F%E6%9C%BA%E9%80%9A%E7%94%A8%E7%9A%84%E9%9D%99%E6%80%81%E7%B1%BB%E5%BA%93-2/</guid>
+      <description>假设两个版本的lib分别是libIMIUI.s.a , libIMIUI.d.a 我们的目标是 把他们合并成无敌超级通用版的libIMIUI.a 🙂</description>
+    </item>
+    
+    <item>
+      <title>GCD</title>
+      <link>https://www.51hint.com/posts/2011-08-26-gcd/</link>
+      <pubDate>Fri, 26 Aug 2011 07:59:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-26-gcd/</guid>
+      <description>iOS中多线程编程工具主要有： NSThread NSOperation GCD 这三种方法都简单易用,各有千秋.但无疑GCD是最有诱惑力的,因为其本身是apple为多核的并行运算提出的</description>
+    </item>
+    
+    <item>
+      <title>ipad 多触式web前端开发之一：对于Touch的处理</title>
+      <link>https://www.51hint.com/posts/2011-08-19-ipad-%E5%A4%9A%E8%A7%A6%E5%BC%8Fweb%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B9%8B%E4%B8%80%E5%AF%B9%E4%BA%8Etouch%E7%9A%84%E5%A4%84%E7%90%86-2/</link>
+      <pubDate>Fri, 19 Aug 2011 06:28:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-19-ipad-%E5%A4%9A%E8%A7%A6%E5%BC%8Fweb%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B9%8B%E4%B8%80%E5%AF%B9%E4%BA%8Etouch%E7%9A%84%E5%A4%84%E7%90%86-2/</guid>
+      <description>&amp;lt;div class=&amp;quot;line alt2&amp;quot; style=&amp;quot;font-family:Consolas,&#39;Bitstream Vera Sans Mono&#39;,&#39;Courier New&#39;,Courier,monospace!important; font-size:1em!important; margin-top:0px!important; margin-right:0px!important; margin-bottom:0px!important; margin-left:0px!important; padding-top:0px!important; padding-right:0px!important; padding-bottom:0px!important; padding-left:0px!important; border-top-width:0px!important; border-right-width:0px!important; border-bottom-width:0px!important; border-left-width:0px!important; border-style:initial!important; border-color:initial!important; outline-width:0px!important; outline-style:initial!important; outline-color:initial!important; background-color:rgb(248,248,248)!important; text-align:left!important; float:none!important; vertical-align:baseline!important; position:static!important; left:auto!important; top:auto!important; right:auto!important; bottom:auto!important; height:auto!important; width:auto!important; font-weight:normal!important; font-style:normal!important; min-height:inherit!important&amp;quot;&amp;gt; &amp;lt;table style=&amp;quot;margin-top:0px!important; margin-right:0px!important; margin-bottom:0px!important; margin-left:0px!important; padding-top:0px!important; padding-right:0px!important; padding-bottom:0px!important; padding-left:0px!important; border-top-width:0px!important; border-right-width:0px!important; border-bottom-width:0px!important; border-left-width:0px!important; border-style:initial!important; border-color:initial!important; outline-width:0px!important; outline-style:initial!important; outline-color:initial!important; background-color:initial!important; text-align:left!important; float:none!important; vertical-align:baseline!important; position:static!important; left:auto!important; top:auto!important; right:auto!important; bottom:auto!important; height:auto!important; width:auto!important; font-family:Consolas,&#39;Bitstream</description>
+    </item>
+    
+    <item>
+      <title>ipad web</title>
+      <link>https://www.51hint.com/posts/2011-08-19-ipad-web/</link>
+      <pubDate>Fri, 19 Aug 2011 06:19:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-19-ipad-web/</guid>
+      <description>&amp;lt;p style=&amp;quot;text-indent: 2em; line-height: 1.7em; padding: 0px; margin: 0.5em 0px 0.5em 0px;&amp;quot;&amp;gt; 你或许可以为这个找到一些变通的办法，但是到你的用户那里这些该如何工作将会是困难的事。 &amp;lt;/p&amp;gt; &amp;lt;td class=&amp;quot;content&amp;quot; style=&amp;quot;border-style: initial!important; border-color: initial!important; outline-width: 0px!important; outline-style: initial!important; outline-color: initial!important; background-color: initial!important; text-align:</description>
+    </item>
+    
+    <item>
+      <title>获取网页(GBK)内容</title>
+      <link>https://www.51hint.com/posts/2011-08-19-%E8%8E%B7%E5%8F%96%E7%BD%91%E9%A1%B5gbk%E5%86%85%E5%AE%B9/</link>
+      <pubDate>Fri, 19 Aug 2011 03:28:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-19-%E8%8E%B7%E5%8F%96%E7%BD%91%E9%A1%B5gbk%E5%86%85%E5%AE%B9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iphone之nsdata转byte数组;  从NSData中读取一些长度字节；</title>
+      <link>https://www.51hint.com/posts/2011-08-18-iphone%E4%B9%8Bnsdata%E8%BD%ACbyte%E6%95%B0%E7%BB%84-%E4%BB%8Ensdata%E4%B8%AD%E8%AF%BB%E5%8F%96%E4%B8%80%E4%BA%9B%E9%95%BF%E5%BA%A6%E5%AD%97%E8%8A%82/</link>
+      <pubDate>Thu, 18 Aug 2011 09:34:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-18-iphone%E4%B9%8Bnsdata%E8%BD%ACbyte%E6%95%B0%E7%BB%84-%E4%BB%8Ensdata%E4%B8%AD%E8%AF%BB%E5%8F%96%E4%B8%80%E4%BA%9B%E9%95%BF%E5%BA%A6%E5%AD%97%E8%8A%82/</guid>
+      <description>//************************************************// NSUInterge len = [data length]; Byte *byteData = (Byte *)malloc(len); memcpy(byteData,[data bytes],len); //=======================================================================================// – (NSData *)readDataOfLength:(unsigned int)lengthParameter { unsigned int remaining = [data length] – offset; unsigned int length = lengthParameter &amp;lt; remaining ? lengthParameter : remaining; void *bytes = (void *)([data bytes] + offset); offset += length; return [NSData dataWithBytesNoCopy:bytes length:length freeWhenDone:NO];}</description>
+    </item>
+    
+    <item>
+      <title>分享在设备上不用iDP调试app的方法</title>
+      <link>https://www.51hint.com/posts/2011-08-18-%E5%88%86%E4%BA%AB%E5%9C%A8%E8%AE%BE%E5%A4%87%E4%B8%8A%E4%B8%8D%E7%94%A8idp%E8%B0%83%E8%AF%95app%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 18 Aug 2011 09:18:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-18-%E5%88%86%E4%BA%AB%E5%9C%A8%E8%AE%BE%E5%A4%87%E4%B8%8A%E4%B8%8D%E7%94%A8idp%E8%B0%83%E8%AF%95app%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>&amp;lt;p style=&amp;quot;text-align: left; padding: 0px; margin: 0.8em 0px 0.8em 0px;&amp;quot;&amp;gt; 这是1ST告诉我的办法，第一次就是他告诉的，没想到这次还是他告诉的。 &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;text-align: left; padding: 0px; margin: 0.8em 0px 0.8em 0px;&amp;quot;&amp;gt; 下面是所有的代码操作，请对照操</description>
+    </item>
+    
+    <item>
+      <title>NSFileHandle</title>
+      <link>https://www.51hint.com/posts/2011-08-18-nsfilehandle/</link>
+      <pubDate>Thu, 18 Aug 2011 07:13:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-18-nsfilehandle/</guid>
+      <description>&amp;lt;p style=&amp;quot;font: normal normal normal 11px/normal Menlo; margin: 0px;&amp;quot;&amp;gt; +(&amp;lt;span style=&amp;quot;color: #743fa4;&amp;quot;&amp;gt;NSFileHandle&amp;lt;/span&amp;gt; *) fileHandleForReadingAtPath: path &amp;lt;/p&amp;gt; &amp;lt;p style=&amp;quot;font: normal normal normal 11px/normal Menlo; min-height: 13px; margin: 0px;&amp;quot;&amp;gt; &amp;lt;p style=&amp;quot;font: normal normal normal 11px/normal &#39;LiHei Pro&#39;; color: #008324; margin: 0px;&amp;quot;&amp;gt; &amp;lt;span style=&amp;quot;font: normal normal normal 11px/normal Menlo;&amp;quot;&amp;gt;// &amp;lt;/span&amp;gt;開啟檔案以便進行寫入 &amp;lt;/p&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>几个网络代码</title>
+      <link>https://www.51hint.com/posts/2011-08-17-%E5%87%A0%E4%B8%AA%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Wed, 17 Aug 2011 09:21:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-17-%E5%87%A0%E4%B8%AA%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%A0%81/</guid>
+      <description>1、采用CFHTTPMessage等 2、采用 NSURL</description>
+    </item>
+    
+    <item>
+      <title>获取本机 公开ip</title>
+      <link>https://www.51hint.com/posts/2011-08-17-%E8%8E%B7%E5%8F%96%E6%9C%AC%E6%9C%BA-%E5%85%AC%E5%BC%80ip/</link>
+      <pubDate>Wed, 17 Aug 2011 07:00:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-17-%E8%8E%B7%E5%8F%96%E6%9C%AC%E6%9C%BA-%E5%85%AC%E5%BC%80ip/</guid>
+      <description>NSURL *netIPURL = [NSURL URLWithString:@”http://whatismyip.org”]; NSString *netIP = [NSString stringWithContentsOfURL:netIPURL encoding:NSUTF8StringEncoding error:nil];</description>
+    </item>
+    
+    <item>
+      <title>iPhone How-to:给UIView拍照</title>
+      <link>https://www.51hint.com/posts/2011-08-16-iphone-how-to%E7%BB%99uiview%E6%8B%8D%E7%85%A7/</link>
+      <pubDate>Tue, 16 Aug 2011 09:50:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-16-iphone-how-to%E7%BB%99uiview%E6%8B%8D%E7%85%A7/</guid>
+      <description>[view.layer renderInContext:UIGraphicsGetCurrentContext()]; UIImage *screenImage = UIGraphicsGetImageFromCurrentImageContext(); UIGraphicsEndImageContext(); return screenImage; } http://bj007.blog.51cto.com/1701577/533632</description>
+    </item>
+    
+    <item>
+      <title>iphone 播放gif动画</title>
+      <link>https://www.51hint.com/posts/2011-08-16-iphone-%E6%92%AD%E6%94%BEgif%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Tue, 16 Aug 2011 09:45:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-16-iphone-%E6%92%AD%E6%94%BEgif%E5%8A%A8%E7%94%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iPhone开发随想:rand()还是arc4random()</title>
+      <link>https://www.51hint.com/posts/2011-08-16-iphone%E5%BC%80%E5%8F%91%E9%9A%8F%E6%83%B3rand%E8%BF%98%E6%98%AFarc4random/</link>
+      <pubDate>Tue, 16 Aug 2011 09:34:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-16-iphone%E5%BC%80%E5%8F%91%E9%9A%8F%E6%83%B3rand%E8%BF%98%E6%98%AFarc4random/</guid>
+      <description>原文链接：http://iphonedevelopment.blogspot.com/2008/10/random-thoughts-ran</description>
+    </item>
+    
+    <item>
+      <title>UIPopoverController的使用</title>
+      <link>https://www.51hint.com/posts/2011-08-15-uipopovercontroller%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 15 Aug 2011 11:17:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-15-uipopovercontroller%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>&amp;lt;p class=&amp;quot;p1&amp;quot; style=&amp;quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&amp;quot;&amp;gt; &amp;lt;span style=&amp;quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&amp;quot;&amp;gt; &amp;lt;/span&amp;gt;// Ensure the popover is not dismissed if the user taps in&amp;lt;br /&amp;gt; the search bar. &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p2&amp;quot; style=&amp;quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&amp;quot;&amp;gt; &amp;lt;span style=&amp;quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&amp;quot;&amp;gt; popover.&amp;lt;/span&amp;gt;passthroughViews&amp;lt;span</description>
+    </item>
+    
+    <item>
+      <title>动态方法解析</title>
+      <link>https://www.51hint.com/posts/2011-08-15-%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Mon, 15 Aug 2011 02:49:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-15-%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/</guid>
+      <description>&amp;lt;div class=&amp;quot;codesample&amp;quot; style=&amp;quot;font-size: 11px; margin: 1.5em 0px 1.5em 0px;&amp;quot;&amp;gt; &amp;lt;table style=&amp;quot;width: 816px; background-color: #f1f5f9; border-collapse: collapse; padding-bottom: 4px; border: 1px solid #c9d1d7;&amp;quot; width=&amp;quot;100%&amp;quot; cellspacing=&amp;quot;0&amp;quot; cellpadding=&amp;quot;6&amp;quot; bgcolor=&amp;quot;#F1F5F9&amp;quot;&amp;gt; &amp;lt;tr style=&amp;quot;border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: #ffffff;&amp;quot;&amp;gt; &amp;lt;td style=&amp;quot;padding: 0.5em;&amp;quot; scope=&amp;quot;row&amp;quot;&amp;gt; &amp;lt;pre style=&amp;quot;font-size: 11px; font-family: Courier,Consolas,monospace; color: #666666; line-height: 12px; white-space: pre-wrap; margin: -0.083em 0.333em 0px 0.5em;&amp;quot;&amp;gt;@dynamic propertyName;&amp;lt;/pre&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;p style=&amp;quot;margin-top: 0px; margin-bottom: 0.833em; font: normal normal normal 100%/normal &#39;Lucida Grande&#39;,Geneva,Helvetica,Arial,sans-serif;&amp;quot;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>键-值观察编程</title>
+      <link>https://www.51hint.com/posts/2011-08-15-%E9%94%AE-%E5%80%BC%E8%A7%82%E5%AF%9F%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Mon, 15 Aug 2011 02:17:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-15-%E9%94%AE-%E5%80%BC%E8%A7%82%E5%AF%9F%E7%BC%96%E7%A8%8B/</guid>
+      <description>// Add an observer to the network manager’s networkInUse property so that we can // update the application’s networkActivityIndicatorVisible property. This has// the side effect of starting up the NetworkManager singleton. // 注册观察模式 [[NetworkManager sharedManager] addObserver:self forKeyPat</description>
+    </item>
+    
+    <item>
+      <title>touch 事件的延迟</title>
+      <link>https://www.51hint.com/posts/2011-08-15-touch-%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%BB%B6%E8%BF%9F/</link>
+      <pubDate>Mon, 15 Aug 2011 01:49:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-15-touch-%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%BB%B6%E8%BF%9F/</guid>
+      <description>– (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{ self.clipsToBounds = NO; self.touchTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(addLoop) userInfo:nil repeats:NO]; } – (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{ [self.touchTimer invalidate];self.touchTimer = nil; [_loop release]; _loop = nil; }</description>
+    </item>
+    
+    <item>
+      <title>CATransaction 一些动画</title>
+      <link>https://www.51hint.com/posts/2011-08-15-catransaction-%E4%B8%80%E4%BA%9B%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Mon, 15 Aug 2011 01:48:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-15-catransaction-%E4%B8%80%E4%BA%9B%E5%8A%A8%E7%94%BB/</guid>
+      <description>[CATransaction begin]; [CATransaction setValue:[NSNumber numberWithFloat:ANIMATION_DURATION] forKey:kCATransactionAnimationDuration]; // scale it down CABasicAnimation *shrinkAnimation = [CABasicAnimation animationWithKeyPath:@”transform.scale”]; shrinkAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]; shrinkAnimation.toValue = [NSNumber numberWithFloat:0.0]; [[self.view layer] addAnimation:shrinkAnimation forK</description>
+    </item>
+    
+    <item>
+      <title>与Tomcat SSL 通信</title>
+      <link>https://www.51hint.com/posts/2011-08-11-%E4%B8%8Etomcat-ssl-%E9%80%9A%E4%BF%A1/</link>
+      <pubDate>Thu, 11 Aug 2011 05:24:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-11-%E4%B8%8Etomcat-ssl-%E9%80%9A%E4%BF%A1/</guid>
+      <description>１、 ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:strURL]; // [request addRequestHeader:@”Authorization” value:strAuth]; // [request setPostBody:(NSMutableData *)[strBody dataUsingEncoding:NSUTF8StringEncoding]]; // [request setRequestMethod:@”P</description>
+    </item>
+    
+    <item>
+      <title>iOS开发之Objective-C与JavaScript的交互</title>
+      <link>https://www.51hint.com/posts/2011-08-10-ios%E5%BC%80%E5%8F%91%E4%B9%8Bobjective-c%E4%B8%8Ejavascript%E7%9A%84%E4%BA%A4%E4%BA%92/</link>
+      <pubDate>Wed, 10 Aug 2011 02:43:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-10-ios%E5%BC%80%E5%8F%91%E4%B9%8Bobjective-c%E4%B8%8Ejavascript%E7%9A%84%E4%BA%A4%E4%BA%92/</guid>
+      <description>=[UIColor clearColor]; webview.scalesPageToFit =YES;webview. delegate=self;NSURL *url =[[NSURL alloc] initWithString:@&amp;quot;http://www.google.com.hk/m?gl=CN&amp;amp;hl=zh_CN&amp;amp;source=ihp&amp;quot;];NSURLRequest *request =[[NSURLRequest alloc] initWithURL:url];[webview loadRequest:request]; } *title =[webview stringByEvaluatingJavaScriptFromString:@&amp;quot;document.title&amp;quot;]; } @&amp;quot;myFunction();&amp;quot;];</description>
+    </item>
+    
+    <item>
+      <title>复制NSCopying</title>
+      <link>https://www.51hint.com/posts/2011-08-09-%E5%A4%8D%E5%88%B6nscopying/</link>
+      <pubDate>Tue, 09 Aug 2011 09:02:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-09-%E5%A4%8D%E5%88%B6nscopying/</guid>
+      <description>– (id)copyWithZone:(NSZone *)zone { Model* copy; copy = [[[self class] allocWithZone: zone] init]; return (copy); } //============================================== 继承它的类，重写此方法sample – (id)copyWithZone:(NSZone *)zone { Meeting* copy; copy = [[[self class] allocWithZone: zone] init]; copy.meetingId = self.meetingId; copy.meetingName = self.meetingName; copy.fileName = self.fileName; copy.startTime = self.startTime; copy.endTime = self.endTime; copy.active = self.active; return (copy); } // copyWithZone</description>
+    </item>
+    
+    <item>
+      <title>NSCoding 保存数据</title>
+      <link>https://www.51hint.com/posts/2011-08-09-nscoding-%E4%BF%9D%E5%AD%98%E6%95%B0%E6%8D%AE-/</link>
+      <pubDate>Tue, 09 Aug 2011 08:50:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-09-nscoding-%E4%BF%9D%E5%AD%98%E6%95%B0%E6%8D%AE-/</guid>
+      <description>为了将应用数据存储到硬盘中，iOS提供基本的文件API、PropertyList序列化、SQLite、CoreData以及NSCoding。</description>
+    </item>
+    
+    <item>
+      <title>使用NSKeyedArchiver保存数据</title>
+      <link>https://www.51hint.com/posts/2011-08-09-%E4%BD%BF%E7%94%A8nskeyedarchiver%E4%BF%9D%E5%AD%98%E6%95%B0%E6%8D%AE-/</link>
+      <pubDate>Tue, 09 Aug 2011 08:39:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-09-%E4%BD%BF%E7%94%A8nskeyedarchiver%E4%BF%9D%E5%AD%98%E6%95%B0%E6%8D%AE-/</guid>
+      <description>– (NSMutableArray *)loadMarkersFromFilePath:(NSString *)filePath { NSMutableArray *markers = nil; if (filePath == nil || [filePath length] == 0 || [[NSFileManager defaultManager] fileExistsAtPath:filePath] == NO) { markers = [[[NSMutableArray alloc] init] autorelease]; } else { NSData *data = [[NSData alloc] initWithContentsOfFile:filePath]; NSKeyedUnarchiver *vdUnarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data]; markers = [vdUnarchiver decodeObjectForKey:kSaveKeyMarkerLines]; [vdUnarchiver finishDecoding]; [vdUnarchiver release]; [data release]; } return markers; } – (void)saveMarkers:(NSMutableArray *)markers toFilePath:(NSString *)filePath { NSMutableData *data = [[NSMutableData</description>
+    </item>
+    
+    <item>
+      <title>iphone iphone4  ipad  ipad2</title>
+      <link>https://www.51hint.com/posts/2011-08-07-iphone-iphone4-ipad-ipad2/</link>
+      <pubDate>Sun, 07 Aug 2011 07:05:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-07-iphone-iphone4-ipad-ipad2/</guid>
+      <description>最近开始尝试彻底放弃IB来设计界面，纯代码来画界面，这样思路更清晰，也可以重用一些界面代码； 看一些大牛都是纯代码化界面的，呵呵；速度也较IB</description>
+    </item>
+    
+    <item>
+      <title>现有 Xcode Projects加入 git版本库管理</title>
+      <link>https://www.51hint.com/posts/2011-08-02-%E7%8E%B0%E6%9C%89-xcode-projects%E5%8A%A0%E5%85%A5-git%E7%89%88%E6%9C%AC%E5%BA%93%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Tue, 02 Aug 2011 08:45:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-02-%E7%8E%B0%E6%9C%89-xcode-projects%E5%8A%A0%E5%85%A5-git%E7%89%88%E6%9C%AC%E5%BA%93%E7%AE%A1%E7%90%86/</guid>
+      <description>一、关闭xcode项目二、打开terminal三、进入到项目目录四、$git init$ git commit -a -m “init commit”$ git add .$ git commit -a -m “initia</description>
+    </item>
+    
+    <item>
+      <title>使用libcurl连接https服务器</title>
+      <link>https://www.51hint.com/posts/2011-07-19-%E4%BD%BF%E7%94%A8libcurl%E8%BF%9E%E6%8E%A5https%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Tue, 19 Jul 2011 07:40:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-07-19-%E4%BD%BF%E7%94%A8libcurl%E8%BF%9E%E6%8E%A5https%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>一、编译openssl 连接https的 前提是要有openssl。 然后得到两个静态库文件 (libcrypto.a libssl.a) 参考 http://hi.baidu.com/tmy13/blog/item/f661a01b131977148618bfae.html 二、编译libcurl 下载libcurl。编</description>
+    </item>
+    
+    <item>
+      <title>UIAlertView 添加文本框</title>
+      <link>https://www.51hint.com/posts/2011-07-13-uialertview-%E6%B7%BB%E5%8A%A0%E6%96%87%E6%9C%AC%E6%A1%86/</link>
+      <pubDate>Wed, 13 Jul 2011 02:02:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-07-13-uialertview-%E6%B7%BB%E5%8A%A0%E6%96%87%E6%9C%AC%E6%A1%86/</guid>
+      <description>UIAlertView 添加文本框非公开api @interface UIAlertView (extended) – (UITextField *)textFieldAtIndex: (int) index; – (void) addTextFieldWithValue: (NSString *)value label: (NSString *)label; @end //===============================================================// UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@”Enter Information” me</description>
+    </item>
+    
+    <item>
+      <title>GameKit 蓝牙通信</title>
+      <link>https://www.51hint.com/posts/2011-07-12-gamekit-%E8%93%9D%E7%89%99%E9%80%9A%E4%BF%A1/</link>
+      <pubDate>Tue, 12 Jul 2011 09:08:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-07-12-gamekit-%E8%93%9D%E7%89%99%E9%80%9A%E4%BF%A1/</guid>
+      <description>GameKit框架中蓝牙传输主要的两‘个类 GKPeerPickerController 提供了UIPicker，我们也可以自定义界面； GKSesion 会话; 蓝牙传输用的两个代理 GKPeerPickerControllerDelegate,GKSessionDelegate; //==========================================================================// 1. 2. – (void)peerPIckerController:(GKPeerPIckerController *)picker didConnectPeer: (NSString *) peerID</description>
+    </item>
+    
+    <item>
+      <title>uitableview 分页</title>
+      <link>https://www.51hint.com/posts/2011-07-04-uitableview-%E5%88%86%E9%A1%B5/</link>
+      <pubDate>Mon, 04 Jul 2011 06:40:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-07-04-uitableview-%E5%88%86%E9%A1%B5/</guid>
+      <description>&amp;lt;p style=&amp;quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0.8em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: &#39;Segoe UI&#39;, Calibri, &#39;Myriad Pro&#39;, Myriad, &#39;Trebuchet MS&#39;, Helvetica, Arial, sans-serif; line-height: 19px; &amp;quot;&amp;gt; 实现的思路： &amp;lt;/p&amp;gt; &amp;lt;ul style=&amp;quot;margin-top: 0.4em; margin-right: 0px; margin-bottom: 1em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; font-family: &#39;Segoe UI&#39;, Calibri, &#39;Myriad Pro&#39;, Myriad, &#39;Trebuchet MS&#39;, Helvetica, Arial, sans-serif; line-height: 19px;</description>
+    </item>
+    
+    <item>
+      <title>UIlabel 根据内容自适应size</title>
+      <link>https://www.51hint.com/posts/2011-06-30-uilabel-%E6%A0%B9%E6%8D%AE%E5%86%85%E5%AE%B9%E8%87%AA%E9%80%82%E5%BA%94size/</link>
+      <pubDate>Thu, 30 Jun 2011 05:22:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-30-uilabel-%E6%A0%B9%E6%8D%AE%E5%86%85%E5%AE%B9%E8%87%AA%E9%80%82%E5%BA%94size/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>post表单两种方式</title>
+      <link>https://www.51hint.com/posts/2011-06-30-post%E8%A1%A8%E5%8D%95%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Thu, 30 Jun 2011 03:54:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-30-post%E8%A1%A8%E5%8D%95%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/</guid>
+      <description>方法一， NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];[request setURL:[NSURL URLWithString:urlString]];[request setHTTPMethod:@”POST”];//set headersNSString *contentType = [NSString stringWithFormat:@”text/x</description>
+    </item>
+    
+    <item>
+      <title>UILocalNotification 本地通知</title>
+      <link>https://www.51hint.com/posts/2011-06-29-uilocalnotification-%E6%9C%AC%E5%9C%B0%E9%80%9A%E7%9F%A5/</link>
+      <pubDate>Wed, 29 Jun 2011 02:48:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-29-uilocalnotification-%E6%9C%AC%E5%9C%B0%E9%80%9A%E7%9F%A5/</guid>
+      <description>本地通知UILocalNotification 三类属性 scheduled time:时间周期 notification type:通知类型，包括警告信息，动作按钮标题，应用图标上的ba</description>
+    </item>
+    
+    <item>
+      <title>UIImage 图片的放大与缩小</title>
+      <link>https://www.51hint.com/posts/2011-06-29-uiimage-%E5%9B%BE%E7%89%87%E7%9A%84%E6%94%BE%E5%A4%A7%E4%B8%8E%E7%BC%A9%E5%B0%8F/</link>
+      <pubDate>Wed, 29 Jun 2011 02:40:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-29-uiimage-%E5%9B%BE%E7%89%87%E7%9A%84%E6%94%BE%E5%A4%A7%E4%B8%8E%E7%BC%A9%E5%B0%8F/</guid>
+      <description>UIImage可以加载图片，但是我们想要得到一张放大或者缩小的图片，利用UIImage不能做到； 我们通过添加UIImage的分类，用来实现U</description>
+    </item>
+    
+    <item>
+      <title>UIPasteboard 剪贴板</title>
+      <link>https://www.51hint.com/posts/2011-06-28-uipasteboard-%E5%89%AA%E8%B4%B4%E6%9D%BF/</link>
+      <pubDate>Tue, 28 Jun 2011 05:49:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-28-uipasteboard-%E5%89%AA%E8%B4%B4%E6%9D%BF/</guid>
+      <description>//使用通用粘贴版 generalPasteboard类方法返回一个通用粘帖板的指针，例如：UIPasteboard *pasteboard = [UIPasteboard generalPasteboard]; //============================================================== 最常用的粘帖板操</description>
+    </item>
+    
+    <item>
+      <title>CFRunLoop</title>
+      <link>https://www.51hint.com/posts/2011-06-24-cfrunloop/</link>
+      <pubDate>Fri, 24 Jun 2011 04:11:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-24-cfrunloop/</guid>
+      <description>CFRunLoop 对象监控任务（task）的输入源，并在它们为处理做好准备的时候调度控制。输入源样例可能包括用户输入设备、网络链接、定期或时间延迟事件，还有</description>
+    </item>
+    
+    <item>
+      <title>警惕NSPredicate的性能陷阱</title>
+      <link>https://www.51hint.com/posts/2011-06-24-%E8%AD%A6%E6%83%95nspredicate%E7%9A%84%E6%80%A7%E8%83%BD%E9%99%B7%E9%98%B1/</link>
+      <pubDate>Fri, 24 Jun 2011 03:53:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-24-%E8%AD%A6%E6%83%95nspredicate%E7%9A%84%E6%80%A7%E8%83%BD%E9%99%B7%E9%98%B1/</guid>
+      <description>此前我大大低估了NSPredicate的性能开销，直到游戏性能出现问题。因此，我使用了Time Profiler给游戏作了一下profile。</description>
+    </item>
+    
+    <item>
+      <title>NSData 二进制文件的读写</title>
+      <link>https://www.51hint.com/posts/2011-06-24-nsdata-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%86%99/</link>
+      <pubDate>Fri, 24 Jun 2011 03:25:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-24-nsdata-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%86%99/</guid>
+      <description>NSString *path = @”/Users/Allen/Desktop/test.dat”; NSString *temp = @”Allen Dang”; int i = 100; float f = 98.3333f; 保存并写入文件 NSMutableData *writer =</description>
+    </item>
+    
+    <item>
+      <title>KVC KVO</title>
+      <link>https://www.51hint.com/posts/2011-06-24-kvc-kvo/</link>
+      <pubDate>Fri, 24 Jun 2011 03:16:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-24-kvc-kvo/</guid>
+      <description>Cocoa里面有个概念叫做”Key-Value Coding”, 此前一直都没有搞清楚到底什么意思, 今天详细的读了一下资料之后算是彻底明白了, 下</description>
+    </item>
+    
+    <item>
+      <title>XFire java SOAP framework</title>
+      <link>https://www.51hint.com/posts/2011-06-24-xfire-java-soap-framework/</link>
+      <pubDate>Fri, 24 Jun 2011 01:33:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-24-xfire-java-soap-framework/</guid>
+      <description>XFire WebService开发快速起步 http://lavasoft.blog.51cto.com/62575/105956/ ** &amp;lt;p&amp;gt; &amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;lt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #800000;&amp;quot;&amp;gt;service&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;lt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #800000;&amp;quot;&amp;gt;name&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;gt;&amp;lt;/span&amp;gt;MyService&amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;lt;/&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #800000;&amp;quot;&amp;gt;name&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;lt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #800000;&amp;quot;&amp;gt;serviceClass&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;gt;&amp;lt;/span&amp;gt;wstest.server.IMyService&amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;lt;/&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #800000;&amp;quot;&amp;gt;serviceClass&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;lt;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #800000;&amp;quot;&amp;gt;implementationClass&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #0000ff;&amp;quot;&amp;gt;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;br /&amp;gt; wstest.server.MyServiceImpl &amp;lt;br</description>
+    </item>
+    
+    <item>
+      <title>苹果推送通知</title>
+      <link>https://www.51hint.com/posts/2011-06-20-%E8%8B%B9%E6%9E%9C%E6%8E%A8%E9%80%81%E9%80%9A%E7%9F%A5/</link>
+      <pubDate>Mon, 20 Jun 2011 05:40:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-20-%E8%8B%B9%E6%9E%9C%E6%8E%A8%E9%80%81%E9%80%9A%E7%9F%A5/</guid>
+      <description>苹果推送通知－实例 &amp;lt;p&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; &amp;lt;span&amp;gt; 正常的iPhone刷系统之后，是没有设备证书和密钥的。这就是为什么iPhone会需要连接到 iTunes上进行激</description>
+    </item>
+    
+    <item>
+      <title>iphone 调试日志</title>
+      <link>https://www.51hint.com/posts/2011-06-20-iphone-%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Mon, 20 Jun 2011 05:29:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-20-iphone-%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/</guid>
+      <description>大部分人调试程序都是看日志吧，这里我就给大家总结一下iphone程序中添加保存日志的方法。 Objective-C开发程序的时候，有专门的日志</description>
+    </item>
+    
+    <item>
+      <title>openURL打开其他应用程序 sms tel mail maps</title>
+      <link>https://www.51hint.com/posts/2011-06-20-openurl%E6%89%93%E5%BC%80%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-sms-tel-mail-maps/</link>
+      <pubDate>Mon, 20 Jun 2011 05:20:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-20-openurl%E6%89%93%E5%BC%80%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-sms-tel-mail-maps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>objc_msgSend函数  runtimeapi</title>
+      <link>https://www.51hint.com/posts/2011-06-14-objc_msgsend%E5%87%BD%E6%95%B0-runtimeapi/</link>
+      <pubDate>Tue, 14 Jun 2011 02:00:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-14-objc_msgsend%E5%87%BD%E6%95%B0-runtimeapi/</guid>
+      <description>#import &amp;lt;objc/objc.h&amp;gt; #import &amp;lt;Foundation/NSObjCRuntime.h&amp;gt; /*****************************/&amp;lt;div class=&amp;quot;blog_content&amp;quot;&amp;gt; // Send a message to a class &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;blog_content&amp;quot;&amp;gt; objc_msgSend(objc_lookUpClass(&amp;amp;#8220;Test1&amp;amp;#8243;), selSetter, @&amp;amp;#8221;Ah, yes!&amp;amp;#8221;); // equal to [Test1 setValue:@&amp;amp;#8221;Ah, yes!&amp;amp;#8221;]; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;blog_content&amp;quot;&amp;gt; objc_msgSend(objc_lookUpClass(&amp;amp;#8220;Test2&amp;amp;#8243;), selSetter, @&amp;amp;#8221;Perfect!&amp;amp;#8221;); &amp;lt;/div&amp;gt; &amp;lt;p&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;div class=&amp;quot;blog_content&amp;quot;&amp;gt; NSLog(@&amp;amp;#8221;The Test1 result is: %@&amp;amp;#8221;, objc_msgSend(objc_lookUpClass(&amp;amp;#8220;Test1&amp;amp;#8221;), selGetter)); &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;blog_content&amp;quot;&amp;gt; NSLog(@&amp;amp;#8221;The Test2 result is: %@&amp;amp;#8221;, objc_msgSend(objc_lookUpClass(&amp;amp;#8220;Test2&amp;amp;#8221;), selGetter)); &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;blog_content&amp;quot;&amp;gt; /&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;&amp;amp;#8212;/ &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;quot;blog_content&amp;quot;&amp;gt; &amp;lt;span&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;div class=&amp;quot;blog_content&amp;quot;&amp;gt; // Other runtime APIs &amp;lt;/div&amp;gt; &amp;lt;p&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>旋转，反转，缩放等</title>
+      <link>https://www.51hint.com/posts/2011-06-10-%E6%97%8B%E8%BD%AC%E5%8F%8D%E8%BD%AC%E7%BC%A9%E6%94%BE%E7%AD%89/</link>
+      <pubDate>Fri, 10 Jun 2011 03:06:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-10-%E6%97%8B%E8%BD%AC%E5%8F%8D%E8%BD%AC%E7%BC%A9%E6%94%BE%E7%AD%89/</guid>
+      <description>//////////////////////////////////////////////////////////////////////////////////////// 旋转 CGAffineTransform rotation = CGAffineTransformMakeRotation(M_PI_2);[xxx setTransform:rotation];呵呵就这么简单的两行代码就可以实现了 一些常量 #define M_PI 3.14159265358979323846264338327950288 pi#define M_PI_2 1.57079632679489661923132169163975144 pi/2#define M_PI_4 0.785398163397448309615660845819875721 pi/4#define M_1_PI 0.318309886183790671537767526745028724 1/pi#define M_2_PI 0.636619772367581343075535053490057448 2/pi **</description>
+    </item>
+    
+    <item>
+      <title>类方法以及私有方法和【使用动态方法替换实现final功能]</title>
+      <link>https://www.51hint.com/posts/2011-06-09-%E7%B1%BB%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E6%9B%BF%E6%8D%A2%E5%AE%9E%E7%8E%B0fin/</link>
+      <pubDate>Thu, 09 Jun 2011 03:36:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-09-%E7%B1%BB%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E6%9B%BF%E6%8D%A2%E5%AE%9E%E7%8E%B0fin/</guid>
+      <description>方法的私有化 在讲述方法私有化之前，我们首先要提到一个Objective-C里面的一个概念，动态类型和静态类型。 所谓的动态类型，就是使用id来</description>
+    </item>
+    
+    <item>
+      <title>NSObject的奥秘与类外访问私有变量</title>
+      <link>https://www.51hint.com/posts/2011-06-09-nsobject%E7%9A%84%E5%A5%A5%E7%A7%98-%E4%B8%8E%E7%B1%BB%E5%A4%96%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Thu, 09 Jun 2011 02:24:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-09-nsobject%E7%9A%84%E5%A5%A5%E7%A7%98-%E4%B8%8E%E7%B1%BB%E5%A4%96%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nonatomic,readonly,retain,readwrite</title>
+      <link>https://www.51hint.com/posts/2011-06-08-nonatomicreadonlyretainreadwrite/</link>
+      <pubDate>Wed, 08 Jun 2011 11:03:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-08-nonatomicreadonlyretainreadwrite/</guid>
+      <description>1.readonly表示这个属性是只读的，就是只生成getter方法，不会生成setter方法．2.readwrite，设置可供访问级别3.</description>
+    </item>
+    
+    <item>
+      <title>基于CALayer的简单动画</title>
+      <link>https://www.51hint.com/posts/2011-06-05-%E5%9F%BA%E4%BA%8Ecalayer%E7%9A%84%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Sun, 05 Jun 2011 05:17:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-05-%E5%9F%BA%E4%BA%8Ecalayer%E7%9A%84%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB/</guid>
+      <description>设置对touch事件的监听，然后红色小方块会动画移动到touch的点上 – (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{ UITouch *t = [touches anyObject]; CGPoint p = [t locationInView:self]; starLayer.position=p; NSLog(@”&amp;raquo;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Xcode中使用SVN (SCM) 管理自己的source code</title>
+      <link>https://www.51hint.com/posts/2011-06-02-xcode%E4%B8%AD%E4%BD%BF%E7%94%A8svn-scm-%E7%AE%A1%E7%90%86%E8%87%AA%E5%B7%B1%E7%9A%84source-code/</link>
+      <pubDate>Thu, 02 Jun 2011 01:55:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-02-xcode%E4%B8%AD%E4%BD%BF%E7%94%A8svn-scm-%E7%AE%A1%E7%90%86%E8%87%AA%E5%B7%B1%E7%9A%84source-code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CALayer简单教程</title>
+      <link>https://www.51hint.com/posts/2011-06-01-calayer%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Wed, 01 Jun 2011 05:37:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-01-calayer%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/</guid>
+      <description>前一阵子读到一篇介绍CALayer（这里简单地称其为层）的教程，比较简单易懂，适合初学者，我在这里就不完全翻译了，只是把要点说明一下。 首先要</description>
+    </item>
+    
+    <item>
+      <title>Class类型，选择器Selector以及指针函数    [SEL,IMP]</title>
+      <link>https://www.51hint.com/posts/2011-05-30-class%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8selector%E4%BB%A5%E5%8F%8A%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0-selimp/</link>
+      <pubDate>Mon, 30 May 2011 12:18:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-05-30-class%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8selector%E4%BB%A5%E5%8F%8A%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0-selimp/</guid>
+      <description>我们在实际上的编程过程中，也许会遇到这样的场景，那就是我们在写程序的时候不能确切的知道我们需要使用什么类，使用这个类的什么方法。在这个时候，</description>
+    </item>
+    
+    <item>
+      <title>video camera</title>
+      <link>https://www.51hint.com/posts/2011-05-26-video-camera/</link>
+      <pubDate>Thu, 26 May 2011 07:32:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-05-26-video-camera/</guid>
+      <description>需要用到的frameworkFoundation.frameworkAVFundation.frameworkCoreVideo.frame</description>
+    </item>
+    
+    <item>
+      <title>socket</title>
+      <link>https://www.51hint.com/posts/2011-05-26-socket-2/</link>
+      <pubDate>Thu, 26 May 2011 07:25:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-05-26-socket-2/</guid>
+      <description>使用BSD socket 一、 大概需要引用到的头文件 二、 建立套接口 socket(AF_INET,SOCK_STREAM,)) 三、使用sockaddr_in结构体建立你所需要的连接信息sin_family指代协议</description>
+    </item>
+    
+    <item>
+      <title>添加手势</title>
+      <link>https://www.51hint.com/posts/2011-05-25-%E6%B7%BB%E5%8A%A0%E6%89%8B%E5%8A%BF/</link>
+      <pubDate>Wed, 25 May 2011 05:30:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-05-25-%E6%B7%BB%E5%8A%A0%E6%89%8B%E5%8A%BF/</guid>
+      <description>用UIGestureRecognizer侦测使用者输入操作 当点击此UI时，执行hiddenBookCoverView方法。 tap是指轻触手势</description>
+    </item>
+    
+    <item>
+      <title>RegexfKitLit</title>
+      <link>https://www.51hint.com/posts/2011-04-14-regexfkitlit/</link>
+      <pubDate>Thu, 14 Apr 2011 06:21:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-04-14-regexfkitlit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cocos2d 文档［cocos2d API reference into XCode]</title>
+      <link>https://www.51hint.com/posts/2011-03-15-cocos2d-%E6%96%87%E6%A1%A3cocos2d-api-reference-into-xcode/</link>
+      <pubDate>Tue, 15 Mar 2011 01:11:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-03-15-cocos2d-%E6%96%87%E6%A1%A3cocos2d-api-reference-into-xcode/</guid>
+      <description>http://www.cocos2d-iphone.org/archives/358 1,将Doxygen.app 复制到Application文件夹 2,但是在编译过程中时候遇到了Doxygen.config文件找不到的问题。</description>
+    </item>
+    
+    <item>
+      <title>COCOS 2D 安装</title>
+      <link>https://www.51hint.com/posts/2011-03-15-cocos-2d-%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Tue, 15 Mar 2011 00:31:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-03-15-cocos-2d-%E5%AE%89%E8%A3%85/</guid>
+      <description>1. 首先先下載 COCOS 2D http://www.cocos2d-iphone.org/download解壓縮後可以看到： README是說明檔insta</description>
+    </item>
+    
+    <item>
+      <title>svn 忽略文件，文件夹</title>
+      <link>https://www.51hint.com/posts/2011-03-02-svn-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
+      <pubDate>Wed, 02 Mar 2011 06:50:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-03-02-svn-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
+      <description>忽略整个目录的内容 svn propset svn:ignore “*” sessions/ #忽略tmp目录与tmp目录下的所有文件 svn ps svn:ignore “*” tmp</description>
+    </item>
+    
+    <item>
+      <title>KissXML</title>
+      <link>https://www.51hint.com/posts/2011-03-02-kissxml/</link>
+      <pubDate>Wed, 02 Mar 2011 00:25:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-03-02-kissxml/</guid>
+      <description>关于KissXml在iPhone开发中操作xml的优秀表现就不多说了，主要说怎么用。 1.上GoogoleCode下载最新的KissXml.z</description>
+    </item>
+    
+    <item>
+      <title>Mercurial源代码管理</title>
+      <link>https://www.51hint.com/posts/2011-03-01-mercurial%E6%BA%90%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Tue, 01 Mar 2011 08:11:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-03-01-mercurial%E6%BA%90%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

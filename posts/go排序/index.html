@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Go排序 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Go排序" />
+  <meta name="twitter:title" content="Go排序" />
+  <meta name="description" content="冒泡排序/选择排序/快速排序及插入排序">
+  <meta property="og:description" content="冒泡排序/选择排序/快速排序及插入排序">
+  <meta name="twitter:description" content="冒泡排序/选择排序/快速排序及插入排序">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/go%E6%8E%92%E5%BA%8F/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/go%E6%8E%92%E5%BA%8F/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Go排序</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h4 id="冒泡排序">冒泡排序</h4>
+<blockquote>
+<p>冒泡排序的原理是，对给定的数组进行多次遍历，每次均比较相邻的两个数，如果前一个比后一个大，则交换这两个数。经过第一次遍历之后，最大的数就在最右侧了；第二次遍历之后，第二大的数就在右数第二个位置了；以此类推。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//冒泡排序（排序10000个随机整数，用时约145ms）  
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">bubbleSort</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>  
+        <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="o">-</span><span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>  
+            <span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">&lt;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">{</span>  
+                <span class="c1">//交换  
+</span><span class="c1"></span>                <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span>  
+            <span class="p">}</span>  
+        <span class="p">}</span>  
+    <span class="p">}</span>  
+<span class="p">}</span>
+</code></pre></div><h4 id="选择排序">选择排序</h4>
+<blockquote>
+<p>选择排序的原理是，对给定的数组进行多次遍历，每次均找出最大的一个值的索引。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//选择排序（排序10000个随机整数，用时约45ms）  
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">selectSort</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">length</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span>  
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>  
+        <span class="nx">maxIndex</span> <span class="o">:=</span> <span class="mi">0</span>  
+        <span class="c1">//寻找最大的一个数，保存索引值  
+</span><span class="c1"></span>        <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">length</span><span class="o">-</span><span class="nx">i</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>  
+            <span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">&gt;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">maxIndex</span><span class="p">]</span> <span class="p">{</span>  
+                <span class="nx">maxIndex</span> <span class="p">=</span> <span class="nx">j</span>  
+            <span class="p">}</span>  
+        <span class="p">}</span>  
+        <span class="nx">nums</span><span class="p">[</span><span class="nx">length</span><span class="o">-</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">maxIndex</span><span class="p">]</span> <span class="p">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">maxIndex</span><span class="p">],</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">length</span><span class="o">-</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  
+    <span class="p">}</span>  
+<span class="p">}</span>
+</code></pre></div><h3 id="u快速排序u"><strong><!-- raw HTML omitted -->快速排序<!-- raw HTML omitted --></strong></h3>
+<blockquote>
+<p>快速排序的原理是，首先找到一个数pivot把数组‘平均&rsquo;分成两组，使其中一组的所有数字均大于另一组中的数字，此时pivot在数组中的位置就是它正确的位置。然后，对这两组数组再次进行这种操作。</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<h3 id="21-快速排序基础版">2.1 快速排序基础版</h3>
+<p>通过下面一组数据，将最左边的数设定为轴，并记录其值为 s。</p>
+<p>（注意：*表示要交换的数，[]表示轴）</p>
+<ul>
+<li>[41]　24　76*　11　45　64　21　69　19　36*</li>
+<li>[41]　24　36　11　45*　64　21　69　19*　76</li>
+<li>[41]　24　36　11　19　64*　21*　69　45　76</li>
+<li>[41]　24　36　11　19　21　64　69　45　76</li>
+<li>21　24　36　11　19　[41]　64　69　45　76</li>
+</ul>
+<p>回圈处理：</p>
+<ol>
+<li>令索引 i 从数列左方往右方找，直到找到大于 s 的数</li>
+<li>令索引 j 从数列右方往左方找，直到找到小于 s 的数</li>
+<li>如果 i &gt;= j，则离开回圈</li>
+<li>如果 i &lt; j，则交换索引i与j两处的值</li>
+<li>将左侧的轴与 j 进行交换</li>
+<li>对轴左边进行递回</li>
+<li>对轴右边进行递回</li>
+</ol>
+<p>透过以上演算法，则轴左边的值都会小于s，轴右边的值都会大于s，如此再对轴左右两边进行递回，就可以对完成排序的目的。在上面的例子中，41左边的值都比它小，而右边的值都比它大，如此左右再进行递回至排序完成。</p>
+<p>具体代码如下：</p>
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+)
+
+const MAX = 10
+var sortArray = []int{41, 24, 76, 11, 45, 64, 21, 69, 19, 36}
+
+func main() {
+	fmt.Println(&quot;before sort：&quot;)
+	show()
+
+	quickSort(sortArray, 0, MAX-1)
+
+	fmt.Println(&quot;after sort:&quot;)
+	show()
+}
+
+// quickSort
+func quickSort(sortArray []int, left, right int) {
+	if left &lt; right {
+		key := sortArray[left]
+		i := left
+		j := right
+
+		for {
+			for i+1 &lt; MAX {//从左开始找比它大；找到就交换
+				i++
+				if key &lt;= sortArray[i] {
+					break
+				}
+			}
+
+			for j-1 &gt;= 0 {//从右找比它小；找到就交换
+				if key &gt;= sortArray[j] {
+					break
+				}
+				j--
+			}
+
+			if i &gt;= j {
+				break
+			}
+
+			swap(i, j)
+		}
+
+		sortArray[left] = sortArray[j]
+		sortArray[j] = key
+		show()
+
+		quickSort(sortArray, left, j-1)
+		quickSort(sortArray, j+1, right)
+	}
+}
+
+// Swap the position of a and b
+func swap(a, b int) {
+	sortArray[a], sortArray[b] = sortArray[b], sortArray[a]
+}
+
+// foreach
+func show() {
+	for _, value := range sortArray {
+		fmt.Printf(&quot;%d\t&quot;, value)
+	}
+}
+</code></pre><h3 id="22-快速排序升级版">2.2 快速排序升级版</h3>
+<p>在快速排序法基础版中，每次将最左边的元素设为轴，而之前曾经说过，快速排序法的加速在于轴的选择，在这个例子中，只将轴设定为中间的元素，依这个元素作基准进行比较，这可以增加快速排序法的效率。</p>
+<p>在这个例子中，取中间的元素s作比较，同样的先得右找比s大的索引 i，然后找比s小的索引 j，只要两边的索引还没有交会，就交换 i 与 j 的元素值，这次不用再进行轴的交换了，因为在寻找交换的过程中，轴位置的元素也会参与交换的动作，例如：</p>
+<p>41　24　76　11　45　64　21　69　19　36</p>
+<p>首先left为0，right为9，(left+right)/2 = 4（取整数的商），所以轴为索引4的位置，比较的元素是45，您往右找比45大的，往左找比45小的进行交换：</p>
+<ul>
+<li>41　24　76*　11　[45]　64　21　69　19　*36</li>
+<li>41　24　36　11　45*　64　21　69　19*　76</li>
+<li>41　24　36　11　19　64*　21*　69　45　76</li>
+<li>[41　24　36　11　19　21]　[64　69　45　76]</li>
+</ul>
+<p>完成以上之后，再分别对左边括号与右边括号的部份进行递回，如此就可以完成排序的目的。</p>
+<p>具体代码如下：</p>
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+)
+
+const MAX = 10
+var sortArray = []int{41, 24, 76, 11, 45, 64, 21, 69, 19, 36}
+
+func main() {
+	fmt.Println(&quot;before sort：&quot;)
+	show()
+
+	quickSort(sortArray, 0, MAX-1)
+
+	fmt.Println(&quot;after sort:&quot;)
+	show()
+
+}
+
+func quickSort(sortArray []int, left, right int) {
+	if left &lt; right {
+		key := sortArray[(left+right)/2]
+		i := left
+		j := right
+
+		for {
+			for sortArray[i] &lt; key {
+				i++
+			}
+			for sortArray[j] &gt; key {
+				j--
+			}
+			if i &gt;= j {
+				break
+			}
+			swap(i, j)
+		}
+
+		quickSort(sortArray, left, i-1)
+		quickSort(sortArray, j+1, right)
+	}
+}
+
+// Swap the position of a and b
+func swap(a, b int) {
+	sortArray[a], sortArray[b] = sortArray[b], sortArray[a]
+}
+
+// foreach
+func show() {
+	for _, value := range sortArray {
+		fmt.Printf(&quot;%d\t&quot;, value)
+	}
+}
+</code></pre><blockquote>
+<p>其他：参考
+<img src="/wp-content/uploads/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.jpg" alt="快速排序"></p>
+</blockquote>
+<hr>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//快速排序（排序10000个随机整数，用时约0.9ms）  
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">quickSort</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nf">recursionSort</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  
+<span class="p">}</span>  
+ 
+<span class="kd">func</span> <span class="nf">recursionSort</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">left</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">right</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="k">if</span> <span class="nx">left</span> <span class="p">&lt;</span> <span class="nx">right</span> <span class="p">{</span>  
+        <span class="nx">pivot</span> <span class="o">:=</span> <span class="nf">partition</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span>  
+        <span class="nf">recursionSort</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">pivot</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  
+        <span class="nf">recursionSort</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="nx">pivot</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span>  
+    <span class="p">}</span>  
+<span class="p">}</span>  
+ 
+
+<span class="kd">func</span> <span class="nf">partition</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">left</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">right</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>  
+    <span class="k">for</span> <span class="nx">left</span> <span class="p">&lt;</span> <span class="nx">right</span> <span class="p">{</span>  
+        <span class="k">for</span> <span class="nx">left</span> <span class="p">&lt;</span> <span class="nx">right</span> <span class="o">&amp;&amp;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">left</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">right</span><span class="p">]</span> <span class="p">{</span>  
+            <span class="nx">right</span><span class="o">--</span>  
+        <span class="p">}</span>  
+        <span class="k">if</span> <span class="nx">left</span> <span class="p">&lt;</span> <span class="nx">right</span> <span class="p">{</span>  
+            <span class="nx">nums</span><span class="p">[</span><span class="nx">left</span><span class="p">],</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">right</span><span class="p">]</span> <span class="p">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">right</span><span class="p">],</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">left</span><span class="p">]</span>  
+            <span class="nx">left</span><span class="o">++</span>  
+        <span class="p">}</span>  
+ 
+        <span class="k">for</span> <span class="nx">left</span> <span class="p">&lt;</span> <span class="nx">right</span> <span class="o">&amp;&amp;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">left</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">right</span><span class="p">]</span> <span class="p">{</span>  
+            <span class="nx">left</span><span class="o">++</span>  
+        <span class="p">}</span>  
+        <span class="k">if</span> <span class="nx">left</span> <span class="p">&lt;</span> <span class="nx">right</span> <span class="p">{</span>  
+            <span class="nx">nums</span><span class="p">[</span><span class="nx">left</span><span class="p">],</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">right</span><span class="p">]</span> <span class="p">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">right</span><span class="p">],</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">left</span><span class="p">]</span>  
+            <span class="nx">right</span><span class="o">--</span>  
+        <span class="p">}</span>  
+    <span class="p">}</span>  
+    <span class="k">return</span> <span class="nx">left</span>  
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//快速排序二
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">partition</span><span class="p">(</span><span class="nx">arr</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="nx">start</span> <span class="p">,</span><span class="nx">end</span> <span class="kt">int</span><span class="p">)(</span><span class="nx">p</span> <span class="kt">int</span><span class="p">)</span>  <span class="p">{</span>
+        <span class="k">if</span> <span class="nx">start</span> <span class="p">&gt;</span> <span class="nx">end</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+
+        <span class="nx">i</span><span class="p">,</span><span class="nx">j</span><span class="p">,</span><span class="nx">temp</span> <span class="o">:=</span> <span class="nx">start</span><span class="p">,</span><span class="nx">end</span> <span class="p">,</span><span class="nx">arr</span><span class="p">[</span><span class="nx">start</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="nx">i</span><span class="p">&lt;</span><span class="nx">j</span>  <span class="p">{</span>
+            <span class="k">for</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">j</span> <span class="o">&amp;&amp;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">&gt;</span><span class="nx">temp</span>  <span class="p">{</span>
+                <span class="nx">j</span><span class="o">--</span>
+            <span class="p">}</span>
+
+            <span class="k">for</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">j</span> <span class="o">&amp;&amp;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nx">temp</span>  <span class="p">{</span>
+                <span class="nx">i</span><span class="o">++</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">j</span> <span class="p">{</span>
+                <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">,</span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="nx">arr</span><span class="p">[</span><span class="nx">start</span><span class="p">]</span> <span class="p">=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">start</span><span class="p">],</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nx">i</span>
+    <span class="p">}</span>
+</code></pre></div><h4 id="插入排序">插入排序</h4>
+<blockquote>
+<p>插入排序的原理是，从第二个数开始向右侧遍历，每次均把该位置的元素移动至左侧，放在放在一个正确的位置（比左侧大，比右侧小）。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//插入排序（排序10000个整数，用时约30ms）  
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">insertSort</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>  
+        <span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">&lt;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">{</span>  
+            <span class="nx">j</span> <span class="o">:=</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span>  
+            <span class="nx">temp</span> <span class="o">:=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>  
+            <span class="k">for</span> <span class="nx">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">&gt;</span> <span class="nx">temp</span> <span class="p">{</span>  
+                <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span>  
+                <span class="nx">j</span><span class="o">--</span>  
+            <span class="p">}</span>  
+            <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="nx">temp</span>  
+        <span class="p">}</span>  
+    <span class="p">}</span>  
+<span class="p">}</span>
+</code></pre></div><p>通过多次测试可以发现，<strong>快速排序</strong>是效率最高的。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/py%E9%AA%8C%E8%AF%81%E7%A0%81/" data-toggle="tooltip" data-placement="top" title="Py验证码">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/lua%E5%AE%89%E8%A3%85/" data-toggle="tooltip" data-placement="top" title="Lua安装">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">Redis使用场景</a></li>
+                    
+                    <li><a href="/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/">Redis命令参考</a></li>
+                    
+                    <li><a href="/posts/beego%E7%9A%84session%E5%85%B1%E4%BA%AB%E5%8F%8A%E5%BE%AE%E6%9C%8D%E5%8A%A1/">Beego的session共享及微服务</a></li>
+                    
+                    <li><a href="/posts/%E5%A4%9A%E7%BA%A7%E5%88%86%E9%94%80%E8%AE%BE%E8%AE%A1/">多级分销设计</a></li>
+                    
+                    <li><a href="/posts/dokku%E5%9F%BA%E4%BA%8Edocker%E7%9A%84paas%E7%B1%BB%E4%BC%BCheroku/">Dokku基于docker的PaaS类似heroku</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

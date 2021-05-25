@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lvs on IT技术分享</title>
+    <link>https://www.51hint.com/tags/lvs/</link>
+    <description>Recent content in lvs on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 Oct 2012 07:05:02 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/lvs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>负载均衡软件 Nginx, Haproxy,LVS比较</title>
+      <link>https://www.51hint.com/posts/2012-10-25-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%BD%AF%E4%BB%B6-nginx-haproxylvs%E6%AF%94%E8%BE%83/</link>
+      <pubDate>Thu, 25 Oct 2012 07:05:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-25-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%BD%AF%E4%BB%B6-nginx-haproxylvs%E6%AF%94%E8%BE%83/</guid>
+      <description>1、NGINX Nginx的优点: 性能好，可以负载超过1万的并发。 功能多，除了负载均衡，还能作Web服务器，而且可以通过Geo模块来实现流量分</description>
+    </item>
+    
+  </channel>
+</rss>

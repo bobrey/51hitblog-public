@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 实现proxy - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="实现proxy" />
+  <meta name="twitter:title" content="实现proxy" />
+  <meta name="description" content="TCP Socket Connect through HTTP Proxy http://www.example-code.com/csharp/socket_http_proxy.asp http://www.chilkatsoft.com/downloads_DotNet.asp Socket/SSL/TLS through SOCKS5 / SOCKS4 Proxy http://www.example-code.com/csharp/socket_socks_proxy.asp https://github.com/niik/switchboard https://github.com/X-rus/xNet https://github.com/krys-g/TrotiNet https://github.com/gja/LightProxy ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| .net 4.0 task 多任务 webclient proxy socket 第三方插件实现 ============================================================ http://stackoverflow.com/questions/4898339/how-to-check-if-a-proxy-server-is-configured HttpWebRequest WebProxy C# Connecting Through Proxy – Stack Overflow http://stackoverflow.com/questions/1938990/c-sharp-connecting-through-proxy c# – MultiThreaded Proxy Checker – Stack Overflow http://stackoverflow.com/questions/6235651/multithreaded-proxy-checker multithreading – C# Multithreaded Proxy Checker – Stack Overflow http://stackoverflow.com/questions/3132178/c-sharp-multithreaded-proxy-checker Chilkat Tech Notes">
+  <meta property="og:description" content="TCP Socket Connect through HTTP Proxy http://www.example-code.com/csharp/socket_http_proxy.asp http://www.chilkatsoft.com/downloads_DotNet.asp Socket/SSL/TLS through SOCKS5 / SOCKS4 Proxy http://www.example-code.com/csharp/socket_socks_proxy.asp https://github.com/niik/switchboard https://github.com/X-rus/xNet https://github.com/krys-g/TrotiNet https://github.com/gja/LightProxy ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| .net 4.0 task 多任务 webclient proxy socket 第三方插件实现 ============================================================ http://stackoverflow.com/questions/4898339/how-to-check-if-a-proxy-server-is-configured HttpWebRequest WebProxy C# Connecting Through Proxy – Stack Overflow http://stackoverflow.com/questions/1938990/c-sharp-connecting-through-proxy c# – MultiThreaded Proxy Checker – Stack Overflow http://stackoverflow.com/questions/6235651/multithreaded-proxy-checker multithreading – C# Multithreaded Proxy Checker – Stack Overflow http://stackoverflow.com/questions/3132178/c-sharp-multithreaded-proxy-checker Chilkat Tech Notes">
+  <meta name="twitter:description" content="TCP Socket Connect through HTTP Proxy http://www.example-code.com/csharp/socket_http_proxy.asp http://www.chilkatsoft.com/downloads_DotNet.asp Socket/SSL/TLS through SOCKS5 / SOCKS4 Proxy …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2014-04-09-%E5%AE%9E%E7%8E%B0proxy/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2014-04-09-%E5%AE%9E%E7%8E%B0proxy/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">实现proxy</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Apr 9, 2014</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/proxy/">proxy</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/socks/">socks</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <p>TCP Socket Connect through HTTP Proxy</p>
+<p><a href="http://www.example-code.com/csharp/socket">http://www.example-code.com/csharp/socket</a>_http_proxy.asp</p>
+<p><a href="http://www.chilkatsoft.com/downloads_DotNet.asp">http://www.chilkatsoft.com/downloads_DotNet.asp</a></p>
+<p> </p>
+<p>Socket/SSL/TLS through SOCKS5 / SOCKS4 Proxy</p>
+<p><a href="http://www.example-code.com/csharp/socket">http://www.example-code.com/csharp/socket</a>_socks_proxy.asp</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><a href="https://github.com/niik/switchboard">https://github.com/niik/switchboard</a></p>
+<p><a href="https://github.com/X-rus/xNet">https://github.com/X-rus/xNet</a></p>
+<p><a href="https://github.com/krys-g/TrotiNet">https://github.com/krys-g/TrotiNet</a></p>
+<p><a href="https://github.com/gja/LightProxy">https://github.com/gja/LightProxy</a></p>
+<p> </p>
+<p> </p>
+<p>|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</p>
+<ol>
+<li></li>
+</ol>
+<p>.net 4.0 task 多任务</p>
+<ol start="2">
+<li></li>
+</ol>
+<p>webclient proxy</p>
+<ol start="3">
+<li></li>
+</ol>
+<p>socket 第三方插件实现</p>
+<p>============================================================</p>
+<p><a href="http://stackoverflow.com/questions/4898339/how-to-check-if-a-proxy-server-is-configured">http://stackoverflow.com/questions/4898339/how-to-check-if-a-proxy-server-is-configured</a></p>
+<p>HttpWebRequest</p>
+<p>WebProxy</p>
+<p>C# Connecting Through Proxy – Stack Overflow</p>
+<p><a href="http://stackoverflow.com/questions/1938990/c-sharp-connecting-through-proxy">http://stackoverflow.com/questions/1938990/c-sharp-connecting-through-proxy</a></p>
+<p>c# – MultiThreaded Proxy Checker – Stack Overflow</p>
+<p><a href="http://stackoverflow.com/questions/6235651/multithreaded-proxy-checker">http://stackoverflow.com/questions/6235651/multithreaded-proxy-checker</a></p>
+<p>multithreading – C# Multithreaded Proxy Checker – Stack Overflow</p>
+<p><a href="http://stackoverflow.com/questions/3132178/c-sharp-multithreaded-proxy-checker">http://stackoverflow.com/questions/3132178/c-sharp-multithreaded-proxy-checker</a></p>
+<p>Chilkat Tech Notes » C# SOCKS Proxy Server Example (SOCKS5 and SOCKS4)</p>
+<p><a href="http://www.cknotes.com/?p=204">http://www.cknotes.com/?p=204</a></p>
+<p> </p>
+<p> </p>
+<p>There is a Ping class in .NET.</p>
+<p>using System.Net.NetworkInformation;</p>
+<p>private static bool CanPing(string address)</p>
+<p>{</p>
+<p>Ping ping = new Ping();</p>
+<p>try</p>
+<p>{</p>
+<p>PingReply reply = ping.Send(address, 2000);</p>
+<p>if (reply == null) return false;</p>
+<p>return (reply.Status == IPStatus.Success);</p>
+<p>}</p>
+<p>catch (PingException e)</p>
+<p>{</p>
+<p>return false;</p>
+<p>}</p>
+<p>}</p>
+<p> </p>
+<p>public static bool SoketConnect(string host, int port)</p>
+<p>{</p>
+<p>var is_success = false;</p>
+<p>try</p>
+<p>{</p>
+<p>var connsock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);</p>
+<p>connsock.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.SendTimeout, 200);</p>
+<p>System.Threading.Thread.Sleep(500);</p>
+<p>var hip = IPAddress.Parse(host);</p>
+<p>var ipep = new IPEndPoint(hip, port);</p>
+<p>connsock.Connect(ipep);</p>
+<p>if (connsock.Connected)</p>
+<p>{</p>
+<p>is_success = true;</p>
+<p>}</p>
+<p>connsock.Close();</p>
+<p>}</p>
+<p>catch (Exception)</p>
+<p>{</p>
+<p>is_success = false;</p>
+<p>}</p>
+<p>return is_success;</p>
+<p>}</p>
+<p> </p>
+<p>bool OK = false;</p>
+<p>try</p>
+<p>{</p>
+<p>WebClient wc = new WebClient();</p>
+<p>wc.Proxy = new WebProxy(Host, Port);</p>
+<p>wc.DownloadString(“http://google.com/ncr”);</p>
+<p>OK = true;</p>
+<p>}</p>
+<p>catch{}</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2014-04-08-ssh-%E6%90%AD%E5%BB%BA%E7%BF%BB%E5%A2%99%E9%80%9A%E9%81%93/" data-toggle="tooltip" data-placement="top" title="ssh 搭建翻墙通道">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2014-04-11-apn%E4%B8%8D%E8%83%BD%E4%B8%8A%E7%BD%91%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" data-toggle="tooltip" data-placement="top" title="apn不能上网的解决办法">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Apr 9, 2014</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/proxy/">proxy</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/socks/">socks</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

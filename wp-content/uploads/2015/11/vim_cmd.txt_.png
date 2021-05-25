@@ -1,0 +1,106 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+一、Surrond Plugin
+    1.ds命令
+        "Hello World!"      ---> ds"            ===> Hello World!
+    2.cs命令
+        “Hello World!”     --->  cs"'           ===> 'Hello World'
+    3.ys命令【you surround】
+        Hello world        --->  ysiw)          ===> Hello (World)!
+    4.yss命令对整行；ySS整行另加上缩进  yss]    ===> [Hello World]    
+
+    5. 可视模式v下，按下S即可添加包围符号
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+command:
+	/	----------> search FORWARD
+	?   ----------> search BACKWARD  		
+	
+     To substitute all occurrences in the file type	   	   :%s /old/new/g
+     To ask for confirmation each time add 'c'		       :%s /old/new/gc
+     To substitute phrases between two line #'s type	   :#,#s /old/new/g
+
+	:r FILENAME  retrieves disk file FILENAME 		   :r !ls	
+	Type  CTRL-W CTRL-W  to jump to another window
+	When typing : command, press CTRL-D to see possible completions.
+
+	2.
+		Find word under cursor, * and #
+    5.
+		f<	jump foward and land on the < character
+		t<	jump forward and land right before the < character
+		
+		t: jump up to a character
+		f: jump onto a character
+		*: search for other instances of the word under your cursor
+		;: go to the next instance when you’ve jumped to a character
+		,: go to the previous instance when you’ve jumped to a character
+			
+	7.
+        ): move forward one sentence
+        }: move forward one paragraph
+
+
+        H: move to the top of the screen
+        M: move to the middle of the screen
+        L: move to the bottom of the screen
+
+        ^F: move down a page 
+        ^B: move up a page 
+	
+        Ctrl-i: jump to your previous navigation location
+        Ctrl-o: jump back to where you were
+
+    9.
+        ~: changing case
+        dt.: delete delete from where you are to the period
+
+===================================================
+
+    2.
+        Eg:
+            cis: Change inside a sentence
+    3.
+        paragraphs: ip and ap
+        single quotes: i' and a'
+        double quotes: i" and a"        
+    
+        words:          iw and aw
+        sentences:      is and as
+        paragraphs:     ip and ap
+        single quotes:  i' and a'
+        double quotes:  i" and a"
+        back ticks:     i` and a`
+        parenthesis:    i( and a(
+        brackets:       i[ and a[
+        braces:         i{ and a{
+        tags:           it and at
+
+    4.
+        Ctrl-v: paragraphs Visual Mode
+
+    5.
+        vi(:    Select inside of parenthesis
+        vi[:    Select inside of brackets
+        v2i{:   Select everything inside the second tier braces
+
+
+    6.
+       vwwy:    Enter visual mode,select two more words of text, and copy them
+       Vjjd:    Enter line-based visual mode and delete a couple of lines below
+       vip:     Visual select an entire paragraph
+       vipyjjp: Visual select an entire paragraph then paste it down below
+
+    7.
+       qa:      start recording a macro named "a"
+       q:       stop recording
+       @a:      play back the macro
+
+------------------------------------------------------------
+
+
+

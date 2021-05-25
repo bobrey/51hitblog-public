@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> C# 中利用 DirectSound 录音 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="C# 中利用 DirectSound 录音" />
+  <meta name="twitter:title" content="C# 中利用 DirectSound 录音" />
+  <meta name="description" content="花了一阵子，把DirectX安装后自带的帮助文件中的那部分关于DirectSound录音这块给看完了，顺便把那部分翻译成了中文，有些地方可能">
+  <meta property="og:description" content="花了一阵子，把DirectX安装后自带的帮助文件中的那部分关于DirectSound录音这块给看完了，顺便把那部分翻译成了中文，有些地方可能">
+  <meta name="twitter:description" content="花了一阵子，把DirectX安装后自带的帮助文件中的那部分关于DirectSound录音这块给看完了，顺便把那部分翻译成了中文，有些地方可能">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-23-c-%E4%B8%AD%E5%88%A9%E7%94%A8-directsound-%E5%BD%95%E9%9F%B3/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-23-c-%E4%B8%AD%E5%88%A9%E7%94%A8-directsound-%E5%BD%95%E9%9F%B3/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">C# 中利用 DirectSound 录音</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 23, 2012</h4>
+    </section>
+    <h5 id="wc">3700 Words|Read in about 8 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/directsound/">directsound</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p> </p>
+<p>花了一阵子，把DirectX安装后自带的帮助文件中的那部分关于DirectSound录音这块给看完了，顺便把那部分翻译成了中文，有些地方可能翻译的不是很通顺，不过总体上还是能看得懂的。<a href="http://www.cnblogs.com/stg609/archive/2008/10/19/1313809.html">查看中文翻译</a>，建议大家在进行学习前可以先去看看。</p>
+<p>期间也看了些别人的相关文章，感觉有点思路后就开始动手了，很高兴最后能顺利通过测试。不过我这个功能很简单，也不完善，只是最基本的可以录音。还待以后深入学习。</p>
+<p>开发平台：VS.NET 2005 ，Windows XP SP2 ，DirectX SDK（June 2008）<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=519AAE99-B701-4CA1-8495-39DDDE9D7030&amp;displaylang=en">下载页面</a> 。</p>
+<p>必须的硬件设备：麦克风、声卡（集成或独立均可）、音响（能播放声音就行）</p>
+<p><!-- raw HTML omitted -->首先，我们来温故下声卡和声音的基础知识。<!-- raw HTML omitted --></p>
+<p><strong>[摘自<a href="http://article.pchome.net/content-20807-7.html">网络</a>]</strong><!-- raw HTML omitted -->  声音其实是一种能量波，因此也有频率和振幅的特征，频率对应于时间轴线，振幅对应于电平轴线。波是无限光滑的，弦线其实由无数点组成，由于存储空间是相对有限的，数字编码过程中，必须对弦线的点进行采样。采样的过程就是抽取某点的频率值，很显然，在一秒中内抽取得点越多，获取得频率信息更丰富，为了复原波形，一次振动中，必须有2个点的采样，人耳能够感觉到的最高频率为20kHz，因此要满足人耳的听觉要求，则需要至少每秒进行40k次采样，用40kHz表达，这个40kHz就是采样率。我们常见的CD，采样率为44.1kHz。光有频率信息是不够的，我们还必须获得该频率的能量值并量化，用于表示信号强度。量化值为2的整数次幂，我们常见的CD位16bit的采样大小，即2的16次方。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p> </p>
+<p><!-- raw HTML omitted -->      采样频率一般分为22.05kHz、44.1kHz、48kHz三个等级，22.05kHz只能达到FM（调频）广播的声音品质，44.1kHz则是理论上的CD音质极限，48kHz则更加精确一些。对于高于48kHz的采样频率，人耳已无法听到，所以在电脑中也没有多少实用价值。<!-- raw HTML omitted --></p>
+<p>目前的声卡基本都具有输入和输出信号的能力，这也是声卡具有最基本功能（录制声音、播放声音）的基础。如果可以同时输出和输入信号，这块声卡就得支持全双工的工作模式，这便是网络上进行语音通讯的基础。</p>
+<p>我们要讲的录音，就是将采集自麦克风的模拟信号转换成数字信号（ADC），一般麦克风只能提供模拟信号。</p>
+<p>一般声卡采集到的数据会被存放到缓存区后进行处理，如果是集成声卡，那就是先把数据放在内存中后再处理，你可以通过任务管理器来查看WINDOWS自带的录音机在录音时候内存的变化。</p>
+<p> </p>
+<p><!-- raw HTML omitted -->对以上内容有所了解后，我们接着来了解下利用DirectSound录制声音的基本步骤。<!-- raw HTML omitted --></p>
+<p> </p>
+<p><!-- raw HTML omitted -->       <!-- raw HTML omitted -->1 DirectSound是什么？<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>DirectSound 是微软提供的DirectX API 的一部分。它使你能以极低的时延播放声音，使应用程序可以高度利用硬件资源。</p>
+<p><!-- raw HTML omitted -->      <!-- raw HTML omitted --> 2 DirectSound能做什么？<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>2.1 按照WAV格式播放声音。</p>
+<p>2.2 可以同时播放多种声音。</p>
+<p>2.3 将高优先级的声音分配给由硬件控制的缓冲区。</p>
+<p>2.4 将普通的声音融入自定的3D环境中。</p>
+<p>2.5 可以给声音添加不同的效果，比如回声，合唱等。</p>
+<p>2.6 从麦克风或其它音频输入设备中捕获WAV声音。</p>
+<p><!-- raw HTML omitted -->       <!-- raw HTML omitted -->3 DirectSound有哪些主要对象？<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p> </p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;strong style=&quot;font-size: 12pt;&quot;&gt;说明&lt;/strong&gt;
+&lt;/td&gt;
+
+&lt;td&gt;
+  &lt;strong style=&quot;font-size: 12pt;&quot;&gt;作用&lt;/strong&gt;
+&lt;/td&gt;
+
+&lt;td style=&quot;height: 23px;&quot;&gt;
+  &lt;strong style=&quot;font-size: 12pt;&quot;&gt;.Net中的类或结构体&lt;/strong&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td style=&quot;font-size: 12pt; height: 47px;&quot;&gt;
+    每个应用程序只有一个设备对象
+&lt;/td&gt;
+
+&lt;td style=&quot;font-size: 12pt;&quot;&gt;
+    用来管理设备，创建辅助缓冲区
+&lt;/td&gt;
+
+&lt;td style=&quot;font-size: 12pt;&quot;&gt;
+    Microsoft.DirectX.DirectSound.Capture
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td style=&quot;font-size: 12pt; width: 114px;&quot;&gt;
+    一个应用程序只有一个主缓冲区
+&lt;/td&gt;
+
+&lt;td style=&quot;font-size: 12pt; width: 238px;&quot;&gt;
+    操控声音捕捉缓冲区和产生混音效果的区域
+&lt;/td&gt;
+
+&lt;td style=&quot;width: 323px;&quot;&gt;
+   Microsoft.DirectX.DirectSound.CaptureBuffer
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td style=&quot;font-size: 12pt;&quot;&gt;
+    每一个声音对应一个辅助缓冲区，可以有多个辅助缓冲区
+&lt;/td&gt;
+
+&lt;td style=&quot;font-size: 12pt; height: 68px;&quot;&gt;
+    用来存储要播放的声音文件，可建立多个辅助缓冲区来放多个要播放的声音文
+&lt;/td&gt;
+
+&lt;td style=&quot;font-size: 12pt;&quot;&gt;
+  Microsoft.DirectX.DirectSound.SecondaryBuffer
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td style=&quot;font-size: 12pt;&quot;&gt;
+    一个缓冲区可以有多个通知对象
+&lt;/td&gt;
+
+&lt;td style=&quot;font-size: 12pt;&quot;&gt;
+    用于在缓冲区的特定点触发通知事件，来通知程序执行操作
+&lt;/td&gt;
+
+&lt;td style=&quot;font-size: 12pt; height: 59px;&quot;&gt;
+    Microsoft.DirectX.DirectSound.Notify
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->       <!-- raw HTML omitted -->4 其它辅助对象<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p> </p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;strong style=&quot;font-size: 12pt;&quot;&gt;作用&lt;/strong&gt;
+&lt;/td&gt;
+
+&lt;td style=&quot;height: 23px;&quot;&gt;
+  &lt;strong style=&quot;font-size: 12pt;&quot;&gt;.Net中的类或结构体&lt;/strong&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td style=&quot;font-size: 12pt;&quot;&gt;
+    定义WAV音频格式，如采样频率、量化位数、声道数等
+&lt;/td&gt;
+
+&lt;td style=&quot;font-size: 12pt;&quot;&gt;
+    Microsoft.DirectX.DirectSound.WaveFormat
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td style=&quot;font-size: 12pt; width: 266px; height: 62px;&quot;&gt;
+    通知正在等待的线程已发生事件
+&lt;/td&gt;
+
+&lt;td style=&quot;font-size: 12pt;&quot;&gt;
+    System.Threading.&lt;span style=&quot;font-family: Verdana;&quot;&gt;AutoResetEvent&lt;/span&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p> </p>
+<p><!-- raw HTML omitted -->      <!-- raw HTML omitted --><strong>5 必需知道的关键点</strong></p>
+<p><!-- raw HTML omitted -->实在是太不厚道了！！！！！辛苦写了半天，提交前没有事先复制一份，结果提交了半天给我展示了一个“无法显示该页面”，害得我又得从上次保存的地方开始写。真晕呀！！还不知道能不能记起刚才写的。都有点不想写了，可又觉得可惜。可恶！！可恶！！<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->5.1 WAVE格式<!-- raw HTML omitted --></p>
+<p>WAVE是录音时用的标准的WINDOWS<strong>文件格式</strong>，扩展名为“WAV”，</p>
+<p>我们使用DirectSound采集的WAV声音，其<strong>音频数据</strong>是按照PCM（脉冲编码调制，对连续变化的模拟信号进行抽样、量化和编码产生的数据，0和1的组合）调制后放入缓冲区的。</p>
+<p>WAVE文件格式采用RIFF文件格式<strong>结构</strong>，对PCM数据和其它一些音频信息进行相应的编排，从而最终形成的WAVE文件才能被音频播放器识别，才能进行播放。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->       5.2 缓冲区指针<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>缓冲区是存放音频数据的地方，并且它还提供了我们两个指针：读指针和捕捉指针。它们的位置按照相对于缓冲区起始位置的偏移量计算。读指针位于当前已经被完全捕捉到缓冲区的数据末尾。捕捉指针位于当前将要从硬件中复制的数据块的末尾。如果你想从缓冲区中读取数据，则只能从已经完全写入缓冲区的数据中读取，也就是说我们只能从偏移量小于读指针的地方读取。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->       5.3 缓冲区通知<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>大家应该都知道时间相同的音频文件，WAVE文件会比其它格式的音频文件大得多，这是因为WAVE文件没有对数据进行压缩。如果录音的时候，不限制缓冲区大小，那么你录制很短的时间可能就会占用很多内存，说不定不过多久，你的1G内存就不够用了。因此我们必须对缓冲区的大小进行限制，而且当缓冲区满了之后，还可以重新从缓冲区起始处开始，用新的数据覆盖旧的数据。那旧的数据怎么办呢？如果你不想丢失旧的数据，那就得在旧的数据被覆盖之前，将它转移到其它地方。</p>
+<p>如何才能在旧的数据没有被覆盖之前，将它转移走呢？如果是你，你会采用什么办法？</p>
+<p>有人提出通过轮询的办法，经常询问缓冲区是否满，满了则进行转移操作。可是这样做会相当耗费性能。微软提供了我们一个解决办法：“通知”。我们可以在缓冲区中的某些位置处设置通知，当读指针到达通知位置的时候，就会触发相应的事件执行转移操作。是不是有点像操作系统中的“响应中断”呢？</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->      <!-- raw HTML omitted --><!-- raw HTML omitted -->6 录音大致过程<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>6.1 设置PCM格式（很多人喜欢说是设置WAVE格式，但是个人觉得这样说并不恰当，因为PCM才是用来描述数据采集的，而WAVE只是一种文件格式。），设置相关的参数，如：采样频率、量化位数等。</p>
+<p>6.2 创建WAVE文件，有没有搞错呀？数据还没开始采集，怎么就先创建文件了呢？我可以很明确得告诉你没有错。因为RIFF结构的WAVE文件除了音频数据之外，还有其它数据，比如音频格式、格式长度等类似于文件头的数据。有了文件头后，接下来就只需要把接收到的数据添加在这个后面就好了。当然你一定要最后写的话，也不是不可以。</p>
+<p>6.3 建立设备对象，建立缓冲区对象。</p>
+<p>6.4 设置缓冲区通知，设置通知被触发后的事件。</p>
+<p>6.5 准备就绪后，就可以开始录音了。</p>
+<p>6.6 当通知被触发后，建立一个新的线程来处理数据转移的事件。（建立一个新的线程，就是为了防止录音过程被中断）。</p>
+<p>6.7 录音结束，写入WAV文件尾。这样一个可以播放的WAVE文件就OK了。</p>
+<p> </p>
+<p><!-- raw HTML omitted -->具体代码<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->不知道怎么形容现在的感觉了，真得很高兴大部分内容还记得。不知道你现在是何心情，是否已经没什么热情看下去了？本来想分两篇写的，但后来想想还是不浪费首面原创区的空间了。如果你前面的已经看懂了，那下面对你来说可能只是写写代码的事了。<!-- raw HTML omitted --></p>
+<p>1.需要引用的命名空间和外部dll。</p>
+<p>两个外部DLL为：Microsoft.DirectX.dll 和 Microsoft.DirectX.DirectSound.dll</p>
+<!-- raw HTML omitted -->
+<p>Code highlighting produced by Actipro CodeHighlighter (freeware)
+<a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a></p>
+<p>&ndash;&gt;</p>
+<pre><code>&lt;span style=&quot;color: #0000ff;&quot;&gt;using&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; System.Threading;&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>2.用户变量</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Code highlighting produced by Actipro CodeHighlighter (freeware)
+<a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a></p>
+<p>&ndash;&gt;</p>
+<pre><code>&lt;span style=&quot;color: #000000;&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;string&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; strRecSaveFile &lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;=&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;string&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;.Empty;&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;文件保存路径&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>3.设置PCM格式</p>
+<!-- raw HTML omitted -->
+<p>Code highlighting produced by Actipro CodeHighlighter (freeware)
+<a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a></p>
+<p>&ndash;&gt;</p>
+<pre><code>&lt;span style=&quot;color: #000000;&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; WaveFormat SetWaveFormat()&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>4.创建WAVE文件</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Code highlighting produced by Actipro CodeHighlighter (freeware)
+<a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a></p>
+<p>&ndash;&gt;</p>
+<pre><code>&lt;span style=&quot;color: #000000;&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; CreateWaveFile(&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;string&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; strFileName)&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>5.建立两个对象</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Code highlighting produced by Actipro CodeHighlighter (freeware)
+<a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a></p>
+<p>&ndash;&gt;</p>
+<pre><code>&lt;span style=&quot;color: #000000;&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;bool&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; CreateCaputerDevice()&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>6.设置通知以及相应的事件</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Code highlighting produced by Actipro CodeHighlighter (freeware)
+<a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a></p>
+<p>&ndash;&gt;</p>
+<pre><code>&lt;span style=&quot;color: #000000;&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;设置通知&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>7.开始捕捉</p>
+<p>调用缓冲区的START方法就可以开始捕捉了。</p>
+<p>8.结束捕捉并写入WAV文件尾</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Code highlighting produced by Actipro CodeHighlighter (freeware)
+<a href="http://www.CodeHighlighter.com/">http://www.CodeHighlighter.com/</a></p>
+<p>&ndash;&gt;</p>
+<pre><code>&lt;span style=&quot;color: #000000;&quot;&gt;        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;private&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; stoprec()&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p>这样， 基本就完成了。但是并没有进行完善。这个还待日后改善。</p>
+<p>转自‘<a href="http://www.cnblogs.com/stg609/archive/2008/10/24/1318931.html">http://www.cnblogs.com/stg609/archive/2008/10/24/1318931.html</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-23-avcapturesession%E8%8E%B7%E5%8F%96%E6%91%84%E5%83%8F%E6%B5%81/" data-toggle="tooltip" data-placement="top" title="AVCaptureSession获取摄像流">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-23-%E5%85%B3%E4%BA%8Ejrtp%E5%92%8Csip%E6%9D%82%E6%96%87/" data-toggle="tooltip" data-placement="top" title="关于jrtp和sip杂文">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 23, 2012</h4>
+    </section>
+    <h5 id="wc">3700 Words|Read in about 8 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/directsound/">directsound</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

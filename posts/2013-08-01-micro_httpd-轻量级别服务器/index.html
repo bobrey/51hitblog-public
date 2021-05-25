@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> micro_httpd 轻量级别服务器 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="micro_httpd 轻量级别服务器" />
+  <meta name="twitter:title" content="micro_httpd 轻量级别服务器" />
+  <meta name="description" content="**micro_httpd**是一个轻量级的http服务器（http://www.acme.com/software/micro_httpd">
+  <meta property="og:description" content="**micro_httpd**是一个轻量级的http服务器（http://www.acme.com/software/micro_httpd">
+  <meta name="twitter:description" content="**micro_httpd**是一个轻量级的http服务器（http://www.acme.com/software/micro_httpd">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2013-08-01-micro_httpd-%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%88%AB%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2013-08-01-micro_httpd-%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%88%AB%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">micro_httpd 轻量级别服务器</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 1, 2013</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/micro_httpd/">micro_httpd</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>**<!-- raw HTML omitted -->micro_httpd<!-- raw HTML omitted -->**是一个轻量级的<!-- raw HTML omitted -->http<!-- raw HTML omitted -->服务器<!-- raw HTML omitted --> <!-- raw HTML omitted -->（<!-- raw HTML omitted --><!-- raw HTML omitted --><a href="http://www.acme.com/software/micro_httpd/">http://www.acme.com/software/micro_httpd/</a><!-- raw HTML omitted --><!-- raw HTML omitted --> ），<!-- raw HTML omitted -->micro_httpd<!-- raw HTML omitted -->从<!-- raw HTML omitted -->xinetd<!-- raw HTML omitted -->运行，性能较差，但对于负载较小的网站，<!-- raw HTML omitted -->micro_httpd<!-- raw HTML omitted -->是能胜任的，其实现了<!-- raw HTML omitted -->http<!-- raw HTML omitted -->服务器的一些基本特征功能：</p>
+<p><!-- raw HTML omitted -->1．<!-- raw HTML omitted -->  <!-- raw HTML omitted -->..<!-- raw HTML omitted -->文件名探测以保证安全；</p>
+<p><!-- raw HTML omitted -->2．<!-- raw HTML omitted -->  常用<!-- raw HTML omitted -->MIME<!-- raw HTML omitted -->类型识别；</p>
+<p><!-- raw HTML omitted -->3．<!-- raw HTML omitted -->  <!-- raw HTML omitted -->Trailing-slash<!-- raw HTML omitted -->重定向；</p>
+<p><!-- raw HTML omitted -->4．<!-- raw HTML omitted -->  <!-- raw HTML omitted -->index.html<!-- raw HTML omitted -->首页的处理；</p>
+<p><!-- raw HTML omitted -->5．<!-- raw HTML omitted -->  目录列表；</p>
+<p> </p>
+<p><!-- raw HTML omitted -->micro_httpd<!-- raw HTML omitted -->借助于<!-- raw HTML omitted -->xinetd(inetd)<!-- raw HTML omitted -->运行，<!-- raw HTML omitted -->xinetd<!-- raw HTML omitted -->的原理与机制参考：</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><a href="http://blog.chinaunix.net/space.php?uid=20196318&amp;do=blog&amp;id=172787">http://blog.chinaunix.net/space.php?uid=20196318&amp;do=blog&amp;id=172787</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p> </p>
+<p>借助<!-- raw HTML omitted -->xinetd<!-- raw HTML omitted -->，<!-- raw HTML omitted -->microhttpd<!-- raw HTML omitted -->在处理请求时，可从标准输入读取客户端的请求，向标准输出写入对客户端的响应。所以<!-- raw HTML omitted -->micro_httpd<!-- raw HTML omitted -->的核心在于分析<!-- raw HTML omitted -->http<!-- raw HTML omitted -->请求参数，并发送响应数据。</p>
+<p> </p>
+<p>**<!-- raw HTML omitted -->micro_httpd<!-- raw HTML omitted -->**<strong>的部署与使用</strong></p>
+<p><!-- raw HTML omitted -->1．<!-- raw HTML omitted -->  下载<!-- raw HTML omitted -->micro_httpd<!-- raw HTML omitted -->的源代码包（<!-- raw HTML omitted --><!-- raw HTML omitted --><a href="http://www.acme.com/software/micro_httpd/">http://www.acme.com/software/micro_httpd/</a><!-- raw HTML omitted --><!-- raw HTML omitted --> ）并安装；</p>
+<p><!-- raw HTML omitted -->2．<!-- raw HTML omitted -->  设置<!-- raw HTML omitted -->micro_httpd<!-- raw HTML omitted -->的服务端口号，编辑<!-- raw HTML omitted -->/etc/services<!-- raw HTML omitted -->文件，为其分配一个未用的端口号，本例中使用<!-- raw HTML omitted -->48888<!-- raw HTML omitted -->，在<!-- raw HTML omitted -->/etc/services<!-- raw HTML omitted -->文件末尾添加两行：</p>
+<p><!-- raw HTML omitted -->micro_httpd        48888/tcp<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->micro_httpd     48888/udp<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->3.  <!-- raw HTML omitted -->添加<!-- raw HTML omitted -->micro_httpd<!-- raw HTML omitted -->的<!-- raw HTML omitted -->xinetd<!-- raw HTML omitted -->配置文件：</p>
+<p><!-- raw HTML omitted -->    vi /etc/xinetd.d/micro_httpd<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->    service micro_httpd  <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->{  <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->        socket_type             = stream  <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->        protocol                = tcp  <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->        wait                    = no  <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->        user                    = root  <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->        server                  = /usr/local/sbin/micro_httpd  <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->        server_args             = /var/www/html  <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->        disable                 = no  <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->        flags                   = IPv4  <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->}<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --># <!-- raw HTML omitted -->其中<!-- raw HTML omitted -->server_args<!-- raw HTML omitted -->为配置<!-- raw HTML omitted -->micro_httpd<!-- raw HTML omitted -->运行时的根目录</p>
+<p><!-- raw HTML omitted -->4.  <!-- raw HTML omitted -->重启<!-- raw HTML omitted -->xinetd<!-- raw HTML omitted -->服务以加载新的配置。<!-- raw HTML omitted -->/etc/init.d/xinetd restart<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->5<!-- raw HTML omitted -->．<!-- raw HTML omitted --> <!-- raw HTML omitted -->测试，拷贝测试文件到<!-- raw HTML omitted -->micro_httpd<!-- raw HTML omitted -->的根目录，并通过浏览器访问：</p>
+<p><!-- raw HTML omitted -->    <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->http://192.168.0.65:48888<!-- raw HTML omitted --><!-- raw HTML omitted -->，通过点击目录中文件列表的超链接，可以查看到各个文件的内容。</p>
+<p><!-- raw HTML omitted -->         <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->  <!-- raw HTML omitted --></p>
+<hr>
+<p><strong>http****协议相关</strong></p>
+<p>1．  请求与响应报文格式</p>
+<p><!-- raw HTML omitted --><a href="http://apps.hi.baidu.com/share/detail/24694860">http://apps.hi.baidu.com/share/detail/24694860</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="http://blog.csdn.net/yang3290325/archive/2009/01/05/3710976.aspx">http://blog.csdn.net/yang3290325/archive/2009/01/05/3710976.aspx</a><!-- raw HTML omitted --></p>
+<p>2．  查看http请求与响应内容头</p>
+<p><!-- raw HTML omitted --><a href="http://www.51testing.com/?167686/viewspace-106751.html">http://www.51testing.com/?167686/viewspace-106751.html</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="http://blog.sina.com.cn/s/blog_5f1fe33f0100d9zp.html">http://blog.sina.com.cn/s/blog_5f1fe33f0100d9zp.html</a><!-- raw HTML omitted --></p>
+<p>3．  URL Encoding:</p>
+<p><!-- raw HTML omitted --><a href="http://www.ruanyifeng.com/blog/2010/02/url_encoding.html">http://www.ruanyifeng.com/blog/2010/02/url_encoding.html</a><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><a href="http://www.blooberry.com/indexdot/html/topics/urlencoding.htm">http://www.blooberry.com/indexdot/html/topics/urlencoding.htm</a><!-- raw HTML omitted --></p>
+<p><strong><!-- raw HTML omitted --> <!-- raw HTML omitted --></strong></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2013-07-12-%E6%8C%A3%E5%A4%96%E5%BF%AB-%E7%9A%84lancer%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/" data-toggle="tooltip" data-placement="top" title="挣外快 的lancer网站推荐">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2013-08-03-goagent-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA-%E6%95%99%E7%A8%8B/" data-toggle="tooltip" data-placement="top" title="goagent 快速搭建 教程">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 1, 2013</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/micro_httpd/">micro_httpd</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>virtualbox on IT技术分享</title>
+    <link>https://www.51hint.com/tags/virtualbox/</link>
+    <description>Recent content in virtualbox on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Sep 2014 13:12:32 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>virtualbox  鼠标隐藏</title>
+      <link>https://www.51hint.com/posts/2014-09-28-virtualbox-%E9%BC%A0%E6%A0%87%E9%9A%90%E8%97%8F/</link>
+      <pubDate>Sun, 28 Sep 2014 13:12:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-09-28-virtualbox-%E9%BC%A0%E6%A0%87%E9%9A%90%E8%97%8F/</guid>
+      <description>在Virtualbox虚拟机下，突然发现鼠标使用不正常。出现2个鼠标，一个是Ubuntu主机下面的鼠标，一个是Window7下的鼠标，但是W</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第一天：启动项目 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第一天：启动项目" />
+  <meta name="twitter:title" content="第一天：启动项目" />
+  <meta name="description" content="1.1 简介 Symfony框架是一个已经超过四年多的开源项目，得益于其强大的功能和良好的文档已成为最流行的PHP框架之一。 本教程描述用symfon">
+  <meta property="og:description" content="1.1 简介 Symfony框架是一个已经超过四年多的开源项目，得益于其强大的功能和良好的文档已成为最流行的PHP框架之一。 本教程描述用symfon">
+  <meta name="twitter:description" content="1.1 简介 Symfony框架是一个已经超过四年多的开源项目，得益于其强大的功能和良好的文档已成为最流行的PHP框架之一。 本教程描述用symfon">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%80%E5%A4%A9%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第一天：启动项目</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">7200 Words|Read in about 15 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/symfony-24hours__1.4/">symfony---24hours__[1.4]</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_01_introduction"><a href="#">1.1 简介</a></a></li>
+    <li><a href="#heading">[</a></li>
+    <li><a href="#chapter_01_prerequisites"><a href="#">1.3 准备工作</a></a>
+      <ul>
+        <li><a href="#chapter_01_sub_third_party_software"><a href="#">1.3.1 第三方软件</a></a></li>
+        <li><a href="#chapter_01_sub_command_line_interface"><a href="#">1.3.2 命令行接口</a></a></li>
+        <li><a href="#chapter_01_sub_php_configuration"><a href="#">1.3.3 PHP配置</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-1">[</a>
+      <ul>
+        <li><a href="#chapter_01_sub_initializing_the_project_directory"><a href="#">1.4.1 初始化项目目录</a></a></li>
+        <li><a href="#heading-2">[</a></li>
+        <li><a href="#chapter_01_sub_choosing_the_symfony_installation_location"><a href="#">1.4.3 选择Symfony安装位置</a></a></li>
+        <li><a href="#heading-3">[</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-4">[</a>
+      <ul>
+        <li><a href="#chapter_01_sub_project_creation"><a href="#">1.5.1 项目创建</a></a></li>
+        <li><a href="#chapter_01_sub_application_creation"><a href="#">1.5.2 应用程序创建</a></a></li>
+        <li><a href="#chapter_01_sub_directory_structure_rights"><a href="#">1.5.3 目录结构权限</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_01_web_server_configuration_the_ugly_way"><a href="#">1.6 web服务器配置：丑陋的方式</a></a></li>
+    <li><a href="#chapter_01_web_server_configuration_the_secure_way"><a href="#">1.7 web服务器配置：安全的方式</a></a>
+      <ul>
+        <li><a href="#chapter_01_sub_web_server_configuration"><a href="#">1.7.1 web服务器配置</a></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#chapter_01_sub_test_the_new_configuration"><a href="#">1.7.2 测试新配置</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-5">[</a></li>
+    <li><a href="#heading-6">[</a></li>
+    <li><a href="#chapter_01_final_thoughts"><a href="#">1.10 结语</a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <!-- raw HTML omitted -->
+<h2 id="chapter_01_introduction"><a href="#">1.1 简介</a></h2>
+<p>Symfony框架是一个已经超过四年多的开源项目，得益于其强大的功能和良好的文档已成为最流行的PHP框架之一。</p>
+<p>本教程描述用symfony框架的web应用程序的创建。一步一步从规范到实施。?它定位于学习symfony的新手，以及理解它如何工作，还有学习关于最佳的web开发实践。</p>
+<p>本来是打算做一个博客程序的。?但我们要把symfony用在一个有用处的项目上。?目的是要表明symfony可以轻松的开发专业应用程序。</p>
+<p>我们给项目取个名字：<strong>Jobeet</strong>。</p>
+<p>学习本教程每一天会花1到2个小时，动手编写代码从头到尾做一个真正的网站。?每天都会有新功能增加到应用程序上，我们还会利用本教程向你介绍symfony的功能以及symfony web开发的良好实践。</p>
+<h2 id="heading">[</h2>
+<p>1.2 今天做什么]<a href="#">1</a>{#chapter_01_what_for_today}</p>
+<p>今天我们不会写PHP代码，甚至不会写任何一行代码。今天你会理解到使用框架的好处，比如symfony。今天仅仅是引导一个新项目。</p>
+<p>今天的目标是设置开发环境，然后在浏览器上显示一个应用程序的页面。?包括symfony的安装、应用程序的创建还有web服务器配置。</p>
+<p>本教程主要集中于symfony框架，我们会假定你已经有了扎实的PHP5和OOP编程知识。</p>
+<h2 id="chapter_01_prerequisites"><a href="#">1.3 准备工作</a></h2>
+<p>安装symfony之前，你需要检查你的电脑一切都安装好了并配置正确了。?花时间认真阅读今天教程所讲的内容，还有跟随所有安装需要检查你的配置，因为可以为你的下一天节省时间。</p>
+<h3 id="chapter_01_sub_third_party_software"><a href="#">1.3.1 第三方软件</a></h3>
+<p>首先，你需要检查你的电脑有一个友好的web开发环境。?至少，你需要一个web服务器（例如Apache），一个数据库引擎（MySQL、PostgreSQL、SQLite、或者一些兼容PDO的数据库引擎），还有PHP 5.2.4或更高。</p>
+<h3 id="chapter_01_sub_command_line_interface"><a href="#">1.3.2 命令行接口</a></h3>
+<p>Symfony框架捆绑了一个命令行工具，自动为你做许多工作。?如果你是一位类Unix OS用户，你会感觉到家了。?如果你运行一个Windows系统，命令行同样工作的很好，你可以在命令行的提示下输入各种命令。</p>
+<blockquote>
+<p>Unix shell命令可以在一个Windows环境下派上用场。?如果你想在Window上用比如?<code>tar</code>、<code>gzip</code>、<code>grep</code>?这样的工具，你可以安装?<!-- raw HTML omitted -->Cygwin<!-- raw HTML omitted -->。?也可以大胆的尝试?<!-- raw HTML omitted -->Microsoft’s Windows Services for Unix<!-- raw HTML omitted -->。</p>
+</blockquote>
+<h3 id="chapter_01_sub_php_configuration"><a href="#">1.3.3 PHP配置</a></h3>
+<p>每种操作系统的PHP配置可能都有所不同，甚至不同的Linux发行版之间，你需要检查你的PHP配置满足PHP最低要求。</p>
+<p>首先，确保你运行?<code>phpinfo()</code>?内建函数或在命令行运行?<code>php -v</code>?查看版本号，满足PHP 5.2.4最低安装要求。?在一些配置上要注意，你可能安装了两个不同的PHP版本：一个对于命令行，和另外一个对web。</p>
+<p>然后，在这个URL网址下载symfony配置检查器脚本：</p>
+<pre><code>http://sf-to.org/1.4/check.php
+</code></pre>
+<p>保存该脚本在你当前web根目录下任意地方。?从命令行运行配置检查器脚本：</p>
+<!-- raw HTML omitted -->
+<p>如果你的PHP配置有问题，命令行会输出文字提示你修改什么和如何修改。</p>
+<p>你也可以从一个浏览器中运行检查器，并能看到如何解决问题。?因为PHP对于两种环境具有不同的?<code>php.ini</code>?配置，使用不同的设置。</p>
+<blockquote>
+<p>不要忘记之后从你的web根目录中移除这个文件。</p>
+<h2 id="heading-1">[</h2>
+</blockquote>
+<blockquote>
+<p>1.4 Symfony安装]<a href="#">1</a>{#chapter_01_symfony_installation}</p>
+<h3 id="chapter_01_sub_initializing_the_project_directory"><a href="#">1.4.1 初始化项目目录</a></h3>
+<p>在安装symfony之前，你首先需要创建一个目录，存放所有Jobeet有关的文件</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>$ cd /home/sfprojects/jobeet<!-- raw HTML omitted --></p>
+<blockquote>
+<p>或者在Windows平台上：</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>cd c:\development\sfproject\jobeet<!-- raw HTML omitted --></p>
+<blockquote>
+<blockquote>
+<p>建议Windows平台用户避免在诸如?<code>Documents and Settings</code>?目录和?<code>My Documents</code>?等带有空格的路径下使用symfony和搭建项目。</p>
+</blockquote>
+<blockquote>
+<p>如果你symfony项目目录创建在web根目录下，你不需要配置你的web服务器。?当然，对于生产环境，我们强烈建议你们配置你的web服务器这在web服务的配置环节部分已经做了解释。</p>
+</blockquote>
+<h3 id="heading-2">[</h3>
+</blockquote>
+<blockquote>
+<p>1.4.2 选择Symfony版本]<a href="#">1</a>{#chapter_01_sub_choosing_the_symfony_version}</p>
+<p>现在，你需要安装symfony。?symfony有几个稳定版本，你需要先到symfony网站上仔细的阅读官方?<!-- raw HTML omitted -->Installation（安装）<!-- raw HTML omitted -->?页面，然后你就知道如何选择一个你所需要安装的版本。</p>
+<p>本教程假定你安装的是 symfony 1.3 或者 symfony 1.4 。</p>
+<h3 id="chapter_01_sub_choosing_the_symfony_installation_location"><a href="#">1.4.3 选择Symfony安装位置</a></h3>
+<p>您可以安装symfony的在您的计算机上的任何地方，或嵌入到你的每个项目中。?但后者是我们推荐的，因为会与其他项目完全彼此独立。?升级您的本地安装的symfony不会导致你的项目发生意外。?这意味着你将能够有不同的版本symfony的项目，而且你可以升级你认为合适的一个。</p>
+<p>作为一个最佳实践，许多人安装symfony框架文件在项目的?<code>lib/vendor</code>?目录中。?那么我们先创建这个目录：</p>
+<!-- raw HTML omitted -->
+<h3 id="heading-3">[</h3>
+</blockquote>
+<blockquote>
+<p>1.4.4 安装Symfony]<a href="#">1</a>{#chapter_01_sub_installing_symfony}</p>
+<h4 id="从一个归档安装">从一个归档安装</h4>
+<p>最简单的方式安装symfony是从symfony网站上选择你需要的版本下载归档。?到官方 Installation 页面下载你选择的版本，例如symfony?<!-- raw HTML omitted -->1.4<!-- raw HTML omitted -->?。</p>
+<p>在?<strong>“Source Download”</strong>?那一栏，你会看到?<code>.tgz</code>?或者?<code>.zip</code>?格式的归档。?然后并下载下来，放在新创建的的?<code>lib/vendor/</code>?目录，解压，并重命名目录为?<code>symfony</code>：</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>$ tar zxpf symfony-1.4.0.taz 
+$ mv symfony-1.4.0 symfony 
+$ rm symfony-1.4.0.tgz<!-- raw HTML omitted --></p>
+<blockquote>
+<p>在Windows平台，用Windows资源管理器解压zip文件。?你命名目录为?<code>symfony</code>?之后，目录结构则应该差不多像这样?<code>c:\dev\sfproject\jobeet\lib\vendor\symfony</code>。</p>
+<h4 id="从subversion安装建议">从Subversion安装（建议）</h4>
+<p>如果你使用Subversion，用其?<code>svn:externals</code>?属性甚至能更好的用于将symfony嵌入到你项目的?<code>lib/vendor/</code>?目录：</p>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>在一个新的子版本库中导入你的项目，这会在本章的最后讲解。</p>
+</blockquote>
+<p>如果一切顺利，此命令将运行你目前编辑器给你的机会来配置外部的Subversion源。</p>
+<blockquote>
+<p>在Windows平台上，你能用像?<!-- raw HTML omitted -->TortoiseSVN<!-- raw HTML omitted -->?这样的工具做一切事情而不需要用控制台。</p>
+</blockquote>
+<p>如果你是保守的，你可以引导你的项目到一个特定的版本（一个subversion标签）：</p>
+<!-- raw HTML omitted -->
+<p>每当一个新版本推出时（会在官方symfony<!-- raw HTML omitted -->博客<!-- raw HTML omitted -->上宣布），你将需要更改URL地址到新的版本。</p>
+<p>如果你要时刻保持最新版本，则使用 1.4 branch：</p>
+<!-- raw HTML omitted -->
+<p>使用branch的好处是，无论何时你只要运行一个?<code>svn update</code>，则会自动修复symfony框架本身最新出现的BUG。</p>
+<h4 id="验证安装">验证安装</h4>
+<p>现在symfony安装完了，那么我检查一下是否好了，在symfony命令行里输入下面的命令（注意有大写的?<code>V</code>），如果看到结果显示出了symfony版本，则表示一切都是正常的：</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>$ php lib/vendor/symfony/data/bin/symfony -V<!-- raw HTML omitted --></p>
+<blockquote>
+<p>在Windows平台：</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>c:&amp;gt; php lib\vendor\symfony\data\bin\symfony -V<!-- raw HTML omitted --></p>
+<blockquote>
+<blockquote>
+<p>如果你好奇命令行工具能为你做什么，直接打“symfony”字符，会列出可以用的选项和命令：</p>
+<!-- raw HTML omitted -->
+<p>在Windows平台：</p>
+<!-- raw HTML omitted -->
+<p>symfony命令行是开发者最好的朋友。?它提供了许多的实用工具，每一天的日常活动，如清除缓存、生成代码，并更加提高您的工作效率。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+</blockquote>
+<h2 id="heading-4">[</h2>
+</blockquote>
+<blockquote>
+<p>1.5 项目设置]<a href="#">1</a>{#chapter_01_project_setup}</p>
+<p>在symfony里面，<strong>应用程序</strong>共享相同的数据模型重组进<strong>项目</strong>。?对于大多数项目，你将会有两个不同的应用程序：一个前台和一个后台。</p>
+<h3 id="chapter_01_sub_project_creation"><a href="#">1.5.1 项目创建</a></h3>
+<p>从?<code>sfprojects/jobeet</code>?目录，运行symfony的?<code>generate:project</code>?命令来实际创建symfony项目：</p>
+<!-- raw HTML omitted -->
+<p>在Windows平台：</p>
+<!-- raw HTML omitted -->
+<p><code>generate:project</code>?命令生成对于一个symfony项目所需要的默认文件、目录结构：</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  描述
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  项目中包含的所有应用程序
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  由框架产生的缓存文件
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  项目配置文件
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  项目类库
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  框架日志文件
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  安装插件所在的目录
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  单元和功能测试文件
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  web根目录（见下文）
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>为什么symfony生成如此多的文件？?使用一个full-stack框架主要好处之一是规范了你的开发。?得益于symfony的默认文件和目录结构，任何有一些symfony知识的开发者都能接手维护任何symfony项目。?在几分钟内，他将能够深入进代码、修改BUG并添加新功能。</p>
+</blockquote>
+<p><code>generate:project</code>?命令还可以创建一个symfony快捷方式在项目根目录中，来缩短你运行一个命令时所拼写字符的数目。</p>
+<p>所以，从现在开始，你可以用symfony快捷方式替代使用全路径的symfony程序。</p>
+<h3 id="chapter_01_sub_application_creation"><a href="#">1.5.2 应用程序创建</a></h3>
+<p>现在，通过运行?<code>generate:app</code>?命令创建前台应用程序：</p>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>因为symfony快捷文件是可执行的，从现在开始Unix平台用户可以把所有有关?<code>'php symfony'</code>?替换为?<code>'./symfony'</code>。</p>
+<p>在Windows平台，你可以拷贝<code>'symfony.bat'</code>文件到你的项目并使用<code>'symfony'</code>替代<code>'php symfony'</code>：</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>基于应用程序的名称作为一个参数，<code>generate:app</code>?命令会在?<code>apps/frontend</code>?目录下创建默认所需的目录结构：</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  描述
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  应用程序的配置文件
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  应用程序的类库
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  应用程序的代码（MVC）
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  全局的模板文件
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>安全性</p>
+<p>默认情况下，<code>generate:app</code>?命令会确保我们的应用程序避免网络上发现的最普遍的两个漏洞。?确切的说，symfony会自动开启我们的保安措施。</p>
+<p>为了防止XSS攻击，输出转义已经被开启；?还有防止CSRF攻击，会生成一个随机的CSRF密钥。</p>
+<p>当然，你可以调整这些设置，通过下列选项：</p>
+<ul>
+<li><code>--escaping-strategy</code>：激活或关闭输出转义</li>
+<li><code>--csrf-secret</code>：激活表单中的session令牌</li>
+</ul>
+<p>如果你不知道关于 XSS（<a href="http://baike.baidu.com/view/50325.htm">百度百科</a>、<a href="http://en.wikipedia.org/wiki/Cross-site_scripting">英文维基</a>） 或者 CSRF（<a href="http://baike.baidu.com/view/1609487.htm">百度百科</a>、<a href="http://en.wikipedia.org/wiki/CSRF">英文维基</a>），花时间学习更多关于安全漏洞。</p>
+</blockquote>
+<h3 id="chapter_01_sub_directory_structure_rights"><a href="#">1.5.3 目录结构权限</a></h3>
+<p>在访问你新创建的项目之前，你需要把?<code>cache/</code>?和?<code>log/</code>?目录适当的设置成适当的程度，以便web服务器能够写入：</p>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>对SCM工具使用者的提示</p>
+<p>symfony一直只会在?<code>cache/</code>?和?<code>log/</code>?这两个目录写入。?这些目录的内容应该被你的SCM忽略（假如你使用subversion，则编辑?<code>svn:ignore</code>?属性）。</p>
+</blockquote>
+<h2 id="chapter_01_web_server_configuration_the_ugly_way"><a href="#">1.6 web服务器配置：丑陋的方式</a></h2>
+<p>如果你在你的web服务器的web根目录下某个地方创建了项目目录，你已经能在web浏览器中访问项目。</p>
+<p>当然，作为没有经过任何配置的，建起来很快，但在你的浏览器中尝试访问?<code>config/databases.yml</code>?文件，就会了解这样一个懒惰的态度的不良后果。?如果用户知道你的网站是用symfony开发的，他可能会访问到一些敏感文件。</p>
+<p><strong>永远不要在生产服务器上这样配置</strong>，并阅读下一节学习怎样正确的配置你的web服务器。</p>
+<h2 id="chapter_01_web_server_configuration_the_secure_way"><a href="#">1.7 web服务器配置：安全的方式</a></h2>
+<p>一个好的web实践是只把需要被web浏览器访问的文件放在web根目录下，比如CSS、JavaScript、图片。?默认情况下，一个symfony项目我们建议把这些文件放在?<code>web/</code>?子目录下。</p>
+<p>如果你看过这个目录，你会发现一些存放web资源的子目录（<code>css/</code>?和?<code>images/</code>）和两个前端控制器文件。?前端控制器仅仅是个PHP文件，也需要放在web根目录下。?这样一来浏览器就访问不到其他所有PHP文件了。这样做对于安全性是很有益处的。</p>
+<h3 id="chapter_01_sub_web_server_configuration"><a href="#">1.7.1 web服务器配置</a></h3>
+<p>现在是更改你的Apache服务器的时候了。</p>
+<p>找到并打开?<code>httpd.conf</code>?配置文件并添加下面这些配置在其末尾：</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>NameVirtualHost 127.0.0.1:8080</p>
+<h1 id="这是对于你项目的配置">这是对于你项目的配置</h1>
+<p>Listen 127.0.0.1:8080</p>
+<p>&lt;VirtualHost 127.0.0.1:8080&gt;
+DocumentRoot &ldquo;/home/sfprojects/jobeet/web&rdquo;
+DirectoryIndex index.php
+&lt;Directory &ldquo;/home/sfprojects/jobeet/web&rdquo;&gt;
+AllowOverride All
+Allow from All
+&lt;/Directory&gt;</p>
+<p>Alias /sf /home/sfprojects/jobeet/lib/vendor/symfony/data/web/sf
+&lt;Directory &ldquo;/home/sfprojects/jobeets/lib/vendor/symfony/data/web/sf&rdquo;&gt;
+AllowOverride All
+Allow from All
+&lt;/Directory&gt;
+&lt;/VirtualHost&gt;<!-- raw HTML omitted --></p>
+<blockquote>
+<blockquote>
+<p><code>/sf</code>?别名是为了正确的显示symfony默认页面和web调试工具栏（Web Debug Toolbar）所需要的图片和JS文件。</p>
+<p>在Windows平台，你需要替换?<code>Alias</code>?这行比如像这样：</p>
+<!-- raw HTML omitted -->
+<p>并且?<code>/home/sfprojects/jobeet/web</code>?应该替换为：</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>这个配置使Apache在你的机器监听8080端口，因此，重启Apache之后，将会用这个URL网址访问网站：</p>
+<pre><code>http://~localhost~:8080/
+</code></pre>
+<p>你可以更改8080为另外一些数字，但数字最好大于1024，因为他们不需要管理员权限。</p>
+<blockquote>
+<p>配置一个专用域名</p>
+<p>如果你有管理员配置权限，最好设置虚拟主机（virtual hosts）?替代每次开始一个新项目添加一个新端口，或是选择一个端口并添加一个?<code>Listen</code>?语句，选择一个域名（例如?<code>.localhost</code>?真实域名添加在末尾）并添加一个?<code>ServerName</code>?语句：</p>
+<!-- raw HTML omitted -->
+</blockquote>
+</blockquote>
+<p>&lt;VirtualHost 127.0.0.1:80&gt;
+ServerName <a href="http://www.jobeet.com.localhost">www.jobeet.com.localhost</a>
+&lt;!&ndash; 像之前一样的配置 &ndash;&gt;
+&lt;VirtualHost&gt;<!-- raw HTML omitted --></p>
+<blockquote>
+<blockquote>
+<p>使用Apache配置的该域名?<code>www.jobeet.com.localhost</code>?必须在本地声明。?如果你运行的是Linux系统，它应该在?<code>/etc/hosts</code>。?如果你运行的是Windows XP，这个文件位于?<code>C:\WINDOWS\system32\drivers\etc\</code>?目录。</p>
+<p>添加这行：</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<h3 id="chapter_01_sub_test_the_new_configuration"><a href="#">1.7.2 测试新配置</a></h3>
+<p>重启Apache并检查，你现在访问这个新应用程序，打开一个浏览器并输入?<code>http://localhost:8080/index.php/</code>，或者?<code>http://www.jobeet.com.localhost/index.php/</code>?，这取决于在前一节你选择的Apache配置。</p>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>如果你安装了Apache?<code>mod_rewrite</code>?模块，你可以移除URL地址上的?<code>index.php/</code>?部分。?这可能要得益于在?<code>web/.htaccess</code>?文件中配置重写规则。</p>
+</blockquote>
+<p>你应该也尝试在开发环境访问应用程序（关于环境更多信息见下一节）。输入这个URL地址：</p>
+<pre><code>http://www.jobeet.com.localhost/frontend_dev.php/
+</code></pre>
+<p>web调试工具栏应该显示在右上角，看到了小图标，则证明你的?<code>sf/</code>?别名配置是正确的。</p>
+<h2 id="heading-5">[</h2>
+</blockquote>
+<blockquote>
+<p>1.8 环境]<a href="#">1</a>{#chapter_01_the_environments}</p>
+<p>如果你看了?<code>web/</code>?目录，你会发现两个PHP文件：<code>index.php</code>?和?<code>frontend_dev.php</code>。?这些文件叫做<strong>前端控制器</strong>；应用程序的所有请求都会经过他们。?但为什么每个应用程序都有两个前端控制器？</p>
+<p>两个文件都指向同一个应用程序，但针对不同的<strong>环境</strong>。?当你开发一个应用程序，除非如果你直接在生产服务器上开发，通常你需要多种环境：</p>
+<ul>
+<li><strong>开发环境（development environment）</strong>：这个是<strong>web开发者</strong>使用的环境，当他们给应用程序添加新功能、修改BUG等工作的时候。</li>
+<li><strong>测试环境（test environment）</strong>：这个环境是被用于应用程序的自动化测试。</li>
+<li><strong>临时环境（staging environment）</strong>：这个环境是用于<strong>用户</strong>来测试应用程序，还有报告BUG或缺少的功能。</li>
+<li><strong>生产环境（production environment）</strong>：这个是<strong>最终用户</strong>交互的环境。</li>
+</ul>
+<p>是什么使一个环境有所不同呢？?例如在开发环境，应用程序需要记录一个请求的所有细节以便调试，为了使才修改的代码立刻生效，缓存系统必须关闭。?因此，对于开发者必须使开发环境最佳化。?当然最好的例子是在发生异常时侯。?帮助开发者调试问题更快，symfony会在浏览器中显示异常，关于当前请求所发生的所有信息：</p>
+<p>但在生产环境，缓存是必须激活的，当然，应用程序必须显示定制过的错误信息而不是原本的异常。?因此，生产环境必须为性能和用户体验而优化</p>
+<blockquote>
+<p>如果你打开几个前端控制器文件，你会看见它们的内容是相同的，除了环境设置：</p>
+<!-- raw HTML omitted -->
+</blockquote>
+</blockquote>
+<p>&lt;?php</p>
+<p>require_once(dirname(<strong>FILE</strong>).'/../config/ProjectConfiguration.class.php');</p>
+<p>$configuration = ProjectConfiguration::getApplicationConfiguration(&lsquo;frontend&rsquo;,&lsquo;prod&rsquo;,false); 
+sfContext::createInstance($configuration)-&gt;dispatch();<!-- raw HTML omitted --></p>
+<blockquote>
+<p>使用web调试工具也是使用环境的一个很好的例子。?开发环境它会呈现在所有页面上，并且你可以通过点击不同的标签访问许多信息：?当前应用程序配置、当前请求记录、在数据库上执行的SQL语句、内存信息、时间信息。</p>
+<!-- raw HTML omitted -->
+<h2 id="heading-6">[</h2>
+</blockquote>
+<blockquote>
+<p>1.9 Subversion]<a href="#">1</a>{#chapter_01_subversion}</p>
+<p>开发一个web应用程序，使用源代码版本控制是一个良好的实践。?使用一个源代码版本控制允许我们：</p>
+<ul>
+<li>工作有信心</li>
+<li>加入改错了东西可以还原到上一个版本</li>
+<li>可以允许多个人同时在同一个项目上有效的工作</li>
+<li>可以使应用程序成一个连续的版本</li>
+</ul>
+<p>在这一节，我们将会描述关于symfony如何使用<!-- raw HTML omitted -->Subversion<!-- raw HTML omitted -->。?如果你使用其他的源代码控制工具，它必须是和我们所描述subversion类似。</p>
+<p>我们假设你应经访问了一个Subversion服务器并且能通过HTTP访问。</p>
+<blockquote>
+<p>如果你没有一个Subversion服务器，你可以在?<!-- raw HTML omitted -->Google Code<!-- raw HTML omitted -->?创建一个免费的库，或者在Google只需要输入“free subversion repository”则会得到许多信息。</p>
+</blockquote>
+<p>首先，在库服务器为?<code>jobeet?</code>项目创建一个库：</p>
+<!-- raw HTML omitted -->
+<p>在你的机器，创建基本的目录结构：</p>
+<!-- raw HTML omitted -->
+<p>并且检出空的?<code>trunk/</code>?目录：</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>$ svn co <a href="http://svn.example.com/jobeet/trunk/">http://svn.example.com/jobeet/trunk/</a><!-- raw HTML omitted --></p>
+<blockquote>
+<p>然后，删除?<code>cache/</code>?和?<code>log/</code>?目录的内容，不要把它们放进库里。</p>
+<!-- raw HTML omitted -->
+<p>现在，确保在缓存和日志目录设置了写权限到适当的程度，那么你的web服务器才可以写入：</p>
+<!-- raw HTML omitted -->
+<p>现在，导入所有文件和目录：</p>
+<!-- raw HTML omitted -->
+<p>正如我们永远不要提交文件到?<code>cache/</code>?和?<code>log/</code>?目录，你需要指定一个忽略列表：</p>
+<!-- raw HTML omitted -->
+<p>应该加载SVN默认的编辑器配置。?Subversion必须忽略这个目录的所有内容：</p>
+<!-- raw HTML omitted -->
+<p>保持并退出。大功告成。</p>
+<p>对?<code>log/</code>?目录重复步骤：</p>
+<!-- raw HTML omitted -->
+<p>并输入</p>
+<!-- raw HTML omitted -->
+<p>最后，提交这些修改到库：</p>
+<!-- raw HTML omitted -->
+<blockquote>
+<p>Windows平台用户可以使用?<!-- raw HTML omitted -->TortoiseSVN<!-- raw HTML omitted -->?客户端来管理它们的子版本库。</p>
+</blockquote>
+<h2 id="chapter_01_final_thoughts"><a href="#">1.10 结语</a></h2>
+<p>好，今天到此为止！即使我们还没开始讲关于symfony，我们已经设置了坚固的开发环境，讲了关于web开发的最贱实践，然后我们准备开始编码。</p>
+<p>明天，我们将揭示应用程序将做什么，还有讲关于Jobeet需求。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+</blockquote>
+<p>参考</p>
+<p><a href="http://php-sf.com">http://php-sf.com</a></p>
+<p><a href="http://www.symfony-project.org/jobeet/1_4/">http://www.symfony-project.org/jobeet/1_4/</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-selenium/" data-toggle="tooltip" data-placement="top" title="Selenium">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-symfony1-4-%E4%B8%AD%E6%96%87%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B-%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82/" data-toggle="tooltip" data-placement="top" title="第二天：用户需求">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">7200 Words|Read in about 15 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/symfony-24hours__1.4/">symfony---24hours__[1.4]</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

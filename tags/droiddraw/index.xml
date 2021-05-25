@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>droiddraw on IT技术分享</title>
+    <link>https://www.51hint.com/tags/droiddraw/</link>
+    <description>Recent content in droiddraw on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Sep 2012 07:31:13 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/droiddraw/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android 所见所得，绘制画面</title>
+      <link>https://www.51hint.com/posts/2012-09-04-android-%E6%89%80%E8%A7%81%E6%89%80%E5%BE%97%E7%BB%98%E5%88%B6%E7%94%BB%E9%9D%A2/</link>
+      <pubDate>Tue, 04 Sep 2012 07:31:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-09-04-android-%E6%89%80%E8%A7%81%E6%89%80%E5%BE%97%E7%BB%98%E5%88%B6%E7%94%BB%E9%9D%A2/</guid>
+      <description>DroidDraw http://www.droiddraw.org/</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>端口复用 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8/</link>
+    <description>Recent content in 端口复用 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Aug 2019 21:29:09 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>端口复用</title>
+      <link>https://www.51hint.com/posts/%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8/</link>
+      <pubDate>Sun, 25 Aug 2019 21:29:09 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8/</guid>
+      <description>利用haproxy实现443端口的复用 众所周知HTTPS默认是使用443端口的，但是我又让类似与SSLVPN之类的也用443端口。这可怎么办</description>
+    </item>
+    
+  </channel>
+</rss>

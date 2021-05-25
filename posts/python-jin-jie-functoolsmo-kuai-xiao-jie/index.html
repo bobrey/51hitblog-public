@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> PYTHON-进阶-FUNCTOOLS模块小结 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="PYTHON-进阶-FUNCTOOLS模块小结" />
+  <meta name="twitter:title" content="PYTHON-进阶-FUNCTOOLS模块小结" />
+  <meta name="description" content="functools.partial 作用: 通过包装手法，允许我们 &ldquo;重新定义&rdquo; 函数签名 用一些默认参数包装一个可调用对象,返回结果是可调用对象，并且可以像">
+  <meta property="og:description" content="functools.partial 作用: 通过包装手法，允许我们 &ldquo;重新定义&rdquo; 函数签名 用一些默认参数包装一个可调用对象,返回结果是可调用对象，并且可以像">
+  <meta name="twitter:description" content="functools.partial 作用: 通过包装手法，允许我们 &ldquo;重新定义&rdquo; 函数签名 用一些默认参数包装一个可调用对象,返回结果是可调用对象，并且可以像">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/python-jin-jie-functoolsmo-kuai-xiao-jie/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/python-jin-jie-functoolsmo-kuai-xiao-jie/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">PYTHON-进阶-FUNCTOOLS模块小结</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/python/">python</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#functoolspartial">functools.partial</a></li>
+    <li><a href="#functoolupdate_wrapper">functool.update_wrapper</a></li>
+    <li><a href="#functoolwraps">functool.wraps</a></li>
+    <li><a href="#functoolsreduce">functools.reduce</a></li>
+    <li><a href="#functoolscmp_to_key">functools.cmp_to_key</a></li>
+    <li><a href="#functoolstotal_ordering">functools.total_ordering</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h2 id="functoolspartial">functools.partial</h2>
+<p>作用:</p>
+<ul>
+<li>
+<p>通过包装手法，允许我们 &ldquo;重新定义&rdquo; 函数签名</p>
+</li>
+<li>
+<p>用一些默认参数包装一个可调用对象,返回结果是可调用对象，并且可以像原始对象一样对待</p>
+</li>
+<li>
+<p>冻结部分函数位置函数或关键字参数，简化函数,更少更灵活的函数参数调用</p>
+</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1">#args/keywords 调用partial时参数</span>
+<span class="k">def</span> <span class="nf">partial</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">newfunc</span><span class="p">(</span><span class="o">*</span><span class="n">fargs</span><span class="p">,</span> <span class="o">**</span><span class="n">fkeywords</span><span class="p">):</span>
+        <span class="n">newkeywords</span> <span class="o">=</span> <span class="n">keywords</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">newkeywords</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fkeywords</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">args</span> <span class="o">+</span> <span class="n">fargs</span><span class="p">),</span> <span class="o">**</span><span class="n">newkeywords</span><span class="p">)</span> <span class="c1">#合并，调用原始函数，此时用了partial的参数</span>
+    <span class="n">newfunc</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+    <span class="n">newfunc</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">args</span>
+    <span class="n">newfunc</span><span class="o">.</span><span class="n">keywords</span> <span class="o">=</span> <span class="n">keywords</span>
+    <span class="k">return</span> <span class="n">newfunc</span>
+</code></pre></div><p>声明：
+<code>urlunquote = functools.partial(urlunquote, encoding='latin1')</code></p>
+<p>当调用 urlunquote(args, *kargs) <br>
+相当于 urlunquote(args, *kargs, encoding=&lsquo;latin1&rsquo;)</p>
+<p>E.g:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">6</span>
+
+<span class="n">plus3</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plus5</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">plus3</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="mi">7</span>
+<span class="n">plus3</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="mi">10</span>
+
+<span class="n">plus5</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="mi">15</span>
+</code></pre></div><p>应用:<br>
+典型的，函数在执行时，要带上所有必要的参数进行调用。<br>
+然后，有时参数可以在函数被调用之前提前获知。<br>
+这种情况下，一个函数有一个或多个参数预先就能用上，以便函数能用<strong>更少的参数</strong>进行调用。</p>
+<h2 id="functoolupdate_wrapper">functool.update_wrapper</h2>
+<p>默认partial对象没有__name__和__doc__, 这种情况下，对于装饰器函数非常难以debug.使用update_wrapper(),从原始对象拷贝或加入现有partial对象</p>
+<p>它可以把**被封装函数的__name__、module、__doc__和 __dict__都复制到封装函数去**(模块级别常量WRAPPER_ASSIGNMENTS, WRAPPER_UPDATES)</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">functools</span><span class="o">.</span><span class="n">WRAPPER_ASSIGNMENTS</span>
+<span class="p">(</span><span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">functools</span><span class="o">.</span><span class="n">WRAPPER_UPDATES</span>
+<span class="p">(</span><span class="s1">&#39;__dict__&#39;</span><span class="p">,)</span>
+</code></pre></div><p>这个函数主要用在装饰器函数中，装饰器返回函数反射得到的是包装函数的函数定义而不是原始函数定义</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># encoding: utf-8</span>
+
+<span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">call_it</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;wrap func: call_it&#34;&#34;&#34;</span>
+        <span class="k">print</span> <span class="s1">&#39;before call&#39;</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">call_it</span>
+
+<span class="nd">@wrap</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="s2">&#34;&#34;&#34;say hello&#34;&#34;&#34;</span>
+    <span class="k">print</span> <span class="s1">&#39;hello world&#39;</span>
+
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">update_wrapper</span>
+<span class="k">def</span> <span class="nf">wrap2</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">call_it</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;wrap func: call_it2&#34;&#34;&#34;</span>
+        <span class="k">print</span> <span class="s1">&#39;before call&#39;</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">update_wrapper</span><span class="p">(</span><span class="n">call_it</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+
+<span class="nd">@wrap2</span>
+<span class="k">def</span> <span class="nf">hello2</span><span class="p">():</span>
+    <span class="s2">&#34;&#34;&#34;test hello&#34;&#34;&#34;</span>
+    <span class="k">print</span> <span class="s1">&#39;hello world2&#39;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">hello</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">hello</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">print</span> <span class="n">hello</span><span class="o">.</span><span class="vm">__doc__</span>
+
+    <span class="k">print</span>
+    <span class="n">hello2</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">hello2</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">print</span> <span class="n">hello2</span><span class="o">.</span><span class="vm">__doc__</span>
+</code></pre></div><p>得到结果：</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">before</span> <span class="n">call</span>
+<span class="n">hello</span> <span class="n">world</span>
+<span class="n">call_it</span>
+<span class="n">wrap</span> <span class="n">func</span><span class="p">:</span> <span class="n">call_it</span>
+
+<span class="n">before</span> <span class="n">call</span>
+<span class="n">hello</span> <span class="n">world2</span>
+<span class="n">hello2</span>
+<span class="n">test</span> <span class="n">hello</span>
+</code></pre></div><h2 id="functoolwraps">functool.wraps</h2>
+<p>调用函数装饰器**partial(update_wrapper, wrapped=wrapped, assigned=assigned, updated=updated)**的简写</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="k">def</span> <span class="nf">wrap3</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">call_it</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;wrap func: call_it2&#34;&#34;&#34;</span>
+        <span class="k">print</span> <span class="s1">&#39;before call&#39;</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">call_it</span>
+
+<span class="nd">@wrap3</span>
+<span class="k">def</span> <span class="nf">hello3</span><span class="p">():</span>
+    <span class="s2">&#34;&#34;&#34;test hello 3&#34;&#34;&#34;</span>
+    <span class="k">print</span> <span class="s1">&#39;hello world3&#39;</span>
+</code></pre></div><p>结果</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">before</span> <span class="n">call</span>
+<span class="n">hello</span> <span class="n">world3</span>
+<span class="n">hello3</span>
+<span class="n">test</span> <span class="n">hello</span> <span class="mi">3</span>
+</code></pre></div><h2 id="functoolsreduce">functools.reduce</h2>
+<p><code>functools.reduce(function, iterable[, initializer])</code>
+等同于内置函数<code>reduce()</code>
+用这个的原因是使代码更兼容(python3)</p>
+<h2 id="functoolscmp_to_key">functools.cmp_to_key</h2>
+<p><code>functools.cmp_to_key(func)</code>
+将老式鼻尖函数转换成key函数，用在接受key函数的方法中(such as sorted(), min(), max(), heapq.nlargest(), heapq.nsmallest(), itertools.groupby())</p>
+<p>一个比较函数，接收两个参数，小于，返回负数，等于，返回0，大于返回整数<br>
+key函数，接收一个参数，返回一个表明该参数在期望序列中的位置</p>
+<p>例如:<br>
+<code>sorted(iterable, key=cmp_to_key(locale.strcoll))  # locale-aware sort order</code></p>
+<h2 id="functoolstotal_ordering">functools.total_ordering</h2>
+<p><code>functools.total_ordering(cls)</code><br>
+这个装饰器是在python2.7的时候加上的，它是针对某个类如果定义了__lt__、le、gt、__ge__这些方法中的至少一个，使用该装饰器，则会自动的把其他几个比较函数也实现在该类中</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@total_ordering</span>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">lastname</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstname</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">==</span>
+                <span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">lastname</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">other</span><span class="o">.</span><span class="n">firstname</span><span class="o">.</span><span class="n">lower</span><span class="p">()))</span>
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">lastname</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstname</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">&lt;</span>
+                <span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">lastname</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">other</span><span class="o">.</span><span class="n">firstname</span><span class="o">.</span><span class="n">lower</span><span class="p">()))</span>
+<span class="k">print</span> <span class="nb">dir</span><span class="p">(</span><span class="n">Student</span><span class="p">)</span>
+</code></pre></div><p>得到</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__eq__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ge__&#39;</span><span class="p">,</span> <span class="s1">&#39;__gt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__le__&#39;</span><span class="p">,</span> <span class="s1">&#39;__lt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">]</span>
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/pythonzhuang-shi-qi-he-fu-hao/" data-toggle="tooltip" data-placement="top" title="Python装饰器和符号@">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/ji-yu-python-yieldji-zhi-de-yi-bu-cao-zuo-tong-bu-hua-bian-cheng-mo-xing/" data-toggle="tooltip" data-placement="top" title="基于python yield机制的异步操作同步化编程模型">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/pythonzhuang-shi-qi-he-fu-hao/">Python装饰器和符号@</a></li>
+                    
+                    <li><a href="/posts/2012-12-21-opencv-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/">opencv 人脸识别</a></li>
+                    
+                    <li><a href="/posts/2012-11-28-python-%E5%BC%80%E5%8F%91web%E6%A1%86%E6%9E%B6-django%E6%A1%86%E6%9E%B6/">python 开发web框架  【Django框架】</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/python/">python</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

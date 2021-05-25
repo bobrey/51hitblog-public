@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 苹果推送通知 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="苹果推送通知" />
+  <meta name="twitter:title" content="苹果推送通知" />
+  <meta name="description" content="苹果推送通知－实例 &lt;p&gt; &lt;/p&gt; &lt;p&gt; &lt;/p&gt; &lt;p&gt; &lt;span&gt; 正常的iPhone刷系统之后，是没有设备证书和密钥的。这就是为什么iPhone会需要连接到 iTunes上进行激">
+  <meta property="og:description" content="苹果推送通知－实例 &lt;p&gt; &lt;/p&gt; &lt;p&gt; &lt;/p&gt; &lt;p&gt; &lt;span&gt; 正常的iPhone刷系统之后，是没有设备证书和密钥的。这就是为什么iPhone会需要连接到 iTunes上进行激">
+  <meta name="twitter:description" content="苹果推送通知－实例 &lt;p&gt; &lt;/p&gt; &lt;p&gt; &lt;/p&gt; &lt;p&gt; &lt;span&gt; 正常的iPhone刷系统之后，是没有设备证书和密钥的。这就是为什么iPhone会需要连接到 iTunes上进行激">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-06-20-%E8%8B%B9%E6%9E%9C%E6%8E%A8%E9%80%81%E9%80%9A%E7%9F%A5/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-06-20-%E8%8B%B9%E6%9E%9C%E6%8E%A8%E9%80%81%E9%80%9A%E7%9F%A5/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">苹果推送通知</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jun 20, 2011</h4>
+    </section>
+    <h5 id="wc">3500 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p><strong>苹果推送通知－实例</strong><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>  &lt;p&gt;
+     
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+     
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span&gt;　正常的iPhone刷系统之后，是没有设备证书和密钥的。这就是为什么iPhone会需要连接到 iTunes上进行激活——激活过程中，Apple会分配给每台iPhone独一无二的设备证书(device certificate)和密钥(key)。(本人由于没有意思到这个 一直收到 &amp;#8220;未找到应用程序的&amp;#8221;aps-environment&amp;#8221; 的权利字符串&amp;#8221;)&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span&gt;&lt;br /&gt; &lt;/br&gt;&lt;/span&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    One of the key limitations of the iPhone is its constraint on running applications in the background. Because of this, applications cannot keep running in the background when the user switches to another application. So, applications that require a constant&lt;br /&gt; state of connectivity (such as social networking applications) will not be able to receive timely updates.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    To remedy this limitation, Apple released the Apple Push Notification Service (APNs). The APNs is a service that allows your device to be constantly connected to Apple&amp;#8217;s push notification server. When you want to send a push notification to an application&lt;br /&gt; installed on the users&amp;#8217; devices, you (&lt;em&gt;the provider&lt;/em&gt;) can contact the APNs so that it can deliver a push message to the particular application installed on the intended device.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    In this article, you will learn how to perform the various steps needed to create an iPhone application that uses the APNs.
+  &lt;/p&gt;
+  
+  &lt;h2&gt;
+    Generating a Certificate Request
+  &lt;/h2&gt;
+  
+  &lt;p&gt;
+    The first step to using the APNs is to generate a certificate request file so that you can use it to request for a development SSL certificate later on.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;1.&lt;/strong&gt; Launch the Keychain Access application in your Mac OS X.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;2.&lt;/strong&gt; Select Keychain Access&amp;#8217;Certificate Assistant&amp;#8217;Request a Certificate From a Certificate Authority (see Figure 1):
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+     
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;1&quot; src=&quot;https://i2.wp.com/mobiforge.com/files/iphone-push-1.jpg?resize=500%2C201&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 1&lt;/strong&gt;. Generating a certificate request&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;&lt;/strong&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;3.&lt;/strong&gt; Enter the information required and check the Saved to disk option. Click Continue (see Figure 2).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+     
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;2&quot; src=&quot;https://i2.wp.com/mobiforge.com/files/iphone-push-2.jpg?resize=500%2C362&quot; data-recalc-dims=&quot;1&quot; /&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Figure 2&lt;/strong&gt;. Saving the certificate request to disk&lt;/br&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;4.&lt;/strong&gt; Save the certificate request using the suggested name and click Save (see Figure 3): Click Done in the next screen.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;3&quot; src=&quot;https://mobiforge.com/files/iphone-push-3.jpg?resize=500%2C163&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 3&lt;/strong&gt;. Naming the certificate request&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;h2&gt;
+    Creating an App ID
+  &lt;/h2&gt;
+  
+  &lt;p&gt;
+    Each iPhone applications that uses the APNs must have a unique application ID that uniquely identifies itself. In this step, you will learn how to create an App ID for push notification.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;1.&lt;/strong&gt; Sign in to the iPhone Developer Program at: &lt;a href=&quot;http://developer.apple.com/iphone/&quot;&gt;http://developer.apple.com/iphone/&lt;/a&gt;. Click on the iPhone Developer Program Portal on the right of the page (see Figure 4).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;4&quot; src=&quot;https://mobiforge.com/files/iphone-push-4.jpg?resize=640%2C206&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 4&lt;/strong&gt;. Launching the iPhone Developer Program Portal&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;2.&lt;/strong&gt; You should see the welcome page (see Figure 5).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;5&quot; src=&quot;https://i2.wp.com/mobiforge.com/files/iphone-push-5.jpg?resize=600%2C370&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 5&lt;/strong&gt;. The welcome screen of the iPhone Developer Program Portal&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;3.&lt;/strong&gt; Click on the App IDs tab on the left and then click on the New App ID button (see Figure 6).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;6&quot; src=&quot;https://i2.wp.com/mobiforge.com/files/iphone-push-6.jpg?resize=640%2C220&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 6&lt;/strong&gt;. Clicking on the App ID tab&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;4.&lt;/strong&gt; Enter &amp;#8220;PushAppID&amp;#8221; for the Description and select Generate New for the Bundle Seed ID. For the Bundle Identifier, enter &lt;span&gt;&lt;code&gt;net.learn2develop.MyPushApp&lt;/code&gt;&lt;/span&gt;. Click Submit (see Figure 7).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;7&quot; src=&quot;https://i2.wp.com/mobiforge.com/files/iphone-push-7.jpg?resize=640%2C433&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 7&lt;/strong&gt;. Creating a new App ID&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;5.&lt;/strong&gt; You should now see the App ID that you have created (together with those you have previously created) (see Figure 8).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;8&quot; src=&quot;https://mobiforge.com/files/iphone-push-8.jpg?resize=500%2C84&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 8&lt;/strong&gt;. Viewing the newly created App ID&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;h2&gt;
+    Configuring an App ID for Push Notifications
+  &lt;/h2&gt;
+  
+  &lt;p&gt;
+    Once an App ID is created, you need to configure it for push notifications.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;1.&lt;/strong&gt; To configure an App ID for push notification, you need to click the Configure link displayed to the right of the App ID. You will now see the option (see Figure 9).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;9&quot; src=&quot;https://i2.wp.com/mobiforge.com/files/iphone-push-9.jpg?resize=600%2C257&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 9&lt;/strong&gt;. Configuring an App ID for push notification service&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Check the Enable for Apple Push Notification service option and click the Configure button displayed to the right of the Development Push SSL Certificate.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;2.&lt;/strong&gt; You will now see the Apple Push Notification service SSL Certificate Assistant screen. Click Continue (see Figure 10).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;10&quot; src=&quot;https://i2.wp.com/mobiforge.com/files/iphone-push-10.jpg?resize=500%2C457&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 10&lt;/strong&gt;. The Apple Push Notification service SSL Certificate Assistant screen&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;3.&lt;/strong&gt; Click the Choose File button to locate the Certificate Request file that you have saved earlier. Click Generate (see Figure 11).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;11&quot; src=&quot;https://i0.wp.com/mobiforge.com/files/iphone-push-11.jpg?resize=500%2C457&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 11&lt;/strong&gt;. Generating the SSL certificate&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;4.&lt;/strong&gt; Your SSL Certificate will now be generated. Click Continue (see Figure 12).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;12&quot; src=&quot;https://mobiforge.com/files/iphone-push-12.jpg?resize=500%2C457&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 12&lt;/strong&gt;. The APNs SSL certificate that is generated&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;5.&lt;/strong&gt; Click the Download Now button to download the SSL Certificate. Click Done (see Figure 13).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;13&quot; src=&quot;https://i2.wp.com/mobiforge.com/files/iphone-push-13.jpg?resize=500%2C457&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 13&lt;/strong&gt;. Downloading the certificate generated&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;6.&lt;/strong&gt; The SSL Certificate that you download is named &lt;span&gt;&lt;code&gt;aps.developer.identity.cer&lt;/code&gt;&lt;/span&gt;. Double-click on it to install it in the Keychain Access application (see Figure 14). The SSL certificate will be used by your provider&lt;br /&gt; application so that it can contact the APNs to send push notifications to your applications.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;14&quot; src=&quot;https://mobiforge.com/files/iphone-push-14.jpg?resize=500%2C301&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 14&lt;/strong&gt;. Installing the generated certificate into the Keychain Access application&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;h2&gt;
+    Creating a Provisioning Profile
+  &lt;/h2&gt;
+  
+  &lt;p&gt;
+    The next step is to create a provisioning profile so that your application can be installed onto a real device.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;1.&lt;/strong&gt; Back in the iPhone Development Program Portal, click on the Provisioning tab and click on the New Profile button (see Figure 15).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;15&quot; src=&quot;https://i2.wp.com/mobiforge.com/files/iphone-push-15.jpg?resize=640%2C159&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 15&lt;/strong&gt;. Selecting the Provisioning tab&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;2.&lt;/strong&gt; Type in &lt;span&gt;&lt;code&gt;MyDevicesProfile&lt;/code&gt;&lt;/span&gt; as the profile name. Select PushAppID as the App ID. Finally, check all the devices that you want to provision (you can register these devices with the iPhone Developer Program Portal&lt;br /&gt; through the Devices tab). Click Submit (see Figure 16).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;16&quot; src=&quot;https://i2.wp.com/mobiforge.com/files/iphone-push-16.jpg?resize=640%2C363&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 16&lt;/strong&gt;. Creating a new provisioning profile&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;3.&lt;/strong&gt; The provisioning profile will now be pending approval. After a while, you will see it appear. Click on the Download button to download the provisioning profile (see Figure 17).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;17&quot; src=&quot;https://mobiforge.com/files/iphone-push-17.jpg?resize=600%2C176&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 17&lt;/strong&gt;. Pending the approval of the provisioning profile&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;4.&lt;/strong&gt; The downloaded provisioning profile is named MyDevicesProfile.mobileprovision.
+  &lt;/p&gt;
+  
+  &lt;h2&gt;
+    Provisioning a Device
+  &lt;/h2&gt;
+  
+  &lt;p&gt;
+    With the provision profile created, you will now install it onto a real device.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;1.&lt;/strong&gt; Connect your iPhone or iPod Touch to your Mac.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;2.&lt;/strong&gt; Drag and drop the downloaded &lt;span&gt;&lt;code&gt;MyDevicesProfile.mobileprovision&lt;/code&gt;&lt;/span&gt; file onto the Xcode icon on the Dock.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;3.&lt;/strong&gt; Launch the Organizer application from within Xcode and select the device currently connected to your Mac. You should see the &lt;span&gt;&lt;code&gt;MyDevicesProfile&lt;/code&gt;&lt;/span&gt; installed on the device (see Figure 18).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;18&quot; src=&quot;https://i0.wp.com/mobiforge.com/files/iphone-push-18.jpg?resize=600%2C343&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 18&lt;/strong&gt;. Viewing the installed provisioning profile&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;h2&gt;
+    Creating the iPhone Application
+  &lt;/h2&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;1.&lt;/strong&gt; In Xcode, create a new View-Based Application project and name it as ApplePushNotification.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;2.&lt;/strong&gt; Drag and drop a WAV file (shown as &lt;span&gt;&lt;code&gt;beep.wav&lt;/code&gt;&lt;/span&gt; in this example) onto the Resources folder in Xcode (see Figure 19).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;19&quot; src=&quot;https://mobiforge.com/files/iphone-push-19.jpg?resize=355%2C307&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 19&lt;/strong&gt;. Adding a WAV file to the project&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;3.&lt;/strong&gt; Expand on the Targets item in Xcode and select the ApplePushNotification item. Press Command-I. In the Info window, click the Properties tab (see Figure 20).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;20&quot; src=&quot;https://i0.wp.com/mobiforge.com/files/iphone-push-20.jpg?resize=600%2C489&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 20&lt;/strong&gt;. Entering the App ID for the application&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    In the Identifier textbox, type &lt;&lt;span&gt;&lt;code&gt;net.learn2develop.MyPushApp&lt;/code&gt;&lt;/span&gt;.
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;4.&lt;/strong&gt; Click on the Build tab and type &amp;#8220;Code Signing&amp;#8221; in the search box. In the Any iPhone OS Device item, select the profile as shown in Figure 21:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;Figure 21&lt;/strong&gt;. S&lt;img alt=&quot;21&quot; src=&quot;https://i2.wp.com/mobiforge.com/files/iphone-push-21.jpg?resize=640%2C419&quot;  data-recalc-dims=&quot;1&quot; /&gt;electing the profile for code signing&lt;/img&gt;&lt;/br&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+     
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;strong&gt;5.&lt;/strong&gt; In the &lt;span&gt;&lt;code&gt;ApplePushNotificationAppDelegate.m&lt;/code&gt;&lt;/span&gt; file, type the following code in bold:
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+     
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span&gt;#import &amp;#8220;ApplePushNotificationAppDelegate.h&amp;#8221;&lt;/span&gt;&lt;br /&gt; &lt;span&gt;#import &amp;#8220;ApplePushNotificationViewController.h&amp;#8221;&lt;/span&gt;&lt;br /&gt;  &lt;br /&gt; &lt;span&gt;@implementation&lt;/span&gt; ApplePushNotificationAppDelegate&lt;br /&gt;  &lt;br /&gt; @synthesize window;&lt;br /&gt; @synthesize viewController;&lt;br /&gt;  &lt;br /&gt; &lt;span&gt;&amp;#8211;&lt;/span&gt; &lt;span&gt;(&lt;/span&gt;&lt;span&gt;void&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;applicationDidFinishLaunching&lt;span&gt;:&lt;/span&gt;&lt;span&gt;(&lt;/span&gt;UIApplication &lt;span&gt;*&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;application &lt;span&gt;{&lt;/span&gt;    &lt;br /&gt;     &lt;span&gt;[&lt;/span&gt;window addSubview&lt;span&gt;:&lt;/span&gt;viewController.view&lt;span&gt;]&lt;/span&gt;;&lt;br /&gt;     &lt;span&gt;[&lt;/span&gt;window makeKeyAndVisible&lt;span&gt;]&lt;/span&gt;;&lt;br /&gt;  &lt;br /&gt;     NSLog&lt;span&gt;(&lt;/span&gt;@&lt;span&gt;&amp;#8220;Registering for push notifications&amp;#8230;&amp;#8221;&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;;    &lt;br /&gt;     &lt;span&gt;[&lt;/span&gt;&lt;span&gt;[&lt;/span&gt;UIApplication sharedApplication&lt;span&gt;]&lt;/span&gt; &lt;br /&gt;         registerForRemoteNotificationTypes&lt;span&gt;:&lt;/span&gt;&lt;br /&gt;         &lt;span&gt;(&lt;/span&gt;UIRemoteNotificationTypeAlert | &lt;br /&gt;          UIRemoteNotificationTypeBadge | &lt;br /&gt;          UIRemoteNotificationTypeSound&lt;span&gt;)&lt;/span&gt;&lt;span&gt;]&lt;/span&gt;;&lt;br /&gt;  &lt;br /&gt; &lt;span&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;br /&gt; &lt;span&gt;&amp;#8211;&lt;/span&gt; &lt;span&gt;(&lt;/span&gt;&lt;span&gt;void&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;application&lt;span&gt;:&lt;/span&gt;&lt;span&gt;(&lt;/span&gt;UIApplication &lt;span&gt;*&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;app didRegisterForRemoteNotificationsWithDeviceToken&lt;span&gt;:&lt;/span&gt;&lt;span&gt;(&lt;/span&gt;&lt;a href=&quot;http://developer.apple.com/documentation/Cocoa/Reference/Foundation/ObjC_classic/Classes/NSData.html&quot;&gt;&lt;span&gt;NSData&lt;/span&gt;&lt;/a&gt; &lt;span&gt;*&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;deviceToken &lt;span&gt;{&lt;/span&gt; &lt;br /&gt;  &lt;br /&gt;     &lt;a href=&quot;http://developer.apple.com/documentation/Cocoa/Reference/Foundation/ObjC_classic/Classes/NSString.html&quot;&gt;&lt;span&gt;NSString&lt;/span&gt;&lt;/a&gt; &lt;span&gt;*&lt;/span&gt;str &lt;span&gt;=&lt;/span&gt; &lt;span&gt;[&lt;/span&gt;&lt;a href=&quot;http://developer.apple.com/documentation/Cocoa/Reference/Foundation/ObjC_classic/Classes/NSString.html&quot;&gt;&lt;span&gt;NSString&lt;/span&gt;&lt;/a&gt; &lt;br /&gt;         stringWithFormat&lt;span&gt;:&lt;/span&gt;@&lt;span&gt;&amp;#8220;Device Token=%@&amp;#8221;&lt;/span&gt;,deviceToken&lt;span&gt;]&lt;/span&gt;;&lt;br /&gt;     NSLog&lt;span&gt;(&lt;/span&gt;str&lt;span&gt;)&lt;/span&gt;;&lt;br /&gt;  &lt;br /&gt; &lt;span&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;br /&gt; &lt;span&gt;&amp;#8211;&lt;/span&gt; &lt;span&gt;(&lt;/span&gt;&lt;span&gt;void&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;application&lt;span&gt;:&lt;/span&gt;&lt;span&gt;(&lt;/span&gt;UIApplication &lt;span&gt;*&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;app didFailToRegisterForRemoteNotificationsWithError&lt;span&gt;:&lt;/span&gt;&lt;span&gt;(&lt;/span&gt;&lt;a href=&quot;http://developer.apple.com/documentation/Cocoa/Reference/Foundation/ObjC_classic/Classes/NSError.html&quot;&gt;&lt;span&gt;NSError&lt;/span&gt;&lt;/a&gt; &lt;span&gt;*&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;err &lt;span&gt;{&lt;/span&gt; &lt;br /&gt;  &lt;br /&gt;     &lt;a href=&quot;http://developer.apple.com/documentation/Cocoa/Reference/Foundation/ObjC_classic/Classes/NSString.html&quot;&gt;&lt;span&gt;NSString&lt;/span&gt;&lt;/a&gt; &lt;span&gt;*&lt;/span&gt;str &lt;span&gt;=&lt;/span&gt; &lt;span&gt;[&lt;/span&gt;&lt;a href=&quot;http://developer.apple.com/documentation/Cocoa/Reference/Foundation/ObjC_classic/Classes/NSString.html&quot;&gt;&lt;span&gt;NSString&lt;/span&gt;&lt;/a&gt; stringWithFormat&lt;span&gt;:&lt;/span&gt; @&lt;span&gt;&amp;#8220;Error:&lt;br /&gt; %@&amp;#8221;&lt;/span&gt;, err&lt;span&gt;]&lt;/span&gt;;&lt;br /&gt;     NSLog&lt;span&gt;(&lt;/span&gt;str&lt;span&gt;)&lt;/span&gt;;    &lt;br /&gt;  &lt;br /&gt; &lt;span&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;br /&gt; &lt;span&gt;&amp;#8211;&lt;/span&gt; &lt;span&gt;(&lt;/span&gt;&lt;span&gt;void&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;application&lt;span&gt;:&lt;/span&gt;&lt;span&gt;(&lt;/span&gt;UIApplication &lt;span&gt;*&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;application didReceiveRemoteNotification&lt;span&gt;:&lt;/span&gt;&lt;span&gt;(&lt;/span&gt;&lt;a href=&quot;http://developer.apple.com/documentation/Cocoa/Reference/Foundation/ObjC_classic/Classes/NSDictionary.html&quot;&gt;&lt;span&gt;NSDictionary&lt;/span&gt;&lt;/a&gt; &lt;span&gt;*&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;userInfo &lt;span&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;br /&gt;     &lt;span&gt;for&lt;/span&gt; &lt;span&gt;(&lt;/span&gt;&lt;span&gt;id&lt;/span&gt; key in userInfo&lt;span&gt;)&lt;/span&gt; &lt;span&gt;{&lt;/span&gt;&lt;br /&gt;         NSLog&lt;span&gt;(&lt;/span&gt;@&lt;span&gt;&amp;#8220;key: %@, value: %@&amp;#8221;&lt;/span&gt;, key, &lt;span&gt;[&lt;/span&gt;userInfo objectForKey&lt;span&gt;:&lt;/span&gt;key&lt;span&gt;]&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;;&lt;br /&gt;     &lt;span&gt;}&lt;/span&gt;    &lt;br /&gt;  &lt;br /&gt; &lt;span&gt;}&lt;/span&gt;&lt;br /&gt;  &lt;br /&gt; &lt;span&gt;&amp;#8211;&lt;/span&gt; &lt;span&gt;(&lt;/span&gt;&lt;span&gt;void&lt;/span&gt;&lt;span&gt;)&lt;/span&gt;dealloc &lt;span&gt;{&lt;/span&gt;&lt;br /&gt;     &lt;span&gt;[&lt;/span&gt;viewController release&lt;span&gt;]&lt;/span&gt;;&lt;br /&gt;     &lt;span&gt;[&lt;/span&gt;window release&lt;span&gt;]&lt;/span&gt;;&lt;br /&gt;     &lt;span&gt;[&lt;/span&gt;super dealloc&lt;span&gt;]&lt;/span&gt;;&lt;br /&gt; &lt;span&gt;}&lt;/span&gt;&lt;br /&gt; @end&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+     
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+     
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    1. Press &lt;span&gt;&lt;code&gt;Command-R&lt;/code&gt;&lt;/span&gt; to test the application on a real device. Press &lt;span&gt;&lt;code&gt;Shift-Command-R&lt;/code&gt;&lt;/span&gt; in Xcode to display the Debugger Console window. Observe carefully the device token that is printed (see Figure 22). In&lt;br /&gt; the figure below, the token is: &lt;span&gt;&lt;code&gt;38c866dd bb323b39 ffa73487 5e157ee5 a85e0b7c e90d56e9 fe145bcc 6c2c594b&lt;/code&gt;&lt;/span&gt;. Record down this device token (you might want to cut and paste it into a text file).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;22&quot; src=&quot;https://i0.wp.com/mobiforge.com/files/iphone-push-22.jpg?resize=500%2C255&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 22&lt;/strong&gt;. Viewing the device token for push notification&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    1. If you go to the Settings application on your iPhone/iPod Touch, you will notice that you now have the Notifications item (see Figure 23).
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;img alt=&quot;23&quot; src=&quot;https://mobiforge.com/files/iphone-push-23.jpg?resize=640%2C315&quot;  data-recalc-dims=&quot;1&quot; /&gt;&lt;br /&gt; &lt;strong&gt;Figure 23&lt;/strong&gt;. Viewing the Notifications item in the Settings application&lt;/br&gt;&lt;/img&gt;
+  &lt;/p&gt;
+  
+  &lt;h2&gt;
+    *******************************************************************************************************************&lt;br /&gt; 配置php推送服务用的pem&lt;/br&gt;
+  &lt;/h2&gt;
+  
+  &lt;div&gt;
+    &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;1. 登录 iPhone Developer Connection Portal（http://developer.apple.com/iphone/manage/overview/index.action ） 然后点击 App IDs&lt;/span&gt;&lt;br style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot; /&gt;&lt;br /&gt; &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;2. 创建一个 Apple ID 。通配符 ID 不能用于推送通知服务。如， com.itotem.iphone&lt;/span&gt;&lt;br style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot; /&gt;&lt;br /&gt; &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;3. 点击Apple ID旁的“Configure”，根据“向导” 的步骤生成一个签名上传，然后下载生成的许可证。&lt;/span&gt;&lt;br style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot; /&gt;&lt;br /&gt; &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;4. 双击.cer文件将你的 aps_developer_identity.cer 导入Keychain中。&lt;/span&gt;&lt;br style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot; /&gt;&lt;br /&gt; &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;5. 在Mac上启动 Keychain助手，然后在login keychain中选择 &lt;/span&gt;&lt;span style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;Certificates&lt;/span&gt;&lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;分类。看到一个可扩展选项“Apple&lt;br /&gt; Development Push Services”&lt;/span&gt;&lt;br style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot; /&gt;&lt;br /&gt; &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;6. 扩展此选项然后右击“Apple Development Push Services” &gt; Export “Apple Development Push Services ID123”。保存为 apns-dev-cert.p12 文件。&lt;/span&gt;&lt;span style=&quot;margin:0px; padding:0px; color:rgb(255,0,0); font-size:13px; line-height:23.399999618530273px; font-family:verdana,arial&quot;&gt;（这里要注意的是在&lt;span style=&quot;margin:0px; padding:0px&quot;&gt;Certificates&lt;/span&gt;分类中）&lt;/span&gt;&lt;br style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot; /&gt;&lt;br /&gt; &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;7. 扩展“Apple Development Push Services” 对&lt;/span&gt;&lt;span style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;&lt;span style=&quot;margin:0px; padding:0px; color:rgb(255,0,0); line-height:1.8em&quot;&gt;“Private&lt;br /&gt; Key”&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;做同样操作，保存为 apns-dev-key.p12 文件。&lt;/span&gt;&lt;br style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot; /&gt;&lt;br /&gt; &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;8. 通过终端命令将这些文件转换为PEM格式：&lt;br /&gt;     openssl pkcs12 -clcerts -nokeys -out apns-dev-cert.pem -in apns-dev-cert.p12&lt;/br&gt;&lt;/span&gt;&lt;br style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot; /&gt;&lt;br /&gt; &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;    openssl pkcs12 -nocerts -out apns-dev-key.pem -in apns-dev-key.p12&lt;/span&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;
+  &lt;/div&gt;
+  
+  &lt;div&gt;
+            【&lt;span style=&quot;font-family:'Lucida Grande',Geneva,Arial,Verdana,Tahoma,Arial,微软雅黑,黑体,宋体; line-height:25px&quot;&gt;&lt;span style=&quot;font-size:12px&quot;&gt;如果需要对 key不进行加密 &lt;span style=&quot;font-family:'Lucida Grande',Geneva,Arial,Verdana,Tahoma,Arial,微软雅黑,黑体,宋体; line-height:25px&quot;&gt;openssl&lt;br /&gt; rsa -in &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; line-height:23.399999618530273px&quot;&gt;&lt;br /&gt; apns-dev-key.pem&lt;/span&gt; -out key.unencrypted.pem】&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot; /&gt;&lt;br /&gt; &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;9. 最后，你需要将键和许可文件合成为apns-dev.pem文件，此文件在连接到APNS时需要使用：&lt;/span&gt;&lt;br style=&quot;margin:0px; padding:0px; color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot; /&gt;&lt;br /&gt; &lt;span style=&quot;color:rgb(17,17,17); font-family:verdana,arial; font-size:13px; line-height:23.399999618530273px&quot;&gt;cat apns-dev-cert.pem apns-dev-key-noenc.pem &gt; apns-dev.pem&lt;/span&gt;&lt;br /&gt; &lt;/br&gt;&lt;/br&gt;&lt;/br&gt;
+  &lt;/div&gt;
+  
+  &lt;div&gt;
+    &lt;/br&gt;
+  &lt;/div&gt;
+  
+  &lt;div&gt;
+    &lt;/br&gt;
+  &lt;/div&gt;
+  
+  &lt;div&gt;
+    &lt;/br&gt;
+  &lt;/div&gt;
+  
+  &lt;p&gt;
+    **************************************************************************************************************************************************************** 
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    转自：http://bbycnzj.blog.163.com/blog/static/495858502011218101151628/&lt;br /&gt; 原文地址:http://mobiforge.com/developing/story/programming-apple-push-notification-services&lt;br /&gt; &lt;a href=&quot;http://www.slideshare.net/milkcocoa/apns-test?src=related_normal&amp;rel=1206319&quot;&gt;http://www.slideshare.net/milkcocoa/apns-test?src=related_normal&amp;rel=1206319&lt;/a&gt;&lt;/br&gt;&lt;/br&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;/br&gt;
+  &lt;/p&gt;
+  
+  &lt;h2 class=&quot;article_title&quot;&gt;
+    iPhone的Push(推送通知)功能原理浅析&lt;br /&gt; http://www.cocoachina.com/newbie/basic/2010/0401/900.html&lt;/p&gt; 
+    
+    &lt;p&gt;
+      &lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/h2&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-06-20-iphone-%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" data-toggle="tooltip" data-placement="top" title="iphone 调试日志">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-06-24-xfire-java-soap-framework/" data-toggle="tooltip" data-placement="top" title="XFire java SOAP framework">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-06-20-iphone-%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/">iphone 调试日志</a></li>
+                    
+                    <li><a href="/posts/2011-06-20-openurl%E6%89%93%E5%BC%80%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-sms-tel-mail-maps/">openURL打开其他应用程序 sms tel mail maps</a></li>
+                    
+                    <li><a href="/posts/2011-06-14-objc_msgsend%E5%87%BD%E6%95%B0-runtimeapi/">objc_msgSend函数  runtimeapi</a></li>
+                    
+                    <li><a href="/posts/2011-06-10-%E6%97%8B%E8%BD%AC%E5%8F%8D%E8%BD%AC%E7%BC%A9%E6%94%BE%E7%AD%89/">旋转，反转，缩放等</a></li>
+                    
+                    <li><a href="/posts/2011-06-09-%E7%B1%BB%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E6%9B%BF%E6%8D%A2%E5%AE%9E%E7%8E%B0fin/">类方法以及私有方法和【使用动态方法替换实现final功能]</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jun 20, 2011</h4>
+    </section>
+    <h5 id="wc">3500 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> iOS5中的UDID - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="iOS5中的UDID" />
+  <meta name="twitter:title" content="iOS5中的UDID" />
+  <meta name="description" content="在ios5中，UDID已不再被推荐使用，在将来的版本中，这个功能可能会消失。所以我们得探寻它的取代方法，能唯一标识设备的东西。往往硬件上有唯">
+  <meta property="og:description" content="在ios5中，UDID已不再被推荐使用，在将来的版本中，这个功能可能会消失。所以我们得探寻它的取代方法，能唯一标识设备的东西。往往硬件上有唯">
+  <meta name="twitter:description" content="在ios5中，UDID已不再被推荐使用，在将来的版本中，这个功能可能会消失。所以我们得探寻它的取代方法，能唯一标识设备的东西。往往硬件上有唯">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-11-22-ios5%E4%B8%AD%E7%9A%84uuid/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-11-22-ios5%E4%B8%AD%E7%9A%84uuid/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">iOS5中的UDID</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Nov 22, 2011</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>在ios5中，UDID已不再被推荐使用，在将来的版本中，这个功能可能会消失。所以我们得探寻它的取代方法，能唯一标识设备的东西。往往硬件上有唯一标识，所以我们可以用硬件上的信息来取代UDID, 硬件上的MAC地址就能达到这样的目的。</p>
+<p>下面的函数就可以返回XX:XX:XX:XX:XX:XX类型的字符串(12个16进制数)</p>
+<p>#include &lt;sys/socket.h&gt;</p>
+<p>#include &lt;sys/sysctl.h&gt;</p>
+<p>#include &lt;net/if.h&gt;</p>
+<p>#include &lt;net/if_dl.h&gt;</p>
+<p>…</p>
+<p>– (NSString *)getMacAddress</p>
+<p>{</p>
+<p>int mgmtInfoBase[6];</p>
+<p>char *msgBuffer = NULL;</p>
+<p>size_t length;</p>
+<p>unsigned char macAddress[6];</p>
+<p>struct if_msghdr *interfaceMsgStruct;</p>
+<p>struct sockaddr_dl *socketStruct;</p>
+<p>NSString *errorFlag = NULL;</p>
+<p>// Setup the management Information Base (mib)</p>
+<p>mgmtInfoBase[0] = CTL_NET; // Request network subsystem</p>
+<p>mgmtInfoBase[1] = AF_ROUTE; // Routing table info</p>
+<p>mgmtInfoBase[2] = 0;</p>
+<p>mgmtInfoBase[3] = AF_LINK; // Request link layer information</p>
+<p>mgmtInfoBase[4] = NET_RT_IFLIST; // Request all configured interfaces</p>
+<p>// With all configured interfaces requested, get handle index</p>
+<p>if ((mgmtInfoBase[5] = if_nametoindex(“en0″)) == 0)</p>
+<p>errorFlag = @”if_nametoindex failure”;</p>
+<p>else</p>
+<p>{</p>
+<p>// Get the size of the data available (store in len)</p>
+<p>if (sysctl(mgmtInfoBase, 6, NULL, &amp;length, NULL, 0) &lt; 0) errorFlag = @&ldquo;sysctl mgmtInfoBase failure&rdquo;; else { // Alloc memory based on above call if ((msgBuffer = malloc(length)) == NULL) errorFlag = @&ldquo;buffer allocation failure&rdquo;; else { // Get system information, store in buffer if (sysctl(mgmtInfoBase, 6, msgBuffer, &amp;length, NULL, 0) &lt; 0) errorFlag = @&ldquo;sysctl msgBuffer failure&rdquo;; } } } // Befor going any further&hellip; if (errorFlag != NULL) { NSLog(@&ldquo;Error: %@&rdquo;, errorFlag); return errorFlag; } // Map msgbuffer to interface message structure interfaceMsgStruct = (struct if_msghdr *) msgBuffer; // Map to link-level socket structure socketStruct = (struct sockaddr_dl *) (interfaceMsgStruct + 1); // Copy link layer address data in socket structure to an array memcpy(&amp;macAddress, socketStruct-&gt;sdl_data + socketStruct-&gt;sdl_nlen, 6);</p>
+<p>// Read from char array into a string object, into traditional Mac address format</p>
+<p>NSString *macAddressString = [NSString stringWithFormat:@”%02X:%02X:%02X:%02X:%02X:%02X”,</p>
+<p>macAddress[0], macAddress[1], macAddress[2],</p>
+<p>macAddress[3], macAddress[4], macAddress[5]];</p>
+<p>NSLog(@”Mac Address: %@”, macAddressString);</p>
+<p>// Release the buffer memory</p>
+<p>free(msgBuffer);</p>
+<p>return macAddressString;</p>
+<p>}</p>
+<p>源码来自：http://iphonedevelopertips.com/device/determine-mac-address.html</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-11-22-%E4%B8%80%E4%B8%AA%E7%BC%96%E7%A0%81%E6%A3%80%E6%B5%8B%E7%9A%84%E5%B7%A5%E5%85%B7%E7%B1%BB/" data-toggle="tooltip" data-placement="top" title="一个编码检测的工具类">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-11-28-diskaid-5-0-3-cracksn/" data-toggle="tooltip" data-placement="top" title="DiskAid 5.0.3  crack&amp;sn">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Nov 22, 2011</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

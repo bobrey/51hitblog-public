@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 移动社交社区MocoSpace的架构 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="移动社交社区MocoSpace的架构" />
+  <meta name="twitter:title" content="移动社交社区MocoSpace的架构" />
+  <meta name="description" content="MocoSpace.com 是一家移动社交网站，有1200多万注册用户，每个月30亿的 PV ，是美国最大的移动社区。我们来看看 MocoSpace 是如何来架构他们的网站的。先来看看他们的统">
+  <meta property="og:description" content="MocoSpace.com 是一家移动社交网站，有1200多万注册用户，每个月30亿的 PV ，是美国最大的移动社区。我们来看看 MocoSpace 是如何来架构他们的网站的。先来看看他们的统">
+  <meta name="twitter:description" content="MocoSpace.com 是一家移动社交网站，有1200多万注册用户，每个月30亿的 PV ，是美国最大的移动社区。我们来看看 MocoSpace 是如何来架构他们的网站的。先来看看他们的统">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">移动社交社区MocoSpace的架构</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Oct 25, 2013</h4>
+    </section>
+    <h5 id="wc">1500 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/%E6%9E%B6%E6%9E%84mocospace/">架构，mocospace</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#数据">数据</a></li>
+    <li><a href="#平台和工具">平台和工具</a></li>
+    <li><a href="#架构">架构</a></li>
+    <li><a href="#经验">经验</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>MocoSpace.com 是一家移动社交网站，有1200多万注册用户，每个月30亿的 PV ，是美国最大的移动社区。我们来看看 MocoSpace 是如何来架构他们的网站的。先来看看他们的统计数据，注意他们只有1个系统管理员，8个程序员，14台服务器（数据和原文来自 <a href="http://highscalability.com/blog/2010/5/3/mocospace-architecture-3-billion-mobile-page-views-a-month.html">MOCOSPACE ARCHITECTURE – 3 BILLION MOBILE PAGE VIEWS A MONTH</a>）：</p>
+<h2 id="数据">数据</h2>
+<blockquote>
+<p>每月30亿 PV</p>
+</blockquote>
+<blockquote>
+<p>全美第4大流量的网站，继 MySpace, <a href="http://www.ha97.com/tag/facebook" title="Facebook">Facebook</a>, <a href="http://www.ha97.com/category/google" title="Google">Google</a> 之后</p>
+</blockquote>
+<blockquote>
+<p>75% 手机 Web, 25% Web</p>
+</blockquote>
+<blockquote>
+<p>1200 万用户</p>
+</blockquote>
+<blockquote>
+<p>每月600万独立访问</p>
+</blockquote>
+<blockquote>
+<p>10万在线用户</p>
+</blockquote>
+<blockquote>
+<p>每月上传1200万照片</p>
+</blockquote>
+<blockquote>
+<p>每天接受和发送450万 email</p>
+</blockquote>
+<blockquote>
+<p>8个程序员，2个测试员，1个系统管理员</p>
+</blockquote>
+<p> </p>
+<h2 id="平台和工具">平台和工具</h2>
+<blockquote>
+<p><a href="http://www.ha97.com/tag/centos" title="CentOS">CentOS</a> + Red Hat</p>
+</blockquote>
+<blockquote>
+<p><a href="http://www.ha97.com/category/web-server/resin" title="Resin">Resin</a> application server, <a href="http://www.ha97.com/category/%e7%bc%96%e7%a8%8b%e5%bc%80%e5%8f%91/java" title="Java">Java</a> Servlets, JavaServer Pages, Comet</p>
+</blockquote>
+<blockquote>
+<p>PostgreSQL</p>
+</blockquote>
+<blockquote>
+<p><a href="http://www.ha97.com/tag/memcached" title="Memcached">Memcached</a></p>
+</blockquote>
+<blockquote>
+<p>ActiveMQ’s job + message queue，Red Hat 集群做 HA</p>
+</blockquote>
+<blockquote>
+<p>Squid 静态内容缓存，曾试过 Varnish 但是 Varnish 不稳定</p>
+</blockquote>
+<blockquote>
+<p><a href="http://www.ha97.com/tag/jquery" title="JQuery">JQuery</a> + Ajax</p>
+</blockquote>
+<blockquote>
+<p>S3 用来存储用户照片和视频，现在用 Amazon S3 做外部存储是主流，EC2 用来做照片处理</p>
+</blockquote>
+<blockquote>
+<p>F5 BigIP 负载均衡，用 gzip 压缩所有页面</p>
+</blockquote>
+<blockquote>
+<p>Akamai CDN，每天 2TB 数据、2.5亿次请求。</p>
+</blockquote>
+<blockquote>
+<p>Nagios 用来警告，Zabbix 用来监测</p>
+</blockquote>
+<blockquote>
+<p>EMC SAN 用大量磁盘做 RAID 10 做需要高 IO 的数据库存储，用来替代高性能的 SSD，节省了大量成本</p>
+</blockquote>
+<blockquote>
+<p>PowerMTA 做邮件传送，用Barracuda 做 spam 和 firewall</p>
+</blockquote>
+<blockquote>
+<p>Subversion 做源代码控制，Hudson 做 continuous integration</p>
+</blockquote>
+<blockquote>
+<p>FFMPEG 用来做视频处理</p>
+</blockquote>
+<blockquote>
+<p>Selenium 用来自动测试浏览器</p>
+</blockquote>
+<blockquote>
+<p>5x Dell 1950, 2x dual core, 16G RAM（Web 服务器）</p>
+</blockquote>
+<blockquote>
+<p>5x Dell 6950/R905, 4x dual core, 32G RAM（Web 服务器）</p>
+</blockquote>
+<blockquote>
+<p>2x Sun Fire X4600 M2 Server, 8x quad core, 256G RAM（数据库服务器）</p>
+</blockquote>
+<blockquote>
+<p>2x Dell 6950, 4x dual core, 64G RAM（数据库服务器）</p>
+</blockquote>
+<h2 id="架构">架构</h2>
+<p>他们的网站主要是面向手机应用的，所以他们遇到的一个大挑战是如何让他们的网站在几百种（从最新的 <a href="http://www.ha97.com/tag/iphone" title="iPhone">iPhone</a> 到古董级的 Motorola Razrs）不同的手机设备上运行，屏幕大小、缺少相应的 Web 标准等都是问题。他们在几百种不同手机的数据上抽象出了一个表现层，只要用一套代码通过一个手机数据库（包括屏幕大小、允许的文件类型、允许打开的页面大 小等）把处理好的页面发到对应的手机上。</p>
+<p>他们也是通过 shard 数据库来分担负载的，以用户 key 作为 shard 的依据，通过查找一张全局表来找到用户所在的 shard，他们自己写了查询层，可以用来在不同的 shards 之间自由查询和关联数据。他们 offline 的时候检查数据的一致性，他们认为如果不是做银行系统的话，一致性不是那么重要，牺牲一点一致性来换回性能还是值得的。他们把大表划分成了小表，这样分散 了锁表带来的问题。</p>
+<p>他们使用多级缓存，从应用服务器里的缓存到分布式 memcached，当需要更新 memcached 的数据的时候，他们通过消息发送给每台应用服务器上的缓存，以做到数据一致。他们的服务器通过分布式消息队列来通讯，比如用户实时通过发消息告诉系统需要更新缓存等。</p>
+<p>他们用专门的服务器来打造 social graph，并都放在内存里。</p>
+<p>他们用 Kickstart 自动安装服务器，用 Puppet 来配置服务器，web 服务器、数据库服务器、cache 服务器等。</p>
+<h2 id="经验">经验</h2>
+<ul>
+<li>在增加服务器之前先确定现有的服务器硬件还能不能往上升级，可以挑选一些二手的 4U 服务器。</li>
+<li>理解瓶颈在那里？是 CPU 还是磁盘、网络 IO？数据库总是有磁盘 IO 问题。</li>
+<li>扩展 web 服务器很容易也很便宜，扩展数据库服务器就很麻烦了，找出数据库系统查询最多的、查询执行时间最长的，尽早跟踪和测试这些查询找出数据库性能瓶颈。他们使 用 pgFouine log analyzer 和 PostgreSQL pg_stat_statements 工具来测量。</li>
+<li>不要让用户等待，尽量在后台处理。避免异步通讯，比如数据等待积累一定程度后再一次提交给数据库；S3 存储的延迟和错误都可能会很大，把失败的请求放在队列里，等队列积累到一定程度的时候再试，而不是失败一个试一个，减少开销。</li>
+<li>在设计阶段就考虑监测系统和性能，而不是到了部署的时候才开始监测。他们试过很多监测工具，Cacti, Ganglia, Hyperic, Zabbix, Nagios 等，最重要的是要找到自己用得顺手的工具。</li>
+<li>网站变大以后就要做好防黑客、防垃圾的准备。</li>
+<li>删除可能会开销很大，尽量软删除，而且用户删错了的话软删除容易恢复。</li>
+<li>N+1 设计，永远不要少于两种方案。</li>
+</ul>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2013-10-24-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0arc-iosmac%E5%BC%80%E5%8F%91arc%E5%85%A5%E9%97%A8%E5%92%8C%E4%BD%BF%E7%94%A8/" data-toggle="tooltip" data-placement="top" title="手把手教你ARC——iOS/Mac开发ARC入门和使用">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84-2/" data-toggle="tooltip" data-placement="top" title="移动社交社区MocoSpace的架构">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Oct 25, 2013</h4>
+    </section>
+    <h5 id="wc">1500 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/%E6%9E%B6%E6%9E%84mocospace/">架构，mocospace</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

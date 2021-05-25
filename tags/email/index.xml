@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>email on IT技术分享</title>
+    <link>https://www.51hint.com/tags/email/</link>
+    <description>Recent content in email on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Aug 2015 15:53:22 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/email/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cakephp 发送邮件</title>
+      <link>https://www.51hint.com/posts/2015-08-18-cakephp-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Mon, 17 Aug 2015 15:53:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-18-cakephp-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu php_mail 发送电子邮件</title>
+      <link>https://www.51hint.com/posts/2015-08-17-ubuntu-php_mail-%E5%8F%91%E9%80%81%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Mon, 17 Aug 2015 06:54:36 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-17-ubuntu-php_mail-%E5%8F%91%E9%80%81%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>telnet  脚本 发信</title>
+      <link>https://www.51hint.com/posts/2014-03-04-telnet-%E8%84%9A%E6%9C%AC-%E5%8F%91%E4%BF%A1/</link>
+      <pubDate>Tue, 04 Mar 2014 02:09:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-03-04-telnet-%E8%84%9A%E6%9C%AC-%E5%8F%91%E4%BF%A1/</guid>
+      <description>start.bat tellogin.vbs</description>
+    </item>
+    
+  </channel>
+</rss>

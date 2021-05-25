@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 警惕NSPredicate的性能陷阱 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="警惕NSPredicate的性能陷阱" />
+  <meta name="twitter:title" content="警惕NSPredicate的性能陷阱" />
+  <meta name="description" content="此前我大大低估了NSPredicate的性能开销，直到游戏性能出现问题。因此，我使用了Time Profiler给游戏作了一下profile。">
+  <meta property="og:description" content="此前我大大低估了NSPredicate的性能开销，直到游戏性能出现问题。因此，我使用了Time Profiler给游戏作了一下profile。">
+  <meta name="twitter:description" content="此前我大大低估了NSPredicate的性能开销，直到游戏性能出现问题。因此，我使用了Time Profiler给游戏作了一下profile。">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-06-24-%E8%AD%A6%E6%83%95nspredicate%E7%9A%84%E6%80%A7%E8%83%BD%E9%99%B7%E9%98%B1/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-06-24-%E8%AD%A6%E6%83%95nspredicate%E7%9A%84%E6%80%A7%E8%83%BD%E9%99%B7%E9%98%B1/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">警惕NSPredicate的性能陷阱</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jun 24, 2011</h4>
+    </section>
+    <h5 id="wc">1200 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>此前我大大低估了NSPredicate的性能开销，直到游戏性能出现问题。因此，我使用了Time Profiler给游戏作了一下profile。令人意外的是，性能瓶颈恰恰是不起眼的两行代码。</p>
+<p>NSPredicate *predicate = [NSPredicate predicateWithFormat:@”yourCriteria == YES”];</p>
+<p>NSArray *results = [yourObjects filteredArrayUsingPredicate:predicate];</p>
+<p>由于不是开源项目，因此profile的结果和源代码不方便放上来。因此，我做了一个NSArray的filteredArrayUsingPredicate方法与NSArray的Fast Enumeration对比的benchmark。</p>
+<p>我们先创建一个Person类，很简单，只有两个成员及两个属性。</p>
+<p>#import <!-- raw HTML omitted --></p>
+<p>@interface Person : NSObject {</p>
+<p>@private</p>
+<p>NSString *_name;</p>
+<p>BOOL _isMale;</p>
+<p>}</p>
+<p>– (id)initWithName:(NSString *)name isMale:(BOOL)isMale;</p>
+<ul>
+<li>(id)personWithName:(NSString *)name isMale:(BOOL)isMale;</li>
+</ul>
+<p>@property (nonatomic, retain) NSString *name;</p>
+<p>@property (nonatomic) BOOL isMale;</p>
+<p>@end</p>
+<p>#import “Person.h”</p>
+<p>@implementation Person</p>
+<p>@synthesize name = _name;</p>
+<p>@synthesize isMale = _isMale;</p>
+<p>– (id)initWithName:(NSString *)name isMale:(BOOL)isMale{</p>
+<p>if ((self = [super init])) {</p>
+<p>_name = [name retain];</p>
+<p>_isMale = isMale;</p>
+<p>}</p>
+<p>return self;</p>
+<p>}</p>
+<ul>
+<li>(id)personWithName:(NSString *)name isMale:(BOOL)isMale{</li>
+</ul>
+<p>return [[[self alloc] initWithName:name isMale:isMale] autorelease];</p>
+<p>}</p>
+<p>– (void)dealloc</p>
+<p>{</p>
+<p>[_name release];</p>
+<p>_name = nil;</p>
+<p>[super dealloc];</p>
+<p>}</p>
+<p>@end</p>
+<p>接下来，我们创建一些person对象，并存储在一个NSArray里面（personCount是传入的参数）。</p>
+<p>NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];</p>
+<p>// 1. Generate all persons</p>
+<p>NSMutableArray *allPersons = [[NSMutableArray arrayWithCapacity:personCount] retain];</p>
+<p>for(int personNumber = 0;personNumber &lt; personCount; ++personNumber){</p>
+<p>NSString *name = [NSString stringWithFormat:@”%d”, personNumber];</p>
+<p>BOOL isMale = (BOOL)(arc4random() % 2);</p>
+<p>Person *person = [Person personWithName:name isMale:isMale];</p>
+<p>[allPersons addObject:person];</p>
+<p>if(personNumber % 1000 == 0){</p>
+<p>[pool drain];</p>
+<p>pool = [[NSAutoreleasePool alloc] init];</p>
+<p>}</p>
+<p>}</p>
+<p>接着，我们使用NSArray的filteredArrayUsingPredicate方法与NSArray的Fast Enumeration进行对包含Person对象的NSArray的过滤。</p>
+<p>// 2. Benchmark test using NSArray’s filteredArrayUsingPredicate method(supported by NSPredicate)</p>
+<p>NSDate *start = [NSDate date];</p>
+<p>NSPredicate *predicate = [NSPredicate predicateWithFormat:@”_isMale == YES”];</p>
+<p>NSArray *results1 = [allPersons filteredArrayUsingPredicate:predicate];</p>
+<p>NSDate *end = [NSDate date];</p>
+<p>NSTimeInterval executionTime = [end timeIntervalSinceDate:start];</p>
+<p>NSLog(@”NSPredicate get filtered %d results within %f seconds.”, (int)[results1 count], executionTime);</p>
+<p>// 3. Benchmark test using NSArray fast enumeration</p>
+<p>start = [NSDate date];</p>
+<p>NSMutableArray *results2 = [NSMutableArray array];</p>
+<p>for(Person *person in allPersons){</p>
+<p>if(person.isMale){</p>
+<p>[results2 addObject:person];</p>
+<p>}</p>
+<p>}</p>
+<p>end = [NSDate date];</p>
+<p>executionTime = [end timeIntervalSinceDate:start];</p>
+<p>NSLog(@”NSArray fast enumeration get filtered %d results within %f seconds.”, (int)[results2 count], executionTime);</p>
+<p>[allPersons release];</p>
+<p>[pool drain];</p>
+<p>分别使personCount为10000, 100000, 1000000, 10000000，测试结果如下：</p>
+<p>根据测试结果，我们很容易看出，NSArray的filteredArrayUsingPredicate方法的性能远远不如使用NSArray的Fast Enumeration过滤。尤其是当被过滤集合较小时，使用NSPredicate进行过滤得不偿失。</p>
+<p>很多时候，最简单直接的方法往往是最正确的方法。不要对任何API作任何性能上的假设，也不要因为语法上的倾向而使用或者不使用某些API。Simple is better。</p>
+<p>Benchmark测试的Xcode 4 Project在这里下载。</p>
+<p>转自：本文地址：http://www.slashwong.co.cc//2011/03/23/nspredicate_performance.html</p>
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-06-24-nsdata-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%86%99/" data-toggle="tooltip" data-placement="top" title="NSData 二进制文件的读写">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-06-24-cfrunloop/" data-toggle="tooltip" data-placement="top" title="CFRunLoop">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-06-24-nsdata-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%86%99/">NSData 二进制文件的读写</a></li>
+                    
+                    <li><a href="/posts/2011-06-24-kvc-kvo/">KVC KVO</a></li>
+                    
+                    <li><a href="/posts/2011-06-20-%E8%8B%B9%E6%9E%9C%E6%8E%A8%E9%80%81%E9%80%9A%E7%9F%A5/">苹果推送通知</a></li>
+                    
+                    <li><a href="/posts/2011-06-20-iphone-%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/">iphone 调试日志</a></li>
+                    
+                    <li><a href="/posts/2011-06-20-openurl%E6%89%93%E5%BC%80%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-sms-tel-mail-maps/">openURL打开其他应用程序 sms tel mail maps</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jun 24, 2011</h4>
+    </section>
+    <h5 id="wc">1200 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

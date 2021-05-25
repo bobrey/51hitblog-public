@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> CR/LF换行回车 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="CR/LF换行回车" />
+  <meta name="twitter:title" content="CR/LF换行回车" />
+  <meta name="description" content="Such a trivial problem – I simply want to add a CR/LF pair to the end (or middle) of a string.(Uh, CR/LF means Carriage Return/Linefeed.) The codes for this are &lt;th&gt; Hex &lt;/th&gt; &lt;th&gt; Decimal &lt;/th&gt; &lt;th&gt; Visual Basic &lt;/th&gt; &lt;th&gt; Delphi &lt;/th&gt; &lt;th&gt; C&#43;&#43; Builder &lt;/th&gt; &lt;th&gt; Java &lt;/th&gt; &lt;th&gt; Paradox &lt;/th&gt; &lt;/tr&gt; &lt;tr align=&quot;center&quot;&gt; &lt;td&gt; CR &lt;/td&gt; &lt;td&gt; 0D &lt;/td&gt; &lt;td&gt; 13 &lt;/td&gt; &lt;td&gt; vbCR &lt;/td&gt; &lt;td&gt; #13">
+  <meta property="og:description" content="Such a trivial problem – I simply want to add a CR/LF pair to the end (or middle) of a string.(Uh, CR/LF means Carriage Return/Linefeed.) The codes for this are &lt;th&gt; Hex &lt;/th&gt; &lt;th&gt; Decimal &lt;/th&gt; &lt;th&gt; Visual Basic &lt;/th&gt; &lt;th&gt; Delphi &lt;/th&gt; &lt;th&gt; C&#43;&#43; Builder &lt;/th&gt; &lt;th&gt; Java &lt;/th&gt; &lt;th&gt; Paradox &lt;/th&gt; &lt;/tr&gt; &lt;tr align=&quot;center&quot;&gt; &lt;td&gt; CR &lt;/td&gt; &lt;td&gt; 0D &lt;/td&gt; &lt;td&gt; 13 &lt;/td&gt; &lt;td&gt; vbCR &lt;/td&gt; &lt;td&gt; #13">
+  <meta name="twitter:description" content="Such a trivial problem – I simply want to add a CR/LF pair to the end (or middle) of a string.(Uh, CR/LF means Carriage Return/Linefeed.) The codes for this are &lt;th&gt; Hex &lt;/th&gt; &lt;th&gt; …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-08-18-crlf/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-08-18-crlf/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">CR/LF换行回车</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 18, 2011</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/vc/">vc</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p><!-- raw HTML omitted -->Such a trivial problem – I simply want to add a CR/LF pair to the end (or middle) of a string.<!-- raw HTML omitted --></p>
+<p>(Uh, CR/LF means Carriage Return/Linefeed.)</p>
+<p>The codes for this are</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>  &lt;th&gt;
+    Hex
+  &lt;/th&gt;
+  
+  &lt;th&gt;
+    Decimal
+  &lt;/th&gt;
+  
+  &lt;th&gt;
+    Visual Basic
+  &lt;/th&gt;
+  
+  &lt;th&gt;
+    Delphi
+  &lt;/th&gt;
+  
+  &lt;th&gt;
+    C++ Builder
+  &lt;/th&gt;
+  
+  &lt;th&gt;
+    Java
+  &lt;/th&gt;
+  
+  &lt;th&gt;
+    Paradox
+  &lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr align=&quot;center&quot;&gt;
+  &lt;td&gt;
+    CR
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    0D
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    13
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    vbCR
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    #13
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    r
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr align=&quot;center&quot;&gt;
+  &lt;td&gt;
+    LF
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    0A
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    10
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    vbLF
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    #10
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr align=&quot;center&quot;&gt;
+  &lt;td&gt;
+    CR/LF
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    0D0A
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    13,10
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    vbCRLF&lt;br /&gt; vbNewLine
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    #13#10
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    n
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    newLine()
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    n
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr align=&quot;center&quot;&gt;
+  &lt;td&gt;
+    Tab
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    09
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    9
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    vbTab
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    #9
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+    t
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+  &lt;/td&gt;
+  
+  &lt;td&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>  &lt;table border=&quot;1&quot;&gt;
+    &lt;tr&gt;
+      &lt;th&gt;
+        Operating Environment
+      &lt;/th&gt;
+      
+      &lt;th&gt;
+        Sequence
+      &lt;/th&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;
+        MS DOS/MS Windows
+      &lt;/td&gt;
+      
+      &lt;td align=&quot;center&quot;&gt;
+        CRLF
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;
+        Unix
+      &lt;/td&gt;
+      
+      &lt;td align=&quot;center&quot;&gt;
+        LF
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;
+        Macintosh
+      &lt;/td&gt;
+      
+      &lt;td align=&quot;center&quot;&gt;
+        CR
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  
+  &lt;p&gt;
+    &amp;nbsp;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;/center&gt;&amp;nbsp;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    As a result, moving &amp;#8220;straight text&amp;#8221; files between systems can cause pretty severe problems. (In windows, DOS Edit and WinWord convert unix line terminators to DOS line terminators, but notepad just shows the unix teminators as boxes.)
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &amp;nbsp;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &amp;nbsp;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &amp;nbsp;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &amp;nbsp;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;span&gt;&lt;/p&gt; 
+    
+    &lt;p&gt;
+      &lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;hr /&gt;
+    
+    &lt;p&gt;
+      &lt;a name=&quot;VisualBasic&quot;&gt;&lt;/a&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;center&gt;
+        &amp;nbsp;&lt;/p&gt; 
+        
+        &lt;h3&gt;
+          Visual Basic 6.0
+        &lt;/h3&gt;
+        
+        &lt;p&gt;
+          &amp;nbsp;
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          &lt;/center&gt;&lt;br /&gt; Careful: VB constants are version dependent!
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          &amp;nbsp;
+        &lt;/p&gt;
+        
+        &lt;pre&gt;    VisualBasic  3.0          VisualBasic  6.0
+</code></pre>
+<p>ESC$ = Chr$(KEY_ESCAPE)   ESC$ = Chr$(vbKeyEscape)
+cr$ = Chr$(KEY_RETURN)    cr$ = Chr$(vbKeyReturn)
+<!-- raw HTML omitted --></p>
+<pre><code>        &lt;p&gt;
+          &lt;a href=&quot;http://mc-computing.com/languages/VisualBasic/bas_Library/GlobalConstants.bas.txt&quot;&gt;GlobalConstants.bas&lt;/a&gt; is a fully functional and tested module which defines the global variables
+        &lt;/p&gt;
+        
+        &lt;pre&gt;esc$, cr$, lf$, crlf$&lt;/pre&gt;
+        
+        &lt;pre&gt;tempStr$ = &quot;Line 1&quot; &amp; crlf$ &amp; &quot;Line 2&quot;
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<pre><code>        &lt;p&gt;
+          MS Access 97 and VBA (Visual Basic for Applications) allows vbCR, vbLF, vbCRLF. However, it is not clear if VB supports these.
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          I&amp;#8217;m not sure which versions of VisualBasic and VBA support vbNewLine &amp;#8211; it is supported in ASP VBScript.
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          &lt;a name=&quot;Delphi&quot;&gt;&lt;/a&gt;
+        &lt;/p&gt;
+        
+        &lt;hr /&gt;
+        
+        &lt;p&gt;
+          &lt;a name=&quot;Delphi&quot;&gt;&lt;/a&gt;
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          &lt;center&gt;
+            &amp;nbsp;&lt;/p&gt; 
+            
+            &lt;h3&gt;
+              Delphi 5.0
+            &lt;/h3&gt;
+            
+            &lt;p&gt;
+              &amp;nbsp;
+            &lt;/p&gt;
+            
+            &lt;p&gt;
+              &lt;/center&gt;&lt;br /&gt; Use the pound sign (#) to denote a &amp;#8220;control String&amp;#8221;, ie, a single ASCII character.
+            &lt;/p&gt;
+            
+            &lt;p&gt;
+              &amp;nbsp;
+            &lt;/p&gt;
+            
+            &lt;p&gt;
+              From ibutils.pas
+            &lt;/p&gt;
+            
+            &lt;pre&gt;const
+</code></pre>
+<p>CRLF = #13 + #10;
+CR   = #13;
+LF   = #10;
+TAB  = #9;
+NULL_TERMINATOR = #0;
+<!-- raw HTML omitted --></p>
+<pre><code>            &lt;p&gt;
+              From Character String help
+            &lt;/p&gt;
+            
+            &lt;pre&gt;tempStr := 'Line 1'#13#10'Line 2';
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<pre><code>            &lt;p&gt;
+              You can also specify characters using hex
+            &lt;/p&gt;
+            
+            &lt;pre&gt;const
+</code></pre>
+<p>CRLF = #$D#$A;
+CR   = #$D;
+LF   = #$A;
+<!-- raw HTML omitted --></p>
+<pre><code>            &lt;p&gt;
+              &lt;a name=&quot;C++Builder&quot;&gt;&lt;/a&gt;
+            &lt;/p&gt;
+            
+            &lt;hr /&gt;
+            
+            &lt;p&gt;
+              &lt;a name=&quot;C++Builder&quot;&gt;&lt;/a&gt;
+            &lt;/p&gt;
+            
+            &lt;p&gt;
+              &lt;center&gt;
+                &amp;nbsp;&lt;/p&gt; 
+                
+                &lt;h3&gt;
+                  C++ Builder
+                &lt;/h3&gt;
+                
+                &lt;p&gt;
+                  &amp;nbsp;
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &lt;/center&gt;&lt;br /&gt; Use n to produce a new line (a cr/lf pair on ms dos/windows systems, a single character on unix sustems).
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &amp;nbsp;
+                &lt;/p&gt;
+                
+                &lt;pre&gt;tempStr = &quot;Line 1nLine 2&quot;;
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<pre><code>                &lt;p&gt;
+                  &lt;a name=&quot;Java&quot;&gt;&lt;/a&gt;
+                &lt;/p&gt;
+                
+                &lt;hr /&gt;
+                
+                &lt;p&gt;
+                  &lt;a name=&quot;Java&quot;&gt;&lt;/a&gt;
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &lt;center&gt;
+                    &amp;nbsp;&lt;/p&gt; 
+                    
+                    &lt;h3&gt;
+                      Java
+                    &lt;/h3&gt;
+                    
+                    &lt;p&gt;
+                      &amp;nbsp;
+                    &lt;/p&gt;
+                    
+                    &lt;p&gt;
+                      &lt;/center&gt;&lt;br /&gt; n is not reliable in Java. Sometimes it produces a new line, othertimes you get a verticle bar. Thus, this is interpreter dependent. Instead, Sun provides the following advice.
+                    &lt;/p&gt;
+                    
+                    &lt;p&gt;
+                      &amp;nbsp;
+                    &lt;/p&gt;
+                    
+                    &lt;blockquote&gt;
+                      &lt;p&gt;
+                        A newLine() method is provided, which uses the platform&amp;#8217;s own notion of line separator as defined by the system property &lt;strong&gt;line.separator&lt;/strong&gt;. Not all platforms use the newline character (&amp;#8216;n&amp;#8217;) to terminate lines. Calling&lt;br /&gt; this method to terminate each output line is therefore preferred to writing a newline character directly. &lt;a href=&quot;http://java.sun.com/j2se/1.3/docs/api/java/io/BufferedWriter.html&quot; target=&quot;_blank&quot;&gt;sun.com&lt;/a&gt;
+                      &lt;/p&gt;
+                    &lt;/blockquote&gt;
+                    
+                    &lt;p&gt;
+                      On the other hand, in its &lt;a href=&quot;http://java.sun.com/docs/books/tutorial/uiswing/components/dialog.html&quot; target=&quot;_blank&quot;&gt;Dialog Box Tutorial&lt;/a&gt;, Sun says
+                    &lt;/p&gt;
+                    
+                    &lt;blockquote&gt;
+                      &lt;p&gt;
+                        You can split the message over several lines by putting newline (n) characters inside the message string. For example:
+                      &lt;/p&gt;
+                      
+                      &lt;pre&gt;&quot;Complete the sentence:n &quot;Green eggs and...&quot;&quot;
+</code></pre>
+<p><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<pre><code>                    &lt;p&gt;
+                      Who knows what to believe. I&amp;#8217;ve seen n fail in text fields.
+                    &lt;/p&gt;
+                    
+                    &lt;p&gt;
+                      &lt;a name=&quot;Others&quot;&gt;&lt;/a&gt;
+                    &lt;/p&gt;
+                    
+                    &lt;hr /&gt;
+                    
+                    &lt;p&gt;
+                      &lt;a name=&quot;Others&quot;&gt;&lt;/a&gt;
+                    &lt;/p&gt;
+                    
+                    &lt;p&gt;
+                      &lt;center&gt;
+                        &amp;nbsp;&lt;/p&gt; 
+                        
+                        &lt;h3&gt;
+                          Others
+                        &lt;/h3&gt;
+                        
+                        &lt;p&gt;
+                          &amp;nbsp;
+                        &lt;/p&gt;
+                        
+                        &lt;p&gt;
+                          &lt;/center&gt;&lt;br /&gt; MS Access 97 allows vbCR, vbLF, vbCRLF
+                        &lt;/p&gt;
+                        
+                        &lt;p&gt;
+                          &amp;nbsp;
+                        &lt;/p&gt;
+                        
+                        &lt;hr /&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-08-17-%E5%87%A0%E4%B8%AA%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%A0%81/" data-toggle="tooltip" data-placement="top" title="几个网络代码">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-08-18-nsfilehandle/" data-toggle="tooltip" data-placement="top" title="NSFileHandle">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-07-08-c-%E5%87%BD%E6%95%B0%E7%9C%81%E7%95%A5%E5%8F%B7%E7%9A%84%E7%94%A8%E6%B3%95/">c&#43;&#43; 函数省略号的用法</a></li>
+                    
+                    <li><a href="/posts/2011-06-09-cc%E4%B8%ADtypedef-struct%E5%92%8Cstruct%E7%9A%84%E7%94%A8%E6%B3%95/">C/C&#43;&#43;中typedef struct和struct的用法</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 18, 2011</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/vc/">vc</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

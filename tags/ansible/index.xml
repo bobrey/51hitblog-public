@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ansible on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ansible/</link>
+    <description>Recent content in ansible on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Mar 2019 16:04:21 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ansible_docker</title>
+      <link>https://www.51hint.com/posts/ansible_docker/</link>
+      <pubDate>Sun, 10 Mar 2019 16:04:21 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ansible_docker/</guid>
+      <description>ansible介绍 1. 安装ansible $ sudo apt-get update $ sudo apt-get install software-properties-common $ sudo apt-add-repository --yes --update ppa:ansible/ansible $ sudo apt-get install ansible ansible --version ssh-keygen ssh-copy-id guo@172.16.62.151 ssh-copy-id guo@172.16.62.152 ssh-keyscan 172.16.62.151 &amp;gt;&amp;gt; ~/.ssh/known_hosts ssh-keyscan 172.16.62.152 &amp;gt;&amp;gt; ~/.ssh/known_hosts 验证 ssh guo@172.16.62.151 ssh guo@172.16.62.152 2. 配置 vim /etc/ansible/ansible.cfg [privilege_escalation] become=True become_method=sudo become_user=root become_ask_pass=True</description>
+    </item>
+    
+    <item>
+      <title>Ansible</title>
+      <link>https://www.51hint.com/posts/ansible/</link>
+      <pubDate>Thu, 18 Oct 2018 14:17:22 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ansible/</guid>
+      <description>ansible 介绍 ansible是最近两年比较热门的一款服务器自动化运维工具，基于python研发。 核心组件说明 Host Lnventory：记录了每一个由An</description>
+    </item>
+    
+  </channel>
+</rss>

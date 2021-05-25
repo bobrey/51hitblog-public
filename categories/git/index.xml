@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on IT技术分享</title>
+    <link>https://www.51hint.com/categories/git/</link>
+    <description>Recent content in git on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Feb 2017 19:39:05 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>merge --squash</title>
+      <link>https://www.51hint.com/posts/merge-squash/</link>
+      <pubDate>Tue, 28 Feb 2017 19:39:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/merge-squash/</guid>
+      <description>本地端的历史记录的状态如下图显示。把issue1分支的所有提交合并成一个提交，并导入到master分支。 切换到master分支后，指定 &amp;nd</description>
+    </item>
+    
+    <item>
+      <title>rebase -i 修改提交</title>
+      <link>https://www.51hint.com/posts/rebase-i-xiu-gai-ti-jiao/</link>
+      <pubDate>Tue, 28 Feb 2017 19:30:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/rebase-i-xiu-gai-ti-jiao/</guid>
+      <description>本地端的历史记录的状态如下图显示。我们在这里修改「添加commit的讲解」的内容。 用rebase -i ，首先选择要修改的提交。 $ git rebase -i HEAD~</description>
+    </item>
+    
+    <item>
+      <title>rebase -i 汇合提交</title>
+      <link>https://www.51hint.com/posts/rebase-i-hui-he-ti-jiao/</link>
+      <pubDate>Tue, 28 Feb 2017 18:15:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/rebase-i-hui-he-ti-jiao/</guid>
+      <description>本地端的历史记录的状态如下图显示。在这里汇合「添加commit的讲解」和「添加pull的讲解」的修改，然后合并到一个提交。 若要汇合过去的提交</description>
+    </item>
+    
+    <item>
+      <title>cherry-pick</title>
+      <link>https://www.51hint.com/posts/cherry-pick/</link>
+      <pubDate>Tue, 28 Feb 2017 17:59:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/cherry-pick/</guid>
+      <description>git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。例如，假设我们有个稳定版本的分支，叫v2.0，另外还有</description>
+    </item>
+    
+    <item>
+      <title>reset回滚</title>
+      <link>https://www.51hint.com/posts/resethui-gun/</link>
+      <pubDate>Tue, 28 Feb 2017 17:36:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/resethui-gun/</guid>
+      <description>我们将用reset来删除master分支最前面的两个提交。 本地端的历史记录的状态如下图显示。 用log命令确认历史记录。 $ git log commit 0d4a808c26908cd5fe4b6294a00150342d1a58be Author: yourname &amp;lt;yourname@yourmail.com&amp;gt; Date: Mon Jul</description>
+    </item>
+    
+    <item>
+      <title>revert撤销操作！</title>
+      <link>https://www.51hint.com/posts/revert-gai-xie-ti-jiao/</link>
+      <pubDate>Tue, 28 Feb 2017 17:07:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/revert-gai-xie-ti-jiao/</guid>
+      <description>我们将用revert命令来取消「添加pull的讲解」提交。 本地端的历史记录的状态如下图显示。 数据库的历史记录 $ git log commit 0d4a808c26908cd5fe4b6294a00150342d1a58be Author: yourname &amp;lt;yourname@yourmail.com&amp;gt; Date: Mon Jul 16 23:19:26 2012 +0900 添</description>
+    </item>
+    
+    <item>
+      <title>commit --amend 改写提交！</title>
+      <link>https://www.51hint.com/posts/commit-amend-gai-xie-ti-jiao/</link>
+      <pubDate>Tue, 28 Feb 2017 16:49:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/commit-amend-gai-xie-ti-jiao/</guid>
+      <description>我们将修改最近一次的提交。 首先本地端的历史记录状态如下图显示。 用log命令确认历史记录。 $ git log commit 326fc9f70d022afdd31b0072dbbae003783d77ed Author: yourname &amp;lt;yourname@yourmail.com&amp;gt; Date: Mon Jul 16 23:17:56 2012 +0900 添加add的说明 commit 48eec1ddf73a7fb508ef664efd6b3d873631742f Author:</description>
+    </item>
+    
+    <item>
+      <title>gitflow</title>
+      <link>https://www.51hint.com/posts/gitflow/</link>
+      <pubDate>Sun, 19 Feb 2017 19:55:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/gitflow/</guid>
+      <description>Gitflow工作流 Gitflow工作流通过为功能开发、发布准备和维护分配独立的分支，让发布迭代过程更流畅。严格的分支模型也为大型项目提供了</description>
+    </item>
+    
+  </channel>
+</rss>

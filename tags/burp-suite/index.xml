@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Burp Suite on IT技术分享</title>
+    <link>https://www.51hint.com/tags/burp-suite/</link>
+    <description>Recent content in Burp Suite on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Jan 2014 09:30:50 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/burp-suite/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Burp Suite抓包</title>
+      <link>https://www.51hint.com/posts/2014-01-14-burp-suite/</link>
+      <pubDate>Tue, 14 Jan 2014 09:30:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-burp-suite/</guid>
+      <description>Burp Suite 一款相当不错的抓包工具，推荐使用 **urp Suite是一个Web应用程序集成攻击平台，它包含了一系列burp工具，这些工具之间有大量接口可以互相</description>
+    </item>
+    
+  </channel>
+</rss>

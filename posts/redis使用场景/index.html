@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Redis使用场景 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Redis使用场景" />
+  <meta name="twitter:title" content="Redis使用场景" />
+  <meta name="description" content="redis使用场景">
+  <meta property="og:description" content="redis使用场景">
+  <meta name="twitter:description" content="redis使用场景">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Redis使用场景</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h5 id="1显示最新的项目列表">1.显示最新的项目列表</h5>
+<p>我们假设数据库中的每条评论都有一个唯一的递增的ID字段。</p>
+<p>1&gt; 我们可以使用<a href="https://link.jianshu.com?t=http://www.111cn.net/tags.php/%B7%D6%D2%B3/">分页</a>来制作主页和评论页，使用Redis的模板，每次新评论发表时，我们会将它的ID添加到一个Redis列表： <code>LPUSH latest.comments</code></p>
+<p>2&gt; 我们将列表裁剪为指定长度，因此Redis只需要保存最新的5000条评论： <code>LTRIM latest.comments 0 5000</code></p>
+<p>3&gt; 每次我们需要获取最新评论的项目范围时，我们调用一个函数来完成(使用伪代码)：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">FUNCTION</span> <span class="n">get_latest_comments</span><span class="p">(</span><span class="k">start</span><span class="p">,</span> <span class="n">num_items</span><span class="p">):</span>
+<span class="n">id_list</span> <span class="o">=</span> <span class="n">redis</span><span class="p">.</span><span class="n">lrange</span><span class="p">(</span><span class="err">“</span><span class="n">latest</span><span class="p">.</span><span class="n">comments</span><span class="err">”</span><span class="p">,</span><span class="k">start</span><span class="p">,</span><span class="k">start</span><span class="o">+</span><span class="n">num_items</span> <span class="err">–</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">IF</span> <span class="n">id_list</span><span class="p">.</span><span class="k">length</span> <span class="o">&lt;</span> <span class="n">num_items</span>
+<span class="n">id_list</span> <span class="o">=</span> <span class="n">SQL_DB</span><span class="p">(</span><span class="err">“</span><span class="k">SELECT</span> <span class="err">…</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">time</span> <span class="k">LIMIT</span> <span class="err">…”</span><span class="p">)</span>
+<span class="k">END</span>
+<span class="k">RETURN</span> <span class="n">id_list</span>
+<span class="k">END</span>
+</code></pre></div><p>只有在start/count参数超出了这个范围的时候，才需要去访问数据库。
+[只是在用户需要获取“更多”的数据时才会被触发，而主页或第一个评论页是不会麻烦到硬盘上的数据库了]</p>
+<h5 id="2排行榜">2.排行榜</h5>
+<blockquote>
+<p>典型的比如那些在线游戏的排行榜，比如一个Facebook的游戏，根据得分你通常想要：
+– 列出前100名高分选手
+– 列出某用户当前的全球排名
+这些操作对于Redis来说小菜一碟，即使你有几百万个用户，每分钟都会有几百万个新的得分。</p>
+</blockquote>
+<p>模式是这样的，每次获得新得分时，我们用这样的代码： <code>ZADD leaderboard</code>
+你可能用userID来取代username，这取决于你是怎么设计的。</p>
+<p>1&gt; 得到前100名高分用户很简单： <code>ZREVRANGE leaderboard 0 99</code>。
+2&gt;用户的全球排名也相似，只需要： <code>ZRANK leaderboard</code>。</p>
+<h5 id="3过期">3.过期</h5>
+<blockquote>
+<p>– 每次有新项目添加到我们的非Redis数据库时，我们把它加入到排序集合中。这时我们用的是时间属性，current_time和time_to_live。
+– 另一项后台任务使用ZRANGE…SCORES查询排序集合，取出最新的10个项目。如果发现unix时间已经过期，则在数据库中删除条目。</p>
+</blockquote>
+<h4 id="4pubsub">4.Pub/Sub</h4>
+<blockquote>
+<p>Redis的Pub/Sub非常非常简单，运行稳定并且快速。支持模式匹配，能够实时订阅与取消频道</p>
+</blockquote>
+<h4 id="5队列">5.队列</h4>
+<blockquote>
+<p>服务器处在高并发操作的时候，比如频繁地写入日志文件。可以利用消息队列实现异步处理。从而实现高性能的并发操作</p>
+</blockquote>
+<h4 id="6缓存">6.缓存</h4>
+<blockquote>
+<p>Redis能够替代memcached，让你的缓存从只能存储数据变得能够更新数据，因此你不再需要每次都重新生成数据了。</p>
+</blockquote>
+<h4 id="7秒杀">7.秒杀</h4>
+<blockquote>
+<ul>
+<li>提前预热数据，放入Redis</li>
+<li>商品列表放入Redis List</li>
+<li>商品的详情数据 Redis hash保存，设置过期时间</li>
+<li>商品的库存数据Redis sorted set保存</li>
+<li>用户的地址信息Redis set保存</li>
+<li>订单产生扣库存通过Redis制造分布式锁，库存同步扣除</li>
+<li>订单产生后发货的数据，产生Redis list，通过消息队列处理</li>
+<li>秒杀结束后，再把Redis数据和数据库进行同步</li>
+</ul>
+<p>以上是一个简略的秒杀系统和Redis结合的方案，当然实际可能还会引入http缓存，或者将消息对接用MQ代替等方案，也会出现业务遗漏的情况，这个只是希望能抛砖引玉。</p>
+</blockquote>
+<p>链接：https://www.jianshu.com/p/af277c77b1c9</p>
+<p>来源：简书</p>
+<p>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/" data-toggle="tooltip" data-placement="top" title="Redis命令参考">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/py%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-toggle="tooltip" data-placement="top" title="Py正则表达式">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/">Redis命令参考</a></li>
+                    
+                    <li><a href="/posts/beego%E7%9A%84session%E5%85%B1%E4%BA%AB%E5%8F%8A%E5%BE%AE%E6%9C%8D%E5%8A%A1/">Beego的session共享及微服务</a></li>
+                    
+                    <li><a href="/posts/%E5%A4%9A%E7%BA%A7%E5%88%86%E9%94%80%E8%AE%BE%E8%AE%A1/">多级分销设计</a></li>
+                    
+                    <li><a href="/posts/dokku%E5%9F%BA%E4%BA%8Edocker%E7%9A%84paas%E7%B1%BB%E4%BC%BCheroku/">Dokku基于docker的PaaS类似heroku</a></li>
+                    
+                    <li><a href="/posts/walle%E7%93%A6%E5%8A%9B/">Walle瓦力</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

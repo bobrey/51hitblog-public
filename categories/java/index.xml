@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on IT技术分享</title>
+    <link>https://www.51hint.com/categories/java/</link>
+    <description>Recent content in java on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Nov 2013 02:16:49 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CXF webservice restfull</title>
+      <link>https://www.51hint.com/posts/2013-11-28-cxf-webservice-restfull/</link>
+      <pubDate>Thu, 28 Nov 2013 02:16:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-28-cxf-webservice-restfull/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Intellij IDEA CE 自动生成 serialVersionUID</title>
+      <link>https://www.51hint.com/posts/2013-11-14-intellij-idea-ce-%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90-serialversionuid/</link>
+      <pubDate>Thu, 14 Nov 2013 05:26:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-14-intellij-idea-ce-%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90-serialversionuid/</guid>
+      <description>IDEA的Inspector对serialVersionUID检测默认是关闭的，因此如果你的class是Serialization，那么需要</description>
+    </item>
+    
+    <item>
+      <title>对于CallBack的简单阐述</title>
+      <link>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</link>
+      <pubDate>Wed, 30 Oct 2013 06:00:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</guid>
+      <description>一哥们被callback整得晕晕乎乎，解释了半天好像还是不太懂就整理一个微型例子。 逻辑页面处理，调用接口的方法 //一些调用UI页面啥之类的，</description>
+    </item>
+    
+    <item>
+      <title>eclipse 几个快捷键</title>
+      <link>https://www.51hint.com/posts/2013-10-11-eclipse-%E5%87%A0%E4%B8%AA%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Fri, 11 Oct 2013 07:55:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-11-eclipse-%E5%87%A0%E4%B8%AA%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>快捷键都忘了，捡起几个，呵呵 ALT+F7 切换 layout和xml CTRL + E 切换几个source</description>
+    </item>
+    
+    <item>
+      <title>eclipse 调试</title>
+      <link>https://www.51hint.com/posts/2013-10-04-eclipse-%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Fri, 04 Oct 2013 05:15:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-04-eclipse-%E8%B0%83%E8%AF%95/</guid>
+      <description>你应该看过一些如《关于调试的N件事》这类很流行的帖子 。假设我每天花费1小时在调试我的应用程序上的话，那累积起来的话也是很大量的时间。由于这个</description>
+    </item>
+    
+    <item>
+      <title>Surface、SurfaceView 、SurfaceHolder</title>
+      <link>https://www.51hint.com/posts/2013-10-02-surfacesurfaceview-surfaceholder/</link>
+      <pubDate>Wed, 02 Oct 2013 03:55:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-02-surfacesurfaceview-surfaceholder/</guid>
+      <description>首先得简单说明一下Surface与SurfaceHolder.Callback之间的联系。 Surface是android的一个重要元素，用于</description>
+    </item>
+    
+    <item>
+      <title>zxing 横屏转竖屏</title>
+      <link>https://www.51hint.com/posts/2013-10-01-zxing-%E6%A8%AA%E5%B1%8F%E8%BD%AC%E7%AB%96%E5%B1%8F/</link>
+      <pubDate>Tue, 01 Oct 2013 06:13:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-01-zxing-%E6%A8%AA%E5%B1%8F%E8%BD%AC%E7%AB%96%E5%B1%8F/</guid>
+      <description>好久没写博客了，正在做扫码的项目，我们调用ZXing的项目，毕竟有源码，比较好的深入哈。我用的是ZXing2.1的包，其实这个包也有问题，就</description>
+    </item>
+    
+    <item>
+      <title>gradle</title>
+      <link>https://www.51hint.com/posts/2013-10-01-gradle/</link>
+      <pubDate>Tue, 01 Oct 2013 02:37:03 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-01-gradle/</guid>
+      <description>Gradle是可以使用Groovy的DSL来书写构建脚本的构建系统。最大的好处在于它能利用Grooxy灵活的自定义构建顺序。支持依赖管理和多</description>
+    </item>
+    
+    <item>
+      <title>基于注解的struts action跳转 @Result 跳转到另一个action</title>
+      <link>https://www.51hint.com/posts/2013-02-19-%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84struts-action%E8%B7%B3%E8%BD%AC-result-%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AAaction/</link>
+      <pubDate>Tue, 19 Feb 2013 04:07:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-02-19-%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84struts-action%E8%B7%B3%E8%BD%AC-result-%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AAaction/</guid>
+      <description>初学ssh 基于注解的方式简单灵活，但是做一个例子的时候，添加用户AddUser 完成后 想页面跳转到 ListUser 这个action， 然后action 成功后 会</description>
+    </item>
+    
+    <item>
+      <title>springframework</title>
+      <link>https://www.51hint.com/posts/2013-01-16-springframework/</link>
+      <pubDate>Wed, 16 Jan 2013 06:34:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-16-springframework/</guid>
+      <description>Spring Framework Spring基础平台 Spring Web Flow 专注于为构建和运行富web应用提供基础设施。Spring Web Flow 2发布 Spring BlazeDS Integration 为使用Sping来构建Adobe Fle</description>
+    </item>
+    
+    <item>
+      <title>Java 调用 javascript</title>
+      <link>https://www.51hint.com/posts/2013-01-16-java-%E8%B0%83%E7%94%A8-javascript/</link>
+      <pubDate>Wed, 16 Jan 2013 02:33:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-16-java-%E8%B0%83%E7%94%A8-javascript/</guid>
+      <description>下载rhino jar包。 http://www.mozilla.org/rhino/download.html java文件 JSRunner.java StringUtil.java test.js</description>
+    </item>
+    
+    <item>
+      <title>java 创建提取pdf</title>
+      <link>https://www.51hint.com/posts/2013-01-16-java-%E5%88%9B%E5%BB%BA%E6%8F%90%E5%8F%96pdf/</link>
+      <pubDate>Wed, 16 Jan 2013 02:30:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-16-java-%E5%88%9B%E5%BB%BA%E6%8F%90%E5%8F%96pdf/</guid>
+      <description>pdf中提取文本的都所iText创建pdf很强大，提取文本比较弱智。 pdfbox提取PDF页面内容</description>
+    </item>
+    
+    <item>
+      <title>交换两个变量的值，不引入第三个变量  【异或运算符】</title>
+      <link>https://www.51hint.com/posts/2012-12-20-%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC%E4%B8%8D%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97/</link>
+      <pubDate>Thu, 20 Dec 2012 10:28:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC%E4%B8%8D%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%98%E9%87%8F-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97/</guid>
+      <description>我们先熟悉一下异或运算法则： a ^ a = 0 a ^ b = b ^ a a ^ b ^ c = a ^ (b ^ c) = (a ^ b) ^ c; d = a ^ b ^ c 可以推出 a = d ^ b ^ c. a ^ b ^ a = b. 现在</description>
+    </item>
+    
+    <item>
+      <title>jboss studio developer install eclipse marketplace</title>
+      <link>https://www.51hint.com/posts/2012-12-16-jboss-studio-developer-install-eclipse-marketplace/</link>
+      <pubDate>Sun, 16 Dec 2012 09:10:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-16-jboss-studio-developer-install-eclipse-marketplace/</guid>
+      <description>Help/Install new software… from the menu, select the Juno update site (http://download.eclipse.org/releases/juno), and then look for the Marketplace client – it is in the General Purpose Tools category.</description>
+    </item>
+    
+    <item>
+      <title>负载均衡之大型在线系统实现的关键</title>
+      <link>https://www.51hint.com/posts/2012-12-12-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%85%B3%E9%94%AE/</link>
+      <pubDate>Wed, 12 Dec 2012 01:20:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-12-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%85%B3%E9%94%AE/</guid>
+      <description>以上的这篇文章是早在去年的时候写的了，当时正在作休闲平台，一直在想着如何实现一个可扩充的支持百万人在线的游戏平台，后来思路有了，就写了那篇总</description>
+    </item>
+    
+    <item>
+      <title>NIO连接socket</title>
+      <link>https://www.51hint.com/posts/2012-11-20-nio%E8%BF%9E%E6%8E%A5socket/</link>
+      <pubDate>Tue, 20 Nov 2012 05:17:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-20-nio%E8%BF%9E%E6%8E%A5socket/</guid>
+      <description>Apache Mina是一个NIO框架，用来实现socket服务端非常方便 摘自:http://www.blogjava.net/hadeslee/arc</description>
+    </item>
+    
+    <item>
+      <title>httpclient 使用</title>
+      <link>https://www.51hint.com/posts/2012-10-30-httpclient-%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 30 Oct 2012 08:30:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-30-httpclient-%E4%BD%BF%E7%94%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tomcat  long-pulling</title>
+      <link>https://www.51hint.com/posts/2012-10-17-tomcat-long-pulling/</link>
+      <pubDate>Wed, 17 Oct 2012 04:30:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-17-tomcat-long-pulling/</guid>
+      <description>tomcat 对于comet和异步IO的支持 际是使用,需要增加对NIO的支持，要做的仅仅是在server.xml里边修改connector： ================================================================ ** **要用</description>
+    </item>
+    
+    <item>
+      <title>glassfish启动及其部署</title>
+      <link>https://www.51hint.com/posts/2012-10-17-glassfish%E5%90%AF%E5%8A%A8%E5%8F%8A%E5%85%B6%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Wed, 17 Oct 2012 02:31:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-17-glassfish%E5%90%AF%E5%8A%A8%E5%8F%8A%E5%85%B6%E9%83%A8%E7%BD%B2/</guid>
+      <description>1到glashfish目录下运行 asadminstart-domain domain1 运行完后不像TOMCAT的控制台下启动的样子,别给忽悠了 2.可以检查下了 http://localhost:8080/ 3.进入控制台 http://localhost:4848/ 用户名: admin 密码</description>
+    </item>
+    
+    <item>
+      <title>对连连看一种算法的分析与思考</title>
+      <link>https://www.51hint.com/posts/2012-08-09-%E5%AF%B9%E8%BF%9E%E8%BF%9E%E7%9C%8B%E4%B8%80%E7%A7%8D%E7%AE%97%E6%B3%95%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E6%80%9D%E8%80%83/</link>
+      <pubDate>Thu, 09 Aug 2012 08:53:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-%E5%AF%B9%E8%BF%9E%E8%BF%9E%E7%9C%8B%E4%B8%80%E7%A7%8D%E7%AE%97%E6%B3%95%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E6%80%9D%E8%80%83/</guid>
+      <description>最近在用JAVA做一个经典游戏连连看，而连连看游戏的难点是在连线的判断上。下面是在在老师的提点下自己所写的一个连通判定算法的实现和问题分析：</description>
+    </item>
+    
+    <item>
+      <title>java 连接 mysql 错误解决办法</title>
+      <link>https://www.51hint.com/posts/2012-08-09-java-%E8%BF%9E%E6%8E%A5-mysql-%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Thu, 09 Aug 2012 08:46:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-java-%E8%BF%9E%E6%8E%A5-mysql-%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>mysql-connector-java-5.0.8-bin.jar; 连接 mysql 5.0 若用 5.16等，则出现莫名奇妙错误的哦 连接字符加编码 String tmpUrl=”jdbc:mysql://” + server + “:” + port + “/” + database + “</description>
+    </item>
+    
+    <item>
+      <title>jsoup: Java HTML Parser</title>
+      <link>https://www.51hint.com/posts/2012-08-09-jsoup-java-html-parser/</link>
+      <pubDate>Thu, 09 Aug 2012 04:34:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-jsoup-java-html-parser/</guid>
+      <description>soup is a Java library for working with real-world HTML. It provides a very convenient API for extracting and manipulating data, using the best of DOM, CSS, and jquery-like methods.
+ jsoup implements the WHATWG HTML5 specification, and parses HTML to the same DOM as modern browsers do.
+ scrape and parse HTML from a URL, file, or string find and extract data, using DOM traversal or CSS selectors manipulate the HTML elements, attributes, and text clean user-submitted content against a safe white-list, to prevent XSS attacks output tidy HTML  jsoup is designed to deal with all varieties of HTML found in the wild; from pristine and validating, to invalid tag-soup; jsoup will create a sensible parse tree.</description>
+    </item>
+    
+    <item>
+      <title>struts2 标签</title>
+      <link>https://www.51hint.com/posts/2012-08-08-struts2-%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Wed, 08 Aug 2012 04:42:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-08-struts2-%E6%A0%87%E7%AD%BE/</guid>
+      <description>1． Struts2页面开发中常用标签使用说明 1.1．往action里传值的使用方式： a. userName属性需要在访问的action中提供相应</description>
+    </item>
+    
+    <item>
+      <title>java.php跨域提交</title>
+      <link>https://www.51hint.com/posts/2012-08-06-java-php%E8%B7%A8%E5%9F%9F%E6%8F%90%E4%BA%A4/</link>
+      <pubDate>Mon, 06 Aug 2012 10:18:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-06-java-php%E8%B7%A8%E5%9F%9F%E6%8F%90%E4%BA%A4/</guid>
+      <description>java=&amp;gt; php=&amp;gt; ================================================================================================================ java===&amp;gt; PHP===&amp;gt; meeting-edit</description>
+    </item>
+    
+    <item>
+      <title>Comet (web技术)</title>
+      <link>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Fri, 20 Jul 2012 01:57:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</guid>
+      <description>Comet是一种用于web的技术，能使服务器能实时地将更新的信息传送到客户端，而无须客户端发出请求，目前有两种实现方式，长轮询和流。 实现方式</description>
+    </item>
+    
+    <item>
+      <title>FileOutPutStream和FileInputStream</title>
+      <link>https://www.51hint.com/posts/2012-06-12-fileoutputstream%E5%92%8Cfileinputstream/</link>
+      <pubDate>Tue, 12 Jun 2012 02:42:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-12-fileoutputstream%E5%92%8Cfileinputstream/</guid>
+      <description>—————————————————————— 读取文件中的内容。</description>
+    </item>
+    
+    <item>
+      <title>javascript 在线调试工具; javascript 在线加密，javascript 在线 混淆</title>
+      <link>https://www.51hint.com/posts/2012-06-07-javascript-%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7-javascript-%E5%9C%A8%E7%BA%BF%E5%8A%A0%E5%AF%86javascript-%E5%9C%A8%E7%BA%BF-%E6%B7%B7%E6%B7%86/</link>
+      <pubDate>Thu, 07 Jun 2012 09:24:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-07-javascript-%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7-javascript-%E5%9C%A8%E7%BA%BF%E5%8A%A0%E5%AF%86javascript-%E5%9C%A8%E7%BA%BF-%E6%B7%B7%E6%B7%86/</guid>
+      <description>javascript 在线调试工具http://jsbin.comhttp://jsfiddle.net/ —————————————————————javasc</description>
+    </item>
+    
+    <item>
+      <title>JET(Javascript Extension Tools – Javascript 扩展工具包)</title>
+      <link>https://www.51hint.com/posts/2012-04-24-jetjavascript-extension-tools-javascript-%E6%89%A9%E5%B1%95%E5%B7%A5%E5%85%B7%E5%8C%85/</link>
+      <pubDate>Tue, 24 Apr 2012 09:13:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-04-24-jetjavascript-extension-tools-javascript-%E6%89%A9%E5%B1%95%E5%B7%A5%E5%85%B7%E5%8C%85/</guid>
+      <description>JET(Javascript Extension Tools – Javascript 扩展工具包){#project_summary_link} http://code.google.com/p/j-et/w/list</description>
+    </item>
+    
+    <item>
+      <title>Binary to Text (ASCII) Conversion</title>
+      <link>https://www.51hint.com/posts/2012-04-18-binary-to-text-ascii-conversion/</link>
+      <pubDate>Wed, 18 Apr 2012 03:53:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-04-18-binary-to-text-ascii-conversion/</guid>
+      <description>http://www.roubaixinteractive.com/PlayGround/Binary_Conversion/Binary_To_Text.asp</description>
+    </item>
+    
+    <item>
+      <title>语音和视频的捕获、编码解码以及渲染–开源技术大全</title>
+      <link>https://www.51hint.com/posts/2012-02-16-%E8%AF%AD%E9%9F%B3%E5%92%8C%E8%A7%86%E9%A2%91%E7%9A%84%E6%8D%95%E8%8E%B7%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81%E4%BB%A5%E5%8F%8A%E6%B8%B2%E6%9F%93-%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%A4%A7/</link>
+      <pubDate>Thu, 16 Feb 2012 10:03:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-02-16-%E8%AF%AD%E9%9F%B3%E5%92%8C%E8%A7%86%E9%A2%91%E7%9A%84%E6%8D%95%E8%8E%B7%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81%E4%BB%A5%E5%8F%8A%E6%B8%B2%E6%9F%93-%E5%BC%80%E6%BA%90%E6%8A%80%E6%9C%AF%E5%A4%A7/</guid>
+      <description>1. **MediaStreamer2: http://www.linphone.org/ ** **http://hi.baidu.com/zui_chu_de_meng_xiang/blog/item/71d2d952ebaad6561038c286.html ** Mediastreamer2 是一个支持多种平台的轻量级的流技术引擎，主要适合于开发语音和视频电话应用程序。该引擎主要为 linphone 的多媒体流的收发，包括语音和视频的</description>
+    </item>
+    
+    <item>
+      <title>structs2 spring自动注入</title>
+      <link>https://www.51hint.com/posts/2011-12-13-structs2-spring%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/</link>
+      <pubDate>Tue, 13 Dec 2011 06:42:35 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-13-structs2-spring%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/</guid>
+      <description>struts2整合spring有两种方式</description>
+    </item>
+    
+    <item>
+      <title>structs.properties</title>
+      <link>https://www.51hint.com/posts/2011-12-13-structs-properties/</link>
+      <pubDate>Tue, 13 Dec 2011 06:24:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-13-structs-properties/</guid>
+      <description>### Struts default properties ### Struts 默认属性文件###(can be overridden by a struts.properties file in the root of the classpath) ###可以用classpath根路径上的struts.properties文件</description>
+    </item>
+    
+    <item>
+      <title>Struts2&#43;Spring整合</title>
+      <link>https://www.51hint.com/posts/2011-12-13-struts2spring%E6%95%B4%E5%90%88/</link>
+      <pubDate>Tue, 13 Dec 2011 03:51:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-13-struts2spring%E6%95%B4%E5%90%88/</guid>
+      <description>Struts2和Spring整合,创建一个OA工程 &amp;lt;span class=&amp;quot;tag-name&amp;quot; style=&amp;quot;color: rgb(0, 102, 153); font-weight: bold; &amp;quot;&amp;gt;filter-name&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;tag&amp;quot; style=&amp;quot;color: rgb(0, 102, 153); font-weight: bold; &amp;quot;&amp;gt;&amp;gt;&amp;lt;/span&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;span class=&amp;quot;tag-name&amp;quot; style=&amp;quot;color: rgb(0, 102, 153); font-weight: bold; &amp;quot;&amp;gt;filter-class&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;tag&amp;quot; style=&amp;quot;color: rgb(0, 102, 153); font-weight: bold; &amp;quot;&amp;gt;&amp;gt;&amp;lt;/span&amp;gt;&amp;amp;nbsp;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;span class=&amp;quot;tag-name&amp;quot; style=&amp;quot;color: rgb(0, 102, 153); font-weight: bold; &amp;quot;&amp;gt;filter&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;tag&amp;quot; style=&amp;quot;color:</description>
+    </item>
+    
+    <item>
+      <title>struts2之请求参数接收</title>
+      <link>https://www.51hint.com/posts/2011-12-12-struts2%E4%B9%8B%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%8E%A5%E6%94%B6/</link>
+      <pubDate>Mon, 12 Dec 2011 04:23:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-12-12-struts2%E4%B9%8B%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%8E%A5%E6%94%B6/</guid>
+      <description>&amp;lt;br style=&amp;quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; &amp;quot; /&amp;gt;&amp;lt;br /&amp;gt; &amp;lt;!-- post方法发送 --&amp;gt; &amp;lt;br style=&amp;quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; word-wrap: break-word; &amp;quot; /&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; &amp;lt;br style=&amp;quot;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left:</description>
+    </item>
+    
+  </channel>
+</rss>

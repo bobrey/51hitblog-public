@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jquery on IT技术分享</title>
+    <link>https://www.51hint.com/tags/jquery/</link>
+    <description>Recent content in jquery on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Aug 2014 14:21:08 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/jquery/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jquery插件开发</title>
+      <link>https://www.51hint.com/posts/2014-08-23-jquery%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-2/</link>
+      <pubDate>Sat, 23 Aug 2014 14:21:08 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-23-jquery%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-2/</guid>
+      <description>jquery插件开发，和jquery控件开发的</description>
+    </item>
+    
+    <item>
+      <title>when height change trigger a event</title>
+      <link>https://www.51hint.com/posts/2014-07-17-when-height-change-trigger-a-event/</link>
+      <pubDate>Thu, 17 Jul 2014 06:35:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-17-when-height-change-trigger-a-event/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Underscore模板的使用</title>
+      <link>https://www.51hint.com/posts/2014-07-17-underscore%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 17 Jul 2014 06:13:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-17-underscore%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>取到的json数据，利用Underscore【js】模板来呈现数据；</description>
+    </item>
+    
+    <item>
+      <title>backbone入门</title>
+      <link>https://www.51hint.com/posts/2014-07-11-backbone%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Fri, 11 Jul 2014 04:34:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-11-backbone%E5%85%A5%E9%97%A8/</guid>
+      <description>the5fire-backbone-model Mark all as completeClear completed</description>
+    </item>
+    
+    <item>
+      <title>jquery widget组件开发,收缩的对话框</title>
+      <link>https://www.51hint.com/posts/2014-07-10-jquery-widget%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E6%94%B6%E7%BC%A9%E7%9A%84%E5%AF%B9%E8%AF%9D%E6%A1%86/</link>
+      <pubDate>Thu, 10 Jul 2014 04:34:01 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-10-jquery-widget%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E6%94%B6%E7%BC%A9%E7%9A%84%E5%AF%B9%E8%AF%9D%E6%A1%86/</guid>
+      <description>jquery widget组件开发, 可以收放dialog,自定义对话框； $.widget( “custom.superDialog”, $.ui.dialog, { blue: function() { this.element.css( “background”</description>
+    </item>
+    
+    <item>
+      <title>jquery插件开发</title>
+      <link>https://www.51hint.com/posts/2014-07-10-jquery%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Thu, 10 Jul 2014 04:31:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-10-jquery%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>end of jquery resize event</title>
+      <link>https://www.51hint.com/posts/2014-06-24-end-of-jquery-resize-event/</link>
+      <pubDate>Tue, 24 Jun 2014 01:18:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-24-end-of-jquery-resize-event/</guid>
+      <description>var rtime = new Date(1, 1, 2000, 12,00,00);
+var timeout = false;
+var delta = 200;
+$(window).resize(function() {
+rtime = new Date();
+if (timeout === false) {
+timeout = true;
+setTimeout(resizeend, delta);
+}
+});
+function resizeend() {
+if (new Date() – rtime &amp;lt; delta) {
+setTimeout(resizeend, delta);
+} else {
+timeout = false;
+alert(‘Done resizing’);
+}
+}</description>
+    </item>
+    
+    <item>
+      <title>Get Client IP Using jQuery</title>
+      <link>https://www.51hint.com/posts/2014-06-02-get-client-ip-using-jquery/</link>
+      <pubDate>Mon, 02 Jun 2014 01:36:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-02-get-client-ip-using-jquery/</guid>
+      <description>1. One way This one gives you longitude/latitude and timezone.
+Try it! &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;$(document).ready( &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;function&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;() { $.getJSON( &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;&amp;quot;&amp;amp;lt;a href=&amp;quot;http://smart-ip.net/geoip-json?callback=?&amp;quot;&amp;gt;http://smart-ip.net/geoip-json?callback=?&amp;amp;lt;/a&amp;gt;&amp;quot;&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;, &amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;function&amp;lt;/code&amp;gt;&amp;lt;code&amp;gt;(data){ alert( data.host); } );});&amp;lt;/code&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/table&amp;gt;  Returns:
+ &amp;lt;div&amp;gt; 2 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 3 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 4 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 5 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 6 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 7 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 8 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 9 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 10 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 11 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 12 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 13 &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; 14 &amp;lt;/div&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; &amp;lt;div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;code&amp;gt;?</description>
+    </item>
+    
+    <item>
+      <title>ios上make webapp</title>
+      <link>https://www.51hint.com/posts/2012-12-12-ios%E4%B8%8Amake-webapp/</link>
+      <pubDate>Wed, 12 Dec 2012 09:10:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-12-ios%E4%B8%8Amake-webapp/</guid>
+      <description>用jQM、HTML5和iOS SDK构建MusicBrainz应用程序 人们对能够提供杂志排版功能的工具的需求同样很大。一些大受欢迎的工具包括F</description>
+    </item>
+    
+    <item>
+      <title>java.php跨域提交</title>
+      <link>https://www.51hint.com/posts/2012-08-06-java-php%E8%B7%A8%E5%9F%9F%E6%8F%90%E4%BA%A4/</link>
+      <pubDate>Mon, 06 Aug 2012 10:18:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-06-java-php%E8%B7%A8%E5%9F%9F%E6%8F%90%E4%BA%A4/</guid>
+      <description>java=&amp;gt; php=&amp;gt; ================================================================================================================ java===&amp;gt; PHP===&amp;gt; meeting-edit</description>
+    </item>
+    
+    <item>
+      <title>DWZ富客户端框架(jQuery RIA framework),</title>
+      <link>https://www.51hint.com/posts/2012-07-04-dwz%E5%AF%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A1%86%E6%9E%B6jquery-ria-framework/</link>
+      <pubDate>Wed, 04 Jul 2012 04:00:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-04-dwz%E5%AF%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A1%86%E6%9E%B6jquery-ria-framework/</guid>
+      <description>DWZ富客户端框架(jQuery RIA framework), 是中国人自己开发的基于jQuery实现的Ajax RIA开源框架. http://code.google.com/p/dwz/</description>
+    </item>
+    
+    <item>
+      <title>jquery 动画</title>
+      <link>https://www.51hint.com/posts/2012-06-28-jquery-%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Thu, 28 Jun 2012 05:57:18 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-28-jquery-%E5%8A%A8%E7%94%BB/</guid>
+      <description>aaaaaabbbbbb function aa(){ $(“#show_window”).animate({height:”10px”},”slow”); } function bb(){ $(“#show_windo</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scrapy on IT技术分享</title>
+    <link>https://www.51hint.com/tags/scrapy/</link>
+    <description>Recent content in scrapy on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Feb 2016 02:11:58 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/scrapy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>scrapy sqlite保存</title>
+      <link>https://www.51hint.com/posts/2016-02-15-scrapy-sqlite%E4%BF%9D%E5%AD%98/</link>
+      <pubDate>Mon, 15 Feb 2016 02:11:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-02-15-scrapy-sqlite%E4%BF%9D%E5%AD%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scrapy json保存</title>
+      <link>https://www.51hint.com/posts/2016-02-15-scrapy-json/</link>
+      <pubDate>Mon, 15 Feb 2016 02:11:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-02-15-scrapy-json/</guid>
+      <description>保存json数据</description>
+    </item>
+    
+    <item>
+      <title>scrapy pycham调试</title>
+      <link>https://www.51hint.com/posts/2016-01-25-scrapy-pycham%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Mon, 25 Jan 2016 08:37:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-01-25-scrapy-pycham%E8%B0%83%E8%AF%95/</guid>
+      <description>默认使用pycharm直接运行 scrapy crawl tutorial 是不能断点调试，甚至不能直接运行 通过一些设置，是可以进行断点调试的； 首先：新建一个文件main.py 点击</description>
+    </item>
+    
+  </channel>
+</rss>

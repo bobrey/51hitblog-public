@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vc on IT技术分享</title>
+    <link>https://www.51hint.com/tags/vc/</link>
+    <description>Recent content in vc on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Aug 2011 04:07:00 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/vc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CR/LF换行回车</title>
+      <link>https://www.51hint.com/posts/2011-08-18-crlf/</link>
+      <pubDate>Thu, 18 Aug 2011 04:07:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-08-18-crlf/</guid>
+      <description>Such a trivial problem – I simply want to add a CR/LF pair to the end (or middle) of a string.(Uh, CR/LF means Carriage Return/Linefeed.) The codes for this are &amp;lt;th&amp;gt; Hex &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Decimal &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Visual Basic &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Delphi &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; C++ Builder &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Java &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Paradox &amp;lt;/th&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr align=&amp;quot;center&amp;quot;&amp;gt; &amp;lt;td&amp;gt; CR &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 0D &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 13 &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; vbCR &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; #13</description>
+    </item>
+    
+    <item>
+      <title>c&#43;&#43; 函数省略号的用法</title>
+      <link>https://www.51hint.com/posts/2011-07-08-c-%E5%87%BD%E6%95%B0%E7%9C%81%E7%95%A5%E5%8F%B7%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Fri, 08 Jul 2011 03:51:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-07-08-c-%E5%87%BD%E6%95%B0%E7%9C%81%E7%95%A5%E5%8F%B7%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description>在不确定形参的函数时，形参部分可以使用省略号”…”； 首先需要引用&amp;lt;stdarg.h&amp;gt;头文件，然后利用va_list //保存函数参</description>
+    </item>
+    
+    <item>
+      <title>C/C&#43;&#43;中typedef struct和struct的用法</title>
+      <link>https://www.51hint.com/posts/2011-06-09-cc%E4%B8%ADtypedef-struct%E5%92%8Cstruct%E7%9A%84%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Thu, 09 Jun 2011 02:08:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-09-cc%E4%B8%ADtypedef-struct%E5%92%8Cstruct%E7%9A%84%E7%94%A8%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

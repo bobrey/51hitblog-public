@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>汇编 on IT技术分享</title>
+    <link>https://www.51hint.com/categories/%E6%B1%87%E7%BC%96/</link>
+    <description>Recent content in 汇编 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Mar 2012 01:58:55 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/%E6%B1%87%E7%BC%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>汇编程序之windows console例子解说</title>
+      <link>https://www.51hint.com/posts/2012-03-06-%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E4%B9%8Bwindows-console%E4%BE%8B%E5%AD%90%E8%A7%A3%E8%AF%B4/</link>
+      <pubDate>Tue, 06 Mar 2012 01:58:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-03-06-%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F%E4%B9%8Bwindows-console%E4%BE%8B%E5%AD%90%E8%A7%A3%E8%AF%B4/</guid>
+      <description>Windows console（命令行）版的汇编程序例子及解说 **下载masm32 http://u.115.com/file/f5e5cb46c4 masm32_v10.exe** *安装到c:* **//////////////////////////////////// .386 .model flat, stdcall option casemap :none include \masm32\include\windows.inc include \masm32\include\kernel32.inc include \masm32\include\masm32.inc includelib \masm32\lib\kernel32.lib includelib \masm32\lib\masm32.lib .data HelloWorld db “Hello</description>
+    </item>
+    
+  </channel>
+</rss>

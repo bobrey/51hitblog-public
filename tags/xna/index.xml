@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xna on IT技术分享</title>
+    <link>https://www.51hint.com/tags/xna/</link>
+    <description>Recent content in xna on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Oct 2012 09:51:47 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/xna/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xna和cocos2d-xna</title>
+      <link>https://www.51hint.com/posts/2012-10-22-xna%E5%92%8Ccocos2d-xna/</link>
+      <pubDate>Mon, 22 Oct 2012 09:51:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-22-xna%E5%92%8Ccocos2d-xna/</guid>
+      <description>xna游戏编程 Professional XNA Game Programming学习笔记 [WroxXna ]1 [ 大量xna入门资料等 ]1 http://shiba.hpe.sh.cn/jiaoyanzu/wuli/soft/xna.aspx?classId=4 ======================================================= cocos2d-xna运行在windows8 http://www.cnblogs.com/nowpaper/archive/2012/09/03/2667371.html</description>
+    </item>
+    
+  </channel>
+</rss>

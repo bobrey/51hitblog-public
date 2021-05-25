@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ioncube on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ioncube/</link>
+    <description>Recent content in ioncube on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Aug 2014 13:47:53 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ioncube/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Install IonCube Loaders in Ubuntu System</title>
+      <link>https://www.51hint.com/posts/2014-08-25-how-to-install-ioncube-loaders-in-ubuntu-system/</link>
+      <pubDate>Mon, 25 Aug 2014 13:47:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-08-25-how-to-install-ioncube-loaders-in-ubuntu-system/</guid>
+      <description>Step 1: Download IonCube Loaders
+Download latest ioncube loaders on your system from ioncube from ioncube download page or use following command to download ioncube.
+For 32bit Systems:
+# wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86.tar.gz
+For 64bit Systems:
+# wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
+This article is written on 32bit system using PHP 5.4.26 on CentOS, For the next commands check what version of php and which operating system are you using.
+After downloading IonCube loaders archive file, extract it and place it to a permanent place.</description>
+    </item>
+    
+  </channel>
+</rss>

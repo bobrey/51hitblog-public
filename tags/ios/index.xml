@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ios on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ios/</link>
+    <description>Recent content in ios on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Jul 2017 20:41:24 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ios ar</title>
+      <link>https://www.51hint.com/posts/ios-ar/</link>
+      <pubDate>Mon, 17 Jul 2017 20:41:24 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ios-ar/</guid>
+      <description>Triangles Vertices Normals UVS Unity、Unreal Engine和Scenekit， SceneKit or SpriteKit to display AR content. 3D SceneKit (DAE files) 2D SpriteKit GLKit Scene Kit 基础知识 What&amp;rsquo;s New in Scene Kit https://developer.apple.com/videos/wwdc/2014/?id=609 Scene Kit 做游戏 Building a Game with Scene Kit https://developer.apple.com/videos/wwdc/2014/?id=610</description>
+    </item>
+    
+    <item>
+      <title>iOS动画——CoreAnimation</title>
+      <link>https://www.51hint.com/posts/2015-10-30-ios%E5%8A%A8%E7%94%BB-coreanimation/</link>
+      <pubDate>Fri, 30 Oct 2015 00:29:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-10-30-ios%E5%8A%A8%E7%94%BB-coreanimation/</guid>
+      <description>&amp;lt;pre&amp;gt;&amp;lt;span style=&amp;quot;color: #0000ff&amp;quot;&amp;gt;@interface&amp;lt;/span&amp;gt; ViewController () { CALayer *_viewLayer; } @end@implementationViewController (void)viewDidLoad { [super viewDidLoad]; _viewLayer = [CALayer layer]; _viewLayer.frame = CGRectMake(, , 100, 100); [_viewLayer setBackgroundColor:[UIColor greenColor].CGColor]; _viewLayer.opacity = 0.25; [self.view.layer addSublayer:_viewLayer]; //Do any additional setup after loading the view, typically from a nib.} (IBAction)click:(id)sender { CGAffineTransform moveTransforam = CGAffineTransformMakeTranslation(180, 200); [_viewLayer setAffineTransform:moveTransforam]; _viewLayer.opacity = 1; }&amp;lt;p style=&amp;quot;color: #000000&amp;quot;&amp;gt; 在显式动画中，不需要修</description>
+    </item>
+    
+    <item>
+      <title>ios开发环境</title>
+      <link>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Thu, 20 Aug 2015 00:14:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iOS push Notification</title>
+      <link>https://www.51hint.com/posts/2015-07-22-ios-push-notification/</link>
+      <pubDate>Wed, 22 Jul 2015 01:57:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-22-ios-push-notification/</guid>
+      <description>Apple Push Notification Services in iOS 6 Tutorial: Part 1/2 – Ray Wenderlich
+http://www.raywenderlich.com/32960/apple-push-notification-services-in-ios-6-tutorial-part-1
+ ApnsPHP
+https://github.com/immobiliare/ApnsPHP
+  Easy APNS
+http://www.easyapns.com/apple-delegate
+ download zipapns_php</description>
+    </item>
+    
+    <item>
+      <title>ios开发10大实用工具</title>
+      <link>https://www.51hint.com/posts/2015-07-18-ios%E5%BC%80%E5%8F%9110%E5%A4%A7%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Sat, 18 Jul 2015 11:01:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-07-18-ios%E5%BC%80%E5%8F%9110%E5%A4%A7%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CoreBluetooth</title>
+      <link>https://www.51hint.com/posts/2014-06-13-corebluetooth/</link>
+      <pubDate>Fri, 13 Jun 2014 00:31:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-13-corebluetooth/</guid>
+      <description>蓝牙添加后台支持服务</description>
+    </item>
+    
+    <item>
+      <title>二进制和资源文件自检</title>
+      <link>https://www.51hint.com/posts/2014-02-23-%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%92%8C%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E8%87%AA%E6%A3%80/</link>
+      <pubDate>Sun, 23 Feb 2014 08:12:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-02-23-%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%92%8C%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E8%87%AA%E6%A3%80/</guid>
+      <description>我们把自己的程序发布到app store，但是不能保证每一个用户都是从app store下载官方app，也不能保证每一个用户都不越狱。 换句话说，</description>
+    </item>
+    
+    <item>
+      <title>ios自定义键盘</title>
+      <link>https://www.51hint.com/posts/2014-02-23-ios%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%AE%E7%9B%98/</link>
+      <pubDate>Sun, 23 Feb 2014 08:05:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-02-23-ios%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%AE%E7%9B%98/</guid>
+      <description>盘缓存与安全键盘 ** ** 大部分中文应用弹出的默认键盘是简体中文输入法键盘，在输入用户名和密码的时候，如果使用简体中文输入法键盘，输入英文字符和数</description>
+    </item>
+    
+    <item>
+      <title>阻止GDB依附</title>
+      <link>https://www.51hint.com/posts/2014-02-23-%E9%98%BB%E6%AD%A2gdb%E4%BE%9D%E9%99%84/</link>
+      <pubDate>Sun, 23 Feb 2014 07:41:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-02-23-%E9%98%BB%E6%AD%A2gdb%E4%BE%9D%E9%99%84/</guid>
+      <description>GDB是大多数hackers的首选，阻止GDB依附到应用的常规办法是： 但遗憾的是，iPhone真实的运行环境是没有sys/ptrace.h抛</description>
+    </item>
+    
+    <item>
+      <title>20 Useful Mobile Frameworks for Developers</title>
+      <link>https://www.51hint.com/posts/2014-01-27-20-useful-mobile-frameworks-for-developers/</link>
+      <pubDate>Mon, 27 Jan 2014 07:40:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-27-20-useful-mobile-frameworks-for-developers/</guid>
+      <description>1. Fries 
+Fries is a solid HTML-CSS-JS framework for creating Android-like UIsboth for real-world usage and prototyping. The framework has all the major components like forms, action bars, lists, buttons, spinners or tabs. It is also optimized for PhoneGap and can be easily converted to a native app.
+Source2. Appium 
+Appium is an open source framework which helps automating mobile app testing from any language and any test framework, with full access to back-end APIs and DBs from test code.</description>
+    </item>
+    
+    <item>
+      <title>iOS APP网络分析之rvictl（可以捕捉除了Wifi以外的网络类型）</title>
+      <link>https://www.51hint.com/posts/2014-01-24-ios-app%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%E4%B9%8Brvictl%E5%8F%AF%E4%BB%A5%E6%8D%95%E6%8D%89%E9%99%A4%E4%BA%86wifi%E4%BB%A5%E5%A4%96%E7%9A%84%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Fri, 24 Jan 2014 01:56:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-24-ios-app%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%E4%B9%8Brvictl%E5%8F%AF%E4%BB%A5%E6%8D%95%E6%8D%89%E9%99%A4%E4%BA%86wifi%E4%BB%A5%E5%A4%96%E7%9A%84%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B/</guid>
+      <description>iOS应用（包括移动应用）的网络分析，一般采用将移动设备上的流量导入到PC机上，利用PC上成熟的数据包分析工具例如wireshark等来进行</description>
+    </item>
+    
+    <item>
+      <title>iOS开发工具——网络封包分析工具Charles,抓包</title>
+      <link>https://www.51hint.com/posts/2013-12-25-ios%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-%E7%BD%91%E7%BB%9C%E5%B0%81%E5%8C%85%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7charles/</link>
+      <pubDate>Wed, 25 Dec 2013 01:37:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-12-25-ios%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-%E7%BD%91%E7%BB%9C%E5%B0%81%E5%8C%85%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7charles/</guid>
+      <description>简介 Charles是在Mac下常用的截取网络封包的工具，在做iOS开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。</description>
+    </item>
+    
+    <item>
+      <title>ios-arc不错的文章</title>
+      <link>https://www.51hint.com/posts/2013-11-08-ios-arc%E4%B8%8D%E9%94%99%E7%9A%84%E6%96%87%E7%AB%A0/</link>
+      <pubDate>Fri, 08 Nov 2013 04:47:35 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-08-ios-arc%E4%B8%8D%E9%94%99%E7%9A%84%E6%96%87%E7%AB%A0/</guid>
+      <description>手把手教你ARC——iOS/Mac开发ARC入门和使用 http://onevcat.com/2012/06/arc-hand-by-hand/ iPhone开发之深入浅出 (7) — ARC总结 http://www.yifeiyang.net/development-of-the-iphone-simply-7/ 两篇总结的非常好，可以好好品味下，呵呵</description>
+    </item>
+    
+    <item>
+      <title>从storyboard生成本地化字符串</title>
+      <link>https://www.51hint.com/posts/2013-11-06-%E4%BB%8Estoryboard%E7%94%9F%E6%88%90%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Wed, 06 Nov 2013 06:31:09 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-06-%E4%BB%8Estoryboard%E7%94%9F%E6%88%90%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>从NewStuff.strings 拷贝 字符串到 Main.strings(English), Main.strings(Chinese Simplified)等。</description>
+    </item>
+    
+    <item>
+      <title>手把手教你ARC——iOS/Mac开发ARC入门和使用</title>
+      <link>https://www.51hint.com/posts/2013-10-24-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0arc-iosmac%E5%BC%80%E5%8F%91arc%E5%85%A5%E9%97%A8%E5%92%8C%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 24 Oct 2013 00:13:14 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-24-%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0arc-iosmac%E5%BC%80%E5%8F%91arc%E5%85%A5%E9%97%A8%E5%92%8C%E4%BD%BF%E7%94%A8/</guid>
+      <description>本文适合人群：对iOS开发有一定基础，熟悉iOS开发中内存管理的Reference Counting机制，对ARC机制有听闻很向往但是一直由于</description>
+    </item>
+    
+    <item>
+      <title>ios上make webapp</title>
+      <link>https://www.51hint.com/posts/2012-12-12-ios%E4%B8%8Amake-webapp/</link>
+      <pubDate>Wed, 12 Dec 2012 09:10:15 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-12-ios%E4%B8%8Amake-webapp/</guid>
+      <description>用jQM、HTML5和iOS SDK构建MusicBrainz应用程序 人们对能够提供杂志排版功能的工具的需求同样很大。一些大受欢迎的工具包括F</description>
+    </item>
+    
+    <item>
+      <title>xcode4的环境变量，Build Settings参数，workspace及联编设置</title>
+      <link>https://www.51hint.com/posts/2012-12-10-xcode4%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8Fbuild-settings%E5%8F%82%E6%95%B0workspace%E5%8F%8A%E8%81%94%E7%BC%96%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Mon, 10 Dec 2012 11:01:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-10-xcode4%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8Fbuild-settings%E5%8F%82%E6%95%B0workspace%E5%8F%8A%E8%81%94%E7%BC%96%E8%AE%BE%E7%BD%AE/</guid>
+      <description>一、xcode4中的环境变量 build成功后的，最终产品路径－－可以在Build Settings参数的Per-configuration Build Products</description>
+    </item>
+    
+    <item>
+      <title>推荐给iOS设计师的工具和资源</title>
+      <link>https://www.51hint.com/posts/2012-08-28-%E6%8E%A8%E8%8D%90%E7%BB%99ios%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E8%B5%84%E6%BA%90/</link>
+      <pubDate>Tue, 28 Aug 2012 03:03:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-28-%E6%8E%A8%E8%8D%90%E7%BB%99ios%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E8%B5%84%E6%BA%90/</guid>
+      <description>IOS 设计界面及其图标等资源网站 http://www.csdn.net/article/2012-03-12/313010/4</description>
+    </item>
+    
+    <item>
+      <title>ios逆向杂文</title>
+      <link>https://www.51hint.com/posts/2012-08-25-ios%E9%80%86%E5%90%91%E6%9D%82%E6%96%87/</link>
+      <pubDate>Sat, 25 Aug 2012 10:05:44 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-25-ios%E9%80%86%E5%90%91%E6%9D%82%E6%96%87/</guid>
+      <description>Mobile Installation 是 iOS 中负责安装 IPA 的 Framework，，通过 IDA 分析 /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/PrivateFrameworks/MobileInstallation.framework/MobileInstallation 可知它导出了以下 API： Name Address Ordinal —- ——- ——- _MobileInstallationArchive 00000F80 _MobileInstallationBrowse 00000FE0 _MobileInstallationCheckCapabilitiesMatch 00000BE0 _MobileInstallationCopySafeHarbors 00000CA4 _MobileInstallationInstall 00001144 _MobileInstallationLookup 00001034 _MobileInstallationLookupArchives 00000E70 _MobileInstallationProcessRestoredContainer 00000E10 _MobileInstallationRegisterSafeHarbor 00000D58 _MobileInstallationRemoveArchive</description>
+    </item>
+    
+    <item>
+      <title>pdf view</title>
+      <link>https://www.51hint.com/posts/2012-07-04-pdf-view/</link>
+      <pubDate>Wed, 04 Jul 2012 10:05:06 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-04-pdf-view/</guid>
+      <description>PDFビューワの作り方 (4) – テキストの抽出 http://news.mynavi.jp/column/iphone/036/index.html iPadで動く電子書籍アプリを作ってみる(2) http://lab.klab.org/young/2010/11/ipad%E3%81%A7%E5%8B%95%E3%81%8F%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B2/</description>
+    </item>
+    
+  </channel>
+</rss>

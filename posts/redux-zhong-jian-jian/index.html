@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Redux 中间件 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Redux 中间件" />
+  <meta name="twitter:title" content="Redux 中间件" />
+  <meta name="description" content="Redux 中间件与异步操作 Redux 的基本做法：用户发出 Action，Reducer 函数算出新的 State，View 重新渲染。 但是，一个关键问题没有解决：异">
+  <meta property="og:description" content="Redux 中间件与异步操作 Redux 的基本做法：用户发出 Action，Reducer 函数算出新的 State，View 重新渲染。 但是，一个关键问题没有解决：异">
+  <meta name="twitter:description" content="Redux 中间件与异步操作 Redux 的基本做法：用户发出 Action，Reducer 函数算出新的 State，View 重新渲染。 但是，一个关键问题没有解决：异">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/redux-zhong-jian-jian/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/redux-zhong-jian-jian/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Redux 中间件</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Mar 6, 2017</h4>
+    </section>
+    <h5 id="wc">3200 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/redux/">redux</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#中间件的概念">中间件的概念</a></li>
+    <li><a href="#中间件的用法">中间件的用法</a></li>
+    <li><a href="#applymiddlewares">applyMiddlewares()</a></li>
+    <li><a href="#异步操作的基本思路">异步操作的基本思路</a></li>
+    <li><a href="#redux-thunk-中间件">redux-thunk 中间件</a></li>
+    <li><a href="#redux-promise-中间件">redux-promise 中间件</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h1 id="redux-中间件与异步操作">Redux 中间件与异步操作</h1>
+<p>Redux 的基本做法：用户发出 Action，Reducer 函数算出新的 State，View 重新渲染。</p>
+<p>但是，一个关键问题没有解决：异步操作怎么办？Action 发出以后，Reducer 立即算出 State，这叫做同步；Action 发出以后，过一段时间再执行 Reducer，这就是异步。</p>
+<p>怎么才能 Reducer 在异步操作结束后自动执行呢？这就要用到新的工具：中间件（middleware）。</p>
+<h2 id="中间件的概念">中间件的概念</h2>
+<p>为了理解中间件，让我们站在框架作者的角度思考问题：如果要添加功能，你会在哪个环节添加？</p>
+<blockquote>
+<ul>
+<li>Reducer：纯函数，只承担计算 State 的功能，不合适承担其他功能，也承担不了，因为理论上，纯函数不能进行读写操作。</li>
+<li>View：与 State 一一对应，可以看作 State 的视觉层，也不合适承担其他功能。</li>
+<li>Action：存放数据的对象，即消息的载体，只能被别人操作，自己不能进行任何操作。</li>
+</ul>
+</blockquote>
+<p>想来想去，只有发送 Action 的这个步骤，即<code>store.dispatch()</code>方法，可以添加功能</p>
+<p>举例来说，要添加日志功能，把 Action 和 State 打印出来，可以对store.dispatch进行如下改造。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">next</span> <span class="o">=</span> <span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">;</span>
+<span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">dispatchAndLog</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;dispatching&#39;</span><span class="p">,</span> <span class="nx">action</span><span class="p">);</span>
+  <span class="nx">next</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;next state&#39;</span><span class="p">,</span> <span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div><p>上面代码中，对<code>store.dispatch</code>进行了重定义，在发送 Action 前后添加了打印功能。这就是中间件的雏形。</p>
+<p>中间件就是一个函数，对store.dispatch方法进行了改造，在发出 Action 和执行 Reducer 这两步之间，添加了其他功能</p>
+<h2 id="中间件的用法">中间件的用法</h2>
+<p>本教程不涉及如何编写中间件，因为常用的中间件都有现成的，只要引用别人写好的模块即可。比如，上一节的日志中间件，就有现成的<a href="https://github.com/evgenyrodionov/redux-logger">redux-logger</a>模块。这里只介绍怎么使用中间件。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">applyMiddleware</span><span class="p">,</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">createLogger</span> <span class="nx">from</span> <span class="s1">&#39;redux-logger&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">logger</span> <span class="o">=</span> <span class="nx">createLogger</span><span class="p">();</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span>
+  <span class="nx">reducer</span><span class="p">,</span>
+  <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">logger</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div><p>上面代码中，redux-logger提供一个生成器<code>createLogger</code>，可以生成日志中间件logger。然后，将它放在<code>applyMiddleware</code>方法之中，传入createStore方法，就完成了<code>store.dispatch()</code>的功能增强。</p>
+<p><strong>这里有两点需要注意：</strong></p>
+<ol>
+<li>createStore方法可以接受整个应用的初始状态作为参数，那样的话，applyMiddleware就是第三个参数了</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span>
+  <span class="nx">reducer</span><span class="p">,</span>
+  <span class="nx">initial_state</span><span class="p">,</span>
+  <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">logger</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div><ol start="2">
+<li>中间件的次序有讲究。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span>
+  <span class="nx">reducer</span><span class="p">,</span>
+  <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">thunk</span><span class="p">,</span> <span class="nx">promise</span><span class="p">,</span> <span class="nx">logger</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div><p>上面代码中，applyMiddleware方法的三个参数，就是三个中间件。有的中间件有次序要求，使用前要查一下文档。比如，<code>logger</code>就一定要放在最后，否则输出结果会不正确。</p>
+<h2 id="applymiddlewares">applyMiddlewares()</h2>
+<p>看到这里，你可能会问，applyMiddlewares这个方法到底是干什么的？</p>
+<p>它是 Redux 的原生方法，作用是将所有中间件组成一个数组，依次执行。下面是它的源码。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">applyMiddleware</span><span class="p">(...</span><span class="nx">middlewares</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">createStore</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">reducer</span><span class="p">,</span> <span class="nx">preloadedState</span><span class="p">,</span> <span class="nx">enhancer</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">reducer</span><span class="p">,</span> <span class="nx">preloadedState</span><span class="p">,</span> <span class="nx">enhancer</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">chain</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="kd">var</span> <span class="nx">middlewareAPI</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">getState</span><span class="o">:</span> <span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">,</span>
+      <span class="nx">dispatch</span><span class="o">:</span> <span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span>
+    <span class="p">};</span>
+    <span class="nx">chain</span> <span class="o">=</span> <span class="nx">middlewares</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">middleware</span> <span class="p">=&gt;</span> <span class="nx">middleware</span><span class="p">(</span><span class="nx">middlewareAPI</span><span class="p">));</span>
+    <span class="nx">dispatch</span> <span class="o">=</span> <span class="nx">compose</span><span class="p">(...</span><span class="nx">chain</span><span class="p">)(</span><span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="p">{...</span><span class="nx">store</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>上面代码中，所有中间件被放进了一个数组<code>chain</code>，然后嵌套执行，最后执行<code>store.dispatch</code>。可以看到，中间件内部（middlewareAPI）可以拿到<code>getState</code>和<code>dispatch</code>这两个方法。</p>
+<h2 id="异步操作的基本思路">异步操作的基本思路</h2>
+<p>理解了中间件以后，就可以处理异步操作了。<br>
+同步操作只要发出一种 Action 即可，异步操作的差别是它要发出三种 Action。</p>
+<ul>
+<li>操作发起时的 Action</li>
+<li>操作成功时的 Action</li>
+<li>操作失败时的 Action</li>
+</ul>
+<ol>
+<li>以向服务器取出数据为例，三种 Action 可以有两种不同的写法。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 写法一：名称相同，参数不同
+</span><span class="c1"></span><span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;FETCH_POSTS&#39;</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;FETCH_POSTS&#39;</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="o">:</span> <span class="s1">&#39;Oops&#39;</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;FETCH_POSTS&#39;</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="nx">response</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span> <span class="p">}</span>
+
+<span class="c1">// 写法二：名称不同
+</span><span class="c1"></span><span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;FETCH_POSTS_REQUEST&#39;</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;FETCH_POSTS_FAILURE&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="o">:</span> <span class="s1">&#39;Oops&#39;</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;FETCH_POSTS_SUCCESS&#39;</span><span class="p">,</span> <span class="nx">response</span><span class="o">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span> <span class="p">}</span>
+</code></pre></div><ol start="2">
+<li>除了 Action 种类不同，异步操作的 State 也要进行改造，反映不同的操作状态。下面是 State 的一个例子。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// ... 
+</span><span class="c1"></span>  <span class="nx">isFetching</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">didInvalidate</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">lastUpdated</span><span class="o">:</span> <span class="s1">&#39;xxxxxxx&#39;</span>
+<span class="p">};</span>
+</code></pre></div><p>上面代码中，State 的属性isFetching表示是否在抓取数据。didInvalidate表示数据是否过时，lastUpdated表示上一次更新时间。</p>
+<ol start="3">
+<li>现在，整个异步操作的思路就很清楚了</li>
+</ol>
+<ul>
+<li>操作开始时，送出一个 Action，触发 State 更新为&quot;正在操作&quot;状态，View 重新渲染</li>
+<li>操作结束后，再送出一个 Action，触发 State 更新为&quot;操作结束&quot;状态，View 再一次重新渲染</li>
+</ul>
+<h2 id="redux-thunk-中间件">redux-thunk 中间件</h2>
+<p>异步操作至少要送出两个 Action：用户触发第一个 Action，这个跟同步操作一样，没有问题；如何才能在操作结束时，系统自动送出第二个 Action 呢？
+奥妙就在 Action Creator 之中。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">AsyncApp</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">dispatch</span><span class="p">,</span> <span class="nx">selectedPost</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span>
+    <span class="nx">dispatch</span><span class="p">(</span><span class="nx">fetchPosts</span><span class="p">(</span><span class="nx">selectedPost</span><span class="p">))</span>
+  <span class="p">}</span>
+
+<span class="c1">// ...
+</span></code></pre></div><p>上面代码是一个异步组件的例子。加载成功后（<code>componentDidMount</code>方法），它送出了（dispatch方法）一个 Action，向服务器要求数据 <code>fetchPosts(selectedSubreddit)</code>。这里的fetchPosts就是 Action Creator。</p>
+<p>下面就是fetchPosts的代码，关键之处就在里面。
+<img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016092003.jpg" alt=""></p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">fetchPosts</span> <span class="o">=</span> <span class="nx">postTitle</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">getState</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">dispatch</span><span class="p">(</span><span class="nx">requestPosts</span><span class="p">(</span><span class="nx">postTitle</span><span class="p">));</span>
+  <span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="sb">`/some/API/</span><span class="si">${</span><span class="nx">postTitle</span><span class="si">}</span><span class="sb">.json`</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">json</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">(</span><span class="nx">receivePosts</span><span class="p">(</span><span class="nx">postTitle</span><span class="p">,</span> <span class="nx">json</span><span class="p">)));</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="c1">// 使用方法一
+</span><span class="c1"></span><span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">fetchPosts</span><span class="p">(</span><span class="s1">&#39;reactjs&#39;</span><span class="p">));</span>
+<span class="c1">// 使用方法二
+</span><span class="c1"></span><span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="nx">fetchPosts</span><span class="p">(</span><span class="s1">&#39;reactjs&#39;</span><span class="p">)).</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">())</span>
+<span class="p">);</span>
+</code></pre></div><p>上面代码中，<code>fetchPosts</code>是一个Action Creator（动作生成器），返回一个函数。这个函数执行后，先发出一个Action（<code>requestPosts(postTitle)</code>），然后进行异步操作。拿到结果后，先将结果转成 JSON 格式，然后再发出一个 Action（ <code>receivePosts(postTitle, json)</code>）。</p>
+<p>上面代码中，有几个地方需要注意。</p>
+<blockquote>
+<ul>
+<li><code>fetchPosts</code>返回了一个函数，而普通的 Action Creator 默认返回一个对象。</li>
+<li>返回的函数的参数是<code>dispatch</code>和<code>getState</code>这两个 Redux 方法，普通的 Action Creator 的参数是 Action 的内容。</li>
+<li>在返回的函数之中，先发出一个 Action（<code>requestPosts(postTitle)</code>），表示操作开始。</li>
+<li>异步操作结束之后，再发出一个 Action（<code>receivePosts(postTitle, json)</code>），表示操作结束</li>
+</ul>
+</blockquote>
+<p>这样的处理，就解决了自动发送第二个 Action 的问题。但是，又带来了一个新的问题，<strong>Action 是由store.dispatch方法发送的。而store.dispatch方法正常情况下，参数只能是对象，不能是函数。</strong>
+这时，就要使用中间件<a href="https://github.com/gaearon/redux-thunk">redux-thunk</a>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">applyMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">thunk</span> <span class="nx">from</span> <span class="s1">&#39;redux-thunk&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">reducer</span> <span class="nx">from</span> <span class="s1">&#39;./reducers&#39;</span><span class="p">;</span>
+
+<span class="c1">// Note: this API requires redux@&gt;=3.1.0
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span>
+  <span class="nx">reducer</span><span class="p">,</span>
+  <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">thunk</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div><p>上面代码使用<code>redux-thunk</code>中间件，<strong>改造store.dispatch</strong>，使得后者可以接受函数作为参数。
+因此，异步操作的第一种解决方案就是，写出一个返回函数的 Action Creator，然后使用redux-thunk中间件改造store.dispatch。</p>
+<h2 id="redux-promise-中间件">redux-promise 中间件</h2>
+<p>既然 Action Creator 可以返回函数，当然也可以返回其他值。另一种异步操作的解决方案，就是让 Action Creator 返回一个 Promise 对象。
+这就需要使用[redux-promise中间件]。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">applyMiddleware</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">promiseMiddleware</span> <span class="nx">from</span> <span class="s1">&#39;redux-promise&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">reducer</span> <span class="nx">from</span> <span class="s1">&#39;./reducers&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span>
+  <span class="nx">reducer</span><span class="p">,</span>
+  <span class="nx">applyMiddleware</span><span class="p">(</span><span class="nx">promiseMiddleware</span><span class="p">)</span>
+<span class="p">);</span> 
+</code></pre></div><p>这个中间件使得store.dispatch方法可以接受 Promise 对象作为参数。这时，Action Creator 有两种写法。</p>
+<ol>
+<li>写法一，返回值是一个 Promise 对象。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">fetchPosts</span> <span class="o">=</span> 
+  <span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">postTitle</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nx">dispatch</span><span class="p">(</span><span class="nx">requestPosts</span><span class="p">(</span><span class="nx">postTitle</span><span class="p">));</span>
+     <span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="sb">`/some/API/</span><span class="si">${</span><span class="nx">postTitle</span><span class="si">}</span><span class="sb">.json`</span><span class="p">)</span>
+       <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+         <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;FETCH_POSTS&#39;</span><span class="p">,</span>
+         <span class="nx">payload</span><span class="o">:</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+       <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div><ol start="2">
+<li>Action 对象的<code>payload</code>属性是一个 Promise 对象。这需要从<a href="https://github.com/acdlite/redux-actions">redux-actions模块</a>引入<code>createAction</code>方法，并且写法也要变成下面这样。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createAction</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux-actions&#39;</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">AsyncApp</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">dispatch</span><span class="p">,</span> <span class="nx">selectedPost</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span>
+    <span class="c1">// 发出同步 Action
+</span><span class="c1"></span>    <span class="nx">dispatch</span><span class="p">(</span><span class="nx">requestPosts</span><span class="p">(</span><span class="nx">selectedPost</span><span class="p">));</span>
+    
+    <span class="c1">// 发出异步 Action
+</span><span class="c1"></span>    <span class="nx">dispatch</span><span class="p">(</span><span class="nx">createAction</span><span class="p">(</span>
+      <span class="s1">&#39;FETCH_POSTS&#39;</span><span class="p">,</span> 
+      <span class="nx">fetch</span><span class="p">(</span><span class="sb">`/some/API/</span><span class="si">${</span><span class="nx">postTitle</span><span class="si">}</span><span class="sb">.json`</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+    <span class="p">));</span>
+  <span class="p">}</span>
+</code></pre></div><p>上面代码中，第二个dispatch方法发出的是异步 Action，只有等到操作结束，这个 Action 才会实际发出。<strong>注意，createAction的第二个参数必须是一个 Promise 对象。</strong></p>
+<p>看一下redux-promise的源码，就会明白它内部是怎么操作的。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">promiseMiddleware</span><span class="p">({</span> <span class="nx">dispatch</span> <span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">next</span> <span class="p">=&gt;</span> <span class="nx">action</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">isFSA</span><span class="p">(</span><span class="nx">action</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">isPromise</span><span class="p">(</span><span class="nx">action</span><span class="p">)</span>
+        <span class="o">?</span> <span class="nx">action</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span>
+        <span class="o">:</span> <span class="nx">next</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">isPromise</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">)</span>
+      <span class="o">?</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+          <span class="nx">result</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">({</span> <span class="p">...</span><span class="nx">action</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="nx">result</span> <span class="p">}),</span>
+          <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">dispatch</span><span class="p">({</span> <span class="p">...</span><span class="nx">action</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="nx">error</span><span class="p">,</span> <span class="nx">error</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+            <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">)</span>
+      <span class="o">:</span> <span class="nx">next</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div><p>从上面代码可以看出，如果 Action 本身是一个 Promise，它 resolve 以后的值应该是一个 Action 对象，会被dispatch方法送出（<code>action.then(dispatch)</code>），但 reject 以后不会有任何动作；如果 Action 对象的<code>payload</code>属性是一个 Promise 对象，那么无论 resolve 和 reject，<code>dispatch</code>方法都会发出 Action。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/redux/" data-toggle="tooltip" data-placement="top" title="redux">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/code-push-re-geng-xin-shi-yong/" data-toggle="tooltip" data-placement="top" title="Code Push 热更新使用">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/redux/">redux</a></li>
+                    
+                    <li><a href="/posts/flux/">flux</a></li>
+                    
+                    <li><a href="/posts/react-nativexue-xi-zhi-nan/">React-Native学习指南</a></li>
+                    
+                    <li><a href="/posts/react-2/">react</a></li>
+                    
+                    <li><a href="/posts/vue/">Vue</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Mar 6, 2017</h4>
+    </section>
+    <h5 id="wc">3200 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/redux/">redux</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>image on IT技术分享</title>
+    <link>https://www.51hint.com/tags/image/</link>
+    <description>Recent content in image on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Jul 2014 04:37:52 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/image/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>php show image,picture</title>
+      <link>https://www.51hint.com/posts/2014-07-08-php-show-imagepicture/</link>
+      <pubDate>Tue, 08 Jul 2014 04:37:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-08-php-show-imagepicture/</guid>
+      <description>} public function img2data(){ $this-&amp;gt;_imgfrom($this-&amp;gt;imgsrc); return $this-&amp;gt;imgdata=fread(fopen($this-&amp;gt;imgsrc,’rb’),filesize($t</description>
+    </item>
+    
+  </channel>
+</rss>

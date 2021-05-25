@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> eclipse 调试 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="eclipse 调试" />
+  <meta name="twitter:title" content="eclipse 调试" />
+  <meta name="description" content="你应该看过一些如《关于调试的N件事》这类很流行的帖子 。假设我每天花费1小时在调试我的应用程序上的话，那累积起来的话也是很大量的时间。由于这个">
+  <meta property="og:description" content="你应该看过一些如《关于调试的N件事》这类很流行的帖子 。假设我每天花费1小时在调试我的应用程序上的话，那累积起来的话也是很大量的时间。由于这个">
+  <meta name="twitter:description" content="你应该看过一些如《关于调试的N件事》这类很流行的帖子 。假设我每天花费1小时在调试我的应用程序上的话，那累积起来的话也是很大量的时间。由于这个">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2013-10-04-eclipse-%E8%B0%83%E8%AF%95/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2013-10-04-eclipse-%E8%B0%83%E8%AF%95/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">eclipse 调试</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Oct 4, 2013</h4>
+    </section>
+    <h5 id="wc">2500 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/debug/">debug</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/eclipse/">eclipse</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/eclipse-debug/">eclipse debug</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/eclipse-%E8%B0%83%E8%AF%95/">eclipse 调试</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>你应该看过一些如《关于调试的N件事》这类很流行的帖子 。假设我每天花费1小时在调试我的应用程序上的话，那累积起来的话也是很大量的时间。由于这个原因，用这些时间来重视并了解所有使我们调试更方便的功能。 那能为你省下一些时间，也将会使你的生活更安逸、轻松。同时也表明其它关于此主题的帖子也是很有价值的。</p>
+<ul>
+<li>
+<p><strong>不要调试太多</strong></p>
+<p>一个关于调试的疯狂声明作为开头。但它必须是要说的！尝试切分一下你那复杂的逻辑成多个独立的单元，并编写单元测试来检测你代码的正确性。我想像如下这样的流程应该是发生得非常频繁的—-一些人通过大型web应用程序点击、填写多个表单、切换到不同的页面、正在最后的页面上检测工个计算逻辑和实现这个调试视图中的大部分逻辑。在启动你的tomcat之前总是问你自己：有没有方法使用一个单元测试来检测这些行为？你在过去这些时间可以不知道或已忘记这些，但从现在开始，我们将要关注一些eclipse的调试技巧，你会发现有大量的关于良好代码设计的好东西。</p>
+</li>
+<li>
+<p><strong>断点视图：条件断点</strong></p>
+<p>如果你只对应用中的某部分感兴趣的话，这个功能非常有用。例如，如果你要在第13次循环的时候检查程序，或者在一个抽象父类中调试某些功能，而你只关注其中一个具体的实现。你可以在断点视图中设置条件，或者通过代码旁边的蓝色断点标记的右键菜单（”Breakpoint Properties”）设置。你可以在条件代码片段为true的时候暂停程序，或者当代码片段的值改变的时候挂起程序。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><strong>变量视图：展示逻辑结构</strong></p>
+<p>如果你需要在变量视图查看一个Map对象或者List对象的值，对于eclipse的默认设置，一般并不是那么容易。假设，你使用的是HashMap，你需要点击遍历各个实体条目，并面临各种HashMap的实现细节。但是，在变量视图上面有一个叫做“Show Logical Structure”的按钮。它非常有用，尤其当你的对象的toString()方法所展示的信息并不友好的时候。我的老大在几周前为我展示了这个功能。你知道，他经常跟PowerPoint或者Excel打交道。对于我这么一个开发人员，多丢脸哦 <!-- raw HTML omitted --></p>
+<p>未开启 “Show Logical Structure”</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>开启 “Show Logical Structure”</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><strong>变量视图：更改变量值…</strong></p>
+<p>当你需要稍微更改输入信息的时候，不需要重新开始调试会话，只需在一个表格中输入新的信息，你可以在调试阶段直接修改你的变量的值。有写时候，你可以节省一些时间，你可以通过这个功能，更加简单的模拟一些怪异的情况。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><strong>Display 视图</strong></p>
+<p>你知道“Display视图”吗？你可以在调试过程中，通过“Window” -&gt; “Show View” -&gt; “Display”来激活它。现在，你的eclipse应该是一个空白的新视图。你可以使用这个视图，输入或者演算一些新的代码。这些代码在当前的调试位置的上下文环境中被执行，这意味着，你可以使用所有变量甚至是内容助手。要执行你的代码的话，只需标记它，并使用右键菜单或者CTRL+U(执行)或者 CTRL+SHIFT+I (检查).</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><strong>导航：Drop to Frame</strong></p>
+<p>我想任何人都知道“Step Into”, “Step over”，而且可能也知道“Step return”. 这些是调试时的基本导航功能。我想提两个我非常喜欢的导航的高级方法。第一个是“Drop to Frame”. 使用这个特性你可以及时回退 <!-- raw HTML omitted --> 你可以直接回退到运行过的java堆栈帧中某一帧。当我调试时，一不小心错过了某个关注的代码行时，我常常用这个回退一帧。使用“Drop to Frame”这个特性我可以简单的重新运行某帧代码。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><strong>导航：Step into Selection</strong></p>
+<p>第二个是“Step into Selection”. 这也是很简单,但很多人使用的一个。要使用它，你只需要按 Ctrl+Alt 同时点击一个你想运行到的方法名。非常方便，非常快速。相比“Step Into”这个非常方便，想想你像跟踪进一个有很多参数的函数，如果用“Step Into”你必须进入，退出每个参数计算过程，才能进入到你真正想进的函数。“Run to line”也是很棒的特性。只需要把光标放在你想运行到的哪一行前面，然后按“CTRL+R”就可以了。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><strong>导航器：使用键盘</strong></p>
+<p>如果避免使用鼠标的话，你的操作速度会更快。你至少应该如下的快捷键： <!-- raw HTML omitted --></p>
+<ol>
+<li>F5 – “单步进入”</li>
+<li>F6 – “单步执行并跳过”</li>
+<li>F7 – “单步执行并返回”</li>
+<li>F8 – “继续执行”</li>
+<li>Ctrl+Shift+B – “添加断点”</li>
+<li>Ctrl+Shift+I – “检查”</li>
+</ol>
+</li>
+<li>
+<p><strong>断点视图：Watchpoints</strong></p>
+<p>如果改变这个变量会有什么结果?! 有时候创建一个watchpoint对于调试会非常有用。调试器会停止，不管这个被观察的字段是被修改还是被读取 – 你可以自己来配置决定。你只需双击一个字段，然后你就可以在断点视图中看到watchpoint，并且可以编辑它的属性。你甚至可以一个访问次数，这意味着当变量被访问的次数达到这个数量的时候，调试器会停止。这对于普通的断点也适用。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><strong>友好的可读的对象</strong></p>
+<p>变量视图是使用对象的toString方法来现实对应的值。因为这个原因，如果提供友好的toString方法实现，对调试来说会非常有用。在javadoc中关于java.lang.Object的默认toString实现，也是这样推荐的： <!-- raw HTML omitted --></p>
+<blockquote>
+<p>返回一个表示该对象的字符串。通常<!-- raw HTML omitted -->toString<!-- raw HTML omitted -->方法返回这么一个字符串，“字面表示”该对象。返回结果必须是一个简洁却富含可表示该对象的信息，并且友好可读取。我们推荐所有的子类都覆盖这个方法。</p>
+</blockquote>
+<p>你可以参考commons-lang中的 ToStringBuilder。它提供一些功能来编写 （引用自javadoc ） “良好并连贯” 的toString方法。</p>
+<p>默认的ToString</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>默认的ToStringBuilder例子</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>ToStringBuilder例子 – 多行文本风格</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>如果你不能修改toString实现，例如你现在使用框架或者一个外部的API，你可以有另外一个选择，在Eclipse中创建一个“Detail Formatter”。你需要在变量视图中右击一个对象，并点击“New Detail Formatter…”。然后你就可以输入一些代码，用于展现这个对象。<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+</li>
+</ul>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2013-10-04-%E6%8C%89%E9%92%AE%E5%B7%A5%E5%8E%82%E5%9C%A8%E7%BA%BF%E5%88%B6%E4%BD%9C%E6%8C%89%E9%92%AE/" data-toggle="tooltip" data-placement="top" title="按钮工厂，在线制作按钮">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2013-10-07-android%E4%B9%8B%E5%8A%A8%E6%80%81%E8%B0%83%E6%95%B4%E6%8E%A7%E4%BB%B6%E5%A4%A7%E5%B0%8F/" data-toggle="tooltip" data-placement="top" title="Android之动态调整控件大小">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2012-12-16-jboss-studio-developer-install-eclipse-marketplace/">jboss studio developer install eclipse marketplace</a></li>
+                    
+                    <li><a href="/posts/2012-09-25-eclipse%E6%8F%92%E4%BB%B6%E5%A4%A7%E5%85%A8-%E6%8C%91%E9%80%89%E6%9C%80%E7%89%9B%E7%9A%84top30/">Eclipse插件大全 挑选最牛的TOP30</a></li>
+                    
+                    <li><a href="/posts/2012-08-06-startexplorer-eclipse-plug-in/">StartExplorer Eclipse Plug-in</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Oct 4, 2013</h4>
+    </section>
+    <h5 id="wc">2500 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/debug/">debug</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/eclipse/">eclipse</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/eclipse-debug/">eclipse debug</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/eclipse-%E8%B0%83%E8%AF%95/">eclipse 调试</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

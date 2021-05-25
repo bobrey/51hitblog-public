@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> android 基本简介 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="android 基本简介" />
+  <meta name="twitter:title" content="android 基本简介" />
+  <meta name="description" content="一个Andoid的应用程序可以利用应用程序框架中的以下几个部分： Activity （活动） Broadcast Intent Receiver （广播意图接收者） Service （服务） Content Provider （内容提供者） 应用程序（Ap">
+  <meta property="og:description" content="一个Andoid的应用程序可以利用应用程序框架中的以下几个部分： Activity （活动） Broadcast Intent Receiver （广播意图接收者） Service （服务） Content Provider （内容提供者） 应用程序（Ap">
+  <meta name="twitter:description" content="一个Andoid的应用程序可以利用应用程序框架中的以下几个部分： Activity （活动） Broadcast Intent Receiver （广播意图接收者） Service （服务） Content Provider （内容提供者） 应用程序（Ap">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-06-04-android-%E5%9F%BA%E6%9C%AC%E7%AE%80%E4%BB%8B/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-06-04-android-%E5%9F%BA%E6%9C%AC%E7%AE%80%E4%BB%8B/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">android 基本简介</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jun 4, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>一个Andoid的应用程序可以利用应用程序框架中的以下几个部分：</p>
+<p>Activity （活动）</p>
+<p>Broadcast Intent Receiver （广播意图接收者）</p>
+<p>Service （服务）</p>
+<p>Content Provider （内容提供者）</p>
+<p>应用程序（Application）</p>
+<p>————————————————————————————————–</p>
+<p>常用开源库介绍</p>
+<p>在Android类库中，各种包写成android.*的方式，重要包的描述如下所示：</p>
+<p>android.app ：提供高层的程序模型、提供基本的运行环境</p>
+<p>android.content 包含各种的对设备上的数据进行访问和发布的类</p>
+<p>android.database ：通过内容提供者浏览和操作数据库</p>
+<p>android.graphics ：底层的图形库，包含画布，颜色过滤，点，矩形，可以将他们直接绘制到屏幕上.</p>
+<p>android.location ：定位和相关服务的类</p>
+<p>android.media ：提供一些类管理多种音频、视频的媒体接口</p>
+<p>android.net ：提供帮助网络访问的类，超过通常的java.net.* 接口</p>
+<p>android.os ：提供了系统服务、消息传输、IPC机制</p>
+<p>android.opengl ：提供OpenGL的工具,3D加速</p>
+<p>android.provider ：提供类访问Android的内容提供者</p>
+<p>android.telephony ：提供与拨打电话相关的API交互</p>
+<p>android.view ：提供基础的用户界面接口框架</p>
+<p>android.util ：涉及工具性的方法，例如时间日期的操作</p>
+<p>android.webkit：默认浏览器操作接口</p>
+<p>android.widget：包含各种UI元素（大部分是可见的）在应用程序的屏幕中使用</p>
+<p>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*<strong>*</strong>********</p>
+<p>android版本差异</p>
+<p>Android 1.5</p>
+<p>智能虚拟键盘</p>
+<p>使用widgets实现桌面个性化</p>
+<p>在线文件夹(Live Folder)快速浏览在线数据</p>
+<p>视频录制和分享</p>
+<p>图片上传</p>
+<p>更快的标准兼容浏览器</p>
+<p>Voice search 语音搜索</p>
+<p>立体声蓝牙和免提电话</p>
+<p>Android 1.6</p>
+<p>完全重新设计的Android Market，可以显示更多的屏幕截图</p>
+<p>手势支持，可以让开发者生成针对某个应用程序的手势库</p>
+<p>支持CDMA网络：中国电信的用户可以期待EVDO的Android手机了</p>
+<p>TXT-2-Speech，支持了更多语言的发音，包括英语、法语、德语、意大利语等</p>
+<p>快速搜索框，可直接搜索括联系人，音乐，浏览历史，书签等手机内容</p>
+<p>全新的拍照界面：新版相机程序启动速度快了39%，拍照间的延迟减少了28%</p>
+<p>应用程序耗电查看：这下好了，哪个软件耗多少电，现在一见了然了</p>
+<p>新增面向视觉或听觉困难人群的易用性插件</p>
+<p>linux内核升级到2.6.29</p>
+<p>其他：支持更多的屏幕分辨率，如WVGA，QVGA等</p>
+<p>Android 2.0</p>
+<p>由于文件结构的改动优化，使得整个操作流畅性得到了很大的提升</p>
+<p>自带的Chrome Lite浏览器现在加入了对双击屏幕进行缩放的支持</p>
+<p>加强了网络社交功能，比如Facebook好友整合至联系人功能</p>
+<p>强化了语音识别的搜索控制。整个系统多处都支持语音控制，并拥有独立的控制面板</p>
+<p>谷歌地图服务更新，加入了全新的导航系统，甚至比转业的导航软件更为先进</p>
+<p>加入了原生微软Exchange邮件服务支持</p>
+<p>提供了多个不同帐户，统一的邮件收件箱</p>
+<p>只需双击就能上传图片至YouTube</p>
+<p>优化了驾车时的体验，新的“Car Home”应用程序为各功能提供了易于操作的快捷链接，还能方便地使用语音控制功能，便于用户驾车时使用</p>
+<p>Android 2.1</p>
+<p>可以同时绑定多个Google账号</p>
+<p>无线控件里有了VPN设置</p>
+<p>增加了连接到PC设置</p>
+<p>增强了语言和声音的转换功能，并加入了文字到语音转换</p>
+<p>全新的拨号界面，按键更大，更易于操作</p>
+<p>更多桌面Widget</p>
+<p>新的Google地图可以使用谷歌地图导航功能</p>
+<p>新的浏览器版本，加强了稳定性和网页渲染能力</p>
+<p>全局搜索功能加强</p>
+<p>全新的Market程序，搜索更快布局更合理</p>
+<p>Android 2.2</p>
+<p>全面支持Flash 10.1</p>
+<p>应用程序自动升级，让升级更加人性化</p>
+<p>支持应用程序安装在外置内存上</p>
+<p>Linux内核将升级为最新的2.6.32版本，系统更加稳定</p>
+<p>对系统性能进一步优化，让手机有更多的运行内存</p>
+<p>增加了轨迹球LED指示灯变色这个新功能</p>
+<p>增加了对3D性能的优化，3D性能更加强大</p>
+<p>FM功能也将在新系统中得到全面支持</p>
+<p>Android 2.3</p>
+<p>用户界面更美观</p>
+<p>提升游戏体验</p>
+<p>提升多媒体能力</p>
+<p>增加官方进程管理</p>
+<p>改善电源管理</p>
+<p>NFC近场通信</p>
+<p>全局下载管理</p>
+<p>全新虚拟键盘</p>
+<p>原生支持前置前置摄像头</p>
+<p>SIP网络电话</p>
+<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-06-01-eclipse%E5%BC%80%E5%8F%91android%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8/" data-toggle="tooltip" data-placement="top" title="Eclipse开发Android应用程序入门">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-06-04-android-activity%E5%92%8Cintent%E6%9C%BA%E5%88%B6/" data-toggle="tooltip" data-placement="top" title="Android Activity和Intent机制">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Jun 4, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

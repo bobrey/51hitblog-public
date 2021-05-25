@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Python装饰器和符号@ - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Python装饰器和符号@" />
+  <meta name="twitter:title" content="Python装饰器和符号@" />
+  <meta name="description" content="装饰器 Decorator 在代码运行期间动态增加功能的方式，称之为“装饰器”。装饰器本质是高阶函数, 就是将函数作为参数进行相应运作,最后返回一个闭包代替原有函">
+  <meta property="og:description" content="装饰器 Decorator 在代码运行期间动态增加功能的方式，称之为“装饰器”。装饰器本质是高阶函数, 就是将函数作为参数进行相应运作,最后返回一个闭包代替原有函">
+  <meta name="twitter:description" content="装饰器 Decorator 在代码运行期间动态增加功能的方式，称之为“装饰器”。装饰器本质是高阶函数, 就是将函数作为参数进行相应运作,最后返回一个闭包代替原有函">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/pythonzhuang-shi-qi-he-fu-hao/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/pythonzhuang-shi-qi-he-fu-hao/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Python装饰器和符号@</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">1800 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/python/">python</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#装饰器-decorator">装饰器 Decorator</a></li>
+    <li><a href="#简单的装饰器及其运行机制">简单的装饰器及其运行机制</a></li>
+    <li><a href="#装饰器运行机制">装饰器运行机制</a></li>
+    <li><a href="#传递参数的装饰器">传递参数的装饰器</a></li>
+    <li><a href="#继承原有函数信息">继承原有函数信息</a></li>
+    <li><a href="#对象方法变对象属性的装饰器property和setter">对象方法变对象属性的装饰器@property和@*.setter</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h2 id="装饰器-decorator">装饰器 Decorator</h2>
+<p>在代码运行期间动态增加功能的方式，称之为“装饰器”。装饰器本质是高阶函数, 就是将函数作为参数进行相应运作,最后返回一个闭包代替原有函数. 装饰器本质就是将原函数修饰为一个闭包(一个返回函数).
+装饰器在python中在函数/对象方法定义前使用@符号调用. 装饰器可以在函数运行前进行一些预处理, 例如检查类型等.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@dec1</span>
+<span class="nd">@dec2</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div><p>以上代码等于<code>dec1(dec2(arg1,arg2)(test(arg)))</code></p>
+<h2 id="简单的装饰器及其运行机制">简单的装饰器及其运行机制</h2>
+<p>例如:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s1">&#39;call </span><span class="si">%s</span><span class="s1">():&#39;</span> <span class="o">%</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@log</span>
+<span class="k">def</span> <span class="nf">now</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s1">&#39;2015-10-26&#39;</span>
+    <span class="k">return</span> <span class="s2">&#34;done&#34;</span>
+<span class="n">now</span><span class="p">()</span>
+<span class="c1"># 实际调用wrapper()</span>
+<span class="c1">#&gt;&gt;&gt; call now()</span>
+<span class="c1">#&gt;&gt;&gt; 2015-10-26</span>
+</code></pre></div><h2 id="装饰器运行机制">装饰器运行机制</h2>
+<p>机制就是,调用now()实际调用log(now)() (前面<code>@</code>写法后,实际运行now=log(now)),也就是运行了wrapper(),并把now函数原有参数传递给了wrapper函数. wrapper在运行时,加入了新的处理<code>print 'call %s():' % func.__name__</code>一句, 并运行相应传递参数的<code>func(*args,**kw)</code>并把原有结果返回.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">now</span><span class="o">=</span><span class="n">log</span><span class="p">(</span><span class="n">now</span><span class="p">)</span> <span class="c1">#-&gt;now=wrapper</span>
+<span class="n">result</span><span class="o">=</span><span class="n">now</span><span class="p">()</span> <span class="c1">#-&gt;wrapper()</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">call</span> <span class="n">now</span><span class="p">()</span> <span class="c1">#-&gt; wrapper修饰部分</span>
+<span class="o">&gt;&gt;&gt;</span><span class="mi">2015</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">26</span> <span class="c1">#-&gt; 原函数部分执行部分</span>
+<span class="k">print</span> <span class="n">result</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">done</span> <span class="c1">#-&gt; 原函数的返回部分</span>
+</code></pre></div><p>所以装饰器机制简单地说就是要:</p>
+<ul>
+<li>
+<p>将原来函数通过装饰器变成一个传递函数本身的高阶函数(<strong>@log</strong>部分,<strong>now=log(now)</strong>)</p>
+</li>
+<li>
+<p>新的高阶函数要返回一个修饰函数,从而使调用原函数时实际调用该部分. <code>(def wrapper()..return wrapper部分)</code></p>
+</li>
+<li>
+<p>新修饰函数进行相应修饰处理(print语句)后,执行原函数并返回原函数值.</p>
+</li>
+</ul>
+<h2 id="传递参数的装饰器">传递参数的装饰器</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+            <span class="k">print</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">():&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+<span class="nd">@log</span><span class="p">(</span><span class="s1">&#39;execute&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">now</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s1">&#39;2015-10-26&#39;</span>
+    <span class="k">return</span> <span class="s2">&#34;done&#34;</span>
+<span class="n">now</span><span class="p">()</span>
+<span class="c1">#&gt;&gt;&gt; excute now()</span>
+<span class="c1">#&gt;&gt;&gt; 2015-10-26</span>
+</code></pre></div><p>装饰器本身可以传入参数.不要小看这个传入参数, 传入的参数因为占据了本身装饰器的参数, 所以需要<strong>新的一层装饰器来处理原函数</strong>. 上述机制:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">now</span><span class="o">=</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;execute&#39;</span><span class="p">)(</span><span class="n">now</span><span class="p">)</span> <span class="c1">#-&gt; now=wrapper</span>
+<span class="c1">#或者可以说f=log(&#39;execute&#39;)  -&gt; f=decorator</span>
+<span class="c1">#          f(now) -&gt; decorator(now) -&gt; wrapper</span>
+<span class="c1">#          now=wrapper</span>
+<span class="n">result</span><span class="o">=</span><span class="n">now</span><span class="p">()</span> <span class="c1">#wrapper()</span>
+</code></pre></div><p>实际<code>now=log('execute')(now)</code>两个参数表就是执行了一次闭包decorator(now).执行该闭包后返回的才是真正的装饰器wrapper.</p>
+<p>两层闭包的机制可以保证传递参数给内在的装饰器wrapper.第一层将参数传进行生成第一层闭包对应返回函数,第二层则将该参数继续留给真正的装饰器闭包.</p>
+<h2 id="继承原有函数信息">继承原有函数信息</h2>
+<p>在以上装饰器中, 其实质都是<code>now=wrapper</code>, 此时我们要是输出<code>now.__name__</code>得到的将是装饰器wrapper的名字.可以用<code>wrapper.__name__=func.__name__</code> 加在装饰器内部进行原函数信息的继承, 也可以使用<code>functools.wraps</code>来实现.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">functools</span>
+<span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s1">&#39;call </span><span class="si">%s</span><span class="s1">():&#39;</span> <span class="o">%</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+</code></pre></div><p>对于带参数的装饰器, 依然将<code>@functools.wraps(func)</code>写在实质装饰器wrapper前面.
+其机制:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">wrapper</span><span class="o">=</span><span class="n">functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)(</span><span class="n">wrapper</span><span class="p">)</span> 
+<span class="c1">#将原函数func信息给返回函数f=functools.wraps(func), f 闭包含有相应func信息.</span>
+<span class="c1">#用f 返回函数来修饰wrapper, 此时实际可以将wrapper的一些信息替换为原函数</span>
+</code></pre></div><p>对于很复杂的体系, 需要经常定义一些高阶函数对新函数进行一系列处理, 此时定义装饰器就可以省很多功夫. 但缺点是初学比较难以理解, 要对OOP十分熟悉.</p>
+<h2 id="对象方法变对象属性的装饰器property和setter">对象方法变对象属性的装饰器@property和@*.setter</h2>
+<p>该装饰器是python内置的,是类中一个高级用法,作用是将<strong>一个方法名变成一个对象属性</strong>. 类需要继承于object相应的类.
+构建相应<code>@property def prop(self):return self._prop</code>就可以直接<code>obj.prop</code>来将方法变成获取对象属性的调用形式.而相应<code>@prop.setter def prop(self,value): self._prop=value </code>就可以实现obj.prop=value将方法转为对象属性的赋值.而且好处还可以在此加入属性的值的检查. obj._prop只是相应储存的储存地方,名字也是无限制的.
+不定义<strong>setter</strong>而只定义property的话,该属性就是<strong>只读的</strong>不能修改的!!
+例如:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_score</span>
+
+    <span class="nd">@score.setter</span>
+    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;score must be an integer!&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;score must between 0 ~ 100!&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_score</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">True</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span><span class="mi">60</span><span class="p">)</span> <span class="k">else</span> <span class="bp">False</span>
+        <span class="c1"># (self.score &lt;60) and return True or return False</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Student</span><span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">60</span> <span class="c1"># OK，实际转化为s.set_score(60)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">score</span> <span class="c1"># OK，实际转化为s.get_score()</span>
+<span class="c1">### 60</span>
+<span class="n">s</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">9999</span>
+<span class="c1">### Traceback (most recent call last):</span>
+<span class="c1">###   ...</span>
+<span class="c1">### ValueError: score must between 0 ~ 100!</span>
+<span class="n">s</span><span class="o">.</span><span class="n">fail</span>
+<span class="c1">### False</span>
+<span class="n">s</span><span class="o">.</span><span class="n">fail</span><span class="o">=</span><span class="bp">True</span>
+<span class="c1">### Traceback (most recent call last)</span>
+<span class="c1">### ...</span>
+<span class="c1">### AttributeError: can&#39;t set attribute</span>
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/charles-zhu-ce-ma/" data-toggle="tooltip" data-placement="top" title="Charles 注册码">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/python-jin-jie-functoolsmo-kuai-xiao-jie/" data-toggle="tooltip" data-placement="top" title="PYTHON-进阶-FUNCTOOLS模块小结">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2012-12-21-opencv-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/">opencv 人脸识别</a></li>
+                    
+                    <li><a href="/posts/2012-11-28-python-%E5%BC%80%E5%8F%91web%E6%A1%86%E6%9E%B6-django%E6%A1%86%E6%9E%B6/">python 开发web框架  【Django框架】</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">1800 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/python/">python</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

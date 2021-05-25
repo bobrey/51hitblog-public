@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> mediastream2使用指南 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="mediastream2使用指南" />
+  <meta name="twitter:title" content="mediastream2使用指南" />
+  <meta name="description" content="定义 Filter: 媒体库中处理数据的组件。一个filter有0到数个输入流和0到数个输出流。 下面是可以使用Filter的例子: 捕获音频或者视频数据. 播放">
+  <meta property="og:description" content="定义 Filter: 媒体库中处理数据的组件。一个filter有0到数个输入流和0到数个输出流。 下面是可以使用Filter的例子: 捕获音频或者视频数据. 播放">
+  <meta name="twitter:description" content="定义 Filter: 媒体库中处理数据的组件。一个filter有0到数个输入流和0到数个输出流。 下面是可以使用Filter的例子: 捕获音频或者视频数据. 播放">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-02-13-mediastream2%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-02-13-mediastream2%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">mediastream2使用指南</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Feb 13, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>定义</p>
+<p>Filter: 媒体库中处理数据的组件。一个filter有0到数个输入流和0到数个输出流。</p>
+<p> </p>
+<p>下面是可以使用Filter的例子:</p>
+<p>捕获音频或者视频数据.</p>
+<p>播放音频或者显示视频数据.</p>
+<p>发送或者接受RTP数据.</p>
+<p>对音频或者视频数据的编解码</p>
+<p>变化 (视频大小调整, 音频取样等等) 数据.</p>
+<p>复制数据.</p>
+<p>混和音频视频数据.</p>
+<p>Graph: 是管理几个连接在一起的filter的组件. 它能够把数据从输出流传输到输入流 并且负责管理这些filters.</p>
+<p> </p>
+<p>如何使用媒体库?</p>
+<p>媒体库提供许多功能, 它主要用来管理RTP 音频和视频 会话.你将需要使用API函数创建filters,并且把它们连接进一个graph. 然后使用API函数能够用来启动和停止graph.</p>
+<p>最简单的graph 例子:</p>
+<p>AUDIO CAPTURE   –&gt;   ENCODE  –&gt;     RTP</p>
+<p>FILTER      –&gt;   FILTER  –&gt;    FILTER</p>
+<p>上面的graph 由三个 filters组成. Audio capture filter没有输入，直接从驱动捕获音频数据然后提供给输出流. 然后把输出流连接到encoder filter 的输入流上，coder filter 把这些音频数据进行编码以后然后送给输出流.最后把这个输出流连接到rtp filter的输入流上，然后由rtp filter把数据封装成rtp送出去。</p>
+<p>该模块的设计可以让应用开发者使用自己的encode/decode filter 替代已有的”encode/decode filter” . 该媒体库支持g711u, g711a, h263的encode filter. 应用开发者也可以动态加入自己实现的encode filter，用来支持其他的编码格式。</p>
+<p>媒体库的初始化</p>
+<p>要使用媒体库, 首先需要对他进行初始化:</p>
+<p>ms_init();</p>
+<p>媒体库提供许多filters. 这些filter必须被连接在一起以至一个filter的输出能够变成其他filter的输入.</p>
+<p>通常, filters 被用来处理音频和视频数据. 他们能够捕获音频和视频数据,播放音频和视频数据, 对这些数据进行编解码, 合成这些数据 , 转换这些数据.最重要的filters 是RTP filters，他能够接收和发送RTP数据.</p>
+<p>Graph的例子</p>
+<p>要真正使用媒体库进行通话, 就必须构建两个graphs. 当然这两个graph都相当简单。</p>
+<p>第一个graph需要三个filter,从声卡捕获数据，然后进行编码，最后把编码后的数据发送给RTP session.</p>
+<p>AUDIO    -&gt;    ENCODER   -&gt;   RTP</p>
+<p>CAPTURE   -&gt;              -&gt;  SENDER</p>
+<p>第二个graph同样需要三个filter, 从一个RTP session接收数据,然后解码,最后把解码后的数据发送给播放设备.</p>
+<p>RTP      -&gt;    DECODER   -&gt;   AUDIO</p>
+<p>RECEIVER  -&gt;              -&gt;  PLAYBACK</p>
+<p>初始化Graph的例子</p>
+<p>为了便于阅读和理解,下面的代码没有差错检查.为了构造一个graph, 需要一些而外的输入输出设备:比如需要选择一个声卡用来捕获和播放音频，同时还需要使用创建一个RTP session用来发送和接受rtp流.</p>
+<p>MSSndCard *sndcard;</p>
+<p>sndcard=ms_snd_card_manager_get_default_card(<!-- raw HTML omitted -->ms_snd_card_manager_get()<!-- raw HTML omitted -->);</p>
+<p>/* audio capture filter */</p>
+<p>MSFilter *soundread=ms_snd_card_create_reader(captcard);</p>
+<p>MSFilter *soundwrite=ms_snd_card_create_writer(playcard);</p>
+<p>MSFilter *encoder=ms_filter_create_encoder(“PCMU”);</p>
+<p>MSFilter *decoder=ms_filter_create_decoder(“PCMU”);</p>
+<p>MSFilter *rtpsend=ms_filter_new(MS_RTP_SEND_ID);</p>
+<p>MSFilter *rtprecv=ms_filter_new(MS_RTP_RECV_ID);</p>
+<p>RtpSession *rtp_session = *** your_ortp_session *** ;</p>
+<p>ms_filter_call_method(rtpsend,MS_RTP_SEND_SET_SESSION,rtp_session);</p>
+<p>ms_filter_call_method(rtprecv,MS_RTP_RECV_SET_SESSION,rtp_session);</p>
+<p>MSFilter *dtmfgen=ms_filter_new(MS_DTMF_GEN_ID);</p>
+<p>大多数情况下上面的graph还是不够的: 通常还需要对filter进行一些配置. ,比如还需要设置声卡filters的取样率。</p>
+<p>int sr = 8000;</p>
+<p>int chan=1;</p>
+<p>ms_filter_call_method(soundread,MS_FILTER_SET_SAMPLE_RATE,&amp;sr);</p>
+<p>ms_filter_call_method(soundwrite,MS_FILTER_SET_SAMPLE_RATE,&amp;sr);</p>
+<p>ms_filter_call_method(stream-&gt;encoder,MS_FILTER_SET_SAMPLE_RATE,&amp;sr);</p>
+<p>ms_filter_call_method(stream-&gt;decoder,MS_FILTER_SET_SAMPLE_RATE,&amp;sr);</p>
+<p>ms_filter_call_method(soundwrite,MS_FILTER_SET_NCHANNELS, &amp;chan);</p>
+<p>/* if you have some fmtp parameters (from SDP for example!)</p>
+<p>char *fmtp1 = \** get your fmtp line **;</p>
+<p>char *fmtp2 = \** get your fmtp line **;</p>
+<p>ms_filter_call_method(stream-&gt;encoder,MS_FILTER_ADD_FMTP, (void*)fmtp1);</p>
+<p>ms_filter_call_method(stream-&gt;decoder,MS_FILTER_ADD_FMTP,(void*)fmtp2);</p>
+<p>链接filters并且运行graph 的例子</p>
+<p>ms_filter_link(stream-&gt;soundread,0,stream-&gt;encoder,0);</p>
+<p>ms_filter_link(stream-&gt;encoder,0,stream-&gt;rtpsend,0);</p>
+<p>ms_filter_link(stream-&gt;rtprecv,0,stream-&gt;decoder,0);</p>
+<p>ms_filter_link(stream-&gt;decoder,0,stream-&gt;dtmfgen,0);</p>
+<p>ms_filter_link(stream-&gt;dtmfgen,0,stream-&gt;soundwrite,0);</p>
+<p>按照上面的步骤链接后，还需要把这些filters配属给一个ticker. Ticker 是graph管理器,负责启动filters.</p>
+<p>上面的例子里有两个graph, 我们需要把两个graph中没有输入流的filter配属给Ticker.</p>
+<p>/* create ticker */</p>
+<p>MSTicker *ticker=ms_ticker_new();</p>
+<p>ms_ticker_attach(ticker,soundread);</p>
+<p>ms_ticker_attach(ticker,rtprecv);</p>
+<p>解除filters并且停止graph的例子</p>
+<p>ms_ticker_detach(ticker,soundread);</p>
+<p>ms_ticker_detach(ticker,rtprecv);</p>
+<p>ms_filter_unlink(stream-&gt;soundread,0,stream-&gt;encoder,0);</p>
+<p>ms_filter_unlink(stream-&gt;encoder,0,stream-&gt;rtpsend,0);</p>
+<p>ms_filter_unlink(stream-&gt;rtprecv,0,stream-&gt;decoder,0);</p>
+<p>ms_filter_unlink(stream-&gt;decoder,0,stream-&gt;dtmfgen,0);</p>
+<p>ms_filter_unlink(stream-&gt;dtmfgen,0,stream-&gt;soundwrite,0);</p>
+<p>if (rtp_session!=NULL) rtp_session_destroy(rtp_session);</p>
+<p>if (rtpsend!=NULL) ms_filter_destroy(rtpsend);</p>
+<p>if (rtprecv!=NULL) ms_filter_destroy(rtprecv);</p>
+<p>if (soundread!=NULL) ms_filter_destroy(soundread);</p>
+<p>if (soundwrite!=NULL) ms_filter_destroy(soundwrite);</p>
+<p>if (encoder!=NULL) ms_filter_destroy(encoder);</p>
+<p>if (decoder!=NULL) ms_filter_destroy(decoder);</p>
+<p>if (dtmfgen!=NULL) ms_filter_destroy(dtmfgen);</p>
+<p>if (ticker!=NULL) ms_ticker_destroy(ticker);</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-02-13-iphoneipad-%E9%80%9A%E8%BF%87itms-services-%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85app/" data-toggle="tooltip" data-placement="top" title="iphone,ipad 通过itms-services 在线安装app">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-02-14-mpmusicplayercontroller%E5%92%8Cmpmediapickercontroller%E6%89%93%E9%80%A0%E5%A6%82ipod%E5%8A%9F%E8%83%BD%E7%B1%BB%E4%BC%BC%E7%9A%84%E6%92%AD%E6%94%BE%E5%99%A8/" data-toggle="tooltip" data-placement="top" title="MPMusicPlayerController和MPMediaPickerController打造如iPod功能类似的播放器">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Feb 13, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

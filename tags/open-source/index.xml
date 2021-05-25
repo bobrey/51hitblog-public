@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>open source on IT技术分享</title>
+    <link>https://www.51hint.com/tags/open-source/</link>
+    <description>Recent content in open source on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Sep 2011 09:10:00 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ortp_mediastream2_osip2_exosip2    整合sip</title>
+      <link>https://www.51hint.com/posts/2011-09-28-ortp_mediastream2_osip2_exosip2-%E6%95%B4%E5%90%88sip/</link>
+      <pubDate>Wed, 28 Sep 2011 09:10:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-28-ortp_mediastream2_osip2_exosip2-%E6%95%B4%E5%90%88sip/</guid>
+      <description>首先要配置环境，需要这么几个库，libosip，libeXosip2，ortp,mediastreamer2.libosip,libeXos</description>
+    </item>
+    
+    <item>
+      <title>mediastreamer2</title>
+      <link>https://www.51hint.com/posts/2011-09-28-mediastreamer2/</link>
+      <pubDate>Wed, 28 Sep 2011 09:01:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-28-mediastreamer2/</guid>
+      <description>mediastreamer2是一个支持多种平台的轻量级的流技术引擎，主要适用于开发语音和视频电话应用程序。 该引擎主要为linphone的多媒</description>
+    </item>
+    
+    <item>
+      <title>osip2和eXosip2协议[2]</title>
+      <link>https://www.51hint.com/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-2/</link>
+      <pubDate>Wed, 28 Sep 2011 08:22:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-2/</guid>
+      <description>eXosip_init()是ｅＸｏｓｉｐ的初始化函数，我们来看看它的内部实现:&amp;lt;p&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; &amp;lt;span style=&amp;quot;font-family: 新宋体,sans-serif; font-size: 14px;</description>
+    </item>
+    
+    <item>
+      <title>osip2和eXosip2协议[1]</title>
+      <link>https://www.51hint.com/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-1/</link>
+      <pubDate>Wed, 28 Sep 2011 08:08:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-28-osip2%E5%92%8Cexosip2%E5%8D%8F%E8%AE%AE-1/</guid>
+      <description>Osip2是一个开放源代码的sip协议栈，是开源代码中不多使用C语言写的协议栈之一，它具有短小简洁的特点，专注于sip底层解析使得它的效率比</description>
+    </item>
+    
+    <item>
+      <title>ortp流媒体协议 [2]</title>
+      <link>https://www.51hint.com/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-2/</link>
+      <pubDate>Wed, 28 Sep 2011 07:15:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-2/</guid>
+      <description>ortp 发送数据的示例程序 //=========================================================================================================// 自己实现rtp还是比较简单的。分为接收和发送，接收的时候直接去掉12个字节的报头，然后向下送。而发送的时候稍微麻烦点，</description>
+    </item>
+    
+    <item>
+      <title>ortp流媒体协议 [1]</title>
+      <link>https://www.51hint.com/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-1/</link>
+      <pubDate>Wed, 28 Sep 2011 07:12:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-1/</guid>
+      <description>RTP(Real-time transport Protocol)用于在网路上多媒体数据流的传输协议 做流媒体传输方面的应用一般都会用基于RTP的JRTPLIB库等； ORTP是一个支持R</description>
+    </item>
+    
+  </channel>
+</rss>

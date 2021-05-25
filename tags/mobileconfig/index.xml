@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mobileconfig on IT技术分享</title>
+    <link>https://www.51hint.com/tags/mobileconfig/</link>
+    <description>Recent content in mobileconfig on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Feb 2015 12:45:59 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/mobileconfig/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>创建mobileconfig</title>
+      <link>https://www.51hint.com/posts/2015-02-07-%E5%88%9B%E5%BB%BAmobileconfig/</link>
+      <pubDate>Sat, 07 Feb 2015 12:45:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-07-%E5%88%9B%E5%BB%BAmobileconfig/</guid>
+      <description>Over-the-air IPhone Setup Using a Signed .mobileconfig File Note: this does not push your configuration to an iPhone. The user of the iPhone must go to a web address and install a configuration profile. Suppose that you have a few iPhones that you need to support, but you don’t want to spend the time typing in all of the e-mail (IMAP or POP), LDAP, wireless network,</description>
+    </item>
+    
+    <item>
+      <title>some thing about .mobileconfig file</title>
+      <link>https://www.51hint.com/posts/2013-08-15-some-thing-about-mobileconfig-file/</link>
+      <pubDate>Wed, 14 Aug 2013 15:07:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-08-15-some-thing-about-mobileconfig-file/</guid>
+      <description>Getting a device UDID from .mobileconfig http://stackoverflow.com/questions/5781314/getting-a-device-udid-from-mobileconfig
+  I cannot get the informations of response from iPhone device in Phase2 https://discussions.apple.com/thread/3089948?start=0&amp;amp;tstart=0
+  Over-the-air IPhone Setup Using a Signed .mobileconfig File http://www.rootmanager.com/iphone-ota-configuration/iphone-ota-setup-with-signed-mobileconfig.html
+  http://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/iPhoneOTAConfiguration.pdf</description>
+    </item>
+    
+  </channel>
+</rss>

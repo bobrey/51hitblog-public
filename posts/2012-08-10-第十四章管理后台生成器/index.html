@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第十四章：管理后台生成器 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第十四章：管理后台生成器" />
+  <meta name="twitter:title" content="第十四章：管理后台生成器" />
+  <meta name="description" content="目录 [14.1 基于模型的代码生成][1] [14.1.1 数据模型的例子][2] [14.2 管理后台][3] [14.2.1 初始化管理后台模块][4] [14.2.2 生成的代码][5] [14.2.3 generator.yml 配置文件介绍]">
+  <meta property="og:description" content="目录 [14.1 基于模型的代码生成][1] [14.1.1 数据模型的例子][2] [14.2 管理后台][3] [14.2.1 初始化管理后台模块][4] [14.2.2 生成的代码][5] [14.2.3 generator.yml 配置文件介绍]">
+  <meta name="twitter:description" content="目录 [14.1 基于模型的代码生成][1] [14.1.1 数据模型的例子][2] [14.2 管理后台][3] [14.2.1 初始化管理后台模块][4] [14.2.2 生成的代码][5] [14.2.3 generator.yml 配置文件介绍]">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%99%A8/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%99%A8/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第十四章：管理后台生成器</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">9000 Words|Read in about 18 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_14_code_generation_based_on_the_model">[<!-- raw HTML omitted -->14.1 基于模型的代码生成<!-- raw HTML omitted -->][21]</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li>[14.1 基于模型的代码生成][1]</li>
+<li>[14.1.1 数据模型的例子][2]</li>
+<li>[14.2 管理后台][3]</li>
+<li>[14.2.1 初始化管理后台模块][4]</li>
+<li>[14.2.2 生成的代码][5]</li>
+<li>[14.2.3 generator.yml 配置文件介绍][6]</li>
+<li>[14.3 生成器配置][7]</li>
+<li>[14.3.1 字段][8]</li>
+<li>[14.3.2 视图自定义][9]</li>
+<li>[14.3.3 特别定制列表视图][10]</li>
+<li>[14.3.4 特别定制新建和编辑视图][11]</li>
+<li>[14.3.5 处理外键][12]</li>
+<li>[14.3.6 增加交互][13]</li>
+<li>[14.3.7 表单验证][14]</li>
+<li>[14.3.8 使用证书限制用户动作][15]</li>
+<li>[14.4 修改生成的模块的表现方式][16]</li>
+<li>[14.4.1 使用一个自定义样式表][17]</li>
+<li>[14.4.2 创建自定义页头和页脚][18]</li>
+<li>[14.4.3 自定义界面主题][19]</li>
+<li>[14.5 总结][20]</li>
+<li></li>
+</ul>
+<p><!-- raw HTML omitted -->很多程序都是基于存储在数据库里的数据并提供访问这些数据的界面。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->symfony能够基于propel或doctrine对象自动的来完成生成数据、处理模块等这样的重复任务。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果正确定义了模型，symfony甚至可以自动生成整个网站管理后台。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->本章介绍管理后台生成器的使用，这是用propel和doctrine插件捆绑在一起的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->它依赖于一个有完整语法的特别的配置文件，所以这一章的大部分篇幅会用来介绍后台生成器的各种用法。<!-- raw HTML omitted --></p>
+<h2 id="chapter_14_code_generation_based_on_the_model">[<!-- raw HTML omitted -->14.1 基于模型的代码生成<!-- raw HTML omitted -->][21]</h2>
+<p><!-- raw HTML omitted -->在web应用程序程序里，数据访问操作可以归结为以下几类：<!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p><!-- raw HTML omitted -->新增（Creation）一条记录<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;li&gt;
+  &lt;span en=&quot;Deletion of a record&quot;&gt;删除（Deletion）一条记录&lt;/li&gt; &lt;/ul&gt; 
+      
+  &lt;p&gt;
+    &lt;span en=&quot;These operations are so common that they have a dedicated acronym: CRUD.&quot;&gt;这些操作很常见，它们有一个专门的缩写：CRUD。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Many pages can be reduced to one of them.&quot;&gt;很多页面都可以简化成其中之一。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, in a forum application, the list of latest posts is a retrieve operation, and the reply to a post corresponds to a create operation.&quot;&gt;例如，一个论坛程序，帖子最新列表就是一个取得（Retrieval）记录的过程，回帖子是一个新增（Creation）过程。&lt;/span&gt;
+  &lt;/p&gt;
+      
+  &lt;p&gt;
+    &lt;span en=&quot;The basic actions and templates that implement the CRUD operations for a given table are repeatedly created in web applications.&quot;&gt;针对一个表的CRUD操作制作基本的动作（Action）和模板在web程序里会经常出现。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;In symfony, the model layer contains enough information to allow generating the CRUD operations code, so as to speed up the early part of the back-end interfaces.&quot;&gt;symfony里面，模型层包含的信息足够生成CRUD操作代码的需要，这样可以加快早期的管理后台开发。&lt;/span&gt;
+  &lt;/p&gt;
+      
+  &lt;h3&gt;
+    &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=37&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_14_sub_example_data_model&quot;&gt;&lt;span en=&quot;14.1.1 Example Data Model&quot;&gt;14.1.1 数据模型的例子&lt;/span&gt;&lt;/a&gt;
+  &lt;/h3&gt;
+      
+  &lt;p&gt;
+    &lt;span en=&quot;Throughout this chapter, the listings will demonstrate the capabilities of the symfony admin generator based on a simple example, which will remind you of Chapter 8.&quot;&gt;本章的所有演示symfony生成器功能的例子都基于这个简单的例子，这个例子可能会让你回想起第八章。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;This is the well-known example of the weblog application, containing two &lt;code&gt;BlogArticle&lt;/code&gt; and &lt;code&gt;BlogComment&lt;/code&gt; classes.&amp;#8221;&gt;这就是那个众所周知的博客应用程序程序，包含 &lt;code&gt;BlogArticle&lt;/code&gt; 和 &lt;code&gt;BlogComment&lt;/code&gt; 两个类。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Listing 14-1 shows its schema, illustrated in Figure 14-1.&quot;&gt;例14-1展示他的schema，以及图14-1。&lt;/span&gt;
+  &lt;/p&gt;
+      
+  &lt;p class=&quot;figure&quot;&gt;
+    &lt;span en=&quot;Listing 14-1 - Propel schema of the Example Weblog Application&quot;&gt;例 14-1 &amp;#8211; 博客例子的 propel schema&lt;/span&gt;
+  &lt;/p&gt;
+      
+  &lt;pre&gt;propel:
+</code></pre>
+</li>
+</ul>
+<p>blog_category:
+id:               ~
+name:             varchar(255)
+blog_author:
+id:               ~
+name:             varchar(255)
+blog_article:
+id:               ~
+title:            varchar(255)
+content:          longvarchar
+blog_author_id:   ~
+blog_category_id: ~
+is_published:     boolean
+created_at:       ~
+blog_comment:
+id:               ~
+blog_article_id:  ~
+author:           varchar(255)
+content:          longvarchar
+created_at:       ~<!-- raw HTML omitted --></p>
+<pre><code>      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Figure 14-1 - Example data model&quot;&gt;图 14-1 &amp;#8211; 数据模型的例子&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;img src=&quot;res/F1401.png&quot; alt=&quot;数据模型的例子&quot; title=&quot;数据模型的例子&quot; /&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;There is no particular rule to follow during the schema creation to allow code generation.&quot;&gt;代码生成并不会对创建schema期间有什么特别的要求。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Symfony will use the schema as is and interpret its attributes to generate an administration.&quot;&gt;symfony会用已有的schema，解释它的属性来生成管理后台。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;blockquote class=&quot;tip&quot;&gt;
+        &lt;p&gt;
+          &lt;span en=&quot;To get the most out of this chapter, you need to actually do the examples.&quot;&gt;你需要实际的做例子。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You will get a better understanding of what symfony generates and what can be done with the generated code if you have a view of every step described in the listings.&quot;&gt;你对“什么是symfony生成”还有“生成的代码可以完成什么”会得到一个更好的理解。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Initializing the model is as simple as calling the &lt;code&gt;propel:build&lt;/code&gt; task:&amp;#8221;&gt;初始化模型就是这么简单，打 &lt;code&gt;propel:build&lt;/code&gt; 命令：&lt;/span&gt;
+        &lt;/p&gt;
+        
+        &lt;pre&gt;$ php symfony propel:build --all --no-confirmation&lt;/pre&gt;
+      &lt;/blockquote&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;As the generated admin interface relies on some magic methods to ease your task, create a &lt;code&gt;__toString()&lt;/code&gt; method for each of your model class.&amp;#8221;&gt;生成的管理后台借用了一些魔术方法来缓解你的工作，为你的每个模型类创建了一个 &lt;code&gt;__toString()&lt;/code&gt; 方法。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;class&lt;/span&gt; BlogAuthor &lt;span class=&quot;kw2&quot;&gt;extends&lt;/span&gt; BaseBlogAuthor
+</code></pre>
+<p><!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->public<!-- raw HTML omitted --> <!-- raw HTML omitted -->function<!-- raw HTML omitted --> __toString<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getName<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->class<!-- raw HTML omitted --> BlogCategory <!-- raw HTML omitted -->extends<!-- raw HTML omitted --> BaseBlogCategory
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->public<!-- raw HTML omitted --> <!-- raw HTML omitted -->function<!-- raw HTML omitted --> __toString<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getName<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+ 
+<!-- raw HTML omitted -->class<!-- raw HTML omitted --> BlogArticle <!-- raw HTML omitted -->extends<!-- raw HTML omitted --> BaseBlogArticle
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->public<!-- raw HTML omitted --> <!-- raw HTML omitted -->function<!-- raw HTML omitted --> __toString<!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->{<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->return<!-- raw HTML omitted --> <!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getTitle<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+<!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>      &lt;h2&gt;
+        &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=37&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_14_administration&quot;&gt;&lt;span en=&quot;14.2 Administration&quot;&gt;14.2 管理后台&lt;/span&gt;&lt;/a&gt;
+      &lt;/h2&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;Symfony can generate modules, based on model class definitions from the &lt;code&gt;schema.yml&lt;/code&gt; file, for the back-end of your applications.&amp;#8221;&gt;symfony可以基于 &lt;code&gt;schema.yml&lt;/code&gt; 文件中的模型类定义对你的应用程序程序来生成模块。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You can create an entire site administration with only generated administration modules.&quot;&gt;你可以只用生成的后台模块创建整个网站后台。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The examples of this section will describe administration modules added to a &lt;code&gt;backend&lt;/code&gt; application.&amp;#8221;&gt;这节例子中讲解了管理后台模块添加到 &lt;code&gt;backend&lt;/code&gt; 应用程序。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If your project doesn't have a backend application, create its skeleton now by calling the &lt;code&gt;generate:app&lt;/code&gt; task:&amp;#8221;&gt;如果你的项目没有 &lt;code&gt;backend&lt;/code&gt; 应用程序，现在调用 &lt;code&gt;generate:app&lt;/code&gt; 命令创建它的骨架：&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;pre class=&quot;command-line&quot;&gt;$ php symfony generate:app backend&lt;/pre&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;Administration modules interpret the model by way of a special configuration file called &lt;code&gt;generator.yml&lt;/code&gt;, which can be altered to extend all the generated components and the module look and feel.&amp;#8221;&gt;管理管理模块通过一个叫 &lt;code&gt;generator.yml&lt;/code&gt; 的特殊配置文件的设置来说明模型，通过这个文件可以完全控制生成的组件还有外观和体验。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Such modules benefit from the usual module mechanisms described in previous chapters (layout, routing, custom configuration, autoloading, and so on).&quot;&gt;前面介绍的模块机制（布局、验证、路由、自定义配置、自动载入，等等）也可以在这些生成的管理模块中使用。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;You can also override the generated action or templates, in order to integrate your own features into the generated administration, but &lt;code&gt;generator.yml&lt;/code&gt; should take care of the most common requirements and restrict the use of PHP code only to the very specific.&amp;#8221;&gt;你还可以重写生成的动作或者模板来给生成的管理后台增加你自己的功能，不过修改 &lt;code&gt;generator.yml&lt;/code&gt; 就能够达到大多数的需求，只有需求很特殊的时候才使用PHP代码。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;blockquote class=&quot;note&quot;&gt;
+        &lt;p&gt;
+          &lt;span en=&quot;Even if most common requirements are covered by the &lt;code&gt;generator.yml&lt;/code&gt; configuration file, you can also configure an administration module via a configuration class as we will see later in this chapter.&amp;#8221;&gt;即使 &lt;code&gt;generator.yml&lt;/code&gt; 配置文件包含了大多数需求，也可以通过一个配置类配置一个管理模块，我们会在本章的后面看到。&lt;/span&gt;
+        &lt;/p&gt;
+      &lt;/blockquote&gt;
+      
+      &lt;h3&gt;
+        &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=37&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_14_sub_initiating_an_administration_module&quot;&gt;&lt;span en=&quot;14.2.1 Initiating an Administration Module&quot;&gt;14.2.1 初始化管理后台模块&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
+      &lt;/h3&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;With symfony, you build an administration on a per-model basis.&quot;&gt;在symfony里建立管理后台是以每个模块为单位的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;A module is generated based on a Propel or a Doctrine object using the &lt;code&gt;propel:generate-admin&lt;/code&gt; task:&amp;#8221;&gt;模块是打 &lt;code&gt;propel:generate-admin&lt;/code&gt; 命令生成的，是基于propel或doctrine对象的：&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;pre&gt;// Propel
+</code></pre>
+<p>$ php symfony propel:generate-admin backend BlogArticle &ndash;module=article</p>
+<p>// Doctrine
+$ php symfony doctrine:generate-admin backend BlogArticle &ndash;module=article<!-- raw HTML omitted --></p>
+<pre><code>      &lt;blockquote class=&quot;note&quot;&gt;
+        &lt;p&gt;
+          &lt;span en=&quot;The administration modules are based on a REST architecture.&quot;&gt;管理后台模块是基于了一个REST构架。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The&lt;code&gt;propel:generate-admin&lt;/code&gt; task automatically adds such a route to the &lt;code&gt;routing.yml&lt;/code&gt; configuration file:&amp;#8221;&gt;&lt;code&gt;propel:generate-admin&lt;/code&gt; 命令自动的添加下面这样的一个路由到 &lt;code&gt;routing.yml&lt;/code&gt; 配置文件：&lt;/span&gt;
+        &lt;/p&gt;
+        
+        &lt;pre&gt;# apps/backend/config/routing.yml
+</code></pre>
+<p>article:
+class: sfPropelRouteCollection
+options:
+model:                BlogArticle
+module:               article
+with_wildcard_routes: true<!-- raw HTML omitted --></p>
+<pre><code>        &lt;p&gt;
+          &lt;span en=&quot;You can also create your own route and pass the name as an argument to the task instead of the model class name:&quot;&gt;你也可以创建你自己的路由，然后传递一个名字作为参数到命令来代替模型类名：&lt;/span&gt;
+        &lt;/p&gt;
+        
+        &lt;pre class=&quot;command-line&quot;&gt;$ php symfony propel:generate-admin backend article --module=article&lt;/pre&gt;
+      &lt;/blockquote&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;This call is enough to create an &lt;code&gt;article&lt;/code&gt; module in the &lt;code&gt;backend/&lt;/code&gt; application based on the &lt;code&gt;BlogArticle&lt;/code&gt; class definition, and is accessible by the following:&amp;#8221;&gt;这个调用基于 &lt;code&gt;BlogArticle&lt;/code&gt; 足以在 &lt;code&gt;backend/&lt;/code&gt; 应用程序中创建一个 &lt;code&gt;article&lt;/code&gt; 模块，然后通过以下可以访问：&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;pre class=&quot;url&quot;&gt;http://localhost/backend_dev.php/article&lt;/pre&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;The look and feel of a generated module, illustrated in Figures 14-2 and 14-3, is sophisticated enough to make it usable out of the box for a commercial application.&quot;&gt;生成的模块的外观和体验，如图14-2和14-3所示。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;blockquote class=&quot;tip&quot;&gt;
+        &lt;p&gt;
+          &lt;span en=&quot;If you don't see the expected look and feel (no stylesheet and no image), this is because you need to install the assets in your project by running the &lt;code&gt;plugin:publish-assets&lt;/code&gt; task:&amp;#8221;&gt;如果你没有看到预期的外观和体验（没有样式表和图片），这个是因为你需要打 &lt;code&gt;plugin:publish-assets&lt;/code&gt; 命令在你的项目中安装素材：&lt;/span&gt;
+        &lt;/p&gt;
+        
+        &lt;pre class=&quot;command-line&quot;&gt;$ php symfony plugin:publish-assets&lt;/pre&gt;
+      &lt;/blockquote&gt;
+      
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Figure 14-2 - &lt;code&gt;list&lt;/code&gt; view of the &lt;code&gt;article&lt;/code&gt; module in the &lt;code&gt;backend&lt;/code&gt; application&amp;#8221;&gt;图 14-2 &amp;#8211; 在 &lt;code&gt;backend&lt;/code&gt; 应用程序的 &lt;code&gt;article&lt;/code&gt; 模块的 &lt;code&gt;list&lt;/code&gt; 视图&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;img src=&quot;res/F1402.png&quot; alt=&quot;在backend应用程序的article模块的list视图&quot; /&gt;
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Figure 14-3 - &lt;code&gt;edit&lt;/code&gt; view of the &lt;code&gt;article&lt;/code&gt; module in the &lt;code&gt;backend&lt;/code&gt; application&amp;#8221;&gt;图 14-3 &amp;#8211; 在 &lt;code&gt;backend&lt;/code&gt; 应用程序的 &lt;code&gt;article&lt;/code&gt; 模块的 &lt;code&gt;edit&lt;/code&gt; 视图&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;img src=&quot;res/F1403.png&quot; alt=&quot;在backend应用程序的article模块的edit视图&quot; /&gt;
+      &lt;/p&gt;
+      
+      &lt;h3&gt;
+        &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=37&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_14_sub_a_look_at_the_generated_code&quot;&gt;&lt;span en=&quot;14.2.2 A Look at the Generated Code&quot;&gt;14.2.2 看一下生成的代码&lt;/span&gt;&lt;/a&gt;
+      &lt;/h3&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;The code of the &lt;code&gt;article&lt;/code&gt; administration module, in the &lt;code&gt;apps/backend/modules/article/&lt;/code&gt; directory, looks empty because it is only initiated.&amp;#8221;&gt;管理后台的 &lt;code&gt;article&lt;/code&gt; 模块的代码，在 &lt;code&gt;apps/backend/modules/article/&lt;/code&gt; 目录，里面是空的，因为这仅仅只是个初始化。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The best way to review the generated code of this module is to interact with it using the browser, and then check the contents of the &lt;code&gt;cache/&lt;/code&gt; folder.&amp;#8221;&gt;检视生成的这个模块的代码的最好方法是使用浏览器与它交互，然后检查 &lt;code&gt;cache/&lt;/code&gt; 目录的内容。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Listing 14-2 lists the generated actions and the templates found in the &lt;code&gt;cache&lt;/code&gt;.&amp;#8221;&gt;例14-2在 &lt;code&gt;cache&lt;/code&gt; 中列出生成的动作和模板。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;&quot;&gt;例 14-2 &amp;#8211; 生成的管理后台中的元素，在 &lt;code&gt;cache/backend/ENV/modules/autoArticle/&lt;/code&gt;&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;pre&gt;&lt;span en=&quot;// Actions in actions/actions.class.php&quot;&gt;// 在 actions/actions.class.php 中的动作&lt;/span&gt;
+</code></pre>
+<p>index            <!-- raw HTML omitted -->// 显示表记录的列表<!-- raw HTML omitted -->
+filter           <!-- raw HTML omitted -->// 更新列表所使用的过滤器<!-- raw HTML omitted -->
+new              <!-- raw HTML omitted -->// 显示一个表单来创建一个新记录<!-- raw HTML omitted -->
+create           <!-- raw HTML omitted -->// 创建一个新记录<!-- raw HTML omitted -->
+edit             <!-- raw HTML omitted -->// 显示一个表单来修改一个记录的字段<!-- raw HTML omitted -->
+update           <!-- raw HTML omitted -->// 更新一个现有的记录<!-- raw HTML omitted -->
+delete           <!-- raw HTML omitted -->// 删除一个记录<!-- raw HTML omitted -->
+batch            <!-- raw HTML omitted -->// 对列表上所选的记录执行一个动作，即批量操作<!-- raw HTML omitted -->
+batchDelete      <!-- raw HTML omitted -->// 对列表上所选的记录执行delete动作，即批量删除<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->// 在 templates/ 中<!-- raw HTML omitted -->
+_assets.php
+_filters.php
+_filters_field.php
+_flashes.php
+_form.php
+_form_actions.php
+_form_field.php
+_form_fieldset.php
+_form_footer.php
+_form_header.php
+_list.php
+_list_actions.php
+_list_batch_actions.php
+_list_field_boolean.php
+_list_footer.php
+_list_header.php
+_list_td_actions.php
+_list_td_batch_actions.php
+_list_td_stacked.php
+_list_td_tabular.php
+_list_th_stacked.php
+_list_th_tabular.php
+_pagination.php
+editSuccess.php
+indexSuccess.php
+newSuccess.php<!-- raw HTML omitted --></p>
+<pre><code>      &lt;p&gt;
+        &lt;span en=&quot;This shows that a generated administration module is composed mainly of three views, &lt;code&gt;list&lt;/code&gt;, &lt;code&gt;new&lt;/code&gt; and &lt;code&gt;edit&lt;/code&gt;.&amp;#8221;&gt;一个管理后台模块主要由3个视图组成，&lt;code&gt;list&lt;/code&gt;、&lt;code&gt;new&lt;/code&gt; 和 &lt;code&gt;edit&lt;/code&gt;。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;If you have a look at the code, you will find it to be very modular, readable, and extensible.&quot;&gt;如果你看了生成的这些代码，你会发现它非常具有模块化、可读性和可扩展性。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;h3&gt;
+        &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=37&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_14_sub_introducing_the_generator_yml_configuration_file&quot;&gt;&lt;span en=&quot;14.2.3 Introducing the &lt;code&gt;generator.yml&lt;/code&gt; Configuration File&amp;#8221;&gt;14.2.3 &lt;code&gt;generator.yml&lt;/code&gt; 配置文件介绍&lt;/span&gt;&lt;/a&gt;
+      &lt;/h3&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;The generated administration modules rely on parameters found in the &lt;code&gt;generator.yml&lt;/code&gt; YAML configuration file.&amp;#8221;&gt;生成的管理后台模块是依赖于 &lt;code&gt;generator.yml&lt;/code&gt; YAML配置文件中的参数。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;To see the default configuration of a newly created administration module, open the &lt;code&gt;generator.yml&lt;/code&gt; file, located in the &lt;code&gt;backend/modules/article/config/generator.yml&lt;/code&gt; directory and reproduced in Listing 14-3.&amp;#8221;&gt;要看最近生成的管理后台模块的默认配置，则打开 &lt;code&gt;generator.yml&lt;/code&gt; 文件，位于 &lt;code&gt;backend/modules/article/config/generator.yml&lt;/code&gt; 目录，如例14-3。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Listing 14-3 - Default Generator Configuration, in &lt;code&gt;backend/modules/article/config/generator.yml&lt;/code&gt;&amp;#8220;&gt;例 14-3 &amp;#8211; 默认生成器的配置，在 &lt;code&gt;backend/modules/article/config/generator.yml&lt;/code&gt;&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;pre&gt;generator:
+</code></pre>
+<p>class: sfPropelGenerator
+param:
+model_class:           BlogArticle
+theme:                 admin
+non_verbose_templates: true
+with_show:             false
+singular:              BlogArticle
+plural:                BlogArticles
+route_prefix:          blog_article
+with_propel_route:     1
+actions_base_class:    sfActions
+ 
+config:
+actions: ~
+fields:  ~
+list:    ~
+filter:  ~
+form:    ~
+edit:    ~
+new:     ~<!-- raw HTML omitted --></p>
+<pre><code>      &lt;p&gt;
+        &lt;span en=&quot;This configuration is enough to generate the basic administration.&quot;&gt;这个配置足够生成基本的管理后台。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Any customization is added under the &lt;code&gt;config&lt;/code&gt; key.&amp;#8221;&gt;任何自定义都是在 &lt;code&gt;config&lt;/code&gt; 键下面添加的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Listing 14-4 shows a typical customized &lt;code&gt;generator.yml&lt;/code&gt;.&amp;#8221;&gt;例14-4显示一个典型的自定义 &lt;code&gt;generator.yml&lt;/code&gt;。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Listing 14-4 - Typical Complete Generator Configuration&quot;&gt;例 14-4 &amp;#8211; 典型的完整的生成器配置&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;pre&gt;generator:
+</code></pre>
+<p>class: sfPropelGenerator
+param:
+model_class:           BlogArticle
+theme:                 admin
+non_verbose_templates: true
+with_show:             false
+singular:              BlogArticle
+plural:                BlogArticles
+route_prefix:          blog_article
+with_propel_route:     1
+actions_base_class:    sfActions
+ 
+config:
+actions:
+_new: { label: &ldquo;Create a new article&rdquo; }
+ 
+fields:
+author_id:    { label: Article author }
+published_on: { credentials: editor }
+ 
+list:
+title:          Articles
+display:        [title, blog_author, blog_category]
+fields:
+published_on: { date_format: dd/MM/yy }
+layout:         stacked
+params:         |
+%%is_published%%&lt;strong&gt;%%=title%%&lt;/strong&gt;&lt;br /&gt;&lt;em&gt;by %%blog_author%%
+in %%blog_category%% (%%created_at%%)&lt;/em&gt;&lt;p&gt;%%content%%&lt;/p&gt;</p>
+<pre><code>    max_per_page:   2
+    sort:           [title, asc]
+</code></pre>
+<p> 
+filter:
+display: [title, blog_category_id, blog_author_id, is_published]
+ 
+form:
+display:
+&ldquo;Post&rdquo;:       [title, blog_category_id, content]
+&ldquo;Workflow&rdquo;:   [blog_author_id, is_published, created_at]
+fields:
+published_at: { help: &ldquo;Date of publication&rdquo; }
+title:        { attributes: { style: &ldquo;width: 350px&rdquo; } }
+ 
+new:
+title: New article
+ 
+edit:
+title: Editing article &ldquo;%%title%%&quot;<!-- raw HTML omitted --></p>
+<pre><code>      &lt;p&gt;
+        &lt;span en=&quot;In this configuration, there are six sections.&quot;&gt;在这个配置中，有6个节。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Four of them represent views (&lt;code&gt;list&lt;/code&gt;, &lt;code&gt;filter&lt;/code&gt;, &lt;code&gt;new&lt;/code&gt; and &lt;code&gt;edit&lt;/code&gt;) and two of them are &quot;virtuals&quot; (&lt;code&gt;fields&lt;/code&gt; and &lt;code&gt;form&lt;/code&gt;) and only exists for configuration purpose.&amp;#8221;&gt;它们其中4个分别代表（&lt;code&gt;list&lt;/code&gt;、&lt;code&gt;filter&lt;/code&gt;、&lt;code&gt;new&lt;/code&gt;、&lt;code&gt;edit&lt;/code&gt;）然后另外两个是“虚拟的”（&lt;code&gt;fields&lt;/code&gt;、&lt;code&gt;form&lt;/code&gt;）。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;The following sections explain in detail all the parameters that can be used in this configuration file.&quot;&gt;下面的章节详细解释了位于这个配置文件中的所有参数。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;h2&gt;
+        &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=37&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_14_generator_configuration&quot;&gt;&lt;span en=&quot;14.3 Generator Configuration&quot;&gt;14.3 生成器配置&lt;/span&gt;&lt;/a&gt;
+      &lt;/h2&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;The generator configuration file is very powerful, allowing you to alter the generated administration in many ways.&quot;&gt;生成器配置文件非常强大，允许你用多种方式来更改生成管理后台。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;But such capabilities come with a price: The overall syntax description is long to read and learn, making this chapter one of the longest in this book.&quot;&gt;但这种方式付出了代价：整体语法描述太长以至于不易阅读。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;The examples of this section will tweak the &lt;code&gt;article&lt;/code&gt; administration module, as well as the &lt;code&gt;comment&lt;/code&gt; administration module, based on the &lt;code&gt;BlogComment&lt;/code&gt; class definition.&amp;#8221;&gt;本章节的例子会描述 &lt;code&gt;article&lt;/code&gt; 管理后台模块，和 &lt;code&gt;comment&lt;/code&gt; 管理后台模块一样，基于 &lt;code&gt;BlogComment&lt;/code&gt; 类定义。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Create the latter by launching the propel:generate-admin task:&quot;&gt;通过打 &lt;code&gt;propel:generate-admin&lt;/code&gt; 命令创建后者：&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;pre class=&quot;command-line&quot;&gt;$ php symfony propel:generate-admin backend BlogComment --module=comment&lt;/pre&gt;
+      
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Figure 14-4 - The administration generator cheat sheet&quot;&gt;图 14-4 &amp;#8211; 管理后台生成器备忘表&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;img src=&quot;res/F1404.png&quot; alt=&quot;管理后台生成器备忘表&quot; /&gt;
+      &lt;/p&gt;
+      
+      &lt;h3&gt;
+        &lt;a href=&quot;forum.php?mod=viewthread&amp;#038;tid=37&amp;#038;extra=page%3D1#&quot; id=&quot;chapter_14_sub_fields&quot;&gt;&lt;span en=&quot;14.3.1 Fields&quot;&gt;14.3.1 字段&lt;/span&gt;&lt;/a&gt;
+      &lt;/h3&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;By default, the columns of the &lt;code&gt;list&lt;/code&gt; view are the columns defined in &lt;code&gt;schema.yml&lt;/code&gt;.&amp;#8221;&gt;默认，&lt;code&gt;list&lt;/code&gt; 视图的列都是被定义在 &lt;code&gt;schema.yml&lt;/code&gt; 里面。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The fields of the &lt;code&gt;new&lt;/code&gt; and &lt;code&gt;edit&lt;/code&gt; views are the one defined in the form associated with the model (&lt;code&gt;BlogArticleForm&lt;/code&gt;).&amp;#8221;&gt;&lt;code&gt;new&lt;/code&gt; 和 &lt;code&gt;edit&lt;/code&gt; 视图的字段和定义在表单关联的模型（&lt;code&gt;BlogArticleForm&lt;/code&gt;）中的字段都是同一个。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;With &lt;code&gt;generator.yml&lt;/code&gt;, you can choose which fields are displayed, which ones are hidden, and add fields of your own&amp;#8211;even if they don&amp;#8217;t have a direct correspondence in the object model.&amp;#8221;&gt;用 &lt;code&gt;generator.yml&lt;/code&gt;，你可以选定哪些字段显示，哪些字段隐藏，还有添加你自己的字段，甚至是与对象模型没有直接关系的字段。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;h4&gt;
+        &lt;span en=&quot;Field Settings&quot;&gt;字段设置&lt;/span&gt;
+      &lt;/h4&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;The administration generator creates a &lt;code&gt;field&lt;/code&gt; for each column in the &lt;code&gt;schema.yml&lt;/code&gt; file.&amp;#8221;&gt;管理后台生成器在 &lt;code&gt;schema.yml&lt;/code&gt; 文件中为每个列创建一个 &lt;code&gt;field&lt;/code&gt;。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;Under the &lt;code&gt;fields&lt;/code&gt; key, you can modify the way each field is displayed, formatted, etc.&amp;#8221;&gt;在 &lt;code&gt;fields&lt;/code&gt; 键下面，你可以更改每个字段是否显示还有格式化等等。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, the field settings shown in Listing 14-5 define a custom label class and input type for the &lt;code&gt;title&lt;/code&gt; field, and a label and a tooltip for the &lt;code&gt;content&lt;/code&gt; field.&amp;#8221;&gt;例如，例14-5为 &lt;code&gt;title&lt;/code&gt; 字段定义一个自定义的label标签的class属性和输入类型，还有给 &lt;code&gt;content&lt;/code&gt; 字段添加的label标签和tooltip提示。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The following sections will describe in detail how each parameter works.&quot;&gt;下面的章节会详细描述每个参数如何工作。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Listing 14-5 - Setting a Custom Label for a Column&quot;&gt;例 14-5 &amp;#8211; 给一个列设置一个自定义label标签&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;pre&gt;config:
+</code></pre>
+<p>fields:
+title:
+label: Article Title
+attributes: { class: foo }
+content: { label: Body, help: Fill in the article body }<!-- raw HTML omitted --></p>
+<pre><code>      &lt;p&gt;
+        &lt;span en=&quot;In addition to this default definition for all the views, you can override the field settings for a given view (&lt;code&gt;list&lt;/code&gt;, &lt;code&gt;filter&lt;/code&gt;, &lt;code&gt;form&lt;/code&gt;, &lt;code&gt;new&lt;/code&gt; and &lt;code&gt;edit&lt;/code&gt;), as demonstrated in Listing 14-6.&amp;#8221;&gt;此外这个默认定义是全部所有的视图的定义，你可以覆盖一个给定的视图的字段设置（&lt;code&gt;list&lt;/code&gt;、&lt;code&gt;filter&lt;/code&gt;、&lt;code&gt;form&lt;/code&gt;、&lt;code&gt;new&lt;/code&gt;、&lt;code&gt;edit&lt;/code&gt;），如例14-6所示。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Listing 14-6 - Overriding Global Settings View per View&quot;&gt;例 14-6 &amp;#8211; 全局设置&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;pre&gt;config:
+</code></pre>
+<p>fields:
+title:     { label: Article Title }
+content:   { label: Body }
+ 
+list:
+fields:
+title:   { label: Title }
+ 
+form:
+fields:
+content: { label: Body of the article }<!-- raw HTML omitted --></p>
+<pre><code>      &lt;p&gt;
+        &lt;span en=&quot;This is a general principle: Any settings that are set for the whole module under the &lt;code&gt;fields&lt;/code&gt; key can be overridden by view-specific areas. The overriding rules are the following:&amp;#8221;&gt;这是个一般原则：所有 &lt;code&gt;fields&lt;/code&gt; 键下的模块全局设置可以在特定的视图里（&lt;code&gt;list&lt;/code&gt; 与 &lt;code&gt;edit&lt;/code&gt;）覆盖。覆盖规则如下：&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;span en=&quot;&lt;code&gt;new&lt;/code&gt; and &lt;code&gt;edit&lt;/code&gt; inherits from &lt;code&gt;form&lt;/code&gt; which inherits &lt;code&gt;form&lt;/code&gt; fields&amp;#8221;&gt;&lt;code&gt;new&lt;/code&gt; 和 &lt;code&gt;edit&lt;/code&gt; 继承 &lt;code&gt;form&lt;/code&gt;，&lt;code&gt;form&lt;/code&gt; 再继承 &lt;code&gt;fields&lt;/code&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;span en=&quot;&lt;code&gt;list&lt;/code&gt; inherits &lt;code&gt;fields&lt;/code&gt; fields&amp;#8221;&gt;&lt;code&gt;list&lt;/code&gt; 继承 &lt;code&gt;fields&lt;/code&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;span en=&quot;&lt;code&gt;filter&lt;/code&gt; inherits from &lt;code&gt;fields&lt;/code&gt;&amp;#8220;&gt;&lt;code&gt;filter&lt;/code&gt; 继承 &lt;code&gt;fields&lt;/code&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      
+      &lt;h4&gt;
+        &lt;span en=&quot;Adding Fields to the Display&quot;&gt;添加字段并显示出来&lt;/span&gt;
+      &lt;/h4&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;The fields that you define in the &lt;code&gt;fields&lt;/code&gt; section can be displayed, hidden, ordered, and grouped in various ways for each view.&amp;#8221;&gt;你在 &lt;code&gt;fields&lt;/code&gt; 节定义的字段是可以被显示、隐藏、排列，还有，为每个视图以各种不同的方式分组。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;The &lt;code&gt;display&lt;/code&gt; key is used for that purpose.&amp;#8221;&gt;&lt;code&gt;display&lt;/code&gt; 键就是用于这个目的的。&lt;/span&gt;&lt;br /&gt; &lt;span en=&quot;For instance, to arrange the fields of the &lt;code&gt;comment&lt;/code&gt; module, use the code of Listing 14-7.&amp;#8221;&gt;例如，要安排 &lt;code&gt;comment&lt;/code&gt; 模块的字段，看例14-7的代码。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Listing 14-7 - Choosing the Fields to Display, in &lt;code&gt;modules/comment/config/generator.yml&lt;/code&gt;&amp;#8220;&gt;例 14-7 &amp;#8211; 选择要显示的字段，在 &lt;code&gt;modules/comment/config/generator.yml&lt;/code&gt;&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;pre&gt;config:
+</code></pre>
+<p>fields:
+article_id: { label: Article }
+created_at: { label: Published on }
+content:    { label: Body }
+ 
+list:
+display:    [id, blog_article_id, content]
+ 
+form:
+display:
+NONE:     [blog_article_id]
+Editable: [author, content, created_at]<!-- raw HTML omitted --></p>
+<pre><code>      &lt;p&gt;
+        &lt;span en=&quot;The &lt;code&gt;list&lt;/code&gt; will then display three columns, as in Figure 14-5, and the &lt;code&gt;new&lt;/code&gt; and &lt;code&gt;edit&lt;/code&gt; form will display four fields, assembled in two groups, as in Figure 14-6.&amp;#8221;&gt;&lt;code&gt;list&lt;/code&gt; 将会显示成3列，如图14-5，然后 &lt;code&gt;new&lt;/code&gt; 和 &lt;code&gt;edit&lt;/code&gt; 表单会显示4个字段，分成两组，如图14-6。&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Figure 14-5 - Custom column setting in the &lt;code&gt;list&lt;/code&gt; view of the &lt;code&gt;comment&lt;/code&gt; module&amp;#8221;&gt;图 14-5 &amp;#8211; 设置 &lt;code&gt;comment&lt;/code&gt; 模块中 &lt;code&gt;list&lt;/code&gt; 视图的自定义列&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;&quot;&gt;&lt;img src=&quot;res/F1405.png&quot; alt=&quot;设置comment模块的list视图的自定义列&quot; /&gt;&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;figure&quot;&gt;
+        &lt;span en=&quot;Figure 14-6 - Grouping fields in the &lt;code&gt;edit&lt;/code&gt; view of the &lt;code&gt;comment&lt;/code&gt; module&amp;#8221;&gt;图 14-6 &amp;#8211; 分组 &lt;code&gt;comment&lt;/code&gt; 模块中 &lt;code&gt;edit&lt;/code&gt; 视图的字段&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;img src=&quot;res/F1406.png&quot; alt=&quot;分组comment模块中edit视图的字段&quot; /&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;span en=&quot;So you can use the display setting in two ways:&quot;&gt;有两种方式设置 &lt;code&gt;display&lt;/code&gt;：&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;span en=&quot;For the &lt;code&gt;list&lt;/code&gt; view: Put the fields in a simple array to select the columns to display and the order in which they appear.&amp;#8221;&gt;&lt;code&gt;list&lt;/code&gt; 视图：选择要显示的字段，按照出现的顺序排列，放在数组里。&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;span en=&quot;For the &lt;code&gt;form&lt;/code&gt;, &lt;code&gt;new&lt;/code&gt; and &lt;code&gt;edit&lt;/code&gt; </code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%E9%82%AE%E4%BB%B6/" data-toggle="tooltip" data-placement="top" title="第十一章：邮件">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0%E5%9B%BD%E9%99%85%E5%8C%96%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8C%96/" data-toggle="tooltip" data-placement="top" title="第十三章：国际化和本地化">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">9000 Words|Read in about 18 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on IT技术分享</title>
+    <link>https://www.51hint.com/tags/vim/</link>
+    <description>Recent content in vim on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Aug 2019 21:24:28 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim内置目录浏览</title>
+      <link>https://www.51hint.com/posts/vim%E5%86%85%E7%BD%AE%E7%9B%AE%E5%BD%95%E6%B5%8F%E8%A7%88/</link>
+      <pubDate>Sun, 25 Aug 2019 21:24:28 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/vim%E5%86%85%E7%BD%AE%E7%9B%AE%E5%BD%95%E6%B5%8F%E8%A7%88/</guid>
+      <description>输入 :Veplore 即开分开 配置vimrc let g:netrw_hide = 1 let g:netrw_liststyle = 1 let g:netrw_banner = 0 let g:netrw_browse_split = 4 let g:netrw_winsize = 24 let g:netrw_altv = 1 let g:netrw_chgwin = 2 let g:netrw_list_hide = &amp;#39;.*\.swp$&amp;#39; let g:netrw_localrmdir = &amp;#39;rm -rf&amp;#39; let g:netrw_bufsettings=&amp;#34;noma nomod nowrap ro nobl&amp;#34; 切换窗口 ctrl + w + jhkl</description>
+    </item>
+    
+    <item>
+      <title>Mvim新标签</title>
+      <link>https://www.51hint.com/posts/mvim%E6%96%B0%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Sun, 25 Aug 2019 21:21:18 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/mvim%E6%96%B0%E6%A0%87%E7%AD%BE/</guid>
+      <description>mvim新标签打开文件 which mvim vim /usr/local/bin/mvim 文件头加入 tabs=true 把底部的if块 替换为下面的 if [ &amp;#34;$gui&amp;#34; ]; then if $tabs &amp;amp;&amp;amp; [[ `$binary --serverlist` = &amp;#34;VIM&amp;#34; ]]; then exec &amp;#34;$binary&amp;#34; -g $opts --remote-tab-silent ${1:+&amp;#34;$@&amp;#34;} else exec &amp;#34;$binary&amp;#34; -g $opts ${1:+&amp;#34;$@&amp;#34;} fi else exec &amp;#34;$binary&amp;#34; $opts ${1:+&amp;#34;$@&amp;#34;} fi</description>
+    </item>
+    
+    <item>
+      <title>Vim文字大小</title>
+      <link>https://www.51hint.com/posts/vim%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/</link>
+      <pubDate>Fri, 01 Mar 2019 11:51:52 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/vim%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/</guid>
+      <description>更改vim默认文字大小 set guifont=* 谈起选择字体和文字大小对话框 set guifont? 设置到.vimrc;保存即可</description>
+    </item>
+    
+    <item>
+      <title>vim基本用法</title>
+      <link>https://www.51hint.com/posts/vimji-ben-yong-fa/</link>
+      <pubDate>Fri, 27 Jan 2017 23:49:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/vimji-ben-yong-fa/</guid>
+      <description>简明 VIM 练级攻略 http://coolshell.cn/articles/5426.html command: p ce &amp;mdash;&amp;mdash;&amp;mdash;-&amp;gt; To change until end of a word cw &amp;mdash;&amp;mdash;&amp;mdash;-&amp;gt; delete a words and places you insert mode c$ &amp;mdash;&amp;mdash;&amp;mdash;-&amp;gt; delete the whole line and place insert mode CTRL-G ----------&amp;gt; show the file name and status % ----------&amp;gt; place the cursor on ay (,{,[ then Mgoes to its match. / ----------&amp;gt; search FORWARD ? ----------&amp;gt; search BACKWARD To substitute</description>
+    </item>
+    
+    <item>
+      <title>vim环境下载</title>
+      <link>https://www.51hint.com/posts/2015-11-04-vim%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Wed, 04 Nov 2015 06:17:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-04-vim%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%BD/</guid>
+      <description>vim 下载配置 $ ln -s ~/.vimrc xxx/vim/vimrc iterm2 Solarized Light.itermcolors</description>
+    </item>
+    
+    <item>
+      <title>vim插件</title>
+      <link>https://www.51hint.com/posts/2015-10-28-vim%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Wed, 28 Oct 2015 07:14:27 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-10-28-vim%E6%8F%92%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macvim配制学习</title>
+      <link>https://www.51hint.com/posts/2015-09-08-macvim%E9%85%8D%E5%88%B6%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 08 Sep 2015 07:01:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-09-08-macvim%E9%85%8D%E5%88%B6%E5%AD%A6%E4%B9%A0/</guid>
+      <description>在线学习教程 https://danielmiessler.com/study/vim/ vim cheatsheet www.worldtimzone.com/res/vi.html Vim Cheat Sheet www.fprintf.net/vimCheatSheet.html 安装： $ brew install macvim vim的精髓就是强大的插件支持，当然最繁琐的也是配置的插件，幸运的是github上已经有了很完善的</description>
+    </item>
+    
+    <item>
+      <title>ios开发环境</title>
+      <link>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Thu, 20 Aug 2015 00:14:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim_6 [grep  简单使用]</title>
+      <link>https://www.51hint.com/posts/2012-12-25-vim_6-grep-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 25 Dec 2012 05:05:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-25-vim_6-grep-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>vim 使用</description>
+    </item>
+    
+    <item>
+      <title>git_vim_5 [tig]</title>
+      <link>https://www.51hint.com/posts/2012-12-20-vim_5-tig/</link>
+      <pubDate>Thu, 20 Dec 2012 09:59:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-vim_5-tig/</guid>
+      <description>tig text-mode interface for git ubuntu install tig #apt-get install tig mac install tig #brew install tig #brew install git-flow #brew install git-extras #brew install wget #brew install curl #brew install autojump {jumpstat j au} #brew install tree diff gui界面 #gitk 查看谁修改的文件 #git blame filename #tig blame filename 特定文件修改历史 #tig filename 查</description>
+    </item>
+    
+    <item>
+      <title>vim_4 [buffers]</title>
+      <link>https://www.51hint.com/posts/2012-12-20-vim_4-buffers/</link>
+      <pubDate>Thu, 20 Dec 2012 09:14:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-20-vim_4-buffers/</guid>
+      <description>vim 缓冲区操作 查看帮助 #:h buffers 窗口和buffers是不同的 #:vs “foo” 查看buffers #:ls 切换缓冲 #b 1 tab 切换缓冲区 # .vimrc #当前行号 set laststatus=2 set statusline=%F:\ %l #tab</description>
+    </item>
+    
+    <item>
+      <title>vim_2 [fuzzyFinder]  查找文件</title>
+      <link>https://www.51hint.com/posts/2012-12-05-vim_2-fuzzyfinder-%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Wed, 05 Dec 2012 10:32:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-05-vim_2-fuzzyfinder-%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6/</guid>
+      <description>FuzzyFinder 找文件 unzip vim-fuzzyFinder.zip -d ~/.vim unzip vim-l9.zip -d ~/.vim 生成帮助文档 :helpctags ~/.vim/doc :h fuf 在项目文件夹下 模糊匹配文件名 :FufCoverageFile 精确匹配文件名 :FufCoverageFile! 若匹配目录 则在字母后面加上/ 若只匹配某后缀名如er</description>
+    </item>
+    
+    <item>
+      <title>vim_1 [snipmate]</title>
+      <link>https://www.51hint.com/posts/2012-12-05-vim_1-snipmate/</link>
+      <pubDate>Wed, 05 Dec 2012 10:12:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-05-vim_1-snipmate/</guid>
+      <description>vim 代码片段 代码片段 下载snipmate.zip cd ~/.vim unzip snipmate.zip -d ~/.vim snipmate使用方法 输入代码小片段关键词，然后[tab]</description>
+    </item>
+    
+    <item>
+      <title>vim_0  [ctag]</title>
+      <link>https://www.51hint.com/posts/2012-12-05-vim_0-ctag/</link>
+      <pubDate>Wed, 05 Dec 2012 09:53:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-05-vim_0-ctag/</guid>
+      <description>ctags 命令生成tags文件 找到代码定义使用[ctrl + []返回到当前代码使用[ctrl + o]</description>
+    </item>
+    
+    <item>
+      <title>macvim,vim 命令及其配制</title>
+      <link>https://www.51hint.com/posts/2012-08-09-vivim-%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 09 Aug 2012 02:18:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-vivim-%E5%91%BD%E4%BB%A4/</guid>
+      <description>vimrc</description>
+    </item>
+    
+  </channel>
+</rss>

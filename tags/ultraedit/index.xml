@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ultraedit on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ultraedit/</link>
+    <description>Recent content in ultraedit on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Jun 2012 06:07:03 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ultraedit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ultraedit上实现php语法高亮、智能提示、编译和调试</title>
+      <link>https://www.51hint.com/posts/2012-06-28-ultraedit%E4%B8%8A%E5%AE%9E%E7%8E%B0php%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Thu, 28 Jun 2012 06:07:03 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-28-ultraedit%E4%B8%8A%E5%AE%9E%E7%8E%B0php%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA%E7%BC%96%E8%AF%91%E5%92%8C%E8%B0%83%E8%AF%95/</guid>
+      <description>语法高亮 视图–&amp;gt;查看方式—&amp;gt;php 智能提示，自动完成 高级–&amp;gt;配置–&amp;gt;编辑器–&amp;gt;自动完成–&amp;gt;勾选自动显示…</description>
+    </item>
+    
+  </channel>
+</rss>

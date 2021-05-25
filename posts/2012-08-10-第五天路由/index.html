@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第五天：路由 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第五天：路由" />
+  <meta name="twitter:title" content="第五天：路由" />
+  <meta name="description" content="目录 5.1 URLs 5.2 路由配置 5.3 自定义路由 5.4 路由中的条件 5.5 路由类 5.6 路由类对象 5.7 在动作和模板中的路由 5.8 汇集路由类 5.9 调试路由 5.10 默认路由 5.11 结语 如果你做完了第四">
+  <meta property="og:description" content="目录 5.1 URLs 5.2 路由配置 5.3 自定义路由 5.4 路由中的条件 5.5 路由类 5.6 路由类对象 5.7 在动作和模板中的路由 5.8 汇集路由类 5.9 调试路由 5.10 默认路由 5.11 结语 如果你做完了第四">
+  <meta name="twitter:description" content="目录 5.1 URLs 5.2 路由配置 5.3 自定义路由 5.4 路由中的条件 5.5 路由类 5.6 路由类对象 5.7 在动作和模板中的路由 5.8 汇集路由类 5.9 调试路由 5.10 默认路由 5.11 结语 如果你做完了第四">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%BA%94%E5%A4%A9%E8%B7%AF%E7%94%B1/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%BA%94%E5%A4%A9%E8%B7%AF%E7%94%B1/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第五天：路由</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">5500 Words|Read in about 11 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_05_url_s"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.1 URL<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_05_routing_configuration"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.2 路由配置<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_05_route_customizations"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.3 自定义路由<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_05_requirements"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.4 路由中的条件<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_05_route_class"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.5 路由类<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_05_object_route_class"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.6 路由类对象<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_05_routing_in_actions_and_templates"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.7 在动作和模板中的路由<!-- raw HTML omitted --></a></a></li>
+    <li><a href="#chapter_05_collection_route_class"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.8 汇集路由类<!-- raw HTML omitted --></a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#chapter_05_url_s">5.1 URLs</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#chapter_05_routing_configuration">5.2 路由配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#chapter_05_route_customizations">5.3 自定义路由</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#chapter_05_requirements">5.4 路由中的条件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#chapter_05_route_class">5.5 路由类</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#chapter_05_object_route_class">5.6 路由类对象</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#chapter_05_routing_in_actions_and_templates">5.7 在动作和模板中的路由</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#chapter_05_collection_route_class">5.8 汇集路由类</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#chapter_05_route_debugging">5.9 调试路由</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#chapter_05_default_routes">5.10 默认路由</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#chapter_05_final_thoughts">5.11 结语</a></li>
+<li></li>
+</ul>
+<p><!-- raw HTML omitted -->如果你做完了第四天的教程，你现在应该熟悉MVC模式，而且感觉编码越来越自然。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->我们定制了Jobeet页面，并在此过程中，也回顾了几个symfony的概念，比如布局、辅助函数、槽。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->今天，我们会深入symfony路由框架的奇妙世界。<!-- raw HTML omitted --></p>
+<h2 id="chapter_05_url_s"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.1 URL<!-- raw HTML omitted --></a></h2>
+<p>&lt;span en=&ldquo;If you click on a job on the Jobeet homepage, the URL looks like this: <code>/job/show/id/1</code>.”&gt;如果你在首页点击一个职位，URL看起来像这样：<code>/job/show/id/1</code>。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;If you have already developed PHP websites, you are probably more accustomed to URLs like <code>/job.php?id=1</code>.”&gt;如果你开发过PHP网站，你可能更习惯URL像这样 <code>job.php?id=1</code>。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->那么，symfony如何使它工作？<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->基于这个URL，symfony如何来确定调用哪个动作？<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Why is the id of the job retrieved with <code>$request-&gt;getParameter(&amp;#8216;id&amp;#8217;)</code>?”&gt;为什么职位的 <code>id</code> 用 <code>$request-&gt;getParameter('id')</code> 取得？<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这里，我们会回答所有这些问题。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->但首先，我们讲一下URL，还有他们究竟是什么。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在web资源、中，一个URL是web资源中的唯一标示。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当你转到一个URL时，你输入一个URL到浏览器中从而得到资源。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->那么，URL是作为网站与用户之间的接口，它必须传达它引用了一些有意义的信息资源。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->但“传统”的URL实际没有描述到资源，他们暴露网站的内部结构。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->用户不关心你的网站是PHP语言开发的，或者职位在数据库中具有一定的标示符。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->公开网站的内部运作是不太好的，以至于影响到安全：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果用户尝试猜测URL资源，而他并没有访问权限怎么办？<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当然，开发者必须确保他们的正确方法，但你最好隐藏好敏感信息。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;URLs are so important in symfony that it has an entire framework dedicated to their management: the <strong>routing</strong> framework.”&gt;URL在symfony中如此重要，它有一整个框架致力于他们的管理：<strong>路由</strong>框架。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->路由管理内部URI和外部URL。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当一个请求进来时，路由解析URL然后转换到一个内部的URI。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;You have already seen the internal URI of the job page in the <code>indexSuccess.php</code> template:”&gt;你已经在 <code>indexSuccess.php</code> 模板中看到职位页面内部URI：<!-- raw HTML omitted --></p>
+<pre><code>'job/show?id='.$job-&gt;getId()
+</code></pre>
+<p>&lt;span en=&ldquo;The <code>url_for()</code> helper converts this internal URI to a proper URL:”&gt;<code>url_for()</code> 辅助函数转换这个内部URI为一个恰当的URL：<!-- raw HTML omitted --></p>
+<pre><code>/job/show/id/1
+</code></pre>
+<p><!-- raw HTML omitted -->内部URI是由几个部分组成：<!-- raw HTML omitted --></p>
+<p>&lt;span en=&quot;<code>job</code> is the module, <code>show</code> is the action and the query string adds parameters to pass to the action.”&gt;<code>job</code> 是模块，<code>show</code> 是动作和将传递给动作的查询字符串参数。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->内部URI一般模式是：<!-- raw HTML omitted --></p>
+<pre><code>MODULE/ACTION?key=value&amp;key_1=value_1&amp;... 
+</code></pre>
+<p><!-- raw HTML omitted -->作为symfony路由是一个双向的过程，你可以更改URL而不改变技术的实现。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这个是前端控制器设计模式的主要优点之一。<!-- raw HTML omitted --></p>
+<h2 id="chapter_05_routing_configuration"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.2 路由配置<!-- raw HTML omitted --></a></h2>
+<p>&lt;span en=&ldquo;The mapping between internal URIs and external URLs is done in the <code>routing.yml</code> configuration file:”&gt;内部URL和外部URL的映射是在 <code>routing.yml</code> 配置文件完成的：<!-- raw HTML omitted --></p>
+<pre><code># apps/frontend/config/routing.yml
+homepage:
+  url:   /
+  param: { module: default, action: index }
+ 
+default_index:
+  url:   /:module
+  param: { action: index }
+ 
+default:
+  url:   /:module/:action/*
+</code></pre>
+<p>&lt;span en=&ldquo;The <code>routing.yml</code> file describes routes.”&gt;<code>routing.yml</code> 文件描述路由。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;A route has a name (<code>homepage</code>), a pattern (<code>/:module/:action/*</code>), and some parameters (under the <code>param</code> key).”&gt;一个路由有一个名称（<code>homepage</code>）、一个模式（<code>/:module/:action/*</code>），和一些参数（<code>param</code> 键）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当一个请求进来，路由试图匹配一个给定的URL模式。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The first route that matches wins, so the order in <code>routing.yml</code> is important.”&gt;最前面的优先匹配，所以在 <code>routing.yml</code> 里的排列很重要的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->看一些例子以更好的理解这个是如何工作的。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;When you request the Jobeet homepage, which has the <code>/job</code> URL, the first route that matches is the <code>default_index</code> one.”&gt;当你请求Jobeet首页时，其中有 <code>/job</code> URL，最先匹配的路由是 <code>default_index</code>。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;In a pattern, a word prefixed with a colon (:) is a variable, so the <code>/:module</code> pattern means: Match a <code>/</code> followed by something.”&gt;在一个模式中，一个名字前面加了一个冒号（:）则是一个变量，所以 <code>/:module</code> 模式的意思是：匹配一个 <code>/</code> 后面的一切。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;In our example, the <code>module</code> variable will have <code>job</code> as a value.”&gt;在我们的例子中，<code>module</code> 变量会把 <code>job</code> 作为一个值。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;This value can then be retrieved with <code>$request-&gt;getParameter(&amp;#8216;module&amp;#8217;)</code> in the action.”&gt;在动作里可以用 <code>$request-&gt;getParameter('module')</code> 来检索到这个值。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;This route also defines a default value for the <code>action</code> variable.”&gt;这个路由也可以对一个 <code>action</code> 变量定义一个默认值。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;So, for all URLs matching this route, the request will also have an <code>action</code> parameter with <code>index</code> as a value.”&gt;那么，对于所有匹配这个路由的URL，请求也会有一个 <code>action</code> 参数用 <code>index</code> 作为一个值。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;If you request the <code>/job/show/id/1</code> page, symfony will match the last pattern: <code>/:module/:action/*</code>.”&gt;如果你请求 <code>/job/show/id/1</code> 页面，symfony 会匹配最后一个模式：<code>/:module/:action/*</code>。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在一个模式中，一个星号（*）匹配一个由斜杠（/）分离的一对变量/值组成的集合：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  &lt;span en=&quot;Value&quot;&gt;值&lt;/span&gt;
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  job
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  show
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  1
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;The <code>/job/show/id/1</code> URL can be created from a template by using the following call to the <code>url_for()</code> helper:”&gt;<code>/job/show/id/1</code> URL可以在一个模板中调用 <code>url_for()</code> 辅助函数来创建：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;You can also use the route name by prefixing it by <code>@</code>:”&gt;你也可以用带 <code>@</code> 前缀的路由名字：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->两种调用是等效的，但后者更快，因为没有解析所有的路由来寻找最佳匹配（在内部URI中模型和动作的名字是不存在的）。<!-- raw HTML omitted --></p>
+<h2 id="chapter_05_route_customizations"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.3 自定义路由<!-- raw HTML omitted --></a></h2>
+<p>&lt;span en=&ldquo;For now, when you request the <code>/</code> URL in a browser, you have the default congratulations page of symfony.”&gt;对于现在，当你在浏览器中请求URL <code>/</code>，你会看到默认的symfony祝贺页面。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;That&rsquo;s because this URL matches the <code>homepage</code> route.”&gt;这是因为URL匹配 <code>homepage</code> 路由。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->要将默认匹配改为Jobeet的主页。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;To make the change, modify the <code>module</code> variable of the <code>homepage</code> route to <code>job</code>:”&gt;则修改 <code>homepage</code> 路由的 <code>module</code> 变量为 <code>job</code>：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;We can now change the link of the Jobeet logo in the layout to use the <code>homepage</code> route:”&gt;我们现在可以在布局中修改Jobeet LOGO的链接为 <code>homepage</code> 路由：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->我们改变职位页面的URL使得更有意义：<!-- raw HTML omitted --></p>
+<pre><code>/job/sensio-labs/paris-france/1/web-developer
+</code></pre>
+<p><!-- raw HTML omitted -->不知道任何关于Jobeet的情况，而且也没有看过页面，从URL中你就可以看的出Sensio Labs公司在法国巴黎正在寻找一个web开发者。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->下面的模式匹配这样一个URL：<!-- raw HTML omitted --></p>
+<pre><code>/job/:company/:location/:id/:position
+</code></pre>
+<p>&lt;span en=&ldquo;Edit the <code>routing.yml</code> file and add the <code>job_show_user</code> route at the beginning of the file:”&gt;编辑 <code>routing.yml</code> 文件并在文件的开头增加 <code>job_show_user</code> 路由：<!-- raw HTML omitted --></p>
+<pre><code>job_show_user:
+  url:  /job/:company/:location/:id/:position
+  param:  { module: job, action: show }
+</code></pre>
+<p><!-- raw HTML omitted -->如果你刷新Jobeet首页，链接并没有改变。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这是因为要生成路由，你需要传递所有需要的变量。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;So, you need to change the url_for() call in <code>indexSuccess.php</code> to:”&gt;因此，你需要在 <code>indexSuccess.php</code> 更改 <code>url_for()</code> 调用：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->一个内部URI也可以以一个数组来表达：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_05_requirements"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.4 路由中的条件<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->在本教程的开始，我们谈到了验证和错误处理的好处。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->路由系统有内置验证功能。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Each pattern variable can be validated by a regular expression defined using the <code>requirements</code> entry of a route definition:”&gt;每个模式变量可以用 <code>requirements</code> 条目定义一个正则表达式验证：<!-- raw HTML omitted --></p>
+<pre><code>job_show_user:
+  url:   /job/:company/:location/:id/:position
+  param: { module: job, action: show }
+  requirements:
+    id: \d+
+</code></pre>
+<p>&lt;span en=&ldquo;The above <code>requirements</code> entry forces the <code>id</code> to be a numeric value.”&gt;上面的 <code>requirements</code> 条目强制 <code>id</code> 为一个数字值。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果不是，路由则不会匹配。<!-- raw HTML omitted --></p>
+<h2 id="chapter_05_route_class"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.5 路由类<!-- raw HTML omitted --></a></h2>
+<p>&lt;span en=&ldquo;Each route defined in <code>routing.yml</code> is internally converted to an object of class &lt;a target=&quot;_blank&rdquo; href=&quot;<!-- raw HTML omitted --><a href="http://www.symfony-project.org/a">http://www.symfony-project.org/a</a> … ;sfRoute<!-- raw HTML omitted -->.<!-- raw HTML omitted -->“&gt;每个定义在 <code>routing.yml</code> 中的路由在symfony内部会转换为一个 <!-- raw HTML omitted -->sfRoute<!-- raw HTML omitted --> 类。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->在定义路由时可以改变这个类。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;If you are familiar with the HTTP protocol, you know that it defines several &ldquo;methods&rdquo;, like <code>GET</code>, <code>POST</code>, <code>HEAD</code>, <code>DELETE</code> and <code>PUT</code>.”&gt;如果你熟悉HTTP协议，你知道它定义了几个“方法”，比如 <code>GET</code>、<code>POST</code>、<code>HEAD</code>、<code>DELETE</code>、<code>PUT</code>。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->前三个是支持所有浏览器的，而其他两个则不支持。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;To restrict a route to only match for certain request methods, you can change the route class to &lt;a target=&quot;_blank&rdquo; href=&quot;<!-- raw HTML omitted --><a href="http://www.symfony-project.org/a">http://www.symfony-project.org/a</a> … uestRoute<!-- raw HTML omitted --><!-- raw HTML omitted --> and add a <code>requirement</code> for the virtual <code>sf_method</code> variable:”&gt;要限制一个路由只匹配某些请求方法，你可以更改路由类 <!-- raw HTML omitted -->sfRequestRoute<!-- raw HTML omitted --> 并在 <code>requirement</code> 中增加一个 <code>sf_method</code> 虚拟变量：<!-- raw HTML omitted --></p>
+<pre><code>job_show_user:
+  url:   /job/:company/:location/:id/:position
+  class: sfRequestRoute
+  param: { module: job, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="chapter_05_object_route_class"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.6 路由类对象<!-- raw HTML omitted --></a></h2>
+<p>&lt;span en=&ldquo;The new internal URI for a job is quite long and tedious to write (<code>url_for(&amp;#8216;job/show?id=&amp;#8217;.$job-&gt;getId().&amp;#8217;&amp;#038;company=&amp;#8217;.$job-&gt;getCompany().&amp;#8217;&amp;#038;location=&amp;#8217;.$job-&gt;getLocation().&amp;#8217;&amp;#038;position=&amp;#8217;.$job-&gt;getPosition())</code>), but as we have just learned in the previous section, the route class can be changed.”&gt;新的职位的URI很长，而且书写时很乏味（<code>url_for('job/show?id='.$job-&gt;getId().'&amp;company='.$job-&gt;getCompany().'&amp;location='.$job-&gt;getLocation().'&amp;position='.$job-&gt;getPosition())</code>），正如我们在上一节刚刚学习过的，路由类可以被更改。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;For the <code>job_show_user route</code>, it is better to use <code>sfDoctrineRoute</code> as the class is optimized for routes that represent Doctrine objects or collections of Doctrine objects:”&gt;对于 <code>job_show_user</code> 路由，最好是用 <code>sfDoctrineRoute</code>，因为对于路由，类是对路由经过优化的，代表Doctrine对象或Doctrine对象的集合：<!-- raw HTML omitted --></p>
+<pre><code>job_show_user:
+  url:     /job/:company/:location/:id/:position
+  class:   sfDoctrineRoute
+  options: { model: JobeetJob, type: object }
+  param:   { module: job, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+</code></pre>
+<p>&lt;span en=&ldquo;The <code>options</code> entry customizes the behavior of the route.”&gt;<code>options</code> 条目定制路由的行为。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Here, the <code>model</code> option defines the Doctrine model class (JobeetJob) related to the route, and the type option defines that this route is tied to one object (you can also use <code>list</code> if a route represents a collection of objects).”&gt;这里，<code>model</code> 选项定义路由有关的Doctrine模型类（JobeetJob），还有 <code>type</code> 选项定义这个路由是否为一个对象（如果路由代表一个对象的集合你也可以用 <code>list</code> ）。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The <code>job_show_user</code> route is now aware of its relation with JobeetJob and so we can simplify the <code>url_for()</code> helper call to:”&gt;<code>job_show_user</code> 路由现在是和 <code>JobeetJob</code> 关联的，所以我们可以简单的用 <code>url_for()</code> 辅助函数调用：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->或只这样：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;It works because all variables in the route have a corresponding accessor in the <code>JobeetJob</code> class (for instance, the <code>company</code> route variable is replaced with the value of <code>getCompany()</code>).”&gt;它的工作原理是，因为在路由中的所有变量在 <code>JobeetJob</code> 类中有一个相应的访问器（例如，<code>company</code> 路由变量是被 <code>getCompany()</code> 的值替换）。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果你看了生成的URL，这并不是我们想要的：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;We need to &ldquo;slugify&rdquo; the column values by replacing all non ASCII characters by a <code>&amp;#8211;</code>.”&gt;我们需要用一个 <code>-</code> 替换所有非ASCII字符。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Open the <code>JobeetJob</code> file and add the following methods to the class:”&gt;打开 <code>JobeetJob</code> 文件然后增加下面这些方法到类里面：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Then, create the <code>lib/Jobeet.class.php</code> file and add the <code>slugify</code> method in it:”&gt;然后，创建 <code>lib/Jobeet.class.php</code> 文件然后增加 <code>slugify</code> 方法在里面：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;We have defined three new &ldquo;virtual&rdquo; accessors: <code>getCompanySlug()</code>, <code>getPositionSlug()</code>, and <code>getLocationSlug()</code>.”&gt;我们已经定义了三个新的“虚拟”访问器：<code>getCompanySlug()</code>、<code>getPositionSlug()</code>、<code>getLocationSlug()</code>。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;They return their corresponding column value after applying it the <code>slugify()</code> method.”&gt;调用 <code>slugify()</code> 方法后他们返回他们相应的字段值。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Now, you can replace the real column names by these virtual ones in the <code>job_show_user</code> route:”&gt;现在，你可以在 <code>job_show_user</code> 路由中用虚拟的替换之：<!-- raw HTML omitted --></p>
+<pre><code>job_show_user:
+  url:     /job/:company_slug/:location_slug/:id/:position_slug
+  class:   sfDoctrineRoute
+  options: { model: JobeetJob, type: object }
+  param:   { module: job, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+</code></pre>
+<p><!-- raw HTML omitted -->现在你会有这样的URL：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->但这只做了一半。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->路由能够基于一个对象生成一个URL，但它也要能够根据给定的一个URL来找到有关的对象。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The related object can be retrieved with the <code>getObject()</code> method of the route object.”&gt;有关对象可能用路由对象的 <code>getObject()</code> 方法来检索。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当解析传入的一个请求时，路由存储相匹配的路由对象，供你在动作中使用。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;So, change the <code>executeShow()</code> method to use the route object to retrieve the <code>Jobeet</code> object:”&gt;因此，更改 <code>executeShow()</code> 方法使用路由对象来检索 <code>Jobeet</code> 对象：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;If you try to get a job for an unknown <code>id</code>, you will see a 404 error page but the error message has changed:”&gt;如果你尝试取得一个未知 <code>id</code> 的职位，你会看见一个404错误页面，但错误消息已被更换：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;That&rsquo;s because the 404 error has been thrown for you automatically by the <code>getRoute()</code> method.”&gt;那是因为404错误自动通过用 <code>getRoute()</code> 方法已经为你抛出。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;So, we can simplify the <code>executeShow</code> method even more:”&gt;所以，我们可以更加的简化 <code>executeShow</code> 方法：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_05_routing_in_actions_and_templates"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.7 在动作和模板中的路由<!-- raw HTML omitted --></a></h2>
+<p>&lt;span en=&ldquo;In a template, the <code>url_for()</code> helper converts an internal URI to an external URL.”&gt;在模板中，<code>url_for()</code> 辅助函数转换内部URI为外部URL。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Some other symfony helpers also take an internal URI as an argument, like the <code>link_to()</code> helper which generates an <code>〈a〉</code> tag:”&gt;一些其他的symfony辅助函数还采用一个内部URI作为一个参数，比如 <code>link_to()</code> 辅助函数生成一个 <code>&lt;a&gt;</code> 标签：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->它生成下面的HTML代码：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;Both <code>url_for()</code> and <code>link_to()</code> can also generate absolute URLs:”&gt;<code>url_for()</code> 和 <code>link_to()</code> 两个都可以生成绝对的URL：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;span en=&ldquo;If you want to generate a URL from an action, you can use the <code>generateUrl()</code> method:”&gt;如果你要从动作生成一个URL，你可以用 <code>generateUrl()</code> 方法：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_05_collection_route_class"><a href="forum.php?mod=viewthread&amp;tid=21&amp;extra=page%3D1#"><!-- raw HTML omitted -->5.8 汇集路由类<!-- raw HTML omitted --></a></h2>
+<p>&lt;span en=&ldquo;For the <code>job</code> module, we have already customized the <code>show</code> action route, but the URLs for the others methods (<code>index</code>, <code>new</code>, <code>edit</code>, <code>create</code>, <code>update</code>, and <code>delete</code>) are still managed by the default route:”&gt;对于 <code>job</code> 模块，我们已经定制了 <code>show</code> 动作的路由，但URL对于其他方法（<code>index</code> 和 <code>new</code>、<code>edit</code>、<code>create</code>、<code>update</code>、<code>delete</code>）仍然是 <code>default</code> 路由来管理的：<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->default:&lt;br /&gt;
+url: /:module/:action/*<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%9B%9B%E5%A4%A9%E6%8E%A7%E5%88%B6%E5%99%A8%E5%92%8C%E8%A7%86%E5%9B%BE/" data-toggle="tooltip" data-placement="top" title="第四天：控制器和视图">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AB%E5%A4%A9%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" data-toggle="tooltip" data-placement="top" title="第八天：单元测试">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">5500 Words|Read in about 11 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

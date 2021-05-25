@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>haproxy on IT技术分享</title>
+    <link>https://www.51hint.com/tags/haproxy/</link>
+    <description>Recent content in haproxy on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Aug 2019 21:29:09 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/haproxy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>端口复用</title>
+      <link>https://www.51hint.com/posts/%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8/</link>
+      <pubDate>Sun, 25 Aug 2019 21:29:09 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/%E7%AB%AF%E5%8F%A3%E5%A4%8D%E7%94%A8/</guid>
+      <description>利用haproxy实现443端口的复用 众所周知HTTPS默认是使用443端口的，但是我又让类似与SSLVPN之类的也用443端口。这可怎么办</description>
+    </item>
+    
+    <item>
+      <title>负载均衡软件 Nginx, Haproxy,LVS比较</title>
+      <link>https://www.51hint.com/posts/2012-10-25-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%BD%AF%E4%BB%B6-nginx-haproxylvs%E6%AF%94%E8%BE%83/</link>
+      <pubDate>Thu, 25 Oct 2012 07:05:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-25-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E8%BD%AF%E4%BB%B6-nginx-haproxylvs%E6%AF%94%E8%BE%83/</guid>
+      <description>1、NGINX Nginx的优点: 性能好，可以负载超过1万的并发。 功能多，除了负载均衡，还能作Web服务器，而且可以通过Geo模块来实现流量分</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>大型在线系统 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F/</link>
+    <description>Recent content in 大型在线系统 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Dec 2012 01:20:31 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>负载均衡之大型在线系统实现的关键</title>
+      <link>https://www.51hint.com/posts/2012-12-12-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%85%B3%E9%94%AE/</link>
+      <pubDate>Wed, 12 Dec 2012 01:20:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-12-12-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B9%8B%E5%A4%A7%E5%9E%8B%E5%9C%A8%E7%BA%BF%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%85%B3%E9%94%AE/</guid>
+      <description>以上的这篇文章是早在去年的时候写的了，当时正在作休闲平台，一直在想着如何实现一个可扩充的支持百万人在线的游戏平台，后来思路有了，就写了那篇总</description>
+    </item>
+    
+  </channel>
+</rss>

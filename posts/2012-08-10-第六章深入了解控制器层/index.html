@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第六章：深入了解控制器层 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第六章：深入了解控制器层" />
+  <meta name="twitter:title" content="第六章：深入了解控制器层" />
+  <meta name="description" content="目录 6.1 前端控制器 6.1.1 前端控制器的工作细节 6.1.2 默认的前端控制器 6.1.3 调用其他的前端控制器来切换环境 6.2 行为 6.2.1 行为类 6.2.2 另一种行为类语法 6.2.3 在行为里获取信息 6.2.4">
+  <meta property="og:description" content="目录 6.1 前端控制器 6.1.1 前端控制器的工作细节 6.1.2 默认的前端控制器 6.1.3 调用其他的前端控制器来切换环境 6.2 行为 6.2.1 行为类 6.2.2 另一种行为类语法 6.2.3 在行为里获取信息 6.2.4">
+  <meta name="twitter:description" content="目录 6.1 前端控制器 6.1.1 前端控制器的工作细节 6.1.2 默认的前端控制器 6.1.3 调用其他的前端控制器来切换环境 6.2 行为 6.2.1 行为类 6.2.2 另一种行为类语法 6.2.3 在行为里获取信息 6.2.4">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AD%E7%AB%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B1%82/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AD%E7%AB%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B1%82/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第六章：深入了解控制器层</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">3300 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_06_the_front_controller"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.1 前端控制器<!-- raw HTML omitted --></a></a>
+      <ul>
+        <li><a href="#chapter_06_sub_the_front_controller_s_job_in_detail"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.1.1 前端控制器的工作细节<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_06_sub_the_default_front_controller"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.1.2 默认的前端控制器<!-- raw HTML omitted --></a></a></li>
+        <li><a href="#chapter_06_sub_calling_another_front_controller_to_switch_the_environment"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.1.3 调用其他的前端控制器来切换环境<!-- raw HTML omitted --></a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_06_actions"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.2 行为<!-- raw HTML omitted --></a></a>
+      <ul>
+        <li><a href="#chapter_06_sub_the_action_class"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.2.1 行为类<!-- raw HTML omitted --></a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_the_front_controller">6.1 前端控制器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_the_front_controller_s_job_in_detail">6.1.1 前端控制器的工作细节</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_the_default_front_controller">6.1.2 默认的前端控制器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_calling_another_front_controller_to_switch_the_environment">6.1.3 调用其他的前端控制器来切换环境</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_actions">6.2 行为</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_the_action_class">6.2.1 行为类</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_alternative_action_class_syntax">6.2.2 另一种行为类语法</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_retrieving_information_in_the_action">6.2.3 在行为里获取信息</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_action_termination">6.2.4 行为结束</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_skipping_to_another_action">6.2.5 跳到另一个行为</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_repeating_code_for_several_actions_of_a_module">6.2.6 几个行为共享的代码</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_accessing_the_request">6.3 访问请求</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_user_session">6.4 用户session</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_accessing_the_user_session">6.4.1 访问用户session</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_flash_attributes">6.4.2 flash属性</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_session_management">6.4.3 session管理</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_action_security">6.5 行为安全</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_access_restriction">6.5.1 访问限制</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_granting_access">6.5.2访问权限</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_complex_credentials">6.5.3 复合证书</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_filters">6.6 过滤器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_the_filter_chain">6.6.1 过滤器链</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_building_your_own_filter">6.6.2 建立自己的过滤器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_filter_activation_and_parameters">6.6.3 过滤器激活和参数</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_sub_sample_filters">6.6.4 过滤器实例</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_module_configuration">6.7 模块配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#chapter_06_summary">6.8 总结</a></li>
+</ul>
+<p><!-- raw HTML omitted -->在symfony中，控制器是连接业务逻辑和视图层的程序。根据不同的功能，它又被细分为几个小部分：<!-- raw HTML omitted --></p>
+<ul>
+<li>
+<p><!-- raw HTML omitted -->前端控制器是应用程序的唯一入口。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->它载入配置文件并且指定将被执行的行为。<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->行为包含应用逻辑。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->它们首先确定请求的完整性， 然后为表现层准备好数据。<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->通过请求，响应，session对象，我们可以获取请求参数，响应HTTP头，和持久性的用户数据。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->这些数据经常被用在控制器层。<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->每一个请求都要执行过滤器程序，这个程序将在行为的前后执行。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->例如，安全和确认过滤器是网络编程经常要用到的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->你可以延伸架构去创作自己的过滤器。<!-- raw HTML omitted --></p>
+</li>
+</ul>
+<p><!-- raw HTML omitted -->这一章将介绍这些组件。不要担心。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->一个简单的页面，你只需要在行为的类里面写几行代码而已。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->其他的控制器层组件仅仅被用于一些特定的情况。<!-- raw HTML omitted --></p>
+<h2 id="chapter_06_the_front_controller"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.1 前端控制器<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->前端控制器接收并且处理所有的请求。所以前端控制器是整个应用程序的唯一入口。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当前端控制器接收到一个请求， 路由选择系统将根据用户所用的URL连接相应的行为和模块。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;For instance, the following request URL calls the <code>index.php</code> script (that’s the front controller) and will be understood as a call to the action <code>myAction</code> of the module <code>mymodule</code>:”&gt;例如，下列的URL调用 <code>index.php</code> 脚本（这是前端控制器），它可以被理解为调用 <code>mymodule</code> 模块里的 <code>myaction</code> 行为：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->如果你对symfony的内部结构没有兴趣，以上对前端控制器的认识已经足够了。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->它是symfony MVC架构中不可缺少的组件，但是你很少去更改它。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->你可以跳过下一节，除非你想更深入地了解前端控制器的结构。<!-- raw HTML omitted --></p>
+<h3 id="chapter_06_sub_the_front_controller_s_job_in_detail"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.1.1 前端控制器的工作细节<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->前端控制器处理请求的时候不仅仅是分配将需要执行的行为。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->其实，它还执行所有行为的公共代码，它们包括：<!-- raw HTML omitted --></p>
+<ol>
+<li><!-- raw HTML omitted -->定义核心常量。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->定位symfony程序库。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->调入并初始化核心架构的类。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->调入配置文件。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->处理请求的URL并且指定将被执行的行为和请求参数。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->如果行为不存在， 转发给专门接收404错误信息的行为。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->启动过滤器 （例如，如果请求需要被认证）。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->执行过滤器， 第一回。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->执行所需要的行为并将结果提交给视图。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->执行过滤器， 第二回。<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->输出响应。<!-- raw HTML omitted --></li>
+</ol>
+<h3 id="chapter_06_sub_the_default_front_controller"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.1.2 默认的前端控制器<!-- raw HTML omitted --></a></h3>
+<p>&lt;span en=&ldquo;The default front controller, called <code>index.php</code> and located in the <code>web/</code> directory of the project, is a simple PHP file,”&gt;<code>index.php</code> 是默认的前端控制器。它是一个非常简单的PHP文件，在 <code>web/</code> 文件夹里。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->请看例 6-1。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->前段控制器创建一个应用配置实例，也就是上面的第2到第4步。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The call to the <code>dispatch()</code> method of the <code>sfController</code> object (which is the core controller object of the symfony MVC architecture) dispatches the request, taking care of steps 5 through 7.”&gt;调用 <code>sfController</code> 对象的 <code>dispatch()</code> 方法（它是symfony MVC架构里的核心控制器对象）调度请求，也就是上面的第5到第7步。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->最后一步是由过滤链来处理的，正如在本章后面所描述的。<!-- raw HTML omitted --></p>
+<h3 id="chapter_06_sub_calling_another_front_controller_to_switch_the_environment"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.1.3 调用其他的前端控制器来切换环境<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted -->每个环境都存在有一个前段控制器。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->事实上，我们应该说一个前端控制器确定了一个环境。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The environment is defined by the second argument you pass to the <code>ProjectConfiguration::getApplicationConfiguration()</code> method call.”&gt;环境的定义是通过 <code>ProjectConfiguration::getApplicationConfiguration()</code> 方法中的第2个参数来调用的。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->如果你想在项目中切换另一个环境，只需要选择另一个前端控制器。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;The default front controllers available when you create a new application with the <code>generate:app</code> task are <code>index.php</code> for the production environment and <code>frontend_dev.php</code> for the development environment (provided that your application is called <code>frontend</code>).”&gt;当你用 <code>generate:app</code> 创建一个新项目时，在产品环境中默认的前端控制器是 <code>index.php</code>。而在开发环境中默认的前端控制器是 <code>frontend_dev.php</code>（如果你的项目叫 <code>frontend</code>）。如果URL没有指明前端控制器文件名，<code>mod_rewrite</code> 将用 <code>index.php</code> 作为默认值。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;So both of these URLs display the same page (<code>mymodule/index</code>) in the production environment:”&gt;所以下面这两个url在产品环境中是相同的（<code>mymodule/index</code>）页面。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->与此页面相同的开发环境的URL为：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->创建一个新的环境非常容易，只需要创建一个新的前端控制器。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->比如，你想让客户检验你的项目，你可以建立一个演示环境。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;To create this staging environment, just copy <code>web/frontend_dev.php</code> into <code>web/frontend_staging.php</code>, and change the value of the second argument of the <code>ProjectConfiguration::getApplicationConfiguration()</code> call to <code>staging</code>.”&gt;你只需要拷贝一份 <code>web/frontend_dev.php</code>，命名为 <code>web/frontend_staging.php</code>。然后把 <code>ProjectConfiguration::getApplicationConfiguration()</code> 的第2个参数的值改为 <code>staging</code>。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Now, in all the configuration files, you can add a new <code>staging:</code> section to set specific values for this environment, as shown in Listing 6-2.”&gt;最后，在所有的配置文件里添加 <code>staging:</code> 部分并赋值，请参看例 6-2。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre><code>staging:
+  mail:
+    webmaster:    &lt;a href=&quot;mailto:dummy@mysite.com&quot;&gt;dummy@mysite.com&lt;/a&gt;
+    contact:      &lt;a href=&quot;mailto:dummy@mysite.com&quot;&gt;dummy@mysite.com&lt;/a&gt;
+all:
+  mail:
+    webmaster:    &lt;a href=&quot;mailto:webmaster@mysite.com&quot;&gt;webmaster@mysite.com&lt;/a&gt;
+    contact:      &lt;a href=&quot;mailto:contact@mysite.com&quot;&gt;contact@mysite.com&lt;/a&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->如果你想看一下新环境带来的变化，调用相应的前端控制器：<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_06_actions"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.2 行为<!-- raw HTML omitted --></a></h2>
+<p><!-- raw HTML omitted -->行为是应用的心脏，因为他们包含所有应用的逻辑。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->他们调用模型然后为视图定义变量。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->当你在symfony的项目中执行一个请求时，URL就确定了行为和请求参数。<!-- raw HTML omitted --></p>
+<h3 id="chapter_06_sub_the_action_class"><a href="forum.php?mod=viewthread&amp;tid=28&amp;extra=page%3D1#"><!-- raw HTML omitted -->6.2.1 行为类<!-- raw HTML omitted --></a></h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Actions are methods named <code>executeActionName</code> of a class named <code>moduleNameActions</code> inheriting from the <code>sfActions</code> class, and grouped by modules. The action class of a module is stored in an <code>actions.class.php</code> file, in the module’s <code>actions/</code> directory.”&gt;<code>moduleNameActions</code> 是 <code>sfActions</code> 的子类（通过继承）。行为是 <code>moduleNameActions</code> 里命名为 <code>executeActionName</code> 的方法，它们组成不同的模块。模块里的行为类被存在 <code>actions.class.php</code> 文件里。这个文件在模块的文件夹 <code>actions</code> 里。<!-- raw HTML omitted --></p>
+<p>&lt;span en=&ldquo;Listing 6-3 shows an example of an <code>actions.class.php</code> file with only an <code>index</code> action for the whole <code>mymodule</code> module.”&gt;例6-3是一个 <code>actions.class.php</code> 文件的例子。对于 <code>mymodule</code> 整个模块只有一个行为 <code>index</code>。<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;/p&gt;
+
+
+&lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$this&lt;/span&gt;-&amp;gt;&lt;span class=&quot;me1&quot;&gt;forward&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'otherModule'&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;'index'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;&lt;/pre&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;/p&gt;
+
+
+&lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;re0&quot;&gt;$this&lt;/span&gt;-&amp;gt;&lt;span class=&quot;me1&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'otherModule/index'&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;
+</code></pre>
+<p><!-- raw HTML omitted -->$this<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->redirect<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;<a href="http://www.google.com/'">http://www.google.com/'</a><!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  &lt;span en=&quot;Function&quot;&gt;功能&lt;/span&gt;
+&lt;/th&gt;
+
+
+&lt;th&gt;
+  &lt;span en=&quot;Sample Output&quot;&gt;输出例子&lt;/span&gt;
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Is it a post or a get?&quot;&gt;判断是POST还是GET&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;span en=&quot;true or false&quot;&gt;&lt;code&gt;true&lt;/code&gt; 或 &lt;code&gt;false&lt;/code&gt;&lt;/span&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Request method name&quot;&gt;请求方法的名称&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;'POST'&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Value of a given HTTP header&quot;&gt;某个指定的HTTP头的值&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;'Apache/2.0.59 (Unix) DAV/2 PHP/5.1.6'&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Value of a named cookie&quot;&gt;某个cookie的值&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;'bar'&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Is it an Ajax request?&quot;&gt;是否是Ajax请求&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;true&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Is it an SSL request?&quot;&gt;是否是SSL请求？&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;true&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Is a parameter present in the request?&quot;&gt;请求里是否包含某个参数？&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;true&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Value of a named parameter&quot;&gt;某个参数的值&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;'bar'&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Array of all request parameters&quot;&gt;包含所有参数的数组&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &amp;nbsp;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Full URI&quot;&gt;完整的URI&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &amp;nbsp;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Path info&quot;&gt;路径信息&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;'/mymodule/myaction'&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Referrer&quot;&gt;来源&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;'http://localhost/frontend_dev.php/'&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Host name&quot;&gt;主机名&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;'localhost'&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Front controller path and name&quot;&gt;前端控制器的路径&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;'frontend_dev.php'&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Array of accepted languages&quot;&gt;所有可接受的语言组成的数组&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;Array( [0] =&gt; fr [1] =&gt; fr_FR [2] =&gt; en_US [3] =&gt; en )&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Array of accepted charsets&quot;&gt;所有可接受的字符集组成的数组&lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;Array( [0] =&gt; ISO-8859-1 [1] =&gt; UTF-8 [2] =&gt; * )&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;span en=&quot;Array of accepted content types&quot;&gt;所有可接受的内容类型组成的数组 &lt;/span&gt;
+&lt;/td&gt;
+
+
+&lt;td&gt;
+  &lt;code&gt;Array( [0] =&gt; text/xml [1] =&gt; text/html&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;/p&gt;
+
+
+&lt;pre&gt;&lt;code&gt;security:
+</code></pre>
+<p>enabled: false<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;span class=&quot;re0&quot;&gt;$response&lt;/span&gt; = &lt;span class=&quot;re0&quot;&gt;$this&lt;/span&gt;-&gt;&lt;span class=&quot;me1&quot;&gt;getContext&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;-&gt;&lt;span class=&quot;me1&quot;&gt;getResponse&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;
+&lt;span class=&quot;re0&quot;&gt;$response&lt;/span&gt;-&gt;&lt;span class=&quot;me1&quot;&gt;setContent&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;str_ireplace&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;'&lt;/body&gt;'&lt;/span&gt;, &lt;span class=&quot;re0&quot;&gt;$googleCode&lt;/span&gt;.&lt;span class=&quot;st0&quot;&gt;'&lt;/body&gt;'&lt;/span&gt;,&lt;span class=&quot;re0&quot;&gt;$response&lt;/span&gt;-&gt;&lt;span class=&quot;me1&quot;&gt;getContent&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;;
+</code></pre>
+<p><!-- raw HTML omitted -->}<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->}<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%BA%94%E7%AB%A0%E9%85%8D%E7%BD%AE/" data-toggle="tooltip" data-placement="top" title="第五章：配置">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9F%BA%E6%9C%AC%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%88%9B%E5%BB%BA/" data-toggle="tooltip" data-placement="top" title="第四章：基本页面的创建">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">3300 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

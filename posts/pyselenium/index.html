@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Pyselenium - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Pyselenium" />
+  <meta name="twitter:title" content="Pyselenium" />
+  <meta name="description" content="selenium">
+  <meta property="og:description" content="selenium">
+  <meta name="twitter:description" content="selenium">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/pyselenium/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/pyselenium/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Pyselenium</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <p>1.基本使用</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.wait</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+ 
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.baidu.com&#39;</span><span class="p">)</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;kw&#39;</span><span class="p">)</span>
+    <span class="nb">input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
+    <span class="nb">input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">ENTER</span><span class="p">)</span>
+    <span class="n">wait</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">&#39;content_left&#39;</span><span class="p">)))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">current_url</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">page_source</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div><p>2.理解</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+ 
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.taobao.com&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">page_source</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="o">//</span> <span class="err">查找节点</span>
+<span class="n">find_element_by_id</span>
+<span class="n">find_element_by_name</span>
+<span class="n">find_element_by_xpath</span>
+<span class="n">find_element_by_link_text</span>
+<span class="n">find_element_by_partial_link_text</span>
+<span class="n">find_element_by_tag_name</span>
+<span class="n">find_element_by_class_name</span>
+<span class="n">find_element_by_css_selector</span>
+
+<span class="n">input_first</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">)</span>
+<span class="n">input_second</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_css_selector</span><span class="p">(</span><span class="s1">&#39;#q&#39;</span><span class="p">)</span>
+<span class="n">input_third</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s1">&#39;//*[@id=&#34;q&#34;]&#39;</span><span class="p">)</span>
+<span class="n">lis_xxxxxxxx</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_elements_by_css_selector</span><span class="p">(</span><span class="s1">&#39;.service-bd li&#39;</span><span class="p">)</span>
+
+<span class="n">nput_first</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)</span>
+<span class="n">lis</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s1">&#39;.service-bd li&#39;</span><span class="p">)</span>
+
+
+
+<span class="o">//</span><span class="err">交互</span>
+<span class="nb">input</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">)</span>
+<span class="nb">input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;iPhone&#39;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">input</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="nb">input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;iPad&#39;</span><span class="p">)</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_class_name</span><span class="p">(</span><span class="s1">&#39;btn-search&#39;</span><span class="p">)</span>
+<span class="n">button</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+
+<span class="o">//</span><span class="err">动作链</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver</span> <span class="kn">import</span> <span class="n">ActionChains</span>
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.runoob.com/try/try.php?filename=jqueryui-api-droppable&#39;</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">switch_to</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="s1">&#39;iframeResult&#39;</span><span class="p">)</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_css_selector</span><span class="p">(</span><span class="s1">&#39;#draggable&#39;</span><span class="p">)</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_css_selector</span><span class="p">(</span><span class="s1">&#39;#droppable&#39;</span><span class="p">)</span>
+<span class="n">actions</span> <span class="o">=</span> <span class="n">ActionChains</span><span class="p">(</span><span class="n">browser</span><span class="p">)</span>
+<span class="n">actions</span><span class="o">.</span><span class="n">drag_and_drop</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+<span class="n">actions</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+
+
+
+<span class="o">//</span><span class="err">执行</span><span class="n">Javascript</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.zhihu.com/explore&#39;</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s1">&#39;window.scrollTo(0, document.body.scrollHeight)&#39;</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s1">&#39;alert(&#34;To Bottom&#34;)&#39;</span><span class="p">)</span>
+
+
+
+<span class="o">//</span><span class="err">获取节点信息</span>
+<span class="n">ogo</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s1">&#39;zh-top-link-logo&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">logo</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">logo</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">))</span>
+
+<span class="nb">input</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">find_element_by_class_name</span><span class="p">(</span><span class="s1">&#39;zu-top-add-question&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">location</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">tag_name</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+
+
+<span class="o">//</span><span class="err">切换</span><span class="n">Frame</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">switch_to</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="s1">&#39;iframeResult&#39;</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">switch_to</span><span class="o">.</span><span class="n">parent_frame</span><span class="p">()</span>
+
+
+<span class="o">//</span><span class="err">延时等待</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+<span class="n">wait</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">input</span> <span class="o">=</span> <span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">)))</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">element_to_be_clickable</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s1">&#39;.btn-search&#39;</span><span class="p">)))</span>
+
+
+<span class="o">//</span><span class="err">前进和后退</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">back</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span>
+
+<span class="o">//</span><span class="n">Cookies</span>
+<span class="n">rint</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">())</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">add_cookie</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="s1">&#39;www.zhihu.com&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;germey&#39;</span><span class="p">})</span>
+<span class="k">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">())</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">delete_all_cookies</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">())</span>
+
+
+<span class="o">//</span><span class="err">选项卡</span>
+<span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.baidu.com&#39;</span><span class="p">)</span>
+
+<span class="n">browser</span><span class="o">.</span><span class="n">execute_script</span><span class="p">(</span><span class="s1">&#39;window.open()&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">window_handles</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">switch_to_window</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">window_handles</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.taobao.com&#39;</span><span class="p">)</span>
+
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">switch_to_window</span><span class="p">(</span><span class="n">browser</span><span class="o">.</span><span class="n">window_handles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://python.org&#39;</span><span class="p">)</span>
+
+
+</code></pre></div><p>延时等待条件及其含义</p>
+<table>
+<thead>
+<tr>
+<th>等待条件</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title_is</code></td>
+<td>标题是某内容</td>
+</tr>
+<tr>
+<td><code>title_contains</code></td>
+<td>标题包含某内容</td>
+</tr>
+<tr>
+<td><code>presence_of_element_located</code></td>
+<td>节点加载出来，传入定位元组，如<code>(By.ID, 'p')</code></td>
+</tr>
+<tr>
+<td><code>visibility_of_element_located</code></td>
+<td>节点可见，传入定位元组</td>
+</tr>
+<tr>
+<td><code>visibility_of</code></td>
+<td>可见，传入节点对象</td>
+</tr>
+<tr>
+<td><code>presence_of_all_elements_located</code></td>
+<td>所有节点加载出来</td>
+</tr>
+<tr>
+<td><code>text_to_be_present_in_element</code></td>
+<td>某个节点文本包含某文字</td>
+</tr>
+<tr>
+<td><code>text_to_be_present_in_element_value</code></td>
+<td>某个节点值包含某文字</td>
+</tr>
+<tr>
+<td><code>frame_to_be_available_and_switch_to_it</code></td>
+<td>加载并切换</td>
+</tr>
+<tr>
+<td><code>invisibility_of_element_located</code></td>
+<td>节点不可见</td>
+</tr>
+<tr>
+<td><code>element_to_be_clickable</code></td>
+<td>节点可点击</td>
+</tr>
+<tr>
+<td><code>staleness_of</code></td>
+<td>判断一个节点是否仍在DOM，可判断页面是否已经刷新</td>
+</tr>
+<tr>
+<td><code>element_to_be_selected</code></td>
+<td>节点可选择，传节点对象</td>
+</tr>
+<tr>
+<td><code>element_located_to_be_selected</code></td>
+<td>节点可选择，传入定位元组</td>
+</tr>
+<tr>
+<td><code>element_selection_state_to_be</code></td>
+<td>传入节点对象以及状态，相等返回<code>True</code>，否则返回<code>False</code></td>
+</tr>
+<tr>
+<td><code>element_located_selection_state_to_be</code></td>
+<td>传入定位元组以及状态，相等返回<code>True</code>，否则返回<code>False</code></td>
+</tr>
+<tr>
+<td><code>alert_is_present</code></td>
+<td>是否出现警告</td>
+</tr>
+</tbody>
+</table>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/py%E6%96%87%E4%BB%B6%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/" data-toggle="tooltip" data-placement="top" title="Py文件打开方式">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/pysplash/" data-toggle="tooltip" data-placement="top" title="PySplash">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/py%E6%96%87%E4%BB%B6%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/">Py文件打开方式</a></li>
+                    
+                    <li><a href="/posts/py%E8%A7%A3%E6%9E%90%E5%BA%93/">Py解析库</a></li>
+                    
+                    <li><a href="/posts/py%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Py正则表达式</a></li>
+                    
+                    <li><a href="/posts/redis%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">Redis使用场景</a></li>
+                    
+                    <li><a href="/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/">Redis命令参考</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

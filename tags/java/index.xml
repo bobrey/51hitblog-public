@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on IT技术分享</title>
+    <link>https://www.51hint.com/tags/java/</link>
+    <description>Recent content in java on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 Jan 2013 06:34:22 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>springframework</title>
+      <link>https://www.51hint.com/posts/2013-01-16-springframework/</link>
+      <pubDate>Wed, 16 Jan 2013 06:34:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-16-springframework/</guid>
+      <description>Spring Framework Spring基础平台 Spring Web Flow 专注于为构建和运行富web应用提供基础设施。Spring Web Flow 2发布 Spring BlazeDS Integration 为使用Sping来构建Adobe Fle</description>
+    </item>
+    
+    <item>
+      <title>Java 调用 javascript</title>
+      <link>https://www.51hint.com/posts/2013-01-16-java-%E8%B0%83%E7%94%A8-javascript/</link>
+      <pubDate>Wed, 16 Jan 2013 02:33:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-16-java-%E8%B0%83%E7%94%A8-javascript/</guid>
+      <description>下载rhino jar包。 http://www.mozilla.org/rhino/download.html java文件 JSRunner.java StringUtil.java test.js</description>
+    </item>
+    
+    <item>
+      <title>java 创建提取pdf</title>
+      <link>https://www.51hint.com/posts/2013-01-16-java-%E5%88%9B%E5%BB%BA%E6%8F%90%E5%8F%96pdf/</link>
+      <pubDate>Wed, 16 Jan 2013 02:30:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-16-java-%E5%88%9B%E5%BB%BA%E6%8F%90%E5%8F%96pdf/</guid>
+      <description>pdf中提取文本的都所iText创建pdf很强大，提取文本比较弱智。 pdfbox提取PDF页面内容</description>
+    </item>
+    
+    <item>
+      <title>httpclient 使用</title>
+      <link>https://www.51hint.com/posts/2012-10-30-httpclient-%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 30 Oct 2012 08:30:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-30-httpclient-%E4%BD%BF%E7%94%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java.php跨域提交</title>
+      <link>https://www.51hint.com/posts/2012-08-06-java-php%E8%B7%A8%E5%9F%9F%E6%8F%90%E4%BA%A4/</link>
+      <pubDate>Mon, 06 Aug 2012 10:18:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-06-java-php%E8%B7%A8%E5%9F%9F%E6%8F%90%E4%BA%A4/</guid>
+      <description>java=&amp;gt; php=&amp;gt; ================================================================================================================ java===&amp;gt; PHP===&amp;gt; meeting-edit</description>
+    </item>
+    
+  </channel>
+</rss>

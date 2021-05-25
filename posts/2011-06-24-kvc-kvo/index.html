@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> KVC KVO - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="KVC KVO" />
+  <meta name="twitter:title" content="KVC KVO" />
+  <meta name="description" content="Cocoa里面有个概念叫做”Key-Value Coding”, 此前一直都没有搞清楚到底什么意思, 今天详细的读了一下资料之后算是彻底明白了, 下">
+  <meta property="og:description" content="Cocoa里面有个概念叫做”Key-Value Coding”, 此前一直都没有搞清楚到底什么意思, 今天详细的读了一下资料之后算是彻底明白了, 下">
+  <meta name="twitter:description" content="Cocoa里面有个概念叫做”Key-Value Coding”, 此前一直都没有搞清楚到底什么意思, 今天详细的读了一下资料之后算是彻底明白了, 下">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-06-24-kvc-kvo/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-06-24-kvc-kvo/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">KVC KVO</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jun 24, 2011</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>Cocoa里面有个概念叫做”Key-Value Coding”, 此前一直都没有搞清楚到底什么意思, 今天详细的读了一下资料之后算是彻底明白了, 下面就分享一下我的理解. 因为我也是刚刚开始学习Cocoa, 如果发现任何错误, 请马上告诉我. 先谢过 <!-- raw HTML omitted --> .</p>
+<p>Cocoa所使用的主要编程语言Objective-C也是单根继承语言(类似的语言还有Java, C#等等), 也就是说所有的类都继承自NSObject. 而NSObject定义了两个非常有用的方法 – 一个读取变量值, 一个通过名称来设置变量值:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>然后来看如下代码:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>setValue:forKey: 方法允许你通过名称设置变量的值. 同样, 如果存在一个方法(setXXX:)专门设置这个变量, 那么就调用这个方法. 如果没有, 就直接赋值.</p>
+<!-- raw HTML omitted -->
+<p>它会调用 setPersonName: 来实现赋值.</p>
+<p>这套机制就是所谓的”Key-Value Coding”. 它的存在让Cocoa的其他类能够获取和设置你的类变量.</p>
+<p>给我的感觉, 这个很像 Java 里面的 JavaBean, 都是通过一套特殊的命名规范来实现类似C#里面”属性”的机制. 那么, 这种机制有什么用呢?</p>
+<p>第一个出现在我脑子里的用处就是可以很容易的操作一个类里面的数据, 当然, 前提是这个类在实现的时候确实使用了这套规范. 可是这种机制都存在一个共同的问题, 非强制性. 也就是说, 在编码的时候是否使用这套命名规范, 完全是程序员说了算. 个人的感觉还是C#的实现好一点, 如果要实现属性, 就必须使用”get.. set..”语法.</p>
+<p>第二个用处就是苹果特有的了, 遵守这套规范就能很容易的让你的程序和AppleScript集成.</p>
+<p>第三个用途则是让Cocoa的可以实现数据绑定.</p>
+<p>所以, 如果你是个Cocoa程序员, 那么请养成在任何时候都遵守这套规范的习惯.</p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-06-24-xfire-java-soap-framework/" data-toggle="tooltip" data-placement="top" title="XFire java SOAP framework">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-06-24-nsdata-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%86%99/" data-toggle="tooltip" data-placement="top" title="NSData 二进制文件的读写">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-06-20-%E8%8B%B9%E6%9E%9C%E6%8E%A8%E9%80%81%E9%80%9A%E7%9F%A5/">苹果推送通知</a></li>
+                    
+                    <li><a href="/posts/2011-06-20-iphone-%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/">iphone 调试日志</a></li>
+                    
+                    <li><a href="/posts/2011-06-20-openurl%E6%89%93%E5%BC%80%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-sms-tel-mail-maps/">openURL打开其他应用程序 sms tel mail maps</a></li>
+                    
+                    <li><a href="/posts/2011-06-14-objc_msgsend%E5%87%BD%E6%95%B0-runtimeapi/">objc_msgSend函数  runtimeapi</a></li>
+                    
+                    <li><a href="/posts/2011-06-10-%E6%97%8B%E8%BD%AC%E5%8F%8D%E8%BD%AC%E7%BC%A9%E6%94%BE%E7%AD%89/">旋转，反转，缩放等</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jun 24, 2011</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

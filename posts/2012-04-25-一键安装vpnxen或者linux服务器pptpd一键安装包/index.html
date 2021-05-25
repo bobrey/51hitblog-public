@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 一键安装VPN（xen或者Linux服务器PPTPD一键安装包） - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="一键安装VPN（xen或者Linux服务器PPTPD一键安装包）" />
+  <meta name="twitter:title" content="一键安装VPN（xen或者Linux服务器PPTPD一键安装包）" />
+  <meta name="description" content="一键安装VPN在你的xen vps或者Linux服务器，非常简单的安装，自动生成用户名和密码。 系统要求：CentOS 5 32bits/64bits 安装命令： wget http://down.vpsma.com/vpn/pptpd.sh;sh ./pptpd.sh; 等待一">
+  <meta property="og:description" content="一键安装VPN在你的xen vps或者Linux服务器，非常简单的安装，自动生成用户名和密码。 系统要求：CentOS 5 32bits/64bits 安装命令： wget http://down.vpsma.com/vpn/pptpd.sh;sh ./pptpd.sh; 等待一">
+  <meta name="twitter:description" content="一键安装VPN在你的xen vps或者Linux服务器，非常简单的安装，自动生成用户名和密码。 系统要求：CentOS 5 32bits/64bits 安装命令： wget http://down.vpsma.com/vpn/pptpd.sh;sh ./pptpd.sh; 等待一">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-04-25-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85vpnxen%E6%88%96%E8%80%85linux%E6%9C%8D%E5%8A%A1%E5%99%A8pptpd%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%8C%85/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-04-25-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85vpnxen%E6%88%96%E8%80%85linux%E6%9C%8D%E5%8A%A1%E5%99%A8pptpd%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%8C%85/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">一键安装VPN（xen或者Linux服务器PPTPD一键安装包）</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Apr 25, 2012</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1购买-vps">1、购买 VPS</a></li>
+    <li><a href="#2连接-vps">2、连接 VPS</a></li>
+    <li><a href="#3安装-pptpd">3、安装 PPTPD</a></li>
+    <li><a href="#4编辑-vpn-接口的-ip-地址">4、编辑 VPN 接口的 IP 地址</a></li>
+    <li><a href="#5修改-dns-地址">5、修改 DNS 地址</a></li>
+    <li><a href="#6添加-vpn-帐号">6、添加 VPN 帐号</a></li>
+    <li><a href="#7ipv4-地址转发">7、IPv4 地址转发</a></li>
+    <li><a href="#8使转发生效">8、使转发生效</a></li>
+    <li><a href="#9搭桥">9、搭桥</a></li>
+    <li><a href="#10重启-pptpd">10、重启 PPTPD</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>一键安装VPN在你的xen vps或者Linux服务器，非常简单的安装，自动生成用户名和密码。</p>
+<p>系统要求：CentOS 5 32bits/64bits</p>
+<p>安装命令：</p>
+<blockquote>
+<p>wget <a href="http://down.vpsma.com/vpn/pptpd.sh;sh">http://down.vpsma.com/vpn/pptpd.sh;sh</a> ./pptpd.sh;</p>
+</blockquote>
+<p>等待一会，安装成功后，最后会自动生成vpn账号和密码：</p>
+<blockquote>
+<p>VPN service is installed, your VPN username is vpn, VPN password is xssww2w</p>
+</blockquote>
+<p> </p>
+<p>复制好vpn和密码就可以在电脑上开启vpn上网了！</p>
+<p>如果想修改vpn密码或者添加vpn账号，可以编辑文件/etc/ppp/chap-secrets，按照格式改成你自己的就行了：</p>
+<blockquote>
+<p>vi /etc/ppp/chap-secrets</p>
+</blockquote>
+<p>如下图所示：</p>
+<p><!-- raw HTML omitted --></p>
+<p>—————————————————————————————————————————————————————-</p>
+<h2 id="1购买-vps">1、购买 VPS</h2>
+<p>首先，你要拥有一个 Xen （不是 OpenVZ）类型的 VPS，并选择安装 Ubuntu 系统。</p>
+<p>顺便提一下，在购买 VPS 的时候，你需要输入一个域名，如果只是为了搭建 VPN，那么这个域名可以随便写，因为它不是必需的。</p>
+<p><strong>备注：</strong></p>
+<p>VPS 大都不便宜（通常至少每个月要 5 美元），你可以 Google 一下并选择适合的。</p>
+<p><!-- raw HTML omitted --></p>
+<h2 id="2连接-vps">2、连接 VPS</h2>
+<p>打开终端应用程序，并输入以下命令：</p>
+<blockquote>
+<p>ssh root@xxx.xxx.xxx.xxx</p>
+</blockquote>
+<p>记住将 “xxx.xxx.xxx.xxx” 换成 VPS 的 IP 地址， 例如 “178.18.17.212”。</p>
+<p>按回车后，你将会看到以下问题：</p>
+<blockquote>
+<p>Are you sure you want to continue connecting (yes/no)?</p>
+</blockquote>
+<p>输入 “yes”，回车，输入 VPS 密码，再回车就可以登录 VPS 了。</p>
+<p><strong>备注1：</strong></p>
+<p>如果你重装系统，那么将会在连接的时候遇到以下错误提示：</p>
+<blockquote>
+<p>Host key verification failed.</p>
+</blockquote>
+<p>这个时候，你需要先输入以下命令：</p>
+<blockquote>
+<p>ssh-keygen -R xxx.xxx.xxx.xxx</p>
+</blockquote>
+<p>记得将 “xxx.xxx.xxx.xxx” 换成你 VPS 的 IP 地址。</p>
+<p><strong>备注2：</strong></p>
+<p>文章中的所有命令都可以通过复制粘贴的方式输入到终端应用程序。</p>
+<h2 id="3安装-pptpd">3、安装 PPTPD</h2>
+<p>输入以下命令：</p>
+<blockquote>
+<p>apt-get install pptpd</p>
+</blockquote>
+<p>回车后你将会看到以下问题：</p>
+<blockquote>
+<p>Do you want to continue [Y/n]?</p>
+</blockquote>
+<p>输入 “Y”，然后回车。</p>
+<h2 id="4编辑-vpn-接口的-ip-地址">4、编辑 VPN 接口的 IP 地址</h2>
+<p>输入以下命令：</p>
+<blockquote>
+<p>nano /etc/pptpd.conf</p>
+</blockquote>
+<p>回车并利用向下键找到以下两行：</p>
+<blockquote>
+<p>#localip 192.168.0.1</p>
+</blockquote>
+<blockquote>
+<p>#remoteip 192.168.0.234-238,192.168.0.245</p>
+</blockquote>
+<p>将光标分别移到以上两个 “#” 之后，然后按删除键移除它们。</p>
+<p>同时按下 “Control” 和 “X” 键，接着按下 “Y” 键，然后回车保存所做的更改。</p>
+<p><strong>备注：</strong></p>
+<p>除了 “Nano” 命令，你也可以使用 “Vi” 命令，不过后者稍微复杂一点。</p>
+<h2 id="5修改-dns-地址">5、修改 DNS 地址</h2>
+<p>输入以下命令：</p>
+<blockquote>
+<p>nano /etc/ppp/pptpd-options</p>
+</blockquote>
+<p>回车并找到以下两行内容：</p>
+<blockquote>
+<p>#ms-dns 10.0.0.1</p>
+</blockquote>
+<blockquote>
+<p>#ms-dns 10.0.0.2</p>
+</blockquote>
+<p>将以上内容改成：</p>
+<blockquote>
+<p>ms-dns 8.8.8.8</p>
+</blockquote>
+<blockquote>
+<p>ms-dns 8.8.4.4</p>
+</blockquote>
+<p>(小技巧：你也可以将以上内容复制粘贴到要修改内容的下面。)</p>
+<p>改好之后，同时按 “Control” 和 “X” 键，再按 “Y” 键，然后回车保存所做的修改。</p>
+<p><strong>备注：</strong></p>
+<p>以上所用的 DNS 地址是 Google 的，你也可以换成 OpenDNS 的，即 208.67.222.222 和 208.67.220.220。</p>
+<h2 id="6添加-vpn-帐号">6、添加 VPN 帐号</h2>
+<p>输入以下命令：</p>
+<blockquote>
+<p>nano /etc/ppp/chap-secrets</p>
+</blockquote>
+<p>回车并输入以下内容：</p>
+<blockquote>
+<p>username pptpd password *</p>
+</blockquote>
+<p>例如：</p>
+<blockquote>
+<p>freenuts pptpd 123456 *</p>
+</blockquote>
+<p><strong>备注：</strong></p>
+<p>你需要按 <strong>Tab</strong> 键来创建不同数值之间的空格。</p>
+<h2 id="7ipv4-地址转发">7、IPv4 地址转发</h2>
+<p>输入以下命令：</p>
+<blockquote>
+<p>nano /etc/sysctl.conf</p>
+</blockquote>
+<p>回车并找到以下一行内容：</p>
+<blockquote>
+<p>#net.ipv4.ip_forward=1</p>
+</blockquote>
+<p>将光标移到 “#” 号后面并按 “Delete” 键移除它。</p>
+<p>同时按下 “Control” 和 “X” 键，接着按下 “Y” 键，然后回车保持所做的修改。</p>
+<h2 id="8使转发生效">8、使转发生效</h2>
+<p>输入以下命令使得上一个步骤所做的转发得以生效：</p>
+<blockquote>
+<p>sysctl -p</p>
+</blockquote>
+<p>如果一切正常，回车后你将会只看到以下内容：</p>
+<blockquote>
+<p>net.ipv4.ip_forward = 1</p>
+</blockquote>
+<h2 id="9搭桥">9、搭桥</h2>
+<p>输入以下内容：</p>
+<blockquote>
+<p>iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE</p>
+</blockquote>
+<p>然后回车。</p>
+<h2 id="10重启-pptpd">10、重启 PPTPD</h2>
+<p>输入以下命令：</p>
+<blockquote>
+<p>/etc/init.d/pptpd restart</p>
+</blockquote>
+<p>回车之后，你就可以利用之前所创建的用户名和密码连接 VPS 上的 VPN 翻墙了。</p>
+<p>参考<a href="http://www.vpsma.com/vpn-pptpd-install.html">http://www.vpsma.com/vpn-pptpd-install.html</a></p>
+<p><a href="http://jingpin.org/how-to-set-up-pptp-vpn-in-a-vps/">http://jingpin.org/how-to-set-up-pptp-vpn-in-a-vps/</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-04-24-jetjavascript-extension-tools-javascript-%E6%89%A9%E5%B1%95%E5%B7%A5%E5%85%B7%E5%8C%85/" data-toggle="tooltip" data-placement="top" title="JET(Javascript Extension Tools – Javascript 扩展工具包)">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-05-09-%E6%80%8E%E6%A0%B7%E7%94%A8%E4%BB%A3%E7%90%86%E7%8C%8E%E6%89%8B%E6%89%BE%E5%A4%A7%E5%AD%A6%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-toggle="tooltip" data-placement="top" title="怎样用代理猎手找大学代理服务器">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Apr 25, 2012</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

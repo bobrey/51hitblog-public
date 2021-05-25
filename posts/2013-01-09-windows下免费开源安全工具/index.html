@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> windows下免费开源安全工具 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="windows下免费开源安全工具" />
+  <meta name="twitter:title" content="windows下免费开源安全工具" />
+  <meta name="description" content="密码破译器 John the Ripper——破解Windows LANManager（和其他程序）密码，提供了大多数其他密码破译器的功能。 Brutus——破">
+  <meta property="og:description" content="密码破译器 John the Ripper——破解Windows LANManager（和其他程序）密码，提供了大多数其他密码破译器的功能。 Brutus——破">
+  <meta name="twitter:description" content="密码破译器 John the Ripper——破解Windows LANManager（和其他程序）密码，提供了大多数其他密码破译器的功能。 Brutus——破">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2013-01-09-windows%E4%B8%8B%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2013-01-09-windows%E4%B8%8B%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">windows下免费开源安全工具</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jan 9, 2013</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/window/">window</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/wireshark/">wireshark</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p><strong>密码破译器</strong></p>
+<p><strong>John the Ripper</strong>——破解Windows LANManager（和其他程序）密码，提供了大多数其他密码破译器的功能。</p>
+<p><strong>Brutus</strong>——破译Web、FTP、Telnet等密码，比较旧，并且不稳定。但在很多情况下仍在使用。</p>
+<p><strong>Cain &amp; Abel</strong>——不仅是密码破译器，还可作为网络分析器。明文提示密码的强度、互联网协议语音对话和其他会话内容。</p>
+<p><strong>Ophcrack</strong>——使用Rainbow table（彩虹表）来破解Windows作业系统下的LAN Manager散列（比如hash文件）的程序，它是基于GPL下发布的开放原始码程式。</p>
+<p><strong>THC-Hydra</strong>——类似于Brutus的密码破译器，在Windows桌面服务器上运行，能破译较脆弱的密码。</p>
+<p><strong>端口和漏洞扫描器</strong></p>
+<p><strong>Microsoft Baseline Security Analyzer</strong>——好用的全盘扫描仪，发现基本的Windows的缺陷。</p>
+<p><strong>Nexpose Community</strong>——商业导向的漏洞扫描器，可以扫描多达32个没有商业价格标签的主机。</p>
+<p><strong>OpenVAS</strong>——商业化Nessus工具的开源分支。</p>
+<p><strong>SuperScan</strong>——图形用户界面端口扫描仪，查找活主机和开放端口。</p>
+<p><strong>Web和SQL Server安全工具</strong></p>
+<p><strong>Sqlninja</strong>——基于Perl的<!-- raw HTML omitted --><!-- raw HTML omitted -->SQL Server<!-- raw HTML omitted --><!-- raw HTML omitted -->黑客工具，利用SQL Server上的各种各样的缺陷。</p>
+<p><strong>SQLPing</strong>——SQL Server查找工具，内置密码破译功能。是WiFi开源安全工具。</p>
+<p><strong>Aircrack-ng</strong>——陈旧但是好用的WEP和WPA-PSK破解程序。</p>
+<p><strong>Hashcat</strong>——配置图形处理器的破解工具，破解Wi-Fi Protected Access（WPA）和WPA 2。</p>
+<p><strong>Reaver</strong>——Wi-Fi Protected Setup（WPS）攻击工具，利用WPA中新的侧通道漏洞。</p>
+<p>**　多功能开源安全工具**</p>
+<p><strong>BackTrack Linux</strong>——基于Linux的渗透测试一体化工具包。</p>
+<p><strong>Metasploit</strong>——Metasploit可以说是一个漏洞利用和测试平台。它集成了各平台上常见的溢出漏洞和流行的shellcode，并且不断更新，使得缓冲区溢出测试变得方便和简单。</p>
+<p><strong>Social Engineer Toolkit</strong>——是一个社会工程学工具，集成多个有用的社会工程学攻击工具在一个统一的简单界面上。</p>
+<p><strong>Sysinternals</strong>——一个工具集。它允许你进入<!-- raw HTML omitted --><!-- raw HTML omitted -->Windows内核<!-- raw HTML omitted --><!-- raw HTML omitted -->。</p>
+<p><strong>Windows XP Mode</strong>和<strong>VirtualBox</strong>——在虚拟机环境中下载和运行测试工具，同时能确保主Windows系统安全。</p>
+<p><strong>Wireshark</strong>——好用的网络分析仪，是一个很好的安全工具（下载PDF），只Windows管理员有权限。</p>
+<p><strong>开源安全工具的底线</strong></p>
+<p>请记住，这不是一份完整的列表，但它们全部都是免费和开源的安全工具，可以用来测试Windows漏洞。这些工具大多数都保持更新。另外，其中一些更适合企业使用。</p>
+<p>虽然使用免费和开源的安全工具测试Windows漏洞，仍然需要花费一些时间，但是值得的。如果这些工具的功能不能够满足你，还有一些便宜的商业性的安全测试工具，比如TamoSoft、 Northwest Performance Software 和 Elcomsof Proactive Software。</p>
+<p>监测Windows漏洞很重要，但是你的分析结果也很重要。这需要长期经验。这个免费和开源的安全工具列表只是你长途旅程的一个起点。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-12-27-rsync/" data-toggle="tooltip" data-placement="top" title="rsync">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2013-01-10-bash_02-%E9%87%8D%E5%AE%9A%E5%90%91/" data-toggle="tooltip" data-placement="top" title="bash_02 [重定向]">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jan 9, 2013</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/window/">window</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/wireshark/">wireshark</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 对连连看一种算法的分析与思考 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="对连连看一种算法的分析与思考" />
+  <meta name="twitter:title" content="对连连看一种算法的分析与思考" />
+  <meta name="description" content="最近在用JAVA做一个经典游戏连连看，而连连看游戏的难点是在连线的判断上。下面是在在老师的提点下自己所写的一个连通判定算法的实现和问题分析：">
+  <meta property="og:description" content="最近在用JAVA做一个经典游戏连连看，而连连看游戏的难点是在连线的判断上。下面是在在老师的提点下自己所写的一个连通判定算法的实现和问题分析：">
+  <meta name="twitter:description" content="最近在用JAVA做一个经典游戏连连看，而连连看游戏的难点是在连线的判断上。下面是在在老师的提点下自己所写的一个连通判定算法的实现和问题分析：">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-09-%E5%AF%B9%E8%BF%9E%E8%BF%9E%E7%9C%8B%E4%B8%80%E7%A7%8D%E7%AE%97%E6%B3%95%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E6%80%9D%E8%80%83/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-09-%E5%AF%B9%E8%BF%9E%E8%BF%9E%E7%9C%8B%E4%B8%80%E7%A7%8D%E7%AE%97%E6%B3%95%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E6%80%9D%E8%80%83/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">对连连看一种算法的分析与思考</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 9, 2012</h4>
+    </section>
+    <h5 id="wc">3400 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>最近在用JAVA做一个经典游戏连连看，而连连看游戏的难点是在连线的判断上。下面是在在老师的提点下自己所写的一个连通判定算法的实现和问题分析：</p>
+<p>约定：</p>
+<p>约定：</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<pre><code>  &lt;p align=&quot;left&quot;&gt;
+    &lt;strong&gt;private &lt;/strong&gt;Sting data[][]
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+    // 数组中某格 子为空格的条件
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+    data[x][y].equals(“”)==&lt;strong&gt; true&lt;/strong&gt;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+    // 连线点堆栈 这个是用来保存连接线路节点的堆栈，理解算法时可以先忽略它的操作
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+    &lt;strong&gt;private&lt;/strong&gt; Stack&lt;java.awt.Point&gt; linePointStack = &lt;strong&gt;new&lt;/strong&gt; Stack&lt;Point&gt; ();
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+    linePointStack.push(checkP);
+  &lt;/p&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p> </p>
+<p><strong>分析：</strong>****</p>
+<p>我们知道连连看的连线规则有3种</p>
+<p>**第一种，**直线链接（单线链接），即同行或同列的情况</p>
+<p><a href="https://i2.wp.com/blog.51hint.com/wp-content/uploads/Snap2.jpg"><!-- raw HTML omitted --></a></p>
+<p>这种联通判定比较好实现，即只要判断</p>
+<p>两个相同元素之间的空格数 =（他们的横/纵坐标之差-1）</p>
+<p>是否相等即可。</p>
+<p>具体代码：</p>
+<p> </p>
+<!-- raw HTML omitted -->
+<pre><code>  &lt;p align=&quot;left&quot;&gt;
+    * 同行同列情况消除方法 原理：如 果两个相同的被消除元素之间的 空格数spaceCount等于他们的 （行/列差-1）则 两者可以联 通消除
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+        * x代表行，y代表列
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+        *
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+        * &lt;strong&gt;@param&lt;/strong&gt; p1
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+        *            第一个点
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+        * &lt;strong&gt;@param&lt;/strong&gt; p2
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+        *            第二个点
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+        */
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+        &lt;strong&gt;public&lt;/strong&gt; &lt;strong&gt;boolean&lt;/strong&gt;  lineCheck(Point p1, Point p2) {
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+           &lt;strong&gt;int&lt;/strong&gt; absDistance = 0;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+           &lt;strong&gt;int&lt;/strong&gt; spaceCount = 0;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+           // 同行同列的情况吗？
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+           &lt;strong&gt;if&lt;/strong&gt; (p1.x == p2.x || p1.y == p2.y) {
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+               System.&lt;em&gt;out&lt;/em&gt;.println(&amp;#8220;同行同列的情况&amp;#8212;&amp;#8212;&amp;#8220;);
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+               // 同行的情况
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+               &lt;strong&gt;if&lt;/strong&gt; (p1.x == p2.x &amp;&amp; p1.y != p2.y) {
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  System.&lt;em&gt;out&lt;/em&gt;.println(&amp;#8220;同行的情况&amp;#8221;);
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  // 绝对距离(中间隔着的空格数)
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  absDistance = Math.&lt;em&gt;abs&lt;/em&gt;(p1.y &amp;#8211; p2.y) &amp;#8211; 1;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  // 正负值
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  &lt;strong&gt;int&lt;/strong&gt; zf = (p1.y &amp;#8211; p2.y) &gt; 0 ? -1 : 1;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  &lt;strong&gt;for&lt;/strong&gt; (&lt;strong&gt;int&lt;/strong&gt; i = 1; i &lt; = absDistance; i++) {
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                      &lt;strong&gt;if&lt;/strong&gt; (data[p1.x][p1.y + i * zf].equals(&amp;#8220;&amp;#8221;)) {
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                         // 空格数加1
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                         spaceCount += 1;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                      } &lt;strong&gt;else&lt;/strong&gt;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                         &lt;strong&gt;break&lt;/strong&gt;;// 遇到阻碍就不用再探测了
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  }
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+               } // 同列的情况
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+               &lt;strong&gt;else&lt;/strong&gt; &lt;strong&gt;if&lt;/strong&gt; (p1.y == p2.y &amp;&amp; p1.x != p2.x) {
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  System.&lt;em&gt;out&lt;/em&gt;.println(&amp;#8220;同列的情况&amp;#8221;);
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  absDistance = Math.&lt;em&gt;abs&lt;/em&gt;(p1.x &amp;#8211; p2.x) &amp;#8211; 1;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  &lt;strong&gt;int&lt;/strong&gt; zf = (p1.x &amp;#8211; p2.x) &gt; 0 ? -1 : 1;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  &lt;strong&gt;for&lt;/strong&gt; (&lt;strong&gt;int&lt;/strong&gt; i = 1; i &lt; = absDistance; i++) {
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                      &lt;strong&gt;if&lt;/strong&gt; (data[p1.x + i * zf][p1.y].equals(&amp;#8220;&amp;#8221;)) {
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                         spaceCount += 1;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                      } &lt;strong&gt;else&lt;/strong&gt;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                         &lt;strong&gt;break&lt;/strong&gt;;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  }
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+               }
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+               &lt;strong&gt;if&lt;/strong&gt; (spaceCount == absDistance) {
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  // 可联通
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  &lt;strong&gt;return&lt;/strong&gt; &lt;strong&gt;true&lt;/strong&gt;;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+               } &lt;strong&gt;else&lt;/strong&gt; {
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  System.&lt;em&gt;out&lt;/em&gt;.println(&amp;#8220;行/列不能消 除！&amp;#8221;);
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+                  &lt;strong&gt;return&lt;/strong&gt; &lt;strong&gt;false&lt;/strong&gt;;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+               }
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+           } &lt;strong&gt;else&lt;/strong&gt; {
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+               // 不是同行同列的情况所以直接返回false;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+               &lt;strong&gt;return&lt;/strong&gt; &lt;strong&gt;false&lt;/strong&gt;;
+  &lt;/p&gt;
+  
+  &lt;p align=&quot;left&quot;&gt;
+           }
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+        }&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+    
+    &lt;p&gt;
+      &amp;nbsp;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &amp;nbsp;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &amp;nbsp;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &amp;nbsp;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;strong&gt; &lt;/strong&gt;&lt;strong&gt;第二种，直角链接（双线链接）&lt;/strong&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;a href=&quot;https://blog.51hint.com/wp-content/uploads/Snap3.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-784&quot; title=&quot;Snap3&quot; src=&quot;https://blog.51hint.com/wp-content/uploads/Snap3.jpg?resize=328%2C313&quot; alt=&quot;&quot; srcset=&quot;https://i2.wp.com/www.51hint.com/wp-content/uploads/Snap3.jpg?w=328 328w, https://i2.wp.com/www.51hint.com/wp-content/uploads/Snap3.jpg?resize=300%2C286 300w&quot; sizes=&quot;(max-width: 328px) 100vw, 328px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      如图所示，直角链接判定，可理解为，若两点要直角联通，则直角拐点checkP与p1、p2要直线联通。
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      而这样的直角拐点有两个，所以要将这两个拐点都进行这要的判定， 其中只要有一个拐点判定成功则代表p1、p2可联通。即：
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      lineCheck(p1, checkP) &amp;&amp;  lineCheck(checkP, p2)为真
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      或者
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      lineCheck(p1, checkP2) &amp;&amp;  lineCheck(checkP2, p2)为真
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      具体代码：
+    &lt;/p&gt;
+    
+    &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+      &lt;tr&gt;
+        &lt;td valign=&quot;top&quot; width=&quot;596&quot;&gt;
+          &lt;p align=&quot;left&quot;&gt;
+            /**
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+            * 直角连接，即X,Y坐标都不同的，可以用这个方法尝试连接
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                *
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                * &lt;strong&gt;@param&lt;/strong&gt; first
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                * &lt;strong&gt;@param&lt;/strong&gt; second
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                */&lt;strong&gt;&lt;/strong&gt;
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+            &lt;strong&gt;public&lt;/strong&gt; &lt;strong&gt;boolean&lt;/strong&gt;  secendLine(Point p1, Point p2) {
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                   // 第一个直角检查点，如果这里为空则赋予相同值供 检查
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                   Point checkP = &lt;strong&gt;new&lt;/strong&gt; Point(p1.x, p2.y);
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                   // 第二个直角检查点，如果这里为空则赋予相同值供 检查
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                   Point checkP2 = &lt;strong&gt;new&lt;/strong&gt; Point(p2.x, p1.y);
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                   // 第一个直角点检测
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                   &lt;strong&gt;if&lt;/strong&gt; (data[checkP.x][checkP.y].equals(&amp;#8220;&amp;#8221;)) {
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                       &lt;strong&gt;if&lt;/strong&gt; (&lt;strong&gt;this&lt;/strong&gt;.lineCheck(p1, checkP) &amp;&amp; &lt;strong&gt;this&lt;/strong&gt;.lineCheck(checkP, p2)) {
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                          linePointStack.push(checkP);
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                          System.&lt;em&gt;out&lt;/em&gt;.println(&amp;#8220;直角消除ok&amp;#8221; + &amp;#8220;data.length= &amp;#8221; + data.length);
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                          &lt;strong&gt;return&lt;/strong&gt; &lt;strong&gt;true&lt;/strong&gt;;
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                       }
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                   }
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                   // 第二个直角点检测
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                   &lt;strong&gt;if&lt;/strong&gt; (data[checkP2.x][checkP2.y].equals(&amp;#8220;&amp;#8221;)) {
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                       &lt;strong&gt;if&lt;/strong&gt; (&lt;strong&gt;this&lt;/strong&gt;.lineCheck(p1, checkP2) &amp;&amp; &lt;strong&gt;this&lt;/strong&gt;.lineCheck(checkP2, p2)) {
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                          linePointStack.push(checkP2);
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                          System.&lt;em&gt;out&lt;/em&gt;.println(&amp;#8220;直角消除ok&amp;#8221; + &amp;#8220;data[checkP.x].length= &amp;#8220;
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                                 + data[checkP.x].length);
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                          &lt;strong&gt;return&lt;/strong&gt; &lt;strong&gt;true&lt;/strong&gt;;
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                       }
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+                   }
+          &lt;/p&gt;
+          
+          &lt;p align=&quot;left&quot;&gt;
+            &lt;p align=&quot;left&quot;&gt;
+                     &lt;strong&gt;return&lt;/strong&gt; &lt;strong&gt;false&lt;/strong&gt;;
+            &lt;/p&gt;
+            
+            &lt;p align=&quot;left&quot;&gt;
+              &lt;p&gt;
+                    }&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+                
+                &lt;p&gt;
+                  &amp;nbsp;
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &amp;nbsp;
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &amp;nbsp;
+                &lt;/p&gt;
+                
+                &lt;p&gt;
+                  &lt;strong&gt;第三种，双直角（三线链接）&lt;br /&gt; &lt;/strong&gt;&lt;strong&gt;&lt;a href=&quot;https://blog.51hint.com/wp-content/uploads/Snap7.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-785&quot; title=&quot;Snap7&quot; src=&quot;https://blog.51hint.com/wp-content/uploads/Snap7.jpg?resize=328%2C322&quot; alt=&quot;&quot; srcset=&quot;https://i0.wp.com/www.51hint.com/wp-content/uploads/Snap7.jpg?w=328 328w, https://i0.wp.com/www.51hint.com/wp-content/uploads/Snap7.jpg?resize=300%2C294 300w&quot; sizes=&quot;(max-width: 328px) 100vw, 328px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;https://blog.51hint.com/wp-content/uploads/Snap11.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-786&quot; title=&quot;Snap11&quot; src=&quot;https://blog.51hint.com/wp-content/uploads/Snap11.jpg?resize=328%2C313&quot; alt=&quot;&quot; srcset=&quot;https://i0.wp.com/www.51hint.com/wp-content/uploads/Snap11.jpg?w=328 328w, https://i0.wp.com/www.51hint.com/wp-content/uploads/Snap11.jpg?resize=300%2C286 300w&quot; sizes=&quot;(max-width: 328px) 100vw, 328px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;/p&gt; 
+                  
+                  &lt;p&gt;
+                    &lt;/strong&gt;
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    双直角联通判定可分两步走：
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    1.       在p1点周围4个方向寻找空 格checkP
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    2.       调用secondLine(checkP, p2)
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    3.       即遍历p1 4个方向的空格，使之成为checkP,然后调用secondLine(checkP, p2)判定是否为真，如果为真则可以双直角 连同，否则当所有的空格都遍历完而没有找到一个checkP使secondLine(checkP, p2)为 真，则两点不能连同
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    具体代 码：
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    &amp;nbsp;
+                  &lt;/p&gt;
+                  
+                  &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td valign=&quot;top&quot; width=&quot;568&quot;&gt;
+                        &lt;p align=&quot;left&quot;&gt;
+                          /**
+                        &lt;/p&gt;
+                        
+                        &lt;p align=&quot;left&quot;&gt;
+                              * 两直角连接方法 以secendLine为基础
+                        &lt;/p&gt;
+                        
+                        &lt;p align=&quot;left&quot;&gt;
+                              *
+                        &lt;/p&gt;
+                        
+                        &lt;p align=&quot;left&quot;&gt;
+                              * &lt;strong&gt;@param&lt;/strong&gt; first
+                        &lt;/p&gt;
+                        
+                        &lt;p align=&quot;left&quot;&gt;
+                              * &lt;strong&gt;@param&lt;/strong&gt; second
+                        &lt;/p&gt;
+                        
+                        &lt;p align=&quot;left&quot;&gt;
+                              * &lt;strong&gt;@return&lt;/strong&gt;
+                        &lt;/p&gt;
+                        
+                        &lt;p align=&quot;left&quot;&gt;
+                              */
+                        &lt;/p&gt;
+                        
+                        &lt;p align=&quot;left&quot;&gt;
+                              &lt;strong&gt;public&lt;/strong&gt; &lt;strong&gt;boolean&lt;/strong&gt;  triLine(Point p1, Point p2) {
+                        &lt;/p&gt;
+                        
+                        &lt;p align=&quot;left&quot;&gt;
+                                 &lt;strong&gt;int&lt;/strong&gt; i;
+                        &lt;/p&gt;
+                        
+                        &lt;p align=&quot;left&quot;&gt;
+                                 Point checkP = &lt;strong&gt;new&lt;/strong&gt; Point(p1.x, p1.y);
+                        &lt;/p&gt;
+                        
+                        &lt;p align=&quot;left&quot;&gt;
+                          &lt;p align=&quot;left&quot;&gt;
+                                   // 四向探测开始
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                   &lt;strong&gt;for&lt;/strong&gt; (i = 4 &amp;#8211; 1; i &gt;= 0; i&amp;#8211;) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                       checkP.x = p1.x;
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                       checkP.y = p1.y;
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                       // 向右
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                       &lt;strong&gt;if&lt;/strong&gt; (i == 3) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                          &lt;strong&gt;while&lt;/strong&gt; ((++checkP.y &lt; data[checkP.x].length)
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 &amp;&amp; data[checkP.x][checkP.y].equals(&amp;#8220;&amp;#8221;)) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              linePointStack.push(checkP);
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              &lt;strong&gt;if&lt;/strong&gt; (secendLine(checkP, p2)) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 System.&lt;em&gt;out&lt;/em&gt;.println(&amp;#8220;右探测OK&amp;#8221;);
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 &lt;strong&gt;return&lt;/strong&gt; &lt;strong&gt;true&lt;/strong&gt;;
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              } &lt;strong&gt;else&lt;/strong&gt; {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 linePointStack.pop();
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              }
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                          }
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                       }// 向下
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                       &lt;strong&gt;else&lt;/strong&gt; &lt;strong&gt;if&lt;/strong&gt; (i == 2) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                          &lt;strong&gt;while&lt;/strong&gt; ((++checkP.x &lt; data.length)
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 &amp;&amp; data[checkP.x][checkP.y].equals(&amp;#8220;&amp;#8221;)) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              linePointStack.push(checkP);
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              &lt;strong&gt;if&lt;/strong&gt; (secendLine(checkP, p2)) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 System.&lt;em&gt;out&lt;/em&gt;.println(&amp;#8220;下探测OK&amp;#8221;);
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 &lt;strong&gt;return&lt;/strong&gt; &lt;strong&gt;true&lt;/strong&gt;;
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              } &lt;strong&gt;else&lt;/strong&gt; {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 linePointStack.pop();
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              }
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                          }
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                       }// 向左
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                       &lt;strong&gt;else&lt;/strong&gt; &lt;strong&gt;if&lt;/strong&gt; (i == 1) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                          &lt;strong&gt;while&lt;/strong&gt; ((&amp;#8211;checkP.y &gt;= 0) &amp;&amp; data[checkP.x][checkP.y].equals(&amp;#8220;&amp;#8221;)) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              linePointStack.push(checkP);
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              &lt;strong&gt;if&lt;/strong&gt; (secendLine(checkP, p2)) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 System.&lt;em&gt;out&lt;/em&gt;.println(&amp;#8220;左探测OK&amp;#8221;);
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 &lt;strong&gt;return&lt;/strong&gt; &lt;strong&gt;true&lt;/strong&gt;;
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              } &lt;strong&gt;else&lt;/strong&gt; {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 linePointStack.pop();
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              }
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                          }
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                       }// 向上
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                       &lt;strong&gt;else&lt;/strong&gt; &lt;strong&gt;if&lt;/strong&gt; (i == 0) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                          &lt;strong&gt;while&lt;/strong&gt; ((&amp;#8211;checkP.x &gt;= 0) &amp;&amp; data[checkP.x][checkP.y].equals(&amp;#8220;&amp;#8221;)) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              linePointStack.push(checkP);
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              &lt;strong&gt;if&lt;/strong&gt; (secendLine(checkP, p2)) {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 System.&lt;em&gt;out&lt;/em&gt;.println(&amp;#8220;上探测OK&amp;#8221;);
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 &lt;strong&gt;return&lt;/strong&gt; &lt;strong&gt;true&lt;/strong&gt;;
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              } &lt;strong&gt;else&lt;/strong&gt; {
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                                 linePointStack.pop();
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                              }
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                          }
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                       }
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                   }
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                   // 四个方向寻完都没找到可行的checkP点，所以只好返回false
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                                   &lt;strong&gt;return&lt;/strong&gt; &lt;strong&gt;false&lt;/strong&gt;;
+                          &lt;/p&gt;
+                          
+                          &lt;p align=&quot;left&quot;&gt;
+                            &lt;p&gt;
+                                  }&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+                              
+                              &lt;p&gt;
+                                &lt;strong&gt;算法效率分析:&lt;/strong&gt;
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                算法的时间复杂度几乎只集中在 第三种连线方法上，即它的checkP点的寻找和匹配过程 中，所以总的效率还是比较高的。
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                &amp;nbsp;
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                &lt;strong&gt;问题扩展&lt;/strong&gt;：
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                下面我们来讨论这样一个问题：&lt;br /&gt; &lt;a href=&quot;https://i2.wp.com/blog.51hint.com/wp-content/uploads/Snap8.jpg&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-787&quot; title=&quot;Snap8&quot; src=&quot;https://i2.wp.com/blog.51hint.com/wp-content/uploads/Snap8.jpg?resize=328%2C322&quot; alt=&quot;&quot; srcset=&quot;https://i2.wp.com/www.51hint.com/wp-content/uploads/Snap8.jpg?w=328 328w, https://i2.wp.com/www.51hint.com/wp-content/uploads/Snap8.jpg?resize=300%2C294 300w&quot; sizes=&quot;(max-width: 328px) 100vw, 328px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                如果游戏规则允许如图中紫红色 连线的方式，那么我们改如何实现它呢？
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                &amp;nbsp;
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                我的想法是：
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                1.       在p2周围4个方向任意一 个空格checkP2,
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                2.       进行 第三种连线方法中的判断，triLine(p1, checkP2)看结果的真假值
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                如图所示，途中p1、checkP2进行triLine(p1,checkP2)的值为真，所以，p1,p2可以联通。
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                &amp;nbsp;
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                &lt;strong&gt;总结：&lt;/strong&gt;通过上述分析，可以看出这个连连 看算法的实现过程：
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                lineCheck()-àsecondLine()=【lineCheck()*4】à  triLine(Point p1, Point p2)=【移位+secondLine()】
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                可见，复杂的联通判定可有先前稍 简单的算法复合使用后实现，即将大问题细分成原子问题来解决，这样的好处，不仅可以降低初期的分析难度，又可避免陷入编码时的混乱。另外这样，使得逻辑合 理，结构清晰，便于理解。
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                &amp;nbsp;
+                              &lt;/p&gt;
+                              
+                              &lt;p&gt;
+                                &amp;nbsp;
+                              &lt;/p&gt;
+</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-09-win7%E5%AE%89vc2008%E7%BC%96%E8%AF%91%E6%8A%A5link-fatal-error-lnk1000-internal-error-during-incrbuildimage/" data-toggle="tooltip" data-placement="top" title="Win7安vc2008编译报LINK : fatal error LNK1000: Internal error during IncrBuildImage">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-09-windows7-vs2008-active-control-test-container-%E6%BA%90%E7%A0%81%E7%94%9F%E6%88%90/" data-toggle="tooltip" data-placement="top" title="windows7 vs2008 Active control test container [源码生成]">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 9, 2012</h4>
+    </section>
+    <h5 id="wc">3400 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

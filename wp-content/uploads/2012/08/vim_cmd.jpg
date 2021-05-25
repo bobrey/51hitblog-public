@@ -1,0 +1,165 @@
+
+
+command:
+	p
+	ce 	 ----------> To change until end of a word
+	cw	 ----------> delete a words and places you insert mode 	
+	c$	 ----------> delete the whole line and place insert mode
+			
+	CTRL-G  ----------> show the file name and status
+	%	----------> place the cursor on ay (,{,[ then Mgoes to its match.
+	/	----------> search FORWARD
+	?       ----------> search BACKWARD  		
+	
+	 To substitute new for the first old in a line type    	   :s /old/new
+     	 To substitute new for all 'old's on a line type	   :s /old/new/g
+     	 To substitute all occurrences in the file type	   	   :%s /old/new/g
+     	 To ask for confirmation each time add 'c'		       :%s /old/new/gc
+     	 To substitute phrases between two line #'s type	   :#,#s /old/new/g
+
+	:!command  executes an external command.		   :!ls
+	v  motion  :w FILENAME  saves the  selected lines in file
+	:r FILENAME  retrieves disk file FILENAME 		   :r !ls	
+
+
+	Type  o  to open a line BELOW the cursor and start Insert mode.
+	Type  O  to open a line ABOVE the cursor.
+
+    Type  I  to insert at the begining of the line
+	Type  A  to insert text after the end of the line.
+
+	The  e  command moves to the end of a word.
+
+
+	Type  CTRL-W CTRL-W  to jump to another window
+
+	When typing : command, press CTRL-D to see possible completions.
+	Press <TAB> to use one completion.
+
+	1.
+		Type 5w number powered movement
+	2.
+		Find word under cursor, * and #
+	3.
+		Repeate the previous command, just press .
+	4.
+		CTRL-R for redo
+	
+    5.
+		f<	jump foward and land on the < character
+		t<	jump forward and land right before the < character
+		
+		t: jump up to a character
+		f: jump onto a character
+		*: search for other instances of the word under your cursor
+		;: go to the next instance when you’ve jumped to a character
+		,: go to the previous instance when you’ve jumped to a character
+			
+	7.
+        ): move forward one sentence
+        }: move forward one paragraph
+
+
+        H: move to the top of the screen
+        M: move to the middle of the screen
+        L: move to the bottom of the screen
+
+        ^E: scroll up one line
+        ^Y: scroll down one line
+        ^U: move up half a screen
+        ^D: move down half a screen
+        ^F: move down a page 
+        ^B: move up a page 
+	
+        Ctrl-i: jump to your previous navigation location
+        Ctrl-o: jump back to where you were
+
+
+    8.
+        cm: change whatever you define as a movement, e.g. a word, or a sentence, or a paragraph.
+        C: change the current line from where you’re at
+        s: substitute from where you are to the next command (noun)
+        S: substitute the entire current line
+        
+        Eg 
+           cis  -> Change inside sentence
+
+    9.
+        ~: changing case
+        x: delete the character under the cursor
+        X: delete the character before the cursor
+        dm: delete whatever you define as a movement, e.g. a word, or a sentence, or a paragraph.
+        dt.: delete delete from where you are to the period
+        J: join the current line with the next one (delete what’s between)
+
+    10.
+        yy: yank the current line
+        p : paster text after the current cursor
+        P : paster text before the current cursor
+        ddp: swiching lines of text
+
+    11.
+        Js: Got to the next misspelled word
+        [s: Go to the last misspelled word
+        z=: When on a misspelled word, get some suggestion
+        zg: Mark a misspelled word as correct
+        zw: Mark a good word as misspelled
+
+
+===================================================
+     1.
+        iw: inside word
+        aw: around word 
+       
+        Eg:
+            daw: Delete around a word
+    2.
+        is: inside sentence
+        as: around sentence  
+
+        Eg:
+            cis: Change inside a sentence
+
+    3.
+        paragraphs: ip and ap
+        single quotes: i' and a'
+        double quotes: i" and a"        
+    
+        words:          iw and aw
+        sentences:      is and as
+        paragraphs:     ip and ap
+        single quotes:  i' and a'
+        double quotes:  i" and a"
+        back ticks:     i` and a`
+        parenthesis:    i( and a(
+        brackets:       i[ and a[
+        braces:         i{ and a{
+        tags:           it and at
+
+    4.
+        v:      character-based Visual Mode
+        V:      line-based Visual Mode
+        Ctrl-v: paragraphs Visual Mode
+
+    5.
+        vi(:    Select inside of parenthesis
+        vi[:    Select inside of brackets
+        v2i{:   Select everything inside the second tier braces
+
+
+    6.
+       vwwy:    Enter visual mode,select two more words of text, and copy them
+       Vjjd:    Enter line-based visual mode and delete a couple of lines below
+       vip:     Visual select an entire paragraph
+       vipyjjp: Visual select an entire paragraph then paste it down below
+
+    7.
+       qa:      start recording a macro named "a"
+       q:       stop recording
+       @a:      play back the macro
+
+
+
+
+------------------------------------------------------------
+

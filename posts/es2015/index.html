@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> es2015 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="es2015" />
+  <meta name="twitter:title" content="es2015" />
+  <meta name="description" content="ES2015 Template literals `` 1 - 多行 console.log(&#39;string text line 1\n&#39; &#43; &#39;string text line 2&#39;); // &#34;string text line 1 // string text line 2&#34; //-----after---- console.log(`string text line 1 string text line 2`); // &#34;string text line 1 // string text line 2&#34; 2 - Tagged template literals var person = &#39;Mike&#39;; var age = 28; function myTag(strings, personExp, ageExp) { var str0 = strings[0]; // &#34;that">
+  <meta property="og:description" content="ES2015 Template literals `` 1 - 多行 console.log(&#39;string text line 1\n&#39; &#43; &#39;string text line 2&#39;); // &#34;string text line 1 // string text line 2&#34; //-----after---- console.log(`string text line 1 string text line 2`); // &#34;string text line 1 // string text line 2&#34; 2 - Tagged template literals var person = &#39;Mike&#39;; var age = 28; function myTag(strings, personExp, ageExp) { var str0 = strings[0]; // &#34;that">
+  <meta name="twitter:description" content="ES2015 Template literals `` 1 - 多行 console.log(&#39;string text line 1\n&#39; &#43; &#39;string text line 2&#39;); // &#34;string text line 1 // string text line 2&#34; //-----after---- …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/es2015/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/es2015/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">es2015</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Mar 9, 2017</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#es2015">ES2015</a>
+      <ul>
+        <li><a href="#template-literals-">Template literals ``</a></li>
+        <li><a href="#class">Class</a></li>
+        <li><a href="#arrow-functions">Arrow functions</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h2 id="es2015">ES2015</h2>
+<h3 id="template-literals-">Template literals ``</h3>
+<p>1 - 多行</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;string text line 1\n&#39;</span> <span class="o">+</span>
+<span class="s1">&#39;string text line 2&#39;</span><span class="p">);</span>
+<span class="c1">// &#34;string text line 1
+</span><span class="c1">// string text line 2&#34;
+</span><span class="c1"></span>
+
+<span class="c1">//-----after----
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`string text line 1
+</span><span class="sb">string text line 2`</span><span class="p">);</span>
+<span class="c1">// &#34;string text line 1
+</span><span class="c1">// string text line 2&#34;
+</span></code></pre></div><p>2 - Tagged template literals</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="s1">&#39;Mike&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">28</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">myTag</span><span class="p">(</span><span class="nx">strings</span><span class="p">,</span> <span class="nx">personExp</span><span class="p">,</span> <span class="nx">ageExp</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">var</span> <span class="nx">str0</span> <span class="o">=</span> <span class="nx">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// &#34;that &#34;
+</span><span class="c1"></span>  <span class="kd">var</span> <span class="nx">str1</span> <span class="o">=</span> <span class="nx">strings</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">// &#34; is a &#34;
+</span><span class="c1"></span>
+  <span class="kd">var</span> <span class="nx">ageStr</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">ageExp</span> <span class="o">&gt;</span> <span class="mi">99</span><span class="p">){</span>
+    <span class="nx">ageStr</span> <span class="o">=</span> <span class="s1">&#39;centenarian&#39;</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">ageStr</span> <span class="o">=</span> <span class="s1">&#39;youngster&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">str0</span> <span class="o">+</span> <span class="nx">personExp</span> <span class="o">+</span> <span class="nx">str1</span> <span class="o">+</span> <span class="nx">ageStr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">myTag</span><span class="sb">`that </span><span class="si">${</span> <span class="nx">person</span> <span class="si">}</span><span class="sb"> is a </span><span class="si">${</span> <span class="nx">age</span> <span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span>
+<span class="c1">// that Mike is a youngster
+</span></code></pre></div><p>3 - Raw strings</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"> <span class="kd">function</span> <span class="nx">tag</span><span class="p">(</span><span class="nx">strings</span><span class="p">,</span> <span class="p">...</span><span class="nx">values</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nx">raw</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="nx">tag</span><span class="sb">`string text line 1 \n string text line 2`</span><span class="p">;</span>
+<span class="c1">// logs &#34;string text line 1 \n string text line 2&#34; ,
+</span><span class="c1">// including the two characters &#39;\&#39; and &#39;n&#39;
+</span><span class="c1"></span>
+
+<span class="c1">//^^^^^^^^^^^^^^^^^
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">raw</span><span class="sb">`Hi\n</span><span class="si">${</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="si">}</span><span class="sb">!`</span><span class="p">;</span>
+<span class="c1">// &#34;Hi\n5!&#34;
+</span><span class="c1"></span>
+<span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="c1">// 6
+</span><span class="c1"></span>
+<span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">);</span>
+<span class="c1">// &#34;H,i,\,n,5,!&#34;
+</span></code></pre></div><h3 id="class">Class</h3>
+<ol>
+<li>
+<p>setPrototypeOf<br>
+Object.setPrototypeOf() 方法设置一个指定的对象的原型 ( 例如,内置的 [[Prototype]]属性）到另一个对象或  null。  <br>
+Object.setPrototypeOf(obj, prototype)  {<code>obj</code>要设置其原型的对象。.;  <code>prototype</code>该对象的新原型(一个对象 或 null).}</p>
+</li>
+<li>
+<p>species
+你可能想在扩展数组类 MyArray 上返回 Array 对象。<br>
+例如，当使用例如 map() 这样的方法返回默认的构造函数时，你希望这些方法能够返回父级的 Array 对象，以取代 MyArray 对象。Symbol.species 允许你这么做：</p>
+</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">MyArray</span> <span class="kr">extends</span> <span class="nb">Array</span> <span class="p">{</span>
+  <span class="c1">// 覆盖 species 到父级的 Array 构造函数上
+</span><span class="c1"></span>  <span class="kr">static</span> <span class="nx">get</span> <span class="p">[</span><span class="nx">Symbol</span><span class="p">.</span><span class="nx">species</span><span class="p">]()</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">Array</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyArray</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">mapped</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">x</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">x</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapped</span> <span class="k">instanceof</span> <span class="nx">MyArray</span><span class="p">);</span> <span class="c1">// false
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapped</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">);</span>   <span class="c1">// true
+</span></code></pre></div><h3 id="arrow-functions">Arrow functions</h3>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/react-reduxyong-fa/" data-toggle="tooltip" data-placement="top" title="React-Redux用法">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/xvfb/" data-toggle="tooltip" data-placement="top" title="xvfb">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/react-reduxyong-fa/">React-Redux用法</a></li>
+                    
+                    <li><a href="/posts/code-push-re-geng-xin-shi-yong/">Code Push 热更新使用</a></li>
+                    
+                    <li><a href="/posts/redux-zhong-jian-jian/">Redux 中间件</a></li>
+                    
+                    <li><a href="/posts/redux/">redux</a></li>
+                    
+                    <li><a href="/posts/flux/">flux</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Mar 9, 2017</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

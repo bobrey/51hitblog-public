@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> SPDY简介 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="SPDY简介" />
+  <meta name="twitter:title" content="SPDY简介" />
+  <meta name="description" content="PDY是什么？ SPDY是Google开发的基于TCP，TLS的网络协议，用来传输web内容。HTTP2.0的第一个草案就是以SPDY为蓝本。">
+  <meta property="og:description" content="PDY是什么？ SPDY是Google开发的基于TCP，TLS的网络协议，用来传输web内容。HTTP2.0的第一个草案就是以SPDY为蓝本。">
+  <meta name="twitter:description" content="PDY是什么？ SPDY是Google开发的基于TCP，TLS的网络协议，用来传输web内容。HTTP2.0的第一个草案就是以SPDY为蓝本。">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2014-02-11-spdy%E7%AE%80%E4%BB%8B/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2014-02-11-spdy%E7%AE%80%E4%BB%8B/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">SPDY简介</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 11, 2014</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/http/">http</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/spdy/">spdy</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#pdy是什么">PDY是什么？</a></li>
+    <li><a href="#spdy替换了http吗">SPDY替换了HTTP吗?</a></li>
+    <li><a href="#设计架构">设计架构。</a></li>
+    <li><a href="#功能">功能</a></li>
+    <li><a href="#谁在用spdy">谁在用SPDY</a></li>
+    <li><a href="#twitter的spdy框架">Twitter的SPDY框架</a></li>
+    <li><a href="#reference">Reference:</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h2 id="pdy是什么">PDY是什么？</h2>
+<p>SPDY是Google开发的基于TCP，TLS的网络协议，用来传输web内容。HTTP2.0的第一个草案就是以SPDY为蓝本。 SPDY的目的是减少web页面加载时间和增进web安全。</p>
+<p> </p>
+<h2 id="spdy替换了http吗">SPDY替换了HTTP吗?</h2>
+<p>没有。</p>
+<p>SPDY只是修改了HTTP 在网络上请求和响应的方式。这意味着现有的server端无需修改，只要有一个SPDY兼容的转换层在。 相对于HTTP，SPDY修改了连接管理(connection management)和数据传输格式（data transfer format）。</p>
+<p> </p>
+<h2 id="设计架构">设计架构。</h2>
+<p><!-- raw HTML omitted --></p>
+<p> </p>
+<h2 id="功能">功能</h2>
+<ul>
+<li>
+<p>多路复用
+SPDY 规定在一个 SPDY 连接内可以有无限个并行请求，即允许多个并发 HTTP 请求共用一个 TCP会话。<!-- raw HTML omitted --></p>
+<ul>
+<li>请求优先级</li>
+<li>HTTP头部压缩<!-- raw HTML omitted --></li>
+</ul>
+<p>HTTP 1.1只支持response压缩，而SPDY对request，(request and response)header都支持压缩。</p>
+<ul>
+<li>
+<p>服务端推送
+总体来说，SPDY相对HTTP来说，会提升23%左右的性能，SPDY是一个domain对应一个连接，而HTTP会发起多个连接。<!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p> </p>
+<h2 id="谁在用spdy">谁在用SPDY</h2>
+<p>Chrome, Firefox, Opera, IE等都实现了SPDY。</p>
+<p>Google, Facebook, Twitter在其部分服务支持SPDY。</p>
+<p>Apache, Nginx都有对应的module支持SPDY。</p>
+<p>要看看实际应用，可以访问google的服务，比如gmail, 图片，然后在浏览器输入</p>
+<p><strong>chrome://net-internals/#events&amp;q=type:SPDY_SESSION is:active</strong></p>
+<p> </p>
+<h2 id="twitter的spdy框架">Twitter的SPDY框架</h2>
+<p>Twitter 开源了他们的 SPDY 框架 <a href="https://github.com/twitter/CocoaSPDY">CocoaSPDY（for iOS and OS X）</a>。</p>
+<p>SPDY<strong>减少了大约30%的延迟（latency）</strong>，参见：<a href="https://blog.twitter.com/2013/cocoaspdy-spdy-for-ios-os-x">CocoaSPDY: SPDY for iOS / OS X</a></p>
+<p>另外，推荐看看ihower的<a href="http://vdisk.weibo.com/s/nuU6W">《SPDY 简介》</a></p>
+<p> </p>
+<h2 id="reference">Reference:</h2>
+<p>1 <a href="http://en.wikipedia.org/wiki/SPDY">SPDY</a></p>
+<p>2 <a href="http://www.cubrid.org/blog/dev-platform/what-is-spdy-deployment-recommendations/">What is SPDY? Deployment Recommendations</a></p>
+<p>3 <a href="http://www.chromium.org/spdy">SPDY The Chromium Projects</a></p>
+</li>
+</ul>
+</li>
+</ul>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2014-01-27-20-useful-mobile-frameworks-for-developers/" data-toggle="tooltip" data-placement="top" title="20 Useful Mobile Frameworks for Developers">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2014-02-23-%E9%98%BB%E6%AD%A2gdb%E4%BE%9D%E9%99%84/" data-toggle="tooltip" data-placement="top" title="阻止GDB依附">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 11, 2014</h4>
+    </section>
+    <h5 id="wc">700 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/http/">http</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/spdy/">spdy</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

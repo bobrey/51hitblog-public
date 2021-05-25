@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>anki on IT技术分享</title>
+    <link>https://www.51hint.com/tags/anki/</link>
+    <description>Recent content in anki on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Mar 2019 13:15:05 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/anki/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anki服务器搭建</title>
+      <link>https://www.51hint.com/posts/anki%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 11 Mar 2019 13:15:05 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/anki%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</guid>
+      <description>服务器搭建 export ANKI_SYNC_DATA_DIR=~/anki-sync-server-docker-data mkdir -p &amp;#34;$ANKI_SYNC_DATA_DIR&amp;#34; docker run -it \ --mount type=bind,source=&amp;#34;$ANKI_SYNC_DATA_DIR&amp;#34;,target=/app/data \ -p 27701:27701 \ --name anki-container \ -d \ kuklinistvan/anki-sync-server:latest 创建用户 # docker exec -it anki-container /bin/sh /app/anki-sync-server # ./ankisyncctl.py --help usage: ./ankisyncctl.py &amp;lt;command&amp;gt; [&amp;lt;args&amp;gt;] Commands: adduser &amp;lt;username&amp;gt; - add a new user deluser &amp;lt;username&amp;gt; - delete a user lsuser - list users passwd &amp;lt;username&amp;gt; - change password of a user</description>
+    </item>
+    
+  </channel>
+</rss>

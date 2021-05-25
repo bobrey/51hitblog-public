@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Laravel部署 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Laravel部署" />
+  <meta name="twitter:title" content="Laravel部署" />
+  <meta name="description" content="laravel5.6生产环境部署">
+  <meta property="og:description" content="laravel5.6生产环境部署">
+  <meta name="twitter:description" content="laravel5.6生产环境部署">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/laravel%E9%83%A8%E7%BD%B2/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/laravel%E9%83%A8%E7%BD%B2/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Laravel部署</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h4 id="服务器配置">服务器配置</h4>
+<h5 id="nginx">nginx</h5>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">erver <span class="o">{</span>
+    listen 80<span class="p">;</span>
+    server_name example.com<span class="p">;</span>
+    root /example.com/public<span class="p">;</span>
+
+    add_header X-Frame-Options <span class="s2">&#34;SAMEORIGIN&#34;</span><span class="p">;</span>
+    add_header X-XSS-Protection <span class="s2">&#34;1; mode=block&#34;</span><span class="p">;</span>
+    add_header X-Content-Type-Options <span class="s2">&#34;nosniff&#34;</span><span class="p">;</span>
+
+    index index.html index.htm index.php<span class="p">;</span>
+
+    charset utf-8<span class="p">;</span>
+
+    location / <span class="o">{</span>
+        try_files <span class="nv">$uri</span> <span class="nv">$uri</span>/ /index.php?<span class="nv">$query_string</span><span class="p">;</span>
+    <span class="o">}</span>
+
+    <span class="nv">location</span> <span class="o">=</span> /favicon.ico <span class="o">{</span> access_log off<span class="p">;</span> log_not_found off<span class="p">;</span> <span class="o">}</span>
+    <span class="nv">location</span> <span class="o">=</span> /robots.txt  <span class="o">{</span> access_log off<span class="p">;</span> log_not_found off<span class="p">;</span> <span class="o">}</span>
+
+    error_page <span class="m">404</span> /index.php<span class="p">;</span>
+
+    location ~ <span class="se">\.</span>php$ <span class="o">{</span>
+        fastcgi_split_path_info ^<span class="o">(</span>.+<span class="se">\.</span>php<span class="o">)(</span>/.+<span class="o">)</span>$<span class="p">;</span>
+        fastcgi_pass unix:/var/run/php/php7.1-fpm.sock<span class="p">;</span>
+        fastcgi_index index.php<span class="p">;</span>
+        include fastcgi_params<span class="p">;</span>
+    <span class="o">}</span>
+
+    location ~ /<span class="se">\.</span><span class="o">(</span>?!well-known<span class="o">)</span>.* <span class="o">{</span>
+        deny all<span class="p">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h4 id="优化">优化</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">自动加载优化
+确保优化过 Composer 的类自动加载映射以便 Composer 可以快速为给定类找到要加载的文件：
+composer install --optimize-autoloader
+</code></pre></div><h4 id="优化配置加载">优化配置加载</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">php artisan config:cache
+这个命令会将所有 Laravel 配置文件合并成一个缓存文件，从而极大减少框架在加载配置值时对文件系统的 IO 操作。
+</code></pre></div><h5 id="优化路由加载">优化路由加载</h5>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">php artisan route:cache
+这个命令会生成一个缓存文件将所有路由注册浓缩到单个方法调用，从而在注册大量路由时提升路由注册性能
+</code></pre></div><h4 id="forge部署">Forge部署</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">如果你对自己管理服务器配置、安装各种工具软件以及维护大型应用所需服务没有信心，或者觉得这些操作过于繁琐，那么 Laravel Forge 是一个不错的选择
+
+aravel Forge 可以在不同的云服务供应商（例如 DigitalOcean、Linode、AWS 等）中创建服务器，此外，Forge 还会帮你安装并管理构建大型 Laravel 应用所需的所有工具，例如 Nginx、MySQL、Redis、Memcached、Beanstalk 等等。
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/dokku%E5%9F%BA%E4%BA%8Edocker%E7%9A%84paas%E7%B1%BB%E4%BC%BCheroku/" data-toggle="tooltip" data-placement="top" title="Dokku基于docker的PaaS类似heroku">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/%E5%A4%9A%E7%BA%A7%E5%88%86%E9%94%80%E8%AE%BE%E8%AE%A1/" data-toggle="tooltip" data-placement="top" title="多级分销设计">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/belongstovshasone/">BelongsToVShasOne</a></li>
+                    
+                    <li><a href="/posts/dokku%E5%9F%BA%E4%BA%8Edocker%E7%9A%84paas%E7%B1%BB%E4%BC%BCheroku/">Dokku基于docker的PaaS类似heroku</a></li>
+                    
+                    <li><a href="/posts/walle%E7%93%A6%E5%8A%9B/">Walle瓦力</a></li>
+                    
+                    <li><a href="/posts/gogs/">Gogs</a></li>
+                    
+                    <li><a href="/posts/typescript%E5%A4%9A%E7%A7%8Dimport/">Typescript多种import</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

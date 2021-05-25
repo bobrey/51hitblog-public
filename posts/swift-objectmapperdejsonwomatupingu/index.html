@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Swift ObjectMapperでJSONをマッピング - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Swift ObjectMapperでJSONをマッピング" />
+  <meta name="twitter:title" content="Swift ObjectMapperでJSONをマッピング" />
+  <meta name="description" content="Swift ObjectMapperでJSON データのマッピング ObjectMapper を使うとそんなこんながとても簡単に実現できました。こいつはなかなか便利な奴です。 https://github.com/Hearst-DD/ObjectMapper Alamofire">
+  <meta property="og:description" content="Swift ObjectMapperでJSON データのマッピング ObjectMapper を使うとそんなこんながとても簡単に実現できました。こいつはなかなか便利な奴です。 https://github.com/Hearst-DD/ObjectMapper Alamofire">
+  <meta name="twitter:description" content="Swift ObjectMapperでJSON データのマッピング ObjectMapper を使うとそんなこんながとても簡単に実現できました。こいつはなかなか便利な奴です。 https://github.com/Hearst-DD/ObjectMapper Alamofire">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/swift-objectmapperdejsonwomatupingu/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/swift-objectmapperdejsonwomatupingu/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Swift ObjectMapperでJSONをマッピング</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 14, 2017</h4>
+    </section>
+    <h5 id="wc">1000 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/swift/">swift</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <h1 id="swift-objectmapperでjson-データのマッピング">Swift ObjectMapperでJSON データのマッピング</h1>
+<p>ObjectMapper を使うとそんなこんながとても簡単に実現できました。こいつはなかなか便利な奴です。</p>
+<p><a href="https://github.com/Hearst-DD/ObjectMapper">https://github.com/Hearst-DD/ObjectMapper</a>
+Alamofire と組み合わせたり Realm と組み合わせたりもできて素敵です。
+今回は書いてませんが、JSON のキャッシュとして Realm と一緒に使ってます。
+あんまり意識せずにすんなり使えるのがいいですね。</p>
+<h1 id="セットアップ">セットアップ</h1>
+<p>CocoaPods や Carthage でインストールできますので Readme をご参考に</p>
+<h1 id="基本的な使い方">基本的な使い方</h1>
+<p>たとえば、ユーザデータが入った JSON があるとして。</p>
+<p>[
+{ &ldquo;name&rdquo;: &ldquo;takayama&rdquo; },
+{ &ldquo;name&rdquo;: &ldquo;takahashi&rdquo; },
+{ &ldquo;name&rdquo;: &ldquo;yamada&rdquo; }
+]
+これに対応するクラスを作って。</p>
+<p>class User: Mappable {
+var name: String?</p>
+<pre><code>required init?(_ map: Map) {
+}
+
+func mapping(map: Map) {
+    name &lt;- map[&quot;name&quot;]
+}
+</code></pre>
+<p>}
+こんな風に読み込む。</p>
+<p>let users: [ User ]? = Mapper<!-- raw HTML omitted -->().mapArray(jsonString)
+print(users?[0].name) // =&gt; Optional(&ldquo;takayama&rdquo;)
+たとえば JSON の中に name がなかった場合は user.name の値は nil になりますけど、var name: String = &quot;&quot; とかやっておけば空文字になりますし、var name: String = &ldquo;Default&rdquo; とかだと特定の値をデフォルト値にできます。</p>
+<p>まあ基本的な使い方はオリジナルのドキュメント見ればわかります。ここまでは簡単です。</p>
+<p>型変換
+例えば JSON のデータ方が文字列型だった場合に数値型に変換してくれるような仕組みやらがあるのですが、この辺がなかなか理解できなくて苦労しました。特に難しかったのが NSDate への変換です。</p>
+<p>Custom Transforms という仕組みがあって、ドキュメントを読むと DateTransform というのを使って NSDate に対応しているように見えます。ただこれ、データソースが UnixTime を想定しているんですよね。1456727500 的な。我々のデータは yyy-MM-dd HH:mm:ss なのでこのままでは無理ゲー。</p>
+<p>class User: Mappable {
+var birthday: NSDate?</p>
+<pre><code>required init?(_ map: Map) {
+
+}
+
+func mapping(map: Map) {
+    birthday &lt;- (map[&quot;birthday&quot;], DateTransform())
+}
+</code></pre>
+<p>}
+Custom Transforms まわりのソースを参照するとサブクラスがいくつかあって、その中の CustomDateFormatTransform というやつがそのものずばりで使えました。TransformType クラスを継承すれば自作もできそうです。</p>
+<p><a href="https://github.com/Hearst-DD/ObjectMapper/tree/master/ObjectMapper/Transforms">https://github.com/Hearst-DD/ObjectMapper/tree/master/ObjectMapper/Transforms</a>
+そんでもって CustomDateFormatTransform を使うとこんな簡単に…！</p>
+<p>class User: Mappable {
+var birthday: NSDate?</p>
+<pre><code>required init?(_ map: Map) {
+
+}
+
+func mapping(map: Map) {
+    birthday &lt;- (map[&quot;birthday&quot;], CustomDateFormatTransform(formatString: &quot;yyyy-MM-dd HH:mm:ss&quot;))
+}
+</code></pre>
+<p>}
+他に URLTransform を使うと NSURL にできます。</p>
+<p>var url: NSURL?</p>
+<p>func mapping(map: Map) {
+url &lt;- (map[&ldquo;url&rdquo;], URLTransform())
+}
+EnumTransform というのもあります。</p>
+<p>enum DataType: Int {
+case Unknown, Work, Home
+}</p>
+<p>&hellip;</p>
+<p>var type: DataType?</p>
+<p>func mapping(map: Map) {
+type &lt;- (map[&ldquo;type&rdquo;], EnumTransform<!-- raw HTML omitted -->())
+}</p>
+<h1 id="全部入り">全部入り</h1>
+<p>今回紹介したやつで作るとこんな感じでしょうか。</p>
+<p>class User: Mappable {
+enum DataType: Int {
+case Unknown, Work, Home
+}</p>
+<pre><code>var name: String?
+var birthday: NSDate?
+var type: DataType = .Unknown
+var url: NSURL?
+
+required init?(_ map: Map) {
+}
+
+func mapping(map: Map) {
+    name     &lt;- map[&quot;name&quot;]
+    birthday &lt;- (map[&quot;birthday&quot;], CustomDateFormatTransform(formatString: &quot;yyyy-MM-dd HH:mm:ss&quot;))
+    type     &lt;- (map[&quot;type&quot;], EnumTransform&lt;DataType&gt;())
+    url      &lt;- (map[&quot;url&quot;], URLTransform())
+}
+</code></pre>
+<p>}
+JSON</p>
+<p>[
+{
+&ldquo;name&rdquo;: &ldquo;takayama&rdquo;,
+&ldquo;birthday&rdquo;: &ldquo;1999-09-09 00:00:00&rdquo;,
+&ldquo;type&rdquo;: 2,
+&ldquo;url&rdquo;: &ldquo;http://twitter.com/takayama&rdquo;
+},
+{
+&ldquo;name&rdquo;: &ldquo;takahashi&rdquo;,
+&ldquo;birthday&rdquo;: &ldquo;1999-01-01 00:00:00&rdquo;,
+&ldquo;type&rdquo;: 1,
+&ldquo;url&rdquo;: &ldquo;http://www.example.com/&rdquo;
+},
+{
+&ldquo;name&rdquo;: &ldquo;yamada&rdquo;,
+&ldquo;birthday&rdquo;: &ldquo;2016-02-29 15:20:00&rdquo;,
+&ldquo;type&rdquo;: 2,
+&ldquo;url&rdquo;: &ldquo;http://qiita.com/takayama&rdquo;
+}
+]
+実行してみる。</p>
+<p>let users: [ User ]? = Mapper<!-- raw HTML omitted -->().mapArray(jsonString)</p>
+<p>for user in users! {
+print(user.name, user.birthday, user.type.rawValue, user.url)
+}
+出力結果。</p>
+<p>Optional(&ldquo;takayama&rdquo;) Optional(1999-09-08 15:00:00 +0000) 2 Optional(<a href="http://twitter.com/takayama">http://twitter.com/takayama</a>)
+Optional(&ldquo;takahashi&rdquo;) Optional(1998-12-31 15:00:00 +0000) 1 Optional(<a href="http://www.example.com/">http://www.example.com/</a>)
+Optional(&ldquo;yamada&rdquo;) Optional(2016-02-29 06:20:00 +0000) 2 Optional(<a href="http://qiita.com/takayama">http://qiita.com/takayama</a>)</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/dao-chu-ipa/" data-toggle="tooltip" data-placement="top" title="导出ipa">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/swiftlint/" data-toggle="tooltip" data-placement="top" title="SwiftLint">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/purelayoutshi-yong-fang-fa/">PureLayout使用方法</a></li>
+                    
+                    <li><a href="/posts/swiftgen/">swiftgen</a></li>
+                    
+                    <li><a href="/posts/swiftenv/">swiftenv</a></li>
+                    
+                    <li><a href="/posts/2016-06-08-swift2-2%E6%96%B0%E7%89%B9%E6%80%A7/">swift2.2新特性</a></li>
+                    
+                    <li><a href="/posts/2016-06-08-swift%E5%BC%82%E5%B8%B8/">swift异常</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 14, 2017</h4>
+    </section>
+    <h5 id="wc">1000 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/swift/">swift</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

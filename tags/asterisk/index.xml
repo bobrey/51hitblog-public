@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>asterisk on IT技术分享</title>
+    <link>https://www.51hint.com/tags/asterisk/</link>
+    <description>Recent content in asterisk on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Aug 2012 05:25:55 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/asterisk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>asterisk agi ,IVR</title>
+      <link>https://www.51hint.com/posts/2012-08-15-asterisk-agi/</link>
+      <pubDate>Wed, 15 Aug 2012 05:25:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-15-asterisk-agi/</guid>
+      <description>通过asterisk配置拨号规则 ${EXTEN}是通道变量 因为在sip.conf文件里会有#include XXX.conf 那说明可以把这个配置放到其他配置</description>
+    </item>
+    
+    <item>
+      <title>Asterisk manager API实现自动拨号</title>
+      <link>https://www.51hint.com/posts/2012-08-15-asterisk-manager-api%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7/</link>
+      <pubDate>Wed, 15 Aug 2012 05:17:38 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-15-asterisk-manager-api%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7/</guid>
+      <description>ami.conf文件是访问API的验证文件 该文件的内容要和asterisk内的/etc/asterisk/manager.conf 文件中的用</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>webstorm on IT技术分享</title>
+    <link>https://www.51hint.com/categories/webstorm/</link>
+    <description>Recent content in webstorm on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Apr 2017 17:17:41 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/webstorm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>webstorm智能提醒</title>
+      <link>https://www.51hint.com/posts/webstormzhi-neng-ti-xing/</link>
+      <pubDate>Mon, 10 Apr 2017 17:17:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/webstormzhi-neng-ti-xing/</guid>
+      <description>https://github.com/virtoolswebplayer/ReactNative-LiveTemplate download ReactNative.xml 将ReactNative.xml复制到 ~/Library/Preferences/WebStorm2017.1/templates 重启 WebStorm</description>
+    </item>
+    
+  </channel>
+</rss>

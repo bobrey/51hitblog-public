@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Go小结7 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Go小结7" />
+  <meta name="twitter:title" content="Go小结7" />
+  <meta name="description" content="反射">
+  <meta property="og:description" content="反射">
+  <meta name="twitter:description" content="反射">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%937/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%937/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Go小结7</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h4 id="反射reflection">反射reflection</h4>
+<p>反射：可以在运行时动态获取变量的相关信息</p>
+<pre><code>a. reflect.TypeOf()，获取变量的类型，返回reflect.Type类型 
+b. reflect.ValueOf()，获取变量的值，返回reflect.Value类型 
+c. reflect.Value.Kind()，获取变量的类别，返回一个常量 
+d. reflect.Value.Interface()，转换成interface{}类型
+</code></pre><p>Elem反射操作基本类型; [用来获取指针指向的变量，相当于： var a *int;]</p>
+<pre><code>func main() {
+
+	var b int = 1
+	b = 200
+	testInt(&amp;b)
+	fmt.Println(b)
+}
+
+//fv.Elem()用来获取指针指向的变量
+func testInt(b interface{}) {
+	val := reflect.ValueOf(b)
+	val.Elem().SetInt(100)
+	fmt.Println(val.Elem())
+	
+	//c := val.Elem().Int()	
+	//fmt.Printf(&quot;get value  interface{} %d\n&quot;, c)  //100
+	f//mt.Printf(&quot;string val:%d\n&quot;, val.Elem().Int())//100
+</code></pre><p>反射结构体</p>
+<pre><code>val := reflect.ValueOf(b)
+kd := val.Kind()
+if kd != relect.Struct{
+    fmt.Println(&quot;expect struct&quot;)
+    return
+}
+
+//获取字段数量
+fields := val.NumField() 
+val.Field(x).Kind()//获取字段类型
+
+//获取方法数量
+methods := val.NumMethod()
+
+var params []felect.Value
+val.Method[0].Call(params)//反射调用Print方法
+
+//if kd != reflect.Ptr &amp;&amp; val.Elem().Kind() == reflect.Struct {
+		fmt.Println(&quot;expect struct&quot;)
+		return
+	}
+//获取字段数量
+fields := val.Elem().NumField()
+
+//获取字段的类型
+val.Elem().Field(i).Kind()
+
+//获取方法数量
+methods := val.NumMethod()
+
+//反射调用的Print方法
+var params []reflect.Value
+val.Elem().Method(0).Call(params)
+</code></pre><p>Elem反射获取tag</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">u</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">User</span><span class="p">{</span>
+		<span class="nx">Name</span><span class="p">:</span>   <span class="s">&#34;Murphy&#34;</span><span class="p">,</span>
+		<span class="nx">Passwd</span><span class="p">:</span> <span class="s">&#34;123456&#34;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="nx">s</span> <span class="o">:=</span> <span class="nx">reflect</span><span class="p">.</span><span class="nf">TypeOf</span><span class="p">(</span><span class="nx">u</span><span class="p">).</span><span class="nf">Elem</span><span class="p">()</span>
+<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">s</span><span class="p">.</span><span class="nf">NumField</span><span class="p">();</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nf">Field</span><span class="p">(</span><span class="nx">i</span><span class="p">).</span><span class="nx">Tag</span><span class="p">)</span>
+<span class="p">}</span>
+
+
+<span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;user_name&#34; name:&#34;user name&#34;`</span>
+<span class="p">}</span>
+<span class="nx">u</span> <span class="o">:=</span> <span class="nx">User</span><span class="p">{</span>
+    <span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;Murphy&#34;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="nx">f</span> <span class="o">:=</span> <span class="nx">reflect</span><span class="p">.</span><span class="nf">TypeOf</span><span class="p">(</span><span class="nx">u</span><span class="p">).</span><span class="nf">Field</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">Tag</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;json&#34;</span><span class="p">))</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">Tag</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">))</span>
+</code></pre></div><h4 id="文件操作">文件操作</h4>
+<h4 id="httpswwwkancloudcnliupengjiego570087"><a href="https://www.kancloud.cn/liupengjie/go/570087">https://www.kancloud.cn/liupengjie/go/570087</a></h4>
+<h5 id="server服务">server服务</h5>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">listen</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;0.0.0.0:50000&#34;</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">{</span>
+        <span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">listen</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;accept failed, err:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="p">}</span>
+        <span class="k">go</span> <span class="nf">process</span><span class="p">(</span><span class="nx">conn</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="kd">func</span> <span class="nf">process</span><span class="p">(</span><span class="nx">conn</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+    <span class="k">for</span> <span class="p">{</span>
+        <span class="nx">buf</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+        <span class="nx">n</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;read err:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nx">n</span><span class="p">]))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">------------</span>
+<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;localhost:50000&#34;</span><span class="p">)</span>
+<span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+    <span class="nx">inputReader</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdin</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">{</span>
+        <span class="nx">input</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">inputReader</span><span class="p">.</span><span class="nf">ReadString</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">)</span>
+        <span class="nx">trimmedInput</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Trim</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="s">&#34;\r\n&#34;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">trimmedInput</span> <span class="o">==</span> <span class="s">&#34;Q&#34;</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">trimmedInput</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="o">------------</span>
+<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;www.baidu.com:80&#34;</span><span class="p">)</span>
+ <span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+    <span class="nx">msg</span> <span class="o">:=</span> <span class="s">&#34;GET / HTTP/1.1\r\n&#34;</span>
+    <span class="nx">msg</span> <span class="o">+=</span> <span class="s">&#34;Host:www.baidu.com\r\n&#34;</span>
+    <span class="nx">msg</span> <span class="o">+=</span> <span class="s">&#34;Connection:keep-alive\r\n&#34;</span>
+    <span class="c1">//msg += &#34;User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36\r\n&#34;
+</span><span class="c1"></span>    <span class="nx">msg</span> <span class="o">+=</span> <span class="s">&#34;\r\n\r\n&#34;</span>
+
+    <span class="c1">//io.WriteString(os.Stdout, msg)
+</span><span class="c1"></span>    <span class="nx">n</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="nx">conn</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;write string failed, &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;send to baidu.com bytes:&#34;</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
+    <span class="nx">buf</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">{</span>
+        <span class="nx">count</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;count:&#34;</span><span class="p">,</span> <span class="nx">count</span><span class="p">,</span> <span class="s">&#34;err:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="k">break</span>
+        <span class="p">}</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nx">count</span><span class="p">]))</span>
+    <span class="p">}</span>
+<span class="o">-------------</span>
+<span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="nx">Hello</span><span class="p">)</span>
+    <span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/user/login&#34;</span><span class="p">,</span> <span class="nx">login</span><span class="p">)</span>
+    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;0.0.0.0:8880&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;http listen failed&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="o">----------</span>
+ <span class="nx">res</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;https://www.baidu.com/&#34;</span><span class="p">)</span>
+ <span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+
+<span class="o">-------</span>
+</code></pre></div><h4 id="web模板">web模板</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">t</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">template</span><span class="p">.</span><span class="nf">ParseFiles</span><span class="p">(</span><span class="s">&#34;./index.html&#34;</span><span class="p">)</span>
+ <span class="nx">p</span> <span class="o">:=</span> <span class="nx">Person</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;Mary&#34;</span><span class="p">,</span> <span class="nx">age</span><span class="p">:</span> <span class="s">&#34;31&#34;</span><span class="p">}</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">t</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span> <span class="nx">p</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;There was an error:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+    <span class="p">}</span>
+
+</code></pre></div><h4 id="时间处理">时间处理</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 当前时间戳
+</span><span class="c1"></span>    <span class="nx">now</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Unix</span><span class="p">()</span>
+
+<span class="c1">// 当前格式化时间 
+</span><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02 15:04:05&#34;</span><span class="p">))</span> 
+
+<span class="c1">// 时间戳转str格式化时间
+</span><span class="c1"></span>    <span class="nx">str_time1</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Unix</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02 15:04:05&#34;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">str_time1</span><span class="p">)</span>
+    
+	<span class="nx">str_time2</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Unix</span><span class="p">(</span><span class="mi">1522393808</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006年01月02日 15时04分05秒&#34;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">str_time2</span><span class="p">)</span>
+	
+	<span class="nx">str_time4</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Unix</span><span class="p">(</span><span class="mi">1522393808</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;06-01-02 15:04:05&#34;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">str_time4</span><span class="p">)</span>
+
+<span class="c1">//返回的不是本地时间, 而是 UTC , 会自动加8小时.
+</span><span class="c1"></span>	<span class="nx">the_time</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">&#34;2006-01-02 15:04:05&#34;</span><span class="p">,</span> <span class="s">&#34;2018-03-30 15:24:59&#34;</span><span class="p">)</span>
+
+<span class="c1">//周期
+</span><span class="c1"></span><span class="nx">t</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">NewTicker</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>  <span class="c1">//3三秒执行一次
+</span><span class="c1"></span>    <span class="c1">// t := time.NewTicker(执行周期)    
+</span><span class="c1"></span>    <span class="k">for</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">t</span><span class="p">.</span><span class="nx">C</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;hello, &#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="c1">//5秒后执行
+</span><span class="c1"></span><span class="nx">start</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
+<span class="k">select</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="o">&lt;-</span> <span class="nx">time</span><span class="p">.</span><span class="nf">After</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="o">*</span><span class="mi">5</span><span class="p">):</span>  <span class="c1">// 5秒后执行
+</span><span class="c1"></span>    <span class="c1">// case &lt;- time.After(周期):
+</span><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;after&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">duration</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Since</span><span class="p">(</span><span class="nx">start</span><span class="p">)</span>
+<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;运行时间：&#34;</span><span class="p">,</span><span class="nx">duration</span><span class="p">)</span>
+
+
+</code></pre></div><h4 id="锁机制">锁机制</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="p">(</span><span class="nx">Mutex</span><span class="p">)</span><span class="nx">互斥锁</span> <span class="err">（</span><span class="nx">用于基本上全是写入操作的应用</span><span class="err">）</span>
+<span class="kd">var</span> <span class="nx">mutex</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+<span class="nx">mutex</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+<span class="nx">xxxx</span>
+<span class="nx">mutex</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+
+
+<span class="nx">RWMutex是一个读写锁</span><span class="err">，</span><span class="nx">该锁可以加多个读锁或者一个写锁</span><span class="err">，</span><span class="nx">其经常用于读次数远远多于写次数的场景</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">rw</span> <span class="o">*</span><span class="nx">RWMutex</span><span class="p">)</span> <span class="nf">Lock</span><span class="p">()</span>　　<span class="nx">写锁</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">rw</span> <span class="o">*</span><span class="nx">RWMutex</span><span class="p">)</span> <span class="nf">Unlock</span><span class="p">()</span>　<span class="nx">写锁解锁</span>
+	<span class="kd">func</span> <span class="p">(</span><span class="nx">rw</span> <span class="o">*</span><span class="nx">RWMutex</span><span class="p">)</span> <span class="nf">RLock</span><span class="p">()</span> <span class="nx">读锁</span>
+	<span class="kd">func</span> <span class="p">(</span><span class="nx">rw</span> <span class="o">*</span><span class="nx">RWMutex</span><span class="p">)</span><span class="nf">RUnlock</span><span class="p">()</span>　<span class="nx">读锁解锁</span>
+	
+<span class="kd">var</span> <span class="nx">rwLock</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
+
+
+
+</code></pre></div><h4 id="加密解密">加密解密</h4>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//方法 md5
+</span><span class="c1"></span><span class="nx">md5</span> <span class="o">:=</span> <span class="nx">md5</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span>
+<span class="nx">md5</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+<span class="nx">md5Data</span> <span class="o">:=</span> <span class="nx">md5</span><span class="p">.</span><span class="nf">Sum</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">))</span>
+<span class="k">return</span> <span class="nx">hex</span><span class="p">.</span><span class="nf">EncodeToString</span><span class="p">(</span><span class="nx">md5Data</span><span class="p">)</span>
+
+
+<span class="c1">//base64
+</span><span class="c1"></span><span class="nx">str</span> <span class="o">:=</span> <span class="s">&#34;hello world , hello golang !&#34;</span>
+<span class="nx">input</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+<span class="nx">encodeString</span> <span class="o">:=</span> <span class="nx">base64</span><span class="p">.</span><span class="nx">StdEncoding</span><span class="p">.</span><span class="nf">EncodeToString</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span>
+<span class="nx">decodeBytes</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">base64</span><span class="p">.</span><span class="nx">StdEncoding</span><span class="p">.</span><span class="nf">DecodeString</span><span class="p">(</span><span class="nx">encodeString</span><span class="p">)</span>
+
+
+<span class="c1">//sha
+</span><span class="c1"></span><span class="nx">sha1</span> <span class="o">:=</span> <span class="nx">sha1</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span>
+<span class="nx">sha1</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+<span class="k">return</span> <span class="nx">hex</span><span class="p">.</span><span class="nf">EncodeToString</span><span class="p">(</span><span class="nx">sha1</span><span class="p">.</span><span class="nf">Sum</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)))</span>
+
+
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/go%E5%B0%8F%E7%BB%936/" data-toggle="tooltip" data-placement="top" title="Go小结6">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/" data-toggle="tooltip" data-placement="top" title="终端代理">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/go%E5%B0%8F%E7%BB%936/">Go小结6</a></li>
+                    
+                    <li><a href="/posts/go%E5%B0%8F%E7%BB%935/">Go小结5</a></li>
+                    
+                    <li><a href="/posts/go%E5%B0%8F%E7%BB%934/">Go小结4</a></li>
+                    
+                    <li><a href="/posts/go%E5%B0%8F%E7%BB%933/">Go小结3</a></li>
+                    
+                    <li><a href="/posts/go%E5%B0%8F%E7%BB%932/">Go小结2</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

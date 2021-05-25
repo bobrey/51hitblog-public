@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> RabbitMQ实现RPC - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="RabbitMQ实现RPC" />
+  <meta name="twitter:title" content="RabbitMQ实现RPC" />
+  <meta name="description" content="rabbitMQ实现RPC">
+  <meta property="og:description" content="rabbitMQ实现RPC">
+  <meta name="twitter:description" content="rabbitMQ实现RPC">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/rabbitmq%E5%AE%9E%E7%8E%B0rpc/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/rabbitmq%E5%AE%9E%E7%8E%B0rpc/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">RabbitMQ实现RPC</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h2 id="rabbitmq">RabbitMQ</h2>
+<p>RabbitMQ 是基于 AMQP 协议实现的一个消息队列（Message Queue），Message Queue 是一个典型的生产者/消费者模式。生产者发布消息，消费者消费消息，生产者和消费者之间是解耦的，互相不知道对方的存在。
+<img src="/wp-content/uploads/a.png" alt="a"></p>
+<h2 id="rpc">RPC</h2>
+<p>Remote Procedure Call：远程过程调用，一次远程过程调用的流程即客户端发送一个请求到服务端，服务端根据请求信息进行处理后返回响应信息，客户端收到响应信息后结束。</p>
+<p><img src="/wp-content/uploads/b.png" alt="b"></p>
+<h2 id="如何使用-rabbitmq-实现-rpc">如何使用 RabbitMQ 实现 RPC？</h2>
+<p>使用 RabbitMQ 实现 RPC，相应的角色是由生产者来作为客户端，消费者作为服务端。</p>
+<p>但 RPC 调用一般是同步的，客户端和服务器也是紧密耦合的。即客户端通过 IP/域名和端口链接到服务器，向服务器发送请求后等待服务器返回响应信息。</p>
+<p>但 MQ 的生产者和消费者是完全解耦的，那么如何用 MQ 实现 RPC 呢？很明显就是把 MQ 当作中间件实现一次双向的消息传递：</p>
+<p><img src="/wp-content/uploads/c.png" alt="c"></p>
+<p>客户端和服务端即是生产者也是消费者。客户端发布请求，消费响应；服务端消费请求，发布响应。</p>
+<h2 id="具体实现">具体实现</h2>
+<h2 id="mq部分的定义">MQ部分的定义</h2>
+<h2 id="请求信息的队列">请求信息的队列</h2>
+<p>我们需要一个队列来存放请求信息，客户端向这个队列发布请求信息，服务端消费该队列处理请求。该队列不需要复杂的路由规则，直接使用 RabbitMQ 默认的 direct exchange 来路由消息即可。</p>
+<h2 id="响应信息的队列">响应信息的队列</h2>
+<p>存放响应信息的队列不应只有一个。如果存在多个客户端，不能保证响应信息被发布请求的那个客户端消费到。所以应为每一个客户端创建一个响应队列，这个队列应该由客户端来创建且只能由这个客户端使用并在使用完毕后删除，这里可以使用 RabbitMQ 提供的排他队列（Exclusive Queue）：</p>
+<pre><code>channel.queueDeclare(queue:&quot;&quot;, durable:false, exclusive:true, autoDelete:false, new HashMap&lt;&gt;())
+</code></pre><p>并且要保证队列名唯一，声明队列时名称设为空 RabbitMQ 会生成一个唯一的队列名。</p>
+<p><code>exclusive</code>设为<code>true</code>表示声明一个排他队列，排他队列的特点是只能被当前的连接使用，并且在连接关闭后被删除。</p>
+<h2 id="一个简单的-demo使用-pull-机制">一个简单的 demo（使用 pull 机制）</h2>
+<p>我们使用一个简单的 demo 来了解客户端和服务端的处理流程。</p>
+<h2 id="发布请求">发布请求</h2>
+<ul>
+<li>编写代码前的一个小问题</li>
+</ul>
+<blockquote>
+<p>我们在声明队列时为每一个客户端声明了独有的响应队列，那服务器在发布响应时如何知道发布到哪个队列呢？其实就是客户端需要告诉服务端将响应发布到哪个队列，RabbitMQ 提供了这个支持，消息体的<code>Properties</code>中有一个属性<code>reply_to</code>就是用来标记回调队列的名称，服务器需要将响应发布到<code>reply_to</code>指定的回调队列中。</p>
+</blockquote>
+<p>解决了这个问题之后我们就可以编写客户端发布请求的代码了：</p>
+<pre><code>// 定义响应回调队列
+String replyQueueName = channel.queueDeclare(&quot;&quot;, false, true, false, new HashMap&lt;&gt;()).getQueue();
+
+// 设置回调队列到 Properties
+AMQP.BasicProperties properties = new AMQP.BasicProperties.Builder()
+        .replyTo(replyQueueName)
+        .build();
+String request = &quot;request&quot;;
+
+// 发布请求
+channel.basicPublish(&quot;&quot;, &quot;rpc_queue&quot;, properties, request.getBytes());
+</code></pre><blockquote>
+<p>Direct reply-to：</p>
+<p>RabbitMQ 提供了一种更便捷的机制来实现 RPC，不需要客户端每次都定义回调队列，客户端发布请求时将<code>replyTo</code>设为<code>amq.rabbitmq.reply-to</code>，消费响应时也指定消费<code>amq.rabbitmq.reply-to</code>，RabbitMQ 会为客户端创建一个内部队列</p>
+</blockquote>
+<h2 id="消费请求">消费请求</h2>
+<p>接下来是服务端处理请求的部分，接收到请求后经过处理将响应信息发布到<code>reply_to</code>指定的回调队列：</p>
+<pre><code>// 服务端 Consumer 的定义
+public class RpcServer extends DefaultConsumer {
+    public RpcServer(Channel channel) {
+        super(channel);
+    }
+
+    @Override
+    public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+        String msg = new String(body);
+        String response = (msg + &quot; Received&quot;);
+        // 获取回调队列名
+        String replyTo = properties.getReplyTo();
+        // 发布响应消息到回调队列
+        this.getChannel().basicPublish(&quot;&quot;, replyTo, new AMQP.BasicProperties(), response.getBytes());
+    }
+}
+...
+
+// 启动服务端 Consumer
+channel.basicConsume(&quot;rpc_queue&quot;, true, new RpcServer(channel));
+</code></pre><h2 id="接收响应">接收响应</h2>
+<p>客户端如何接收服务器的响应呢？有两种方式：1.轮询的去 pull 回调队列中的消息，2.异步的消费回调队列中的消息。我们在这里简单实现第一种方案。</p>
+<pre><code>GetResponse getResponse = null;
+while (getResponse == null) {
+    getResponse = channel.basicGet(replyQueueName, true);
+}
+String response = new String(getResponse.getBody());
+</code></pre><p>一个简单的基于 RabbitMQ 的 RPC 模型已经实现了，但这个 demo 并不实用，因为客户端每次发送完请求都要同步的轮询等待响应消息，只能每次处理一个请求。RabbitMQ 的 pull 模式效率也比较低。</p>
+<p>实现一个完备可用的 RPC 模式需要做的工作还有很多，要处理的关键点也比较复杂，有句话叫不要重复造轮子，spring 已经实现了一个完备可用的 RPC 模式的库，接下来我们来了解一下。</p>
+<h2 id="spring-rabbit-中的实现">Spring Rabbit 中的实现</h2>
+<p>和上面 demo 的 pull 模式一次只能处理一个请求相对应的：如何异步的接收响应并处理多个请求呢？关键点就在于我们需要记录请求和响应并将它们关联起来，RabbitMQ 也提供了支持，Properties 中的另一个属性<code>correlation_id</code>用来标识一个消息的唯一 id。</p>
+<p>参考<code>spring-rabbit</code>中的<code>convertSendAndReceive</code>方法的实现，为每一次请求生成一个唯一的<code>correlation_id</code>：</p>
+<pre><code>private final AtomicInteger messageTagProvider = new AtomicInteger();
+...
+String messageTag = String.valueOf(this.messageTagProvider.incrementAndGet());
+...
+message.getMessageProperties().setCorrelationId(messageTag);
+</code></pre><p>并使用一个<code>ConcurrentHashMap</code>来维护<code>correlation_id</code>和响应信息的映射：</p>
+<pre><code>private final Map&lt;String, PendingReply&gt; replyHolder = new ConcurrentHashMap&lt;String, PendingReply&gt;();
+...
+final PendingReply pendingReply = new PendingReply();
+this.replyHolder.put(correlationId, pendingReply);
+</code></pre><p><code>PendingReply</code>中有一个<code>BlockingQueue</code>存放响应信息，在发送完请求信息后调用<code>BlockingQueue</code>的<code>pull</code>方法并设置超时时间来获取响应：</p>
+<pre><code>private final BlockingQueue&lt;Object&gt; queue = new ArrayBlockingQueue&lt;Object&gt;(1);
+public Message get(long timeout, TimeUnit unit) throws InterruptedException {
+    Object reply = this.queue.poll(timeout, unit);
+    return reply == null ? null : processReply(reply);
+}
+</code></pre><p>在获取响应后不论结果如何，都会将<code>PendingReply</code>从<code>replyHolder</code>中移除，防止<code>replyHolder</code>中积压超时的响应消息：</p>
+<pre><code>try {
+    reply = exchangeMessages(exchange, routingKey, message, correlationData, channel, pendingReply,messageTag);
+} finally {
+    this.replyHolder.remove(messageTag);
+    ...
+}
+</code></pre><p>响应信息是何时如何被放到这个<code>BlockingQueue</code>中的呢？看一下<code>RabbitTemplate</code>接收消息的地方：</p>
+<pre><code>public void onMessage(Message message) {
+String messageTag;
+    if (this.correlationKey == null) { // using standard correlationId property
+        messageTag = message.getMessageProperties().getCorrelationId();
+    } else {
+        messageTag = (String) message.getMessageProperties()
+                .getHeaders().get(this.correlationKey);
+    }
+
+    // 存在 correlation_id 才认为是RPC的响应信息，不存在时不处理
+    if (messageTag == null) {
+        logger.error(&quot;No correlation header in reply&quot;);
+        return;
+    }
+
+    // 从 replyHolder 中取出 correlation_id 对应的 PendingReply
+    PendingReply pendingReply = this.replyHolder.get(messageTag);
+    if (pendingReply == null) {
+        if (logger.isWarnEnabled()) {
+            logger.warn(&quot;Reply received after timeout for &quot; + messageTag);
+        }
+        throw new AmqpRejectAndDontRequeueException(&quot;Reply received after timeout&quot;);
+    }
+    else {
+        restoreProperties(message, pendingReply);
+        // 将响应信息 add 到 BlockingQueue 中
+        pendingReply.reply(message);
+    }
+}
+</code></pre><blockquote>
+<p>以上的 spring 代码隐去了很多额外部分的处理和细节，只关注关键的部分。</p>
+</blockquote>
+<p>至此一个完整可用的由 RabbitMQ 作为中间件实现的 RPC 模式就完成了。</p>
+<h2 id="总结">总结</h2>
+<h2 id="服务端">服务端</h2>
+<p>服务端的实现比较简单，和一般的<code>Consumer</code>的区别只在于需要将请求回复到<code>replyTo</code>指定的 queue 中并带上消息标识<code>correlation_id</code>即可</p>
+<blockquote>
+<p>服务端的一点小优化：</p>
+<p>超时的处理是由客户端来实现的，那服务端有没有可以优化的地方呢？
+答案是有的：如果我们的服务端处理比较耗时，如何判断客户端是否还在等待响应呢？
+我们可以使用<code>passive</code>参数去检查<code>replyTo</code>的 queue 是否存在，因为客户端声明的是内部队列，客户端如果断掉链接了这个 queue 就不存在了，这时服务端就无需处理这个消息了。</p>
+</blockquote>
+<h2 id="客户端">客户端</h2>
+<p>客户端承担了更多的工作量，包括：</p>
+<ul>
+<li>声明<code>replyTo</code>队列（使用<code>amq.rabbitmq.reply-to</code>会简单很多）</li>
+<li>维护请求和响应消息（使用唯一的<code>correlation_id</code>来关联）</li>
+<li>消费服务端的返回</li>
+<li>处理超时等异常情况（使用BlockingQueue来阻塞获取）</li>
+</ul>
+<p>好在 spring 已经实现了一套完备可靠的代码，我们在清楚了流程和关键点之后，可以直接使用 spring 提供的<code>RabbitTemplate</code>，无需自己实现。</p>
+<h2 id="使用-mq-实现-rpc-的意义">使用 MQ 实现 RPC 的意义</h2>
+<p>通过 MQ 实现 RPC 看起来比客户端和服务器直接通讯要复杂一些，那我们为什么要这样做呢？或者说这样做有什么好处：</p>
+<ol>
+<li>将客户端和服务器解耦：客户端只是发布一个请求到 MQ 并消费这个请求的响应。并不关心具体由谁来处理这个请求，MQ 另一端的请求的消费者可以随意替换成任何可以处理请求的服务器，并不影响到客户端。</li>
+<li>减轻服务器的压力：传统的 RPC 模式中如果客户端和请求过多，服务器的压力会过大。由 MQ 作为中间件的话，过多的请求而是被 MQ 消化掉，服务器可以控制消费请求的频次，并不会影响到服务器。</li>
+<li>服务器的横向扩展更加容易：如果服务器的处理能力不能满足请求的频次，只需要增加服务器来消费 MQ 的消息即可，MQ会帮我们实现消息消费的负载均衡。</li>
+<li>可以看出 RabbitMQ 对于 RPC 模式的支持也是比较友好地，
+<code>amq.rabbitmq.reply-to</code>, <code>reply_to</code>, <code>correlation_id</code>这些特性都说明了这一点，再加上 spring-rabbit 的实现，可以让我们很简单的使用消息队列模式的 RPC 调用。</li>
+</ol>
+<p>全文完</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/ntfs%E6%8C%82%E8%BD%BD/" data-toggle="tooltip" data-placement="top" title="Ntfs挂载">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/flutter%E5%AE%89%E8%A3%85/" data-toggle="tooltip" data-placement="top" title="Flutter安装">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/rabbitmq%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/">RabbitMQ消息中间件</a></li>
+                    
+                    <li><a href="/posts/ntfs%E6%8C%82%E8%BD%BD/">Ntfs挂载</a></li>
+                    
+                    <li><a href="/posts/vagrant%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/">Vagrant一些配置</a></li>
+                    
+                    <li><a href="/posts/zookeeper%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">Zookeeper使用场景</a></li>
+                    
+                    <li><a href="/posts/gorpc/">GoRPC通信</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

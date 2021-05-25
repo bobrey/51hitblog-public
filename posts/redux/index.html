@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> redux - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="redux" />
+  <meta name="twitter:title" content="redux" />
+  <meta name="description" content="Redux Redux 的设计思想很简单，就两句话。 1）Web 应用是一个状态机，视图与状态是一一对应的。 2）所有的状态，保存在一个对象里面。 基本概念和 API Store Store 就是">
+  <meta property="og:description" content="Redux Redux 的设计思想很简单，就两句话。 1）Web 应用是一个状态机，视图与状态是一一对应的。 2）所有的状态，保存在一个对象里面。 基本概念和 API Store Store 就是">
+  <meta name="twitter:description" content="Redux Redux 的设计思想很简单，就两句话。 1）Web 应用是一个状态机，视图与状态是一一对应的。 2）所有的状态，保存在一个对象里面。 基本概念和 API Store Store 就是">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/redux/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/redux/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">redux</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Mar 6, 2017</h4>
+    </section>
+    <h5 id="wc">3500 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/react/">react</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/redux/">redux</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本概念和-api">基本概念和 API</a>
+      <ul>
+        <li><a href="#reducer">Reducer</a></li>
+        <li><a href="#storesubscribe">store.subscribe()</a></li>
+      </ul>
+    </li>
+    <li><a href="#store-的实现">Store 的实现</a></li>
+    <li><a href="#reducer-的拆分">Reducer 的拆分</a></li>
+    <li><a href="#工作流程">工作流程</a></li>
+    <li><a href="#实例计数器">实例：计数器</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h1 id="redux">Redux</h1>
+<p>Redux 的设计思想很简单，就两句话。</p>
+<pre><code>1）Web 应用是一个状态机，视图与状态是一一对应的。
+2）所有的状态，保存在一个对象里面。
+</code></pre>
+<h2 id="基本概念和-api">基本概念和 API</h2>
+<ol>
+<li>Store
+Store 就是保存数据的地方，你可以把它看成一个容器。整个应用只能有一个 Store。
+Redux 提供&rsquo;createStore&rsquo;这个函数，用来生成 Store。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">fn</span><span class="p">);</span>
+</code></pre></div><p>上面代码中，createStore函数接受另一个函数作为参数，返回新生成的 Store 对象。</p>
+<ol start="2">
+<li>State
+Store对象包含所有数据。如果想得到某个时点的数据，就要对 Store 生成快照。这种时点的数据集合，就叫做 State。
+当前时刻的 State，可以通过<code>store.getState()</code>拿到。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">fn</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">();</span>
+</code></pre></div><p>Redux 规定， 一个 State 对应一个 View。只要 State 相同，View 就相同。你知道 State，就知道 View 是什么样，反之亦然。</p>
+<ol start="3">
+<li>Action
+State 的变化，会导致 View 的变化。但是，用户接触不到 State，只能接触到 View。所以，State 的变化必须是 View 导致的。Action 就是 View 发出的通知，表示 State 应该要发生变化了。</li>
+</ol>
+<p>Action 是一个对象。其中的type属性是必须的，表示 Action 的名称。其他属性可以自由设置，社区有一个规范可以参考。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">action</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ADD_TODO&#39;</span><span class="p">,</span>
+  <span class="nx">payload</span><span class="o">:</span> <span class="s1">&#39;Learn Redux&#39;</span>
+<span class="p">};</span>
+</code></pre></div><p>上面代码中，Action 的名称是<code>ADD_TODO</code>，它携带的信息是字符串Learn Redux。
+<strong>可以这样理解，Action 描述当前发生的事情。改变 State 的唯一办法，就是使用 Action。它会运送数据到 Store。</strong></p>
+<ol start="4">
+<li>Action Creator
+View 要发送多少种消息，就会有多少种 Action。如果都手写，会很麻烦。可以定义一个函数来生成 Action，这个函数就叫 Action Creator。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">ADD_TODO</span> <span class="o">=</span> <span class="s1">&#39;添加 TODO&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">addTodo</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="nx">ADD_TODO</span><span class="p">,</span>
+    <span class="nx">text</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">action</span> <span class="o">=</span> <span class="nx">addTodo</span><span class="p">(</span><span class="s1">&#39;Learn Redux&#39;</span><span class="p">);</span>
+</code></pre></div><p>上面代码中，<code>addTodo</code>函数就是一个 Action Creator。</p>
+<ol start="5">
+<li>store.dispatch()
+store.dispatch()是 View 发出 Action 的唯一方法。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">fn</span><span class="p">);</span>
+
+<span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">({</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ADD_TODO&#39;</span><span class="p">,</span>
+  <span class="nx">payload</span><span class="o">:</span> <span class="s1">&#39;Learn Redux&#39;</span>
+<span class="p">});</span>
+</code></pre></div><p>上面代码中，store.dispatch接受一个 Action 对象作为参数，将它发送出去。</p>
+<p>结合 Action Creator，这段代码可以改写如下。<code>store.dispatch(addTodo('Learn Redux'));</code></p>
+<h3 id="reducer">Reducer</h3>
+<p>Store 收到 Action 以后，必须给出一个新的 State，这样 View 才会发生变化。这种 State 的计算过程就叫做 Reducer。
+Reducer 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">reducer</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">new_state</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div><p>整个应用的初始状态，可以作为 State 的默认值。下面是一个实际的例子。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">defaultState</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">reducer</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">defaultState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s1">&#39;ADD&#39;</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">state</span> <span class="o">+</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span> 
+      <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">reducer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ADD&#39;</span><span class="p">,</span>
+  <span class="nx">payload</span><span class="o">:</span> <span class="mi">2</span>
+<span class="p">});</span>
+</code></pre></div><p>上面代码中，reducer函数收到名为ADD的 Action 以后，就返回一个新的 State，作为加法的计算结果。其他运算的逻辑（比如减法），也可以根据 Action 的不同来实现。</p>
+<p>实际应用中，Reducer 函数不用像上面这样手动调用，<code>store.dispatch</code>方法会触发 Reducer 的自动执行。
+为此，Store 需要知道 Reducer 函数，做法就是在生成 Store 的时候，将 Reducer 传入<code>createStore</code>方法。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">reducer</span><span class="p">);</span>
+</code></pre></div><p>上面代码中，<code>createStore</code>接受 Reducer 作为参数，生成一个新的 Store。以后每当<code>store.dispatch</code>发送过来一个新的 Action，就会自动调用 Reducer，得到新的 State。</p>
+<p>为什么这个函数叫做 Reducer 呢？因为它可以作为数组的reduce方法的参数。请看下面的例子，一系列 Action 对象按照顺序作为一个数组。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ADD&#39;</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="mi">0</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ADD&#39;</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="mi">1</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ADD&#39;</span><span class="p">,</span> <span class="nx">payload</span><span class="o">:</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="p">];</span>
+
+<span class="kr">const</span> <span class="nx">total</span> <span class="o">=</span> <span class="nx">actions</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">reducer</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// 3
+</span></code></pre></div><p>上面代码中，数组actions表示依次有三个 Action，分别是加0、加1和加2。数组的reduce方法接受 Reducer 函数作为参数，就可以直接得到最终的状态3。</p>
+<h4 id="纯函数">纯函数</h4>
+<p>Reducer 函数最重要的特征是，它是一个纯函数。也就是说，只要是同样的输入，必定得到同样的输出。
+纯函数是函数式编程的概念，必须遵守以下一些约束。</p>
+<pre><code>- 不得改写参数
+- 不能调用系统 I/O 的API
+- 不能调用Date.now()或者Math.random()等不纯的方法，因为每次会得到不一样的结果
+</code></pre>
+<p>由于 Reducer 是纯函数，就可以保证同样的State，必定得到同样的 View。但也正因为这一点，Reducer 函数里面不能改变 State，必须返回一个全新的对象，请参考下面的写法。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// State 是一个对象
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">reducer</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">state</span><span class="p">,</span> <span class="p">{</span> <span class="nx">thingToChange</span> <span class="p">});</span>
+  <span class="c1">// 或者
+</span><span class="c1"></span>  <span class="k">return</span> <span class="p">{</span> <span class="p">...</span><span class="nx">state</span><span class="p">,</span> <span class="p">...</span><span class="nx">newState</span> <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// State 是一个数组
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">reducer</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">[...</span><span class="nx">state</span><span class="p">,</span> <span class="nx">newItem</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div><p>最好把 State 对象设成只读。你没法改变它，要得到新的 State，唯一办法就是生成一个新对象。这样的好处是，任何时候，与某个 View 对应的 State 总是一个不变的对象。</p>
+<h3 id="storesubscribe">store.subscribe()</h3>
+<p>Store 允许使用store.subscribe方法设置监听函数，一旦 State 发生变化，就自动执行这个函数。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">reducer</span><span class="p">);</span>
+
+<span class="nx">store</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">listener</span><span class="p">);</span>
+</code></pre></div><p>显然，只要把 View 的更新函数（对于 React 项目，就是组件的<code>render</code>方法或<code>setState</code>方法）放入listen，就会实现 View 的自动渲染。</p>
+<p>store.subscribe方法返回一个函数，调用这个函数就可以解除监听。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">unsubscribe</span> <span class="o">=</span> <span class="nx">store</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(()</span> <span class="p">=&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">())</span>
+<span class="p">);</span>
+<span class="nx">unsubscribe</span><span class="p">();</span>
+</code></pre></div><h2 id="store-的实现">Store 的实现</h2>
+<p>上一节介绍了 Redux 涉及的基本概念，可以发现 Store 提供了三个方法。</p>
+<ul>
+<li>store.getState()</li>
+<li>store.dispatch()</li>
+<li>store.subscribe()</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="p">{</span> <span class="nx">subscribe</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">,</span> <span class="nx">getState</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">reducer</span><span class="p">);</span>
+</code></pre></div><p>createStore方法还可以接受第二个参数，表示 State 的最初状态。这通常是服务器给出的
+<code>let store = createStore(todoApp, window.STATE_FROM_SERVER)</code>
+上面代码中，window.STATE_FROM_SERVER就是整个应用的状态初始值。注意，如果提供了这个参数，它会覆盖 Reducer 函数的默认初始值。</p>
+<p>下面是createStore方法的一个简单实现，可以了解一下 Store 是怎么生成的。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">createStore</span> <span class="o">=</span> <span class="p">(</span><span class="nx">reducer</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">listeners</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="kr">const</span> <span class="nx">getState</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">;</span>
+
+  <span class="kr">const</span> <span class="nx">dispatch</span> <span class="o">=</span> <span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">state</span> <span class="o">=</span> <span class="nx">reducer</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">);</span>
+    <span class="nx">listeners</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">listener</span> <span class="p">=&gt;</span> <span class="nx">listener</span><span class="p">());</span>
+  <span class="p">};</span>
+
+  <span class="kr">const</span> <span class="nx">subscribe</span> <span class="o">=</span> <span class="p">(</span><span class="nx">listener</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">listeners</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">listener</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">listeners</span> <span class="o">=</span> <span class="nx">listeners</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">l</span> <span class="p">=&gt;</span> <span class="nx">l</span> <span class="o">!==</span> <span class="nx">listener</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="nx">dispatch</span><span class="p">({});</span>
+
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">getState</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">,</span> <span class="nx">subscribe</span> <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div><h2 id="reducer-的拆分">Reducer 的拆分</h2>
+<p>Reducer 函数负责生成 State。由于整个应用只有一个 State 对象，包含所有数据，对于大型应用来说，这个 State 必然十分庞大，导致 Reducer 函数也十分庞大。</p>
+<p>请看下面的例子。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">chatReducer</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">defaultState</span><span class="p">,</span> <span class="nx">action</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">{</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">payload</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">action</span><span class="p">;</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">ADD_CHAT</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">state</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">chatLog</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">chatLog</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span>
+      <span class="p">});</span>
+    <span class="k">case</span> <span class="nx">CHANGE_STATUS</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">state</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">statusMessage</span><span class="o">:</span> <span class="nx">payload</span>
+      <span class="p">});</span>
+    <span class="k">case</span> <span class="nx">CHANGE_USERNAME</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({},</span> <span class="nx">state</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">userName</span><span class="o">:</span> <span class="nx">payload</span>
+      <span class="p">});</span>
+    <span class="k">default</span><span class="o">:</span> <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div><p>上面代码中，三种 Action 分别改变 State 的三个属性。</p>
+<ul>
+<li>ADD_CHAT：chatLog属性</li>
+<li>CHANGE_STATUS：statusMessage属性</li>
+<li>CHANGE_USERNAME：userName属性</li>
+</ul>
+<p>这三个属性之间没有联系，这提示我们可以把 Reducer 函数拆分。不同的函数负责处理不同属性，最终把它们合并成一个大的 Reducer 即可。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">chatReducer</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">defaultState</span><span class="p">,</span> <span class="nx">action</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">chatLog</span><span class="o">:</span> <span class="nx">chatLog</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">chatLog</span><span class="p">,</span> <span class="nx">action</span><span class="p">),</span>
+    <span class="nx">statusMessage</span><span class="o">:</span> <span class="nx">statusMessage</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">statusMessage</span><span class="p">,</span> <span class="nx">action</span><span class="p">),</span>
+    <span class="nx">userName</span><span class="o">:</span> <span class="nx">userName</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">userName</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div><p>面代码中，Reducer 函数被拆成了三个小函数，每一个负责生成对应的属性。
+这样一拆，Reducer 就易读易写多了。而且，这种拆分与 React 应用的结构相吻合：一个 React 根组件由很多子组件构成。这就是说，子组件与子 Reducer 完全可以对应。</p>
+<p>Redux 提供了一个<code>combineReducers</code>方法，用于 Reducer 的拆分。你只要定义各个子 Reducer 函数，然后用这个方法，将它们合成一个大的 Reducer。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">combineReducers</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">chatReducer</span> <span class="o">=</span> <span class="nx">combineReducers</span><span class="p">({</span>
+  <span class="nx">chatLog</span><span class="p">,</span>
+  <span class="nx">statusMessage</span><span class="p">,</span>
+  <span class="nx">userName</span>
+<span class="p">})</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">todoApp</span><span class="p">;</span>
+</code></pre></div><p>上面的代码通过combineReducers方法将三个子 Reducer 合并成一个大的函数。
+这种写法有一个前提，就是 State 的属性名必须与子 Reducer 同名。如果不同名，就要采用下面的写法。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">reducer</span> <span class="o">=</span> <span class="nx">combineReducers</span><span class="p">({</span>
+  <span class="nx">a</span><span class="o">:</span> <span class="nx">doSomethingWithA</span><span class="p">,</span>
+  <span class="nx">b</span><span class="o">:</span> <span class="nx">processB</span><span class="p">,</span>
+  <span class="nx">c</span><span class="o">:</span> <span class="nx">c</span>
+<span class="p">})</span>
+
+<span class="c1">// 等同于
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">reducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{},</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">a</span><span class="o">:</span> <span class="nx">doSomethingWithA</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">action</span><span class="p">),</span>
+    <span class="nx">b</span><span class="o">:</span> <span class="nx">processB</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">b</span><span class="p">,</span> <span class="nx">action</span><span class="p">),</span>
+    <span class="nx">c</span><span class="o">:</span> <span class="nx">c</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">c</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>总之，combineReducers()做的就是产生一个整体的 Reducer 函数。该函数根据 State 的 key 去执行相应的子 Reducer，并将返回结果合并成一个大的 State 对象。</p>
+<p>下面是combineReducer的简单实现。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">combineReducers</span> <span class="o">=</span> <span class="nx">reducers</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{},</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">reducers</span><span class="p">).</span><span class="nx">reduce</span><span class="p">(</span>
+      <span class="p">(</span><span class="nx">nextState</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">nextState</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">reducers</span><span class="p">[</span><span class="nx">key</span><span class="p">](</span><span class="nx">state</span><span class="p">[</span><span class="nx">key</span><span class="p">],</span> <span class="nx">action</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">nextState</span><span class="p">;</span>
+      <span class="p">},</span>
+      <span class="p">{}</span> 
+    <span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div><p>你可以把所有子 Reducer 放在一个文件里面，然后统一引入。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">combineReducers</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">reducers</span> <span class="nx">from</span> <span class="s1">&#39;./reducers&#39;</span>
+
+<span class="kr">const</span> <span class="nx">reducer</span> <span class="o">=</span> <span class="nx">combineReducers</span><span class="p">(</span><span class="nx">reducers</span><span class="p">)</span>
+</code></pre></div><h2 id="工作流程">工作流程</h2>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016091802.jpg" alt=""></p>
+<ol>
+<li>用户发出 Action。 <code>store.dispatch(action);</code></li>
+<li>Store 自动调用 Reducer，并且传入两个参数：当前 State 和收到的 Action。 Reducer 会返回新的 State 。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">nextState</span> <span class="o">=</span> <span class="nx">todoApp</span><span class="p">(</span><span class="nx">previousState</span><span class="p">,</span> <span class="nx">action</span><span class="p">);</span>
+</code></pre></div><ol start="3">
+<li>State 一旦有变化，Store 就会调用监听函数。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 设置监听函数
+</span><span class="c1"></span><span class="nx">store</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">listener</span><span class="p">);</span>
+</code></pre></div><ol start="4">
+<li>listener可以通过<code>store.getState()</code>得到当前状态。如果使用的是 React，这时可以触发重新渲染 View。</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">listerner</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">newState</span> <span class="o">=</span> <span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">();</span>
+  <span class="nx">component</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="nx">newState</span><span class="p">);</span>   
+<span class="p">}</span>
+</code></pre></div><h2 id="实例计数器">实例：计数器</h2>
+<p>下面我们来看一个最简单的实例。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">value</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">render</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">Counter</span> <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">()}</span><span class="o">/&gt;</span><span class="p">,</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">)</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">store</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">render</span><span class="p">);</span>
+<span class="nx">render</span><span class="p">();</span>
+
+</code></pre></div><p>上面是一个简单的计数器，唯一的作用就是把参数value的值，显示在网页上。Store 的监听函数设置为render，每次 State 的变化都会导致网页重新渲染。</p>
+<p>下面加入一点变化，为Counter添加递增和递减的 Action。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">value</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onIncrement</span><span class="p">}</span><span class="o">&gt;+&lt;</span><span class="err">/button&gt;</span>
+  <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onDecrement</span><span class="p">}</span><span class="o">&gt;-&lt;</span><span class="err">/button&gt;</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">reducer</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s1">&#39;INCREMENT&#39;</span><span class="o">:</span> <span class="k">return</span> <span class="nx">state</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s1">&#39;DECREMENT&#39;</span><span class="o">:</span> <span class="k">return</span> <span class="nx">state</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span> <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">reducer</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">render</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">Counter</span>
+      <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">()}</span>
+      <span class="nx">onIncrement</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;INCREMENT&#39;</span><span class="p">})}</span>
+      <span class="nx">onDecrement</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">({</span><span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;DECREMENT&#39;</span><span class="p">})}</span>
+    <span class="o">/&gt;</span><span class="p">,</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">)</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">render</span><span class="p">();</span>
+<span class="nx">store</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">render</span><span class="p">);</span>
+
+</code></pre></div><p><a href="https://github.com/reactjs/redux/tree/master/examples/counter">完整的代码</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/flux/" data-toggle="tooltip" data-placement="top" title="flux">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/redux-zhong-jian-jian/" data-toggle="tooltip" data-placement="top" title="Redux 中间件">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/flux/">flux</a></li>
+                    
+                    <li><a href="/posts/react-nativexue-xi-zhi-nan/">React-Native学习指南</a></li>
+                    
+                    <li><a href="/posts/react-2/">react</a></li>
+                    
+                    <li><a href="/posts/vue/">Vue</a></li>
+                    
+                    <li><a href="/posts/visual-studio-tools-for-apache-cordova/">Visual Studio Tools  for Apache Cordova</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Mar 6, 2017</h4>
+    </section>
+    <h5 id="wc">3500 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/react/">react</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/redux/">redux</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

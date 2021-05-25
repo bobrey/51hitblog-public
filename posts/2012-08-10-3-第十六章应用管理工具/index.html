@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 3 第十六章：应用管理工具 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="3 第十六章：应用管理工具" />
+  <meta name="twitter:title" content="3 第十六章：应用管理工具" />
+  <meta name="description" content="目录 16.1 日志 16.1.1 PHP日志 16.1.2 Symfony日志 16.2 调试 16.2.1 symfony调试模式 16.2.2 Symfony异常 16.2.3 Xdebug扩展 16.2.4 Web调试工具条 16.2.5 手动调试 16.3">
+  <meta property="og:description" content="目录 16.1 日志 16.1.1 PHP日志 16.1.2 Symfony日志 16.2 调试 16.2.1 symfony调试模式 16.2.2 Symfony异常 16.2.3 Xdebug扩展 16.2.4 Web调试工具条 16.2.5 手动调试 16.3">
+  <meta name="twitter:description" content="目录 16.1 日志 16.1.1 PHP日志 16.1.2 Symfony日志 16.2 调试 16.2.1 symfony调试模式 16.2.2 Symfony异常 16.2.3 Xdebug扩展 16.2.4 Web调试工具条 16.2.5 手动调试 16.3">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-3-%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-3-%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">3 第十六章：应用管理工具</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">4400 Words|Read in about 9 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_16_logging"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.1 日志</a></a>
+      <ul>
+        <li><a href="#chapter_16_sub_php_logs"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.1.1 PHP日志</a></a></li>
+        <li><a href="#chapter_16_sub_symfony_logs"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.1.2 Symfony日志</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_16_debugging"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.2 调试</a></a>
+      <ul>
+        <li><a href="#chapter_16_sub_symfony_debug_mode"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.2.1 symfony调试模式</a></a></li>
+        <li><a href="#chapter_16_sub_symfony_exceptions"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.2.2 Symfony异常</a></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_logging">16.1 日志</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_php_logs">16.1.1 PHP日志</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_symfony_logs">16.1.2 Symfony日志</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_debugging">16.2 调试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_symfony_debug_mode">16.2.1 symfony调试模式</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_symfony_exceptions">16.2.2 Symfony异常</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_xdebug_extension">16.2.3 Xdebug扩展</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_web_debug_toolbar">16.2.4 Web调试工具条</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_manual_debugging">16.2.5 手动调试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_using_symfony_outside_of_a_web_context">16.3 Using symfony outside of a web context</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_batch_files">16.3.1 批处理文件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_custom_tasks">16.3.2 自定义命令</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_populating_a_database">16.4 填充数据库</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_fixture_file_syntax">16.4.1 fixture文件格式</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_launching_the_import">16.4.2 导入数据</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_using_linked_tables">16.4.3 使用关联表</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_deploying_applications">16.5 部署应用</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_using_rsync_for_incremental_file_transfer">16.5.1 使用rsync进行增量文件传输</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_ignoring_irrelevant_files">16.5.2 忽略无关文件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_sub_managing_a_production_application">16.5.3 管理产品应用</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#chapter_16_summary">16.6 总结</a></li>
+</ul>
+<p>在开发与部署阶段，开发者需要稳定持续的调试信息来源来确定应用是否工作正常。这些信息通常是通过日志和调试工具来获取的。 由于symfony这类框架的主要任务是加快应用的开发，所以这些功能必须紧密的整合在框架里，以保证开发与日常操作的效率。</p>
+<p>应用在生产服务器上的生命周期里，应用的管理者要做包括循环日志到升级在内的大量的重复任务。作为框架必须提供尽可能多的自动完成这些任务的工具。</p>
+<p>本章详细介绍symfony应用如何完成这些任务。</p>
+<h2 id="chapter_16_logging"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.1 日志</a></h2>
+<p>发现请求执行时出现问题的唯一手段是检查执行过程。在本章的学习里，你会了解到PHP与symfony都会提供大量的这类数据。</p>
+<h3 id="chapter_16_sub_php_logs"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.1.1 PHP日志</a></h3>
+<p>PHP的 <code>php.ini</code> 里有一个 <code>error_reporting</code> 参数，这个参数指定是否记录PHP事件。symfony可以让你通过 <code>settings.yml</code> 文件在不同的应用里重写这个设置的值，如例16-1所示。</p>
+<!-- raw HTML omitted -->
+<pre><code>prod:
+ .settings:
+    error_reporting:  &lt;?php echo (E_PARSE | E_COMPILE_ERROR | E_ERROR | E_CORE_ERROR | E_USER_ERROR).&quot;\n&quot; ?&gt;
+
+dev:
+  .settings:
+    error_reporting:  &lt;?php echo (E_ALL | E_STRICT).&quot;\n&quot; ?&gt;
+</code></pre>
+<p>为了避免产品环境的速度问题，在产品环境里日志只记录严重PHP错误。不过，在开发环境里，所有类型的事件都会被记录，这样开发者能够有足够的信息来跟踪错误。</p>
+<p>PHP日志文件的位置取决与你的 <code>php.ini</code> 设置。如果你没修改过这个设置，PHP很可能会使用web服务器的日志功能（例如Apache的错误日志）。在这种情况下，你会在web服务器的log目录里找到PHP日志。</p>
+<h3 id="chapter_16_sub_symfony_logs"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.1.2 Symfony日志</a></h3>
+<p>除了标准的PHP日志外，symfony可以记录大量的自定义事件。symfony的日志位于 <code>myproject/log/</code> 目录下。每个应用的每个环境都有一个对应的日志文件。例如，<code>frontend</code> 应用的开发环境的日志文件的名字是 <code>frontend_dev.log</code>，产品环境的是 <code>frontend_prod.log</code>。</p>
+<p>如果你有一个运行中的symfony应用，请看一下它的日志文件，它的语法结构很简单。应用日志的每行记录一个事件。每行都包括事件发生的事件，事件的类型，正在处理的对象，还有一些额外的相关细节。例16-2是一个symfony日志文件的例子。</p>
+<!-- raw HTML omitted -->
+<pre><code>Nov 15 16:30:25 symfony [info ] {sfAction} call &quot;barActions-&gt;executemessages()&quot;
+Nov 15 16:30:25 symfony [info ] {sfPropelLogger} executeQuery: SELECT bd_message.ID...
+Nov 15 16:30:25 symfony [info ] {sfView} set slot &quot;leftbar&quot; (bar/index)
+Nov 15 16:30:25 symfony [info ] {sfView} set slot &quot;messageblock&quot; (bar/mes...
+Nov 15 16:30:25 symfony [info ] {sfView} execute view for template &quot;messa...
+Nov 15 16:30:25 symfony [info ] {sfView} render &quot;/home/production/myproject/...
+Nov 15 16:30:25 symfony [info ] {sfView} render to client
+</code></pre>
+<p>你可以在这些文件发现很多细节，包括数据库执行的SQL查询、调用的模板、对象间的方法调用等。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>all:
+  logger:
+    param:
+      sf_file_debug:
+        param:
+          format:      %time% %type% [%priority%] %message%%EOL%
+          time_format: %b %d %H:%M:%S
+</code></pre>
+<h4 id="symfony日志级别设置">symfony日志级别设置</h4>
+<p>symfony日志消息共有八种级别：<code>emerg</code>、<code>alert</code>、<code>crit</code>、<code>err</code>、<code>warning</code>、<code>notice</code>、<code>info</code>、<code>debug</code>，与 <a href="http://pear.php.net/package/Log/"><code>PEAR::Log</code></a> 包里的级别相同。可以在每个引用程序的 <code>factories.yml</code> 里定义各个环境要记录的事件的最大级别，如例16-4所示。</p>
+<!-- raw HTML omitted -->
+<pre><code>prod:
+  logger:
+    param:
+      level: err
+</code></pre>
+<p>默认情况下，在除了产品环境外的所有环境里，所有的消息都会被记录（设置值为最不重要的级别，<code>debug</code> 级）。在产品环境里，默认情况日志功能是关闭的；如果把 <code>settings.yml</code> 里的 <code>logging_enabled</code> 设为 <code>true</code>，只有最重要的消息（从 <code>crit</code> 到 <code>emerg</code>）会出现在日志里。</p>
+<p>你可以在 <code>factories.yml</code> 文件里修改各个环境的日志级别来限制记录的消息类型。</p>
+<!-- raw HTML omitted -->
+<h4 id="新增一条日志消息">新增一条日志消息</h4>
+<p>你可以通过例16-5中的一种方法来手动给symfony日志文件里增加一条消息。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>$level</code> 的取值可以与刚才的日志文件消息里的相同。</p>
+<p>另外，直接使用 <code>sfLogger</code> 的方法可以在应用的任何地方往日志里增加一条消息，如例16-5所示。这个对象的方法名与日志的级别对应。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="清楚与循环日志文件">清楚与循环日志文件</h4>
+<p>不要忘记定期清除 <code>log/</code> 目录的内容，因为这些文件有一个大小每天增长好几MB的怪习惯，当然，这取决与你的流量。symfony为此准备了 <code>log:clear</code> ，你可以手动执行这个任务或者把它放进crontab（linux的定时计划表 。例如，下面的命令抹去symfony日志文件：</p>
+<!-- raw HTML omitted -->
+<p>为了性能与安全性的考虑，可以把symfony的日志文件存在多个小文件里而不是一个大文件。日志文件的理想存储策略是定期备份并清空主日志文件，只保留一定数量的备份。你可以开启日志循环，定义 <code>period</code> 为 <code>7</code> 天，定义 <code>history</code>（备份的数量）为 <code>10</code>，如例14-7。有一个主日志文件 和 最多10个包含7天日志的备份文件。当7天的周期结束以后，当前的日志文件会变成备份，最早的那个备份会被删除。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>日志备份存在 <code>logs/history/</code> 目录，它们以存储日期为后缀。</p>
+<h2 id="chapter_16_debugging"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.2 调试</a></h2>
+<p>不管你是个多么熟练的程序员，都会犯错，即使你使用symfony。检查与了解错误是快速开发的一个关键。幸运的是，symfony为开发者提供了好几种调试工具。</p>
+<h3 id="chapter_16_sub_symfony_debug_mode"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.2.1 symfony调试模式</a></h3>
+<p>symfony有一个易于应用开发与调试的调试模式。当它开启时，会有下面的变化：</p>
+<ul>
+<li>每次请求时都会检查配置文件，这样任何配置文件的改变都会立即生效，而不用每次清空配置文件缓存。</li>
+<li>错误信息页面会用清晰有用的方式显示完整的跟踪信息，使你能够更快的发现出错之处。</li>
+<li>有更多的调试工具可以使用(例如数据库查询的详情)。</li>
+<li>Propel/Doctrine的调试模式也会开启，Propel/Doctrine对象调用时候的错误也会通过Propel/Doctrine的机制显示在跟踪信息里。</li>
+</ul>
+<p>另一方面，当调试模式关闭的时候，是这样处理的：</p>
+<ul>
+<li>YAML配置文件只解析一次，转化为PHP文件存在 <code>cache/config/</code> 目录中。以后每次请求都会忽略YAML文件而直接使用缓存里的配置文件。这样，处理请求的速度大大提高了。</li>
+<li>如果要重新处理配置文件，必须手动清除配置缓存。</li>
+<li>处理请求时如果遇到错误会返回代码500（内部服务器错误Internal Server Error），并不会显示问题的详细情况。</li>
+</ul>
+<p>调试模式通过各个应用的前端控制器开启。 它是由 <code>getApplicationConfiguration()</code> 方法的第三个参数的值所控制，如例16-8。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_16_sub_symfony_exceptions"><a href="forum.php?mod=viewthread&amp;tid=41&amp;extra=page%3D1#">16.2.2 Symfony异常</a></h3>
+<p>在调试模式下发生异常时，symfony会显示包含了所有你需要用来寻找问题原因的异常提示信息。</p>
+<p>异常提示信息写的很清楚，它指出了最有可能引起问题的东西。这些提示信息还经常能够提供解决问题的办法，并且对于最常见的问题，甚至会提供一个包含这个异常详细情况的symfony网页链接。异常页面会显示发生错误的PHP代码（包含语法高亮），还有完整的方法调用跟踪，如图16-1所示。你可以找到引起问题的第一个调用，以及调用这个方法的参数。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  symfony使用 &lt;code&gt;sfTimer&lt;/code&gt; 类来计算消耗在配置、模型、动作和视图的时间。使用这个对象，你可以计算一个特定的过程消耗的时间并把统计结果与其他计时器的结果一起显示在网页调试工具条里。这在做优化的时候很有用。
+&lt;/p&gt;
+
+&lt;p&gt;
+  对某段代码初始化计时器，可以执行 &lt;code&gt;getTimer()&lt;/code&gt; 方法。它会返回一个sfTimer对象并且开始计时。对这个对象执行 &lt;code&gt;addTime()&lt;/code&gt; 方法可以停止计时。消耗的时间可以通过 &lt;code&gt;getElapsedTime()&lt;/code&gt; 方法取得，并且显示在网页调试工具条里。
+&lt;/p&gt;
+
+&lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// 初始化计时器并开始计时&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->$timer<!-- raw HTML omitted --> = sfTimerManager::<!-- raw HTML omitted -->getTimer<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->&lsquo;myTimer&rsquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// 做事情<!-- raw HTML omitted -->
+&hellip;
+ 
+<!-- raw HTML omitted -->// 停止计时器，增加消耗的时间<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$timer<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->addTime<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;
+ 
+<!-- raw HTML omitted -->// 取得结果（如果计时器没有停止，停止计时器）<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$elapsedTime<!-- raw HTML omitted --> = <!-- raw HTML omitted -->$timer<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getElapsedTime<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  给每个计时器命名的好处是你可以多次调用它来计算时间的总和。例如，如果某个工具方法里的 &lt;code&gt;myTimer&lt;/code&gt; 计时器在每次请求都会执行两次，第二次执行 &lt;code&gt;getTimer('myTimer')&lt;/code&gt; 方法会从 &lt;code&gt;addTime()&lt;/code&gt; 上次执行的那个时间点开始继续计时，所以会加上上次的时间。对计时器对象执行 &lt;code&gt;getCalls()&lt;/code&gt; 方法会告诉你这个计时器使用的次数，这个数据也会在网页调试工具条里显示。
+&lt;/p&gt;
+
+&lt;pre class=&quot;php&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// 取得计时器执行的次数&lt;/span&gt;
+</code></pre>
+<p><!-- raw HTML omitted -->$nbCalls<!-- raw HTML omitted --> = <!-- raw HTML omitted -->$timer<!-- raw HTML omitted -->-&gt;<!-- raw HTML omitted -->getCalls<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  在Xdebug模式下，日志信息会更丰富。所有执行的PHP脚本文件和函数都会被记录， symfony知道如何从内部日志链接到这些信息。日志信息表里的每行都有一个双箭头按钮，你可以点击这个按钮看到更多的相关信息。如果出了问题， Xdebug会给你尽可能多的信息让你查找原因。
+&lt;/p&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  $databaseManager = new sfDatabaseManager($this-&gt;configuration);
+&lt;/p&gt;
+
+&lt;p&gt;
+  如果命令的配置定义了一个 &lt;code&gt;application&lt;/code&gt; 和一个 &lt;code&gt;env&lt;/code&gt; 参数，当构建命令配置时它们则会自动的考虑到，因此，一个命令可以使用定义在你的 &lt;code&gt;databases.yml&lt;/code&gt; 里面的任何的数据库连接。默认，&lt;br /&gt; skeletons generated by a call to &lt;code&gt;generate:task&lt;/code&gt; include this initialization.
+&lt;/p&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;pre class=&quot;php&quot;&gt;$ php /path/to/symfony/data/bin/check_configuration.php&lt;/pre&gt;
+
+&lt;p&gt;
+  即使你可以在命令行里面使用这个工具，强烈建议把该文件拷贝到你的WEB根目录下面来运行它。因为对于命令行和WEB，PHP可以使用两种不同的 &lt;code&gt;php.ini&lt;/code&gt; 配置文件。
+&lt;/p&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  在把你的应用传到生产服务器之前，你需要确定它已经可以公开了。在你真正决定部署应用之前请现检查下面的事项：
+&lt;/p&gt;
+
+&lt;p&gt;
+  错误页面的外观应该根据你的应用进行定制。关于如何定制500错误，404错误和安全页面，以及网站不能访问时候的页面，请参考第19章还有本章的“管理投入使用的应用”部分。
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;code&gt;default&lt;/code&gt; 模块应该从 &lt;code&gt;settings.yml&lt;/code&gt; 文件的 &lt;code&gt;enabled_modules&lt;/code&gt; 数组里去掉，这样就不会有symfony的默认页面出现。
+&lt;/p&gt;
+
+&lt;p&gt;
+  session处理机制使用一个客户端的cookie，这个cookie的默认名字是 &lt;code&gt;symfony&lt;/code&gt; 。在部署应用之前，你也许应该把它改成别的名字从而避免暴露出你的应用使用了symfony。关于如何在 &lt;code&gt;factories.yml&lt;/code&gt; 文件里定制这个cookie的名字请参考第6章。
+&lt;/p&gt;
+
+&lt;p&gt;
+  项目 &lt;code&gt;web/&lt;/code&gt; 目录下的 &lt;code&gt;robots.txt&lt;/code&gt; 文件，默认是空的。你应该修改它的内容来告诉网页爬虫和其他网页机器人网站的哪些部分它们可以看哪些不能看。大多数时候，这个文件用来避免特定的URL被索引——例如，很消耗资源的页面，不需要被索引的页面（例如bug档案），或者那些网页机器人可能处理不了的URL。
+&lt;/p&gt;
+
+&lt;p&gt;
+  现代浏览器在用户第一次浏览你的应用的时候会请求 &lt;code&gt;favicon.ico&lt;/code&gt; 文件，用来在地址栏和收藏夹里代表你的应用。提供这个文件不仅可以使你的应用看起来更好，而且可以避免服务器日志里出现大量的404错误。
+&lt;/p&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  如果你把 &lt;code&gt;settings.yml&lt;/code&gt; 里的 &lt;code&gt;check_lock&lt;/code&gt; 参数设置成 &lt;code&gt;true&lt;/code&gt;，在清除缓存的时候symfony会把应用锁起来。缓存清除完之前的所有请求都会被转到一个显示应用暂时无法使用的页面。如果缓存很大，清除需要的时间会大于几毫秒，如果你的网站流量很高，推荐使用这个设置。&lt;br /&gt; This unavailable page is the same as the one displayed when you call the symfony &lt;code&gt;disable&lt;/code&gt; task.&lt;br /&gt; The &lt;code&gt;check_lock&lt;/code&gt; parameter is deactivated by default&lt;br /&gt; because it has a very slight negative impact on performance.
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;code&gt;project:clear-controllers&lt;/code&gt; 命令可以清除 &lt;code&gt;web/&lt;/code&gt; 目录里的前端控制器，只保留产品环境所需的控制器。如果你没有在 &lt;code&gt;rsync_exclude.txt&lt;/code&gt; 里包含开发环境的前端控制器，这条命令可以确保你的应用的信息不会被产品环境的前端控制器所泄露。
+&lt;/p&gt;
+
+&lt;pre class=&quot;command-line&quot;&gt;&lt;code&gt;$ php symfony project:clear-controllers&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+  如果你从SVN库签出项目，文件和目录的权限会有错误。&lt;code&gt;project:permissions&lt;/code&gt; 命令，可以修复目录权限，例如，把 &lt;code&gt;log/&lt;/code&gt; 和 &lt;code&gt;cache/&lt;/code&gt; 目录的权限设置成0777（这些目录必须可写symfony才能正常工作）。
+&lt;/p&gt;
+
+&lt;pre class=&quot;command-line&quot;&gt;&lt;code&gt;$ php symfony project:permissions&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%9B%9B%E7%AB%A0%E5%9F%BA%E6%9C%AC%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%88%9B%E5%BB%BA/" data-toggle="tooltip" data-placement="top" title="第四章：基本页面的创建">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%BA%8C%E7%AB%A0%E6%8E%A2%E7%B4%A2/" data-toggle="tooltip" data-placement="top" title="第二章：探索">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">4400 Words|Read in about 9 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

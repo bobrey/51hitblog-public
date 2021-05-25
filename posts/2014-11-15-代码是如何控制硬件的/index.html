@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 代码是如何控制硬件的 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="代码是如何控制硬件的" />
+  <meta name="twitter:title" content="代码是如何控制硬件的" />
+  <meta name="description" content="&lt;p&gt; 那么，翻开数字电路相关教材，最前面几页。 &lt;/p&gt; &lt;p&gt; 一般它都会告诉你，三极管/场效应管类似继电器（一种通过线圈产生磁场、然后用磁场控制物理开关的通">
+  <meta property="og:description" content="&lt;p&gt; 那么，翻开数字电路相关教材，最前面几页。 &lt;/p&gt; &lt;p&gt; 一般它都会告诉你，三极管/场效应管类似继电器（一种通过线圈产生磁场、然后用磁场控制物理开关的通">
+  <meta name="twitter:description" content="&lt;p&gt; 那么，翻开数字电路相关教材，最前面几页。 &lt;/p&gt; &lt;p&gt; 一般它都会告诉你，三极管/场效应管类似继电器（一种通过线圈产生磁场、然后用磁场控制物理开关的通">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2014-11-15-%E4%BB%A3%E7%A0%81%E6%98%AF%E5%A6%82%E4%BD%95%E6%8E%A7%E5%88%B6%E7%A1%AC%E4%BB%B6%E7%9A%84/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2014-11-15-%E4%BB%A3%E7%A0%81%E6%98%AF%E5%A6%82%E4%BD%95%E6%8E%A7%E5%88%B6%E7%A1%AC%E4%BB%B6%E7%9A%84/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">代码是如何控制硬件的</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sat Nov 15, 2014</h4>
+    </section>
+    <h5 id="wc">5500 Words|Read in about 11 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <!-- raw HTML omitted -->
+<pre><code>  &lt;p&gt;
+    那么，翻开数字电路相关教材，最前面几页。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    一般它都会告诉你，三极管/场效应管类似继电器（一种通过线圈产生磁场、然后用磁场控制物理开关的通断与否的设备）；在它一个管脚上输入/切断电压信号，另一个管脚就会出现高/低电平。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    PS：继电器是一种利用电磁铁控制的开关；当向电磁铁通电时就产生磁场，而这个磁场就会吸合或者分离开关，从而实现“以微弱电流控制另一条电路的通断”这个功能。&lt;br /&gt; 其中，平常关闭，给电磁铁通电后就使得开关断开的那种继电器就等效于非门。三极管拿来当开关使用时，和这种继电器效果几乎一样。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    以上，就是数字电路的基础。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    你敲入的任何东西，最终就是通过类似的东西/机制储存的；所谓“指令”，其实就是“某个命令码“（一般叫机器码），这个”命令码”会改变CPU内部一堆“开关”的状态，以激活不同的电路；然后数据（前面提到过，它也是用三极管/场效应管的导通与否“记忆”的）利用类似的机制，被送入这个被“指令”激活的电路——这些电路是工程师们利用最最基础的三极管控制原理，用一大堆三极管组合出来的：当数据（某种高低电平的组合）经过这些电路后，就会变成另外一组高低电平的组合：这个组合刚好和“指令”代表的功能所应该给出的结果一致。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    这段话可能有点难以理解。那么，看下最简单的与门吧：数据有两个，分别通过两条不同的线路进入与门；输出只有一个，必须给它输入两个高电平，它才会输出高电平；否则就输出低电平（这一般简化表述为：只有输入两个1，它才输出1，否则输出0）。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ——这就是所谓的“与”逻辑；一组这样的“与”逻辑就与计算机指令/高级语言里的“按位与”直接对应。&lt;br /&gt; ——而按位与这个指令，意思就是选择一组线路，把数据导通到这组“与”逻辑电路之上；然后这组与逻辑电路就会输出两组数据的按位与的结果。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ——类似的，二进制加法，1+1=0（同时进位）；1+0=1；0+1=1；0+0=0：这可以用一个异或电路来模拟（因为异或电路的规则就是1+1=0、1+0=1、0+1=1、0+0=0）；但这样（同时进位）这个说明就会丢失了，所以需要同时用一个与门模拟高位进位（前面说过，与门就是只有两个1才会输出1，其它输出0；综合异或的说明：这是不是就和二进制加法的规则刚好一致了呢？）
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    然后更高一位就成了两根输入线上的数据相加、再加上进位数据……依此类推：这就是用开关做加法的思路。而这样堆起来的一组开关，就叫加法器。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ——add指令呢，就是选中上面做的那一堆用来做加法的开关们；然后给它们输入数据（不要忘了，两组高低电平而已），这些数据就驱动着构成加法器的那些开关们，噼里啪啦一阵乱响之后（嗯，如果是老掉牙的继电器计算机的话：还记得BUG的故事吗？），电路就稳定在某个状态了：此时，加法器的输出，恰恰就是输入数据的和（当然是这样了。前面讲过，我们是刻意用异或门和与门精心组合，让它们刚好和加法的效果一致）。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ——其它种种指令，莫不大同小异（更复杂/高级的时钟、流水线啥的……暂时就无视吧）
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    你可以翻翻课本。上面讲过加法器的实现。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    而加法器和另外一些逻辑电路加起来，就是所谓的ALU（算术逻辑单元，一下子就高大上了有木有）。（当然了，实际上没这么简单。比如至少还要加上时钟信号来打拍子协调开关们的动作、加上锁存器来暂存数据之类）
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    简而言之，代码在计算机内部，本身就是一组特定的高低电平组合；而计算机是精心设计的、海量的、用高低电平控制通断的开关组；当给这个开关组输入不同的电平组合时，就会导致它内部出现复杂的开关动作，最终产生另外一组高低电平的组合作为输出；这些开关动作经过精心设计，使得它的行为是可解释、可预测的——解释/预测的规则，就是CPU的指令集。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ——换言之，在机器内部，一切本来就是高低电平，不存在转换问题。&lt;br /&gt; ——反而是键盘/鼠标/mic的输入要经过机械过程到数字信号的转换；而视频、音频之类的输出，要经过数模转换再通过其它机制才能变成人可辨识的信息
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ————————————————————————————————&lt;br /&gt; 我知道，很多人困惑的，可能并不是开关的原理；而是：如果CPU不过是一堆开关的话，它为什么能“听懂”类似“加法”“do&amp;#8230;while”这类高大上的复杂指令、甚至做出office、photoshop甚至人工智能这样神奇的东西呢？这些高大上的语义，是怎么被电路所理解的呢？
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    加法之类简单指令，前面已经介绍过了；而提到更复杂的东西……这就不得不说说图灵的贡献了。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    还是从最小儿科的题目开始。假设你从来没听说过乘法表；那么，你怎么算8×9呢？
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    我们知道，A x B就是B个A相加或A个B相加的意思。那么，要算8×9，我们只要把8个9加起来就够了：7次加法而已。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    换句话说，这里有个很好的思想，即： 很多“高级”数学计算（如乘法），其实用“低级”方法（如加法）一样是可以算的。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    图灵的贡献就是，他证明了，如果一台机器，可以接受一系列的输入、并按输入指示完成运算；那么，当这台机器可支持的操作满足“图灵完备”的要求时，它就可以模拟任何其它数学/逻辑运算！
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    这实在是太关键了。要知道，人类早就想利用机械装置代替一些脑力工作了。比如说，算盘，按照口诀机械的一阵摆弄，答案就出来了；还有老外的各种机械计算器，比如手摇计算机到炮兵用的弹道计算机、再到德军的机械加/解密机等等，这种尝试可以说是数不胜数。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    但，再怎么的，这些东西也只能解决特定的问题。想做能解决全部问题的通用机？天哪，那得有多复杂。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    而图灵，就在这时候，为人类指出了一条通向机械智能的可行道路……
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ——一台只会做加法的机器，只要能想办法让它实现“连续做指定次数加法”，那它就可以模拟一台乘法机（模拟二进制乘法会更容易一些）。而能够模拟任何数学/逻辑运算的机器，并不比加法机复杂太多。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    换句话说，要搞出一台“无所不能”的计算机器，并不需要穷尽一切可能，而是只要支持程序输入、再支持少的令人发指的几条指令，就可以办到了。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    比如说，CPU，它根本上其实只会三招：与、或、非。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    与就是全为真，则输出真；或是只要一个为真，则输出真；非则是输入真它就输出假、输入假就输出真——所谓的真假，一般写作1、0，在计算机内部就是高低电平。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    别看CPU只会这三板斧；可当它们巧妙的组合起来后（构造成计数器、指令寄存器等等等等再组合成CPU），就达到了图灵完备的要求，产生了质变。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    具体是怎么做的，这就不是三言两语能说清楚的了。还是仔细看看自己的数字电路这本书吧。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ——数字电路研究的，就是如何用与或非这三板斧，来实现各种高级运算甚至CPU指令集这么复杂的事物（甚至是直接实现某些算法，如加密、视频编码等等）&lt;br /&gt; ——而CPU指令集呢，则形成了另外一个强大得多的图灵机（体现在能够支持更多比原始的与或非更”高阶“的操作上）：这就是机器码（和汇编指令几乎一一对应）&lt;br /&gt; ——然后呢，诸如c/c++、java等高级语言，就是利用CPU指令集形成的、另一个更加强大的图灵机（编译器/解释器负责两种图灵机之间的翻译工作）。&lt;br /&gt; ——而程序员们研究的，就是如何用编程语言这样一个强大的图灵机，去实现office、photoshop、wow甚至人工智能这样复杂的事物。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    这是一个层层模拟的过程。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ————————————————————————————&lt;br /&gt; 总之，开关的通断是基础；而各种神奇的功能是如何用这么简单的东西组合出来的呢，那就必须理解“程序”原理（也就是图灵机原理）了。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    如果说，计算机是一个人，那么，软件就是他掌握的知识。这个知识使得他不仅能掰着手指头数数（相当于硬件直接提供的基础功能），甚至还可以去洞悉宇宙的奥秘（相当于利用软件“模拟”出来的、无穷无尽的扩展功能）。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    ————————————————————————————————&lt;br /&gt; 具体一些，人是怎样开车的呢？
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    首先，他要知道车的控制原理（知识/软件）；然后，基于这些知识，大脑向他的四肢肌肉发出神经冲动，驱使他完成转方向盘、挂挡、踩离合器/油门等种种动作，最终达到开车这个目的。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    软件控制硬件，也是类似的原理。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    前面说过，程序本身就是高低电平的组合；它通过在CPU上执行来模拟各种决策过程；同时，计算机就是一堆开关；那么，通过指令向某些地址写出数据（访问特定地址是通过各种寻址机制/指令完成的，归根结底也可以说是通过开关切换，改变了电路拓扑），就等于开启/关闭了对应地址上的某个开关；这个开关可以是类似CPU内部那样的一组三极管，也可以是通向另外一个继电器的信号线——这个信号就促使继电器闭合，于是电机导通……
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    就好象人开汽车一样，神经发出的微不足道的电脉冲经过肌肉放大，影响了涉及数百甚至数千马力的能量洪流的发动机/变速箱的运转，然后汽车就开走了。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    计算机也一样：它通过向控制特定地址上的开关输出0/1（高低电平），就可以通过事先准备的物理设施驱动诸如航模电机、舵机等等机构，这就完成了航模控制。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    完整的控制回路甚至可以是：&lt;br /&gt; 航模上的传感器采集飞行姿态、地形、位置等等数据（最终转换成高低电平构成的信号）&amp;#8212;-信号通过某些端口送到CPU&amp;#8212;&amp;#8211;CPU执行程序，程序读取传感器发来的信号，决定下一步的行动&amp;#8212;&amp;#8211;经过程序的智能判断后，通过控制特定地址上的开关（前面提过，向这个地址发一组高低电平构成的数据就行了），驱动诸如航模电机、舵机等等机构，完成航模控制。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    这，就是所谓的“机器人”（当然，只是最简化的机器人原理而已）。
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;div class=&quot;zm-item-vote-info &quot; style=&quot;color: #999999;&quot; data-votecount=&quot;120&quot;&gt;
+  &lt;span class=&quot;voters&quot;&gt;&lt;a class=&quot;zg-link&quot; title=&quot;梁枭柒&quot; href=&quot;http://www.zhihu.com/people/liang-xiao-qi-74&quot; data-tip=&quot;p$t$liang-xiao-qi-74&quot;&gt;梁枭柒&lt;/a&gt;、&lt;a class=&quot;zg-link&quot; title=&quot;任振宇&quot; href=&quot;http://www.zhihu.com/people/ren-zhen-yu-79&quot; data-tip=&quot;p$t$ren-zhen-yu-79&quot;&gt;任振宇&lt;/a&gt;、&lt;a class=&quot;zg-link&quot; title=&quot;纪路&quot; href=&quot;http://www.zhihu.com/people/ji-lu-15-70&quot; data-tip=&quot;p$t$ji-lu-15-70&quot;&gt;纪路&lt;/a&gt; &lt;/span&gt;&lt;a class=&quot;more&quot; style=&quot;color: inherit;&quot;&gt;等人赞同&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;div class=&quot; zm-editable-content clearfix&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot; zm-editable-content clearfix&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot; zm-editable-content clearfix&quot;&gt;
+  ===================================================
+&lt;/div&gt;
+
+&lt;div class=&quot; zm-editable-content clearfix&quot;&gt;
+  &lt;b&gt;我怎么发现得票数最多的没有真正回答问题呢&amp;#8230;.&lt;/b&gt;&lt;br /&gt; 下面是我的答案：&lt;br /&gt; &lt;b&gt;先说代码：&lt;/b&gt;&lt;br /&gt; 我们是用电脑的键盘来输入的指令，每一个指令都对应一个ASCII码，而这里的ASCII码就是有序的电压的高低（或电流的有无，下面只提电压的高低），即我们输入的是电压的高低，你所看到代码是这些电压的高低控制显示器所显示的图像，其实电脑也不知道它是什么，只知道这样显示。&lt;br /&gt; 结论：&lt;b&gt;代码其实就是存储在存储器（内存、硬盘或者闪存等等）中有序的电压的高低。&lt;/b&gt;&lt;br /&gt; &lt;b&gt;再说编译：&lt;/b&gt;&lt;br /&gt; 编译是一个有序的电压的高低向另一种有序的电压高低的一种转换过程，下面以52单片机为例，我们编译是从表示ASCII码的那种有序电压高低转换为52单片机能够识别的另一种规定好的有序电压高低，即表示HEX文件的电压高低。&lt;br /&gt; 结论：&lt;b&gt;编译出的结果还是电脑中存储的有序电压高低。&lt;/b&gt;&lt;br /&gt; &lt;b&gt;到单片机烧录：&lt;/b&gt;&lt;br /&gt; 接下俩就是烧录，理解了上面两点就很容易理解下面的内容，烧录就是电脑中的有序电压高低通过数据线传输到单片机中的ROM中。&lt;br /&gt; 接下来ROM就可以释放其中的电压来控制外围的电路。&lt;br /&gt; &lt;b&gt;总结：从代码的编辑到最后对电路的控制都是电压在起作用，只是为了方面我们而给我们展现的形式不一样而已，而其本质都是电压，这样也就不存在转换。&lt;/b&gt;&lt;br /&gt; &lt;b&gt;&lt;br /&gt; 理解这句话：&lt;span style=&quot;text-decoration: underline;&quot;&gt;世界上没有软件，软件只是对硬件的一种反映，就像意识是对世界的一种反映是一样的！&lt;/span&gt;&lt;/b&gt;&lt;br /&gt; 相信这样就很容易理解了。&lt;/p&gt; 
+  
+  &lt;p&gt;
+    &lt;b&gt;看到有人赞同了我的观点，很开心，针对题目我再补充一点：&lt;/b&gt;&lt;br /&gt; &lt;b&gt;只要你提到0/1，提到软件，这个问题就没法理解&amp;#8230;因为软件【包括0/1】和硬件始终存在一道无法跨越的鸿沟；&lt;br /&gt; &lt;/b&gt;你说你在单片机中写0，请问你是如何写0的？在键盘上敲个0？实际还是电平【和我们理解的数字没关系】，那个0只是你在电脑显示器上电平的呈现形式，那个所谓的0【实质是电平】可以传输到单片机中的ROM中，电平控制电平没什么疑问吧，这样就输出低电平了&amp;#8230;&lt;/div&gt; 
+    
+    &lt;div class=&quot; zm-editable-content clearfix&quot;&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&quot; zm-editable-content clearfix&quot;&gt;
+    &lt;/div&gt;&lt;/div&gt; &lt;/div&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2014-11-13-%E5%AD%A6%E5%8D%95%E7%89%87%E6%9C%BA%E9%9C%80%E8%A6%81%E5%AD%A6%E7%9A%84%E8%AF%AD%E8%A8%80/" data-toggle="tooltip" data-placement="top" title="学单片机需要学的语言">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2014-11-15-arduino-%E6%8E%A7%E5%88%B6%E9%97%A8%E9%94%81/" data-toggle="tooltip" data-placement="top" title="arduino 控制门锁">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sat Nov 15, 2014</h4>
+    </section>
+    <h5 id="wc">5500 Words|Read in about 11 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

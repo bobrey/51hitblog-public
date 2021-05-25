@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建" />
+  <meta name="twitter:title" content="基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建" />
+  <meta name="description" content="基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建 此套网站使用red5提供的rtmp流媒体服务，用户前端使用FlowPl">
+  <meta property="og:description" content="基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建 此套网站使用red5提供的rtmp流媒体服务，用户前端使用FlowPl">
+  <meta name="twitter:description" content="基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建 此套网站使用red5提供的rtmp流媒体服务，用户前端使用FlowPl">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-10-03-%E5%9F%BA%E4%BA%8Ertmp%E5%8D%8F%E8%AE%AE-%E9%87%87%E7%94%A8red5%E4%BB%A5%E5%8F%8Aflowplayer%E7%9A%84%E6%B5%81%E5%AA%92%E4%BD%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-10-03-%E5%9F%BA%E4%BA%8Ertmp%E5%8D%8F%E8%AE%AE-%E9%87%87%E7%94%A8red5%E4%BB%A5%E5%8F%8Aflowplayer%E7%9A%84%E6%B5%81%E5%AA%92%E4%BD%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Oct 3, 2012</h4>
+    </section>
+    <h5 id="wc">1900 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/red5/">red5</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基于rtmp协议-采用red5以及flowplayer的流媒体服务器搭建">基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h2 id="基于rtmp协议-采用red5以及flowplayer的流媒体服务器搭建">基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建</h2>
+<p> </p>
+<p>此套网站使用red5提供的rtmp流媒体服务，用户前端使用FlowPlayer的Flash播放器实现的一个Demo，暂没有做其他开发，后期可以使用PHP或JSP做成动态网站，方便实际应用</p>
+<p>服务平台基于CentOS 6</p>
+<hr>
+<p>本文所需程序：</p>
+<p>说明：每款程序第一个链接为官方下载页面，可以查到最新版本。第二个链接为最新版或最新正式版的直接下载地址</p>
+<p><strong>Red5</strong></p>
+<p><a href="http://www.red5.org/red5-server/">http://www.red5.org/red5-server/</a></p>
+<p><a href="http://trac.red5.org/downloads/0_9/red5-0.9.1.tar.gz">http://trac.red5.org/downloads/0_9/red5-0.9.1.tar.gz</a></p>
+<p><strong><!-- raw HTML omitted -->FlowPlayer<!-- raw HTML omitted --></strong></p>
+<p><a href="http://flowplayer.org/download/index.html">http://flowplayer.org/download/index.html</a></p>
+<p><a href="http://releases.flowplayer.org/flowplayer/flowplayer-3.2.7.zip">http://releases.flowplayer.org/flowplayer/flowplayer-3.2.7.zip</a></p>
+<p><strong><!-- raw HTML omitted -->FlowPlayer<!-- raw HTML omitted -->-RTMP   Plugins</strong></p>
+<p><a href="http://flowplayer.org/plugins/streaming/rtmp.html">http://flowplayer.org/plugins/streaming/rtmp.html</a></p>
+<p><a href="http://releases.flowplayer.org/flowplayer.rtmp/flowplayer.rtmp-3.2.3.swf">http://releases.flowplayer.org/flowplayer.rtmp/flowplayer.rtmp-3.2.3.swf</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->wget<!-- raw HTML omitted --> http://trac.red5.org/downloads/0_9/red5-0.9.1.tar.gz</p>
+<p><!-- raw HTML omitted -->wget<!-- raw HTML omitted --> http://releases.flowplayer.org/flowplayer/flowplayer-3.2.7.zip</p>
+<p><!-- raw HTML omitted -->wget<!-- raw HTML omitted --> http://releases.flowplayer.org/flowplayer.rtmp/flowplayer.rtmp-3.2.3.swf</p>
+<p> </p>
+<hr>
+<p>本例中各种安装包文件都已放在/home/setup目录中，请留意</p>
+<p><strong>首先要有Apache或Nginx再或Tomcat等Web服务端程序</strong></p>
+<p>本文中Web目录位于/data0/web/</p>
+<p><strong>FlowPlayer安装：</strong></p>
+<p>其实FlowPlayer是一个基于Flash + Javascript的一个网页播放器，它支持rtmp流媒体播放</p>
+<blockquote>
+<p><!-- raw HTML omitted -->cd<!-- raw HTML omitted --> /home/setup</p>
+<p><!-- raw HTML omitted -->unzip<!-- raw HTML omitted --> x <!-- raw HTML omitted -->flowplayer<!-- raw HTML omitted -->-3.2.7<!-- raw HTML omitted -->.<!-- raw HTML omitted -->zip</p>
+<p><!-- raw HTML omitted -->mv<!-- raw HTML omitted --> <!-- raw HTML omitted -->flowplayer<!-- raw HTML omitted --> /data0/web/</p>
+</blockquote>
+<p>解压到网站根目录下可以看到里面有两个swf文件及一个example文件夹等一些文件，我们可以先测试一下http://localhost/flowplayer/example/是否可以正常访问，正常情况是可以播放一段官方提供的视频的。</p>
+<p>这个时候千万不要删除此example，后面会用到</p>
+<p><strong>Red5安装</strong>：</p>
+<p>Red5是一款基于Java的rtmp流媒体服务器，所以需要JDK的支持，本文提供的最新Red5 0.9.1版需要JDK 6.0以上的支持，笔者安装的JDK 7.0，可以到<a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jdk-7-download-432154.html">http://www.oracle.com/technetwork/java/javase/downloads/java-se-jdk-7-download-432154.html</a>下载安装，笔者在此不作安装教程。</p>
+<p>测试本机有没有安装JDK可以通过java -version和javac -version查看版本号看是否有正常版本号返回，注意java和javac最好都测试，不解释。</p>
+<p>JDK测试安装无误后，解压Red5的tar包及oflaDemo包（Red5是JAVA程序，无需编译）</p>
+<blockquote>
+<p><!-- raw HTML omitted -->cd<!-- raw HTML omitted --> /home/setup</p>
+<p><!-- raw HTML omitted -->tar<!-- raw HTML omitted --> <!-- raw HTML omitted -->zxvf<!-- raw HTML omitted --> red5-0.9.1<!-- raw HTML omitted -->.<!-- raw HTML omitted -->tar<!-- raw HTML omitted -->.<!-- raw HTML omitted --><!-- raw HTML omitted -->gz<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->unzip<!-- raw HTML omitted --> x oflaDemo.zip</p>
+<p><!-- raw HTML omitted -->mv<!-- raw HTML omitted --> <!-- raw HTML omitted -->oflaDemo<!-- raw HTML omitted --> red5-0.9.1/webapps/</p>
+</blockquote>
+<p>Red5的应用都在解压目录下的webapps当中，oflaDemo也是一个示例Demo，我们在此借用。</p>
+<p><strong>安装成功后，我们的视频媒体文件就存放于/home/setup/red5-0.9.1/webapps/oflaDemo/streams/文件夹中了，此段话在后文会再次提示</strong></p>
+<p><strong>Copy必要文件：</strong></p>
+<p>FlowPlayer-RTMP Plugins是一个必备的插件，需要放在Red5的rtmp协议访问中才行，提醒注意，此处需要两个文件</p>
+<p>flowplayer.rtmp-3.2.3.swf       flowplayer.controls-3.2.5.swf</p>
+<p>前者为下载的文件，后者是flowplayer程序中自带</p>
+<blockquote>
+<p>cp /home/setup/flowplayer.rtmp-3.2.3.swf /data0/web/flowplayer/flowplayer.controls-3.2.5.swf /home/setup/red5-0.9.1/webapps</p>
+</blockquote>
+<p>复制到Red5的webapps目录下即可</p>
+<p>至此程序的文件准备告一段落</p>
+<hr>
+<p><strong>修改FlowPlayer的example页，将播放指向到rtmp流媒体服务器提供的内容</strong></p>
+<p>*修改/data0/web/flowplayer/example/index.html文件</p>
+<p>将</p>
+<blockquote>
+<p>&laquo;span id=&ldquo;GRmark_cb5346a081dcf654061b7f897ea14d9b43140712_script:0&rdquo; class=&ldquo;GRcorrect&rdquo;&gt;script<!-- raw HTML omitted -->&gt;</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->flowplayer<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted -->“player”, “.<!-- raw HTML omitted -->.<!-- raw HTML omitted -->/<!-- raw HTML omitted -->flowplayer<!-- raw HTML omitted -->-3.2.7<!-- raw HTML omitted -->.<!-- raw HTML omitted --><!-- raw HTML omitted -->swf<!-- raw HTML omitted -->);</p>
+</blockquote>
+<blockquote>
+<p>&lt;/<!-- raw HTML omitted -->script<!-- raw HTML omitted -->&gt;</p>
+</blockquote>
+<p>替换为</p>
+<blockquote>
+<p>&laquo;span id=&ldquo;GRmark_cb5346a081dcf654061b7f897ea14d9b43140712_script:0&rdquo; class=&ldquo;GRcorrect&rdquo;&gt;script<!-- raw HTML omitted -->&gt;</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->flowplayer<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted -->“player”, “.<!-- raw HTML omitted -->.<!-- raw HTML omitted -->/<!-- raw HTML omitted -->flowplayer<!-- raw HTML omitted -->-3.2.7<!-- raw HTML omitted -->.<!-- raw HTML omitted --><!-- raw HTML omitted -->swf<!-- raw HTML omitted -->”<!-- raw HTML omitted -->,<!-- raw HTML omitted -->{</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->clip<!-- raw HTML omitted -->: {</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->provider<!-- raw HTML omitted -->: ‘<!-- raw HTML omitted -->rtmp<!-- raw HTML omitted -->’,</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->live<!-- raw HTML omitted -->: false,</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->autoBuffering<!-- raw HTML omitted -->: true, //是否自动缓冲视频，默认true</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->autoPlay<!-- raw HTML omitted -->: true,</p>
+</blockquote>
+<blockquote>
+<p>url:’test.flv’ //此处为播放文件名，可由网站参数指定，视频文件位于前文提到的Red5根目录下webapps/oflaDemo/streams</p>
+</blockquote>
+<blockquote>
+<p>},</p>
+<p><!-- raw HTML omitted -->plugins<!-- raw HTML omitted -->: {</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->rtmp<!-- raw HTML omitted -->: {</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->url<!-- raw HTML omitted -->: ‘<!-- raw HTML omitted -->flowplayer<!-- raw HTML omitted --><!-- raw HTML omitted -->.<!-- raw HTML omitted --><!-- raw HTML omitted -->rtmp<!-- raw HTML omitted -->-3.2.3<!-- raw HTML omitted -->.<!-- raw HTML omitted --><!-- raw HTML omitted -->swf<!-- raw HTML omitted -->’,</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->netConnectionUrl<!-- raw HTML omitted -->: ‘<!-- raw HTML omitted -->rtmp<!-- raw HTML omitted --><!-- raw HTML omitted -->:<!-- raw HTML omitted -->//192.168.1.1/<!-- raw HTML omitted -->oflaDemo<!-- raw HTML omitted -->/’ //此处IP地址为你的rtmp服务器IP地址</p>
+</blockquote>
+<blockquote>
+<p>},</p>
+<p><!-- raw HTML omitted -->controls<!-- raw HTML omitted -->: {</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->url<!-- raw HTML omitted -->: ‘<!-- raw HTML omitted -->flowplayer<!-- raw HTML omitted --><!-- raw HTML omitted -->.<!-- raw HTML omitted -->controls-3.2.5<!-- raw HTML omitted -->.<!-- raw HTML omitted --><!-- raw HTML omitted -->swf<!-- raw HTML omitted -->’,</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->autoHide<!-- raw HTML omitted -->:’always’,</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->play<!-- raw HTML omitted -->: true,</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->scrubber<!-- raw HTML omitted -->: true,</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->playlist<!-- raw HTML omitted -->: false,</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->tooltips<!-- raw HTML omitted -->: {</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->buttons<!-- raw HTML omitted -->: true,</p>
+</blockquote>
+<blockquote>
+<p>play:’播放’,</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->fullscreen<!-- raw HTML omitted -->: ‘全屏’ ,</p>
+</blockquote>
+<blockquote>
+<p>fullscreenExit:’退出全屏’,</p>
+</blockquote>
+<blockquote>
+<p>pause:’暂停’,</p>
+</blockquote>
+<blockquote>
+<p>mute:’静音’,</p>
+</blockquote>
+<blockquote>
+<p>unmute:’取消静音’</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+<p>});</p>
+</blockquote>
+<blockquote>
+<p>&lt;/<!-- raw HTML omitted -->script<!-- raw HTML omitted -->&gt;</p>
+</blockquote>
+<hr>
+<p><strong>至此大功告成，跑起你的Web服务端</strong></p>
+<p><strong>跑起Red5：</strong></p>
+<blockquote>
+<p><!-- raw HTML omitted -->cd<!-- raw HTML omitted --> /home/setup/red5-0.9.1/</p>
+<p><!-- raw HTML omitted -->.<!-- raw HTML omitted -->/red5<!-- raw HTML omitted -->.<!-- raw HTML omitted -->sh</p>
+</blockquote>
+<p>此为Red5的启动程序，执行后稍等，显示到</p>
+<blockquote>
+<p>[INFO] [Launcher<!-- raw HTML omitted -->:<!-- raw HTML omitted -->/installer] org<!-- raw HTML omitted -->.<!-- raw HTML omitted -->red5<!-- raw HTML omitted -->.<!-- raw HTML omitted -->server<!-- raw HTML omitted -->.<!-- raw HTML omitted -->service<!-- raw HTML omitted -->.<!-- raw HTML omitted -->Installer – Installer service created</p>
+</blockquote>
+<blockquote>
+<p><!-- raw HTML omitted -->oflaDemo<!-- raw HTML omitted --> <!-- raw HTML omitted -->appStart<!-- raw HTML omitted --></p>
+</blockquote>
+<p>即为运行成功</p>
+<p>此时就可以到浏览器前端访问http://192.168.1.1/flowplayer/example/index.html进行测试。</p>
+<p>如果有异常，可以将index.html移至Web根目录，但请注意index.html文件中与上一级目录的两个swf文件的相对位置。</p>
+<p><strong>再次提示：</strong></p>
+<p>视频流文件位于</p>
+<blockquote>
+<p><!-- raw HTML omitted -->.<!-- raw HTML omitted -->/red5-0.9.1/webapps/oflaDemo/streams</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<p> </p>
+<p> </p>
+<p>转自‘http://zhousir.sinaapp.com/?p=1</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-10-03-%E6%B5%8B%E8%AF%95%E5%AE%BD%E5%B8%A6-shell/" data-toggle="tooltip" data-placement="top" title="测试宽带 shell">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-10-15-mac%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6/" data-toggle="tooltip" data-placement="top" title="mac显示隐藏文件">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Oct 3, 2012</h4>
+    </section>
+    <h5 id="wc">1900 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/red5/">red5</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

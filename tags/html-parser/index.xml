@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>html parser on IT技术分享</title>
+    <link>https://www.51hint.com/tags/html-parser/</link>
+    <description>Recent content in html parser on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Aug 2012 04:34:54 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/html-parser/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jsoup: Java HTML Parser</title>
+      <link>https://www.51hint.com/posts/2012-08-09-jsoup-java-html-parser/</link>
+      <pubDate>Thu, 09 Aug 2012 04:34:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-09-jsoup-java-html-parser/</guid>
+      <description>soup is a Java library for working with real-world HTML. It provides a very convenient API for extracting and manipulating data, using the best of DOM, CSS, and jquery-like methods.
+ jsoup implements the WHATWG HTML5 specification, and parses HTML to the same DOM as modern browsers do.
+ scrape and parse HTML from a URL, file, or string find and extract data, using DOM traversal or CSS selectors manipulate the HTML elements, attributes, and text clean user-submitted content against a safe white-list, to prevent XSS attacks output tidy HTML  jsoup is designed to deal with all varieties of HTML found in the wild; from pristine and validating, to invalid tag-soup; jsoup will create a sensible parse tree.</description>
+    </item>
+    
+  </channel>
+</rss>

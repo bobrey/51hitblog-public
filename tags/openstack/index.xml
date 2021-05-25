@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openstack on IT技术分享</title>
+    <link>https://www.51hint.com/tags/openstack/</link>
+    <description>Recent content in openstack on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jul 2012 01:49:53 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenStack</title>
+      <link>https://www.51hint.com/posts/2012-07-20-openstack/</link>
+      <pubDate>Fri, 20 Jul 2012 01:49:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-20-openstack/</guid>
+      <description>OpenStack在国外慢慢的流行开来，不少企业和个人也在对它进行二次开发。从我个人理解，OpenStack作为一种免费的开源软件，可以用在</description>
+    </item>
+    
+  </channel>
+</rss>

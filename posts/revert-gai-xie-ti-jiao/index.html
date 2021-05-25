@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> revert撤销操作！ - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="revert撤销操作！" />
+  <meta name="twitter:title" content="revert撤销操作！" />
+  <meta name="description" content="我们将用revert命令来取消「添加pull的讲解」提交。 本地端的历史记录的状态如下图显示。 数据库的历史记录 $ git log commit 0d4a808c26908cd5fe4b6294a00150342d1a58be Author: yourname &lt;yourname@yourmail.com&gt; Date: Mon Jul 16 23:19:26 2012 &#43;0900 添">
+  <meta property="og:description" content="我们将用revert命令来取消「添加pull的讲解」提交。 本地端的历史记录的状态如下图显示。 数据库的历史记录 $ git log commit 0d4a808c26908cd5fe4b6294a00150342d1a58be Author: yourname &lt;yourname@yourmail.com&gt; Date: Mon Jul 16 23:19:26 2012 &#43;0900 添">
+  <meta name="twitter:description" content="我们将用revert命令来取消「添加pull的讲解」提交。 本地端的历史记录的状态如下图显示。 数据库的历史记录 $ git log commit 0d4a808c26908cd5fe4b6294a00150342d1a58be Author: yourname &lt;yourname@yourmail.com&gt; Date: Mon Jul 16 23:19:26 2012 &#43;0900 添">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/revert-gai-xie-ti-jiao/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/revert-gai-xie-ti-jiao/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">revert撤销操作！</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/git/">git</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#本地端的历史记录的状态如下图显示">本地端的历史记录的状态如下图显示。</a></li>
+    <li><a href="#打开sampletxt档案确认内容">打开sample.txt档案，确认内容。</a></li>
+    <li><a href="#用revert取消添加pull的讲解提交">用revert取消「添加pull的讲解」提交。</a></li>
+    <li><a href="#打开sampletxt档案看看如果pull的说明消失了就表明取消提交成功了">打开sample.txt档案看看，如果pull的说明消失了，就表明取消提交成功了。</a></li>
+    <li><a href="#用log命令确认历史记录">用log命令确认历史记录</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>我们将用revert命令来取消「添加pull的讲解」提交。</p>
+<h2 id="本地端的历史记录的状态如下图显示">本地端的历史记录的状态如下图显示。</h2>
+<p><img src="http://backlogtool.com/git-guide/cn/img/post/stepup/capture_stepup7_2_1.png" alt="">
+数据库的历史记录</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ git log
+commit 0d4a808c26908cd5fe4b6294a00150342d1a58be
+Author: yourname &lt;yourname@yourmail.com&gt;
+Date:   Mon Jul <span class="m">16</span> 23:19:26 <span class="m">2012</span> +0900
+
+    添加pull的说明
+
+commit 9a54fd4dd22dbe22dd966581bc78e83f16cee1d7
+Author: yourname &lt;yourname@yourmail.com&gt;
+Date:   Mon Jul <span class="m">16</span> 23:19:01 <span class="m">2012</span> +0900
+
+    添加commit的说明
+
+commit 326fc9f70d022afdd31b0072dbbae003783d77ed
+Author: yourname &lt;yourname@yourmail.com&gt;
+Date:   Mon Jul <span class="m">16</span> 23:17:56 <span class="m">2012</span> +0900
+
+    添加add的说明
+
+commit 48eec1ddf73a7fb508ef664efd6b3d873631742f
+Author: yourname &lt;yourname@yourmail.com&gt;
+Date:   Mon Jul <span class="m">16</span> 23:16:14 <span class="m">2012</span> +0900
+
+    first commit
+</code></pre></div><h2 id="打开sampletxt档案确认内容">打开sample.txt档案，确认内容。</h2>
+<h2 id="用revert取消添加pull的讲解提交">用revert取消「添加pull的讲解」提交。</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ git revert HEAD 
+<span class="o">[</span>master d47bb1d<span class="o">]</span> Revert <span class="s2">&#34;添加pull的说明&#34;</span>
+ <span class="m">1</span> files changed, <span class="m">1</span> insertions<span class="o">(</span>+<span class="o">)</span>, <span class="m">2</span> deletions<span class="o">(</span>-<span class="o">)</span>
+</code></pre></div><h2 id="打开sampletxt档案看看如果pull的说明消失了就表明取消提交成功了">打开sample.txt档案看看，如果pull的说明消失了，就表明取消提交成功了。</h2>
+<p><img src="http://backlogtool.com/git-guide/cn/img/post/stepup/capture_stepup7_2_2.png" alt=""></p>
+<h2 id="用log命令确认历史记录">用log命令确认历史记录</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ git log
+commit 7bcf5e3b6fc47e875ec226ce2b13a53df73cf626
+Author: yourname &lt;yourname@yourmail.com&gt;
+Date:   Wed Jul <span class="m">18</span> 15:46:28 <span class="m">2012</span> +0900
+
+    Revert <span class="s2">&#34;添加pull的说明&#34;</span>
+
+    This reverts commit 0d4a808c26908cd5fe4b6294a00150342d1a58be.
+
+commit 0d4a808c26908cd5fe4b6294a00150342d1a58be
+Author: yourname &lt;yourname@yourmail.com&gt;
+Date:   Mon Jul <span class="m">16</span> 23:19:26 <span class="m">2012</span> +0900
+
+    添加pull的说明
+
+commit 9a54fd4dd22dbe22dd966581bc78e83f16cee1d7
+Author: yourname &lt;yourname@yourmail.com&gt;
+Date:   Mon Jul <span class="m">16</span> 23:19:01 <span class="m">2012</span> +0900
+
+    添加commit的说明
+
+commit 326fc9f70d022afdd31b0072dbbae003783d77ed
+Author: yourname &lt;yourname@yourmail.com&gt;
+Date:   Mon Jul <span class="m">16</span> 23:17:56 <span class="m">2012</span> +0900
+
+    添加add的说明
+
+commit 48eec1ddf73a7fb508ef664efd6b3d873631742f
+Author: yourname &lt;yourname@yourmail.com&gt;
+Date:   Mon Jul <span class="m">16</span> 23:16:14 <span class="m">2012</span> +0900
+
+    first commit
+</code></pre></div><pre><code>  * git revert HEAD                  撤销前一次 commit
+  * git revert HEAD^               撤销前前一次 commit
+  * git revert commit （比如：fa042ce57ebbe5bb9c8db709f719cec2c58ee7ff）撤销指定的版本，撤销也会作为一次提交进行保存。
+</code></pre><p><strong>git revert是提交一个新的版本，将需要revert的版本的内容再反向修改回去，版本会递增，不影响之前提交的内容</strong></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/commit-amend-gai-xie-ti-jiao/" data-toggle="tooltip" data-placement="top" title="commit --amend 改写提交！">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/resethui-gun/" data-toggle="tooltip" data-placement="top" title="reset回滚">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/commit-amend-gai-xie-ti-jiao/">commit --amend 改写提交！</a></li>
+                    
+                    <li><a href="/posts/gitflow/">gitflow</a></li>
+                    
+                    <li><a href="/posts/2015-12-01-git-%E5%AF%BC%E5%87%BA%E5%B9%B2%E5%87%80%E5%8C%85/">git 导出干净包</a></li>
+                    
+                    <li><a href="/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">ios开发环境</a></li>
+                    
+                    <li><a href="/posts/2013-10-01-git-tag-%E5%AF%BC%E5%87%BA%E7%89%88%E6%9C%AC/">git tag 导出版本</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">600 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/git/">git</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

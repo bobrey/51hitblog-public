@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第十二章：缓存 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第十二章：缓存" />
+  <meta name="twitter:title" content="第十二章：缓存" />
+  <meta name="description" content="目录 12.1 缓存响应 12.1.1 全局缓存设置 12.1.2 缓存行为 12.1.3 缓存局部模板或组件 12.1.4 缓存模板片段 12.1.5 动态配置缓存 12.1.6 使用极速缓存 12.2 从缓存里删除项目 12.2.1 删除整个缓存 12.2.2 清除指">
+  <meta property="og:description" content="目录 12.1 缓存响应 12.1.1 全局缓存设置 12.1.2 缓存行为 12.1.3 缓存局部模板或组件 12.1.4 缓存模板片段 12.1.5 动态配置缓存 12.1.6 使用极速缓存 12.2 从缓存里删除项目 12.2.1 删除整个缓存 12.2.2 清除指">
+  <meta name="twitter:description" content="目录 12.1 缓存响应 12.1.1 全局缓存设置 12.1.2 缓存行为 12.1.3 缓存局部模板或组件 12.1.4 缓存模板片段 12.1.5 动态配置缓存 12.1.6 使用极速缓存 12.2 从缓存里删除项目 12.2.1 删除整个缓存 12.2.2 清除指">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E7%BC%93%E5%AD%98/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%E7%BC%93%E5%AD%98/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第十二章：缓存</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">7800 Words|Read in about 16 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_12_caching_the_response"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1 缓存响应</a></a>
+      <ul>
+        <li><a href="#chapter_12_sub_global_cache_settings"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.1 全局缓存设置</a></a></li>
+        <li><a href="#chapter_12_sub_caching_an_action"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.2 缓存行为</a></a></li>
+        <li><a href="#chapter_12_sub_caching_a_partial_or_component"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.3 缓存局部模板或组件</a></a></li>
+        <li><a href="#chapter_12_sub_caching_a_template_fragment"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.4 缓存模板片段</a></a></li>
+        <li><a href="#chapter_12_sub_configuring_the_cache_dynamically"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.5 动态配置缓存</a></a></li>
+        <li><a href="#chapter_12_sub_using_the_super_fast_cache"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.6 使用极速缓存</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_12_removing_items_from_the_cache"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.2 从缓存里删除项目</a></a>
+      <ul>
+        <li><a href="#chapter_12_sub_clearing_the_entire_cache"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.2.1 删除整个缓存</a></a></li>
+        <li><a href="#chapter_12_sub_clearing_selective_parts_of_the_cache"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">清除指定的缓存</a></a></li>
+        <li><a href="#chapter_12_sub_clearing_several_cache_parts_at_once"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.2.3 一次清除几个缓存部分</a></a></li>
+        <li><a href="#chapter_12_sub_clearing_cache_across_applications"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.2.4 Clearing cache across applications</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_12_testing_and_monitoring_caching"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.3 缓存测试与监测</a></a>
+      <ul>
+        <li><a href="#chapter_12_sub_building_a_staging_environment"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.3.1 建立一个临时工作环境</a></a></li>
+        <li><a href="#chapter_12_sub_monitoring_performance"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.3.2 监测性能</a></a></li>
+        <li><a href="#chapter_12_sub_benchmarking"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.3.3 基准化分析（Benchmarking）</a></a></li>
+        <li><a href="#chapter_12_sub_identifying_cache_parts"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.3.4 识别缓存的部分</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_12_http_1_1_and_client_side_caching"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.4 HTTP 1.1与客户端缓存</a></a>
+      <ul>
+        <li><a href="#chapter_12_sub_adding_an_etag_header_to_avoid_sending_unchanged_content"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.4.1 增加ETag头信息来避免发送重复的内容</a></a></li>
+        <li><a href="#chapter_12_sub_adding_a_last_modified_header_to_avoid_sending_still_valid_content"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.4.2 增加Last-Modified头信息避免发送仍然有效的内容</a></a></li>
+        <li><a href="#chapter_12_sub_adding_vary_headers_to_allow_several_cached_versions_of_a_page"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.4.3 通过增加Vary头信息来保存一个页面的多个缓存版本</a></a></li>
+        <li><a href="#chapter_12_sub_adding_a_cache_control_header_to_allow_client_side_caching"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.4.4 通过增加Cache-Control头信息来允许客户端缓存</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_12_summary"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">总结</a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_caching_the_response">12.1 缓存响应</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_global_cache_settings">12.1.1 全局缓存设置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_caching_an_action">12.1.2 缓存行为</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_caching_a_partial_or_component">12.1.3 缓存局部模板或组件</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_caching_a_template_fragment">12.1.4 缓存模板片段</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_configuring_the_cache_dynamically">12.1.5 动态配置缓存</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_using_the_super_fast_cache">12.1.6 使用极速缓存</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_removing_items_from_the_cache">12.2 从缓存里删除项目</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_clearing_the_entire_cache">12.2.1 删除整个缓存</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_clearing_selective_parts_of_the_cache">12.2.2 清除指定的缓存</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_clearing_several_cache_parts_at_once">12.2.3 一次清除几个缓存部分</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_clearing_cache_across_applications">12.2.4 Clearing cache across applications</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_testing_and_monitoring_caching">12.3 缓存测试与监测</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_building_a_staging_environment">12.3.1 建立一个临时工作环境</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_monitoring_performance">12.3.2 监测性能</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_benchmarking">12.3.3 基准化分析（Benchmarking）</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_identifying_cache_parts">12.3.4 识别缓存的部分</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_http_1_1_and_client_side_caching">12.4 HTTP 1.1与客户端缓存</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_adding_an_etag_header_to_avoid_sending_unchanged_content">12.4.1 增加ETag头信息来避免发送重复的内容</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_adding_a_last_modified_header_to_avoid_sending_still_valid_content">12.4.2 增加Last-Modified头信息避免发送仍然有效的内容</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_adding_vary_headers_to_allow_several_cached_versions_of_a_page">12.4.3 通过增加Vary头信息来保存一个页面的多个缓存版本</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_sub_adding_a_cache_control_header_to_allow_client_side_caching">12.4.4 通过增加Cache-Control头信息来允许客户端缓存</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#chapter_12_summary">12.13 总结</a></li>
+</ul>
+<p>有一种提高应用速度的方法—存储生成的HTML代码片段，或者整个页面，以后直接使用存储的内容。这种技术叫做缓存，它可以在服务器端和客户端实现。</p>
+<p>symfony提供了一个灵活的服务器端缓存系统。通过很直观的YAML文件设置，它可以保存整个响应、一个动作、一个局部模板或者一个模板片段的结果到一个文件里。当对应的数据变化时，你可以很方便的使用命令行或者特殊的动作方法有选择的清除缓存。symfony还提供了一个通过HTTP 1.1头信息控制客户端缓存的简单方法。本章将详细介绍这些内容，并且还有一些监控缓存对程序性能影响的技巧。</p>
+<h2 id="chapter_12_caching_the_response"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1 缓存响应</a></h2>
+<p>HTML缓存的原理很简单：重用之前类似请求的部分或者全部HTML代码。这些HTML代码存储在一个特定的地方（symfony项目的 <code>cache/</code> 目录），前端控制器在执行动作之前会先检查这个目录。 如果找到缓存内容，就把它发送到客户端而不执行动作，因此大大加快了执行速度。如果没有缓存内容，就执行动作，然后把动作的结果（视图）保存在 <code>cache/</code> 目录供以后使用。</p>
+<p>由于所有的页面都可能包含动态内容，所以HTML缓存默认是关闭的。网站管理员可以开启它来提高性能。</p>
+<ul>
+<li>动作的缓存（包含或者不包含布局）</li>
+<li>局部模板或者组件的缓存</li>
+<li>模板片段的缓存</li>
+</ul>
+<p>前两种类型可以通过YAML配置文件来控制。模板片段的缓存是通过模板里的辅助函数来管理的。</p>
+<h3 id="chapter_12_sub_global_cache_settings"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.1 全局缓存设置</a></h3>
+<p>项目的每个应用的不同环境，HTML缓存机制都可以在 <code>settings.yml</code> 文件里的 <code>cache</code> 部分设置成开启或者关闭（默认）。例12-1 是一个开启缓存的例子。</p>
+<!-- raw HTML omitted -->
+<pre><code>dev:
+  .settings:
+    cache: true
+</code></pre>
+<h3 id="chapter_12_sub_caching_an_action"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.2 缓存行为</a></h3>
+<p>显示静态内容的行为（不依赖数据库或者与session无关的数据）或者从数据读取信息的动作（比如，GET请求），这类的动作通常比较适合作缓存。图12-1显示了不同情况下页面的哪些部分被缓存：动作结果（它的模板）或者动作结果与布局一起。</p>
+<!-- raw HTML omitted -->
+<p><img src="res/F1201.png" alt="缓存行为"></p>
+<p>例如，有一个 <code>user/list</code> 行为，它返回网站所有用户的列表。除非有用户被修改、增加或者删除（这种情况会在“从缓存里移除内容”这一小节里讨论），这个动作一直会显示同样的内容，所以它非常适合作缓存。</p>
+<p>可以在 <code>config/</code> 目录的 <code>cache.yml</code> 文件里设置各个动作的开启关闭。请看例12-2里的例子。</p>
+<!-- raw HTML omitted -->
+<pre><code>list:
+  enabled:     true
+  with_layout: false   # Default value
+  lifetime:    86400   # Default value
+</code></pre>
+<p>这个配置里开启了list动作的缓存，布局不会与动作一起缓存（一起缓存是默认设置）。这就是说，即使这个动作已经被缓存了，布局（还有其中的局部模板与组件）还是会被执行。如果 <code>with_layout</code> 设置成 <code>true</code>，那么布局就会与动作一起被缓存而不会再次执行。</p>
+<p>要测试缓存的设置，在你的浏览器里执行测试环境的这个动作。</p>
+<!-- raw HTML omitted -->
+<p>你会注意到页面的动作区域的边框，第一次，这个区域有一个蓝色的头部，这说明它不是缓存的内容，刷新页面，动作区域有一个黄色的头部，这说明这是缓存的内容（并且速度提升明显）。在本章你会了解更多测试与检测缓存的方法。</p>
+<!-- raw HTML omitted -->
+<p>缓存系统也可以对有参数的页面起作用。假设 <code>user</code> 模块有一个 <code>show</code> 动作，它根据参数 <code>id</code> 显示一个用户的资料。修改 <code>cache.yml</code> 文件这个动作的缓存也打开，如例12-3所示。</p>
+<p>为了更好地组织 <code>cache.yml</code> 文件，可以把一个模块的所有动作的设置放在 <code>all:</code> 键下，如例12-3里所示。</p>
+<!-- raw HTML omitted -->
+<pre><code>list:
+  enabled:    true
+show:
+  enabled:    true
+
+all:
+  with_layout: false   # 默认值
+  lifetime:    86400   # 默认值
+</code></pre>
+<p>现在，每次用不同的 <code>id</code> 参数执行 <code>user/show</code> 动作会在缓存里新增一条记录。所以下面这个的缓存：</p>
+<!-- raw HTML omitted -->
+<p>与下面的缓存不一样：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>with_layout</code> 这个设置还需要多作一点说明。这个参数决定了缓存里存放哪种数据。不缓存布局的情况下，只有模板的执行结果与动作变量存放在缓存里。缓存布局的时候，整个回应对象都会缓存。这就是说缓存布局要比不缓存布局要快很多。</p>
+<p>如果功能上允许（也就是说，布局不依赖于与session有关的数据），你应该选择缓存布局。不幸的是，布局经常会包含动态元素（例如，登录的用户的名字），所以缓存动作的时候不包括布局是最常见的配置。不过，RSS种子，弹出窗口，还有不依赖于cookies的页面可以连同布局一起缓存。</p>
+<h3 id="chapter_12_sub_caching_a_partial_or_component"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.3 缓存局部模板或组件</a></h3>
+<p>第7章介绍了如何在多个模板里使用 <code>include_partial()</code> 辅助函数重用代码片段。局部模板与动作一样非常容易缓存，局部模板缓存开启的规则也一样，如图12-2所示。</p>
+<!-- raw HTML omitted -->
+<p><img src="res/F1202.png" alt="缓存局部模板或组件"></p>
+<p>例如，例12-4展示了如何通过编辑 <code>cache.yml</code> 文件来开启 <code>user</code> 模块的 <code>_my_partial.php</code> 这个局部模板的缓存。注意 <code>with_layout</code> 设置在这里是没有意义的。</p>
+<!-- raw HTML omitted -->
+<pre><code>_my_partial:
+  enabled:    true
+list:
+  enabled:    true
+...
+</code></pre>
+<p>现在所有使用到这个局部模板的模板都不会真正执行这个局部模板的PHP代码，而是直接使用缓存里的内容。</p>
+<!-- raw HTML omitted -->
+<p>与动作类似，局部模板的结果也会跟参数有关。缓存系统把所有不同参数的局部模板的结果保存下来。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>让我们回顾一下第7章：组件是局部模板之上的轻量级的动作，组件槽是一个动作会随着调用动作而变化的组件。这两种包含类型很类似于局部模板，缓存的方法是一样。例如，如果你的全局布局用 <code>include_component('general/day')</code> 包含 <code>day</code> 这个组件，用来显示当前日期，设置 <code>general</code> 模块的 <code>cache.yml</code> 文件为如下内容可以开启这个组件的缓存：</p>
+<pre><code>_day:
+  enabled: true
+</code></pre>
+<p>缓存组件或者局部模板的时候，你要决定是为所有调用的模板保存单一的版本还是为每个调用的模板保存一个版本。默认情况，缓存的组件与调用它的模板是无关的。不过与环境有关的组件，例如一个在不同的动作里显示不同的侧边栏的组件，应该为每一个调用它的模板保存一个缓存版本。缓存系统可以处理这种情况，只要把 <code>contextual</code> 参数设置成 <code>true</code>，如下：</p>
+<pre><code>_day:
+  contextual: true
+  enabled:    true
+</code></pre>
+<p>全局组件（位于应用程序的 <code>template/</code> 目录）也可以缓存，这需要在应用程序的 <code>cache.yml</code> 里声明它的缓存设置。</p>
+<h3 id="chapter_12_sub_caching_a_template_fragment"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.4 缓存模板片段</a></h3>
+<p>动作缓存只适合一部分动作。但是对于其他的动作（用来更新数据或者在模板里显示与session有关的信息的动作）仍然有进行缓存提升性能的可能，不过要使用不同的方法。symfony还提供了第三种缓存，专门用来缓存模板片段并且可以直接在模板里使用。在这种模式下，动作总是会执行，模板被分成执行片段和缓存片段，如图12-3所示。</p>
+<!-- raw HTML omitted -->
+<p><img src="res/F1203.png" alt="缓存模板片段"></p>
+<p>例如，一个用户列表里有一个到最近访问用户的链接，这个内容是动态的。<code>cache()</code> 辅助函数定义模板的那些部分的内容要放到缓存里。语法详情见例12-5。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>它是这样工作的：</p>
+<ul>
+<li>如果找到了名为‘users’的缓存片段， 就用它代替 <code>&lt;?php if (!cache($unique_fragment_name)): ?&gt;</code> 与 <code>&lt;?php endif; ?&gt;</code> 之间的代码。</li>
+<li>如果没有，则执行这俩行之间的代码然后保存到缓存，命名为‘users’。</li>
+</ul>
+<p>不在这两行之间的代码总会执行而不会被缓存。</p>
+<!-- raw HTML omitted -->
+<p>使用模板片段缓存对速度的提升没有动作缓存的明显，因为动作还是会执行，模板也要处理一部分，布局也还是会用来装饰。</p>
+<p>你可以在同一个模板里声明多个模板片段缓存；不过，你必须给它们起不同的名字好让symfony缓存系统找到它们。</p>
+<p>与动作和组件缓存一样，模板片段缓存的 <code>cache()</code> 辅助函数也可以接受持续时间的秒数作为第二个参数。</p>
+<!-- raw HTML omitted -->
+<p>调用这个辅助函数时如果不指定，则使用默认缓存持续时间（86400秒或1天）。</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_12_sub_configuring_the_cache_dynamically"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.5 动态配置缓存</a></h3>
+<p><code>cache.yml</code> 是一种定义缓存设置的方法，但是要修改 <code>cache.yml</code> 的设置比较麻烦。不过，与symfony其他的地方一样，你可以用PHP代替YAML，这样就可以动态设置缓存了。</p>
+<p>为什么需要动态设置缓存呢？有个例子可以很好的说明这个问题，有一个页面登录用户和未登录用户看到的这个页面是不一样的，但是URL相同。假设 <code>article/show</code> 页面包含一个文章评分系统。未登录用户不能使用评分系统。这些未登录用户看到的是一个登录表单而不是评分系统。 这个版本的页面可以被缓存。另外一方面，登录用户点击一个评分链接会发出一个POST请求并做出评分。这次，这个页面不需要缓存而应该是动态建立。</p>
+<p>动态缓存应该在 <code>sfCacheFilter</code> 执行之前的过滤器里设置。事实上，缓存是symfony里的一个过滤器，这与网页调试工具条和安全功能一样。如果要设置 <code>article/show</code> 的缓存只针对未登录用户开启，需要在应用程序的 <code>lib/</code> 目录里加一个 <code>conditionalCacheFilter</code>，内容见例12-6。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>你还要在 <code>filter.yml</code> 文件里 <code>sfCacheFilter</code> 的地方注册这个过滤器，如例12-7。</p>
+<!-- raw HTML omitted -->
+<pre><code>...
+security: ~
+
+conditionalCache:
+  class: conditionalCacheFilter
+  param:
+    pages:
+      - { module: article, action: show }
+
+cache: ~
+...
+</code></pre>
+<p>清除缓存（为了自动载入新的过滤器类），条件缓存就可以用了。它会使pages参数指定的页面的缓存在用户未登录时生效。</p>
+<p><code>sfViewCacheManager</code> 对象的 <code>addCache()</code> 方法需要一个模块名，动作名，还有一个与 <code>cache.yml</code> 文件里指定的参数内容一样的关联数组作为参数。例如，如果你想定义 <code>article/show</code> 动作必须与布局一起缓存，时间限制是3600秒，那么这样写代码：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_12_sub_using_the_super_fast_cache"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.1.6 使用极速缓存</a></h3>
+<p>即使是缓存的页面也需要执行一些PHP代码。缓存的页面，symfony还是要载入配置文件，建立回应等。如果你非常确定一个页面在一段时间内不会改变，你可以完全绕过symfony，直接把生成的HTML代码放在web/目录下。这需要Apache的 <code>mod_rewrite</code>，还有你的路由规则需要指定没有后缀或者以 <code>.html</code> 为后缀。</p>
+<p>你可以手动的，一页一页的，使用这个简单的命令作这件事：</p>
+<!-- raw HTML omitted -->
+<p>设置好以后，每次请求 <code>user/list</code> 动作的时候，Apache会找到对应的 <code>list.html</code> 文件然后完全忽略symfony。这样做的代价是你不能用symfony控制页面缓存了（生存时间，自动删除等），但是速度提高非常明显。</p>
+<p>另外，你可以使用 <code>sfSuperCache</code> 这个symfony 插件，它能自动生成极速缓存并且支持存活时间和清除缓存。插件的使用请参考第十七章。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_12_removing_items_from_the_cache"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.2 从缓存里删除项目</a></h2>
+<p>如果程序的脚本或者数据发生了改变，那么缓存的数据会过期。为了避免这样的情况同样也为了避免bug，你需要根据需要用不同的方法删除缓存的部分内容。</p>
+<h3 id="chapter_12_sub_clearing_the_entire_cache"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.2.1 删除整个缓存</a></h3>
+<p>symfony命令行的 <code>clear-cache</code> 任务可以删除缓存（HTML，配置文件还有i18n的缓存）。你可以指定参数让它只删除一部分缓存，如例12-8所示。请注意只能在symfony项目的根目录执行这个命令。</p>
+<!-- raw HTML omitted -->
+<pre><code>// Erase the whole cache
+$ php symfony cache:clear
+
+// Short syntax
+$ php symfony cc
+
+// Erase only the cache of the frontend application
+$ php symfony cache:clear --app=frontend
+
+// Erase only the HTML cache of the frontend application
+$ php symfony cache:clear --app=frontend --type=template
+
+// Erase only the configuration cache of the frontend application
+// The built-types are config, i18n, routing, and template.
+$ php symfony cache:clear --app=frontend --type=config
+
+// Erase only the configuration cache of the frontend application and the prod environment
+$ php symfony cache:clear --app=frontend --type=config --env=prod
+</code></pre>
+<h3 id="chapter_12_sub_clearing_selective_parts_of_the_cache"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">清除指定的缓存</a></h3>
+<p>数据库更新以后，与修改的数据有关动作的缓存必须清除。你可以清除整个缓存，不过这就把其他不相关的缓存内容浪费了。这里就需要 <code>sfViewCacheManager</code> 对象的 <code>remove()</code> 方法。它需要一个内部URL作为参数（与传给 <code>link_to()</code> 的一样），它会删除相关的动作缓存。</p>
+<p>例如，假设 <code>user</code> 模块的 <code>update</code> 动作修改 <code>User</code> 对象的字段。那么 <code>list</code> 和 <code>show</code> 动作的缓存就需要清除，否则包含错误数据的旧版本就会显示出来。可以使用 <code>remove()</code> 方法来处理，如例12-9所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>删除缓存的局部模板，组件或者组件槽有点复杂。你可以传给它们任何种类的参数（包括对象），这之后你几乎无法识别缓存的版本。这里我们重点介绍局部模板，这与其他的模板缓存是相同的。symfony用一个特殊的前缀（<code>sf_cache_partial</code>）标识一个缓存的局部模板，然后再加上模块的名字、局部模板的名字还有所有参数的哈希值，如下所示：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>理论上，如果你知道识别参数的哈希值你可以用 <code>remove()</code> 方法删除一个缓存的局部模板，但这是很不现实的。幸运的是，如果你在 <code>include_partial()</code> 辅助函数调用的之后指定一个 <code>sf_cache_key</code> 参数，你就可以用你知道的东西来标识这个缓存。例12-10里，清除一个缓存的局部模板，清除修改过的 <code>User</code> 相关的局部模板，变得很容易。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>要清除模板片段的缓存，也可以用同样的 <code>remove()</code> 方法。缓存里模板片段的标识符由跟刚才一样的 <code>sf_cache_partial</code> 前缀，模块名，动作名还有 <code>sf_cache_key</code>（使用 <code>cache()</code> 辅助函数使指定的不重复的名字）组成。见例12-11。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_12_sub_clearing_several_cache_parts_at_once"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.2.3 一次清除几个缓存部分</a></h3>
+<h3 id="chapter_12_sub_clearing_cache_across_applications"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.2.4 Clearing cache across applications</a></h3>
+<h2 id="chapter_12_testing_and_monitoring_caching"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.3 缓存测试与监测</a></h2>
+<p>HTML缓存如果处理的不好，可能会造成显示的数据混乱。所以每当你要禁用一个元素的缓存的时候，你都应该完整的测试它并且监测执行速度并进行调整。</p>
+<h3 id="chapter_12_sub_building_a_staging_environment"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.3.1 建立一个临时工作环境</a></h3>
+<p>由于在开发模式下缓存默认是关闭的，所有缓存系统可能造成生产环境中无法察觉的新问题。如果你开启某些动作的HTML缓存，你应该增加一个新环境，在本章称作临时工作环境（staging），设置与 <code>prod</code> 环境相同（例如，开启缓存）不过 <code>web_debug</code> 设置成 <code>true</code>。</p>
+<p>修改应用程序的 <code>settings.yml</code>，增加例12-12里的这几行内容到这个文件的最前面。</p>
+<!-- raw HTML omitted -->
+<pre><code>staging:
+  .settings:
+    web_debug:  true
+    cache:      true
+</code></pre>
+<p>另外，复制生产环境的前端控制器（比如 <code>myproject/web/index.php</code>）来创建一个新的前端控制器 <code>frontend_staging.php</code>。Edit it to change the arguments passed to the getApplicationConfiguration() method，如下：</p>
+<!-- raw HTML omitted -->
+<p>好了，你建立了一个新的环境。在域名后加这个前端控制器的名字来调用：</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_12_sub_monitoring_performance"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.3.2 监测性能</a></h3>
+<p>第十六章会详细介绍网页调试工具条的内容。不过，由于工具条包含了有关缓存元素的有用的信息，下面先简单介绍一下工具条的缓存功能。</p>
+<p>浏览包含可缓存元素（动作、局部模板，模板片段等）的页面的时候，网页工具条（在窗口的右上角）上会有一个忽略缓存按钮（绿色的，环行箭头），如图12-4。这个按钮会从新载入页面并且强制处理缓存的元素。注意它并不会清除缓存。</p>
+<p>调试工具条最右边的数字是请求执行的时间。如果对某个页面开启了缓存，第二次打开这个页面的时候这个数字会减少，因为symfony使用缓存的数据而不是重新处理脚本。可以很方便的通过这个指示器监视缓存对性能的提升。</p>
+<!-- raw HTML omitted -->
+<p><img src="res/F1204.png" alt="web调试工具条，页面使用缓存"></p>
+<p>调试工具条还会显示当前请求执行的数据库查询数，还会按照分类显示本次查询消耗的时间（点总时间查看详情）。通过监视这些数据及处理总时间，可以帮你衡量缓存带来的性能提高。</p>
+<h3 id="chapter_12_sub_benchmarking"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.3.3 基准化分析（Benchmarking）</a></h3>
+<p>由于要在日志和网页工具条上显示调试信息，调试模式很影响应用程序的速度。所以在临时环境 <code>staging</code> 的处理时间并不能代表生产环境里调试模式关闭状态下的处理时间。</p>
+<p>要更好的了解每次请求的时间，需要使用基准化分析工具，例如Apache Bench或者JMeter。这些工具可以进行负载测试并且提供两个重要的信息：某个页面的平均载入时间和服务器的最大处理能力。平均载入时间这个数据在监测缓存带来的性能提升时特别有用。</p>
+<h3 id="chapter_12_sub_identifying_cache_parts"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.3.4 识别缓存的部分</a></h3>
+<p>开启了网页调试工具条以后，页面里缓存的部分会用一个红色的框标识出来，左上角会显示缓存的信息框，如图12-5所示。如果这个元素被执行，框会是蓝色背景，如果是黄色背景那么就是缓存的数据。点击缓存信息链接会显示缓存的标识符，它的生存时间和距离上次改变的时间。这在处理没有环境元素的时候比较有用，它可以显示这个元素建立的时间还有模板的哪些部分可以缓存。</p>
+<!-- raw HTML omitted -->
+<p><img src="res/F1205.png" alt="在一个网页中识别缓存的元素"></p>
+<h2 id="chapter_12_http_1_1_and_client_side_caching"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.4 HTTP 1.1与客户端缓存</a></h2>
+<p>HTTP 1.1协议定义了一些控制浏览器缓存系统的头信息，这对进一步提高应用程序的速度有很大的帮助。</p>
+<p>万维网联盟定义的HTTP 1.1规范（W3C，<!-- raw HTML omitted --><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html</a><!-- raw HTML omitted -->）详细介绍了这些头信息。如果一个动作开启了缓存，并且使用了 <code>with_layout</code> 选项，那么还可以通过下面的一个或者多个方法进一步优化。</p>
+<p>即使有些网站访问者的浏览器不支持HTTP 1.1，使用HTTP 1.1的缓存功能也没有任何害处。浏览器接受到不能识别的头信息以后会直接简单的把这样的头信息忽略掉，所以建议使用HTTP 1.1 缓存。</p>
+<p>另外，代理服务器和缓存服务器也能识别HTTP 1.1的头信息。即使用户的浏览器不支持HTTP 1.1，还是有可能通过代理服务器来获得HTTP 1.1缓存带来的好处。</p>
+<h3 id="chapter_12_sub_adding_an_etag_header_to_avoid_sending_unchanged_content"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.4.1 增加ETag头信息来避免发送重复的内容</a></h3>
+<p>ETag功能开启以后，web服务器会在HTTP头部增加回应信息的签名。</p>
+<pre><code>ETag: &quot;1A2Z3E4R5T6Y7U&quot;
+</code></pre>
+<p>用户的浏览器会把这个签名保存起来，然后下次请求同一个页面的时候把这个签名一起发出去。如果新的签名比对后发现页面没有改变，那么服务器不会发送回应，而只是发一个 <code>304: Not modified</code> 的头信息。这样节省了服务器的CPU时间（例如GZIP开启）和带宽（页面传输），还有客户端的时间（页面传输）。这样加起来，有ETag缓存的页面的载入时间比没有ETag缓存的要短。</p>
+<p>在symfony里，可以修改 <code>settings.yml</code> 来为整个应用程序开启 ETag功能。下面是默认的ETag设置：</p>
+<pre><code>all:
+  .settings:
+    etag: true
+</code></pre>
+<p>缓存了布局的动作，回应是直接从 <code>cache/</code> 目录里取出的，所以处理速度更快。</p>
+<h3 id="chapter_12_sub_adding_a_last_modified_header_to_avoid_sending_still_valid_content"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.4.2 增加Last-Modified头信息避免发送仍然有效的内容</a></h3>
+<p>服务器向浏览器发送回应的时候，它会增加一个特殊的头部信息来说明数据包含的页面最后修改的时间：</p>
+<pre><code>Last-Modified: Sat, 23 Nov 2006 13:27:31 GMT
+</code></pre>
+<p>浏览器能理解这个头信息，当再次请求这个页面的时候，会对应的加上一个 <code>If-Modified</code> 头信息：</p>
+<pre><code>If-Modified-Since: Sat, 23 Nov 2006 13:27:31 GMT
+</code></pre>
+<p>服务器可以比较客户端和应用程序返回的这个值。如果匹配，服务器返回 <code>304: Not modified</code> 头信息，与ETags很像，这样可以节约带宽和CPU时间。</p>
+<p>在symfony里，你可以像其他的头信息一样设定 <code>Last-Modified</code>。例如，可以在动作里这么使用：</p>
+<!-- raw HTML omitted -->
+<p>这个日期可以是从数据库或者文件系统取得数据更新的真实时间。<code>sfResponse</code> 对象的 <code>getDate()</code> 将时间戳转化成 <code>Last-Modified</code> 需要的日期时间格式（RFC1123）。</p>
+<h3 id="chapter_12_sub_adding_vary_headers_to_allow_several_cached_versions_of_a_page"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.4.3 通过增加Vary头信息来保存一个页面的多个缓存版本</a></h3>
+<p>另一个HTTP 1.1头信息是 <code>Vary</code>。它可以定义页面取决于哪个参数，可以被浏览器和代理服务器识别。例如，如果页面的内容取决于cookies，可以把 <code>Vary</code> 设置成这样：</p>
+<pre><code>Vary: Cookie
+</code></pre>
+<p>多数时候，由于页面内容会随着cookie、用户语言或者其他因素的影响改变，所以很难开启对动作的缓存。如果你不介意增加缓存的大小，就应该正确地设置回应的 <code>Vary</code> 头信息。可以通过 <code>cache.yml</code> 配置文件或者 <code>sfResponse</code> 相关的方法对整个对象或者其中的某些动作设置 <code>Vary</code> 头信息：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>symfony会对这些参数的每个值保存一个不同的缓存版本。这会增加缓存的尺寸，不过服务器收到与这些匹配的头信息的时候，回应就直接从缓存里面取而不用处理。这对只取决于请求头信息的页面来说可以大大的提高性能。</p>
+<h3 id="chapter_12_sub_adding_a_cache_control_header_to_allow_client_side_caching"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">12.4.4 通过增加Cache-Control头信息来允许客户端缓存</a></h3>
+<p>到目前为止，即使增加了缓存有关的HTTP头或是存在缓存的页面，浏览器还是会从到服务器请求数据。可以通过增加 <code>Cache-Control</code> 和 <code>Expires</code> 头信息来避免重复请求。这些头信息在PHP是默认关闭的，不过symfony改写了这个设置来避免不必要的请求。</p>
+<p>与之前一样，可以通过调用 <code>sfResponse</code> 对象的方法来开启这个功能。在动作里，定义页面最长的缓存时间（以秒为单位）：</p>
+<!-- raw HTML omitted -->
+<p>也可以指定页面缓存的条件，防止服务器的缓存里保存私有数据（例如银行帐号）：</p>
+<!-- raw HTML omitted -->
+<p>使用 <code>Cache-Control</code> HTTP指令，你可以很好的调整服务器和浏览器之间的缓存机制。这些指令的详细信息，请看W3C <code>Cache-Control</code> 的规范说明。</p>
+<p>最后一个可以通过symfony设定的头信息是 <code>Expires</code> 头信息：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_12_summary"><a href="forum.php?mod=viewthread&amp;tid=35&amp;extra=page%3D1#">总结</a></h2>
+<p>根据不同的缓存类型，缓存系统提供了多种提升性能的方法。效果从最好到最差，缓存分成下面几种类型：</p>
+<ul>
+<li>极速缓存</li>
+<li>包含布局的动作缓存</li>
+<li>不包括布局的动作缓存</li>
+<li>模板里的片段缓存</li>
+</ul>
+<p>另外，局部模板和组件也可以被缓存。</p>
+<p>如果改变了模型或者session里的数据，需要清除缓存来保持一致性，可以通过微调来优化性能—只清除改变了的东西，保留其他的。</p>
+<p>请注意测试所有开启缓存页面的时候要格外小心，如果缓存了错误的数据或者更新数据时忘记更新缓存可能造成新问题。临时工作环境staging就是专门为这个准备的。</p>
+<p>最后，尽量利用好HTTP 1.1协议还有symfony的先进缓存调整功能，客户端的缓存可以使性能更进一步提高。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AB%E7%AB%A0%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E6%A8%A1%E5%9E%8B%E5%B1%82/" data-toggle="tooltip" data-placement="top" title="第八章：深入了解模型层">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B8%89%E7%AB%A0%E8%A1%A8%E5%8D%95%E7%9A%84web%E8%AE%BE%E8%AE%A1/" data-toggle="tooltip" data-placement="top" title="第三章：表单的WEB设计">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">7800 Words|Read in about 16 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

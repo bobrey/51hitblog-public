@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Gogs_drone - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Gogs_drone" />
+  <meta name="twitter:title" content="Gogs_drone" />
+  <meta name="description" content="gogs,drone">
+  <meta property="og:description" content="gogs,drone">
+  <meta name="twitter:description" content="gogs,drone">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/gogs_drone/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/gogs_drone/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Gogs_drone</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <h3 id="gogs_drone-docker环境搭建">gogs_drone docker环境搭建</h3>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">drone-server</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">drone/drone:latest</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;8080:80&#34;</span><span class="w">
+</span><span class="w">      </span>- <span class="m">8843</span><span class="p">:</span><span class="m">443</span><span class="w">
+</span><span class="w">      </span>- <span class="m">9000</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./drone:/var/lib/drone/</span><span class="w">
+</span><span class="w">      </span>- <span class="l">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_OPEN=true</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_SERVER_HOST=drone-server</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_DEBUG=true</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_GIT_ALWAYS_AUTH=false</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_GOGS=true</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_GOGS_SKIP_VERIFY=false</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_GOGS_SERVER=http://gogs:3000</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_PROVIDER=gogs</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_DATABASE_DATASOURCE=/var/lib/drone/drone.sqlite</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_DATABASE_DRIVER=sqlite3</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_SERVER_PROTO=http</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_RPC_SECRET=ALQU2M0KdptXUdTPKcEw</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_SECRET=ALQU2M0KdptXUdTPKcEw</span><span class="w">
+</span><span class="w">  </span><span class="nt">gogs</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">gogs/gogs:latest</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;10022:22&#34;</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;3000:3000&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./data/gogs:/data</span><span class="w">
+</span><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">mysql</span><span class="w">
+</span><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:5.7.16</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./gogs/mysql:/var/lib/mysql</span><span class="w">
+</span><span class="w">      </span>- <span class="l">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="m">3308</span><span class="p">:</span><span class="m">3306</span><span class="w">
+</span><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span>--<span class="l">character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">pass</span><span class="w">
+</span><span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l">gogs</span><span class="w">
+</span><span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="l">gogs</span><span class="w">
+</span><span class="w">      </span><span class="nt">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">pass</span><span class="w">
+</span><span class="w">      </span><span class="nt">TZ</span><span class="p">:</span><span class="w"> </span><span class="l">Asia/Shanghai</span><span class="w">
+</span><span class="w">  </span><span class="nt">drone-agent</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">drone/agent:latest</span><span class="w">
+</span><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">drone-server</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_RPC_SERVER=http://drone-server</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_RPC_SECRET=ALQU2M0KdptXUdTPKcEw</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_DEBUG=true</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DOCKER_HOST=tcp://docker-bind:2375</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_SERVER=drone-server:9000</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_SECRET=ALQU2M0KdptXUdTPKcEw</span><span class="w">
+</span><span class="w">      </span>- <span class="l">DRONE_MAX_PROCS=5</span><span class="w">
+</span><span class="w">  </span><span class="nt">docker-bind</span><span class="p">:</span><span class="w">
+</span><span class="w">     </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">docker:dind</span><span class="w">
+</span><span class="w">     </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span><span class="c">#  command: --storage-driver=overlay</span><span class="w">
+</span></code></pre></div><h4 id="环境搭建">环境搭建</h4>
+<ol>
+<li>
+<p><strong>gogs</strong> http://localhost:3000
+数据库主机;<code>mysql:3306</code></p>
+<p>域名：<code>服务器公网或者域名</code>
+ssh端口：<code>10022</code>
+应用URL：<code>http://服务器公网或者域名:3000</code></p>
+</li>
+<li>
+<p><strong>drone</strong> http://localhost:8080
+把在gogs创建的仓库，<strong>激活</strong></p>
+</li>
+<li>
+<p><strong>gogs</strong>创建webook
+仓库设置-&gt;管理Web钩子——&gt;推送地址[http://drone-server/hook]
+密钥文本是在drone中设置的</p>
+</li>
+<li>
+<p>测试drone</p>
+<blockquote>
+<ol>
+<li>
+<p>git clone http://xxxx/xx.git</p>
+</li>
+<li>
+<p>vim app.go</p>
+<pre><code>package main
+    
+import &quot;fmt&quot;
+    
+func main(){ 
+    fmt.Printf(&quot;Hello World!&quot;);
+}
+</code></pre></li>
+<li>
+<p>vim .drone.yml</p>
+<pre><code>workspace:
+  base: /srv/drone-demo
+  path: .
+    
+pipeline:
+  build:
+     image: golang:alpine
+     # pull: true
+     environment:
+       - KEY=VALUE
+     secrets: [key1, key2]
+     commands:
+       - echo $$KEY
+       - pwd
+       - ls
+       - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+       - ./app
+</code></pre><ol start="4">
+<li>git commit &amp;&amp; git push</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h4 id="参考">参考</h4>
+<p><a href="https://segmentfault.com/a/1190000018459195">https://segmentfault.com/a/1190000018459195</a></p>
+<p><a href="https://developer.finogeeks.com/topic/12/geekpipe-%E5%9F%BA%E4%BA%8E-gogs-drone%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B9%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98">https://developer.finogeeks.com/topic/12/geekpipe-基于-gogs-drone的持续集成之项目实战</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/apigateway/" data-toggle="tooltip" data-placement="top" title="ApiGateway">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/dragonfly/" data-toggle="tooltip" data-placement="top" title="Dragonfly">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/apigateway/">ApiGateway</a></li>
+                    
+                    <li><a href="/posts/goquery/">Goquery</a></li>
+                    
+                    <li><a href="/posts/newsql/">Newsql</a></li>
+                    
+                    <li><a href="/posts/consul_zipkin_etcd/">Consul_zipkin_etcd</a></li>
+                    
+                    <li><a href="/posts/go_mysql%E6%97%B6%E5%8C%BA/">Go_mysql时区</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> gdb 显示结构体 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="gdb 显示结构体" />
+  <meta name="twitter:title" content="gdb 显示结构体" />
+  <meta name="description" content="在gdb设置:set print pretty on (gdb) p *xxx ptype——————查看结构体定义 set print pretty on/off——-设置结构体显示时的样子 show print pretty——查看 ===========================================">
+  <meta property="og:description" content="在gdb设置:set print pretty on (gdb) p *xxx ptype——————查看结构体定义 set print pretty on/off——-设置结构体显示时的样子 show print pretty——查看 ===========================================">
+  <meta name="twitter:description" content="在gdb设置:set print pretty on (gdb) p *xxx ptype——————查看结构体定义 set print pretty on/off——-设置结构体显示时的样子 show print pretty——查看 ===========================================">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-02-09-gdb-%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%84%E4%BD%93/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-02-09-gdb-%E6%98%BE%E7%A4%BA%E7%BB%93%E6%9E%84%E4%BD%93/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">gdb 显示结构体</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Feb 9, 2012</h4>
+    </section>
+    <h5 id="wc">1200 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>在gdb设置:set print pretty on</p>
+<p>(gdb) p *xxx</p>
+<p> </p>
+<p>ptype——————查看结构体定义</p>
+<p>set print pretty on/off——-设置结构体显示时的样子</p>
+<p>show print pretty——查看</p>
+<p>===========================================</p>
+<p>show print sevenbit-strings———查看字符显示</p>
+<p>set  print sevenbit-strings on/off———设置</p>
+<p>=====================================================</p>
+<p>p $eip—————————-查看寄存器</p>
+<p>info registers——————-查看除浮点寄存器以外的全部寄存器</p>
+<p>info all-registers—————查看全部寄存器</p>
+<p> </p>
+<p>//==========================================================//</p>
+<p>设置显示选项</p>
+<p>GDB中关于显示的选项比较多，这里我只例举大多数常用的选项。</p>
+<p>set print address</p>
+<p>set print address on</p>
+<p>打开地址输出，当程序显示函数信息时，GDB会显出函数的参数地址。系统默认为打开的，如：</p>
+<p>(gdb) f</p>
+<p>#0  set_quotes (lq=0x34c78 “&gt;”)</p>
+<p>at input.c:530</p>
+<p>530         if (lquote != def_lquote)</p>
+<p>set print address off</p>
+<p>关闭函数的参数地址显示，如：</p>
+<p>(gdb) set print addr off</p>
+<p>(gdb) f</p>
+<p>#0  set_quotes (lq=”&gt;”) at input.c:530</p>
+<p>530         if (lquote != def_lquote)</p>
+<p>show print address</p>
+<p>查看当前地址显示选项是否打开。</p>
+<p>set print array</p>
+<p>set print array on</p>
+<p>打开数组显示，打开后当数组显示时，每个元素占一行，如果不打开的话，每个元素则以逗号分隔。这个选项默认是关闭的。与之相关的两个命令如下，我就不再多说了。</p>
+<p>set print array off</p>
+<p>show print array</p>
+<p>set print elements</p>
+<p>这个选项主要是设置数组的，如果你的数组太大了，那么就可以指定一个来指定数据显示的最大长度，当到达这个长度时，GDB就不再往下显示了。如果设置为0，则表示不限制。</p>
+<p>show print elements</p>
+<p>查看print elements的选项信息。</p>
+<p>set print null-stop</p>
+<p>如果打开了这个选项，那么当显示字符串时，遇到结束符则停止显示。这个选项默认为off。</p>
+<p>set print pretty on</p>
+<p>如果打开printf pretty这个选项，那么当GDB显示结构体时会比较漂亮。如：</p>
+<p>$1 = {</p>
+<p>next = 0x0,</p>
+<p>flags = {</p>
+<p>sweet = 1,</p>
+<p>sour = 1</p>
+<p>},</p>
+<p>meat = 0x54 “Pork”</p>
+<p>}</p>
+<p>set print pretty off</p>
+<p>关闭printf pretty这个选项，GDB显示结构体时会如下显示：</p>
+<p>$1 = {next = 0x0, flags = {sweet = 1, sour = 1}, meat = 0x54</p>
+<p>“Pork”}</p>
+<p>show print pretty</p>
+<p>查看GDB是如何显示结构体的。</p>
+<p>set print sevenbit-strings</p>
+<p>设置字符显示，是否按“/nnn”的格式显示，如果打开，则字符串或字符数据按/nnn显示，如“/065”。</p>
+<p>show print sevenbit-strings</p>
+<p>查看字符显示开关是否打开。</p>
+<p>set print union</p>
+<p>设置显示结构体时，是否显式其内的联合体数据。例如有以下数据结构：</p>
+<p>typedef enum {Tree, Bug} Species;</p>
+<p>typedef enum {Big_tree, Acorn, Seedling} Tree_forms;</p>
+<p>typedef enum {Caterpillar, Cocoon, Butterfly}</p>
+<p>Bug_forms;</p>
+<p>struct thing {</p>
+<p>Species it;</p>
+<p>union {</p>
+<p>Tree_forms tree;</p>
+<p>Bug_forms bug;</p>
+<p>} form;</p>
+<p>};</p>
+<p>struct thing foo = {Tree, {Acorn}};</p>
+<p>当打开这个开关时，执行 p foo 命令后，会如下显示：</p>
+<p>$1 = {it = Tree, form = {tree = Acorn, bug = Cocoon}}</p>
+<p>当关闭这个开关时，执行 p foo 命令后，会如下显示：</p>
+<p>$1 = {it = Tree, form = {…}}</p>
+<p>show print union</p>
+<p>查看联合体数据的显示方式</p>
+<p>set print object</p>
+<p>在C++中，如果一个对象指针指向其派生类，如果打开这个选项，GDB会自动按照虚方法调用的规则显示输出，如果关闭这个选项的话，GDB就不管虚函数表了。这个选项默认是off。</p>
+<p>show print object</p>
+<p>查看对象选项的设置。</p>
+<p>set print static-members</p>
+<p>这个选项表示，当显示一个C++对象中的内容是，是否显示其中的静态数据成员。默认是on。</p>
+<p>show print static-members</p>
+<p>查看静态数据成员选项设置。</p>
+<p>set print vtbl</p>
+<p>当此选项打开时，GDB将用比较规整的格式来显示虚函数表时。其默认是关闭的。</p>
+<p>show print vtbl</p>
+<p>查看虚函数显示格式的选项。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-02-07-%E5%88%A0%E9%99%A4macport/" data-toggle="tooltip" data-placement="top" title="删除MACPORT">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-02-09-ip%E6%95%B0%E6%8D%AE%E5%8C%85%E5%A4%B4%E9%95%BF%E5%BA%A6-ihl/" data-toggle="tooltip" data-placement="top" title="IP数据包头长度 IHL">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Feb 9, 2012</h4>
+    </section>
+    <h5 id="wc">1200 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

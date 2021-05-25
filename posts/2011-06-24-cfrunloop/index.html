@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> CFRunLoop - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="CFRunLoop" />
+  <meta name="twitter:title" content="CFRunLoop" />
+  <meta name="description" content="CFRunLoop 对象监控任务（task）的输入源，并在它们为处理做好准备的时候调度控制。输入源样例可能包括用户输入设备、网络链接、定期或时间延迟事件，还有">
+  <meta property="og:description" content="CFRunLoop 对象监控任务（task）的输入源，并在它们为处理做好准备的时候调度控制。输入源样例可能包括用户输入设备、网络链接、定期或时间延迟事件，还有">
+  <meta name="twitter:description" content="CFRunLoop 对象监控任务（task）的输入源，并在它们为处理做好准备的时候调度控制。输入源样例可能包括用户输入设备、网络链接、定期或时间延迟事件，还有">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-06-24-cfrunloop/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-06-24-cfrunloop/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">CFRunLoop</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jun 24, 2011</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>CFRunLoop 对象监控任务（task）的输入源，并在它们为处理做好准备的时候调度控制。输入源样例可能包括用户输入设备、网络链接、定期或时间延迟事件，还有异步回调。 </p>
+<p>有3类对象可以被run loop监控：sources、timers、observers。</p>
+<p>当这些对象需要处理的时候，为了接收回调，首先必须通过 <code>&lt;a&gt;CFRunLoopAddSource&lt;/a&gt;&lt;br /&gt;</code></p>
+<p>,<code>&lt;a&gt;CFRunLoopAddTimer&lt;/a&gt;&lt;br /&gt;</code></p>
+<p>, or <code>&lt;a&gt;CFRunLoopAddObserver&lt;/a&gt;&lt;br /&gt;</code></p>
+<p>把这些对象放入run loop。 要停止接收它的回调，你也可以稍候通过CFRunLoopRemoveSource从run loop中移除某个对象。 </p>
+<p>run loop有不同的运行模式，每种模式都有其自身的对象集，run loop监控，同时在该模式下运行。 Core Foundation定义了一种默认模式<!-- raw HTML omitted -->kCFRunLoopDefaultMode<!-- raw HTML omitted --></p>
+<p>来持有对象，在应用或线程闲置的时候这些对象应该被监控。当一个对象被添加到不认识的模式时，额外模式自动创建。每个run loop有它自己独立的模式集。</p>
+<p>Core Foundation还定义了一个特殊的伪模式<!-- raw HTML omitted -->kCFRunLoopCommonModes<!-- raw HTML omitted --></p>
+<p>来持有应当被“common”模式集共享的对象。 通过调用<!-- raw HTML omitted -->CFRunLoopAddCommonMode<!-- raw HTML omitted --></p>
+<p>来添加一个模式到“common”模式集。 默认模式<!-- raw HTML omitted -->kCFRunLoopDefaultMode <!-- raw HTML omitted --></p>
+<p>总是common模式集中的一个成员。<code>&lt;a&gt;kCFRunLoopCommonModes&lt;/a&gt;&lt;br /&gt;</code></p>
+<p> 常数决不会传给<!-- raw HTML omitted -->CFRunLoopRunInMode<!-- raw HTML omitted --></p>
+<p>。每个run loop有它自己独立的common模式集。</p>
+<p>每个线程恰好有一个run loop，既不可以创建，也不能销毁线程的run loop。，Core Foundation 根据需要为你创建。通过<!-- raw HTML omitted -->CFRunLoopGetMain <!-- raw HTML omitted --></p>
+<p>你可以获得当前线程的run loop。调用l<code>&lt;a&gt;CFRunLoopRun&lt;/a&gt;&lt;br /&gt;</code></p>
+<p> 来使当前线程的run loop以默认模式运行起</p>
+<p>来，直到调用<!-- raw HTML omitted -->CFRunLoopStop<!-- raw HTML omitted --></p>
+<p>来停止run loop。你也可以调用<!-- raw HTML omitted -->CFRunLoopRunInMode<!-- raw HTML omitted --></p>
+<p>来使当前线程的run loop以指定模式运行起来一段时间或者直到run loop被停止。 run loop只能在请求模式至少有一个source或者timer可监控的情况下运行起来。 </p>
+<p>run loop可以递归运行，你可以在任何run loop 标注内部调用<code>&lt;a&gt;CFRunLoopRun&lt;/a&gt;&lt;br /&gt;</code></p>
+<p> 或 <code>&lt;a&gt;CFRunLoopRunInMode&lt;/a&gt;&lt;br /&gt; ，还可以创建嵌套run loop，并在当前线程调用栈激活，在标注内并没有限制在那种模式可以运行。</code></p>
+<p>你可以创建另一个run loop，激活运行在任何可行的run loop模式，包括任何已经运行在调用堆栈中的更高的模式。</p>
+<p>Cocoa 和 Carbon 每个都是建立在 CFRunLoop上来实现它们自己更高级别的事件循环。当编写一个  Cocoa 或者</p>
+<p>Carbon 应用，你可以添加你的sources、timer和observers到它们的run</p>
+<p>loop对象中。你的对象将会作为常规应用事件循环的一部分来得到监控。使用 NSRunLoop 实例方法 <code>&lt;a target=&quot;_top&quot;&gt;getCFRunLoop&lt;/a&gt;&lt;br /&gt;</code></p>
+<p> 来获得对应应于cocoa run loop的CFRunLoop，在carbon应用中使用 <code>GetCFRunLoopFromEventLoop</code></p>
+<p> 函数.</p>
+<p> </p>
+<p> </p>
+<p>转自：<!-- raw HTML omitted --><a href="http://blog.csdn.net/wxtsmart/archive/2010/10/31/5977821.aspx">http://blog.csdn.net/wxtsmart/archive/2010/10/31/5977821.aspx</a><!-- raw HTML omitted --></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-06-24-%E8%AD%A6%E6%83%95nspredicate%E7%9A%84%E6%80%A7%E8%83%BD%E9%99%B7%E9%98%B1/" data-toggle="tooltip" data-placement="top" title="警惕NSPredicate的性能陷阱">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-06-24-cdn-%E4%B9%8Bcloudflare%E4%B8%8Ewebluker/" data-toggle="tooltip" data-placement="top" title="CDN 之CloudFlare与Webluker">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-06-24-%E8%AD%A6%E6%83%95nspredicate%E7%9A%84%E6%80%A7%E8%83%BD%E9%99%B7%E9%98%B1/">警惕NSPredicate的性能陷阱</a></li>
+                    
+                    <li><a href="/posts/2011-06-24-nsdata-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%86%99/">NSData 二进制文件的读写</a></li>
+                    
+                    <li><a href="/posts/2011-06-24-kvc-kvo/">KVC KVO</a></li>
+                    
+                    <li><a href="/posts/2011-06-20-%E8%8B%B9%E6%9E%9C%E6%8E%A8%E9%80%81%E9%80%9A%E7%9F%A5/">苹果推送通知</a></li>
+                    
+                    <li><a href="/posts/2011-06-20-iphone-%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/">iphone 调试日志</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jun 24, 2011</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

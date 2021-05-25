@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>selenium on IT技术分享</title>
+    <link>https://www.51hint.com/tags/selenium/</link>
+    <description>Recent content in selenium on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Mar 2017 20:10:22 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/selenium/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>selenium</title>
+      <link>https://www.51hint.com/posts/selenium/</link>
+      <pubDate>Sun, 26 Mar 2017 20:10:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/selenium/</guid>
+      <description>Selenium,Tor sudo apt-get install python-pip -y sudo pip install selenium Basic Usage from selenium import webdriver driver = webdriver.Firefox() driver.get(&amp;#34;http://www.imdb.com/name/nm0331516/&amp;#34;) pagesHTML = driver.page_source searchBar = driver.find_element_by_id(&amp;#34;navbar-query&amp;#34;) searchBar.send_keys(&amp;#34;summer glau&amp;#34;) driver.find_element_by_id(&amp;#34;navbar-submit-button&amp;#34;).click() firstResult = driver.find_element_by_class_name(&amp;#34;result_text&amp;#34;) resultingURL = firstResult.find_element_by_tag_name(&amp;#34;a&amp;#34;).get_attribute(&amp;#34;href&amp;#34;) driver.get(resultingURL) driver.close()  If you want to use Chrome instead of Firefox, you need to download a chromedriver file from: http://chromedriver.storage.googleapis.com/index.html.
+  Download the latest version for your distribution, unzip the file, and move the output chromedriver file to /usr/bin.</description>
+    </item>
+    
+    <item>
+      <title>xvfb</title>
+      <link>https://www.51hint.com/posts/xvfb/</link>
+      <pubDate>Tue, 14 Mar 2017 01:59:17 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/xvfb/</guid>
+      <description>$sudo apt-get update $ sudo apt-get install firefox xvfb -y $ sudo aptitude install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic $ sudo apt-get install fonts-ipafont-gothic fonts-ipafont-mincho export DISPLAY=:10 echo &amp;#34;Starting Xvfb ...&amp;#34; Xvfb :10 -screen 0 1024x768x24 -ac &amp;amp; http://localhost:4444/wd/hub/static/resource/hub.html</description>
+    </item>
+    
+  </channel>
+</rss>

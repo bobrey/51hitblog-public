@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ntfs on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ntfs/</link>
+    <description>Recent content in ntfs on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Mar 2019 15:56:04 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/ntfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ntfs挂载</title>
+      <link>https://www.51hint.com/posts/ntfs%E6%8C%82%E8%BD%BD/</link>
+      <pubDate>Sat, 30 Mar 2019 15:56:04 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/ntfs%E6%8C%82%E8%BD%BD/</guid>
+      <description>mac挂载ntfs硬盘 diskutil list mkdir ~/Desktop/Windows sudo umount /dev/disk2s4 sudo mount_ntfs -o rw,nobrowse /dev/disk2s4 ~/Desktop/Windows debian挂载ntfs硬盘 apt-get install fuse-utils ntfs-3g fdisk -l mkdir /mnt/&amp;lt;DIR&amp;gt; mount -t ntfs-3g /dev/&amp;lt;sdXX&amp;gt; /mnt/&amp;lt;DIR&amp;gt;</description>
+    </item>
+    
+  </channel>
+</rss>

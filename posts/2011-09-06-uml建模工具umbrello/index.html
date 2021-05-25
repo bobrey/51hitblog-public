@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> UML建模工具Umbrello - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="UML建模工具Umbrello" />
+  <meta name="twitter:title" content="UML建模工具Umbrello" />
+  <meta name="description" content="一、UML UML是统一建模语言，是一种可视化的语言。本系列内容拟通过Umbrello工具一起来学UML。正向逆向工程均以C&#43;&#43;代码为例。 （本">
+  <meta property="og:description" content="一、UML UML是统一建模语言，是一种可视化的语言。本系列内容拟通过Umbrello工具一起来学UML。正向逆向工程均以C&#43;&#43;代码为例。 （本">
+  <meta name="twitter:description" content="一、UML UML是统一建模语言，是一种可视化的语言。本系列内容拟通过Umbrello工具一起来学UML。正向逆向工程均以C&#43;&#43;代码为例。 （本">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-09-06-uml%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7umbrello/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-09-06-uml%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7umbrello/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">UML建模工具Umbrello</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Sep 6, 2011</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p><strong>一、UML</strong></p>
+<p>UML是统一建模语言，是一种可视化的语言。本系列内容拟通过Umbrello工具一起来学UML。正向逆向工程均以C++代码为例。</p>
+<p>（本文第一次上传图片时图片都在本地，所以读者们一直看不到图片，这里我重新整理了一下这篇文章）</p>
+<p><strong>二、UML工具对比</strong></p>
+<p>我所接触到的工具以及其各自的特性如下：</p>
+<p>工具名称                       优点                                          缺点</p>
+<p>Rational Rose             功能全，可以正向和逆向工程         收费，且其比较庞大</p>
+<p>Visio                           简单                                          收费，无正向和逆向工程</p>
+<p>VS2008                      可以逆向工程                              收费，逆向工程也不是很完美，所能表达的关系太少</p>
+<p>（貌似只能表达泛化关系，即继承关系）</p>
+<p>UML Start                   免费，可以正向工程                     无逆向工程</p>
+<p>Umbrello                    免费，跨平台，可正向逆向工程      Windows下安装稍微有点复杂</p>
+<p>这里的“正向工程”是指通过UML图来生成代码，逆向工程是指通过代码生成UML图。</p>
+<p><strong>三、Umbrello的安装</strong></p>
+<p>在Linux安装应该是比较方便的，我在Fedora中用过。这里说说Windows下的安装。</p>
+<p><strong>1. 下载</strong></p>
+<p><a href="http://windows.kde.org/">http://windows.kde.org</a>页面点击“<a href="http://www.winkde.org/pub/kde/ports/win32/installer/kdewin-installer-gui-latest.exe">Download Installer</a> ”即可下载KDE。基于KDE可以在Windows下跑Linux应用。</p>
+<p><strong>2. 安装KDE</strong></p>
+<p>安装过程中步骤为：</p>
+<p><a href="https://i0.wp.com/flyhawk007.boy.jp/wp/wp-content/uploads/01.jpg"><!-- raw HTML omitted --></a></p>
+<p>a. 选择”Install from Internet”，如上图。</p>
+<p><a href="https://i2.wp.com/flyhawk007.boy.jp/wp/wp-content/uploads/02.jpg"><!-- raw HTML omitted --></a></p>
+<p>b. 选择安装路径，如上图。</p>
+<p><a href="https://i2.wp.com/flyhawk007.boy.jp/wp/wp-content/uploads/03.jpg"><!-- raw HTML omitted --></a></p>
+<p>c. 安装模式选择终端用户，编译器模式我选择的是MSVC2008，如上图。</p>
+<p><a href="https://i2.wp.com/flyhawk007.boy.jp/wp/wp-content/uploads/04.jpg"><!-- raw HTML omitted --></a></p>
+<p> </p>
+<p>d.选择临时现在的文件存储的路径，如上图。</p>
+<p><a href="https://i2.wp.com/flyhawk007.boy.jp/wp/wp-content/uploads/05.jpg"><!-- raw HTML omitted --></a></p>
+<p>e. 选择联网方式，我这里选择的是直接接入，如上图。</p>
+<p>f. 选择一个站点来下载安装文件（我选的jp，速度还可以）,如上图。点击下一步之后入进入下图，如果没有看到任何内容，可以返回这一步重新选择一个站点，</p>
+<p><a href="https://i0.wp.com/flyhawk007.boy.jp/wp/wp-content/uploads/06.jpg"><!-- raw HTML omitted --></a></p>
+<p>g. 我选择的stable latest，如上图</p>
+<p><a href="https://flyhawk007.boy.jp/wp/wp-content/uploads/07.jpg"><!-- raw HTML omitted --></a></p>
+<p>h. 选择kdesdk，可以看到后边括弧中有umbrello，如上图。其实，在4.3版本中是单独的一个umbrello，大家可以根据自己选择的kde版本，在列表中找一下。之后点击下一步、下一步、完成、即可完成安装。</p>
+<p> </p>
+<p>c. 正向工程。点击工具栏Code-&gt;Code Generation Wizard，然后选择要生成代码的类。完成之后可以在Settings中设置的代码路径中看到四个文件，Base.h, Base.cpp, Derive.h, Derive.cpp。</p>
+<p>如果点击工具栏Code-&gt;Generate All Code，则会直接生成所有类的代码。</p>
+<p>d. 逆向工程。</p>
+<p>删除左边UML Model中的Logical View中的Base和Derive，并且删除绘图区域中的图。</p>
+<p>右击上图中的Logical View，选择Import Class，选择刚才生成了Base和Derive类的.h文件。这时又可以看到Logcal View中有了Base和Derive两个类，将这两个类分别拖动到绘图区。Umbrello自动帮我们生成了类图以及类之间的关系。</p>
+<p><strong>六、小节</strong></p>
+<p>认识了一款优秀的UML建模工具——Umbrello，后续将基于该工具来介绍UML。此外，学习使用Umbrello，有以下几个好处：</p>
+<ol>
+<li>
+<p>他是开源免费的，可以让我们摆脱对收费软件的依赖</p>
+</li>
+<li>
+<p>本身出身与Linux平台，我们知道如何在Windows上跑Linux下的一些程序</p>
+</li>
+<li>
+<p>等于是学习了一款跨平台的工具，以后我们在Linux下可以很顺手的用Umbrello进行建模</p>
+</li>
+</ol>
+<p> </p>
+<p>转自:<a href="http://blog.csdn.net/donhao/article/details/5668499" title="http://blog.csdn.net/donhao/article/details/5668499">http://blog.csdn.net/donhao/article/details/5668499</a></p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-09-01-%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF%E8%AF%81/" data-toggle="tooltip" data-placement="top" title="如何选择开源许可证">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-09-09-%E5%90%88%E5%B9%B6iphone%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%92%8C%E7%9C%9F%E6%9C%BA%E9%80%9A%E7%94%A8%E7%9A%84%E9%9D%99%E6%80%81%E7%B1%BB%E5%BA%93-2/" data-toggle="tooltip" data-placement="top" title="合并iPhone模拟器和真机通用的静态类库">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Sep 6, 2011</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

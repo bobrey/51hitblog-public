@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 添加手势 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="添加手势" />
+  <meta name="twitter:title" content="添加手势" />
+  <meta name="description" content="用UIGestureRecognizer侦测使用者输入操作 当点击此UI时，执行hiddenBookCoverView方法。 tap是指轻触手势">
+  <meta property="og:description" content="用UIGestureRecognizer侦测使用者输入操作 当点击此UI时，执行hiddenBookCoverView方法。 tap是指轻触手势">
+  <meta name="twitter:description" content="用UIGestureRecognizer侦测使用者输入操作 当点击此UI时，执行hiddenBookCoverView方法。 tap是指轻触手势">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-05-25-%E6%B7%BB%E5%8A%A0%E6%89%8B%E5%8A%BF/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-05-25-%E6%B7%BB%E5%8A%A0%E6%89%8B%E5%8A%BF/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">添加手势</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed May 25, 2011</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p><!-- raw HTML omitted -->用UIGestureRecognizer侦测使用者输入操作 <!-- raw HTML omitted --> 当点击此UI时，执行hiddenBookCoverView方法。 <!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>tap是指轻触手势。类似鼠标操作的点击。从iOS 3.2版本开始支持完善的手势api：</p>
+<ul>
+<li><!-- raw HTML omitted -->tap<!-- raw HTML omitted -->：轻触</li>
+<li>long press：在一点上长按</li>
+<li>pinch：两个指头捏或者放的操作</li>
+<li>pan：手指的拖动</li>
+<li>swipe：手指在屏幕上很快的滑动</li>
+<li>rotation：手指反向操作</li>
+</ul>
+<p>// Create gesture recognizer</p>
+<p> UITapGestureRecognizer *oneFingerTwoTaps =  [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapFrom<!-- raw HTML omitted --><!-- raw HTML omitted -->:)] autorelease];</p>
+<p> </p>
+<p>// Set required taps and number of touches</p>
+<p>[oneFingerTwoTaps setNumberOfTapsRequired:2];</p>
+<p>[oneFingerTwoTaps setNumberOfTouchesRequired:1];</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>[oneFingerTwoTaps setCancelsTouchesInView:YES];</p>
+<p>[oneFingerTwoTaps setDelegate:self];</p>
+<p>// Add the gesture to the view</p>
+<p>[[self view] addGestureRecognizer:oneFingerTwoTaps];</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>[oneFingerTwoTaps release];<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>UISwipeGestureRecognizer <!-- raw HTML omitted --><!-- raw HTML omitted --> *<!-- raw HTML omitted -->oneFingerSwipeUp <!-- raw HTML omitted --><!-- raw HTML omitted --> =<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> [<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted -->UISwipeGestureRecognizer</p>
+<p>alloc<!-- raw HTML omitted -->]<!-- raw HTML omitted --></p>
+<p>initWithTarget<!-- raw HTML omitted -->:<!-- raw HTML omitted -->self</p>
+<p>action<!-- raw HTML omitted -->:<!-- raw HTML omitted --><!-- raw HTML omitted -->@selector<!-- raw HTML omitted --><!-- raw HTML omitted -->(<!-- raw HTML omitted -->oneFingerSwipeUp<!-- raw HTML omitted -->:<!-- raw HTML omitted --><!-- raw HTML omitted -->)<!-- raw HTML omitted --><!-- raw HTML omitted -->]<!-- raw HTML omitted --></p>
+<p>autorelease<!-- raw HTML omitted -->]<!-- raw HTML omitted -->;<!-- raw HTML omitted -->[<!-- raw HTML omitted -->oneFingerSwipeUp</p>
+<p>setDirection<!-- raw HTML omitted -->:<!-- raw HTML omitted -->UISwipeGestureRecognizerDirectionUp<!-- raw HTML omitted -->]<!-- raw HTML omitted -->;<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->[<!-- raw HTML omitted --><!-- raw HTML omitted -->[<!-- raw HTML omitted -->self</p>
+<p>view<!-- raw HTML omitted -->]<!-- raw HTML omitted --></p>
+<p>addGestureRecognizer<!-- raw HTML omitted -->:<!-- raw HTML omitted -->oneFingerSwipeUp<!-- raw HTML omitted -->]<!-- raw HTML omitted -->;</p>
+<!-- raw HTML omitted -->
+<p>//==============================================================================================</p>
+<p>手势互相彼此关联，怎么具体区分手势呢</p>
+<p>譬如tap和longpress，swip和pan，tap一次和tap两次；</p>
+<p><!-- raw HTML omitted -->UIGestureRecognizer<!-- raw HTML omitted -->有个方法<!-- raw HTML omitted -->requireGestureRecognizerToFail<!-- raw HTML omitted -->它可以指定某个recognizer</p>
+<p>即便自己已经满足条件，也不会触发，待等到指定的recognizer失败之后，自己才会执行；</p>
+<!-- raw HTML omitted -->
+<p> example:</p>
+<p>  1&gt;  <!-- raw HTML omitted --><!-- raw HTML omitted -->singleTapRecognizer<!-- raw HTML omitted --><!-- raw HTML omitted -->.<!-- raw HTML omitted --><!-- raw HTML omitted -->numberOfTapsRequired<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->=<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->1<!-- raw HTML omitted --><!-- raw HTML omitted -->;<!-- raw HTML omitted --><!-- raw HTML omitted -->    <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->  <!-- raw HTML omitted --> //单击<!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>  2&gt; <!-- raw HTML omitted --><!-- raw HTML omitted -->doubleTapRecognizer<!-- raw HTML omitted --><!-- raw HTML omitted -->.<!-- raw HTML omitted --><!-- raw HTML omitted -->numberOfTapsRequired<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->=<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->2<!-- raw HTML omitted --><!-- raw HTML omitted -->;<!-- raw HTML omitted --><!-- raw HTML omitted -->       </p>
+<p>//双击</p>
+<!-- raw HTML omitted -->
+<p>  <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><a href="http://iphonedevwiki.net/index.php/UIGestureRecognizer">http://iphonedevwiki.net/index.php/UIGestureRecognizer</a></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-05-20-cstring-%E4%B8%8Echar-%E4%BA%92%E6%8D%A2/" data-toggle="tooltip" data-placement="top" title="cstring 与char*  互换">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-05-26-socket-2/" data-toggle="tooltip" data-placement="top" title="socket">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-04-14-regexfkitlit/">RegexfKitLit</a></li>
+                    
+                    <li><a href="/posts/2011-03-15-cocos2d-%E6%96%87%E6%A1%A3cocos2d-api-reference-into-xcode/">cocos2d 文档［cocos2d API reference into XCode]</a></li>
+                    
+                    <li><a href="/posts/2011-03-15-cocos-2d-%E5%AE%89%E8%A3%85/">COCOS 2D 安装</a></li>
+                    
+                    <li><a href="/posts/2011-03-02-svn-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E6%96%87%E4%BB%B6%E5%A4%B9/">svn 忽略文件，文件夹</a></li>
+                    
+                    <li><a href="/posts/2011-03-02-kissxml/">KissXML</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed May 25, 2011</h4>
+    </section>
+    <h5 id="wc">500 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

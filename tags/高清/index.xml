@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>高清 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/%E9%AB%98%E6%B8%85/</link>
+    <description>Recent content in 高清 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 May 2014 02:10:49 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/%E9%AB%98%E6%B8%85/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>retinizer将低清转变成retina高清</title>
+      <link>https://www.51hint.com/posts/2014-05-12-retinizer%E5%B0%86%E4%BD%8E%E6%B8%85%E8%BD%AC%E5%8F%98%E6%88%90retina%E9%AB%98%E6%B8%85/</link>
+      <pubDate>Mon, 12 May 2014 02:10:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-05-12-retinizer%E5%B0%86%E4%BD%8E%E6%B8%85%E8%BD%AC%E5%8F%98%E6%88%90retina%E9%AB%98%E6%B8%85/</guid>
+      <description>retinizer是一款将不支持Retina的应用程序立刻变成高清的实用小工具。方法也很简单，将App拖入Retinizer窗口即可完成转化</description>
+    </item>
+    
+  </channel>
+</rss>

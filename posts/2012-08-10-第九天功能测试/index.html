@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第九天：功能测试 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第九天：功能测试" />
+  <meta name="twitter:title" content="第九天：功能测试" />
+  <meta name="description" content="目录 9.1 功能测试 9.2 sfBrowser类 9.2.1 sfTestFunctional类 9.2.2 请求测试器 9.2.3 响应测试器 9.3 运行功能测试 9.4 测试数据 9.5 编写功能测试 9.5.1 过期">
+  <meta property="og:description" content="目录 9.1 功能测试 9.2 sfBrowser类 9.2.1 sfTestFunctional类 9.2.2 请求测试器 9.2.3 响应测试器 9.3 运行功能测试 9.4 测试数据 9.5 编写功能测试 9.5.1 过期">
+  <meta name="twitter:description" content="目录 9.1 功能测试 9.2 sfBrowser类 9.2.1 sfTestFunctional类 9.2.2 请求测试器 9.2.3 响应测试器 9.3 运行功能测试 9.4 测试数据 9.5 编写功能测试 9.5.1 过期">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B9%9D%E5%A4%A9%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B9%9D%E5%A4%A9%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第九天：功能测试</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">3400 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_09_functional_tests"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.1 功能测试</a></a></li>
+    <li><a href="#chapter_09_the_sfbrowser_class"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.2 <code>sfBrowser</code> 类</a></a></li>
+    <li><a href="#chapter_09_the_sftestfunctional_class"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.2.1 <code>sfTestFunctional</code> 类</a></a>
+      <ul>
+        <li><a href="#chapter_09_sub_the_request_tester"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.2.2 请求测试器</a></a></li>
+        <li><a href="#chapter_09_sub_the_response_tester"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.2.3 响应测试器</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_09_running_functional_tests"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.3 运行功能测试</a></a></li>
+    <li><a href="#chapter_09_test_data"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.4 测试数据</a></a></li>
+    <li><a href="#chapter_09_writing_functional_tests"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5 编写功能测试</a></a>
+      <ul>
+        <li><a href="#chapter_09_sub_expired_jobs_are_not_listed"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5.1 过期招聘信息不显示</a></a></li>
+        <li><a href="#chapter_09_sub_only_n_jobs_are_listed_for_a_category"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5.2 只在分类中显示n条招聘信息</a></a></li>
+        <li><a href="#chapter_09_sub_a_category_has_a_link_to_the_category_page_only_if_too_many_jobs"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5.3 当一个分类有足够多招聘信息时才显示链接</a></a></li>
+        <li><a href="#chapter_09_sub_jobs_are_sorted_by_date"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5.4 招聘信息按日期排序</a></a></li>
+        <li><a href="#chapter_09_sub_each_job_on_the_homepage_is_clickable"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5.5 主页上每个招聘信息都可点击</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_09_learn_by_the_example"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.6 通过例子学习</a></a></li>
+    <li><a href="#chapter_09_debugging_functional_tests"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.7 调试功能测试</a></a></li>
+    <li><a href="#chapter_09_functional_tests_harness"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.8 打包功能测试</a></a></li>
+    <li><a href="#chapter_09_tests_harness"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.9 打包测试</a></a></li>
+    <li><a href="#chapter_09_final_thoughts"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.10 结语</a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_functional_tests">9.1 功能测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_the_sfbrowser_class">9.2 sfBrowser类</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_the_sftestfunctional_class">9.2.1 sfTestFunctional类</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_sub_the_request_tester">9.2.2 请求测试器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_sub_the_response_tester">9.2.3 响应测试器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_running_functional_tests">9.3 运行功能测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_test_data">9.4 测试数据</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_writing_functional_tests">9.5 编写功能测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_sub_expired_jobs_are_not_listed">9.5.1 过期招聘信息不显示</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_sub_only_n_jobs_are_listed_for_a_category">9.5.2 只在分类中显示n条招聘信息</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_sub_a_category_has_a_link_to_the_category_page_only_if_too_many_jobs">9.5.3 当一个分类有足够多招聘信息时才显示链接</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_sub_jobs_are_sorted_by_date">9.5.4 招聘信息按日期排序</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_sub_each_job_on_the_homepage_is_clickable">9.5.5 主页上每个招聘信息都可点击</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_learn_by_the_example">9.6 通过例子学习</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_debugging_functional_tests">9.7 调试功能测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_functional_tests_harness">9.8 打包功能测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_tests_harness">9.9 打包测试</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#chapter_09_final_thoughts">9.10 结语</a></li>
+</ul>
+<p>昨天，我们讲了如何使用symfony的lime测试库进行单元测试。今天，我们将对 <code>job</code> 和 <code>category</code> 模块中现有功能进行功能测试。</p>
+<h2 id="chapter_09_functional_tests"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.1 功能测试</a></h2>
+<p>功能测试是一个非常好的工具，可以完整地测试你的程序：从浏览器开始产生请求，到服务器发送响应。功能测试可以涵盖一个程序的所有层：路由、模型、行为、模板。它所做的可能和你做过的这些事非常类似：添加或修改行为，打开浏览器，点击链接并检查页面内容是否工作正常。换句话说，功能测试与你在浏览器中手动测试的过程是一样的。</p>
+<p>由于是手动进行，这个过程显得乏味而且容易出错。每次更改代码，你都要逐步追踪所有脚本以确认没有出错。这会让人发疯。symfony功能测试提供描述脚本的简单途径。它通过模拟用户在浏览器中动作，自动运行每个脚本。与单元测试一样，功能测试同样会增强你对代码的信心。</p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_09_the_sfbrowser_class"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.2 <code>sfBrowser</code> 类</a></h2>
+<p>在symfony中，功能测试在专用浏览器中运行，</p>
+<p>通过 <a href="http://www.symfony-project.org/api/1_4/sfBrowser"><code>sfBrowser</code></a> 类来实现。该浏览器专为测试程序设计，它不需要浏览器支持，就可以直接连接程序。无论你是否发出请求，都可以通过它调用所有symfony对象（注：普通浏览器只有发出请求时才能调用对象，而sfBrowser在请求之前也可以调用对象），在这个浏览器中你可以进行对象内省和功能测试。</p>
+<p><code>sfBrowser</code> 模拟标准浏览器导航方法：</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  描述
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  取得一个URL
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  发送一个URL
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  调用一个URL（用于 &lt;code&gt;PUT&lt;/code&gt; 和 &lt;code&gt;DELETE&lt;/code&gt; 方法）
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  后退
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  前进
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  重载当前页
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  点击一个按钮或链接
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  选择一个单选框或复选框
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  取消选定单选框或复选框
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  重启浏览器
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>这是一些 <code>sfBrowser</code> 方法的用例：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>sfBrowser</code> 包含额外的方法来配置浏览器作用：</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  描述
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  设置一个HTTP头
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  设置基本的 authentication credentials
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  设置一个cookie
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  删除一个cookie
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  清楚当前所有cookies
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  Follows a redirect
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="chapter_09_the_sftestfunctional_class"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.2.1 <code>sfTestFunctional</code> 类</a></h2>
+<p>已经有了浏览器，我们需要一种方法来内省symfony对象，以进行实际测试。我们可以使用lime和 <code>sfBrowser</code> 中一些方法，如 <code>getResponse()</code> 和 <code>getRequest()</code>，但symfony提供了更好方式。</p>
+<p>symfony提供了 <a href="http://www.symfony-project.org/api/1_4/sfTestFunctional"><code>sfTestFunctional</code></a> 它的构造函数使用 <code>sfBrowser</code> 实例作为参数。<code>sfTestFunctional</code> 类将测试交由测试器类处理。symfony包含许多测试器类，你同样可以创建自己的测试器类。</p>
+<p>我们昨天已经知道，用于功能测试文件存储在 <code>test/functional</code> 目录下。每个程序都有属于自己的子目录，Jobeet前台的功能测试文件存储在 <code>test/functional/frontend</code> 目录下。这个目录已经有了两个文件：<code>categoryActionsTest.php</code> 和 <code>jobActionsTest.php</code>，因为每生成一个模块都会自动生成相应的基础测试文件：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>上面的内容可能看起来有一点奇怪。因为 <code>sfBrowser</code> 和 <code>sfTestFunctional</code> 的方法总是返回 <code>$this</code> 激活<a href="http://en.wikipedia.org/wiki/Fluent_interface">fluent interface</a>，它允许你以一种更易读的方式，将方法的调用串连起来。前面的片段是等价于：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>所有测试都运行在测试块中。测试块以 <code>with('TESTER NAME')-&gt;begin()</code> 开始，以 <code>end()</code> 结束：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>上边代码测试参数 <code>module</code>、<code>action</code> 的值是否分别是 <code>category</code> 和 <code>index</code>。</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_09_sub_the_request_tester"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.2.2 请求测试器</a></h3>
+<p>请求<strong>测试器</strong>（request tester）提供了内省和测试 <code>sfWebRequest</code> 对象的测试器方法：</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  描述
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查一个请求参数的值
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查请求格式
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查请求方式
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查请求是否带有给定名字的cookie
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  given name
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查cookie值
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<h3 id="chapter_09_sub_the_response_tester"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.2.3 响应测试器</a></h3>
+<p>同样也存在<strong>响应测试器</strong>（response tester）类，它提供 <code>sfWebResponse</code> 对象的测试器方法：</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  描述
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查一个响应CSS选择器是否匹配条件
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查一个 &lt;code&gt;sfForm&lt;/code&gt; 表单对象
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  打印响应输出以缓解调试
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  对一个正则表达式的响应测试
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查header值
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查响应状态代码
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查当前响应是不是重定向
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  检查一个响应是不是格式完好的XML（你也通过其文件类型作为参数的 &lt;code&gt;true&lt;/code&gt;，再次验证响应）
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_09_running_functional_tests"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.3 运行功能测试</a></h2>
+<p>与单元测试相同，功能测试也可以通过直接执行测试文件的方式进行：</p>
+<!-- raw HTML omitted -->
+<p>或使用 <code>test:functional</code> 命令进行：</p>
+<!-- raw HTML omitted -->
+<p><img src="res/cli_tests.png" alt="Tests on the command line"></p>
+<h2 id="chapter_09_test_data"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.4 测试数据</a></h2>
+<p>与doctrine单元测试相同，每次启动功能测试时，我们需要载入测试数据。我们可以重用昨天的代码：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在功能测试中载入数据比在单元测试中容易一点，因为数据已经启动脚本初始化。</p>
+<p>与单元测试一样，我们不会复制粘贴这块代码到每个测试文件，但我们将创建自己的功能测试类，它继承 <code>sfTestFunctional</code>：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_09_writing_functional_tests"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5 编写功能测试</a></h2>
+<p>写功能测试就如同在浏览器中运行脚本一样。作为<!-- raw HTML omitted -->第<!-- raw HTML omitted -->二天提出的需求的一部分，我们已经完成了需要测试的所有脚本。</p>
+<p>首先，我们修改 <code>jobActionsTest.php</code> 测试Jobeet首页。用下面的代码替换：</p>
+<h3 id="chapter_09_sub_expired_jobs_are_not_listed"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5.1 过期招聘信息不显示</a></h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>与使用 <code>lime</code> 一样，提示信息可以通过 <code>info()</code> 方法被插入，让输出结果可读性更强。要检查首页是否有过期的招聘信息，我们只需要检查CSS选择器 <code>.jobs td.position:contains(&quot;expired&quot;)</code> 与响应的HTML内容之间是否匹配（在fixture文件中，唯一过期的招聘信息包含“expired”字符串）。当 <code>checkElement()</code> 的<!-- raw HTML omitted -->第<!-- raw HTML omitted -->二个参数是布尔值时，该方法测试存在匹配CSS选择器的节点。</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_09_sub_only_n_jobs_are_listed_for_a_category"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5.2 只在分类中显示n条招聘信息</a></h3>
+<p>添加下面代码到测试文件尾部：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>checkElement()</code> 方法同样也支持检验CSS选择器是否与响应内容n（多）次匹配。</p>
+<h3 id="chapter_09_sub_a_category_has_a_link_to_the_category_page_only_if_too_many_jobs"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5.3 当一个分类有足够多招聘信息时才显示链接</a></h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在这里，我们测试design分类是否没有“more jobs”链接（<code>.category_design .more_jobs</code> 不存在），同时测试programming分类是否有“more jobs”链接（<code>.category_programming .more_jobs`</code> 存在）。</p>
+<h3 id="chapter_09_sub_jobs_are_sorted_by_date"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5.4 招聘信息按日期排序</a></h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>注意，虽然这部分代码进行的是</p>
+<p>为了测试招聘信息是否按日期排序，我们需要检查首页上的<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一条信息是否是我们需要的。这个可以通过检查URL中是否包含预期的主键。因为主键在运行中会改变，我们需要先从数据库取得doctrine对象。</p>
+<p>现在测试可以正常工作了，但我们还需要重构一小部分代码，因为从获取programming分类<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一条招聘信息这部分代码，还可以在其它测试中重用。数据库操作，但我们不会将它移到模型层，因为这部分代码只在测试中使用。我们将代码移到先前创建的 <code>JobeetTestFunctional</code> 类中。这个类是Jobeet域专用功能测试器类：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>现在，您可以通过以下取代以前的测试代码：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_09_sub_each_job_on_the_homepage_is_clickable"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.5.5 主页上每个招聘信息都可点击</a></h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>为测试首页招聘信息链接是否可用，我们模拟”Web Developer”链接的点击动作。页面上有许多链接，我们使用 <code>array('position' =&gt; 1)</code> 通知浏览器点击<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一个链接。</p>
+<p>然后，测试每个请求参数，以确认通过招聘信的息路由规则，可以访问正确的内容。</p>
+<h2 id="chapter_09_learn_by_the_example"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.6 通过例子学习</a></h2>
+<p>这里，我们给出测试所有信息和分类页面的代码。仔细阅读这些代码，你会学到一些技巧：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_09_debugging_functional_tests"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.7 调试功能测试</a></h2>
+<p>有时，进行功能测试可能会失败。而symfony模拟浏览器又不支持图形界面，所以很难诊断出失败的原因。非常感谢symfony提供了 <code>~debug|Debug~()</code> 方法，它可以在命令行中输出响应头和内容：</p>
+<!-- raw HTML omitted -->
+<p><code>debug()</code> 方法可以放在 <code>response</code> 测试块中任何地方，并会中断脚本执行，返回响应信息。</p>
+<h2 id="chapter_09_functional_tests_harness"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.8 打包功能测试</a></h2>
+<p><code>test:functional</code> 命令也可以用于启动程序所有功能测试：</p>
+<!-- raw HTML omitted -->
+<p>这个命令为每个文件单独产生一行输出信息：</p>
+<p><img src="res/test_harness.png" alt="Functional tests harness"></p>
+<h2 id="chapter_09_tests_harness"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.9 打包测试</a></h2>
+<p>和你期待的一样，symfony提供可以启动项目所有测试（单元和功能测试）的命令：</p>
+<!-- raw HTML omitted -->
+<p><img src="res/tests_harness.png" alt="Tests harness"></p>
+<p>当你有一个强大的测试套件，每次进行所有测试都是非常费时的，特别是在一些测试失败的情况。这是因为每次确定一个测试，你应该运行整个测试套件，这也是为了确保你没有破坏程序。但失败的测试是不固定的，并且没有必要重新执行所有其他的测试点。所以我们需要 <code>test:all</code> 命令的 <code>--only-failed</code> 选项表示只重新执行以前的运行失败的测试。</p>
+<!-- raw HTML omitted -->
+<p>当您<!-- raw HTML omitted -->第<!-- raw HTML omitted -->一次运行任务，所有测试都运行正常。但随后的测试运行，只有最后一次测试失败被执行。当你解决你的代码，有些测试会通过，并将于随后的运行中删除。当所有测试都通过了，整个测试套件运，然后你可以重复做这些。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_09_final_thoughts"><a href="forum.php?mod=viewthread&amp;tid=67&amp;extra=page%3D1#">9.10 结语</a></h2>
+<p>结束了我们的symfony测试之旅。你不会再有不测试的借口了！有了lime框架和功能测试框架这些强大的工具，你将不费吹灰之力完成程序测试。</p>
+<p>对于功能测试来说，我们今天的教程只触及皮毛。以后我们每添加一个新功能，都会编写功能测试代码，我们会学到它更多功能。</p>
+<p>明天再来，我们将学习symfony另一个强大的框架：<strong>表单框架</strong>。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%85%AB%E5%A4%A9%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" data-toggle="tooltip" data-placement="top" title="第八天：单元测试">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%A4%A9%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%99%A8/" data-toggle="tooltip" data-placement="top" title="第十二天：管理后台生成器">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">3400 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

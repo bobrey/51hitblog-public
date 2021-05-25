@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> structs.properties - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="structs.properties" />
+  <meta name="twitter:title" content="structs.properties" />
+  <meta name="description" content="### Struts default properties ### Struts 默认属性文件###(can be overridden by a struts.properties file in the root of the classpath) ###可以用classpath根路径上的struts.properties文件">
+  <meta property="og:description" content="### Struts default properties ### Struts 默认属性文件###(can be overridden by a struts.properties file in the root of the classpath) ###可以用classpath根路径上的struts.properties文件">
+  <meta name="twitter:description" content="### Struts default properties ### Struts 默认属性文件###(can be overridden by a struts.properties file in the root of the classpath) ###可以用classpath根路径上的struts.properties文件">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-12-13-structs-properties/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-12-13-structs-properties/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">structs.properties</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Dec 13, 2011</h4>
+    </section>
+    <h5 id="wc">3200 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>### Struts default properties <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->Struts 默认属性文件<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>###(can be overridden by a struts.properties file in the root of the classpath) <!-- raw HTML omitted --></p>
+<p>###<!-- raw HTML omitted --><!-- raw HTML omitted -->可以用classpath根路径上的struts.properties文件来覆盖本设置 <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Specifies the Configuration used to configure Struts <!-- raw HTML omitted --></p>
+<p>### one could extend org.apache.struts2.config.Configuration <!-- raw HTML omitted --></p>
+<p>### to build one&rsquo;s customize way of getting the configurations parameters into Struts <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->指定一个扩展自org.apache.struts2.config.Configuration类的Cnfiguration类<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->### <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->来<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->完成自定义的配置参数读入<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p># struts.configuration=org.apache.struts2.config.DefaultConfiguration <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### This can be used to set your default locale and encoding scheme <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->用来设定默认的locale和encoding<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p># struts.locale=en_US <!-- raw HTML omitted --></p>
+<p>struts.i18n.encoding=UTF-8 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### if specified, the default object factory can be overridden here <!-- raw HTML omitted --></p>
+<p>### Note: short-hand notation is supported in some cases, such as &ldquo;spring&rdquo; <!-- raw HTML omitted --></p>
+<p>###       Alternatively, you can provide a com.opensymphony.xwork2.ObjectFactory subclass name here   <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->如果该参数被指定，默认的对象工厂将被覆盖，注意：这里可以支持“简称”（如&quot;spring&quot;）也可以提供一<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->个<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->com.opensymphony.xwork2.ObjectFactory的子类的全类名 <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p># struts.objectFactory = spring <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### specifies the autoWiring logic when using the SpringObjectFactory. <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->当struts.objectFactory使用SpringObjectFactory时，这里指定spring自动装配的策略<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>### valid values are: name, type, auto, and constructor (name is the default) <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->可选的值有：name,type,auto和constructor(name是默认的)<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.objectFactory.spring.autoWire = name <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### indicates to the struts-spring integration if Class instances should be cached <!-- raw HTML omitted --></p>
+<p>### this should, until a future Spring release makes it possible, be left as true <!-- raw HTML omitted --></p>
+<p>### unless you know exactly what you are doing! <!-- raw HTML omitted --></p>
+<p>### valid values are: true, false (true is the default) <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->表明struts-spring集成时类实例是否要被缓存，这要spring的支持（好像是现在没用）默认值是true <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>struts.objectFactory.spring.useClassCache = true <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### ensures the autowire strategy is always respected. <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->确保spring的自动装配策略总是被考虑的 <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>### valid values are: true, false (false is the default) <!-- raw HTML omitted --></p>
+<p>struts.objectFactory.spring.autoWire.alwaysRespect = false <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### if specified, the default object type determiner can be overridden here <!-- raw HTML omitted --></p>
+<p>### Note: short-hand notation is supported in some cases, such as &ldquo;tiger&rdquo; or &ldquo;notiger&rdquo; <!-- raw HTML omitted --></p>
+<p>###       Alternatively, you can provide a com.opensymphony.xwork2.util.ObjectTypeDeterminer implementation name here<!-- raw HTML omitted --></p>
+<p>### Note: By default, com.opensymphony.xwork2.util.DefaultObjectTypeDeterminer is used which handles type detection <!-- raw HTML omitted --></p>
+<p>###       using generics. com.opensymphony.xwork2.util.GenericsObjectTypeDeterminer was deprecated since XWork 2, it&rsquo;s <!-- raw HTML omitted --></p>
+<p>###       functions are integrated in DefaultObjectTypeDeterminer now. <!-- raw HTML omitted --></p>
+<p>###       To disable tiger support use the &ldquo;notiger&rdquo; property value here. <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->这个没有用过不知道是做什么的<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>#struts.objectTypeDeterminer = tiger <!-- raw HTML omitted --></p>
+<p>#struts.objectTypeDeterminer = notiger <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Parser to handle HTTP POST requests, encoded using the MIME-type multipart/form-data <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->指定用什么来解析MIME-type是multipart/form-data(即上传文件)的request的post提交<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->有cos、pell、jakarta三个选择<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p># struts.multipart.parser=cos <!-- raw HTML omitted --></p>
+<p># struts.multipart.parser=pell <!-- raw HTML omitted --></p>
+<p>struts.multipart.parser=jakarta <!-- raw HTML omitted --></p>
+<p># uses javax.servlet.context.tempdir by default <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->上传临时文件存放路径（默认是javax.servlet.context.tempdir）<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.multipart.saveDir= <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->上传临时文件大小最大限制<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.multipart.maxSize=2097152 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Load custom property files (does not override struts.properties!) <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->用户自定义属性文件路径（不能是struts.properties）<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p># struts.custom.properties=application,org/apache/struts2/extension/custom <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### How request URLs are mapped to and from actions <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->设置如何将URLs关联到actions<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>#struts.mapper.class=org.apache.struts2.dispatcher.mapper.DefaultActionMapper <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Used by the DefaultActionMapper <!-- raw HTML omitted --></p>
+<p>### You may provide a comma separated list, e.g. struts.action.extension=action,jnlp,do <!-- raw HTML omitted --></p>
+<p>### The blank extension allows you to match directory listings as well as pure action names <!-- raw HTML omitted --></p>
+<p>### without interfering with static resources. <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->如果使用了DefaultActionMapper那么这里你可以提供一个以逗号分隔的列表作为后缀，如：<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->###<!-- raw HTML omitted --><!-- raw HTML omitted --> struts.action.<!-- raw HTML omitted -->extension<!-- raw HTML omitted -->=action,jnlp,do空白的后缀允许你以目录列表作为更好的action名进行匹配 <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>struts.action.extension=action,, <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Used by FilterDispatcher <!-- raw HTML omitted --></p>
+<p>### If true then Struts serves static content from inside its jar. <!-- raw HTML omitted --></p>
+<p>### If false then the static content must be available at &lt;context_path&gt;/struts <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->如果使用FilterDispatcher，当该设为true时struts从jar里提供静态资源(如dojo提供的时间控件)<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->当该设为false时静态资源必须在&lt;context_path&gt;/struts才有效<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.serve.static=true <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Used by FilterDispatcher <!-- raw HTML omitted --></p>
+<p>### This is good for development where one wants changes to the static content be <!-- raw HTML omitted --></p>
+<p>### fetch on each request. <!-- raw HTML omitted --></p>
+<p>### NOTE: This will only have effect if struts.serve.static=true <!-- raw HTML omitted --></p>
+<p>### If true -&gt; Struts will write out header for static contents such that they will <!-- raw HTML omitted --></p>
+<p>###             be cached by web browsers (using Date, Cache-Content, Pragma, Expires) <!-- raw HTML omitted --></p>
+<p>###             headers). <!-- raw HTML omitted --></p>
+<p>### If false -&gt; Struts will write out header for static contents such that they are <!-- raw HTML omitted --></p>
+<p>###            NOT to be cached by web browser (using Cache-Content, Pragma, Expires <!-- raw HTML omitted --></p>
+<p>###            headers) <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->设置是否缓存静态资源<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.serve.static.browserCache=true <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Set this to false if you wish to disable implicit dynamic method invocation <!-- raw HTML omitted --></p>
+<p>### via the URL request. This includes URLs like foo!bar.action, as well as params <!-- raw HTML omitted --></p>
+<p>### like method:bar (but not action:foo). <!-- raw HTML omitted --></p>
+<p>### An alternative to implicit dynamic method invocation is to use wildcard <!-- raw HTML omitted --></p>
+<p>### mappings, such as <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->设置struts是否支持动态方法调用<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.enable.DynamicMethodInvocation = true <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Set this to true if you wish to allow slashes in your action names.  If false, <!-- raw HTML omitted --></p>
+<p>### Actions names cannot have slashes, and will be accessible via any directory <!-- raw HTML omitted --></p>
+<p>### prefix.  This is the traditional behavior expected of WebWork applications. <!-- raw HTML omitted --></p>
+<p>### Setting to true is useful when you want to use wildcards and store values <!-- raw HTML omitted --></p>
+<p>### in the URL, to be extracted by wildcard patterns, such as <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --> to match &ldquo;/foo/edit&rdquo; or <!-- raw HTML omitted --></p>
+<p>### &ldquo;/foo/save&rdquo;. <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->设置是否允许action的name里有&quot;/&quot;<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.enable.SlashesInActionNames = false <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### use alternative syntax that requires %{} in most places <!-- raw HTML omitted --></p>
+<p>### to evaluate expressions for String attributes for tags <!-- raw HTML omitted --></p>
+<p>struts.tag.altSyntax=true <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### when set to true, Struts will act much more friendly for developers. This <!-- raw HTML omitted --></p>
+<p>### includes: <!-- raw HTML omitted --></p>
+<p>### – struts.i18n.reload = true <!-- raw HTML omitted --></p>
+<p>### – struts.configuration.xml.reload = true <!-- raw HTML omitted --></p>
+<p>### – raising various debug or ignorable problems to errors <!-- raw HTML omitted --></p>
+<p>###   For example: normally a request to foo.action?someUnknownField=true should <!-- raw HTML omitted --></p>
+<p>###                be ignored (given that any value can come from the web and it <!-- raw HTML omitted --></p>
+<p>###                should not be trusted). However, during development, it may be <!-- raw HTML omitted --></p>
+<p>###                useful to know when these errors are happening and be told of <!-- raw HTML omitted --></p>
+<p>###                them right away. <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->是否是开发模式，true:i18n自动重新加载，struts配置文件自动重新加载<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.devMode = false <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### when set to true, resource bundles will be reloaded on _every_ request. <!-- raw HTML omitted --></p>
+<p>### this is good during development, but should never be used in production <!-- raw HTML omitted --></p>
+<p>struts.i18n.reload=false <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Standard UI theme <!-- raw HTML omitted --></p>
+<p>### Change this to reflect which path should be used for JSP control tag templates by default <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->struts标签使用哪种默认样式<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.ui.theme=xhtml <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->struts标签的模板所在路径<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.ui.templateDir=template <!-- raw HTML omitted --></p>
+<p>#sets the default template type. Either ftl, vm, or jsp <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->设置模板类型<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.ui.templateSuffix=ftl <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Configuration reloading <!-- raw HTML omitted --></p>
+<p>### This will cause the configuration to reload struts.xml when it is changed <!-- raw HTML omitted --></p>
+<p>struts.configuration.xml.reload=false <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Location of velocity.properties file.  defaults to velocity.properties <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->velocit的配置文件<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.velocity.configfile = velocity.properties <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Comma separated list of VelocityContext classnames to chain to the StrutsVelocityContext <!-- raw HTML omitted --></p>
+<p>struts.velocity.contexts = <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Location of the velocity toolbox <!-- raw HTML omitted --></p>
+<p>struts.velocity.toolboxlocation= <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### used to build URLs, such as the UrlTag <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->用struts标签构造的url的http端口号和https端口号<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.url.http.port = 80 <!-- raw HTML omitted --></p>
+<p>struts.url.https.port = 443 <!-- raw HTML omitted --></p>
+<p>### possible values are: none, get or all <!-- raw HTML omitted --></p>
+<p>struts.url.includeParams = get <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Load custom default resource bundles <!-- raw HTML omitted --></p>
+<p>### 自定义的i18n <!-- raw HTML omitted --></p>
+<p># struts.custom.i18n.resources=testmessages,testmessages2 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### workaround for some app servers that don&rsquo;t handle HttpServletRequest.getParameterMap() <!-- raw HTML omitted --></p>
+<p>### often used for WebLogic, Orion, and OC4J <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->workaround对于一些不处理HttpServletRequest.getParameterMap()的应用服务器，如：WebLogic, Orion, and OC4J<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.dispatcher.parametersWorkaround = false <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### configure the Freemarker Manager class to be used <!-- raw HTML omitted --></p>
+<p>### Allows user to plug-in customised Freemarker Manager if necessary <!-- raw HTML omitted --></p>
+<p>### MUST extends off org.apache.struts2.views.freemarker.FreemarkerManager <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->配置Freemarker Manager类，如果必要可以使用自定义的Freemarker Manager插件<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->必须扩展自org.apache.struts2.views.freemarker.FreemarkerManager<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>#struts.freemarker.manager.classname=org.apache.struts2.views.freemarker.FreemarkerManager <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Enables caching of FreeMarker templates <!-- raw HTML omitted --></p>
+<p>### Has the same effect as copying the templates under WEB_APP/templates <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->允许缓存FreeMarker的模板，与把模板文件考到web_app/templates目录下有一样的效果<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.freemarker.templatesCache=false <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Enables caching of models on the BeanWrapper <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->允许缓存BeanWrapper的models<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.freemarker.beanwrapperCache=false <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### See the StrutsBeanWrapper javadocs for more information <!-- raw HTML omitted --></p>
+<p>struts.freemarker.wrapper.altMap=true <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### maxStrongSize for MruCacheStorage for freemarker <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->FreeMarker缓存大小<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.freemarker.mru.max.strong.size=100 <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### configure the XSLTResult class to use stylesheet caching. <!-- raw HTML omitted --></p>
+<p>### Set to true for developers and false for production. <!-- raw HTML omitted --></p>
+<p>struts.xslt.nocache=false <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Whether to always select the namespace to be everything before the last slash or not <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->是否总是选择最后一个斜杠前的namespace<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.mapper.alwaysSelectFullNamespace=false <!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>### Whether to allow static method access in OGNL expressions or not <!-- raw HTML omitted --></p>
+<p>### <!-- raw HTML omitted --><!-- raw HTML omitted -->是否允许在OGNL表达式的表态方法访问<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>struts.ognl.allowStaticMethodAccess=false</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-12-13-struts2spring%E6%95%B4%E5%90%88/" data-toggle="tooltip" data-placement="top" title="Struts2&#43;Spring整合">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-12-13-structs2-spring%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5/" data-toggle="tooltip" data-placement="top" title="structs2 spring自动注入">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Dec 13, 2011</h4>
+    </section>
+    <h5 id="wc">3200 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

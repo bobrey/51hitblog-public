@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>atom on IT技术分享</title>
+    <link>https://www.51hint.com/tags/atom/</link>
+    <description>Recent content in atom on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Nov 2013 07:07:42 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/atom/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>日本一些博客投稿格式</title>
+      <link>https://www.51hint.com/posts/2013-11-07-%E6%97%A5%E6%9C%AC%E4%B8%80%E4%BA%9B%E5%8D%9A%E5%AE%A2%E6%8A%95%E7%A8%BF%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Thu, 07 Nov 2013 07:07:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-07-%E6%97%A5%E6%9C%AC%E4%B8%80%E4%BA%9B%E5%8D%9A%E5%AE%A2%E6%8A%95%E7%A8%BF%E6%A0%BC%E5%BC%8F/</guid>
+      <description>&amp;lt;td&amp;gt; エンドポイントURL &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; 投稿方式 &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; &amp;lt;a href=&amp;quot;http://blog.dtiblog.com/&amp;quot;&amp;gt;DTI ブログ&amp;lt;/a&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; http://blog.dtiblog.com/xmlrpc.php &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; XML-RPC metaWeblog API (int) &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt; &amp;lt;a href=&amp;quot;http://blog.fc2.com/&amp;quot;&amp;gt;FC2 ブログ&amp;lt;/a&amp;gt; &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; http://blog.fc2.com/xmlrpc.php &amp;lt;/td&amp;gt; &amp;lt;td&amp;gt; XML-RPC</description>
+    </item>
+    
+  </channel>
+</rss>

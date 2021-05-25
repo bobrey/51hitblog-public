@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据可视化 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+    <description>Recent content in 数据可视化 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Sep 2015 04:49:47 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据可视化</title>
+      <link>https://www.51hint.com/posts/2015-09-07-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+      <pubDate>Mon, 07 Sep 2015 04:49:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-09-07-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+      <description>Spss那样强大的统计分析功能。 Matlab的功能更加强大，但需要较为深厚的编程基础，比较适合科学方面的可视化项目。 Excel是最流行最常用</description>
+    </item>
+    
+  </channel>
+</rss>

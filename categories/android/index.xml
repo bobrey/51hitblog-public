@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>android on IT技术分享</title>
+    <link>https://www.51hint.com/categories/android/</link>
+    <description>Recent content in android on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Feb 2017 23:08:32 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon SNSとAdobe PhoneGap Buildを利用したプッシュ通知アプリの作成</title>
+      <link>https://www.51hint.com/posts/amazon-snstoadobe-phonegap-buildwoli-yong-sitaputusiyutong-zhi-apurinozuo-cheng/</link>
+      <pubDate>Wed, 22 Feb 2017 23:08:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/amazon-snstoadobe-phonegap-buildwoli-yong-sitaputusiyutong-zhi-apurinozuo-cheng/</guid>
+      <description>BaaS（Backend as a service）の普及により、より手軽にスマートデバイス向けのアプリが開発できるようになりました。 そこで今回は、</description>
+    </item>
+    
+    <item>
+      <title>android 小结</title>
+      <link>https://www.51hint.com/posts/2017-01-19-android-%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Thu, 19 Jan 2017 00:55:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2017-01-19-android-%E5%B0%8F%E7%BB%93/</guid>
+      <description>Android酷炫实用的开源框架（UI框架） – Android开发中文站 www.androidchina.net/1992.html Android 中的MVP 模式 xuyushi.github.io/2016/02/28/MVP/ Dagger 2: Step To Step – 简书 www.jianshu.com/p/7505d92d7748 依赖注入库 Dagger2 的使用方法 https://github.com/SpikeKing/wcl-dagger-demo RxJava 和 RxAndroid 四</description>
+    </item>
+    
+    <item>
+      <title>android listview</title>
+      <link>https://www.51hint.com/posts/2015-11-10-android-listview/</link>
+      <pubDate>Tue, 10 Nov 2015 08:06:24 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-10-android-listview/</guid>
+      <description>Basic ListView Tutorial [ArrayAdapter]
+http://www.codelearn.org/android-tutorial/android-listview
+ Custom ListView with TextView and ImageView
+https://www.caveofprogramming.com/guest-posts/custom-listview-with-imageview-and-textview-in-android.html
+ http://androidexample.com/How_To_Create_A_Custom_Listview_-_Android_Example/index.php?view=article_discription&amp;amp;aid=67&amp;amp;aaid=92</description>
+    </item>
+    
+    <item>
+      <title>android开发</title>
+      <link>https://www.51hint.com/posts/2015-11-03-android%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Tue, 03 Nov 2015 14:38:05 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-11-03-android%E5%BC%80%E5%8F%91/</guid>
+      <description>Retrofit http://www.jianshu.com/p/87c36d8dabce https://bng86.gitbooks.io/android-third-party-/content/retrofit.html https://github.com/bboyfeiyu/android-tech-frontier/tree/master/issue-7/Retrofit%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97 http://malinkang.com/AndroidNote/net/retrofit.html http://blog.chengyunfeng.com/?p=491 Picasso Square公司开源的一个Android图形缓存库,可以实现图片下载和缓存功能 http://malinkang.com/AndroidNote/net/picasso.html http://xiazdong.me/2014/10/03/picasso-tutorial/ Otto Otto 是Android系统的一个Event Bu</description>
+    </item>
+    
+    <item>
+      <title>android全局代理软件</title>
+      <link>https://www.51hint.com/posts/2014-09-27-android%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Sat, 27 Sep 2014 13:54:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-09-27-android%E5%85%A8%E5%B1%80%E4%BB%A3%E7%90%86%E8%BD%AF%E4%BB%B6/</guid>
+      <description>一、ProxyDroid：ProxyDroid功能比较强大，用到的技术也比较多，源码也复杂一点，用到了cntlm、redsocks、netf</description>
+    </item>
+    
+    <item>
+      <title>android模拟器Genymotion</title>
+      <link>https://www.51hint.com/posts/2014-04-25-android%E6%A8%A1%E6%8B%9F%E5%99%A8genymotion/</link>
+      <pubDate>Fri, 25 Apr 2014 06:12:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-25-android%E6%A8%A1%E6%8B%9F%E5%99%A8genymotion/</guid>
+      <description>自从用了Genymotion这个号称快到极致的Android模拟器以后，很多时候调试程序都不想用真机了，SDK带效率低下的官方模拟器因为效率</description>
+    </item>
+    
+    <item>
+      <title>Android APIDemos 研读之一：android.graphics.Movie</title>
+      <link>https://www.51hint.com/posts/2014-02-27-android-apidemos-%E7%A0%94%E8%AF%BB%E4%B9%8B%E4%B8%80android-graphics-movie/</link>
+      <pubDate>Thu, 27 Feb 2014 10:58:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-02-27-android-apidemos-%E7%A0%94%E8%AF%BB%E4%B9%8B%E4%B8%80android-graphics-movie/</guid>
+      <description>在Android中显示GIF动画，有很多方法，比如可以使用J2ME平台上那个解码工具类，纯java的，拿来即可。 但是其实Android还是为</description>
+    </item>
+    
+    <item>
+      <title>android定位和地图开发实例</title>
+      <link>https://www.51hint.com/posts/2014-01-14-android%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%9C%B0%E5%9B%BE%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Tue, 14 Jan 2014 06:47:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-android%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%9C%B0%E5%9B%BE%E5%BC%80%E5%8F%91%E5%AE%9E%E4%BE%8B/</guid>
+      <description>在android开发中地图和定位是很多软件不可或缺的内容，这些特色功能也给人们带来了很多方便。 首先介绍一下地图包中的主要类： MapController ： 主要控制地图</description>
+    </item>
+    
+    <item>
+      <title>Android 手机定位慢的解决方法</title>
+      <link>https://www.51hint.com/posts/2014-01-14-android-%E6%89%8B%E6%9C%BA%E5%AE%9A%E4%BD%8D%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Tue, 14 Jan 2014 06:25:51 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-android-%E6%89%8B%E6%9C%BA%E5%AE%9A%E4%BD%8D%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>首先，你需要创建一个LocationManager； 然后定义出自己的LocationListener，LocationListener包涵了</description>
+    </item>
+    
+    <item>
+      <title>android gps 简单入门2</title>
+      <link>https://www.51hint.com/posts/2014-01-14-android-gps-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A82/</link>
+      <pubDate>Tue, 14 Jan 2014 06:04:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-android-gps-%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A82/</guid>
+      <description>GpsActivty.java 然后在layout目录创建 gps_demo.xml 最后在AndroidManifest.xml里添加需要的权限</description>
+    </item>
+    
+    <item>
+      <title>A-GPS定位Android简单实现</title>
+      <link>https://www.51hint.com/posts/2014-01-14-a-gps%E5%AE%9A%E4%BD%8Dandroid%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 14 Jan 2014 05:54:30 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-a-gps%E5%AE%9A%E4%BD%8Dandroid%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</guid>
+      <description>先介绍一下A-GPS的基本知识 部分参考百度百科 A-GPS A-GPS技术是一种结合了网络基站信息和GPS信息对移动台进行定位的技术，可以在GSM/GP</description>
+    </item>
+    
+    <item>
+      <title>Android: 利用SurfaceView绘制股票滑动直线解决延迟问题</title>
+      <link>https://www.51hint.com/posts/2014-01-09-android-%E5%88%A9%E7%94%A8surfaceview%E7%BB%98%E5%88%B6%E8%82%A1%E7%A5%A8%E6%BB%91%E5%8A%A8%E7%9B%B4%E7%BA%BF%E8%A7%A3%E5%86%B3%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 09 Jan 2014 06:49:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-09-android-%E5%88%A9%E7%94%A8surfaceview%E7%BB%98%E5%88%B6%E8%82%A1%E7%A5%A8%E6%BB%91%E5%8A%A8%E7%9B%B4%E7%BA%BF%E8%A7%A3%E5%86%B3%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/</guid>
+      <description>1.背景介绍 最近项目要绘制股票走势图，并绘制能够跟随手指滑动的指示线(Indicator)来精确查看股票价格和日期。如下图所示： 上图中的那条</description>
+    </item>
+    
+    <item>
+      <title>android ListView常见问题解决方法（滚动背景变黑，去除滑动时阴影，拖动时Item图片不显示）</title>
+      <link>https://www.51hint.com/posts/2013-12-19-android-listview%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%BB%9A%E5%8A%A8%E8%83%8C%E6%99%AF%E5%8F%98%E9%BB%91%E5%8E%BB%E9%99%A4%E6%BB%91%E5%8A%A8/</link>
+      <pubDate>Thu, 19 Dec 2013 07:47:44 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-12-19-android-listview%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%BB%9A%E5%8A%A8%E8%83%8C%E6%99%AF%E5%8F%98%E9%BB%91%E5%8E%BB%E9%99%A4%E6%BB%91%E5%8A%A8/</guid>
+      <description>&amp;lt;p&amp;gt; &amp;amp;nbsp; &amp;lt;/p&amp;gt; &amp;lt;p&amp;gt; 在ListView中我们使用属性 android:divider=&amp;amp;#8221;#FF0000&amp;amp;#8243; 定义分隔符为红色，当然这里值可以指向一个drawable图片对象，如果使用了图片可能高度大于系统默</description>
+    </item>
+    
+    <item>
+      <title>android -something</title>
+      <link>https://www.51hint.com/posts/2013-12-09-android-something/</link>
+      <pubDate>Mon, 09 Dec 2013 02:21:54 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-12-09-android-something/</guid>
+      <description>andorid 将崩溃信息保存 blog.csdn.net/liuhe688/article/details/6584143 www.cnblogs.com/jacer/archive/2013/05/26/3100476.html andorid TextView有滚动条 blog.sina.com.cn/s/blog_4083b55f0100i2en.html Andorid加载页面 104zz.iteye.com/blog/1688249 examples.javacodegeeks.com/android/core/ui/progressdialog/android-progressdialog-example/ SliderShare http://dev.10086.cn/cmdn/bbs/thread-62169-1-1.html</description>
+    </item>
+    
+    <item>
+      <title>gson list to json</title>
+      <link>https://www.51hint.com/posts/2013-11-28-gson-list-to-json/</link>
+      <pubDate>Thu, 28 Nov 2013 00:06:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-28-gson-list-to-json/</guid>
+      <description>创建 从list数组到json的格式化。</description>
+    </item>
+    
+    <item>
+      <title>logcat 导出</title>
+      <link>https://www.51hint.com/posts/2013-11-15-logcat-%E5%AF%BC%E5%87%BA/</link>
+      <pubDate>Fri, 15 Nov 2013 02:43:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-15-logcat-%E5%AF%BC%E5%87%BA/</guid>
+      <description>例如 只显示 tag为 007， 错误输出 输出警告 具体参考 http://developer.android.com/tools/debugging/debugging-log.html</description>
+    </item>
+    
+    <item>
+      <title>Handler,Callback 泄露内存</title>
+      <link>https://www.51hint.com/posts/2013-11-07-handlercallback-%E6%B3%84%E9%9C%B2%E5%86%85%E5%AD%98/</link>
+      <pubDate>Thu, 07 Nov 2013 04:54:24 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-07-handlercallback-%E6%B3%84%E9%9C%B2%E5%86%85%E5%AD%98/</guid>
+      <description>然后再使用Handler/Callback ,就OK了； 不会再泄露内存 或者</description>
+    </item>
+    
+    <item>
+      <title>对于CallBack的简单阐述</title>
+      <link>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</link>
+      <pubDate>Wed, 30 Oct 2013 06:00:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</guid>
+      <description>一哥们被callback整得晕晕乎乎，解释了半天好像还是不太懂就整理一个微型例子。 逻辑页面处理，调用接口的方法 //一些调用UI页面啥之类的，</description>
+    </item>
+    
+    <item>
+      <title>android 动态添加layout，重利用layoutxml</title>
+      <link>https://www.51hint.com/posts/2013-10-21-android-%E5%8A%A8%E6%80%81%E6%B7%BB%E5%8A%A0layout%E9%87%8D%E5%88%A9%E7%94%A8layoutxml/</link>
+      <pubDate>Mon, 21 Oct 2013 04:48:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-21-android-%E5%8A%A8%E6%80%81%E6%B7%BB%E5%8A%A0layout%E9%87%8D%E5%88%A9%E7%94%A8layoutxml/</guid>
+      <description>Android include and merge layout example How to use the and tags in Android to create efficient and reusable layouts</description>
+    </item>
+    
+    <item>
+      <title>关闭android应用程序</title>
+      <link>https://www.51hint.com/posts/2013-10-18-%E5%85%B3%E9%97%ADandroid%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Fri, 18 Oct 2013 07:33:38 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-18-%E5%85%B3%E9%97%ADandroid%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</guid>
+      <description>在 AndroidMainfest.xml添加</description>
+    </item>
+    
+    <item>
+      <title>GitHub上最火的Android开源项目（直接拿来用！最火的Android开源项目）</title>
+      <link>https://www.51hint.com/posts/2013-10-09-github%E4%B8%8A%E6%9C%80%E7%81%AB%E7%9A%84android%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%9B%B4%E6%8E%A5%E6%8B%BF%E6%9D%A5%E7%94%A8%E6%9C%80%E7%81%AB%E7%9A%84android%E5%BC%80%E6%BA%90/</link>
+      <pubDate>Wed, 09 Oct 2013 07:35:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-09-github%E4%B8%8A%E6%9C%80%E7%81%AB%E7%9A%84android%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%9B%B4%E6%8E%A5%E6%8B%BF%E6%9D%A5%E7%94%A8%E6%9C%80%E7%81%AB%E7%9A%84android%E5%BC%80%E6%BA%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android scrollview 滚动到底部等</title>
+      <link>https://www.51hint.com/posts/2013-10-07-android-scrollview-%E6%BB%9A%E5%8A%A8%E5%88%B0%E5%BA%95%E9%83%A8%E7%AD%89/</link>
+      <pubDate>Mon, 07 Oct 2013 06:15:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-07-android-scrollview-%E6%BB%9A%E5%8A%A8%E5%88%B0%E5%BA%95%E9%83%A8%E7%AD%89/</guid>
+      <description>================= (一)设置滚动条的初始位置 ============================================ScrollView 的滚动条默认置顶，若想设置它的位置，可以使用 方法，可达到效果。 本人在开发过程中发现，使用mScrollView</description>
+    </item>
+    
+    <item>
+      <title>Android之动态调整控件大小</title>
+      <link>https://www.51hint.com/posts/2013-10-07-android%E4%B9%8B%E5%8A%A8%E6%80%81%E8%B0%83%E6%95%B4%E6%8E%A7%E4%BB%B6%E5%A4%A7%E5%B0%8F/</link>
+      <pubDate>Mon, 07 Oct 2013 01:30:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-07-android%E4%B9%8B%E5%8A%A8%E6%80%81%E8%B0%83%E6%95%B4%E6%8E%A7%E4%BB%B6%E5%A4%A7%E5%B0%8F/</guid>
+      <description>**利用getLayoutParams()方法和setLayoutParams()方法。 三步曲： 1、首先利用getLayoutParams(</description>
+    </item>
+    
+    <item>
+      <title>android listview 多列显示</title>
+      <link>https://www.51hint.com/posts/2013-10-03-android-listview-%E5%A4%9A%E5%88%97%E6%98%BE%E7%A4%BA/</link>
+      <pubDate>Thu, 03 Oct 2013 05:25:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-03-android-listview-%E5%A4%9A%E5%88%97%E6%98%BE%E7%A4%BA/</guid>
+      <description>The adapter would inflate the layout for each row in its getView() method and assign the data to the individual views in the row. The adapter is assigned to the ListView via the setAdapter method on the ListView object. Filtering and sorting of the data is handled by the adapter. You need to implement the logic in your custom adapter implementation. 更多参考例子：ht</description>
+    </item>
+    
+    <item>
+      <title>Surface、SurfaceView 、SurfaceHolder</title>
+      <link>https://www.51hint.com/posts/2013-10-02-surfacesurfaceview-surfaceholder/</link>
+      <pubDate>Wed, 02 Oct 2013 03:55:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-02-surfacesurfaceview-surfaceholder/</guid>
+      <description>首先得简单说明一下Surface与SurfaceHolder.Callback之间的联系。 Surface是android的一个重要元素，用于</description>
+    </item>
+    
+    <item>
+      <title>cocos2d-x 一些编辑器</title>
+      <link>https://www.51hint.com/posts/2012-11-05-cocos2d-x-%E4%B8%80%E4%BA%9B%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+      <pubDate>Mon, 05 Nov 2012 05:12:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-05-cocos2d-x-%E4%B8%80%E4%BA%9B%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
+      <description>Action Editor SpriteHelper &amp;amp; LevelHelper Author’s blog Download from Mac Store SpriteHelperFree SpriteHelper LevelHelper “Video” Youtube: http://www.youtube.com/watch?v=YoVMSuwsATk Youku: http://v.youku.com/v_show/id_XMjU2NjU1OTIw.html News on cocos2d-x: http://www.cocos2d-x.org/news/14 CocosBuilder: http://cocosbuilder.com/ (can only be used in ios games) SceneDesigner: https://github.com/andrew0/SceneDesigner CocoShop: http://www.cocos2d-iphone.org/forum/topic/15668 (can only be used in ios games) – Abandoned project Map Editor Tiled Map Editor , free, cross platform, based on</description>
+    </item>
+    
+    <item>
+      <title>android 所见所得，绘制画面</title>
+      <link>https://www.51hint.com/posts/2012-09-04-android-%E6%89%80%E8%A7%81%E6%89%80%E5%BE%97%E7%BB%98%E5%88%B6%E7%94%BB%E9%9D%A2/</link>
+      <pubDate>Tue, 04 Sep 2012 07:31:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-09-04-android-%E6%89%80%E8%A7%81%E6%89%80%E5%BE%97%E7%BB%98%E5%88%B6%E7%94%BB%E9%9D%A2/</guid>
+      <description>DroidDraw http://www.droiddraw.org/</description>
+    </item>
+    
+    <item>
+      <title>android 浏览器</title>
+      <link>https://www.51hint.com/posts/2012-07-09-android-%E6%B5%8F%E8%A7%88%E5%99%A8/</link>
+      <pubDate>Mon, 09 Jul 2012 07:59:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-09-android-%E6%B5%8F%E8%A7%88%E5%99%A8/</guid>
+      <description>1、在程序中调起浏览器 2、通过WebView嵌入浏览器 1）允许internet连接的访问 在上面的例子中，我们可能发现无法相关的网页，这是因为</description>
+    </item>
+    
+    <item>
+      <title>Android消息提示框和对话框</title>
+      <link>https://www.51hint.com/posts/2012-07-09-android%E6%B6%88%E6%81%AF%E6%8F%90%E7%A4%BA%E6%A1%86%E5%92%8C%E5%AF%B9%E8%AF%9D%E6%A1%86/</link>
+      <pubDate>Mon, 09 Jul 2012 07:40:08 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-09-android%E6%B6%88%E6%81%AF%E6%8F%90%E7%A4%BA%E6%A1%86%E5%92%8C%E5%AF%B9%E8%AF%9D%E6%A1%86/</guid>
+      <description>在某些情况下需要向用户弹出提示消息，如显示错误信息，收到短消息等，Android提供两种弹出消息的方式，消息提示框toasts和对话框ale</description>
+    </item>
+    
+    <item>
+      <title>android notification</title>
+      <link>https://www.51hint.com/posts/2012-07-09-android-notification/</link>
+      <pubDate>Mon, 09 Jul 2012 07:05:01 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-09-android-notification/</guid>
+      <description>1，使用setLatestEventInfo方法更新标准的扩展的状态通知显示中所显示的详细信息。 2，使用远程视图（Remote View）设置</description>
+    </item>
+    
+    <item>
+      <title>像google一样加一个两步密码验证</title>
+      <link>https://www.51hint.com/posts/2012-07-02-%E5%83%8Fgoogle%E4%B8%80%E6%A0%B7%E5%8A%A0%E4%B8%80%E4%B8%AA%E4%B8%A4%E6%AD%A5%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81/</link>
+      <pubDate>Mon, 02 Jul 2012 05:47:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-02-%E5%83%8Fgoogle%E4%B8%80%E6%A0%B7%E5%8A%A0%E4%B8%80%E4%B8%AA%E4%B8%A4%E6%AD%A5%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81/</guid>
+      <description>&amp;lt;p&amp;gt; &amp;lt;a title=&amp;quot;google 两步验证&amp;quot; href=&amp;quot;http://support.google.com/accounts/bin/topic.py?hl=zh-Hans&amp;amp;topic=28786&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;google的两步密码验证&amp;lt;/a&amp;gt;出来已经</description>
+    </item>
+    
+    <item>
+      <title>Android 数据持久化</title>
+      <link>https://www.51hint.com/posts/2012-06-15-android-%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/</link>
+      <pubDate>Fri, 15 Jun 2012 07:30:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-15-android-%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/</guid>
+      <description>Android应用程序数据持久化的种类: SharedPreferences(首选项) 文件存储 sqlite3 数据库 Content Provider(内容提供者) 网络 Sh</description>
+    </item>
+    
+    <item>
+      <title>android捕捉回车</title>
+      <link>https://www.51hint.com/posts/2012-06-15-android%E6%8D%95%E6%8D%89%E5%9B%9E%E8%BD%A6/</link>
+      <pubDate>Fri, 15 Jun 2012 06:20:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-15-android%E6%8D%95%E6%8D%89%E5%9B%9E%E8%BD%A6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android 读写文件d</title>
+      <link>https://www.51hint.com/posts/2012-06-12-android-%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6d/</link>
+      <pubDate>Tue, 12 Jun 2012 02:17:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-12-android-%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6d/</guid>
+      <description>默认情况下，任何应用创建的文件，数据库，sharedpreferences都应该是私有化的 位于/data/data/your_project</description>
+    </item>
+    
+    <item>
+      <title>android httpclient 请求二</title>
+      <link>https://www.51hint.com/posts/2012-06-11-android-httpclient-%E8%AF%B7%E6%B1%82%E4%BA%8C/</link>
+      <pubDate>Mon, 11 Jun 2012 09:17:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-11-android-httpclient-%E8%AF%B7%E6%B1%82%E4%BA%8C/</guid>
+      <description>**********************************https 请求</description>
+    </item>
+    
+    <item>
+      <title>android tab tutorial</title>
+      <link>https://www.51hint.com/posts/2012-06-11-android-tab-tutorial/</link>
+      <pubDate>Mon, 11 Jun 2012 07:18:12 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-11-android-tab-tutorial/</guid>
+      <description>Resources res = getResources(); TabHost tabHost = getTabHost(); //The activity TabHost TabHost.TabSpec spec; //Resusable TabSpec for each tab Intent intent; //Reusable Intent for each tab //Create an intent to launch an Activity for the tab (to be reused) intent = new Intent().setClass(this, FirstTab.class); //Initialize a TabSpec for each tab and add it to the TabHost spec = tabHost.newTa</description>
+    </item>
+    
+    <item>
+      <title>后台的Activity被系统回收怎么办：onSaveInstanceState</title>
+      <link>https://www.51hint.com/posts/2012-06-04-%E5%90%8E%E5%8F%B0%E7%9A%84activity%E8%A2%AB%E7%B3%BB%E7%BB%9F%E5%9B%9E%E6%94%B6%E6%80%8E%E4%B9%88%E5%8A%9Eonsaveinstancestate/</link>
+      <pubDate>Mon, 04 Jun 2012 08:05:38 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-04-%E5%90%8E%E5%8F%B0%E7%9A%84activity%E8%A2%AB%E7%B3%BB%E7%BB%9F%E5%9B%9E%E6%94%B6%E6%80%8E%E4%B9%88%E5%8A%9Eonsaveinstancestate/</guid>
+      <description>当你的程序中某一个Activity A 在运行时中，主动或被动地运行另一个新的Activity B 这个时候A会执行 B 完成以后又会来找A, 这个时候就</description>
+    </item>
+    
+    <item>
+      <title>Activity 对话框，半透明</title>
+      <link>https://www.51hint.com/posts/2012-06-04-activity-%E5%AF%B9%E8%AF%9D%E6%A1%86%E5%8D%8A%E9%80%8F%E6%98%8E/</link>
+      <pubDate>Mon, 04 Jun 2012 08:02:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-04-activity-%E5%AF%B9%E8%AF%9D%E6%A1%86%E5%8D%8A%E9%80%8F%E6%98%8E/</guid>
+      <description>讲点轻松的吧,可能有人希望做出来的应用程序是一个漂浮在手机主界面的东西，那么很 简单你只需要设置一下Activity的主题就可以了在Andro</description>
+    </item>
+    
+    <item>
+      <title>Android  Activity生命周期</title>
+      <link>https://www.51hint.com/posts/2012-06-04-android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+      <pubDate>Mon, 04 Jun 2012 07:53:57 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-04-android-activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+      <description>onCreate是免不了的，在一个Activity正常启动的过程中，他们被调用的顺序是 onCreate -&amp;gt; onStart -&amp;gt; onResume, 在Activity被干掉的时候顺序是onPa</description>
+    </item>
+    
+    <item>
+      <title>Android Activity和Intent机制</title>
+      <link>https://www.51hint.com/posts/2012-06-04-android-activity%E5%92%8Cintent%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Mon, 04 Jun 2012 02:52:34 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-04-android-activity%E5%92%8Cintent%E6%9C%BA%E5%88%B6/</guid>
+      <description>Android 中，Activity是所有程序的根本，所有程序的流程都运行在Activity之中，Activity具有自己的生命周期 ， 由系统控制生命周期，</description>
+    </item>
+    
+    <item>
+      <title>android 基本简介</title>
+      <link>https://www.51hint.com/posts/2012-06-04-android-%E5%9F%BA%E6%9C%AC%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Mon, 04 Jun 2012 02:27:57 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-04-android-%E5%9F%BA%E6%9C%AC%E7%AE%80%E4%BB%8B/</guid>
+      <description>一个Andoid的应用程序可以利用应用程序框架中的以下几个部分： Activity （活动） Broadcast Intent Receiver （广播意图接收者） Service （服务） Content Provider （内容提供者） 应用程序（Ap</description>
+    </item>
+    
+    <item>
+      <title>Eclipse开发Android应用程序入门</title>
+      <link>https://www.51hint.com/posts/2012-06-01-eclipse%E5%BC%80%E5%8F%91android%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Fri, 01 Jun 2012 06:14:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-01-eclipse%E5%BC%80%E5%8F%91android%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8/</guid>
+      <description>安装Eclipse和Android SDK Android应用程序的推荐开发环境是带有Android开发包插件(Android Devlopment Toolkit (ADT))的Ec</description>
+    </item>
+    
+    <item>
+      <title>MeasureText  –android 测量文字</title>
+      <link>https://www.51hint.com/posts/2012-06-01-measuretext-android-%E6%B5%8B%E9%87%8F%E6%96%87%E5%AD%97/</link>
+      <pubDate>Fri, 01 Jun 2012 02:19:40 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-01-measuretext-android-%E6%B5%8B%E9%87%8F%E6%96%87%E5%AD%97/</guid>
+      <description>Canvas提供drawText,drawPostText在屏幕上显示文字，字体的类型和大小是通过设置paint 的属性来定义的。 Paint同</description>
+    </item>
+    
+    <item>
+      <title>Muilti-touch 双指缩放的实现探索</title>
+      <link>https://www.51hint.com/posts/2012-05-29-muilti-touch-%E5%8F%8C%E6%8C%87%E7%BC%A9%E6%94%BE%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A2%E7%B4%A2/</link>
+      <pubDate>Tue, 29 May 2012 02:32:16 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-29-muilti-touch-%E5%8F%8C%E6%8C%87%E7%BC%A9%E6%94%BE%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%8E%A2%E7%B4%A2/</guid>
+      <description>本文转自：http://blog.csdn.net/barryhappy/article/details/7392326Multi-Touc</description>
+    </item>
+    
+    <item>
+      <title>编写 Android 触摸屏手势识别程序</title>
+      <link>https://www.51hint.com/posts/2012-05-29-%E7%BC%96%E5%86%99-android-%E8%A7%A6%E6%91%B8%E5%B1%8F%E6%89%8B%E5%8A%BF%E8%AF%86%E5%88%AB%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Tue, 29 May 2012 02:11:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-29-%E7%BC%96%E5%86%99-android-%E8%A7%A6%E6%91%B8%E5%B1%8F%E6%89%8B%E5%8A%BF%E8%AF%86%E5%88%AB%E7%A8%8B%E5%BA%8F/</guid>
+      <description>很多时候，利用触摸屏的Fling、Scroll等Gesture（手势）操作来操作会使得应用程序的用户体验大大提升，比如用Scroll手势在 浏</description>
+    </item>
+    
+    <item>
+      <title>MotionEvent 的getX()与getRawX()的区别</title>
+      <link>https://www.51hint.com/posts/2012-05-29-motionevent-%E7%9A%84getx%E4%B8%8Egetrawx%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Tue, 29 May 2012 02:05:32 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-29-motionevent-%E7%9A%84getx%E4%B8%8Egetrawx%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>总结： 如果你的某个Activity中实现OnTouchListener接口，需要重写onTouch(View view，MotionEvent</description>
+    </item>
+    
+    <item>
+      <title>Android canvas的save restore translate rotate用法介绍</title>
+      <link>https://www.51hint.com/posts/2012-05-28-android-canvas%E7%9A%84save-restore-translate-rotate%E7%94%A8%E6%B3%95%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Mon, 28 May 2012 06:02:43 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-05-28-android-canvas%E7%9A%84save-restore-translate-rotate%E7%94%A8%E6%B3%95%E4%BB%8B%E7%BB%8D/</guid>
+      <description>一. 首先讲一下canvas的save 和 restore功能. 这是canvas很有魅力的一个部分. onDraw方法会传入一个Canvas对象，它</description>
+    </item>
+    
+  </channel>
+</rss>

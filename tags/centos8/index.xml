@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>centos8 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/centos8/</link>
+    <description>Recent content in centos8 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Mar 2020 21:04:09 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/centos8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Centos8安装docker</title>
+      <link>https://www.51hint.com/posts/centos8%E5%AE%89%E8%A3%85docker/</link>
+      <pubDate>Wed, 11 Mar 2020 21:04:09 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/centos8%E5%AE%89%E8%A3%85docker/</guid>
+      <description>使用dnf添加docker源 dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo dnf repolist -v dnf list docker-ce --showduplicates | sort -r 安装docker dnf install docker-ce --nobest start systemctl enable --now docker systemctl status docker 添加用户到docker组 usermod -aG docker $USER id $USER 关闭防火墙</description>
+    </item>
+    
+  </channel>
+</rss>

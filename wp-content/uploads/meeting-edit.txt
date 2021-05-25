@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC 
+	"-//W3C//DTD XHTML 1.1 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<%@page contentType="text/html; charset=UTF-8" %>	
+<%@taglib prefix="s" uri="/struts-tags" %>
+<%@taglib prefix="ies" tagdir="/WEB-INF/tags/ies" %>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title><s:text name="labels.header.title" /></title>
+	<link type="text/css" href="<s:url value='/styles/jquery.css'/>" rel="stylesheet" media="all"/>
+	<link type="text/css" href="<s:url value='/styles/validate.css'/>" rel="stylesheet" media="all"/>
+    <script language="JavaScript" type="text/javascript" src="<s:url value='/jquery/ui/jquery.ui.mouse.js'/>"></script>
+    <script language="JavaScript" type="text/javascript" src="<s:url value='/jquery/ui/jquery.ui.draggable.js'/>"></script>
+    <script language="JavaScript" type="text/javascript" src="<s:url value='/jquery/ui/jquery.ui.position.js'/>"></script>
+    <script language="JavaScript" type="text/javascript" src="<s:url value='/jquery/ui/jquery.ui.resizable.js'/>"></script>
+    <script language="JavaScript" type="text/javascript" src="<s:url value='/jquery/ui/jquery.ui.dialog.js'/>"></script>
+    <script language="JavaScript" type="text/javascript" src="<s:url value='/jquery/ui/jquery.ui.datepicker.js'/>"></script>
+	<script language="JavaScript" type="text/javascript" src="<s:url value='/jquery/ui/i18n/jquery.ui.datepicker-ja.js'/>"></script>
+	<script language="JavaScript" type="text/javascript" src="<s:url value='/scripts/validate.js'/>"></script>
+	<script language="JavaScript">
+		function confirmDelete() {
+			return confirm('<s:text name="messages.meeting.delete.confirm"/>');
+		}
+		function combine_time() {
+			
+			j$("#fromTime").val( j$("#fromHour").val()+":"+j$("#fromMin").val() );
+			j$("#toTime").val( j$("#toHour").val()+":"+j$("#toMin").val() );
+		}
+		j$(document).ready(function(){
+			j$("#startDate").datepicker();
+			j$("#startDate").datepicker( "option", "dateFormat", "yy-mm-dd" );
+			
+			j$("#limitedDate").datepicker();
+			j$("#limitedDate").datepicker( "option", "dateFormat", "yy-mm-dd" );
+			
+			function checkMeetingName() {
+				var jObj = j$("#meetingName");
+				if( ! checkEmpty( jObj,"<s:text name='errors.meeting.meetingname.required'/>") ) return false;
+				if( ! checkLength( jObj, "<s:text name='errors.meeting.meetingname.length'/>", 0, 128 ) ) return false;
+				return true;
+			}
+			
+			function checkStartDate() {
+				var jObj = j$("#startDate");
+				if( ! checkEmpty( jObj, "<s:text name='errors.meeting.date.required'/>" ) ) return false;
+				if( ! checkDateFull( jObj, "<s:text name='errors.meeting.date.format'/>" ) ) return false;
+				return true;
+			}
+			
+			function checkLimiteDate() {
+				var jObj = j$("#limitedDate");
+				if( ! checkEmpty( jObj, "<s:text name='errors.meeting.limiteddate.required'/>") ) return false;
+				if( ! checkDateFull( jObj, "<s:text name='errors.meeting.limiteddate.format'/>" ) ) return false;
+				return true;
+			}
+			
+			function checkTime() {
+				return checkFromToTime(j$("#fromHour"),j$("#fromMin"),j$("#toHour"),j$("#toMin"),"<s:text name='errors.meeting.time.range.wrong'/>");
+			}
+			
+			function checkRemark() {
+				return checkLength( j$("#remark"), "<s:text name='errors.meeting.remark.length'/>", 0, 128 );
+			}
+			
+			function checkForm() {
+				if( !checkMeetingName() ) return false;
+				if( !checkStartDate() ) return false;
+				if( !checkTime() ) return false;
+				if( !checkLimiteDate() ) return false;
+				if( !checkRemark() ) return false;
+				return true;
+			}
+			
+			j$("#meetingName").blur(checkMeetingName);
+			j$("#startDate").blur(checkStartDate);
+			j$("#limitedDate").blur(checkLimiteDate);
+			j$("#remark").blur(checkRemark);
+			j$("#fromHour").blur(checkTime);
+			j$("#fromMin").blur(checkTime);
+			j$("#toHour").blur(checkTime);
+			j$("#toMin").blur(checkTime);
+			
+			j$("#update").click(function(){
+				if( checkForm() ) {
+					if( CompareFromToDate(j$("#startDate"),j$("#limitedDate")) > 0 ) {
+						alert("<s:text name='errors.meeting.limiteddate.wrong'/>");
+						return false;
+					}
+					if(<s:text name="isDeviceEnough()"/> == false) {
+						if (confirm('<s:text name="messages.meeting.device.not.enough"/>') == false)
+							return false;
+					}
+					return true;
+				}
+				alert("<s:text name='errors.common.required'/>");
+				return false;
+			});
+			
+			j$("#meeting").submit(function(){
+				combine_time();
+			});
+			
+			<s:if test="!allowMeetingEdit()">
+			j$("#meeting input:button").attr("disabled",true);
+			j$("#meeting input:submit").attr("disabled",true);
+			j$("#meeting input:checkbox").attr("disabled",true);
+			j$("#meeting input:text").attr("disabled",true);
+			j$("#meeting textarea").attr("disabled",true);
+			j$("#meeting select").attr("disabled",true);
+			j$("#copyas").removeAttr("disabled");
+			j$("#cancel").removeAttr("disabled");
+			</s:if>
+		});
+		
+		<s:url id="edituser" action="meeting!edituser?mid=33" namespace="/"/>
+		function editUser() {
+			combine_time();
+			var form = document.getElementById("meeting");
+			form.action="<s:text name='%{edituser}'/>";
+			form.submit();
+		}
+		<s:url id="editdevice" action="meeting!editdevice" namespace="/"/>
+		function editDevice(){
+			combine_time();
+			var form = document.getElementById("meeting");
+			form.action="<s:text name='%{editdevice}'/>";
+			form.submit();
+		}
+		<s:url id="deluser" action="meeting!deleteUser" namespace="/"/>
+		function delUser(index) {
+			combine_time();
+			j$("#deleteIndex").val(index);
+			var form = document.getElementById("meeting");
+			form.action="<s:text name='%{deluser}'/>";
+			form.submit();
+		}
+		<s:url id="deldevice" action="meeting!deleteDevice" namespace="/"/>
+		function delDevice(index) {
+			combine_time();
+			j$("#deleteIndex").val(index);
+			var form = document.getElementById("meeting");
+			form.action="<s:text name='%{deldevice}'/>";
+			form.submit();
+		}
+	</script>
+	<s:head />
+</head>
+<body>
+	<s:form action="meeting">
+	<s:hidden name="deleteIndex" id="deleteIndex"/>
+	<s:hidden name="id" id="id"/>
+	<table width="100%" class="edit-box" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="edit-header">
+				<s:if test="id==0">
+    	        	<img src="<s:url value='/images/button_create_16.png'/>" class="action-icon" />
+					<s:text name="labels.meeting.title.add"/>
+				</s:if>
+				<s:elseif test="allowMeetingEdit()">
+	            		<img src="<s:url value='/images/button_edit_16.png'/>" class="action-icon" />
+						<s:text name="labels.meeting.title.edit"/>
+				</s:elseif>
+				<s:else>
+	            		<img src="<s:url value='/images/button_reference_16.png'/>" class="action-icon" />
+						<s:text name="labels.meeting.title.refer"/>
+				</s:else>
+			</td>
+		</tr>
+		<tr>
+			<td class="edit-error">
+				<s:actionerror/>
+				<s:fielderror/>
+				<ul id="validateTips"></ul>
+			</td>
+		</tr>
+		<tr>
+			<td class="edit-data">
+<table width="100%" class="edit-data-box" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="label" nowrap="nowrap">
+			<s:text name="labels.meeting.name"/>
+			<s:text name="labels.separator.label"/>
+		</td>
+		<td class="input" nowrap="nowrap">
+			<s:textfield name="meetingName" id="meetingName" maxlength="120" cssStyle="width:350px;" cssClass="active-ime"/>
+			<ies:requiredflag/>
+		</td>
+	</tr>
+	<tr>
+		<td class="label" nowrap="nowrap">
+			<s:text name="labels.meeting.date"/>
+			<s:text name="labels.separator.label"/>
+		</td>
+		<td class="input" nowrap="nowrap">
+			<s:textfield name="startDate" id="startDate" cssStyle="width:100px;" cssClass="diable-ime"/>
+			<script language="JavaScript">
+			j$(document).ready(function(){
+				j$("#startDate").val("<s:property value='startDate'/>");
+			});
+			</script>
+			<ies:requiredflag/>
+		</td>
+	</tr>
+	<tr>
+		<td class="label" nowrap="nowrap">
+			<s:text name="labels.meeting.time"/>
+			<s:text name="labels.separator.label"/>
+		</td>
+		<td class="input" nowrap="nowrap">
+			<select name="fromHour" id="fromHour" style="width:48px;"></select>:<select name="fromMin" id="fromMin" style="width:48px;"></select>
+			<s:text name="labels.separator.to"/>
+			<select name="toHour" id="toHour" style="width:48px;"></select>:<select name="toMin" id="toMin" style="width:48px;"></select>
+			<script language="JavaScript">
+			j$(document).ready(function(){
+				for (var i = 0; i < 24; i++) {
+					if(i=="<s:date name='startTime' format='HH'/>"){
+						if(i<10)
+							j$("#fromHour").append("<option selected>0"+i+"</option>");
+						else
+							j$("#fromHour").append("<option selected>"+i+"</option>");
+					}else{
+						if(i<10)
+							j$("#fromHour").append("<option>"+"0"+i+"</option>");
+						else
+							j$("#fromHour").append("<option>"+i+"</option>");
+					}
+					if(i=="<s:date name='endTime' format='HH'/>"){
+						if(i<10)
+							j$("#toHour").append("<option selected>0"+i+"</option>");
+						else
+							j$("#toHour").append("<option selected>"+i+"</option>");
+					}else{
+						if(i<10)
+						    j$("#toHour").append("<option>0"+i+"</option>");
+						else
+							j$("#toHour").append("<option>"+i+"</option>");
+					}
+				}
+				for (var i = 0; i < 60; i++) {
+					
+					if(i=="<s:date name='startTime' format='mm'/>"){
+						if(i<10)
+							j$("#fromMin").append("<option selected>0"+i+"</option>");
+						else
+							j$("#fromMin").append("<option selected>"+i+"</option>");	
+					}else{
+						if(i<10)
+							j$("#fromMin").append("<option>0"+i+"</option>");
+						else
+							j$("#fromMin").append("<option>"+i+"</option>");
+					}
+					if(i=="<s:date name='endTime' format='mm'/>"){
+						if(i<10)
+							j$("#toMin").append("<option selected>0"+i+"</option>");
+						else
+							j$("#toMin").append("<option selected>"+i+"</option>");
+					}else{
+						if(i<10)
+							j$("#toMin").append("<option>0"+i+"</option>");
+						else
+							j$("#toMin").append("<option>"+i+"</option>");
+					}
+				}
+			});	
+				
+				
+			</script>
+			<s:hidden name="fromTime" id="fromTime"/>
+			<s:hidden name="toTime" id="toTime"/>
+			<ies:requiredflag/>
+		</td>
+	</tr>
+	<tr>
+		<td class="label" nowrap="nowrap">
+			<s:text name="labels.meeting.limitedDate"/>
+			<s:text name="labels.separator.label"/>
+		</td>
+		<td class="input" nowrap="nowrap">
+			<s:textfield name="limitedDate" id="limitedDate" cssStyle="width:100px;" cssClass="diable-ime"/>
+			<script language="JavaScript">
+			j$(document).ready(function(){
+				j$("#limitedDate").val("<s:date name='limitedDate' format='yyyy-MM-dd'/>");
+			});
+			</script>
+			<ies:requiredflag/>
+			<s:text name="labels.meeting.until"/>
+		</td>
+	</tr>
+	<s:if test="id!=0">
+	<tr>
+		<td class="label" nowrap="nowrap">
+			<s:text name="labels.meeting.status"/>
+			<s:text name="labels.separator.label"/>
+		</td>
+		<td class="input" nowrap="nowrap">
+			<s:select name="status" id="status" list="getMasters('meeting.status')" listKey="value" listValue="label" value="status"/>
+			<ies:requiredflag/>
+		</td>
+	</tr>
+	</s:if>
+	<tr>
+		<td class="label" nowrap="nowrap">
+			<s:text name="labels.meeting.audioRoom" />
+			<s:text name="labels.separator.label" />		
+		</td>
+		<td class="input" nowrap="nowrap">
+			<select name="audioRoom" id="audioRoom" ></select>
+			<script language="JavaScript">
+ 			j$(document).ready(function(){				
+				var url = "http://192.168.0.77:90/api/get_free_room.json?"+"callback=?";  
+				j$.ajax({
+			        url: url,
+			        dataType: 'jsonp',
+			        data: null,
+			        jsonp: 'callback',
+			        success: function(data) { //返回的json数据
+			        /* 	alert(data); */
+			            for(var i=0;i<data.length;i++){
+							if(data[i].meeting_room_status ==0){
+								j$("#audioRoom").append("<option value = "+ data[i].meeting_room_number +">" + data[i].meeting_room_name + "</option>");
+							}						
+						}//end for
+			        },
+			        error: function(){
+						alert("<s:text name='errors.meeting.save.fail'/>");
+					},
+			        timeout: 1000
+			    });	 							
+			});	
+			
+			
+			 j$(document).ready(function(){
+				j$('#update').click(function(){
+					var meeting_no = j$("#audioRoom ").val();
+					var url = "http://192.168.0.77:90/api/use_room/?callback=?";
+					var qery = "id="  +  meeting_no
+					j$.ajax({
+				        url: url,
+				        dataType: 'jsonp',
+				        data: qery,
+				        jsonp: 'callback',
+				        success: function(json) { //返回的json数据		
+				        	j$('#updates').click();								
+				        },
+				        error: function(){
+							alert("<s:text name='errors.meeting.save.fail'/>");
+						},
+				        timeout: 1000
+				    });	
+				});
+			});	 
+				
+			</script>		
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td class="label" nowrap="nowrap">
+			<s:text name="labels.meeting.remark"/>
+			<s:text name="labels.separator.label"/>
+		</td>
+		<td class="input" nowrap="nowrap">
+			<s:textarea name="remark" id="remark" cssStyle="width:350px;" rows="5" cssClass="active-ime"/>
+		</td>
+	</tr>	
+	<tr>
+		<td class="label" nowrap="nowrap">
+			<s:text name="labels.meeting.createduser"/>
+			<s:text name="labels.separator.label"/>
+		</td>
+		<td class="input" nowrap="nowrap">
+			<s:textfield name="createUserName" id="createUserName" cssStyle="width:100px" readonly="true" cssClass="readonly"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="label" nowrap="nowrap">
+			<s:text name="labels.meeting.createduser.remark"/>
+			<s:text name="labels.separator.label"/>
+		</td>
+		<td class="input" nowrap="nowrap">
+			<s:textfield name="createUserRemark" id="createUserRemark" cssStyle="width:350px" readonly="true" cssClass="readonly"/>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" nowrap="nowrap" style="padding: 15px 0px 10px 180px;font-size: 9pt; color: red;">
+			<s:text name="labels.symbol.star.explain"/>
+		</td>
+	</tr>
+</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<td>
+<table width="90%" class="list-title" align="center" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="header-left bottom_line" nowrap="nowrap">
+    		<img src="<s:url value='/images/button_users_16.png'/>" class="action-icon" />
+			<s:text name="labels.meeting.title.user"/>
+		</td>
+		<td class="header-right bottom_line" nowrap="nowrap">
+			<s:if test="allowMeetingEdit()">
+    			<img src="<s:url value='/images/button_edit_16.png'/>" class="action-icon" />
+				<a href="javascript:editUser();"><s:text name="labels.meeting.user.edit"/></a>
+			</s:if>
+			<s:else>&nbsp;</s:else>
+		</td>
+	</tr>
+</table>
+<table width="85%" id="usersList" class="list-content-box" align="center" border="0" cellpadding="0" cellspacing="0">
+	<tr class="list-content-header list-content-header-bottom-line">
+		<td nowrap="nowrap" class="list-content-header list-content-data-nopadding" width="20%">
+			<s:text name="labels.meeting.user.id"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-header list-content-data-nopadding" width="15%">
+			<s:text name="labels.meeting.user.name"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-header list-content-data-nopadding" width="30%">
+			<s:text name="labels.meeting.user.remark"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-header list-content-data-nopadding" width="10%" align="center">
+			<s:text name="labels.meeting.user.presenter"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-header list-content-data-nopadding" align="center">
+			<s:text name="labels.meeting.user.facilitator"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-header list-content-data-nopadding">
+			&nbsp;
+		</td>
+	</tr>
+	<s:iterator value="userList" status="rowStatus">
+	<tr class="<s:if test="#rowStatus.odd">list-content-data-odd</s:if><s:else>list-content-data-even</s:else>">
+		<td nowrap="nowrap" class="list-content-data list-content-data-nopadding">
+			<s:property value="userCode"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-data list-content-data-nopadding">
+			<s:property value="userName"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-data list-content-data-nopadding">
+			<s:property value="remark"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-data list-content-data-nopadding" align="center">
+			<s:if test="presenter">●</s:if><s:else>&nbsp;</s:else>
+		</td>
+		<td nowrap="nowrap" class="list-content-data list-content-data-nopadding" align="center">
+			<s:if test="facilitator">●</s:if><s:else>&nbsp;</s:else>
+		</td>
+		<td nowrap="nowrap"  class="list-content-data list-content-data-nopadding">
+			<s:if test="allowMeetingEdit()">
+    			<img src="<s:url value='/images/button_remove_16.png'/>" class="action-icon" />
+				<a href="javascript:delUser(<s:property value="#rowStatus.index"/>);"><s:text name="labels.button.delete"/></a>
+			</s:if>
+			<s:else>&nbsp;</s:else>
+		</td>
+	</tr>
+	</s:iterator>
+</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>
+<table width="90%" class="list-title" align="center" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="header-left bottom_line" nowrap="nowrap">
+    		<img src="<s:url value='/images/button_device_16.png'/>" class="action-icon" />
+			<s:text name="labels.meeting.title.device"/>
+		</td>
+		<td class="header-right bottom_line" nowrap="nowrap">
+			<s:if test="allowMeetingEdit()">
+    			<img src="<s:url value='/images/button_edit_16.png'/>" class="action-icon" />
+				<a href="javascript:editDevice();"><s:text name="labels.meeting.device.edit"/></a>
+			</s:if>
+			<s:else>&nbsp;</s:else>
+		</td>
+	</tr>
+</table>
+<table width="85%" id="deviceList" class="list-content-box" align="center" border="0" cellpadding="0" cellspacing="0">
+	<tr class="list-content-header list-content-header-bottom-line">
+		<td nowrap="nowrap" class="list-content-header list-content-data-nopadding" width="20%">
+			<s:text name="labels.meeting.device.id"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-header list-content-data-nopadding" width="15%">
+			<s:text name="labels.meeting.device.name"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-header list-content-data-nopadding" width="30%">
+			<s:text name="labels.meeting.device.remark"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-header list-content-data-nopadding">
+			<s:text name="labels.meeting.device.type"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-header list-content-data-nopadding">
+			&nbsp;
+		</td>
+	</tr>
+	<s:iterator value="allMeetingDeviceList" status="rowStatus">
+	<tr class="<s:if test="#rowStatus.odd">list-content-data-odd</s:if><s:else>list-content-data-even</s:else>">
+		<td nowrap="nowrap" class="list-content-data list-content-data-nopadding">
+			<s:property value="deviceCode"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-data list-content-data-nopadding">
+			<s:property value="userName"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-data list-content-data-nopadding">
+			<s:property value="deviceRemark"/>
+		</td>
+		<td nowrap="nowrap" class="list-content-data list-content-data-nopadding">
+			<s:property value="getMasterLabel('device.type', deviceType)"/>
+		</td>
+		<td nowrap="nowrap"  class="list-content-data list-content-data-nopadding">
+			<s:if test="deviceType==1&&allowMeetingEdit()">
+    			<img src="<s:url value='/images/button_remove_16.png'/>" class="action-icon" />
+				<a href="javascript:delDevice(<s:property value="#rowStatus.index - userDeviceList.size"/>);"><s:text name="labels.button.delete"/></a>
+			</s:if>
+			<s:else>&nbsp;</s:else>
+		</td>
+	</tr>
+	</s:iterator>
+</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="edit-button">
+				<s:url id="urlCancel" action="meeting!cancel.ies" includeParams="none" namespace="/"/>
+				<s:if test="allowMeetingEdit()">
+					<s:submit key="labels.button.update" action="meeting!save" cssClass="button2-action" name="updates" id="updates" hidden="true"/> 
+					<input type="button" id="update" name="update"  value = "<s:text name='labels.button.update' />" class="button2-action" />
+					<input type="button" id="cancel" name="cancel" value="<s:text name='labels.button.cancel'/>" class="button-cancel" onclick="window.location='${urlCancel}'"/>
+				</s:if>
+				<s:else>
+					<s:submit key="labels.button.copyas" action="meeting!copyas" cssClass="button3-action" name="update" id="copyas"/>
+					<input type="button" id="cancel" name="cancel" value="<s:text name='labels.button.goback'/>" class="button-cancel" onclick="window.location='${urlCancel}'"/>
+				</s:else>
+			</td>
+		</tr>
+	</table>
+	</s:form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>curl on IT技术分享</title>
+    <link>https://www.51hint.com/tags/curl/</link>
+    <description>Recent content in curl on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Jun 2012 06:41:29 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/curl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>curl 语言 富客户端开发</title>
+      <link>https://www.51hint.com/posts/2012-06-21-curl-%E8%AF%AD%E8%A8%80-%E5%AF%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Thu, 21 Jun 2012 06:41:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-21-curl-%E8%AF%AD%E8%A8%80-%E5%AF%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91/</guid>
+      <description>caede http://caede.curl.com/ja/gettingstarted.html mobile curl http://codezine.jp/article/detail/6351?p=2 http://news.ccidnet.com/art/32859/20100709/2110719_3.html</description>
+    </item>
+    
+  </channel>
+</rss>

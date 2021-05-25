@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>backbone on IT技术分享</title>
+    <link>https://www.51hint.com/tags/backbone/</link>
+    <description>Recent content in backbone on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Jul 2014 04:34:07 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/backbone/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>backbone入门</title>
+      <link>https://www.51hint.com/posts/2014-07-11-backbone%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Fri, 11 Jul 2014 04:34:07 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-11-backbone%E5%85%A5%E9%97%A8/</guid>
+      <description>the5fire-backbone-model Mark all as completeClear completed</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zxing on IT技术分享</title>
+    <link>https://www.51hint.com/tags/zxing/</link>
+    <description>Recent content in zxing on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Oct 2013 06:13:53 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/zxing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>zxing 横屏转竖屏</title>
+      <link>https://www.51hint.com/posts/2013-10-01-zxing-%E6%A8%AA%E5%B1%8F%E8%BD%AC%E7%AB%96%E5%B1%8F/</link>
+      <pubDate>Tue, 01 Oct 2013 06:13:53 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-01-zxing-%E6%A8%AA%E5%B1%8F%E8%BD%AC%E7%AB%96%E5%B1%8F/</guid>
+      <description>好久没写博客了，正在做扫码的项目，我们调用ZXing的项目，毕竟有源码，比较好的深入哈。我用的是ZXing2.1的包，其实这个包也有问题，就</description>
+    </item>
+    
+  </channel>
+</rss>

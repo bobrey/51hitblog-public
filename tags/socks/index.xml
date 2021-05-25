@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>socks on IT技术分享</title>
+    <link>https://www.51hint.com/tags/socks/</link>
+    <description>Recent content in socks on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Apr 2014 05:54:44 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/socks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>实现proxy</title>
+      <link>https://www.51hint.com/posts/2014-04-09-%E5%AE%9E%E7%8E%B0proxy/</link>
+      <pubDate>Wed, 09 Apr 2014 05:54:44 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-09-%E5%AE%9E%E7%8E%B0proxy/</guid>
+      <description>TCP Socket Connect through HTTP Proxy http://www.example-code.com/csharp/socket_http_proxy.asp http://www.chilkatsoft.com/downloads_DotNet.asp Socket/SSL/TLS through SOCKS5 / SOCKS4 Proxy http://www.example-code.com/csharp/socket_socks_proxy.asp https://github.com/niik/switchboard https://github.com/X-rus/xNet https://github.com/krys-g/TrotiNet https://github.com/gja/LightProxy ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| .net 4.0 task 多任务 webclient proxy socket 第三方插件实现 ============================================================ http://stackoverflow.com/questions/4898339/how-to-check-if-a-proxy-server-is-configured HttpWebRequest WebProxy C# Connecting Through Proxy – Stack Overflow http://stackoverflow.com/questions/1938990/c-sharp-connecting-through-proxy c# – MultiThreaded Proxy Checker – Stack Overflow http://stackoverflow.com/questions/6235651/multithreaded-proxy-checker multithreading – C# Multithreaded Proxy Checker – Stack Overflow http://stackoverflow.com/questions/3132178/c-sharp-multithreaded-proxy-checker Chilkat Tech Notes</description>
+    </item>
+    
+  </channel>
+</rss>

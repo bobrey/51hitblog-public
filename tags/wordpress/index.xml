@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wordpress on IT技术分享</title>
+    <link>https://www.51hint.com/tags/wordpress/</link>
+    <description>Recent content in wordpress on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 Jul 2014 09:04:49 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wordpress更改IP</title>
+      <link>https://www.51hint.com/posts/2014-07-28-wordpress%E6%9B%B4%E6%94%B9ip/</link>
+      <pubDate>Mon, 28 Jul 2014 09:04:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-28-wordpress%E6%9B%B4%E6%94%B9ip/</guid>
+      <description>修改wp-config.php define(&#39;WP_SITEURL&#39;, &#39;http://新的網址&#39;); define(&#39;WP_HOME&#39;, &#39;http://新的網址&#39;); UPDATE wp_options SET option_value = REPLACE(option_val</description>
+    </item>
+    
+    <item>
+      <title>wordpress模板修改及函数说明</title>
+      <link>https://www.51hint.com/posts/2013-07-08-wordpress%E6%A8%A1%E6%9D%BF%E4%BF%AE%E6%94%B9%E5%8F%8A%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Mon, 08 Jul 2013 10:24:39 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-07-08-wordpress%E6%A8%A1%E6%9D%BF%E4%BF%AE%E6%94%B9%E5%8F%8A%E5%87%BD%E6%95%B0%E8%AF%B4%E6%98%8E/</guid>
+      <description>找到路径wp-content/themes/你的模板/single.php 即是你的内容页(post)模板，修改即可。 =================================== WordPress基本</description>
+    </item>
+    
+    <item>
+      <title>wordpress  Cannot modify header information – headers already sent by</title>
+      <link>https://www.51hint.com/posts/2012-08-10-wordpress-cannot-modify-header-information-headers-already-sent-by/</link>
+      <pubDate>Fri, 10 Aug 2012 08:06:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-10-wordpress-cannot-modify-header-information-headers-already-sent-by/</guid>
+      <description>Cannot modify header information – headers already sent by xxxxx in /home/content/m/u/s/musiqcentral/html/wp-includes/pluggable.php on line 8xxx header.php 增加函数</description>
+    </item>
+    
+  </channel>
+</rss>

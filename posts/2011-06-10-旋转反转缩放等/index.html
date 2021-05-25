@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 旋转，反转，缩放等 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="旋转，反转，缩放等" />
+  <meta name="twitter:title" content="旋转，反转，缩放等" />
+  <meta name="description" content="//////////////////////////////////////////////////////////////////////////////////////// 旋转 CGAffineTransform rotation = CGAffineTransformMakeRotation(M_PI_2);[xxx setTransform:rotation];呵呵就这么简单的两行代码就可以实现了 一些常量 #define M_PI 3.14159265358979323846264338327950288 pi#define M_PI_2 1.57079632679489661923132169163975144 pi/2#define M_PI_4 0.785398163397448309615660845819875721 pi/4#define M_1_PI 0.318309886183790671537767526745028724 1/pi#define M_2_PI 0.636619772367581343075535053490057448 2/pi **">
+  <meta property="og:description" content="//////////////////////////////////////////////////////////////////////////////////////// 旋转 CGAffineTransform rotation = CGAffineTransformMakeRotation(M_PI_2);[xxx setTransform:rotation];呵呵就这么简单的两行代码就可以实现了 一些常量 #define M_PI 3.14159265358979323846264338327950288 pi#define M_PI_2 1.57079632679489661923132169163975144 pi/2#define M_PI_4 0.785398163397448309615660845819875721 pi/4#define M_1_PI 0.318309886183790671537767526745028724 1/pi#define M_2_PI 0.636619772367581343075535053490057448 2/pi **">
+  <meta name="twitter:description" content="//////////////////////////////////////////////////////////////////////////////////////// 旋转 CGAffineTransform rotation = CGAffineTransformMakeRotation(M_PI_2);[xxx setTransform:rotation];呵呵就这么简单的两行代码就 …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-06-10-%E6%97%8B%E8%BD%AC%E5%8F%8D%E8%BD%AC%E7%BC%A9%E6%94%BE%E7%AD%89/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-06-10-%E6%97%8B%E8%BD%AC%E5%8F%8D%E8%BD%AC%E7%BC%A9%E6%94%BE%E7%AD%89/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">旋转，反转，缩放等</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jun 10, 2011</h4>
+    </section>
+    <h5 id="wc">200 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <p>////////////////////////////////////////////////////////////////////////////////////////</p>
+<p>旋转</p>
+<p> </p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->CGAffineTransform rotation = CGAffineTransformMakeRot<!-- raw HTML omitted --><!-- raw HTML omitted -->ation(M_PI_2);<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->[xxx setTransform:rotation];<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->呵呵就这么简单的两行代码就可以实现了<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p> </p>
+<p>一些常量</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->#define M_PI <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted -->   <!-- raw HTML omitted --><!-- raw HTML omitted --> 3.141592653589793238462643<!-- raw HTML omitted --><!-- raw HTML omitted -->38327950288 <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> pi<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->#define M_PI_2 <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 1.570796326794896619231321<!-- raw HTML omitted --><!-- raw HTML omitted -->69163975144 <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> pi/2<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->#define M_PI_4 <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 0.785398163397448309615660<!-- raw HTML omitted --><!-- raw HTML omitted -->845819875721 <!-- raw HTML omitted --><!-- raw HTML omitted --> pi/4<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->#define M_1_PI <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 0.318309886183790671537767<!-- raw HTML omitted --><!-- raw HTML omitted -->526745028724 <!-- raw HTML omitted --><!-- raw HTML omitted --> 1/pi<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->#define M_2_PI <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --><!-- raw HTML omitted --> 0.636619772367581343075535<!-- raw HTML omitted --><!-- raw HTML omitted -->053490057448 <!-- raw HTML omitted --><!-- raw HTML omitted --> 2/pi<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p> </p>
+<p> </p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->********************************************************<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>反转</p>
+<p> </p>
+<p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+<p> </p>
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-06-09-%E7%B1%BB%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E6%9B%BF%E6%8D%A2%E5%AE%9E%E7%8E%B0fin/" data-toggle="tooltip" data-placement="top" title="类方法以及私有方法和【使用动态方法替换实现final功能]">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-06-14-objc_msgsend%E5%87%BD%E6%95%B0-runtimeapi/" data-toggle="tooltip" data-placement="top" title="objc_msgSend函数  runtimeapi">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-06-09-%E7%B1%BB%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E6%9B%BF%E6%8D%A2%E5%AE%9E%E7%8E%B0fin/">类方法以及私有方法和【使用动态方法替换实现final功能]</a></li>
+                    
+                    <li><a href="/posts/2011-06-09-nsobject%E7%9A%84%E5%A5%A5%E7%A7%98-%E4%B8%8E%E7%B1%BB%E5%A4%96%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F/">NSObject的奥秘与类外访问私有变量</a></li>
+                    
+                    <li><a href="/posts/2011-06-08-nonatomicreadonlyretainreadwrite/">nonatomic,readonly,retain,readwrite</a></li>
+                    
+                    <li><a href="/posts/2011-06-08-set-a-breakpoint-in-malloc_error_break-to-debug/">set a breakpoint in malloc_error_break to debug</a></li>
+                    
+                    <li><a href="/posts/2011-06-05-%E5%9F%BA%E4%BA%8Ecalayer%E7%9A%84%E7%AE%80%E5%8D%95%E5%8A%A8%E7%94%BB/">基于CALayer的简单动画</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Jun 10, 2011</h4>
+    </section>
+    <h5 id="wc">200 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

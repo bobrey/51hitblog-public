@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> iOS动画——CoreAnimation - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="iOS动画——CoreAnimation" />
+  <meta name="twitter:title" content="iOS动画——CoreAnimation" />
+  <meta name="description" content="&lt;pre&gt;&lt;span style=&quot;color: #0000ff&quot;&gt;@interface&lt;/span&gt; ViewController () { CALayer *_viewLayer; } @end@implementationViewController (void)viewDidLoad { [super viewDidLoad]; _viewLayer = [CALayer layer]; _viewLayer.frame = CGRectMake(, , 100, 100); [_viewLayer setBackgroundColor:[UIColor greenColor].CGColor]; _viewLayer.opacity = 0.25; [self.view.layer addSublayer:_viewLayer]; //Do any additional setup after loading the view, typically from a nib.} (IBAction)click:(id)sender { CGAffineTransform moveTransforam = CGAffineTransformMakeTranslation(180, 200); [_viewLayer setAffineTransform:moveTransforam]; _viewLayer.opacity = 1; }&lt;p style=&quot;color: #000000&quot;&gt; 在显式动画中，不需要修">
+  <meta property="og:description" content="&lt;pre&gt;&lt;span style=&quot;color: #0000ff&quot;&gt;@interface&lt;/span&gt; ViewController () { CALayer *_viewLayer; } @end@implementationViewController (void)viewDidLoad { [super viewDidLoad]; _viewLayer = [CALayer layer]; _viewLayer.frame = CGRectMake(, , 100, 100); [_viewLayer setBackgroundColor:[UIColor greenColor].CGColor]; _viewLayer.opacity = 0.25; [self.view.layer addSublayer:_viewLayer]; //Do any additional setup after loading the view, typically from a nib.} (IBAction)click:(id)sender { CGAffineTransform moveTransforam = CGAffineTransformMakeTranslation(180, 200); [_viewLayer setAffineTransform:moveTransforam]; _viewLayer.opacity = 1; }&lt;p style=&quot;color: #000000&quot;&gt; 在显式动画中，不需要修">
+  <meta name="twitter:description" content="&lt;pre&gt;&lt;span style=&quot;color: #0000ff&quot;&gt;@interface&lt;/span&gt; ViewController () { CALayer *_viewLayer; } @end@implementationViewController (void)viewDidLoad { [super viewDidLoad]; …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2015-10-30-ios%E5%8A%A8%E7%94%BB-coreanimation/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2015-10-30-ios%E5%8A%A8%E7%94%BB-coreanimation/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">iOS动画——CoreAnimation</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Oct 30, 2015</h4>
+    </section>
+    <h5 id="wc">2000 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/animation/">Animation</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/coreanimation/">CoreAnimation</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/ios/">ios</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/%E5%8A%A8%E7%94%BB/">动画</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;pre&gt;&lt;span style=&quot;color: #0000ff&quot;&gt;@interface&lt;/span&gt; ViewController ()
+</code></pre>
+<p>{
+CALayer *_viewLayer;
+}
+<!-- raw HTML omitted -->@end<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->@implementation<!-- raw HTML omitted --> ViewController</p>
+<ul>
+<li>
+<p>(<!-- raw HTML omitted -->void<!-- raw HTML omitted -->)viewDidLoad
+{
+[super viewDidLoad];</p>
+<p>_viewLayer = [CALayer layer];
+_viewLayer.frame = CGRectMake(<!-- raw HTML omitted --><!-- raw HTML omitted -->, <!-- raw HTML omitted --><!-- raw HTML omitted -->, <!-- raw HTML omitted -->100<!-- raw HTML omitted -->, <!-- raw HTML omitted -->100<!-- raw HTML omitted -->);
+[_viewLayer setBackgroundColor:[UIColor greenColor].CGColor];
+_viewLayer.opacity = <!-- raw HTML omitted -->0.25<!-- raw HTML omitted -->;
+[self.view.layer addSublayer:_viewLayer];</p>
+<p><!-- raw HTML omitted -->//<!-- raw HTML omitted --><!-- raw HTML omitted --> Do any additional setup after loading the view, typically from a nib.<!-- raw HTML omitted -->
+}</p>
+</li>
+<li>
+<p>(IBAction)click:(<!-- raw HTML omitted -->id<!-- raw HTML omitted -->)sender
+{
+CGAffineTransform moveTransforam = CGAffineTransformMakeTranslation(<!-- raw HTML omitted -->180<!-- raw HTML omitted -->, <!-- raw HTML omitted -->200<!-- raw HTML omitted -->);
+[_viewLayer setAffineTransform:moveTransforam];
+_viewLayer.opacity = <!-- raw HTML omitted -->1<!-- raw HTML omitted -->;
+}<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p style=&quot;color: #000000&quot;&gt;
+  在显式动画中，不需要修改属性和调用动画执行方法，只需要通过CABasicAnimation逐个定义就行了，每个对象有持续时间、重复次数等属性，然后使用addAnimation:forkey:方法分别将每个动画用到图层的特定属性中。
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  能够做动画的图层属性有以下：
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  opacity;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  transform.scale;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  transform.scale.x;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  transform.scale.y;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  transform.rotation.z;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  opacity;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  margin;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  zPosition;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  backgroundColor;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  cornerRadius;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  bounds;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  contents;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  contentsRect;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  frame;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  hidden;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  mask;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  masksToBounds;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  position;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  shadowColor;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  shadowOffset;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  shadowOpacity;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  shadowRadius;
+&lt;/p&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  下面我们看一个显式动画的例子：
+&lt;/p&gt;
+  
+&lt;div class=&quot;cnblogs_code&quot; style=&quot;color: #000000&quot;&gt;
+  &lt;div class=&quot;cnblogs_code_toolbar&quot;&gt;
+    &lt;span class=&quot;cnblogs_code_copy&quot;&gt;&lt;a title=&quot;复制代码&quot;&gt;&lt;img src=&quot;https://i2.wp.com/common.cnblogs.com/images/copycode.gif&quot; alt=&quot;复制代码&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;/span&gt;
+  &lt;/div&gt;
+    
+  &lt;pre&gt;    CABasicAnimation *opAnim = [CABasicAnimation animationWithKeyPath:&lt;span style=&quot;color: #800000&quot;&gt;@&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000&quot;&gt;opacity&lt;/span&gt;&lt;span style=&quot;color: #800000&quot;&gt;&quot;&lt;/span&gt;];
+</code></pre>
+<p>opAnim.duration = <!-- raw HTML omitted -->3.0<!-- raw HTML omitted -->;
+opAnim.fromValue = [NSNumber numberWithFloat:.<!-- raw HTML omitted -->25<!-- raw HTML omitted -->];
+opAnim.toValue = [NSNumber numberWithFloat:<!-- raw HTML omitted -->1.0<!-- raw HTML omitted -->];
+opAnim.cumulative = NO;
+opAnim.repeatCount = <!-- raw HTML omitted -->2<!-- raw HTML omitted -->;
+opAnim.fillMode = kCAFillModeForwards;
+opAnim.removedOnCompletion = NO;
+[_viewLayer addAnimation:opAnim forKey:<!-- raw HTML omitted -->@&quot;<!-- raw HTML omitted --><!-- raw HTML omitted -->animateOpacity<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->];</p>
+<p>CGAffineTransform moveTransform = CGAffineTransformMakeTranslation(<!-- raw HTML omitted -->180<!-- raw HTML omitted -->, <!-- raw HTML omitted -->200<!-- raw HTML omitted -->);
+CABasicAnimation *moveAnim = [CABasicAnimation animationWithKeyPath:<!-- raw HTML omitted -->@&quot;<!-- raw HTML omitted --><!-- raw HTML omitted -->transform<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->];
+moveAnim.duration = <!-- raw HTML omitted -->6.0<!-- raw HTML omitted -->;
+moveAnim.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeAffineTransform(moveTransform)];
+moveAnim.fillMode = kCAFillModeForwards;
+moveAnim.removedOnCompletion = NO;
+moveAnim.<!-- raw HTML omitted -->delegate<!-- raw HTML omitted --> = self;
+moveAnim.repeatCount = <!-- raw HTML omitted -->2<!-- raw HTML omitted -->;
+[_viewLayer addAnimation:moveAnim forKey:<!-- raw HTML omitted -->@&quot;<!-- raw HTML omitted --><!-- raw HTML omitted -->animateTransform<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->];<!-- raw HTML omitted --></p>
+<pre><code>  &lt;div class=&quot;cnblogs_code_toolbar&quot;&gt;
+    &lt;span class=&quot;cnblogs_code_copy&quot;&gt;&lt;a title=&quot;复制代码&quot;&gt;&lt;img src=&quot;https://i2.wp.com/common.cnblogs.com/images/copycode.gif&quot; alt=&quot;复制代码&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+  
+&lt;p style=&quot;color: #000000&quot;&gt;
+  &lt;p style=&quot;color: #000000&quot;&gt;
+    把click中的代码换成上面的代码，会发现视图慢慢变得不透明，过程中执行两次。
+  &lt;/p&gt;
+    
+  &lt;p style=&quot;color: #000000&quot;&gt;
+    下面看一下CABasicAnimation属性有哪些作用：
+  &lt;/p&gt;
+    
+  &lt;table style=&quot;color: #000000&quot; border=&quot;0&quot; align=&quot;left&quot;&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        属性
+      &lt;/td&gt;
+        
+      &lt;td&gt;
+        描述
+      &lt;/td&gt;
+    &lt;/tr&gt;
+      
+    &lt;tr&gt;
+      &lt;td&gt;
+        duration
+      &lt;/td&gt;
+        
+      &lt;td&gt;
+        动画持续时间
+      &lt;/td&gt;
+    &lt;/tr&gt;
+      
+    &lt;tr&gt;
+      &lt;td&gt;
+        fromValue
+      &lt;/td&gt;
+        
+      &lt;td&gt;
+        动画的属性起始值
+      &lt;/td&gt;
+    &lt;/tr&gt;
+      
+    &lt;tr&gt;
+      &lt;td&gt;
+        toValue
+      &lt;/td&gt;
+        
+      &lt;td&gt;
+        动画的属性目标值
+      &lt;/td&gt;
+    &lt;/tr&gt;
+      
+    &lt;tr&gt;
+      &lt;td&gt;
+        cumulative
+      &lt;/td&gt;
+        
+      &lt;td&gt;
+        是否保留上次动画的值
+      &lt;/td&gt;
+    &lt;/tr&gt;
+      
+    &lt;tr&gt;
+      &lt;td&gt;
+        repeatCount
+      &lt;/td&gt;
+        
+      &lt;td&gt;
+        重复次数
+      &lt;/td&gt;
+    &lt;/tr&gt;
+      
+    &lt;tr&gt;
+      &lt;td&gt;
+        fillMode
+      &lt;/td&gt;
+        
+      &lt;td&gt;
+        使用动画后不在返回原位置
+      &lt;/td&gt;
+    &lt;/tr&gt;
+      
+    &lt;tr&gt;
+      &lt;td&gt;
+        removeOnCompletion
+      &lt;/td&gt;
+        
+      &lt;td&gt;
+        动画完成后移除动画状态
+      &lt;/td&gt;
+    &lt;/tr&gt;
+      
+    &lt;tr&gt;
+      &lt;td&gt;
+        delegate
+      &lt;/td&gt;
+        
+      &lt;td&gt;
+        动画代理
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+    
+  &lt;p style=&quot;color: #000000&quot;&gt;
+    &lt;p style=&quot;color: #000000&quot;&gt;
+      &lt;p style=&quot;color: #000000&quot;&gt;
+        &lt;p style=&quot;color: #000000&quot;&gt;
+          &lt;p style=&quot;color: #000000&quot;&gt;
+            &lt;p style=&quot;color: #000000&quot;&gt;
+              &lt;p style=&quot;color: #000000&quot;&gt;
+                &lt;p style=&quot;color: #000000&quot;&gt;
+                  &lt;p style=&quot;color: #000000&quot;&gt;
+                    &lt;p style=&quot;color: #000000&quot;&gt;
+                      这里简单说一下cumulative，上面例子如果cumulative设为YES的话，就不会执行第二次的opacity的变化了，因为保留了动画的状态。
+                    &lt;/p&gt;
+                      
+                    &lt;p style=&quot;color: #000000&quot;&gt;
+                      fillMode和removeOnCompletion一起用使得动画结束后视图还在结束的位置，否则视图会回到原始位置。
+                    &lt;/p&gt;
+                      
+                    &lt;p style=&quot;color: #000000&quot;&gt;
+                      不过这里说一下，虽然我们看到的值是已经变了，但是实际上原始值并不会因为做了动画而改变，只不过是affineTransform变了，如果要多次做affineTransform就要像上面说的，需要让它恢复初始值就不会出问题。
+                    &lt;/p&gt;
+                      
+                    &lt;p style=&quot;color: #000000&quot;&gt;
+                      然后再来看看delegate，不过代理不是CABasicAnimation的，也不是它的父类CAPropertyAnimation的，而是它父类的父类CAAnimation的！
+                    &lt;/p&gt;
+                      
+                    &lt;p style=&quot;color: #000000&quot;&gt;
+                      代理方法如下
+                    &lt;/p&gt;
+                      
+                    &lt;div class=&quot;cnblogs_code&quot; style=&quot;color: #000000&quot;&gt;
+                      &lt;pre&gt;- (&lt;span style=&quot;color: #0000ff&quot;&gt;void&lt;/span&gt;)animationDidStart:(CAAnimation *)anim;
+</code></pre>
+</li>
+<li>
+<p>(<!-- raw HTML omitted -->void<!-- raw HTML omitted -->)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag;<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<pre><code>                    &lt;p style=&quot;color: #000000&quot;&gt;
+                      &lt;p style=&quot;color: #000000&quot;&gt;
+                        一个是动画是在动画开始时的回调，另一个是在动画结束后的回调。
+                      &lt;/p&gt;
+                        
+                      &lt;p style=&quot;color: #000000&quot;&gt;
+                        &lt;p style=&quot;color: #000000&quot;&gt;
+                          关键帧动画
+                        &lt;/p&gt;
+                          
+                        &lt;p style=&quot;color: #000000&quot;&gt;
+                          关键帧动画其实也可以说又分两种，一种是帧动画一种是路径动画。
+                        &lt;/p&gt;
+                          
+                        &lt;p style=&quot;color: #000000&quot;&gt;
+                          帧动画，不多说先看例子
+                        &lt;/p&gt;
+                          
+                        &lt;div class=&quot;cnblogs_code&quot; style=&quot;color: #000000&quot;&gt;
+                          &lt;div class=&quot;cnblogs_code_toolbar&quot;&gt;
+                            &lt;span class=&quot;cnblogs_code_copy&quot;&gt;&lt;a title=&quot;复制代码&quot;&gt;&lt;img src=&quot;https://i2.wp.com/common.cnblogs.com/images/copycode.gif&quot; alt=&quot;复制代码&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;/span&gt;
+                          &lt;/div&gt;
+                            
+                          &lt;pre&gt;    CAKeyframeAnimation *opAnim = [CAKeyframeAnimation animationWithKeyPath:&lt;span style=&quot;color: #800000&quot;&gt;@&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000&quot;&gt;opacity&lt;/span&gt;&lt;span style=&quot;color: #800000&quot;&gt;&quot;&lt;/span&gt;];
+</code></pre>
+<p>opAnim.duration = <!-- raw HTML omitted -->6.0<!-- raw HTML omitted -->;
+opAnim.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:<!-- raw HTML omitted -->0.25<!-- raw HTML omitted -->],[NSNumber numberWithFloat:<!-- raw HTML omitted -->0.75<!-- raw HTML omitted -->],[NSNumber numberWithFloat:<!-- raw HTML omitted -->1.0<!-- raw HTML omitted -->], nil];
+opAnim.keyTimes = [NSArray arrayWithObjects:[NSNumber numberWithFloat:<!-- raw HTML omitted -->0.0<!-- raw HTML omitted -->],[NSNumber numberWithFloat:<!-- raw HTML omitted -->0.5<!-- raw HTML omitted -->],[NSNumber numberWithFloat:<!-- raw HTML omitted -->1.0<!-- raw HTML omitted -->], nil];</p>
+<p>opAnim.fillMode = kCAFillModeForwards;
+opAnim.removedOnCompletion = NO;
+opAnim.<!-- raw HTML omitted -->delegate<!-- raw HTML omitted --> = self;
+[_viewLayer addAnimation:opAnim forKey:<!-- raw HTML omitted -->@&quot;<!-- raw HTML omitted --><!-- raw HTML omitted -->animateOpacity<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->];<!-- raw HTML omitted --></p>
+<pre><code>                          &lt;div class=&quot;cnblogs_code_toolbar&quot;&gt;
+                            &lt;span class=&quot;cnblogs_code_copy&quot;&gt;&lt;a title=&quot;复制代码&quot;&gt;&lt;img src=&quot;https://i2.wp.com/common.cnblogs.com/images/copycode.gif&quot; alt=&quot;复制代码&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;/span&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                          
+                        &lt;p style=&quot;color: #000000&quot;&gt;
+                          &lt;p style=&quot;color: #000000&quot;&gt;
+                            这里我们对透明度做动画，分别在values和keyTimes里面设置了到达某一时间应该到达的值，也就是通过这些值影响了在不同时间动画的状态不一样。大家应该还记得在之前的UIKit动画中，介绍过keyframe开始和持续时间的含义，它们都是总时间的百分比。
+                          &lt;/p&gt;
+                            
+                          &lt;p style=&quot;color: #000000&quot;&gt;
+                            路径动画
+                          &lt;/p&gt;
+                            
+                          &lt;p style=&quot;color: #000000&quot;&gt;
+                            路径动画动画其实可以说是特殊的帧动画，首先动画的对象属性是position，然后每一帧的速率都相同，用多线程的概念来讲大概就是串行执行动画的意思。
+                          &lt;/p&gt;
+                            
+                          &lt;div class=&quot;cnblogs_code&quot; style=&quot;color: #000000&quot;&gt;
+                            &lt;div class=&quot;cnblogs_code_toolbar&quot;&gt;
+                              &lt;span class=&quot;cnblogs_code_copy&quot;&gt;&lt;a title=&quot;复制代码&quot;&gt;&lt;img src=&quot;https://i2.wp.com/common.cnblogs.com/images/copycode.gif&quot; alt=&quot;复制代码&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                              
+                            &lt;pre&gt;    CGMutablePathRef path = CGPathCreateMutable();
+</code></pre>
+<p>CGPathMoveToPoint(path, NULL, <!-- raw HTML omitted -->160<!-- raw HTML omitted -->.f, <!-- raw HTML omitted -->100<!-- raw HTML omitted -->.f);
+CGPathAddLineToPoint(path, NULL, <!-- raw HTML omitted -->100<!-- raw HTML omitted -->.f, <!-- raw HTML omitted -->280<!-- raw HTML omitted -->.f);
+CGPathAddLineToPoint(path, NULL, <!-- raw HTML omitted -->260<!-- raw HTML omitted -->.f, <!-- raw HTML omitted -->170<!-- raw HTML omitted -->.f);
+CGPathAddLineToPoint(path, NULL, <!-- raw HTML omitted -->60<!-- raw HTML omitted -->.f, <!-- raw HTML omitted -->170<!-- raw HTML omitted -->.f);
+CGPathAddLineToPoint(path, NULL, <!-- raw HTML omitted -->220<!-- raw HTML omitted -->.f, <!-- raw HTML omitted -->280<!-- raw HTML omitted -->.f);
+CGPathCloseSubpath(path);</p>
+<p>CAKeyframeAnimation *anim = [CAKeyframeAnimation animationWithKeyPath:<!-- raw HTML omitted -->@&quot;<!-- raw HTML omitted --><!-- raw HTML omitted -->position<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->];
+[anim setDuration:<!-- raw HTML omitted -->10<!-- raw HTML omitted -->.f];
+[anim setDelegate:self];
+[anim setPath:path];
+CFRelease(path);
+path = nil;
+[_viewLayer addAnimation:anim forKey:<!-- raw HTML omitted -->@&quot;<!-- raw HTML omitted --><!-- raw HTML omitted -->position<!-- raw HTML omitted --><!-- raw HTML omitted -->&quot;<!-- raw HTML omitted -->];<!-- raw HTML omitted --></p>
+<pre><code>                            &lt;div class=&quot;cnblogs_code_toolbar&quot;&gt;
+                              &lt;span class=&quot;cnblogs_code_copy&quot;&gt;&lt;a title=&quot;复制代码&quot;&gt;&lt;img src=&quot;https://i2.wp.com/common.cnblogs.com/images/copycode.gif&quot; alt=&quot;复制代码&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/a&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                            
+                          &lt;p style=&quot;color: #000000&quot;&gt;
+                            &lt;p style=&quot;color: #000000&quot;&gt;
+                              这里用CGMutablePathRef来产生路径上下文，其实CGMutablePathRef和绘图时的CGContextRef差不多。
+                            &lt;/p&gt;
+                              
+                            &lt;p style=&quot;color: #000000&quot;&gt;
+                              下面设置不再是针对values和keyTimes了，而是设置它的path属性。
+                            &lt;/p&gt;
+                              
+                            &lt;p style=&quot;color: #000000&quot;&gt;
+                              最后不要忘了释放CGMutablePathRef，因为它是CoreFoundation对象没有采用ARC所以要手动管理内存。
+                            &lt;/p&gt;</code></pre>
+</li>
+</ul>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2015-10-28-vim%E6%8F%92%E4%BB%B6/" data-toggle="tooltip" data-placement="top" title="vim插件">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2015-11-03-android%E5%BC%80%E5%8F%91/" data-toggle="tooltip" data-placement="top" title="android开发">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2015-08-20-ios%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">ios开发环境</a></li>
+                    
+                    <li><a href="/posts/2015-07-22-ios-push-notification/">iOS push Notification</a></li>
+                    
+                    <li><a href="/posts/2015-07-18-ios%E5%BC%80%E5%8F%9110%E5%A4%A7%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/">ios开发10大实用工具</a></li>
+                    
+                    <li><a href="/posts/2014-06-13-corebluetooth/">CoreBluetooth</a></li>
+                    
+                    <li><a href="/posts/2014-02-23-%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%92%8C%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E8%87%AA%E6%A3%80/">二进制和资源文件自检</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Oct 30, 2015</h4>
+    </section>
+    <h5 id="wc">2000 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/animation/">Animation</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/coreanimation/">CoreAnimation</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/ios/">ios</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/%E5%8A%A8%E7%94%BB/">动画</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

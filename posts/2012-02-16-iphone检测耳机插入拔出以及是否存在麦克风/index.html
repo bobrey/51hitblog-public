@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> iphone检测耳机插入/拔出以及是否存在麦克风 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="iphone检测耳机插入/拔出以及是否存在麦克风" />
+  <meta name="twitter:title" content="iphone检测耳机插入/拔出以及是否存在麦克风" />
+  <meta name="description" content="做过一个iphone项目XF…，程序的主要功能类似于能录音的卡拉OK。程序会播放选定的歌曲的伴奏音，使用者可以对着麦克风歌唱，程序则会录下使">
+  <meta property="og:description" content="做过一个iphone项目XF…，程序的主要功能类似于能录音的卡拉OK。程序会播放选定的歌曲的伴奏音，使用者可以对着麦克风歌唱，程序则会录下使">
+  <meta name="twitter:description" content="做过一个iphone项目XF…，程序的主要功能类似于能录音的卡拉OK。程序会播放选定的歌曲的伴奏音，使用者可以对着麦克风歌唱，程序则会录下使">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-02-16-iphone%E6%A3%80%E6%B5%8B%E8%80%B3%E6%9C%BA%E6%8F%92%E5%85%A5%E6%8B%94%E5%87%BA%E4%BB%A5%E5%8F%8A%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E9%BA%A6%E5%85%8B%E9%A3%8E/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-02-16-iphone%E6%A3%80%E6%B5%8B%E8%80%B3%E6%9C%BA%E6%8F%92%E5%85%A5%E6%8B%94%E5%87%BA%E4%BB%A5%E5%8F%8A%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E9%BA%A6%E5%85%8B%E9%A3%8E/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">iphone检测耳机插入/拔出以及是否存在麦克风</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Feb 16, 2012</h4>
+    </section>
+    <h5 id="wc">4600 Words|Read in about 10 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-检测声音输入设备">**1. 检测声音输入设备</a></li>
+    <li><a href="#2-检测声音输出设备">**2. 检测声音输出设备</a></li>
+    <li><a href="#3-设置声音输出设备">**3. 设置声音输出设备</a></li>
+    <li><a href="#4-设置audio工作模式category我当做工作模式理解的">**4. 设置Audio工作模式（category，我当做工作模式理解的）</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>做过一个iphone项目XF…，程序的主要功能类似于能录音的卡拉OK。程序会播放选定的歌曲的伴奏音，使用者可以对着麦克风歌唱，程序则会录下使用者的声音，录制完成后上传到服务器，其他用户可以对该用户的演唱进行评分。</p>
+<p>开发过程中录音和播放这块碰到了一些问题，麻烦的主要有三个：</p>
+<ol>
+<li>检测是否有声音输入设备</li>
+<li>当有多个声音输出设备时，指定声音输出设备</li>
+<li>检测耳机的插入和拔出</li>
+</ol>
+<p>第一个问题，对于iTouch和iPad等本身不带麦克风的设备，需要检查是否插入了带录音功能的耳机；对于iphone，由于其本身已近自带麦克风，所以相对容易。第二个问题，当在本身带有外放的设备上插入耳机等输出设备时，就出现了多个输出设备，需要实现在程序中指定将声音输出到哪里。第三个问题，插入/拔出耳机必然引起声音输出设备的变化，而如果是在iTouch和iPad上插入/拔出了带麦克风的耳机，则必然引起声音输入设备的变化。</p>
+<h2 id="1-检测声音输入设备">**1. 检测声音输入设备</h2>
+<p>**</p>
+<blockquote>
+<p>– (BOOL)hasMicphone {</p>
+</blockquote>
+<blockquote>
+<p>return [[AVAudioSession sharedInstance] inputIsAvailable];</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<h2 id="2-检测声音输出设备">**2. 检测声音输出设备</h2>
+<p>**</p>
+<p>对于输出设备的检测，我们只考虑了2个情况，一种是设备自身的外放（iTouch/iPad/iPhone都有），一种是当前是否插入了带外放的耳机。iOS已经提供了相关方法用于获取当前的所有声音设备，我们只需要检查在这些设备中是否存在我们所关注的那几个就可以了。</p>
+<p>获取当前所有声音设备：</p>
+<blockquote>
+<p>CFStringRef route;</p>
+</blockquote>
+<blockquote>
+<p>UInt32 propertySize = sizeof(CFStringRef);</p>
+</blockquote>
+<blockquote>
+<p>AudioSessionGetProperty(kAudioSessionProperty_AudioRoute, &amp;propertySize, &amp;route);</p>
+</blockquote>
+<p>在iOS上所有可能的声音设备包括：</p>
+<blockquote>
+<p>/* Known values of route:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>“Headset”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“Headphone”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“Speaker”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“SpeakerAndMicrophone”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“HeadphonesAndMicrophone”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“HeadsetInOut”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“ReceiverAndMicrophone”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“Lineout”</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>*/</p>
+</blockquote>
+<p>每一项的具体代表的设备请查考iOS文档，此处我们关注的是是否有耳机，所以只需要检查在route中是否有Headphone或Headset存在，具体方法如下：</p>
+<blockquote>
+<p>– (BOOL)hasHeadset {</p>
+</blockquote>
+<blockquote>
+<p>#if TARGET_IPHONE_SIMULATOR</p>
+</blockquote>
+<blockquote>
+<p>#warning *** Simulator mode: audio session code works only on a device</p>
+</blockquote>
+<blockquote>
+<p>return NO;</p>
+</blockquote>
+<blockquote>
+<p>#else</p>
+</blockquote>
+<blockquote>
+<p>CFStringRef route;</p>
+</blockquote>
+<blockquote>
+<p>UInt32 propertySize = sizeof(CFStringRef);</p>
+</blockquote>
+<blockquote>
+<p>AudioSessionGetProperty(kAudioSessionProperty_AudioRoute, &amp;propertySize, &amp;route);</p>
+</blockquote>
+<blockquote>
+<p>if((route == NULL) || (CFStringGetLength(route) == 0)){</p>
+</blockquote>
+<blockquote>
+<p>// Silent Mode</p>
+</blockquote>
+<blockquote>
+<p>NSLog(@”AudioRoute: SILENT, do nothing!”);</p>
+</blockquote>
+<blockquote>
+<p>} else {</p>
+</blockquote>
+<blockquote>
+<p>NSString* routeStr = (NSString*)route;</p>
+</blockquote>
+<blockquote>
+<p>NSLog(@”AudioRoute: %@”, routeStr);</p>
+</blockquote>
+<blockquote>
+<p>/* Known values of route:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>“Headset”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“Headphone”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“Speaker”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“SpeakerAndMicrophone”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“HeadphonesAndMicrophone”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“HeadsetInOut”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“ReceiverAndMicrophone”</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>“Lineout”</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>*/</p>
+</blockquote>
+<blockquote>
+<p>NSRange headphoneRange = [routeStr rangeOfString : @”Headphone”];</p>
+</blockquote>
+<blockquote>
+<p>NSRange headsetRange = [routeStr rangeOfString : @”Headset”];</p>
+</blockquote>
+<blockquote>
+<p>if (headphoneRange.location != NSNotFound) {</p>
+</blockquote>
+<blockquote>
+<p>return YES;</p>
+</blockquote>
+<blockquote>
+<p>} else if(headsetRange.location != NSNotFound) {</p>
+</blockquote>
+<blockquote>
+<p>return YES;</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<blockquote>
+<p>return NO;</p>
+</blockquote>
+<blockquote>
+<p>#endif</p>
+<p>}</p>
+</blockquote>
+<p>请注意，由于获取AudioRoute的相关方法不能再simulator上运行（会直接crush），所以必须先行处理。</p>
+<h2 id="3-设置声音输出设备">**3. 设置声音输出设备</h2>
+<p>**</p>
+<p>在我们的项目中，存在当正在播放时用户会插入或拔出耳机的情况。如果是播放时用户插入了耳机，苹果会自动将声音输出指向到耳机并自动将音量调整为合适大小；如果是在用耳机的播放过程中用户拔出了耳机，声音会自动从设备自身的外放里面播出，但是其音量并不会自动调大。</p>
+<p>经过我们的测试，我们发现当播放时拔出耳机会有两个问题（也许对你来说不是问题，但是会影响我们的app）：</p>
+<ul>
+<li>音乐播放自动停止</li>
+<li>声音音量大小不会自动变大，系统仍然以较小的声音（在耳机上合适的声音）来进行外放</li>
+</ul>
+<p>对于第一个问题，实际上就是需要能够检测到耳机拔出的事件；而第二个问题则是需要当耳机拔出时强制设置系统输出设备修改为系统外放。</p>
+<p>强制修改系统声音输出设备：</p>
+<blockquote>
+<p>– (void)resetOutputTarget {</p>
+</blockquote>
+<blockquote>
+<p>BOOL hasHeadset = [self hasHeadset];</p>
+</blockquote>
+<blockquote>
+<p>NSLog (@”Will Set output target is_headset = %@ .”, hasHeadset ? @”YES” : @”NO”);</p>
+</blockquote>
+<blockquote>
+<p>UInt32 audioRouteOverride = hasHeadset ?</p>
+</blockquote>
+<blockquote>
+<p>kAudioSessionOverrideAudioRoute_None:kAudioSessionOverrideAudioRoute_Speaker;</p>
+</blockquote>
+<blockquote>
+<p>AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audioRouteOverride), &amp;audioRouteOverride);</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<p>可以看到我们修改了AudioSession的属性“kAudioSessionProperty_OverrideAudioRoute”，该属性在iOS文档上的解释如下：</p>
+<blockquote>
+<p><code>&lt;strong&gt;kAudioSessionProperty_OverrideAudioRoute&lt;/strong&gt;`` </code>Specifies whether or not to override the audio session category’s normal audio route. Can be set with one of two values: <code>&lt;a href=&quot;http://developer.apple.com/#//apple_ref/c/econst/kAudioSessionOverrideAudioRoute_None&quot;&gt;kAudioSessionOverrideAudioRoute_None&lt;/a&gt;</code>, which specifies that you want to use the normal audio route; and <code>&lt;a href=&quot;http://developer.apple.com/#//apple_ref/c/econst/kAudioSessionOverrideAudioRoute_Speaker&quot;&gt;kAudioSessionOverrideAudioRoute_Speaker&lt;/a&gt;</code>, when sends output audio to the speaker. A write-only <code>UInt32</code> value.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+</blockquote>
+<p>可以看到，该属性只有当category为<a href="http://developer.apple.com/#//apple_ref/c/econst/kAudioSessionCategory_PlayAndRecord">kAudioSessionCategory_PlayAndRecord</a>或者<a href="http://developer.apple.com/AVFoundation/Reference/AVAudioSession_ClassReference/Reference/Reference.html#//apple_ref/c/data/AVAudioSessionCategoryRecord">AVAudioSessionCategoryRecord</a>时才能使用。所以我们还需要能够设置AudioSession的category。</p>
+<h2 id="4-设置audio工作模式category我当做工作模式理解的">**4. 设置Audio工作模式（category，我当做工作模式理解的）</h2>
+<p>**</p>
+<p>iOS系统中Audio支持多种工作模式（category），要实现某个功能，必须首先将AudioSession设置到支持该功能的工作模式下。所有支持的工作模式如下：</p>
+<blockquote>
+<h5 id="audio-session-categories">Audio Session Categories</h5>
+<p>Category identifiers for audio sessions, used as values for the <code>&lt;a href=&quot;http://developer.apple.com/#//apple_ref/occ/instm/AVAudioSession/setCategory:error:&quot;&gt;setCategory:error:&lt;/a&gt;</code> method.</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>NSString *const <!-- raw HTML omitted -->AVAudioSessionCategorySoloAmbient<!-- raw HTML omitted -->;
+NSString *const <!-- raw HTML omitted -->AVAudioSessionCategoryPlayback<!-- raw HTML omitted -->;
+NSString *const <!-- raw HTML omitted -->AVAudioSessionCategoryRecord<!-- raw HTML omitted -->;
+NSString *const <!-- raw HTML omitted -->AVAudioSessionCategoryPlayAndRecord<!-- raw HTML omitted -->;
+NSString *const <!-- raw HTML omitted -->AVAudioSessionCategoryAudioProcessing<!-- raw HTML omitted -->;<!-- raw HTML omitted --></p>
+<p> </p>
+<p>具体每一个category的功能请参考iOS文档，其中<a href="http://developer.apple.com/#//apple_ref/doc/c_ref/AVAudioSessionCategoryRecord">AVAudioSessionCategoryRecord</a>为独立录音模式，而<a href="http://developer.apple.com/#//apple_ref/doc/c_ref/AVAudioSessionCategoryPlayAndRecord">AVAudioSessionCategoryPlayAndRecord</a>为支持录音盒播放的模式，而<a href="http://developer.apple.com/#//apple_ref/doc/c_ref/AVAudioSessionCategoryPlayback">AVAudioSessionCategoryPlayback</a>为普通播放模式。</p>
+<p>设置category：</p>
+<blockquote>
+<p>– (BOOL)checkAndPrepareCategoryForRecording {</p>
+</blockquote>
+<blockquote>
+<p>recording = YES;</p>
+</blockquote>
+<blockquote>
+<p>BOOL hasMicphone = [self hasMicphone];</p>
+</blockquote>
+<blockquote>
+<p>NSLog(@”Will Set category for recording! hasMicophone = %@”, hasMicphone?@”YES”:@”NO”);</p>
+</blockquote>
+<blockquote>
+<p>if (hasMicphone) {</p>
+</blockquote>
+<blockquote>
+<p>[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord</p>
+</blockquote>
+<blockquote>
+<p>error:nil];</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<blockquote>
+<p>[self resetOutputTarget];</p>
+</blockquote>
+<blockquote>
+<p>return hasMicphone;</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+<p>– (void)resetCategory {</p>
+</blockquote>
+<blockquote>
+<p>if (!recording) {</p>
+</blockquote>
+<blockquote>
+<p>NSLog(@”Will Set category to static value = AVAudioSessionCategoryPlayback!”);</p>
+</blockquote>
+<blockquote>
+<p>[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback</p>
+</blockquote>
+<blockquote>
+<p>error:nil];</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<p><strong>5. 检测耳机插入/拔出事件</strong></p>
+<p>耳机插入拔出事件是通过监听AudioSession的RouteChange事件然后判断耳机状态实现的。实现步骤分为两步，首先注册监听函数，然后再监听函数中判断耳机状态。</p>
+<p>注册监听函数：</p>
+<blockquote>
+<p>AudioSessionAddPropertyListener (kAudioSessionProperty_AudioRouteChange,</p>
+</blockquote>
+<blockquote>
+<p>audioRouteChangeListenerCallback,</p>
+</blockquote>
+<blockquote>
+<p>self);</p>
+</blockquote>
+<p>我们的需求是当耳机被插入或拔出时做出响应，而产生AouteChange事件的原因有多种，所以需要对各种类型进行处理并结合当前耳机状态进行判断。在iOS文档中，产生AouteChange事件的原因有如下几种：</p>
+<blockquote>
+<h5 id="audio-session-route-change-reasons">Audio Session Route Change Reasons</h5>
+<p>Identifiers for the various reasons that an audio route can change while your iOS application is running.</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p><!-- raw HTML omitted -->kAudioSessionRouteChangeReason_Unknown<!-- raw HTML omitted -->                    = 0,
+<!-- raw HTML omitted -->kAudioSessionRouteChangeReason_NewDeviceAvailable<!-- raw HTML omitted -->         = 1,
+<!-- raw HTML omitted -->kAudioSessionRouteChangeReason_OldDeviceUnavailable<!-- raw HTML omitted -->       = 2,
+<!-- raw HTML omitted -->kAudioSessionRouteChangeReason_CategoryChange<!-- raw HTML omitted -->             = 3,
+<!-- raw HTML omitted -->kAudioSessionRouteChangeReason_Override<!-- raw HTML omitted -->                   = 4,
+// this enum has no constant with a value of 5
+<!-- raw HTML omitted -->kAudioSessionRouteChangeReason_WakeFromSleep<!-- raw HTML omitted -->              = 6,
+<!-- raw HTML omitted -->kAudioSessionRouteChangeReason_NoSuitableRouteForCategory<!-- raw HTML omitted --> = 7
+};<!-- raw HTML omitted --></p>
+<p>具体每个类型的含义请查阅iOS文档，其中我们关注的是<a href="http://developer.apple.com/#//apple_ref/doc/c_ref/kAudioSessionRouteChangeReason_NewDeviceAvailable">kAudioSessionRouteChangeReason_NewDeviceAvailable</a>有新设备插入、<a href="http://developer.apple.com/#//apple_ref/doc/c_ref/kAudioSessionRouteChangeReason_OldDeviceUnavailable">kAudioSessionRouteChangeReason_OldDeviceUnavailable</a>原有设备被拔出以及<a href="http://developer.apple.com/#//apple_ref/doc/c_ref/kAudioSessionRouteChangeReason_NoSuitableRouteForCategory">kAudioSessionRouteChangeReason_NoSuitableRouteForCategor</a>y当前工作模式缺少合适设备。</p>
+<p>当有新设备接入时，如果检测到耳机，则判定为耳机插入事件；当原有设备移除时，如果无法检测到耳机，则判定为耳机拔出事件；当出现“当前工作模式缺少合适设备时”，直接判定为录音时拔出了麦克风。</p>
+<p>很明显，这个判定逻辑实际上不准确，比如原来就有耳机但是插入了一个新的audio设备或者是原来就没有耳机但是拔出了一个原有的audio设备，我们的判定都会出错。但是对于我们的项目来说，其实关注的不是耳机是拔出还是插入，真正关注的是有audio设备插入/拔出时能够根据当前耳机/麦克风状态去调整设置，所以这个判定实现对我们来说是正确的。</p>
+<p>监听函数的实现：</p>
+<blockquote>
+<p>void audioRouteChangeListenerCallback (</p>
+</blockquote>
+<blockquote>
+<p>void                      *inUserData,</p>
+</blockquote>
+<blockquote>
+<p>AudioSessionPropertyID    inPropertyID,</p>
+</blockquote>
+<blockquote>
+<p>UInt32                    inPropertyValueSize,</p>
+</blockquote>
+<blockquote>
+<p>const void                *inPropertyValue</p>
+</blockquote>
+<blockquote>
+<p>) {</p>
+</blockquote>
+<blockquote>
+<p>if (inPropertyID != kAudioSessionProperty_AudioRouteChange) return;</p>
+</blockquote>
+<blockquote>
+<p>// Determines the reason for the route change, to ensure that it is not</p>
+</blockquote>
+<blockquote>
+<p>//        because of a category change.</p>
+</blockquote>
+<blockquote>
+<p>CFDictionaryRef    routeChangeDictionary = inPropertyValue;</p>
+</blockquote>
+<blockquote>
+<p>CFNumberRef routeChangeReasonRef =</p>
+</blockquote>
+<blockquote>
+<p>CFDictionaryGetValue (routeChangeDictionary,</p>
+</blockquote>
+<blockquote>
+<p>CFSTR (kAudioSession_AudioRouteChangeKey_Reason));</p>
+</blockquote>
+<blockquote>
+<p>SInt32 routeChangeReason;</p>
+</blockquote>
+<blockquote>
+<p>CFNumberGetValue (routeChangeReasonRef, kCFNumberSInt32Type, &amp;routeChangeReason);</p>
+</blockquote>
+<blockquote>
+<p>NSLog(@” ======================= RouteChangeReason : %d”, routeChangeReason);</p>
+</blockquote>
+<blockquote>
+<p>AudioHelper *_self = (AudioHelper *) inUserData;</p>
+</blockquote>
+<blockquote>
+<p>if (routeChangeReason == kAudioSessionRouteChangeReason_OldDeviceUnavailable) {</p>
+</blockquote>
+<blockquote>
+<p>[_self resetSettings];</p>
+</blockquote>
+<blockquote>
+<p>if (![_self hasHeadset]) {</p>
+</blockquote>
+<blockquote>
+<p>[[NSNotificationCenter defaultCenter] postNotificationName:@”ununpluggingHeadse</p>
+</blockquote>
+<blockquote>
+<p>object:nil];</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<blockquote>
+<p>} else if (routeChangeReason == kAudioSessionRouteChangeReason_NewDeviceAvailable) {</p>
+</blockquote>
+<blockquote>
+<p>[_self resetSettings];</p>
+</blockquote>
+<blockquote>
+<p>if (![_self hasMicphone]) {</p>
+</blockquote>
+<blockquote>
+<p>[[NSNotificationCenter defaultCenter] postNotificationName:@”pluggInMicrophone”</p>
+</blockquote>
+<blockquote>
+<p>object:nil];</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<blockquote>
+<p>} else if (routeChangeReason == kAudioSessionRouteChangeReason_NoSuitableRouteForCategory) {</p>
+</blockquote>
+<blockquote>
+<p>[_self resetSettings];</p>
+</blockquote>
+<blockquote>
+<p>[[NSNotificationCenter defaultCenter] postNotificationName:@”lostMicroPhone”</p>
+</blockquote>
+<blockquote>
+<p>object:nil];</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<blockquote>
+<p>//else if (routeChangeReason == kAudioSessionRouteChangeReason_CategoryChange  ) {</p>
+</blockquote>
+<blockquote>
+<p>//    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];</p>
+</blockquote>
+<blockquote>
+<p>//}</p>
+</blockquote>
+<blockquote>
+<p>[_self printCurrentCategory];</p>
+</blockquote>
+<blockquote>
+<p>}</p>
+</blockquote>
+<p>当检测到相关事件后，通过NSNotificationCenter通知observers耳机（有无麦克风）拔出/插入事件拔出事件，从而触发相关操作。</p>
+<p><strong>6. 事件处理</strong></p>
+<p>对于耳机（有无麦克风）拔出/插入事件，一般需要做如下处理：</p>
+<ul>
+<li>强制重设系统声音输出设备（防止系统以较小声音在外放中播放）</li>
+<li>如果拔出前正在播放，则启动已经暂停的播放（当耳机拔出时，系统会自动暂停播放）</li>
+<li>当拔出前正在录音，则需要检查麦克风情况并决定是否停止录音（如果录音时从iTouch/iPad等设备上拔出了带麦克风的耳机）</li>
+</ul>
+<p> </p>
+<p>附完整代码：</p>
+<p>AudioHelper.h</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;div&gt;
+  &lt;code&gt;02&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;03&lt;/code&gt;&lt;code&gt;@interface AudioHelper : NSObject {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;04&lt;/code&gt;    &lt;code&gt;BOOL&lt;/code&gt; &lt;code&gt;recording;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;05&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;06&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;07&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;void&lt;/code&gt;&lt;code&gt;)initSession;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;08&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;BOOL&lt;/code&gt;&lt;code&gt;)hasHeadset;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;09&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;BOOL&lt;/code&gt;&lt;code&gt;)hasMicphone;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;10&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;void&lt;/code&gt;&lt;code&gt;)cleanUpForEndRecording;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;11&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;BOOL&lt;/code&gt;&lt;code&gt;)checkAndPrepareCategoryForRecording;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;12&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;13&lt;/code&gt;&lt;code&gt;@end&lt;/code&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>AudioHelper.m</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;div&gt;
+  &lt;code&gt;001&lt;/code&gt;&lt;code&gt;#import &quot;AudioHelper.h&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;002&lt;/code&gt;&lt;code&gt;#import &amp;lt;AVFoundation/AVFoundation.h&amp;gt;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;003&lt;/code&gt;&lt;code&gt;#import &amp;lt;AudioToolbox/AudioToolbox.h&amp;gt;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;004&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;005&lt;/code&gt;&lt;code&gt;@implementation AudioHelper&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;006&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;007&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;BOOL&lt;/code&gt;&lt;code&gt;)hasMicphone {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;008&lt;/code&gt;    &lt;code&gt;return&lt;/code&gt; &lt;code&gt;[[AVAudioSession sharedInstance] inputIsAvailable];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;009&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;010&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;011&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;BOOL&lt;/code&gt;&lt;code&gt;)hasHeadset {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;012&lt;/code&gt;    &lt;code&gt;#if TARGET_IPHONE_SIMULATOR&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;013&lt;/code&gt;        &lt;code&gt;#warning *** Simulator mode: audio session code works only on a device&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;014&lt;/code&gt;        &lt;code&gt;return&lt;/code&gt; &lt;code&gt;NO;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;015&lt;/code&gt;    &lt;code&gt;#else&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;016&lt;/code&gt;    &lt;code&gt;CFStringRef route;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;017&lt;/code&gt;    &lt;code&gt;UInt32 propertySize = &lt;/code&gt;&lt;code&gt;sizeof&lt;/code&gt;&lt;code&gt;(CFStringRef);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;018&lt;/code&gt;    &lt;code&gt;AudioSessionGetProperty(kAudioSessionProperty_AudioRoute, &amp;propertySize, &amp;route);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;019&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;020&lt;/code&gt;    &lt;code&gt;if&lt;/code&gt;&lt;code&gt;((route == NULL) || (CFStringGetLength(route) == 0)){&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;021&lt;/code&gt;        &lt;code&gt;// Silent Mode&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;022&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;AudioRoute: SILENT, do nothing!&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;023&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;{&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;024&lt;/code&gt;        &lt;code&gt;NSString* routeStr = (NSString*)route;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;025&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;AudioRoute: %@&quot;&lt;/code&gt;&lt;code&gt;, routeStr);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;026&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;027&lt;/code&gt;        &lt;code&gt;/* Known values of route:&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;028&lt;/code&gt;         &lt;code&gt;* &quot;Headset&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;029&lt;/code&gt;         &lt;code&gt;* &quot;Headphone&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;030&lt;/code&gt;         &lt;code&gt;* &quot;Speaker&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;031&lt;/code&gt;         &lt;code&gt;* &quot;SpeakerAndMicrophone&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;032&lt;/code&gt;         &lt;code&gt;* &quot;HeadphonesAndMicrophone&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;033&lt;/code&gt;         &lt;code&gt;* &quot;HeadsetInOut&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;034&lt;/code&gt;         &lt;code&gt;* &quot;ReceiverAndMicrophone&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;035&lt;/code&gt;         &lt;code&gt;* &quot;Lineout&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;036&lt;/code&gt;         &lt;code&gt;*/&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;037&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;038&lt;/code&gt;        &lt;code&gt;NSRange headphoneRange = [routeStr rangeOfString : @&lt;/code&gt;&lt;code&gt;&quot;Headphone&quot;&lt;/code&gt;&lt;code&gt;];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;039&lt;/code&gt;        &lt;code&gt;NSRange headsetRange = [routeStr rangeOfString : @&lt;/code&gt;&lt;code&gt;&quot;Headset&quot;&lt;/code&gt;&lt;code&gt;];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;040&lt;/code&gt;        &lt;code&gt;if&lt;/code&gt; &lt;code&gt;(headphoneRange.location != NSNotFound) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;041&lt;/code&gt;            &lt;code&gt;return&lt;/code&gt; &lt;code&gt;YES;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;042&lt;/code&gt;        &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt;&lt;code&gt;(headsetRange.location != NSNotFound) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;043&lt;/code&gt;            &lt;code&gt;return&lt;/code&gt; &lt;code&gt;YES;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;044&lt;/code&gt;        &lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;045&lt;/code&gt;    &lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;046&lt;/code&gt;    &lt;code&gt;return&lt;/code&gt; &lt;code&gt;NO;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;047&lt;/code&gt;    &lt;code&gt;#endif&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;048&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;049&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;050&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;051&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;void&lt;/code&gt;&lt;code&gt;)resetOutputTarget {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;052&lt;/code&gt;    &lt;code&gt;BOOL&lt;/code&gt; &lt;code&gt;hasHeadset = [self hasHeadset];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;053&lt;/code&gt;    &lt;code&gt;NSLog (@&lt;/code&gt;&lt;code&gt;&quot;Will Set output target is_headset = %@ .&quot;&lt;/code&gt;&lt;code&gt;, hasHeadset ? @&lt;/code&gt;&lt;code&gt;&quot;YES&quot;&lt;/code&gt; &lt;code&gt;: @&lt;/code&gt;&lt;code&gt;&quot;NO&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;054&lt;/code&gt;    &lt;code&gt;UInt32 audioRouteOverride = hasHeadset ?&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;055&lt;/code&gt;        &lt;code&gt;kAudioSessionOverrideAudioRoute_None:kAudioSessionOverrideAudioRoute_Speaker;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;056&lt;/code&gt;    &lt;code&gt;AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, &lt;/code&gt;&lt;code&gt;sizeof&lt;/code&gt;&lt;code&gt;(audioRouteOverride), &amp;audioRouteOverride);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;057&lt;/code&gt;    &lt;code&gt;[self hasHeadset];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;058&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;059&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;060&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;BOOL&lt;/code&gt;&lt;code&gt;)checkAndPrepareCategoryForRecording {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;061&lt;/code&gt;    &lt;code&gt;recording = YES;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;062&lt;/code&gt;    &lt;code&gt;BOOL&lt;/code&gt; &lt;code&gt;hasMicphone = [self hasMicphone];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;063&lt;/code&gt;    &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;Will Set category for recording! hasMicophone = %@&quot;&lt;/code&gt;&lt;code&gt;, hasMicphone?@&lt;/code&gt;&lt;code&gt;&quot;YES&quot;&lt;/code&gt;&lt;code&gt;:@&lt;/code&gt;&lt;code&gt;&quot;NO&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;064&lt;/code&gt;    &lt;code&gt;if&lt;/code&gt; &lt;code&gt;(hasMicphone) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;065&lt;/code&gt;        &lt;code&gt;[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;066&lt;/code&gt;                                               &lt;code&gt;error:nil];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;067&lt;/code&gt;    &lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;068&lt;/code&gt;    &lt;code&gt;[self resetOutputTarget];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;069&lt;/code&gt;    &lt;code&gt;return&lt;/code&gt; &lt;code&gt;hasMicphone;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;070&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;071&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;072&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;void&lt;/code&gt;&lt;code&gt;)resetCategory {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;073&lt;/code&gt;    &lt;code&gt;if&lt;/code&gt; &lt;code&gt;(!recording) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;074&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;Will Set category to static value = AVAudioSessionCategoryPlayback!&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;075&lt;/code&gt;        &lt;code&gt;[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;076&lt;/code&gt;                                               &lt;code&gt;error:nil];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;077&lt;/code&gt;    &lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;078&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;079&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;080&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;void&lt;/code&gt;&lt;code&gt;)resetSettings {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;081&lt;/code&gt;    &lt;code&gt;[self resetOutputTarget];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;082&lt;/code&gt;    &lt;code&gt;[self resetCategory];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;083&lt;/code&gt;    &lt;code&gt;BOOL&lt;/code&gt; &lt;code&gt;isSucced = [[AVAudioSession sharedInstance] setActive: YES error:NULL];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;084&lt;/code&gt;    &lt;code&gt;if&lt;/code&gt; &lt;code&gt;(!isSucced) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;085&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;Reset audio session settings failed!&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;086&lt;/code&gt;    &lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;087&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;088&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;089&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;void&lt;/code&gt;&lt;code&gt;)cleanUpForEndRecording {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;090&lt;/code&gt;    &lt;code&gt;recording = NO;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;091&lt;/code&gt;    &lt;code&gt;[self resetSettings];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;092&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;093&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;094&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;void&lt;/code&gt;&lt;code&gt;)printCurrentCategory {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;095&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;096&lt;/code&gt;    &lt;code&gt;return&lt;/code&gt;&lt;code&gt;;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;097&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;098&lt;/code&gt;    &lt;code&gt;UInt32 audioCategory;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;099&lt;/code&gt;    &lt;code&gt;UInt32 size = &lt;/code&gt;&lt;code&gt;sizeof&lt;/code&gt;&lt;code&gt;(audioCategory);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;100&lt;/code&gt;    &lt;code&gt;AudioSessionGetProperty(kAudioSessionProperty_AudioCategory, &amp;size, &amp;audioCategory);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;101&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;102&lt;/code&gt;    &lt;code&gt;if&lt;/code&gt; &lt;code&gt;( audioCategory == kAudioSessionCategory_UserInterfaceSoundEffects ){&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;103&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;current category is : kAudioSessionCategory_UserInterfaceSoundEffects&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;104&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt; &lt;code&gt;( audioCategory == kAudioSessionCategory_AmbientSound ){&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;105&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;current category is : kAudioSessionCategory_AmbientSound&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;106&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt; &lt;code&gt;( audioCategory == kAudioSessionCategory_AmbientSound ){&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;107&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;current category is : kAudioSessionCategory_AmbientSound&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;108&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt; &lt;code&gt;( audioCategory == kAudioSessionCategory_SoloAmbientSound ){&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;109&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;current category is : kAudioSessionCategory_SoloAmbientSound&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;110&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt; &lt;code&gt;( audioCategory == kAudioSessionCategory_MediaPlayback ){&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;111&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;current category is : kAudioSessionCategory_MediaPlayback&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;112&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt; &lt;code&gt;( audioCategory == kAudioSessionCategory_LiveAudio ){&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;113&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;current category is : kAudioSessionCategory_LiveAudio&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;114&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt; &lt;code&gt;( audioCategory == kAudioSessionCategory_RecordAudio ){&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;115&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;current category is : kAudioSessionCategory_RecordAudio&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;116&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt; &lt;code&gt;( audioCategory == kAudioSessionCategory_PlayAndRecord ){&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;117&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;current category is : kAudioSessionCategory_PlayAndRecord&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;118&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt; &lt;code&gt;( audioCategory == kAudioSessionCategory_AudioProcessing ){&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;119&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;current category is : kAudioSessionCategory_AudioProcessing&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;120&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;{&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;121&lt;/code&gt;        &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot;current category is : unknow&quot;&lt;/code&gt;&lt;code&gt;);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;122&lt;/code&gt;    &lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;123&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;124&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;125&lt;/code&gt;&lt;code&gt;void&lt;/code&gt; &lt;code&gt;audioRouteChangeListenerCallback (&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;126&lt;/code&gt;                                       &lt;code&gt;void&lt;/code&gt;                      &lt;code&gt;*inUserData,&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;127&lt;/code&gt;                                       &lt;code&gt;AudioSessionPropertyID    inPropertyID,&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;128&lt;/code&gt;                                       &lt;code&gt;UInt32                    inPropertyValueSize,&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;129&lt;/code&gt;                                       &lt;code&gt;const&lt;/code&gt; &lt;code&gt;void&lt;/code&gt;                &lt;code&gt;*inPropertyValue&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;130&lt;/code&gt;                                       &lt;code&gt;) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;131&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;132&lt;/code&gt;    &lt;code&gt;if&lt;/code&gt; &lt;code&gt;(inPropertyID != kAudioSessionProperty_AudioRouteChange) &lt;/code&gt;&lt;code&gt;return&lt;/code&gt;&lt;code&gt;;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;133&lt;/code&gt;    &lt;code&gt;// Determines the reason for the route change, to ensure that it is not&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;134&lt;/code&gt;    &lt;code&gt;//      because of a category change.&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;135&lt;/code&gt;    &lt;code&gt;CFDictionaryRef routeChangeDictionary = inPropertyValue;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;136&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;137&lt;/code&gt;    &lt;code&gt;CFNumberRef routeChangeReasonRef =&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;138&lt;/code&gt;    &lt;code&gt;CFDictionaryGetValue (routeChangeDictionary,&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;139&lt;/code&gt;                          &lt;code&gt;CFSTR (kAudioSession_AudioRouteChangeKey_Reason));&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;140&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;141&lt;/code&gt;    &lt;code&gt;SInt32 routeChangeReason;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;142&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;143&lt;/code&gt;    &lt;code&gt;CFNumberGetValue (routeChangeReasonRef, kCFNumberSInt32Type, &amp;routeChangeReason);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;144&lt;/code&gt;    &lt;code&gt;NSLog(@&lt;/code&gt;&lt;code&gt;&quot; ===================================== RouteChangeReason : %d&quot;&lt;/code&gt;&lt;code&gt;, routeChangeReason);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;145&lt;/code&gt;    &lt;code&gt;AudioHelper *_self = (AudioHelper *) inUserData;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;146&lt;/code&gt;    &lt;code&gt;if&lt;/code&gt; &lt;code&gt;(routeChangeReason == kAudioSessionRouteChangeReason_OldDeviceUnavailable) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;147&lt;/code&gt;        &lt;code&gt;[_self resetSettings];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;148&lt;/code&gt;        &lt;code&gt;if&lt;/code&gt; &lt;code&gt;(![_self hasHeadset]) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;149&lt;/code&gt;            &lt;code&gt;[[NSNotificationCenter defaultCenter] postNotificationName:@&lt;/code&gt;&lt;code&gt;&quot;ununpluggingHeadse&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;150&lt;/code&gt;                                                                &lt;code&gt;object:nil];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;151&lt;/code&gt;        &lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;152&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt; &lt;code&gt;(routeChangeReason == kAudioSessionRouteChangeReason_NewDeviceAvailable) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;153&lt;/code&gt;        &lt;code&gt;[_self resetSettings];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;154&lt;/code&gt;        &lt;code&gt;if&lt;/code&gt; &lt;code&gt;(![_self hasMicphone]) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;155&lt;/code&gt;            &lt;code&gt;[[NSNotificationCenter defaultCenter] postNotificationName:@&lt;/code&gt;&lt;code&gt;&quot;pluggInMicrophone&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;156&lt;/code&gt;                                                                &lt;code&gt;object:nil];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;157&lt;/code&gt;        &lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;158&lt;/code&gt;    &lt;code&gt;} &lt;/code&gt;&lt;code&gt;else&lt;/code&gt; &lt;code&gt;if&lt;/code&gt; &lt;code&gt;(routeChangeReason == kAudioSessionRouteChangeReason_NoSuitableRouteForCategory) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;159&lt;/code&gt;        &lt;code&gt;[_self resetSettings];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;160&lt;/code&gt;        &lt;code&gt;[[NSNotificationCenter defaultCenter] postNotificationName:@&lt;/code&gt;&lt;code&gt;&quot;lostMicroPhone&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;161&lt;/code&gt;                                                            &lt;code&gt;object:nil];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;162&lt;/code&gt;    &lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;163&lt;/code&gt;    &lt;code&gt;//else if (routeChangeReason == kAudioSessionRouteChangeReason_CategoryChange  ) {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;164&lt;/code&gt;    &lt;code&gt;//    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;165&lt;/code&gt;    &lt;code&gt;//}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;166&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;167&lt;/code&gt;    &lt;code&gt;[_self printCurrentCategory];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;168&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;169&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;170&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;void&lt;/code&gt;&lt;code&gt;)initSession {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;171&lt;/code&gt;    &lt;code&gt;recording = NO;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;172&lt;/code&gt;    &lt;code&gt;AudioSessionInitialize(NULL, NULL, NULL, NULL);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;173&lt;/code&gt;    &lt;code&gt;[self resetSettings];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;174&lt;/code&gt;    &lt;code&gt;AudioSessionAddPropertyListener (kAudioSessionProperty_AudioRouteChange,&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;175&lt;/code&gt;                                     &lt;code&gt;audioRouteChangeListenerCallback,&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;176&lt;/code&gt;                                     &lt;code&gt;self);&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;177&lt;/code&gt;    &lt;code&gt;[self printCurrentCategory];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;178&lt;/code&gt;    &lt;code&gt;[[AVAudioSession sharedInstance] setActive: YES error:NULL];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;179&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;180&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;181&lt;/code&gt;&lt;code&gt;- (&lt;/code&gt;&lt;code&gt;void&lt;/code&gt;&lt;code&gt;)dealloc {&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;182&lt;/code&gt;    &lt;code&gt;[super dealloc];&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;183&lt;/code&gt;&lt;code&gt;}&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;184&lt;/code&gt;&lt;code&gt; &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;code&gt;185&lt;/code&gt;&lt;code&gt;@end&lt;/code&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-02-16-iphone%E5%BC%80%E5%8F%91-%E7%A1%AE%E8%AE%A4%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83-3gwifi/" data-toggle="tooltip" data-placement="top" title="iPhone开发 — 确认网络环境 3G/WIFI">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-02-16-%E6%8E%A5%E8%BF%91%E6%84%9F%E5%BA%94%E4%BC%A0%E6%84%9F%E5%99%A8%E4%BD%BF%E7%94%A8/" data-toggle="tooltip" data-placement="top" title="接近感应传感器使用">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Feb 16, 2012</h4>
+    </section>
+    <h5 id="wc">4600 Words|Read in about 10 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

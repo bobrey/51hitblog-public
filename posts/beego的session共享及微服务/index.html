@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Beego的session共享及微服务 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Beego的session共享及微服务" />
+  <meta name="twitter:title" content="Beego的session共享及微服务" />
+  <meta name="description" content="golang利用beego的session存储实现session共享与微服务及负载均衡">
+  <meta property="og:description" content="golang利用beego的session存储实现session共享与微服务及负载均衡">
+  <meta name="twitter:description" content="golang利用beego的session存储实现session共享与微服务及负载均衡">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/beego%E7%9A%84session%E5%85%B1%E4%BA%AB%E5%8F%8A%E5%BE%AE%E6%9C%8D%E5%8A%A1/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/beego%E7%9A%84session%E5%85%B1%E4%BA%AB%E5%8F%8A%E5%BE%AE%E6%9C%8D%E5%8A%A1/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Beego的session共享及微服务</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <p>前段时间要做游戏的管理后台，讲真一个游戏的后台管理真心不比任何一个管理系统要少，主要还是运营提的需求比较多。为了以后的扩展跟维护就想把游戏管理后台的业务拆开来，做成微服务。</p>
+<p>服务器的类型有(这里只说与web有关的服务器)：中心服务器、web网关服务器、web静态服务器、web服务器、服务中心(这里不仅仅给web服务器提供业务)、数据服务器。服务中心跟数据服务器在微服务的思路上没多大的用，这里只记录一下微服务的思路。所有的服务器之间用tcp协议通信用protobuf来进行数据通信(protobuf可以使用不同的语言即可以在服务端各个服务间使用也可以用于客户端的数据通信)，用命令来区分服务器之间的业务。</p>
+<p>1.服务分类型、都要向中心服务注册，中心服务在一个服务上线及下线时会通知与之有关的服务器；</p>
+<p>2.web网关服务与web服务及web静太服务通信都通过中心服务，先发往中心服务，再由中心服务器转发给有关的服务；</p>
+<p>3.web网关服务需跟中心要所有的web服务，把web服务以map[string][]*grpcmodel.ModelRegReqServerType的形式存放；ModelRegReqServerType里主要是服务名字、代理的url、服务地址、及权重；</p>
+<p>4.web网关服务再把代理的信息通过中心服发送到所有的web服务；</p>
+<p>web网关服务：通过map的key来区分代理url对就的服务器，多加一个/(对根路径)的代理处理(要放在最后进行匹配处理)及404等状态的处理；</p>
+<p>启动服务：
+<code>err := http.ListenAndServe(g.gwsCfg.Addr, g.reverseProxy())</code>
+g.reverseProxy方法是负责反向代理的；会在header里添加两个信息一个记录代理本服务器的url，一个记录静太服务器的代理地址；代码如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">director</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">req</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//处理找不到页面报错的问题
+</span><span class="c1"></span>        <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nb">recover</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="nx">utils</span><span class="p">.</span><span class="nf">NewLogger</span><span class="p">().</span><span class="nf">Errorln</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}()</span>
+
+        <span class="nx">req_url</span> <span class="o">:=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">Path</span>
+        <span class="nx">proxy_url</span> <span class="o">:=</span> <span class="s">&#34;/&#34;</span>
+        <span class="nx">proxy_server</span> <span class="o">:=</span> <span class="nx">g</span><span class="p">.</span><span class="nf">getProxy</span><span class="p">(</span><span class="nx">proxy_url</span><span class="p">)</span>
+
+        <span class="nx">req_url_splits</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="nx">req_url</span><span class="p">,</span> <span class="s">&#34;/&#34;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">req_url_splits</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">req_url_splits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
+            <span class="nx">first_url</span> <span class="o">:=</span> <span class="nx">req_url_splits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">g</span><span class="p">.</span><span class="nx">proxyUrls</span><span class="p">[</span><span class="nx">proxy_url</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
+                <span class="nx">proxy_server</span> <span class="p">=</span> <span class="nx">g</span><span class="p">.</span><span class="nf">getProxy</span><span class="p">(</span><span class="nx">proxy_url</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="nx">proxy_server</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+
+        <span class="nx">newUrl</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">url</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;http://%s%s&#34;</span><span class="p">,</span> <span class="nx">proxy_server</span><span class="p">.</span><span class="nx">Addr</span><span class="p">,</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Replace</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">Path</span><span class="p">,</span> <span class="nx">proxy_url</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+        <span class="nx">utils</span><span class="p">.</span><span class="nf">NewLogger</span><span class="p">().</span><span class="nf">Infof</span><span class="p">(</span><span class="s">&#34;proxy_url is %s and proxy_server is %v\n&#34;</span><span class="p">,</span> <span class="nx">proxy_url</span><span class="p">,</span> <span class="nx">proxy_server</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="nx">utils</span><span class="p">.</span><span class="nf">NewLogger</span><span class="p">().</span><span class="nf">Errorln</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="c1">//req里设置被代理服务器的前置url
+</span><span class="c1"></span>        <span class="c1">//设置web服务被代理的基础路径
+</span><span class="c1"></span>        <span class="c1">//暂时思路是在代理的服务器上使用request的header里设置一个信息来作为一个被代理的路径
+</span><span class="c1"></span>        <span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nx">define</span><span class="p">.</span><span class="nx">Gate_String_Web_Proxy</span><span class="p">,</span> <span class="nx">proxy_url</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">g</span><span class="p">.</span><span class="nx">staticProxyUrl</span> <span class="o">!=</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
+            <span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nx">define</span><span class="p">.</span><span class="nx">Gate_String_Web_Static_Resource_Proxy</span><span class="p">,</span> <span class="nx">g</span><span class="p">.</span><span class="nx">staticProxyUrl</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="nx">req</span><span class="p">.</span><span class="nx">URL</span> <span class="p">=</span> <span class="nx">newUrl</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">httputil</span><span class="p">.</span><span class="nx">ReverseProxy</span><span class="p">{</span><span class="nx">Director</span><span class="p">:</span> <span class="nx">director</span><span class="p">}</span>
+
+</code></pre></div><p>​</p>
+<p>getProxy方法是通过权重算出在一组同样的服务器里是要选择那个服务器进行连接(也可以根据服务器的cpu与内存的占比来决定)。</p>
+<p>web服务器方面，因为关于服务器还有许多其他的配置我用的是直接自己写配置文件后用代码进行设置beego的配置；代码如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"> <span class="c1">//设定基础的配置
+</span><span class="c1"></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">WebWiew</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="nx">beego</span><span class="p">.</span><span class="nx">BConfig</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">ViewsPath</span> <span class="p">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">WebWiew</span>
+    <span class="p">}</span>
+    <span class="c1">//自己的静态文件配置地址
+</span><span class="c1"></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">WebStaticPath</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="nx">beego</span><span class="p">.</span><span class="nf">SetStaticPath</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">WebStaticUrl</span><span class="p">,</span> <span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">WebStaticPath</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">beego</span><span class="p">.</span><span class="nx">BConfig</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">Session</span><span class="p">.</span><span class="nx">SessionOn</span> <span class="p">=</span> <span class="kc">true</span>
+    <span class="c1">//如果想让session共享把所有的SessionProvider与SessionProviderConfig配置为一个地方，前提是在同一台服务器上
+</span><span class="c1"></span>    <span class="c1">//内存方式实现不了共享
+</span><span class="c1"></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">SessionProvider</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="nx">beego</span><span class="p">.</span><span class="nx">BConfig</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">Session</span><span class="p">.</span><span class="nx">SessionProvider</span> <span class="p">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">SessionProvider</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">SessionProviderConfig</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="nx">beego</span><span class="p">.</span><span class="nx">BConfig</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">Session</span><span class="p">.</span><span class="nx">SessionProviderConfig</span> <span class="p">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">SessionProviderConfig</span>
+        <span class="k">if</span> <span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">SessionProvider</span> <span class="o">!=</span> <span class="s">&#34;memory&#34;</span> <span class="p">{</span>
+            <span class="c1">//把要存储session的结构体进行序列化存储
+</span><span class="c1"></span>            <span class="nx">d</span><span class="p">.</span><span class="nx">webEngine</span><span class="p">.</span><span class="nf">RegSessionGobStruct</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">RunMode</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="nx">beego</span><span class="p">.</span><span class="nx">BConfig</span><span class="p">.</span><span class="nx">RunMode</span> <span class="p">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">RunMode</span>
+    <span class="p">}</span>
+
+    <span class="c1">//日志设定
+</span><span class="c1"></span>    <span class="nx">beego</span><span class="p">.</span><span class="nf">SetLogger</span><span class="p">(</span><span class="s">&#34;file&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">({</span><span class="s">&#34;filename&#34;</span><span class="p">:</span><span class="s">&#34;./log/%s.log&#34;</span><span class="p">},</span> <span class="nx">d</span><span class="p">.</span><span class="nx">LogCfg</span><span class="p">.</span><span class="nx">DeviceName</span><span class="p">))</span>
+
+    <span class="c1">//启动
+</span><span class="c1"></span>    <span class="nx">beego</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">WebConfig</span><span class="p">.</span><span class="nx">Addr</span><span class="p">)</span>
+
+</code></pre></div><p>配置文件的配置内容：
+webView=webrec/managent/view</p>
+<p>​    //webStaticPath文件夹是没有文件的
+​    webStaticPath=webrec/managent/view/static
+​    webStaticUrl=/rec
+​    webUploadDir=webrec/staticresource/view/useshow
+​    runMode=dev
+​    proxyUrl=/managent</p>
+<p>​    //sessionProvider=file
+​    //sessionProviderConfig=sessiontmp
+​    sessionProvider=redis
+​    sessionProviderConfig=127.0.0.1:6379</p>
+<p>web网关主要解决的是反向代理的问题，web服务器主要用beego的框架解决session共享的问题，beego的内存存储不支持session共享，如果想在单台服务器实现微服务可以装个redis也可以使用beego的文件存储。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/%E5%A4%9A%E7%BA%A7%E5%88%86%E9%94%80%E8%AE%BE%E8%AE%A1/" data-toggle="tooltip" data-placement="top" title="多级分销设计">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/redis%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83/" data-toggle="tooltip" data-placement="top" title="Redis命令参考">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/%E5%A4%9A%E7%BA%A7%E5%88%86%E9%94%80%E8%AE%BE%E8%AE%A1/">多级分销设计</a></li>
+                    
+                    <li><a href="/posts/dokku%E5%9F%BA%E4%BA%8Edocker%E7%9A%84paas%E7%B1%BB%E4%BC%BCheroku/">Dokku基于docker的PaaS类似heroku</a></li>
+                    
+                    <li><a href="/posts/walle%E7%93%A6%E5%8A%9B/">Walle瓦力</a></li>
+                    
+                    <li><a href="/posts/gogs/">Gogs</a></li>
+                    
+                    <li><a href="/posts/modbus/">Modbus</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

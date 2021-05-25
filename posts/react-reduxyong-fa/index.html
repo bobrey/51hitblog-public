@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> React-Redux用法 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="React-Redux用法" />
+  <meta name="twitter:title" content="React-Redux用法" />
+  <meta name="description" content="React-Redux用法 为了方便使用，Redux 的作者封装了一个 React 专用的库 React-Redux，本文主要介绍它。 这个库是可以选用的。实际">
+  <meta property="og:description" content="React-Redux用法 为了方便使用，Redux 的作者封装了一个 React 专用的库 React-Redux，本文主要介绍它。 这个库是可以选用的。实际">
+  <meta name="twitter:description" content="React-Redux用法 为了方便使用，Redux 的作者封装了一个 React 专用的库 React-Redux，本文主要介绍它。 这个库是可以选用的。实际">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/react-reduxyong-fa/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/react-reduxyong-fa/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">React-Redux用法</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Mar 7, 2017</h4>
+    </section>
+    <h5 id="wc">2900 Words|Read in about 6 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/react/">react</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/redux/">redux</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ui组件">UI组件</a></li>
+    <li><a href="#容器组件">容器组件</a></li>
+    <li><a href="#connect">connect()</a></li>
+    <li><a href="#mapstatetoprops">mapStateToProps()</a></li>
+    <li><a href="#mapdispatchtoprops">mapDispatchToProps()</a></li>
+    <li><a href="#provider-组件">Provider 组件</a></li>
+    <li><a href="#实例计数器">实例：计数器</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <h1 id="react-redux用法">React-Redux用法</h1>
+<p>为了方便使用，Redux 的作者封装了一个 React 专用的库 <a href="https://github.com/reactjs/react-redux">React-Redux</a>，本文主要介绍它。
+这个库是可以选用的。实际项目中，你应该权衡一下，是直接使用 Redux，还是使用 React-Redux。后者虽然提供了便利，但是需要掌握额外的 API，并且要遵守它的组件拆分规范。</p>
+<h2 id="ui组件">UI组件</h2>
+<p>React-Redux 将所有组件分成两大类：<strong>UI 组件</strong>（presentational component）和<strong>容器组件</strong>（container component）。</p>
+<p>UI 组件有以下几个特征。</p>
+<blockquote>
+<ul>
+<li>只负责 UI 的呈现，不带有任何业务逻辑</li>
+<li>没有状态（即不使用this.state这个变量）</li>
+<li>所有数据都由参数（<code>this.props</code>）提供</li>
+<li>不使用任何 Redux 的 API</li>
+</ul>
+</blockquote>
+<p>下面就是一个 UI 组件的例子。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">Title</span> <span class="o">=</span> <span class="nx">value</span> <span class="p">=&gt;</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+</code></pre></div><p>因为不含有状态，UI 组件又称为&quot;纯组件&quot;，即它纯函数一样，纯粹由参数决定它的值。</p>
+<h2 id="容器组件">容器组件</h2>
+<p>容器组件的特征恰恰相反。</p>
+<blockquote>
+<ul>
+<li>负责管理数据和业务逻辑，不负责 UI 的呈现</li>
+<li>带有内部状态</li>
+<li>使用 Redux 的 API</li>
+</ul>
+</blockquote>
+<p><strong>总之，只要记住一句话就可以了：UI 组件负责 UI 的呈现，容器组件负责管理数据和逻辑。</strong></p>
+<p>你可能会问，如果一个组件既有 UI 又有业务逻辑，那怎么办？回答是，将它拆分成下面的结构：外面是一个容器组件，里面包了一个UI 组件。前者负责与外部的通信，将数据传给后者，由后者渲染出视图。</p>
+<p>React-Redux 规定，所有的 UI 组件都由用户提供，容器组件则是由 React-Redux 自动生成。也就是说，用户负责视觉层，状态管理则是全部交给它。</p>
+<h2 id="connect">connect()</h2>
+<p>React-Redux 提供connect方法，用于从 UI 组件生成容器组件。connect的意思，就是将这两种组件连起来。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">connect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux&#39;</span>
+<span class="kr">const</span> <span class="nx">VisibleTodoList</span> <span class="o">=</span> <span class="nx">connect</span><span class="p">()(</span><span class="nx">TodoList</span><span class="p">);</span>
+</code></pre></div><p>上面代码中，<code>TodoList</code>是 UI 组件，<code>VisibleTodoList</code>就是由 React-Redux 通过<code>connect</code>方法自动生成的容器组件。</p>
+<p>但是，因为没有定义业务逻辑，上面这个容器组件毫无意义，只是 UI 组件的一个单纯的包装层。为了定义业务逻辑，需要给出下面两方面的信息。</p>
+<blockquote>
+<ul>
+<li>输入逻辑：外部的数据（即state对象）如何转换为 UI 组件的参数</li>
+<li>输出逻辑：用户发出的动作如何变为 Action 对象，从 UI 组件传出去。</li>
+</ul>
+</blockquote>
+<p>因此，connect方法的完整 API 如下。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">connect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux&#39;</span>
+
+<span class="kr">const</span> <span class="nx">VisibleTodoList</span> <span class="o">=</span> <span class="nx">connect</span><span class="p">(</span>
+  <span class="nx">mapStateToProps</span><span class="p">,</span>
+  <span class="nx">mapDispatchToProps</span>
+<span class="p">)(</span><span class="nx">TodoList</span><span class="p">)</span>
+</code></pre></div><p>上面代码中，connect方法接受两个参数：<code>mapStateToProps</code>和<code>mapDispatchToProps</code>。<br>
+它们定义了 UI 组件的业务逻辑。前者负责输入逻辑，即将<code>state</code>映射到 UI 组件的参数（<code>props</code>），后者负责输出逻辑，即将用户对 UI 组件的操作映射成 <code>Action</code>。</p>
+<h2 id="mapstatetoprops">mapStateToProps()</h2>
+<p><code>mapStateToProps</code>是一个函数。它的作用就是像它的名字那样，建立一个从（外部的）<code>state</code>对象到（UI 组件的）<code>props</code>对象的映射关系。</p>
+<p>作为函数，mapStateToProps执行后应该返回一个对象，里面的每一个键值对就是一个映射。请看下面的例子。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">mapStateToProps</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">todos</span><span class="o">:</span> <span class="nx">getVisibleTodos</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">todos</span><span class="p">,</span> <span class="nx">state</span><span class="p">.</span><span class="nx">visibilityFilter</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>上面代码中，mapStateToProps是一个函数，它接受<code>state</code>作为参数，返回一个对象。这个对象有一个<code>todos</code>属性，代表 <strong>UI 组件的同名参数</strong>，后面的getVisibleTodos也是一个函数，可以从state算出 todos 的值。</p>
+<p>下面就是getVisibleTodos的一个例子，用来算出todos。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">getVisibleTodos</span> <span class="o">=</span> <span class="p">(</span><span class="nx">todos</span><span class="p">,</span> <span class="nx">filter</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">filter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s1">&#39;SHOW_ALL&#39;</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">todos</span>
+    <span class="k">case</span> <span class="s1">&#39;SHOW_COMPLETED&#39;</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">todos</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">t</span> <span class="p">=&gt;</span> <span class="nx">t</span><span class="p">.</span><span class="nx">completed</span><span class="p">)</span>
+    <span class="k">case</span> <span class="s1">&#39;SHOW_ACTIVE&#39;</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">todos</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">t</span> <span class="p">=&gt;</span> <span class="o">!</span><span class="nx">t</span><span class="p">.</span><span class="nx">completed</span><span class="p">)</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Unknown filter: &#39;</span> <span class="o">+</span> <span class="nx">filter</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p><strong>mapStateToProps会订阅 Store，每当state更新的时候，就会自动执行，重新计算 UI 组件的参数，从而触发 UI 组件的重新渲染。</strong></p>
+<blockquote>
+<p>mapStateToProps的第一个参数总是state对象，还可以使用第二个参数，代表容器组件的<code>props</code>对象。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// 容器组件的代码
+</span><span class="c1">//    &lt;FilterLink filter=&#34;SHOW_ALL&#34;&gt;
+</span><span class="c1">//      All
+</span><span class="c1">//    &lt;/FilterLink&gt;
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">mapStateToProps</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">ownProps</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">active</span><span class="o">:</span> <span class="nx">ownProps</span><span class="p">.</span><span class="nx">filter</span> <span class="o">===</span> <span class="nx">state</span><span class="p">.</span><span class="nx">visibilityFilter</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><blockquote>
+<p>使用<code>ownProps</code>作为参数后，如果容器组件的参数发生变化，也会引发 UI 组件重新渲染。<br>
+<code>connect</code>方法可以省略<code>mapStateToProps</code>参数，那样的话，UI 组件就不会订阅Store，<strong>就是说 Store 的更新不会引起 UI 组件的更新。</strong></p>
+</blockquote>
+<h2 id="mapdispatchtoprops">mapDispatchToProps()</h2>
+<p>mapDispatchToProps是connect函数的第二个参数，用来建立 UI 组件的参数到<code>store.dispatch</code>方法的映射。<br>
+<strong>也就是说，它定义了哪些用户的操作应该当作 Action，传给 Store。它可以是一个函数，也可以是一个对象。</strong></p>
+<p>如果mapDispatchToProps是一个<strong>函数</strong>，会得到<code>dispatch</code>和<code>ownProps</code>（容器组件的<code>props</code>对象）两个参数</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">mapDispatchToProps</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="nx">dispatch</span><span class="p">,</span>
+  <span class="nx">ownProps</span>
+<span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">onClick</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">dispatch</span><span class="p">({</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;SET_VISIBILITY_FILTER&#39;</span><span class="p">,</span>
+        <span class="nx">filter</span><span class="o">:</span> <span class="nx">ownProps</span><span class="p">.</span><span class="nx">filter</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div><p>从上面代码可以看到，mapDispatchToProps<strong>作为函数</strong>，应该返回一个对象，该对象的每个键值对都是一个映射，定义了 UI 组件的参数怎样发出 Action。 <br>
+如果mapDispatchToProps是一个<strong>对象</strong>，它的每个键名也是对应 UI 组件的同名参数，键值应该是一个函数，会被当作 Action creator ，返回的 Action 会由 Redux 自动发出。举例来说，上面的mapDispatchToProps写成对象就是下面这样。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">mapDispatchToProps</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">onClick</span><span class="o">:</span> <span class="p">(</span><span class="nx">filter</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;SET_VISIBILITY_FILTER&#39;</span><span class="p">,</span>
+    <span class="nx">filter</span><span class="o">:</span> <span class="nx">filter</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="provider-组件">Provider 组件</h2>
+<p>connect方法生成容器组件以后，需要让容器组件拿到<code>state</code>对象，才能生成 UI 组件的参数。</p>
+<p>一种解决方法是将state对象作为参数，传入容器组件。但是，这样做比较麻烦，尤其是容器组件可能在很深的层级，一级级将state传下去就很麻烦。</p>
+<p>React-Redux 提供<code>Provider</code>组件，可以让容器组件拿到<code>state</code>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">Provider</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux&#39;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span>
+<span class="kr">import</span> <span class="nx">todoApp</span> <span class="nx">from</span> <span class="s1">&#39;./reducers&#39;</span>
+<span class="kr">import</span> <span class="nx">App</span> <span class="nx">from</span> <span class="s1">&#39;./components/App&#39;</span>
+
+<span class="kd">let</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span><span class="nx">todoApp</span><span class="p">);</span>
+
+<span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Provider</span> <span class="nx">store</span><span class="o">=</span><span class="p">{</span><span class="nx">store</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="err">/Provider&gt;,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div><p>上面代码中，<code>Provider</code>在根组件外面包了一层，这样一来，App的所有子组件就默认都可以拿到<code>state</code>了。</p>
+<blockquote>
+<p>它的原理是React组件的<code>context</code>属性，请看源码。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Provider</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">getChildContext</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">store</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">store</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">Provider</span><span class="p">.</span><span class="nx">childContextTypes</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">store</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">object</span>
+<span class="p">}</span>
+</code></pre></div><blockquote>
+<p>上面代码中，store放在了上下文对象<code>context</code>上面。然后，子组件就可以从context拿到store，代码大致如下。</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">VisibleTodoList</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">store</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">unsubscribe</span> <span class="o">=</span> <span class="nx">store</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(()</span> <span class="p">=&gt;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">forceUpdate</span><span class="p">()</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">props</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">store</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">state</span> <span class="o">=</span> <span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">();</span>
+    <span class="c1">// ...
+</span><span class="c1"></span>  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">VisibleTodoList</span><span class="p">.</span><span class="nx">contextTypes</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">store</span><span class="o">:</span> <span class="nx">React</span><span class="p">.</span><span class="nx">PropTypes</span><span class="p">.</span><span class="nx">object</span>
+<span class="p">}</span>
+</code></pre></div><p>React-Redux自动生成的容器组件的代码，就类似上面这样，从而拿到store。</p>
+<hr>
+<h2 id="实例计数器">实例：计数器</h2>
+<p>我们来看一个实例。</p>
+<p>1.下面是一个计数器组件，它是一个纯的 UI 组件。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">class</span> <span class="nx">Counter</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">onIncreaseClick</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
+        <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onIncreaseClick</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Increase</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>上面代码中，这个 UI 组件有两个参数：<code>value</code>和<code>onIncreaseClick</code>。前者需要从<code>state</code>计算得到，后者需要向外发出 Action。</p>
+<p>2.接着，定义<code>value</code>到<code>state</code>的映射，以及<code>onIncreaseClick</code>到<code>dispatch</code>的映射。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">mapStateToProps</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">value</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">count</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">mapDispatchToProps</span><span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">onIncreaseClick</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">dispatch</span><span class="p">(</span><span class="nx">increaseAction</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Action Creator
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">increaseAction</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;increase&#39;</span> <span class="p">}</span>
+</code></pre></div><p>3.然后，使用<code>connect</code>方法生成容器组件。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="nx">connect</span><span class="p">(</span>
+  <span class="nx">mapStateToProps</span><span class="p">,</span>
+  <span class="nx">mapDispatchToProps</span>
+<span class="p">)(</span><span class="nx">Counter</span><span class="p">)</span>
+</code></pre></div><p>4.然后，定义这个组件的 Reducer。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// Reducer
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">counter</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">count</span><span class="o">:</span> <span class="mi">0</span> <span class="p">},</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">count</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s1">&#39;increase&#39;</span><span class="o">:</span>
+      <span class="k">return</span> <span class="p">{</span> <span class="nx">count</span><span class="o">:</span> <span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+    <span class="k">default</span><span class="o">:</span>
+      <span class="k">return</span> <span class="nx">state</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>5.最后，生成store对象，并使用Provider在根组件外面包一层。</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span> <span class="nx">loadState</span><span class="p">,</span> <span class="nx">saveState</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./localStorage&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">persistedState</span> <span class="o">=</span> <span class="nx">loadState</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(</span>
+  <span class="nx">todoApp</span><span class="p">,</span>
+  <span class="nx">persistedState</span>
+<span class="p">);</span>
+
+<span class="nx">store</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">throttle</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">saveState</span><span class="p">({</span>
+    <span class="nx">todos</span><span class="o">:</span> <span class="nx">store</span><span class="p">.</span><span class="nx">getState</span><span class="p">().</span><span class="nx">todos</span><span class="p">,</span>
+  <span class="p">})</span>
+<span class="p">},</span> <span class="mi">1000</span><span class="p">))</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Provider</span> <span class="nx">store</span><span class="o">=</span><span class="p">{</span><span class="nx">store</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="err">/Provider&gt;,</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;root&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div><p><a href="https://github.com/jackielii/simplest-redux-example/blob/master/index.js">demo code</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/code-push-re-geng-xin-shi-yong/" data-toggle="tooltip" data-placement="top" title="Code Push 热更新使用">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/es2015/" data-toggle="tooltip" data-placement="top" title="es2015">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/redux/">redux</a></li>
+                    
+                    <li><a href="/posts/code-push-re-geng-xin-shi-yong/">Code Push 热更新使用</a></li>
+                    
+                    <li><a href="/posts/redux-zhong-jian-jian/">Redux 中间件</a></li>
+                    
+                    <li><a href="/posts/flux/">flux</a></li>
+                    
+                    <li><a href="/posts/react-nativexue-xi-zhi-nan/">React-Native学习指南</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Mar 7, 2017</h4>
+    </section>
+    <h5 id="wc">2900 Words|Read in about 6 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/react/">react</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/redux/">redux</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sendmail on IT技术分享</title>
+    <link>https://www.51hint.com/tags/sendmail/</link>
+    <description>Recent content in sendmail on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Aug 2015 01:43:11 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/sendmail/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux下sendmail发送邮件</title>
+      <link>https://www.51hint.com/posts/2015-08-14-linux%E4%B8%8Bsendmail%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Fri, 14 Aug 2015 01:43:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-08-14-linux%E4%B8%8Bsendmail%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <description>-s后面是主题 然后是邮箱 最后是你要发送的文本内容</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 破解常用 win32 API - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="破解常用 win32 API" />
+  <meta name="twitter:title" content="破解常用 win32 API" />
+  <meta name="description" content="004B5E72 push 94FC54 Install App 004B5E48 push 94FC34 [AppFastIn?] 拦截窗口： bp CreateWindow 创建窗口 bp CreateWindowEx(A) 创建窗口 bp ShowWindow 显示窗口 bp UpdateWindow 更新窗口 bp GetWindowText(A) 获取窗口文本 拦截消息框： bp MessageBox(A) 创建消息框 bp MessageBoxExA 创建消息框 bp MessageBoxIndirect(A) 创建">
+  <meta property="og:description" content="004B5E72 push 94FC54 Install App 004B5E48 push 94FC34 [AppFastIn?] 拦截窗口： bp CreateWindow 创建窗口 bp CreateWindowEx(A) 创建窗口 bp ShowWindow 显示窗口 bp UpdateWindow 更新窗口 bp GetWindowText(A) 获取窗口文本 拦截消息框： bp MessageBox(A) 创建消息框 bp MessageBoxExA 创建消息框 bp MessageBoxIndirect(A) 创建">
+  <meta name="twitter:description" content="004B5E72 push 94FC54 Install App 004B5E48 push 94FC34 [AppFastIn?] 拦截窗口： bp CreateWindow 创建窗口 bp CreateWindowEx(A) 创建窗口 bp ShowWindow 显示窗口 bp UpdateWindow 更新窗口 bp GetWindowText(A) 获取窗口文本 拦截消息框： bp …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-05-18-%E7%A0%B4%E8%A7%A3%E5%B8%B8%E7%94%A8-win32-api/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-05-18-%E7%A0%B4%E8%A7%A3%E5%B8%B8%E7%94%A8-win32-api/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">破解常用 win32 API</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri May 18, 2012</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>004B5E72 push 94FC54 Install App</p>
+<p>004B5E48 push 94FC34 [AppFastIn?]</p>
+<p>拦截窗口：</p>
+<p>bp CreateWindow 创建窗口</p>
+<p>bp CreateWindowEx(A) 创建窗口</p>
+<p>bp ShowWindow 显示窗口</p>
+<p>bp UpdateWindow 更新窗口</p>
+<p>bp GetWindowText(A) 获取窗口文本</p>
+<p>拦截消息框：</p>
+<p>bp MessageBox(A) 创建消息框</p>
+<p>bp MessageBoxExA 创建消息框</p>
+<p>bp MessageBoxIndirect(A) 创建定制消息框</p>
+<p>bp IsDialogMessageW</p>
+<p>拦截对话框：</p>
+<p>bp DialogBox 创建模态对话框</p>
+<p>bp DialogBoxParam(A) 创建模态对话框</p>
+<p>bp DialogBoxIndirect 创建模态对话框</p>
+<p>bp DialogBoxIndirectParam(A) 创建模态对话框</p>
+<p>bp CreateDialog 创建非模态对话框</p>
+<p>bp CreateDialogParam(A) 创建非模态对话框</p>
+<p>bp CreateDialogIndirect 创建非模态对话框</p>
+<p>bp CreateDialogIndirectParam(A) 创建非模态对话框</p>
+<p>bp GetDlgItemText(A) 获取对话框文本 作用是得指定输入框输入字符串</p>
+<p>bp GetDlgItemInt 获取对话框整数值</p>
+<p>拦截文件：</p>
+<p>bp CreateFileA 创建或打开文件 (32位)</p>
+<p>bp OpenFile 打开文件 (32位)</p>
+<p>bp ReadFile 读文件 (32位)</p>
+<p>bp WriteFile 写文件 (32位)</p>
+<p>GetModuleFileNameA</p>
+<p>GetFileSize</p>
+<p>Setfilepointer</p>
+<p>fileopen</p>
+<p>FindFirstFileA</p>
+<p>ReadFile</p>
+<p>bp GetModuleHandleA</p>
+<p>bp GetProcAddress</p>
+<p>Ctrl+G输入GetProcAddress ，是跳到GetProcAddress 函数的起始处，然后F2对其他设断。程序调用GetProcAddress 就会中断</p>
+<p>右击-&gt;查找参考-&gt;选定地址</p>
+<p>在系统领空按CTRL+A返回程序领空</p>
+<p>使用“+”和“-”按键，可以回朔以前的执行历史</p>
+<p>DB</p>
+<p>使用十六进制字节格式转存</p>
+<p>DC</p>
+<p>使用 ASCII 格式转存</p>
+<p>DD</p>
+<p>转存在堆栈格式</p>
+<p>DU</p>
+<p>转存在 UNICODE 格式</p>
+<p>DW</p>
+<p>使用十六进制字词格式转存</p>
+<p> </p>
+<p>push offset aAmdeviceinst_0 ; “AMDeviceInstallApplication”</p>
+<p>.text:00458000 push edi ; hModule</p>
+<p>.text:00458001 call esi ; GetProcAddress</p>
+<p>.text:00458003 mov dword_A14E6C, eax</p>
+<p>.text:00458008 test eax, eax</p>
+<p>.text:0045800A jnz short loc_458027</p>
+<p>.text:0045800C push offset aAmdeviceinst_0 ; “AMDeviceInstallApplication”</p>
+<p>.text:00458011 push offset unk_A12CB0</p>
+<p>.text:00458016 lea ebx, [eax+1]</p>
+<p>.text:00458019 call sub_4036D0</p>
+<p>.text:0045801E push eax</p>
+<p>.text:0045801F call sub_4039A0</p>
+<p> </p>
+<p>.text:0044D688 mov edi, eax</p>
+<p>.text:0044D68A add esp, 0Ch</p>
+<p>.text:0044D68D mov [ebp+arg_4], edi</p>
+<p>.text:0044D690 mov [ebp+var_4], 1</p>
+<p>.text:0044D697 mov eax, [ebp+s]</p>
+<p>push 0</p>
+<p>.text:0044D69C push 0</p>
+<p>.text:0044D69E push 0</p>
+<p>.text:0044D6A0 push edi</p>
+<p>.text:0044D6A1 push eax</p>
+<p>.text:0044D6A2 call dword_A14E6C</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>DialogBoxIndirectParam(&amp;DlgOpenFiles, hwnd, OpenFilesBoxProc, (LPARAM)dat-&gt;dbfpath);</p>
+<p>其中DlgOpenFiles 是DLGTEMPLATE类型的结构，DlgOpenFiles是对话框所包含的控件数组（CTRLDATA CtrlOpenFiles[];），DialogBoxIndirectParam中，第二个参数是父窗体的句柄，第三个参数是对话框回掉函数，第四个参数则是传递到窗体的参数。DialogBoxIndirectParam会根据CTRLDATA数组中的各种设置自动初始化控件。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-05-18-ios%E5%BC%80%E5%8F%91%E4%B9%8B%E8%AF%A6%E8%A7%A3%E5%89%AA%E8%B4%B4%E6%9D%BF/" data-toggle="tooltip" data-placement="top" title="iOS开发之详解剪贴板">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-05-18-%E5%BD%95%E5%88%B6%E5%B1%8F%E5%B9%95%E4%BB%A5%E5%8F%8A%E9%9F%B3%E6%95%88%E7%9A%84%E6%B7%B7%E5%90%88%E5%AE%9E%E7%8E%B0%E6%BA%90%E7%A0%81%E5%88%86%E4%BA%AB/" data-toggle="tooltip" data-placement="top" title="录制屏幕以及音效的混合实现源码分享">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri May 18, 2012</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

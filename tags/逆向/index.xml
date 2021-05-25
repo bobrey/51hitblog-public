@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>逆向 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/%E9%80%86%E5%90%91/</link>
+    <description>Recent content in 逆向 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Aug 2012 10:05:44 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/%E9%80%86%E5%90%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ios逆向杂文</title>
+      <link>https://www.51hint.com/posts/2012-08-25-ios%E9%80%86%E5%90%91%E6%9D%82%E6%96%87/</link>
+      <pubDate>Sat, 25 Aug 2012 10:05:44 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-08-25-ios%E9%80%86%E5%90%91%E6%9D%82%E6%96%87/</guid>
+      <description>Mobile Installation 是 iOS 中负责安装 IPA 的 Framework，，通过 IDA 分析 /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/PrivateFrameworks/MobileInstallation.framework/MobileInstallation 可知它导出了以下 API： Name Address Ordinal —- ——- ——- _MobileInstallationArchive 00000F80 _MobileInstallationBrowse 00000FE0 _MobileInstallationCheckCapabilitiesMatch 00000BE0 _MobileInstallationCopySafeHarbors 00000CA4 _MobileInstallationInstall 00001144 _MobileInstallationLookup 00001034 _MobileInstallationLookupArchives 00000E70 _MobileInstallationProcessRestoredContainer 00000E10 _MobileInstallationRegisterSafeHarbor 00000D58 _MobileInstallationRemoveArchive</description>
+    </item>
+    
+  </channel>
+</rss>

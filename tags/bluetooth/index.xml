@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bluetooth on IT技术分享</title>
+    <link>https://www.51hint.com/tags/bluetooth/</link>
+    <description>Recent content in bluetooth on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Jun 2014 00:31:37 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CoreBluetooth</title>
+      <link>https://www.51hint.com/posts/2014-06-13-corebluetooth/</link>
+      <pubDate>Fri, 13 Jun 2014 00:31:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-13-corebluetooth/</guid>
+      <description>蓝牙添加后台支持服务</description>
+    </item>
+    
+  </channel>
+</rss>

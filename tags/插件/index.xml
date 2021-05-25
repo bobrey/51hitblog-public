@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>插件 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/%E6%8F%92%E4%BB%B6/</link>
+    <description>Recent content in 插件 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Mar 2014 15:42:55 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/%E6%8F%92%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wp安装插件</title>
+      <link>https://www.51hint.com/posts/2014-03-31-wp%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Sun, 30 Mar 2014 15:42:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-03-31-wp%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6/</guid>
+      <description>装了Contact Form 7，Easy Privacy Policy，SEO SearchTerms Tagging 2，Simple Tags插件</description>
+    </item>
+    
+  </channel>
+</rss>

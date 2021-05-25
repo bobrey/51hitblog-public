@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> asterisk agi ,IVR - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="asterisk agi ,IVR" />
+  <meta name="twitter:title" content="asterisk agi ,IVR" />
+  <meta name="description" content="通过asterisk配置拨号规则 ${EXTEN}是通道变量 因为在sip.conf文件里会有#include XXX.conf 那说明可以把这个配置放到其他配置">
+  <meta property="og:description" content="通过asterisk配置拨号规则 ${EXTEN}是通道变量 因为在sip.conf文件里会有#include XXX.conf 那说明可以把这个配置放到其他配置">
+  <meta name="twitter:description" content="通过asterisk配置拨号规则 ${EXTEN}是通道变量 因为在sip.conf文件里会有#include XXX.conf 那说明可以把这个配置放到其他配置">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-15-asterisk-agi/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-15-asterisk-agi/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">asterisk agi ,IVR</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Aug 15, 2012</h4>
+    </section>
+    <h5 id="wc">900 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/asterisk/">asterisk</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>通过asterisk配置拨号规则</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>${EXTEN}是通道变量</p>
+<p>因为在sip.conf文件里会有#include XXX.conf</p>
+<p>那说明可以把这个配置放到其他配置文件中</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>[in]表示所有的呼入。。</p>
+<p>然后在[in]里我们可以知道这个是设置66687100（总机）被呼叫的时候的规则设置</p>
+<p>context=from-mytest</p>
+<p>好了,context=from-mytest表示当有来电呼叫66687100时触发from-mytest拨号规则</p>
+<p>好了进入extensions.conf的from-mytest</p>
+<p>我们看看规则。。</p>
+<p>首先是无条件的应答，总机肯定是先无条件应答啦</p>
+<p>然后是播放欢迎IVR和提示来电者操作</p>
+<p>好，当来电者按了某个键这个时候触发AGI</p>
+<p>然后我们新建一个test.php，这个test.php和from-mytest里写的需要一致</p>
+<p>我们在test.php里写下如下代码</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>最后的//$agi-&gt;exec_dials(‘SIP/8260&amp;SIP/8263’);我说一下:</p>
+<p>这个是多个分机同时响铃，拨号规则可以存在数据库里，如果你的规则是当前分组下面空闲的分机同时响铃，那么就可以用这个方法exec_dials</p>
+<p>郑重说明exec_dials这个方法phpagi中时不存在的</p>
+<p>是本人查阅资料在exec_dial的基础上改写的</p>
+<p>function exec_dials($type_identifier, $timeout=NULL, $options=NULL, $url=NULL)</p>
+<p>{</p>
+<p>//</p>
+<p>return $this-&gt;exec(‘Dial’, trim(“$type_identifier”.$this-&gt;option_delim.$timeout.$this-&gt;option_delim.$options.$this-&gt;option_delim.$url,$this-&gt;option_delim));</p>
+<p>}</p>
+<p>把这个方法放入phpagi.php文件里</p>
+<p>$type_identifier这个就是多个分机拼接起来的字符串</p>
+<p>比如SIP/8821&amp;SIP/8824</p>
+<p>注意&amp;前后是没有空格的。。</p>
+<p>好了，简单的phpagi实现呼叫目前我就做到这里了</p>
+<p><a href="http://blog.csdn.net/libaiguo/article/details/5789008">http://blog.csdn.net/libaiguo/article/details/5789008</a></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-15-asterisk-manager-api%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7/" data-toggle="tooltip" data-placement="top" title="Asterisk manager API实现自动拨号">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-21-jrtplib/" data-toggle="tooltip" data-placement="top" title="jrtplib">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2012-08-15-asterisk-manager-api%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7/">Asterisk manager API实现自动拨号</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Aug 15, 2012</h4>
+    </section>
+    <h5 id="wc">900 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/asterisk/">asterisk</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

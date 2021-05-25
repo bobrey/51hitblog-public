@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> UIPopoverController的使用 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="UIPopoverController的使用" />
+  <meta name="twitter:title" content="UIPopoverController的使用" />
+  <meta name="description" content="&lt;p class=&quot;p1&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt; &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt; &lt;/span&gt;// Ensure the popover is not dismissed if the user taps in&lt;br /&gt; the search bar. &lt;/p&gt; &lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt; &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt; popover.&lt;/span&gt;passthroughViews&lt;span">
+  <meta property="og:description" content="&lt;p class=&quot;p1&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt; &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt; &lt;/span&gt;// Ensure the popover is not dismissed if the user taps in&lt;br /&gt; the search bar. &lt;/p&gt; &lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt; &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt; popover.&lt;/span&gt;passthroughViews&lt;span">
+  <meta name="twitter:description" content="&lt;p class=&quot;p1&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt; &lt;span style=&quot;color: #cb0a5; …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-08-15-uipopovercontroller%E7%9A%84%E4%BD%BF%E7%94%A8/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-08-15-uipopovercontroller%E7%9A%84%E4%BD%BF%E7%94%A8/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">UIPopoverController的使用</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Aug 15, 2011</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p> </p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;p class=&quot;p1&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt;
+  &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;    &lt;/span&gt;// Ensure the popover is not dismissed if the user taps in&lt;br /&gt; the search bar.
+&lt;/p&gt;
+
+&lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt;
+  &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;    popover.&lt;/span&gt;passthroughViews&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt; =&lt;br /&gt; [&lt;/span&gt;NSArray&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #7e1aad; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;arrayWithObject&lt;/span&gt;&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: #000000; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;searchBar&lt;/span&gt;&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;];&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt;
+  &lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt;
+    &lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;3、展现popover&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p1&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;    [&lt;/span&gt;&lt;span style=&quot;color: #7e1aad; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;self&lt;/span&gt;&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;recentSearchesPopoverController&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #000000; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;presentPopoverFromRect&lt;/span&gt;&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: #7e1aad; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;self&lt;/span&gt;&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #428288; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;searchBar&lt;/span&gt;&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #428288; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;bounds&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt;
+                                                                &lt;span style=&quot;color: #000000; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;inView&lt;/span&gt;:&lt;span style=&quot;color: #7e1aad; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;self&lt;/span&gt;.&lt;span style=&quot;color: #428288; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;searchBar&lt;/span&gt;
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p3&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;                                        &lt;/span&gt;permittedArrowDirections&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;:&lt;/span&gt;UIPopoverArrowDirectionAny
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt;
+                                                              &lt;span style=&quot;color: #000000; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;animated&lt;/span&gt;:&lt;span style=&quot;color: #7e1aad; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;NO&lt;/span&gt;];
+    &lt;/p&gt;
+    
+    &lt;p class=&quot;p1&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt;
+      &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;&lt;br style=&quot;padding: 0px; margin: 0px;&quot; /&gt;&lt;/p&gt; 
+      
+      &lt;p&gt;
+        &lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt;
+        &lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt;
+          &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;4、消失popover&lt;/span&gt;
+        &lt;/p&gt;
+        
+        &lt;p class=&quot;p1&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt;
+          //dismiss the popover.
+        &lt;/p&gt;
+        
+        &lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt;
+          &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;    [&lt;/span&gt;recentSearchesPopoverController&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #7e1aad; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;dismissPopoverAnimated&lt;/span&gt;&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: #000000; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;YES&lt;/span&gt;&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;];&lt;/span&gt;
+        &lt;/p&gt;
+        
+        &lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt;
+          &lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;&lt;br style=&quot;padding: 0px; margin: 0px;&quot; /&gt;&lt;/p&gt; 
+          
+          &lt;p&gt;
+            &lt;/span&gt;
+          &lt;/p&gt;
+          
+          &lt;p class=&quot;p1&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt;
+            &lt;p class=&quot;p1&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt;
+              5、实现 UIPopoverControllerDelegate协议的方法
+            &lt;/p&gt;
+            
+            &lt;p class=&quot;p1&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt;
+              &amp;#8211; (&lt;span style=&quot;color: #cb0a5; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;void&lt;/span&gt;)popoverControllerDidDismissPopover:(&lt;span style=&quot;color: #7e1aad; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;UIPopoverController&lt;/span&gt; *)popoverController&lt;br /&gt; {
+            &lt;/p&gt;
+            
+            &lt;p class=&quot;p2&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #428288; min-height: 13px; padding: 0px; margin: 0px;&quot;&gt;
+              &lt;p class=&quot;p3&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt;
+                &lt;span style=&quot;color: #000000; line-height: 1.5; padding: 0px; margin: 0px;&quot;&gt;&lt;br style=&quot;padding: 0px; margin: 0px;&quot; /&gt;&lt;/p&gt; 
+                
+                &lt;p&gt;
+                  &lt;/span&gt;
+                &lt;/p&gt;
+                
+                &lt;p class=&quot;p1&quot; style=&quot;margin: 0px; padding: 0px; text-indent: 0px; font: 11px Menlo; color: #008c00;&quot;&gt;
+                  }
+                &lt;/p&gt;
+                
+                &lt;p class=&quot;p1&quot; style=&quot;margin: 0px; padding: 0px; text-indent: 0px; font: 11px Menlo; color: #008c00;&quot;&gt;
+                  &lt;p class=&quot;p1&quot; style=&quot;margin: 0px; padding: 0px; text-indent: 0px; font: 11px Menlo; color: #008c00;&quot;&gt;
+                    &lt;p class=&quot;p1&quot; style=&quot;text-indent: 0px; font: normal normal normal 11px/normal Menlo; color: #008c00; padding: 0px; margin: 0px;&quot;&gt;
+                      &lt;span style=&quot;background-color: #66cccc;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;font-family: Arial; color: #333333; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 21px; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #66cccc;&quot;&gt;UIPopoverController&lt;br /&gt; *popover = [[UIPopoverController alloc] initWithContentViewController:navigationController];&lt;br style=&quot;outline-style: none; outline-width: initial; outline-color: initial;&quot; /&gt;&lt;br /&gt; popover.popoverContentSize = CGSizeMake(300, 300); //弹出窗口大小，如果屏幕画不下，会挤小的。这个值默认是320&amp;#215;1100&lt;br /&gt; &lt;/span&gt;
+                    &lt;/p&gt;
+                    
+                    &lt;p&gt;
+                      &amp;nbsp;
+                    &lt;/p&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-08-15-%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/" data-toggle="tooltip" data-placement="top" title="动态方法解析">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-08-16-iphone%E5%BC%80%E5%8F%91%E9%9A%8F%E6%83%B3rand%E8%BF%98%E6%98%AFarc4random/" data-toggle="tooltip" data-placement="top" title="iPhone开发随想:rand()还是arc4random()">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-08-15-%E5%8A%A8%E6%80%81%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90/">动态方法解析</a></li>
+                    
+                    <li><a href="/posts/2011-08-15-%E9%94%AE-%E5%80%BC%E8%A7%82%E5%AF%9F%E7%BC%96%E7%A8%8B/">键-值观察编程</a></li>
+                    
+                    <li><a href="/posts/2011-08-15-touch-%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%BB%B6%E8%BF%9F/">touch 事件的延迟</a></li>
+                    
+                    <li><a href="/posts/2011-08-15-catransaction-%E4%B8%80%E4%BA%9B%E5%8A%A8%E7%94%BB/">CATransaction 一些动画</a></li>
+                    
+                    <li><a href="/posts/2011-08-11-%E4%B8%8Etomcat-ssl-%E9%80%9A%E4%BF%A1/">与Tomcat SSL 通信</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Aug 15, 2011</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

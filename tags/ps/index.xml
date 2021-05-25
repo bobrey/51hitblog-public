@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ps on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ps/</link>
+    <description>Recent content in ps on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 May 2015 03:12:13 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>adobe ps 试用</title>
+      <link>https://www.51hint.com/posts/2015-05-05-adobe-ps-%E8%AF%95%E7%94%A8/</link>
+      <pubDate>Tue, 05 May 2015 03:12:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-05-05-adobe-ps-%E8%AF%95%E7%94%A8/</guid>
+      <description>adobe photoshop等无限试用 删除“/Library/Application Support/Adobe/ ”文件夹下的“SLStore”和“SLCache”文件夹，并清</description>
+    </item>
+    
+  </channel>
+</rss>

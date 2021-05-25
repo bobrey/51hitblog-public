@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>close app on IT技术分享</title>
+    <link>https://www.51hint.com/tags/close-app/</link>
+    <description>Recent content in close app on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Oct 2013 07:33:38 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/close-app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关闭android应用程序</title>
+      <link>https://www.51hint.com/posts/2013-10-18-%E5%85%B3%E9%97%ADandroid%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Fri, 18 Oct 2013 07:33:38 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-18-%E5%85%B3%E9%97%ADandroid%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</guid>
+      <description>在 AndroidMainfest.xml添加</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rabbitMQ on IT技术分享</title>
+    <link>https://www.51hint.com/tags/rabbitmq/</link>
+    <description>Recent content in rabbitMQ on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Apr 2019 22:33:46 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RabbitMQ实现RPC</title>
+      <link>https://www.51hint.com/posts/rabbitmq%E5%AE%9E%E7%8E%B0rpc/</link>
+      <pubDate>Mon, 01 Apr 2019 22:33:46 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/rabbitmq%E5%AE%9E%E7%8E%B0rpc/</guid>
+      <description>RabbitMQ RabbitMQ 是基于 AMQP 协议实现的一个消息队列（Message Queue），Message Queue 是一个典型的生产者/消费者模式。生产者发布消息，消费者消费消</description>
+    </item>
+    
+    <item>
+      <title>RabbitMQ消息中间件</title>
+      <link>https://www.51hint.com/posts/rabbitmq%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+      <pubDate>Sat, 30 Mar 2019 12:30:58 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/rabbitmq%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+      <description>1.背景 RabbitMQ是一个由erlang开发的AMQP(Advanved Message Queue)的开源实现。 2.应用场景 2.1异步处理 场景说明：用</description>
+    </item>
+    
+  </channel>
+</rss>

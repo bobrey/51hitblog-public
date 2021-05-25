@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Angular - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Angular" />
+  <meta name="twitter:title" content="Angular" />
+  <meta name="description" content="Binding a Property to a Value &lt;input [value]=&quot;firstName&quot;&gt;  Calling a Function on an Event &lt;button (click)=&quot;someFunction($event)&quot;&gt;  Rendering Expressions &lt;p&gt;Hi, {{name}}&lt;/p&gt;  Two Way Data Binding &lt;input [(ng-model)]=&quot;name&quot;&gt;  Creating a Variable to Access an Element &lt;p #myParagraph&gt;&lt;/p&gt; &lt;button (click)=&quot;myParagraph.innerHTML = &#39;Once upon a time...&#39;&quot;&gt;  Embedded Templates  &lt;p *something=&quot;someExpression&quot;&gt;&lt;/p&gt;  Directives &lt;section *ngIf=&quot;showSection&quot;&gt; &lt;li *ngFor=&quot;let item of items&quot;&gt;  Annotations @Component({ selector: &#39;my-component&#39;, services: [MyService] })  Import &amp; Export import {Component} from &#39;@angular/core&#39;; import {NavController} from &#39;ionic-angular&#39;; @Component({ templateUrl: &#39;app/hello-ionic/hello-ionic.">
+  <meta property="og:description" content="Binding a Property to a Value &lt;input [value]=&quot;firstName&quot;&gt;  Calling a Function on an Event &lt;button (click)=&quot;someFunction($event)&quot;&gt;  Rendering Expressions &lt;p&gt;Hi, {{name}}&lt;/p&gt;  Two Way Data Binding &lt;input [(ng-model)]=&quot;name&quot;&gt;  Creating a Variable to Access an Element &lt;p #myParagraph&gt;&lt;/p&gt; &lt;button (click)=&quot;myParagraph.innerHTML = &#39;Once upon a time...&#39;&quot;&gt;  Embedded Templates  &lt;p *something=&quot;someExpression&quot;&gt;&lt;/p&gt;  Directives &lt;section *ngIf=&quot;showSection&quot;&gt; &lt;li *ngFor=&quot;let item of items&quot;&gt;  Annotations @Component({ selector: &#39;my-component&#39;, services: [MyService] })  Import &amp; Export import {Component} from &#39;@angular/core&#39;; import {NavController} from &#39;ionic-angular&#39;; @Component({ templateUrl: &#39;app/hello-ionic/hello-ionic.">
+  <meta name="twitter:description" content="Binding a Property to a Value &lt;input [value]=&quot;firstName&quot;&gt;  Calling a Function on an Event &lt;button (click)=&quot;someFunction($event)&quot;&gt;  Rendering Expressions &lt;p&gt;Hi, …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/angular/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/angular/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Angular</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Mar 1, 2017</h4>
+    </section>
+    <h5 id="wc">100 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <h2 id="binding-a-property-to-a-value">Binding a Property to a Value</h2>
+<pre><code>&lt;input [value]=&quot;firstName&quot;&gt;
+</code></pre>
+<h2 id="calling-a-function-on-an-event">Calling a Function on an Event</h2>
+<pre><code>&lt;button (click)=&quot;someFunction($event)&quot;&gt;
+</code></pre>
+<h2 id="rendering-expressions">Rendering Expressions</h2>
+<pre><code>&lt;p&gt;Hi, {{name}}&lt;/p&gt;
+</code></pre>
+<h2 id="two-way-data-binding">Two Way Data Binding</h2>
+<pre><code>&lt;input [(ng-model)]=&quot;name&quot;&gt;
+</code></pre>
+<h2 id="creating-a-variable-to-access-an-element">Creating a Variable to Access an Element</h2>
+<pre><code>&lt;p #myParagraph&gt;&lt;/p&gt;
+&lt;button (click)=&quot;myParagraph.innerHTML = 'Once upon a time...'&quot;&gt;
+</code></pre>
+<h2 id="embedded-templates">Embedded Templates</h2>
+<pre><code>  &lt;p *something=&quot;someExpression&quot;&gt;&lt;/p&gt;
+</code></pre>
+<h2 id="directives">Directives</h2>
+<pre><code>&lt;section *ngIf=&quot;showSection&quot;&gt;
+
+&lt;li *ngFor=&quot;let item of items&quot;&gt;  
+</code></pre>
+<h2 id="annotations">Annotations</h2>
+<pre><code>@Component({
+  selector: 'my-component',
+  services: [MyService]
+})
+</code></pre>
+<h2 id="import--export">Import &amp; Export</h2>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="p">{</span><span class="nx">Component</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@angular/core&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">NavController</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;ionic-angular&#39;</span><span class="p">;</span>
+ 
+<span class="err">@</span><span class="nx">Component</span><span class="p">({</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;app/hello-ionic/hello-ionic.html&#39;</span>
+<span class="p">})</span>
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">HelloIonicPage</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">nav</span><span class="o">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">nav</span> <span class="o">=</span> <span class="nx">nav</span><span class="p">;</span>
+  <span class="p">}</span>
+ 
+<span class="p">}</span>
+</code></pre></div><pre><code>import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';    
+</code></pre>
+<h2 id="heading"></h2>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/promise-and-generators-yield/" data-toggle="tooltip" data-placement="top" title="Promise and generators (yield)">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/promise-and-rxjs/" data-toggle="tooltip" data-placement="top" title="Promise  and rxjs">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/promise-and-generators-yield/">Promise and generators (yield)</a></li>
+                    
+                    <li><a href="/posts/polyfill-ni-zi-jiao-ben-tian-bu-jiu-liu-lan-qi-dui-html5de-zhi-chi-que-xian/">polyfill（腻子脚本）填补旧浏览器对html5的支持缺陷</a></li>
+                    
+                    <li><a href="/posts/aws-sns-js/">aws sns js</a></li>
+                    
+                    <li><a href="/posts/2014-07-30-javascript%E4%BB%A3%E7%90%86%E4%B8%8E%E6%8C%87%E9%92%88/">javascript代理与指针</a></li>
+                    
+                    <li><a href="/posts/2013-07-10-c-%E8%B0%83%E7%94%A8webbrowser%E4%B8%8Ejiavascript%E4%BA%A4%E4%BA%92/">c# 调用webbrowser与jiavascript交互</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Mar 1, 2017</h4>
+    </section>
+    <h5 id="wc">100 Words|Read in about 1 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/javascript/">javascript</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

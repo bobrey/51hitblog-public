@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Docker_xdebug - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Docker_xdebug" />
+  <meta name="twitter:title" content="Docker_xdebug" />
+  <meta name="description" content="docker中使用xdebug">
+  <meta property="og:description" content="docker中使用xdebug">
+  <meta name="twitter:description" content="docker中使用xdebug">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/docker_xdebug/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/docker_xdebug/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">Docker_xdebug</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+              
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+
+                <blockquote>
+<p>设置 <a href="https://xdebug.org/docs/all_settings#remote_connect_back">xdebug.remote_connect_back</a> 为 On 标识（会忽略 xdebug.remote_host 项）。这时，Xdebug 会优先获取 <a href="https://www.fanhaobai.com/2017/09/xdebug-in-docker.html#">HTTP_X_FORWARDED_FOR</a> 和 <a href="https://www.fanhaobai.com/2017/09/xdebug-in-docker.html#">REMOTE_ADDR</a> 中的一个值作为通信时 IDE 端的目标 IP，</p>
+<p>找问题过程见 [<a href="https://www.fanhaobai.com/2017/09/xdebug-in-docker.html">https://www.fanhaobai.com/2017/09/xdebug-in-docker.html</a>]</p>
+</blockquote>
+<h4 id="xdebugini">xdebug.ini</h4>
+<div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">//并没有xdebug.remote_connect_back项</span>
+<span class="na">xdebug.idekey</span> <span class="o">=</span> <span class="s">phpstorm</span>
+<span class="na">xdebug.remote_enable</span> <span class="o">=</span> <span class="s">on</span>
+<span class="na">xdebug.remote_host</span> <span class="o">=</span> <span class="s">192.168.1.101</span>
+<span class="na">xdebug.remote_port</span> <span class="o">=</span> <span class="s">9000</span>
+</code></pre></div><h4 id="防止调试超时">防止调试超时</h4>
+<div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="c1"># php*.ini （/usr/local/php/etc/php*.ini）:</span>
+<span class="na">max_execution_time</span><span class="o">=</span><span class="s">7200</span>
+ 
+<span class="c1"># php-fpm.conf （/usr/local/php/etc/php-fpm.conf）:</span>
+<span class="na">request_terminate_timeout</span> <span class="o">=</span> <span class="s">0  # fpm不加执行时间限制，少管闲事。</span>
+ 
+<span class="c1"># nginx （/usr/local/nginx/conf/nginx.conf）在http端添加或修改这两个:</span>
+<span class="na">fastcgi_connect_timeout 7200s;   # 因为php-fpm可能会被调试阻塞</span>
+<span class="na">fastcgi_read_timeout 7200s;</span>
+</code></pre></div>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/cms%E8%AF%86%E5%88%AB/" data-toggle="tooltip" data-placement="top" title="Cms识别">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/ubuntu%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/" data-toggle="tooltip" data-placement="top" title="Ubuntu时间同步">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/docker%E6%9C%80%E5%B0%8F%E5%8C%96%E9%95%9C%E5%83%8F/">Docker最小化镜像</a></li>
+                    
+                    <li><a href="/posts/docker%E4%BD%BF%E7%94%A8%E5%B0%8F%E7%BB%93/">Docker使用小结</a></li>
+                    
+                    <li><a href="/posts/laravel%E9%83%A8%E7%BD%B2/">Laravel部署</a></li>
+                    
+                    <li><a href="/posts/docker%E5%AE%9E%E4%BE%8B%E5%A4%A7%E5%B0%8F/">Docker实例大小</a></li>
+                    
+                    <li><a href="/posts/belongstovshasone/">BelongsToVShasOne</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+              
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

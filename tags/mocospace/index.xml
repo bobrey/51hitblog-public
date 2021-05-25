@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mocospace on IT技术分享</title>
+    <link>https://www.51hint.com/tags/mocospace/</link>
+    <description>Recent content in mocospace on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Oct 2013 08:08:42 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/mocospace/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>移动社交社区MocoSpace的架构</title>
+      <link>https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84-2/</link>
+      <pubDate>Fri, 25 Oct 2013 08:08:42 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-25-%E7%A7%BB%E5%8A%A8%E7%A4%BE%E4%BA%A4%E7%A4%BE%E5%8C%BAmocospace%E7%9A%84%E6%9E%B6%E6%9E%84-2/</guid>
+      <description>This is a guest post by Jamie Hall, Co-founder &amp;amp; CTO of MocoSpace, describing the architecture for their mobile social network. This is a timely architecture to learn from as it combines several hot trends: it is very large, mobile, and social. What they think is especially cool about their system is: how it optimizes for device/browser fragmentation on the mobile Web; their multi-tiered, read/write, local/distributed caching system; selecting PostgreSQL</description>
+    </item>
+    
+  </channel>
+</rss>

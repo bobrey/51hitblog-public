@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> Quartz2d - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Quartz2d" />
+  <meta name="twitter:title" content="Quartz2d" />
+  <meta name="description" content="Quartz转换实现的原理，Quartz把绘图分成两个部分， 用户空间，即和设备无关， 设备空间； 用户空间和设备空间中间存在一个转换矩阵：CTM">
+  <meta property="og:description" content="Quartz转换实现的原理，Quartz把绘图分成两个部分， 用户空间，即和设备无关， 设备空间； 用户空间和设备空间中间存在一个转换矩阵：CTM">
+  <meta name="twitter:description" content="Quartz转换实现的原理，Quartz把绘图分成两个部分， 用户空间，即和设备无关， 设备空间； 用户空间和设备空间中间存在一个转换矩阵：CTM">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-09-28-quartz2d/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-09-28-quartz2d/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">Quartz2d</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Sep 28, 2011</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>Quartz转换实现的原理，Quartz把绘图分成两个部分，</p>
+<p>用户空间，即和设备无关，</p>
+<p>设备空间；</p>
+<p>用户空间和设备空间中间存在一个转换矩阵：CTM</p>
+<p>Quartz提供三大功能</p>
+<p>移动、旋转、缩放</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;pre style=&quot;line-height:13px; margin-top:-0.083em; margin-bottom:0px; font-size:12px; font-family:Courier,Consolas,monospace; color:rgb(102,102,102); margin-right:0.333em; margin-left:0.5em; white-space:pre-wrap&quot;&gt;&lt;span style=&quot;line-height:13px&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;pre style=&quot;line-height:13px; margin-top:-0.083em; margin-bottom:0px; font-size:12px; font-family:Courier,Consolas,monospace; color:rgb(102,102,102); margin-right:0.333em; margin-left:0.5em; white-space:pre-wrap&quot;&gt;&lt;span style=&quot;line-height:13px&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;pre style=&quot;line-height:13px; margin-top:-0.083em; margin-bottom:0px; font-size:12px; font-family:Courier,Consolas,monospace; color:rgb(102,102,102); margin-right:0.333em; margin-left:0.5em; white-space:pre-wrap&quot;&gt;旋转函数&lt;/pre&gt;
+
+
+&lt;pre style=&quot;line-height:21px; margin-top:-0.083em; margin-bottom:0px; margin-right:0.333em; margin-left:0.5em&quot;&gt;&lt;span style=&quot;font-family:Courier,Consolas,monospace; color:#666666; line-height:21px&quot;&gt;&lt;span style=&quot;line-height:21px; white-space:pre-wrap&quot;&gt;include &amp;lt;math.h&amp;gt; static inline double radians (double degrees) {return degrees * M_PI/180;}&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+
+
+&lt;pre style=&quot;margin-top:-0.083em; margin-bottom:0px; font-size:12px; font-family:Courier,Consolas,monospace; color:rgb(102,102,102); margin-right:0.333em; margin-left:0.5em; white-space:pre-wrap&quot;&gt;&lt;span style=&quot;line-height:normal; color:rgb(0,0,0); font-family:'Lucida Grande',Geneva,Helvetica,Arial,sans-serif; white-space:normal&quot;&gt;&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;pre style=&quot;line-height:13px; margin-top:-0.083em; margin-bottom:0px; font-size:12px; font-family:Courier,Consolas,monospace; color:rgb(102,102,102); margin-right:0.333em; margin-left:0.5em; white-space:pre-wrap&quot;&gt;&lt;span style=&quot;line-height:normal; color:rgb(0,0,0); font-family:'Lucida Grande',Geneva,Helvetica,Arial,sans-serif; white-space:normal&quot;&gt;&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;pre style=&quot;line-height:13px; margin-top:-0.083em; margin-bottom:0px; font-size:12px; color:rgb(102,102,102); margin-right:0.333em; margin-left:0.5em&quot;&gt;&lt;span style=&quot;line-height:normal; color:rgb(0,0,0); font-family:'Lucida Grande',Geneva,Helvetica,Arial,sans-serif; white-space:normal&quot;&gt;&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;pre style=&quot;line-height:13px; margin-top:-0.083em; margin-bottom:0px; font-size:12px; color:rgb(102,102,102); margin-right:0.333em; margin-left:0.5em&quot;&gt;&lt;span style=&quot;line-height:normal; color:rgb(0,0,0); font-family:'Lucida Grande',Geneva,Helvetica,Arial,sans-serif; white-space:normal&quot;&gt;&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;pre style=&quot;line-height:13px; margin-top:-0.083em; margin-bottom:0px; font-size:12px; font-family:Courier,Consolas,monospace; color:rgb(102,102,102); margin-right:0.333em; margin-left:0.5em; white-space:pre-wrap&quot;&gt;&lt;span style=&quot;line-height:normal; color:rgb(0,0,0); font-family:'Lucida Grande',Geneva,Helvetica,Arial,sans-serif; white-space:normal&quot;&gt;&lt;/span&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;pre style=&quot;line-height:22px; margin-top:-0.083em; margin-bottom:-0.25em; font-size:13px; font-family:Courier,Consolas,monospace; color:rgb(102,102,102); margin-right:0.333em; margin-left:0.5em; white-space:pre&quot;&gt;参考：&lt;a href=&quot;http://developer.apple.com/iphone/library/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_affine/dq_affine.html#//apple_ref/doc/uid/TP30001066-CH204-SW1&quot;&gt;http://developer.apple.com/iphone/library/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_affine/dq_affine.html#//apple_ref/doc/uid/TP30001066-CH204-SW1&lt;/a&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;
+  &lt;/br&gt;&lt;/div&gt;
+  
+  
+  &lt;div style=&quot;line-height:24px&quot;&gt;
+    &lt;a href=&quot;http://disanji.net/2010/12/18/ios-clip-and-display-part-of-pictures/&quot;&gt;http://disanji.net/2010/12/18/ios-clip-and-display-part-of-pictures/&lt;/a&gt;&lt;br /&gt;
+    &lt;/br&gt;
+  &lt;/div&gt;
+  
+  
+  &lt;div style=&quot;line-height:24px&quot;&gt;
+    &lt;/br&gt;
+  &lt;/div&gt;
+  
+  
+  &lt;div style=&quot;line-height:24px&quot;&gt;
+    //*************************************************************************************************************************************************************************//
+  &lt;/div&gt;
+  
+  
+  &lt;div style=&quot;line-height:24px&quot;&gt;
+    &amp;#8211; (void)initPDFImage{
+  &lt;/div&gt;
+  
+  
+  &lt;blockquote style=&quot;margin:0 0 0 40px; border:none; padding:0px&quot;&gt;
+    &lt;div style=&quot;line-height:24px&quot;&gt;
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span class=&quot;s1&quot;&gt;CGContextRef   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;context = &lt;/span&gt;&lt;br /&gt;
+        CGBitmapContextCreate&lt;span class=&quot;s2&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s3&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, &lt;/span&gt;pageSize.&lt;span class=&quot;s1&quot;&gt;width&lt;/span&gt;, pageSize.&lt;span class=&quot;s1&quot;&gt;height&lt;/span&gt;,  &lt;span class=&quot;s4&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;/*&lt;br /&gt;
+         bits per component*/ pageSize.&lt;span class=&quot;s1&quot;&gt;width&lt;/span&gt; *&lt;span class=&quot;s4&quot;&gt;4&lt;/span&gt;,&lt;br /&gt;
+        &lt;span&gt;&lt;/span&gt;&lt;span class=&quot;s5&quot;&gt;/* bytes per row */  &lt;/span&gt;colorSpace,  kCGImageAlphaPremultipliedLast&lt;span class=&quot;s2&quot;&gt; |&lt;/span&gt;kCGBitmapByteOrder32Big&lt;span class=&quot;s2&quot;&gt;);       //创建上下文&lt;/span&gt;
+      &lt;/p&gt;
+      
+    &lt;/div&gt;
+    
+  &lt;/blockquote&gt;
+  
+  
+  &lt;div style=&quot;line-height:24px&quot;&gt;
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;span class=&quot;s2&quot;&gt;&lt;/span&gt;
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;span class=&quot;s1&quot;&gt;CGAffineTransform &lt;/span&gt; &lt;span style=&quot;background-color:rgb(255,153,0)&quot;&gt;&lt;br /&gt;
+      scale&lt;/span&gt; = &lt;span class=&quot;s2&quot;&gt;CGAffineTransformMakeScale&lt;/span&gt;(scaleFactor, scaleFactor);
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;span&gt;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;CGRect&lt;/span&gt; scaledInnerRect = &lt;span class=&quot;s2&quot;&gt;&lt;br /&gt;
+      CGRectApplyAffineTransform&lt;/span&gt;(innerRect, scale);
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;/br&gt;
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p2&quot;&gt;
+      &lt;span class=&quot;s3&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;CGAffineTransform&lt;span class=&quot;s3&quot;&gt;&lt;span style=&quot;background-color:rgb(255,153,0)&quot;&gt;translation&lt;/span&gt; = &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;CGAffineTransformMakeTranslation&lt;/span&gt;((outerRect.&lt;span class=&quot;s1&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;s1&quot;&gt;width&lt;/span&gt;&lt;br /&gt;
+       &amp;#8211; scaledInnerRect.&lt;span class=&quot;s1&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;s1&quot;&gt;width&lt;/span&gt;) / &lt;span class=&quot;s4&quot;&gt;&lt;br /&gt;
+      2&lt;/span&gt; &amp;#8211; scaledInnerRect.&lt;span class=&quot;s1&quot;&gt;origin&lt;/span&gt;.&lt;span class=&quot;s1&quot;&gt;x&lt;/span&gt;, 
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;(outerRect.&lt;span class=&quot;s1&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;s1&quot;&gt;height&lt;/span&gt; &amp;#8211; scaledInnerRect.&lt;span class=&quot;s1&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;s1&quot;&gt;height&lt;/span&gt;)&lt;br /&gt;
+       / &lt;span class=&quot;s4&quot;&gt;2&lt;/span&gt; &amp;#8211; scaledInnerRect.&lt;span class=&quot;s1&quot;&gt;origin&lt;/span&gt;.&lt;span class=&quot;s1&quot;&gt;y&lt;/span&gt;);
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p2&quot;&gt;
+      &lt;span class=&quot;s3&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;CGAffineTransform&lt;span class=&quot;s3&quot;&gt;&lt;/span&gt;transform&lt;span class=&quot;s3&quot;&gt; =&lt;br /&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot; style=&quot;background-color:rgb(255,204,102)&quot;&gt;CGAffineTransformConcat&lt;/span&gt;&lt;span class=&quot;s3&quot;&gt;(scale, translation);  //连接两个 CGAffineTransform&lt;/span&gt;
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;span class=&quot;s2&quot;&gt;&lt;br /&gt;
+      &lt;/br&gt;&lt;/span&gt;
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;span class=&quot;s2&quot;&gt;&lt;/span&gt;
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;span style=&quot;color:#ff9966&quot;&gt;CGContextConcatCTM&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;(context,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;);&lt;/span&gt;
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;CGContextDrawPDFPage&lt;span class=&quot;s1&quot;&gt;(context,&lt;/span&gt;&lt;span class=&quot;s3&quot;&gt;_pageRef&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;);&lt;/span&gt;
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p2&quot;&gt;
+      &lt;span&gt;&lt;/span&gt;
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p2&quot;&gt;
+      &lt;span&gt;&lt;/span&gt;
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;CGImageRef&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; image =&lt;/span&gt;CGBitmapContextCreateImage&lt;span class=&quot;s1&quot;&gt;(context);&lt;/span&gt;
+    &lt;/p&gt;
+    
+    
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;CGContextRelease&lt;span class=&quot;s1&quot;&gt;(context);&lt;/span&gt;
+    &lt;/p&gt;
+    
+  &lt;/div&gt;
+  
+  
+  &lt;div style=&quot;line-height:24px&quot;&gt;
+    }
+  &lt;/div&gt;
+  
+  
+  &lt;div style=&quot;line-height:24px&quot;&gt;
+    &lt;/br&gt;
+  &lt;/div&gt;
+  
+  
+  &lt;div style=&quot;line-height:24px&quot;&gt;
+    //==========================================================================================//
+  &lt;/div&gt;
+  
+  
+  &lt;div style=&quot;line-height:24px&quot;&gt;
+    &amp;#8211; (void)createImage{
+  &lt;/div&gt;
+  
+  
+  &lt;div style=&quot;line-height:24px&quot;&gt;
+    &lt;p class=&quot;p1&quot;&gt;
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span class=&quot;s1&quot;&gt;CGPDFPageRef&lt;/span&gt; page = &lt;span class=&quot;s2&quot;&gt;CGPDFDocumentGetPage&lt;/span&gt;(cgPdfRef,number+&lt;span class=&quot;s3&quot;&gt;1&lt;/span&gt;);
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span style=&quot;background-color:rgb(255,204,102)&quot;&gt;UIGraphicsBeginImageContext&lt;span class=&quot;s1&quot;&gt;(&lt;/span&gt;CGSizeMake&lt;span class=&quot;s1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;156&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;,&lt;br /&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;208&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;));      //创建上下文&lt;/span&gt;&lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span style=&quot;background-color:rgb(255,204,102)&quot;&gt;&lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;s3&quot;&gt;CGContextRef&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; context =&lt;br /&gt;
+        &lt;/span&gt;UIGraphicsGetCurrentContext&lt;span class=&quot;s1&quot;&gt;();&lt;/span&gt;&lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;CGContextSetRGBFillColor&lt;span class=&quot;s1&quot;&gt;( context,&lt;br /&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;,&lt;br /&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; );&lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;CGContextFillRect&lt;span class=&quot;s1&quot;&gt;( context,&lt;br /&gt;
+        &lt;/span&gt;CGContextGetClipBoundingBox&lt;span class=&quot;s1&quot;&gt;(context));&lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;CGContextTranslateCTM&lt;span class=&quot;s1&quot;&gt;(context,&lt;br /&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;208&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;);&lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p2&quot;&gt;
+        &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;s4&quot;&gt;CGContextScaleCTM&lt;/span&gt;(context,&lt;br /&gt;
+        &lt;span class=&quot;s2&quot;&gt;1.0&lt;/span&gt;, &amp;#8211;&lt;span class=&quot;s2&quot;&gt;1.0&lt;/span&gt;);&lt;span&gt; &lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;CGContextSaveGState&lt;span class=&quot;s1&quot;&gt;(context);&lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;s3&quot;&gt;CGAffineTransform&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; pdfTransform =&lt;br /&gt;
+        &lt;/span&gt;CGPDFPageGetDrawingTransform&lt;span class=&quot;s1&quot;&gt;(page, &lt;/span&gt;kCGPDFCropBox&lt;span class=&quot;s1&quot;&gt;,&lt;br /&gt;
+        &lt;/span&gt;CGRectMake&lt;span class=&quot;s1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;0.0f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;,&lt;br /&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;0.0f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;156.0f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;,&lt;br /&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;208.0f&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;,&lt;br /&gt;
+        &lt;/span&gt;&lt;span class=&quot;s5&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;);&lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p2&quot;&gt;
+        &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;s4&quot;&gt;CGContextConcatCTM&lt;/span&gt;(context, pdfTransform);
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;CGContextDrawPDFPage&lt;span class=&quot;s1&quot;&gt;(context, page);&lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;CGContextRestoreGState&lt;span class=&quot;s1&quot;&gt;(context);&lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;s3&quot;&gt;UIImage&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt; *theImage =&lt;br /&gt;
+        &lt;/span&gt;UIGraphicsGetImageFromCurrentImageContext&lt;span class=&quot;s1&quot;&gt;();&lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p class=&quot;p1&quot;&gt;
+        &lt;span class=&quot;s1&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;UIGraphicsEndImageContext&lt;span class=&quot;s1&quot;&gt;();&lt;/span&gt;
+      &lt;/p&gt;
+      
+      
+      &lt;p&gt;
+        &lt;/br&gt;&lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+        
+        
+        &lt;div style=&quot;line-height:24px&quot;&gt;
+          &lt;/br&gt;
+        &lt;/div&gt;
+      &lt;/p&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-09-28-gdb%E8%B0%83%E8%AF%95-%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%80%BC-struct/" data-toggle="tooltip" data-placement="top" title="gdb调试 查看变量值 struct">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-09-28-ortp%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE-1/" data-toggle="tooltip" data-placement="top" title="ortp流媒体协议 [1]">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-09-28-gdb%E8%B0%83%E8%AF%95-%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%80%BC-struct/">gdb调试 查看变量值 struct</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-caanimationcaanimationgroup/">CAAnimation，CAAnimationGroup</a></li>
+                    
+                    <li><a href="/posts/2011-09-28-caanimation%E5%8A%A8%E7%94%BB-2/">CAAnimation动画</a></li>
+                    
+                    <li><a href="/posts/2011-09-16-%E8%BE%93%E5%85%A5%E5%85%B3%E8%81%94%E8%BD%AF%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/">输入关联软键盘事件</a></li>
+                    
+                    <li><a href="/posts/2011-09-15-touch-%E5%8D%95%E5%87%BB%E5%8F%8C%E5%87%BB/">touch 单击、双击</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Sep 28, 2011</h4>
+    </section>
+    <h5 id="wc">1100 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

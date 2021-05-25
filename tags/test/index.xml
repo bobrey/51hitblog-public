@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test on IT技术分享</title>
+    <link>https://www.51hint.com/tags/test/</link>
+    <description>Recent content in Test on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Jan 2014 00:24:28 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>测试工具整理</title>
+      <link>https://www.51hint.com/posts/2014-01-24-%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</link>
+      <pubDate>Fri, 24 Jan 2014 00:24:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-24-%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</guid>
+      <description>市场主流测试工具与开源工具的对应列表 测试工具类型 开源工具 市场主流工具 测试管理工具 TestLink TestDirect 配置管理工具 CVS、VSS、SVN ClearCase BUG管理工具 Bug</description>
+    </item>
+    
+  </channel>
+</rss>

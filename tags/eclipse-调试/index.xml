@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>eclipse 调试 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/eclipse-%E8%B0%83%E8%AF%95/</link>
+    <description>Recent content in eclipse 调试 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Oct 2013 05:15:55 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/eclipse-%E8%B0%83%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>eclipse 调试</title>
+      <link>https://www.51hint.com/posts/2013-10-04-eclipse-%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Fri, 04 Oct 2013 05:15:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-04-eclipse-%E8%B0%83%E8%AF%95/</guid>
+      <description>你应该看过一些如《关于调试的N件事》这类很流行的帖子 。假设我每天花费1小时在调试我的应用程序上的话，那累积起来的话也是很大量的时间。由于这个</description>
+    </item>
+    
+  </channel>
+</rss>

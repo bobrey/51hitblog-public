@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> android ListView常见问题解决方法（滚动背景变黑，去除滑动时阴影，拖动时Item图片不显示） - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="android ListView常见问题解决方法（滚动背景变黑，去除滑动时阴影，拖动时Item图片不显示）" />
+  <meta name="twitter:title" content="android ListView常见问题解决方法（滚动背景变黑，去除滑动时阴影，拖动时Item图片不显示）" />
+  <meta name="description" content="&lt;p&gt; &amp;nbsp; &lt;/p&gt; &lt;p&gt; 在ListView中我们使用属性 android:divider=&amp;#8221;#FF0000&amp;#8243; 定义分隔符为红色，当然这里值可以指向一个drawable图片对象，如果使用了图片可能高度大于系统默">
+  <meta property="og:description" content="&lt;p&gt; &amp;nbsp; &lt;/p&gt; &lt;p&gt; 在ListView中我们使用属性 android:divider=&amp;#8221;#FF0000&amp;#8243; 定义分隔符为红色，当然这里值可以指向一个drawable图片对象，如果使用了图片可能高度大于系统默">
+  <meta name="twitter:description" content="&lt;p&gt; &amp;nbsp; &lt;/p&gt; &lt;p&gt; 在ListView中我们使用属性 android:divider=&amp;#8221;#FF0000&amp;#8243; 定义分隔符为红色，当然这里值可以指向一个drawable图片对象，如果使用了图片可能高度大于系统默">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2013-12-19-android-listview%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%BB%9A%E5%8A%A8%E8%83%8C%E6%99%AF%E5%8F%98%E9%BB%91%E5%8E%BB%E9%99%A4%E6%BB%91%E5%8A%A8/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2013-12-19-android-listview%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%BB%9A%E5%8A%A8%E8%83%8C%E6%99%AF%E5%8F%98%E9%BB%91%E5%8E%BB%E9%99%A4%E6%BB%91%E5%8A%A8/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">android ListView常见问题解决方法（滚动背景变黑，去除滑动时阴影，拖动时Item图片不显示）</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Dec 19, 2013</h4>
+    </section>
+    <h5 id="wc">1000 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/listview.android/">listview.android</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <!-- raw HTML omitted -->
+<pre><code>&lt;p&gt;
+  &amp;nbsp;
+&lt;/p&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>    &lt;p&gt;
+      在ListView中我们使用属性 android:divider=&amp;#8221;#FF0000&amp;#8243; 定义分隔符为红色，当然这里值可以指向一个drawable图片对象，如果使用了图片可能高度大于系统默认的像素，可以自己设置高度比如6个像素 android:dividerHeight=&amp;#8221;6px&amp;#8221; ，Android开发网提示当然在Java中ListView也有相关方法可以设置。&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+      
+      &lt;p&gt;
+        &amp;nbsp;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;strong&gt;&lt;span style=&quot;color: #ff00ff;&quot;&gt;1）点击Item时无背景颜色变化&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt; 在xml文件中的ListView控件中加入如下属性：&lt;br /&gt; android:listSelector=&amp;#8221;@drawable/timer_list_selector&amp;#8221;&lt;br /&gt; 在drawable中定义timer_list_selector的属性值&lt;br /&gt; timer_list_selector.xml中定义如下：&lt;br /&gt; &lt;?xml version=&amp;#8221;1.0&amp;#8243; encoding=&amp;#8221;utf-8&amp;#8243;?&gt;&lt;br /&gt; &lt;selector xmlns:android=&amp;#8221;http://schemas.android.com/apk/res/android&amp;#8221;&gt;&lt;br /&gt; &lt;item android:state_selected=&amp;#8221;true&amp;#8221; android:drawable=&amp;#8221;@android:color/transparent&amp;#8221; /&gt;&lt;br /&gt; &lt;/selector&gt;&lt;br /&gt; 在values文件夹下的colors.xml中定义transparent如下：&lt;br /&gt; &lt;color name=&amp;#8221;transparent&amp;#8221;&gt;#50000000&lt;/color&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;strong&gt;&lt;span style=&quot;color: #ff00ff;&quot;&gt;2）设置Item之间无间隙&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt; 在xml文件中ListView控件中加入如下属性：&lt;br /&gt; android:divider=&amp;#8221;#00000000&amp;#8243;&lt;br /&gt; 或者在javaCode中如下定义：&lt;br /&gt; listView.setDividerHeight(0);
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;strong&gt;&lt;span style=&quot;color: #ff00ff;&quot;&gt;3)自定义的BaseAdapter中调用notifyDataSetChanged()方法会重新调用BaseAdapter的getView()方法。&lt;/span&gt;&lt;/strong&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        用心的朋友应该会发现，listview中在设置了背景之后。会有些问题。
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &amp;nbsp;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        1.、listview在拖动的时候背景图片消失变成黑色背景。等到拖动完毕我们自己的背景图片才显示出来。
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &amp;nbsp;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        2 、listview的上边和下边有黑色的阴影。
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &amp;nbsp;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        3、lsitview的每一项之间需要设置一个图片做为间隔。
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &amp;nbsp;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        针对以上问题 在listview的xml文件中设置一下语句。
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &amp;nbsp;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        问题1 有如下代码结解决 android:scrollingCache=&amp;#8221;false&amp;#8221;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &amp;nbsp;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        问题2 用如下代码解决：android:fadingEdge=&amp;#8221;none&amp;#8221;&lt;br /&gt; 问题3 用如下代码解决： android:divider=&amp;#8221;@drawable/list_driver&amp;#8221; 其中 @drawable/list_driver 是一个图片资源
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &amp;nbsp;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &amp;nbsp;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &amp;nbsp;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        总体如下
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &amp;nbsp;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        &lt;ListView&lt;br /&gt; android:id=&amp;#8221;@+id/myListView01&amp;#8243;&lt;br /&gt; android:layout_width=&amp;#8221;fill_parent&amp;#8221;&lt;br /&gt; android:layout_height=&amp;#8221;287dip&amp;#8221;&lt;br /&gt; &lt;span style=&quot;color: #ff0000;&quot;&gt;android:fadingEdge=&amp;#8221;none&amp;#8221;&lt;br /&gt; &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;android:scrollingCache=&amp;#8221;false&amp;#8221;&lt;/span&gt;
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+        android:divider=&amp;#8221;@drawable/list_driver&amp;#8221;&lt;br /&gt; android:background=&amp;#8221;@drawable/list&amp;#8221;&gt;&lt;br /&gt; &lt;/ListView&gt;
+      &lt;/p&gt;
+      
+      &lt;div&gt;
+      &lt;/div&gt;
+      
+      &lt;p&gt;
+        &lt;wbr&gt;&lt;/wbr&gt;&lt;/div&gt;</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2013-12-09-android-something/" data-toggle="tooltip" data-placement="top" title="android -something">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2013-12-25-ios%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7-%E7%BD%91%E7%BB%9C%E5%B0%81%E5%8C%85%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7charles/" data-toggle="tooltip" data-placement="top" title="iOS开发工具——网络封包分析工具Charles,抓包">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Dec 19, 2013</h4>
+    </section>
+    <h5 id="wc">1000 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/listview.android/">listview.android</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>otrnado on IT技术分享</title>
+    <link>https://www.51hint.com/tags/otrnado/</link>
+    <description>Recent content in otrnado on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jul 2012 01:58:31 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/otrnado/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tornado WebServer</title>
+      <link>https://www.51hint.com/posts/2012-07-20-tornado-webserver/</link>
+      <pubDate>Fri, 20 Jul 2012 01:58:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-20-tornado-webserver/</guid>
+      <description>Tornado是一个异步web框架和服务器，所以在开发longpulling的chat之类应用非常的合适，但是其实本身也是一个高性能的htt</description>
+    </item>
+    
+  </channel>
+</rss>

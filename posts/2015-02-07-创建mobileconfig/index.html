@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 创建mobileconfig - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="创建mobileconfig" />
+  <meta name="twitter:title" content="创建mobileconfig" />
+  <meta name="description" content="Over-the-air IPhone Setup Using a Signed .mobileconfig File Note: this does not push your configuration to an iPhone. The user of the iPhone must go to a web address and install a configuration profile. Suppose that you have a few iPhones that you need to support, but you don’t want to spend the time typing in all of the e-mail (IMAP or POP), LDAP, wireless network,">
+  <meta property="og:description" content="Over-the-air IPhone Setup Using a Signed .mobileconfig File Note: this does not push your configuration to an iPhone. The user of the iPhone must go to a web address and install a configuration profile. Suppose that you have a few iPhones that you need to support, but you don’t want to spend the time typing in all of the e-mail (IMAP or POP), LDAP, wireless network,">
+  <meta name="twitter:description" content="Over-the-air IPhone Setup Using a Signed .mobileconfig File Note: this does not push your configuration to an iPhone. The user of the iPhone must go to a web address and install a configuration …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2015-02-07-%E5%88%9B%E5%BB%BAmobileconfig/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2015-02-07-%E5%88%9B%E5%BB%BAmobileconfig/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">创建mobileconfig</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sat Feb 7, 2015</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/mobileconfig/">mobileconfig</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>Over-the-air IPhone Setup Using a Signed .mobileconfig File</p>
+<p>Note: this does not push your configuration to an iPhone. The user of the iPhone must go to a web address and install a configuration profile.</p>
+<p>Suppose that you have a few iPhones that you need to support, but you don’t want to spend the time typing in all of the e-mail (IMAP or POP), LDAP, wireless network, or other settings into each phone. Perhaps you have found Apple’s Enterprise Deployment Guide but you don’t really feel like setting up a whole SCEP Certification Authority to get things done either since your requirements are so simple. But you do realize that it is much easier to tell your user to go to <a href="https://example.com/iphone/">https://example.com/iphone/</a> on their iPhone than to step them through all the individual setup routines.</p>
+<p>Amazingly enough, there is not much documentation out there on how to hand-roll a .mobileconfig file that you can pass out on an HTTPS server to your users. We also want it to be “Verified” by the iPhone so that your users can see it is from you. While they can install untrusted profiles, it sure adds a nice touch to have the green checkmark.</p>
+<p>Perhaps you’ve scoured the Internet since you’ve read that you can “just use openssl smime” to sign your .mobileconfig file, but no one seems to tell you how. We’ll go over that here as well.</p>
+<ol>
+<li>Create a configuration (.mobileconfig) file</li>
+</ol>
+<p>This file will contain all the configuration you want for your users’ iPhones. I believe you can use Apple’s iPhone Configuration Utility to create this file. You don’t have to, but it’ll probably save you some typing.</p>
+<p>The Enterprise Deployment Guide defines the syntax of the profiles in Appendix B. You can do some pretty fancy request/response scripting between the phone and your server, but I’ll just go over a simpler method that just sends a configuration file from your web server to their phone.</p>
+<p>Your .mobileconfig file will end up looking something like this:</p>
+<p>PayloadContent</p>
+<p>PayloadDisplayName</p>
+<p>LDAP Settings</p>
+<p>PayloadType</p>
+<p>com.apple.ldap.account</p>
+<p>PayloadVersion</p>
+<p>1</p>
+<p>PayloadUUID</p>
+<p>6df7a612-ce0a-4b4b-bce2-7b844e3c9df0</p>
+<p>PayloadIdentifier</p>
+<p>com.example.iPhone.settings.ldap</p>
+<p>LDAPAccountDescription</p>
+<p>Company Contacts</p>
+<p>LDAPAccountHostName</p>
+<p>ldap.example.com</p>
+<p>LDAPAccountUseSSL</p>
+<p>LDAPAccountUserName</p>
+<p>uid=username,dc=example,dc=com</p>
+<p>LDAPSearchSettings</p>
+<p>LDAPSearchSettingDescription</p>
+<p>Company Contacts</p>
+<p>LDAPSearchSettingSearchBase</p>
+<p>LDAPSearchSettingScope</p>
+<p>LDAPSearchSettingScopeSubtree</p>
+<p>LDAPSearchSettingDescription</p>
+<p>Sales Departments</p>
+<p>LDAPSearchSettingSearchBase</p>
+<p>ou=Sales,dc=example,dc=com</p>
+<p>LDAPSearchSettingScope</p>
+<p>LDAPSearchSettingScopeSubtree</p>
+<p>PayloadDisplayName</p>
+<p>Email Settings</p>
+<p>PayloadType</p>
+<p>com.apple.mail.managed</p>
+<p>PayloadVersion</p>
+<p>1</p>
+<p>PayloadUUID</p>
+<p>362e5c11-a332-4dfb-b18b-f6f0aac032fd</p>
+<p>PayloadIdentifier</p>
+<p>com.example.iPhone.settings.email</p>
+<p>EmailAccountDescription</p>
+<p>Company E-mail</p>
+<p>EmailAccountName</p>
+<p>Full Name</p>
+<p>EmailAccountType</p>
+<p>EmailTypeIMAP</p>
+<p>EmailAddress</p>
+<p><a href="mailto:username@example.com">username@example.com</a></p>
+<p>IncomingMailServerAuthentication</p>
+<p>EmailAuthPassword</p>
+<p>IncomingMailServerHostName</p>
+<p>imap.example.com</p>
+<p>IncomingMailServerUseSSL</p>
+<p>IncomingMailServerUsername</p>
+<p><a href="mailto:username@es2eng.com">username@es2eng.com</a></p>
+<p>OutgoingPasswordSameAsIncomingPassword</p>
+<p>OutgoingMailServerAuthentication</p>
+<p>EmailAuthPassword</p>
+<p>OutgoingMailServerHostName</p>
+<p>smtp.example.com</p>
+<p>OutgoingMailServerUseSSL</p>
+<p>OutgoingMailServerUsername</p>
+<p><a href="mailto:username@example.com">username@example.com</a></p>
+<p>PayloadOrganization</p>
+<p>Your Organization’s Name</p>
+<p>PayloadDisplayName</p>
+<p>Organization iPhone Settings</p>
+<p>PayloadVersion</p>
+<p>1</p>
+<p>PayloadUUID</p>
+<p>954e6e8b-5489-484c-9b1d-0c9b7bf18e32</p>
+<p>PayloadIdentifier</p>
+<p>com.example.iPhone.settings</p>
+<p>PayloadDescription</p>
+<p>Sets up Organization’s LDAP directories and email on the iPhone</p>
+<p>PayloadType</p>
+<p>Configuration</p>
+<p>I’ll talk just briefly about the configuration above. The iPhone, as far as I can tell, uses the UUIDs to know whether or not it is replacing or installing a new profile onto the phone. On a Mac or Linux box, you can generate a UUID with the command uuidgen. You’ll notice that I did not include any passwords above. With these settings, the iPhone will prompt the user for their e-mail password upon installation of the profile. (The LDAP password will be prompted on first use if logging in fails.)</p>
+<p>I actually wrote a PHP script that would take a template .mobileconfig file for me and fill in the username fields for me depending on PHP_AUTH_USER. After you get the basics down, you can go back and do that. There is also a way to encrypt the .mobileconfig files, but we are not covering that here.</p>
+<p>Sign the .mobileconfig file</p>
+<p>This is the part that no one else seems to go over. Signing your configuration profile is an optional step, but it’s not too hard if you already have an X.509 web server or email certificate.</p>
+<p>For this step, I’ll use the following notations:</p>
+<p>company.mobileconfig is your unsigned configuration profile</p>
+<p>server.crt is your server’s certificate to sign the profile with</p>
+<p>server.key is your server’s private key</p>
+<p>cert-chain.crt is the certificate bundle for the CA that issued your server’s certificate.</p>
+<p>signed.mobileconfig will be your signed configuration profile</p>
+<p>Once you have all the files listed above, you will run a command like the following:</p>
+<p>openssl smime -sign -in company.mobileconfig -out signed.mobileconfig -signer server.crt -inkey server.key -certfile cert-chain.crt -outform der -nodetach</p>
+<p>The -outform der and -nodetach are your real tickets here in getting it into a form that the iPhone wants. Now you take signed.mobileconfig and move on to the next step!</p>
+<p>Help for those that will use PHP scripting: You’ll want to look at openssl_pkcs7_sign() function with the $flags field set to 0. This will create a file that is base-64 encoded. After you strip off the e-mail headers at the top, you can base64_decode() to get the same output. For example:</p>
+<p>$mobileconfig = base64_decode(preg_replace(‘/(.+\n)+\n/’, ”, $signed, 1));</p>
+<p>Serve up the file on your HTTPS server</p>
+<p>Okay, it’ll probably work on your HTTP server as well. Just another configuration I didn’t bother testing.</p>
+<p>There is just one caveats when it comes to serving up this file. It needs to be served up with a MIME Content-Type of application/x-apple-aspen-config. You may be able to do this by adding a line to your server’s configuration or .htaccess file in the folder with:</p>
+<p>AddType application/x-apple-aspen-config .mobileconfig</p>
+<p>If serving the file from within PHP, you may do something like:</p>
+<p>header(‘Content-type: application/x-apple-aspen-config; chatset=utf-8’);</p>
+<p>header(‘Content-Disposition: attachment; filename=”company.mobileconfig”‘);</p>
+<p>echo $mobileconfig;</p>
+<p>Try it out on your iPhone</p>
+<p>Get your iPhone and load up Safari. Go to the web address of where your profile is saved, e.g. <a href="https://www.example.com/iphone/">https://www.example.com/iphone/</a>. Your phone should prompt you to install the profile.</p>
+<p>You can see and remove profiles from Settings &gt; General on your iPhone. Note, that it IS possible to create a profile that cannot be removed except for by the original profile identifier and signed by the same authority. Be careful that you don’t lock yourself out.</p>
+<p>Finished!</p>
+<p>At this point, we are finished. See the Enterprise Deployment Guide for other configuration profiles that you can create. It doesn’t let you create or set everything that I wish it did (especially when it comes to setting up IMAP defaults), but it lets you do quite a bit.</p>
+<p>I hope that this helps you! This is obviously a very brief guide and I glazed over a few details. If you have any comments, let me know. My e-mail address can be deduced from the very bottom of the document.</p>
+<p>See Also</p>
+<p>Retrieving an iPhone response using PHP</p>
+<p>—–</p>
+<p>I hope this helps someone. Let me know if there are errors above and I’ll update this document.</p>
+<p>-W Gillespie (wgillespie, es2eng.com)</p>
+<p>Last updated: 2011-06-27</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2015-02-07-openssl-%E5%AF%BC%E5%87%BApfx/" data-toggle="tooltip" data-placement="top" title="openssl 导出pfx">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2015-02-19-ubuntu%E5%AE%89%E8%A3%85nginx/" data-toggle="tooltip" data-placement="top" title="ubuntu安装nginx">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2013-08-15-some-thing-about-mobileconfig-file/">some thing about .mobileconfig file</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sat Feb 7, 2015</h4>
+    </section>
+    <h5 id="wc">1400 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/mobileconfig/">mobileconfig</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

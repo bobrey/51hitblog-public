@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on IT技术分享</title>
+    <link>https://www.51hint.com/tags/javascript/</link>
+    <description>Recent content in javascript on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Mar 2017 16:48:35 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>es2015</title>
+      <link>https://www.51hint.com/posts/es2015/</link>
+      <pubDate>Thu, 09 Mar 2017 16:48:35 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/es2015/</guid>
+      <description>ES2015 Template literals `` 1 - 多行 console.log(&amp;#39;string text line 1\n&amp;#39; + &amp;#39;string text line 2&amp;#39;); // &amp;#34;string text line 1 // string text line 2&amp;#34; //-----after---- console.log(`string text line 1 string text line 2`); // &amp;#34;string text line 1 // string text line 2&amp;#34; 2 - Tagged template literals var person = &amp;#39;Mike&amp;#39;; var age = 28; function myTag(strings, personExp, ageExp) { var str0 = strings[0]; // &amp;#34;that</description>
+    </item>
+    
+    <item>
+      <title>React-Redux用法</title>
+      <link>https://www.51hint.com/posts/react-reduxyong-fa/</link>
+      <pubDate>Tue, 07 Mar 2017 16:49:04 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react-reduxyong-fa/</guid>
+      <description>React-Redux用法 为了方便使用，Redux 的作者封装了一个 React 专用的库 React-Redux，本文主要介绍它。 这个库是可以选用的。实际</description>
+    </item>
+    
+    <item>
+      <title>Code Push 热更新使用</title>
+      <link>https://www.51hint.com/posts/code-push-re-geng-xin-shi-yong/</link>
+      <pubDate>Mon, 06 Mar 2017 23:37:27 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/code-push-re-geng-xin-shi-yong/</guid>
+      <description>Code push CodePush是一个微软开发的云服务器。通过它，开发者可以直接在用户的设备上部署手机应用更新。 CodePush相当于一个中心仓库，开发</description>
+    </item>
+    
+    <item>
+      <title>Redux 中间件</title>
+      <link>https://www.51hint.com/posts/redux-zhong-jian-jian/</link>
+      <pubDate>Mon, 06 Mar 2017 21:25:04 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/redux-zhong-jian-jian/</guid>
+      <description>Redux 中间件与异步操作 Redux 的基本做法：用户发出 Action，Reducer 函数算出新的 State，View 重新渲染。 但是，一个关键问题没有解决：异</description>
+    </item>
+    
+    <item>
+      <title>redux</title>
+      <link>https://www.51hint.com/posts/redux/</link>
+      <pubDate>Mon, 06 Mar 2017 17:33:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/redux/</guid>
+      <description>Redux Redux 的设计思想很简单，就两句话。 1）Web 应用是一个状态机，视图与状态是一一对应的。 2）所有的状态，保存在一个对象里面。 基本概念和 API Store Store 就是</description>
+    </item>
+    
+    <item>
+      <title>flux</title>
+      <link>https://www.51hint.com/posts/flux/</link>
+      <pubDate>Mon, 06 Mar 2017 16:04:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/flux/</guid>
+      <description>Flux Flux 是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西，但是更加简单和清晰。 Flux存在多种实现（至少15种），本文采用的是</description>
+    </item>
+    
+    <item>
+      <title>React-Native学习指南</title>
+      <link>https://www.51hint.com/posts/react-nativexue-xi-zhi-nan/</link>
+      <pubDate>Sun, 05 Mar 2017 18:26:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react-nativexue-xi-zhi-nan/</guid>
+      <description>React-Native学习指南 本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pul</description>
+    </item>
+    
+    <item>
+      <title>react</title>
+      <link>https://www.51hint.com/posts/react-2/</link>
+      <pubDate>Sun, 05 Mar 2017 16:40:31 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react-2/</guid>
+      <description>React 入门 git raun demo facebook f8 sample recommand struture https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0#.jfb0v42si https://hackernoon.com/manage-react-native-project-folder-structure-and-simplify-the-code-c98da77ef792#.gmy2iq2x6 react gitbook HTML 模板 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;#34;../build/react.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;../build/react-dom.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;../build/browser.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;example&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script type=&amp;#34;text/babel&amp;#34;&amp;gt; // ** Our code goes here! ** &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; &amp;lt;script&amp;gt; 标签的 type 属性为 text/babel 。这是因为 React 独有的 JSX 语法 其次，上面</description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>https://www.51hint.com/posts/vue/</link>
+      <pubDate>Sun, 05 Mar 2017 00:30:55 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/vue/</guid>
+      <description>Vue.js 是一套构建用户界面的 渐进式框架。 与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。 Vue 的核心库只关注视图层，并且非常容易学习，非常</description>
+    </item>
+    
+    <item>
+      <title>Visual Studio Tools  for Apache Cordova</title>
+      <link>https://www.51hint.com/posts/visual-studio-tools-for-apache-cordova/</link>
+      <pubDate>Thu, 02 Mar 2017 05:17:04 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/visual-studio-tools-for-apache-cordova/</guid>
+      <description>  Get started
+  Add JavaScript packages
+  Access device capabilities
+  App Security
+  Add mobile services
+  Add Analytics
+  Tailor to a platform
+  Build &amp;amp; Deploy
+  Optimize performance
+  Package &amp;amp; publish
+  Tutorials &amp;amp; samples
+  Tips &amp;amp; workarounds
+  </description>
+    </item>
+    
+    <item>
+      <title>reduce</title>
+      <link>https://www.51hint.com/posts/reduce/</link>
+      <pubDate>Wed, 01 Mar 2017 23:25:28 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/reduce/</guid>
+      <description>[0, 1, 2, 3, 4, 5].reduce((previous, current) =&amp;gt; { return current + previous; }); 0 + 1 = 1 1 + 2 = 3 3 + 3 = 6 6 + 4 = 10 10 + 5 = 15 this.http.get(&amp;#39;data/recipe-data.json&amp;#39;) .map(res =&amp;gt; { return res.json().categories.reduce((pre, cur) =&amp;gt; { let prevResult = Number.isInteger(pre) ? pre : pre.recipes.length return Math.max(prevResult, cur.recipes.length); }) }) .subscribe(data =&amp;gt; { console.log(data); }); </description>
+    </item>
+    
+    <item>
+      <title>Promise  and rxjs</title>
+      <link>https://www.51hint.com/posts/promise-and-rxjs/</link>
+      <pubDate>Wed, 01 Mar 2017 20:23:52 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/promise-and-rxjs/</guid>
+      <description>rxjs operation 
+console.clear(); var promise = new Promise( (resolve) =&amp;gt;{ setTimeout(() =&amp;gt; { console.log(&amp;#39;timeout hit&amp;#39;); resolve(42); },500); console.log(&amp;#34;promise started!&amp;#34;); }); // promise.then(x =&amp;gt; console.log(x));  var source = Rx.Observable.create((observer) =&amp;gt; { setTimeout(() =&amp;gt; { observer.next(42); },500); console.log(&amp;#34;observer started!&amp;#34;); }); // source.forEach(x =&amp;gt; console.log(x));  //-------------------------------------------------   var source = Rx.Observable.create((observer) =&amp;gt; { var id = setTimeout(() =&amp;gt; { console.log(&amp;#39;observable timeout hit&amp;#39;); observer.next(42); }, 1000); console.log(&amp;#39;observable started&amp;#39;); return () =&amp;gt; { console.</description>
+    </item>
+    
+    <item>
+      <title>Angular</title>
+      <link>https://www.51hint.com/posts/angular/</link>
+      <pubDate>Wed, 01 Mar 2017 18:29:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/angular/</guid>
+      <description>Binding a Property to a Value &amp;lt;input [value]=&amp;quot;firstName&amp;quot;&amp;gt;  Calling a Function on an Event &amp;lt;button (click)=&amp;quot;someFunction($event)&amp;quot;&amp;gt;  Rendering Expressions &amp;lt;p&amp;gt;Hi, {{name}}&amp;lt;/p&amp;gt;  Two Way Data Binding &amp;lt;input [(ng-model)]=&amp;quot;name&amp;quot;&amp;gt;  Creating a Variable to Access an Element &amp;lt;p #myParagraph&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;button (click)=&amp;quot;myParagraph.innerHTML = &#39;Once upon a time...&#39;&amp;quot;&amp;gt;  Embedded Templates  &amp;lt;p *something=&amp;quot;someExpression&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;  Directives &amp;lt;section *ngIf=&amp;quot;showSection&amp;quot;&amp;gt; &amp;lt;li *ngFor=&amp;quot;let item of items&amp;quot;&amp;gt;  Annotations @Component({ selector: &#39;my-component&#39;, services: [MyService] })  Import &amp;amp; Export import {Component} from &amp;#39;@angular/core&amp;#39;; import {NavController} from &amp;#39;ionic-angular&amp;#39;; @Component({ templateUrl: &amp;#39;app/hello-ionic/hello-ionic.</description>
+    </item>
+    
+    <item>
+      <title>Promise and generators (yield)</title>
+      <link>https://www.51hint.com/posts/promise-and-generators-yield/</link>
+      <pubDate>Wed, 01 Mar 2017 17:43:30 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/promise-and-generators-yield/</guid>
+      <description>Promises and generators (yield) Promise function get(url) { // Return a new promise. return new Promise(function(resolve, reject) { // Do the usual XHR stuff var req = new XMLHttpRequest(); req.open(&amp;#39;GET&amp;#39;, url); req.onload = function() { // This is called even on 404 etc // so check the status if (req.status == 200) { // Resolve the promise with the response text resolve(req.response); } else { // Otherwise reject with the</description>
+    </item>
+    
+    <item>
+      <title>polyfill（腻子脚本）填补旧浏览器对html5的支持缺陷</title>
+      <link>https://www.51hint.com/posts/polyfill-ni-zi-jiao-ben-tian-bu-jiu-liu-lan-qi-dui-html5de-zhi-chi-que-xian/</link>
+      <pubDate>Tue, 28 Feb 2017 21:53:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/polyfill-ni-zi-jiao-ben-tian-bu-jiu-liu-lan-qi-dui-html5de-zhi-chi-que-xian/</guid>
+      <description>由于浏览器种类繁多，版本各异。所以对html5的支持情况各不相同。通常我们使用polyfill来填平旧浏览器对HTML5支持上的缺陷，即通过</description>
+    </item>
+    
+    <item>
+      <title>aws sns js</title>
+      <link>https://www.51hint.com/posts/aws-sns-js/</link>
+      <pubDate>Thu, 23 Feb 2017 21:26:50 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/aws-sns-js/</guid>
+      <description>var AWS = require(&amp;#39;aws-sdk&amp;#39;); AWS.config.update({ accessKeyId: &amp;#39;{AWS_KEY}&amp;#39;, secretAccessKey: &amp;#39;{AWS_SECRET}&amp;#39;, region: &amp;#39;{SNS_REGION}&amp;#39; }); var sns = new AWS.SNS(); sns.createPlatformEndpoint({ PlatformApplicationArn: &amp;#39;{APPLICATION_ARN}&amp;#39;, Token: &amp;#39;{DEVICE_TOKEN}&amp;#39; }, function(err, data) { if (err) { console.log(err.stack); return; } var endpointArn = data.EndpointArn; var payload = { default: &amp;#39;Hello World&amp;#39;, APNS: { aps: { alert: &amp;#39;Hello World&amp;#39;, sound: &amp;#39;default&amp;#39;, badge: 1 } } }; // first have to stringify the inner APNS object...  payload.APNS = JSON.stringify(payload.APNS); // then have to stringify the entire message payload  payload = JSON.</description>
+    </item>
+    
+    <item>
+      <title>javascript代理与指针</title>
+      <link>https://www.51hint.com/posts/2014-07-30-javascript%E4%BB%A3%E7%90%86%E4%B8%8E%E6%8C%87%E9%92%88/</link>
+      <pubDate>Wed, 30 Jul 2014 04:37:21 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-30-javascript%E4%BB%A3%E7%90%86%E4%B8%8E%E6%8C%87%E9%92%88/</guid>
+      <description>javascript代理与指针 使用普通javascript代理方法，创建函数如下； 使用bind方法，则代价更加简洁，如下代码</description>
+    </item>
+    
+    <item>
+      <title>c# 调用webbrowser与jiavascript交互</title>
+      <link>https://www.51hint.com/posts/2013-07-10-c-%E8%B0%83%E7%94%A8webbrowser%E4%B8%8Ejiavascript%E4%BA%A4%E4%BA%92/</link>
+      <pubDate>Wed, 10 Jul 2013 02:18:58 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-07-10-c-%E8%B0%83%E7%94%A8webbrowser%E4%B8%8Ejiavascript%E4%BA%A4%E4%BA%92/</guid>
+      <description>实现步骤： 一、新建一个窗体，加入webBrowser控件 控件名：webBrowser1二、在窗体后台代码加入如下定义 三、加载网页 四、调用脚本</description>
+    </item>
+    
+    <item>
+      <title>Java 调用 javascript</title>
+      <link>https://www.51hint.com/posts/2013-01-16-java-%E8%B0%83%E7%94%A8-javascript/</link>
+      <pubDate>Wed, 16 Jan 2013 02:33:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-01-16-java-%E8%B0%83%E7%94%A8-javascript/</guid>
+      <description>下载rhino jar包。 http://www.mozilla.org/rhino/download.html java文件 JSRunner.java StringUtil.java test.js</description>
+    </item>
+    
+    <item>
+      <title>javascript 在线调试工具; javascript 在线加密，javascript 在线 混淆</title>
+      <link>https://www.51hint.com/posts/2012-06-07-javascript-%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7-javascript-%E5%9C%A8%E7%BA%BF%E5%8A%A0%E5%AF%86javascript-%E5%9C%A8%E7%BA%BF-%E6%B7%B7%E6%B7%86/</link>
+      <pubDate>Thu, 07 Jun 2012 09:24:22 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-07-javascript-%E5%9C%A8%E7%BA%BF%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7-javascript-%E5%9C%A8%E7%BA%BF%E5%8A%A0%E5%AF%86javascript-%E5%9C%A8%E7%BA%BF-%E6%B7%B7%E6%B7%86/</guid>
+      <description>javascript 在线调试工具http://jsbin.comhttp://jsfiddle.net/ —————————————————————javasc</description>
+    </item>
+    
+  </channel>
+</rss>

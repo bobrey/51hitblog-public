@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>underscore on IT技术分享</title>
+    <link>https://www.51hint.com/tags/underscore/</link>
+    <description>Recent content in underscore on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Jul 2014 06:13:41 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/underscore/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Underscore模板的使用</title>
+      <link>https://www.51hint.com/posts/2014-07-17-underscore%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 17 Jul 2014 06:13:41 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-07-17-underscore%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>取到的json数据，利用Underscore【js】模板来呈现数据；</description>
+    </item>
+    
+  </channel>
+</rss>

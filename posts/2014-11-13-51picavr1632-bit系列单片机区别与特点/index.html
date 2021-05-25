@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 51、PIC、AVR、16、32-BIT系列单片机区别与特点 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="51、PIC、AVR、16、32-BIT系列单片机区别与特点" />
+  <meta name="twitter:title" content="51、PIC、AVR、16、32-BIT系列单片机区别与特点" />
+  <meta name="description" content="8031/8051/8751是Intel公司早期的产品。1、8031的特点8031片内不带程序存储器ROM，使用时用户需外接程序存储器和一片">
+  <meta property="og:description" content="8031/8051/8751是Intel公司早期的产品。1、8031的特点8031片内不带程序存储器ROM，使用时用户需外接程序存储器和一片">
+  <meta name="twitter:description" content="8031/8051/8751是Intel公司早期的产品。1、8031的特点8031片内不带程序存储器ROM，使用时用户需外接程序存储器和一片">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2014-11-13-51picavr1632-bit%E7%B3%BB%E5%88%97%E5%8D%95%E7%89%87%E6%9C%BA%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%89%B9%E7%82%B9/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2014-11-13-51picavr1632-bit%E7%B3%BB%E5%88%97%E5%8D%95%E7%89%87%E6%9C%BA%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%89%B9%E7%82%B9/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">51、PIC、AVR、16、32-BIT系列单片机区别与特点</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Nov 13, 2014</h4>
+    </section>
+    <h5 id="wc">11700 Words|Read in about 24 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p><!-- raw HTML omitted -->8031/8051/8751是Intel公司早期的产品。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->1、8031的特点<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->     8031片内不带程序存储器ROM，使用时用户需外接程序存储器和一片逻辑电路373，外接的程序存储器多为EPROM的2764系列。用户若想对写入到EPROM中的程序进行修改，必须先用一种特殊的紫外线灯将其照射擦除，之后再可写入。写入到外接程序存储器的程序代码没有什么保密性可言。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->2、8051的特点<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->     8051片内有4k ROM，无须外接外存储器和373，更能体现“单片”的简练。但是你编的程序你无法烧写到其ROM中，只有将程序交芯片厂代你烧写，并是一次性的，今后你和芯片厂都不能改写其内容。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->3、8751的特点<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->     8751与8051基本一样，但8751片内有4k的EPROM，用户可以将自己编写的程序写入单片机的EPROM中进行现场实验与应用，EPROM的改写同样需要用紫外线灯照射一定时间擦除后再烧写。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->    由于上述类型的单片机应用的早，影响很大，已成为事实上的工业标准。后来很多芯片厂商以各种方式与Intel公司合作，也推出了同类型的单片机，如同一种单片机的多个版本一样，虽都在不断的改变制造工艺，但内核却一样，也就是说这类单片机指令系统完全兼容，绝大多数管脚也兼容；在使用上基本可以直接互换。人们统称这些与8051内核相同的单片机为“51系列单片机”，学了其中一种，便会所有的51系列。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->4、AT89C51、AT89S51的特点<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->    在众多的51系列单片机中，要算 ATMEL 公司的AT89C51、AT89S51更实用，因他不但和8051指令、管脚完全兼容，而且其片内的4K程序存储器是FLASH工艺的，这种工艺的存储器用户可以用电的方式瞬间擦除、改写，一般专为 ATMEL AT89xx 做的编程器均带有这些功能。显而易见，这种单片机对开发设备的要求很低，开发时间也大大缩短。写入单片机内的程序还可以进行加密，这又很好地保护了你的劳动成果。再着，AT89C51、AT89S51目前的售价比8031还低，市场供应也很充足。 <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->     AT89S51、52是2003年ATMEL推出的新型品种，除了完全兼容8051外，还多了ISP编程和看门狗功能。我们也专门为这种新片设计了一款 编程、学习、实验板。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->5、AT89C2051、AT89C1051等的特点<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->     ATMEL公司的51系列还有AT89C2051、AT89C1051等品种，这些芯片是在AT89C51的基础上将一些功能精简掉后形成的精简版。AT89C2051取掉了P0口和P2口，内部的程序FLASH存储器也小到2K，封装形式也由51的P40脚改为20脚，相应的价格也低一些，特别适合在一些智能玩具，手持仪器等程序不大的电路环境下应用；AT89C1051在2051的基础上，再次精简掉了串口功能等，程序存储器再次减小到1k，当然价格也更低。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->     对2051和1051来说，虽然减掉了一些资源，但他们片内都集成了一个精密比较器，别小看这小小的比较器，他为我们测量一些模拟信号提供了极大的方便，在外加几个电阻和电容的情况下，就可以测量电压、温度等我们日常需要的量。这对很多日用电器的设计是很宝贵的资源。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->     ATMEL的51、2051、1051均有多种封装，如AT89C(S)51有PDIP、PLCC和PQFP/TQFP等封装；2051/1051有PDIP和SOIC封装等。下图是部分封装实物。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->     由于51系列单片机的内核都一样，所以在51单片机教材方面目前仍然沿用Intel MCS 8051单片机的书籍。开发软件和工具也是一样，我们统称为8051开发系统、环境、等等，如我们网站介绍的汇编程序ASM51、Keil C51、MedWin 等均是针对8051内核单片机的开发软件。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->     单对AT89C51、AT89S51来说，在实际电路中可以直接互换8051\\8751，替换8031只是第31脚有区别，8031因内部没有ROM，31脚需接地（GND），单片机在启动后就到外面程序存储器读取指令；而8051/8751/89c51因内部有程序存储器，31脚接高电平（VCC），单片机启动后直接在内部读取指令。也就是51芯片的31脚控制着单片机程序从内部读取还是从外部读取，31脚接电源，程序从内部读取，31脚接地，程序从外部读取。其他无须改动。另外，AT89C51、AT89s51替换8031后因不用外存储器，不必安装原电路的外存储器和373芯片。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->6、89S51与89C51的区别<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->     MCS-51单片机是美国INTE公司于1980年推出的产品，典型产品有 8031（内部没有程序存储器，实际使用方面已经被市场淘汰）、8051（芯片采用HMOS，功耗是630mW，是89C51的5倍，实际使用方面已经被市场淘汰）和8751等通用产品，一直到现在， MCS-51内核系列兼容的单片机仍是应用的主流产品（比如目前流行的89S51、89C51等），各高校及专业学校的培训教材仍与MCS-51单片机作为代表进行理论基础学习。有些文献甚至也将8051泛指MCS-51系列单片机，8051是早期的最典型的代表作，MCS-51内核实际上已经成为一个8位单片机的标准。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->　　其他的公司的51单片机产品都是和MCS-51内核兼容的产品而以。同样的一段程序，在各个单片机厂家的硬件上运行的结果都是一样的，如ATMEL的89C51（已经停产）、89S51， PHILIPS（菲利浦），和WINBOND（华邦）等，我们常说的已经停产的89C51指的是ATMEL公司的 AT89C51单片机，同时是在原基础上增强了许多特性，如时钟，更优秀的是由Flash（程序存储器的内容至少可以改写1000次）存储器取带了原来的ROM（一次性写入），AT89C51的性能相对于8051已经算是非常优越的了。 <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->　　不过在市场化方面，89C51受到了PIC单片机阵营的挑战，89C51最致命的缺陷在于不支持ISP（在线更新程序）功能，必须加上ISP功能等新功能才能更好延续MCS-51的传奇。89S51就是在这样的背景下取代89C51的，现在，89S51目前已经成为了实际应用市场上新的宠儿，作为市场占有率第一的Atmel目前公司已经停产AT89C51，将用AT89S51代替。89S51在工艺上进行了改进，89S51采用0.35新工艺，成本降低,而且将功能提升,增加了竞争力。89SXX可以像下兼容89CXX等51系列芯片。同时，Atmel不再接受89CXX的定单，大家在市场上见到的89C51实际都是Atmel前期生产的巨量库存而以。如果市场需要，Atmel当然也可以再恢复生产AT89C51。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->7、89S51相对于89C51增加的新功能包括：<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->1）性能有了较大提升，价格基本不变，甚至比89C51更低！ <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->2）ISP在线编程功能，这个功能的优势在于改写单片机存储器内的程序不需要把芯片从工作环境中剥离。是一个强大易用的功能。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->3）最高工作频率为33MHz，大家都知道89C51的极限工作频率是24M，就是说S51具有更高工作频率，从而具有了更快的计算速度。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->4）具有双工UART串行通道。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->5）内部集成看门狗计时器，不再需要像89C51那样外接看门狗计时器单元电路。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->6）双数据指示器。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->7）电源关闭标识。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->8）全新的加密算法，这使得对于89S51的**变为不可能，程序的保密性大大加强，这样就可以有效的保护知识产权不被侵犯。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->9） 兼容性方面：向下完全兼容51全部字系列产品。比如8051、89C51等等早期MCS-51兼容产品。 <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->　　和S51比起来，C51就要逊色一些，实际应用市场方面技术的进步是永远向前的。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->PIC系列单片机<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->由美国Microchip公司推出的PIC单片机系列产品，首先采用了RISC结构的嵌入式微控制器，其高速度、低电压、低功耗、大电流LCD驱动能力和低价位OTP技术等都体现出单片机产业的新趋势。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->现在PIC系列单片机在世界单片机市场的份额排名中已逐年升位，尤其在8位单片机市场，据称已从1990年的第20位上升到目前的第二位。PIC单片机从覆盖市场出发，已有三种(又称三层次)系列多种型号的产品问世，所以在全球都可以看到PIC单片机从电脑的外设、家电控制、电讯通信、智能仪器、汽车电子到金融电子各个领域的广泛应用。现今的PIC单片机已经是世界上最有影响力的嵌入式微控制器之一。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->①   PIC 8位单片机的分类<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->PIC 8位单片机产品共有三个系列，即基本级、中级和高级。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->a 基本级系列　该级产品的特点是低价位，如PIC16C5X，适用于各种对成本要求严格的家电产品选用。又如PIC12C5XX是世界第一个8脚的低价位单片机，因其体积很小，完全可以应用在以前不能使用单片机的家电产品的空间。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->b 中级系列　该级产品是PIC最丰富的品种系列。它是在基本级产品上进行了改进，并保持了很高的兼容性。外部结构也是多种的，从8引脚到68引脚的各种封装，如PIC12C6XX。该级产品其性能很高，如内部带有A/D变换器、E2PROM数据存储器、比较器输出、PWM输出、I2C和SPI等接口。PIC中级系列产品适用于各种高、中和低档的电子产品的设计中。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->c 高级系列　该系列产品如PIC17CXX，其特点是速度快，所以适用于高速数字运算的应用场合中，加之它具备一个指令周期内(160ns)可以完成8×8(位)二进制乘法运算能力，所以可取代某些DSP产品。再有PIC17CXX具有丰富的I/O控制功能，并可外接扩展EPROM和RAM，使它成为目前8位单片机中性能最高的机种之一。所以很适用于高、中档的电子设备中使用。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->上述的三层次(级)的PIC 8位单片机还具有很高的代码兼容性，用户很容易将代码从某型号转换到另一个型号中。PIC 8位单片机具有指令少、执行速度快等优点，其主要原因是PIC系列单片机在结构上与其它单片机不同。该系列单片机引入了原用于小型计算机的双总线和两级指令流水结构。这种结构与一般采用CISC(复杂指令集计算机)的单片机在结构上是有不同的。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->双总线结构<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->具有CISC结构的单片机均在同一存储空间取指令和数据，片内只有一种总线。这种总线既要传送指令又要传送数据(如图1－a所示)。因此，它不可能同时对程序存储器和数据存储器进行访问。因与CPU直接相连的总线只有一种，要求数据和指令同时通过，显然“乱套”，这正如一个“瓶颈”，瓶内的数据和指令要一起倒出来，往往就被瓶颈卡住了。所以具有这种结构的单片机，只能先取出指令，再执行指令(在此过程中往往要取数)，然后，待这条指令执行完毕，再取出另一条指令，继续执行下一条。这种结构通常称为冯?诺依曼结构，又称普林斯顿结构。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->在这里PIC系列单片机采用了一种双总线结构，即所谓哈佛结构。这种结构有两种总线，即程序总线和数据总线。这两种总线可以采用不同的字长，如PIC系列单片机是八位机，所以其数据总线当然是八位。但低档、中档和高档的PIC系列机分别有12位、14位和16位的指令总线。这样，取指令时则经指令总线，取数据时则经数据总线，互不冲突。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->两级指令流水线结构<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->　　  由于PIC系列单片机采用了指令空间和数据空间分开的哈佛结构，用了两种位数不同的总线。因此，取指令和取数据有可能同时交叠进行，所以在PIC系列微控制器中取指令和执行指令就采用指令流水线结构。当第一条指令被取出后，随即进入执行阶段，这时可能会从某寄存器取数而送至另一寄存器，或从一端口向寄存器传送数等，但数据不会流经程序总线，而只是在数据总线中流动，因此，在这段时间内，程序总线有空，可以同时取出第二条指令。当第一条指令执行完毕，就可执行第二条指令，同时取出第3条指令，……如此等等。这样，除了第一条指令的取出，其余各条指令的执行和下一条指令的取出是同时进行的，使得在每个时钟周期可以获得最高效率。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->在大多数微控制器中，取指令和指令执行都是顺序进行的，但在PIC单片机指令流水线结构中，取指令和执行指令在时间上是相互重叠的，所以PIC系列单片机才可能实现单周期指令。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->只有涉及到改变程序计数器PC值的程序分支指令(例如GOTO、CALL)等才需要两个周期。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->此外，PIC的结构特点还体现在寄存器组上，如寄存器I/O口、定时器和程序寄存器等都是采用了RAM结构形式，而且都只需要一个周期就可以完成访问和操作。而其它单片机常需要两个或两个以上的周期才能改变寄存器的内容。上述各项，就是PIC系列单片机能做到指令总数少，且大都为单周期指令的重要原因。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->=======================================================<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->AVR系列单片机<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->AVR单片机是1997年由ATMEL公司研发出的增强型内置Flash的RISC(Reduced Instruction Set CPU) 精简指令集高速8位单片机。AVR的单片机可以广泛应用于计算机外部设备、工业实时控制、仪器仪表、通讯设备、家用电器等各个领域。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->①   AVR单片机的优势及特点<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->   a AVR单片机易于入手、便于升级、费用低廉。 单片机初学者只需一条ISP下载线，把编辑、调试通过的软件程序直接在线写入AVR单片机，即可以开发AVR单片机系列中的各种封装的器件。AVR单片机因此在业界号称“一线打天下”。 AVR程序写入是直接在电路板上进行程序修改、烧录等操作，这样便于产品升级。AVR单片机可使用ISP在线下载编程方式(即把PC机上编译好的程序写到单片机的程序存储器中)，不需购买仿真器、编程器、擦抹器和芯片适配器等，即可进行所有AVR单片机的开发应用，这可节省很多开发费用。程序存储器擦写可达10000次以上，不会产生报废品。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->b高速、低耗、保密。首先，AVR单片机是高速嵌入式单片机： AVR单片机具有预取指令功能，即在执行一条指令时，预先把下一条指令取进来，使得指令可以在一个时钟周期内执行。多累加器型，数据处理速度快。AVR单片机具有32个通用工作寄存器，相当于有32条立交桥，可以快速通行。中断响应速度快。AVR单片机有多个固定中断向量入口地址，可快速响应中断。AVR单片机耗能低。对于典型功耗情况，WDT关闭时为100nA，更适用于电池供电的应用设备。有的器件最低1.8 V即可工作。AVR单片机保密性能好。它具有不可破解的位加密锁Lock Bit技术，保密位单元深藏于芯片内部，无法用电子显微镜看到。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->   c I/O口功能强,具有A/D转换等电路。AVR单片机的I/O口是真正的I/O口，能正确反映I/O口输入/输出的真实情况。工业级产品，具有大电流(灌电流)10mA～40mA,可直接驱动可控硅SSR或继电器，节省了外围驱动器件。AVR单片机内带模拟比较器，I/O口可用作A/D转换，可组成廉价的A/D转换器。ATmega48/8/16等器件具有8路10位A/D。部分AVR单片机可组成零外设元件单片机系统，使该类单片机无外加元器件即可工作，简单方便，成本又低。AVR单片机可重设启动复位,以提高单片机工作的可靠性。有看门狗定时器实行安全保护,可防止程序走乱(飞),提高了产品的抗干扰能力。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->   d  有功能强大的定时器/计数器及通讯接口。定时/计数器T/C有8位和16位,可用作比较器。计数器外部中断和PWM(也可用作D/A)用于控制输出，某些型号的AVR单片机有3～4个PWM，是作电机无级调速的理想器件。AVR单片机有串行异步通讯UART接口,不占用定时器和SPI同步传输功能,因其具有高速特性，故可以工作在一般标准整数频率下,而波特率可达576K。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->②   AVR 8-Bit MCU的最大特点<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->与其它8-Bit MCU相比，AVR 8-Bit MCU最大的特点是：<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->? 哈佛结构，具备1MIPS / MHz的高速运行处理能力；<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->? 超功能精简指令集（RISC），具有32个通用工作寄存器，克服了如8051 MCU采用单一ACC进行处理造成的瓶颈现象；<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->? 快速的存取寄存器组、单周期指令系统，大大优化了目标代码的大小、执行效率，部分型号FLASH非常大，特别适用于使用高级语言进行开发；<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->? 作输出时与PIC的HI/LOW相同，可输出40mA（单一输出），作输入时可设置为三态高阻抗输入或带上拉电阻输入，具备10mA-20mA灌电流的能力；<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->? 片内集成多种频率的RC振荡器、上电自动复位、看门狗、启动延时等功能，外围电路更加简单，系统更加稳定可靠；<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->? 大部分AVR片上资源丰富：带E2PROM，PWM，RTC，SPI，UART，TWI，ISP，AD，Analog Comparator，WDT等；<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->? 大部分AVR除了有ISP功能外，还有IAP功能，方便升级或销毁应用程序。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->（3）16-BIT 单片机<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->16 位单片机是在1983 年以后发展起来的。这类单片机的特点是：CPU是16 位的，运算速度普遍高于8 位机，有的单片机的寻址能力高达1MB，片内含有A/D 和D/A转换电路，支持高级语言。这类单片机主要用于过程控制、智能仪表、家用电器以及作为计算机外部设备的控制器等。典型产品有Intel 公司的MCS-96/98 系列、Motorola 公司的M68HC16系列、NS 公司的783××系列、TI公司的MSP430系列等等。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->其中，以MSP430系列最为突出。它采用了精简指令集（ RISC ）结构，具有丰富的寻址方式（ 7 种源操作数寻址、 4 种目的操作数寻址）、简洁的 27 条内核指令以及大量的模拟指令；大量的寄存器以及片内数据存储器都可参加多种运算；还有高效的查表处理指令；有较高的处理速度，在 8MHz 晶体驱动下指令周期为 125 ns 。这些特点保证了可编制出高效率的源程序。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->在运算速度方面， MSP430 系列单片机能在 8MHz 晶体的驱动下，实现 125ns 的指令周期。 16 位的数据宽度、 125ns 的指令周期以及多功能的硬件乘法器（能实现乘加）相配合，能实现数字信号处理的某些算法（如 FFT 等）。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->MSP430 系列单片机的中断源较多，并且可以任意嵌套，使用时灵活方便。当系统处于省电的备用状态时，用中断请求将它唤醒只用 6us 。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->超低功耗 MSP430 单片机之所以有超低的功耗，是因为其在降低芯片的电源电压及灵活而可控的运行时钟方面都有其独到之处。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->首先， MSP430 系列单片机的电源电压采用的是 1.8~3.6V 电压。因而可使其在 1MHz 的时钟条件下运行时， 芯片的电流会在 200~400uA 左右，时钟关断模式的最低功耗只有 0.1uA 。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->其次，独特的时钟系统设计。在 MSP430 系列中有两个不同的系统时钟系统：基本时钟系统和锁频环（ FLL 和 FLL+ ）时钟系统或 DCO 数字振荡器时钟系统。有的使用一个晶体振荡器（ 32768Hz ） , 有的使用两个晶体振荡器）。由系统时钟系统产生 CPU 和各功能所需的时钟。并且这些时钟可以在指令的控制下，打开和关闭，从而实现对总体功耗的控制。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->由于系统运行时打开的功能模块不同，即采用不同的工作模式，芯片的功耗有着显著的不同。在系统中共有一种活动模式（ AM ）和五种低功耗模式（ LPM0~LPM4 ）。在等待方式下，耗电为 0.7uA ，在节电方式下，最低可达 0.1uA 。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->系统工作稳定 上电复位后，首先由 DCOCLK 启动 CPU ，以保证程序从正确的位置开始执行，保证晶体振荡器有足够的起振及稳定时间。然后软件可设置适当的寄存器的控制位来确定最后的系统时钟频率。如果晶体振荡器在用做 CPU 时钟 MCLK 时发生故障， DCO 会自动启动，以保证系统正常工作；如果程序跑飞，可用看门狗将其复位。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->丰富的片上外围模块 MSP430 系列单片机的各成员都集成了较丰富的片内外设。它们分别是看门狗（ WDT ）、模拟比较器 A 、定时器 A （ Timer_A ）、定时器 B （ Timer_B ）、串口 0 、 1 （ USART0 、 1 ）、硬件乘法器、液晶驱动器、 10 位 /12 位 ADC 、 I 2 C 总线直接数据存取（ DMA ）、端口 O （ P0 ）、端口 1~6 （ P1~P6 ）、基本定时器（ Basic Timer ）等的一些外围模块的不同组合。其中，看门狗可以使程序失控时迅速复位；模拟比较器进行模拟电压的比较，配合定时器，可设计出 A/D 转换器； 16 位定时器（ Timer_A 和 Timer_B ）具有捕获 / 比较功能，大量的捕获 / 比较寄存器，可用于事件计数、时序发生、 PWM 等；有的器件更具有可实现异步、同步及多址访问串行通信接口可方便的实现多机通信等应用；具有较多的 I/O 端口，最多达 6<em>8 条 I/O 口线； P0 、 P1 、 P2 端口能够接收外部上升沿或下降沿的中断输入； 12/14 位硬件 A/D 转换器有较高的转换速率，最高可达 200kbps ，能够满足大多数数据采集应用；能直接驱动液晶多达 160 段；实现两路的 12 位 D/A 转换；硬件 I 2 C 串行总线接口实现存储器串行扩展；以及为了增加数据传输速度，而采用直接数据传输（ DMA ）模块。 MSP430 系列单片机的这些片内外设为系统的单片解决方案提供了极大的方便。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->方便高效的开发环境 目前 MSP430 系列有 OPT 型、 FLASH 型和 ROM 型三种类型的器件，这些器件的开发手段不同。对于 OPT 型和 ROM 型的器件是使用仿真器开发成功之后在烧写或掩膜芯片；对于 FLASH 型则有十分方便的开发调试环境，因为器件片内有 JTAG 调试接口，还有可电擦写的 FLASH 存储器，因此采用先下载程序到 FLASH 内，再在器件内通过软件控制程序的运行，由 JTAG 接口读取片内信息供设计者调试使用的方法进行开发。这种方式只需要一台 PC 机和一个 JTAG 调试器，而不需要仿真器和编程器。开发语言有汇编语言和 C 语言。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->MSP430 单片机目前主要以 FLASH 型为主。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->==========================================<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->16-BIT 单片机<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->16 位单片机是在1983 年以后发展起来的。这类单片机的特点是：CPU是16 位的，运算速度普遍高于8 位机，有的单片机的寻址能力高达1MB，片内含有A/D 和D/A转换电路，支持高级语言。这类单片机主要用于过程控制、智能仪表、家用电器以及作为计算机外部设备的控制器等。典型产品有Intel 公司的MCS-96/98 系列、Motorola 公司的M68HC16系列、NS 公司的783××系列、TI公司的MSP430系列等等。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->其中，以MSP430系列最为突出。它采用了精简指令集（ RISC ）结构，具有丰富的寻址方式（ 7 种源操作数寻址、 4 种目的操作数寻址）、简洁的 27 条内核指令以及大量的模拟指令；大量的寄存器以及片内数据存储器都可参加多种运算；还有高效的查表处理指令；有较高的处理速度，在 8MHz 晶体驱动下指令周期为 125 ns 。这些特点保证了可编制出高效率的源程序。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->在运算速度方面， MSP430 系列单片机能在 8MHz 晶体的驱动下，实现 125ns 的指令周期。 16 位的数据宽度、 125ns 的指令周期以及多功能的硬件乘法器（能实现乘加）相配合，能实现数字信号处理的某些算法（如 FFT 等）。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->MSP430 系列单片机的中断源较多，并且可以任意嵌套，使用时灵活方便。当系统处于省电的备用状态时，用中断请求将它唤醒只用 6us 。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->超低功耗 MSP430 单片机之所以有超低的功耗，是因为其在降低芯片的电源电压及灵活而可控的运行时钟方面都有其独到之处。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->首先， MSP430 系列单片机的电源电压采用的是 1.8~3.6V 电压。因而可使其在 1MHz 的时钟条件下运行时， 芯片的电流会在 200~400uA 左右，时钟关断模式的最低功耗只有 0.1uA 。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->其次，独特的时钟系统设计。在 MSP430 系列中有两个不同的系统时钟系统：基本时钟系统和锁频环（ FLL 和 FLL+ ）时钟系统或 DCO 数字振荡器时钟系统。有的使用一个晶体振荡器（ 32768Hz ） , 有的使用两个晶体振荡器）。由系统时钟系统产生 CPU 和各功能所需的时钟。并且这些时钟可以在指令的控制下，打开和关闭，从而实现对总体功耗的控制。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->由于系统运行时打开的功能模块不同，即采用不同的工作模式，芯片的功耗有着显著的不同。在系统中共有一种活动模式（ AM ）和五种低功耗模式（ LPM0~LPM4 ）。在等待方式下，耗电为 0.7uA ，在节电方式下，最低可达 0.1uA 。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->系统工作稳定 上电复位后，首先由 DCOCLK 启动 CPU ，以保证程序从正确的位置开始执行，保证晶体振荡器有足够的起振及稳定时间。然后软件可设置适当的寄存器的控制位来确定最后的系统时钟频率。如果晶体振荡器在用做 CPU 时钟 MCLK 时发生故障， DCO 会自动启动，以保证系统正常工作；如果程序跑飞，可用看门狗将其复位。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->丰富的片上外围模块 MSP430 系列单片机的各成员都集成了较丰富的片内外设。它们分别是看门狗（ WDT ）、模拟比较器 A 、定时器 A （ Timer_A ）、定时器 B （ Timer_B ）、串口 0 、 1 （ USART0 、 1 ）、硬件乘法器、液晶驱动器、 10 位 /12 位 ADC 、 I 2 C 总线直接数据存取（ DMA ）、端口 O （ P0 ）、端口 1~6 （ P1~P6 ）、基本定时器（ Basic Timer ）等的一些外围模块的不同组合。其中，看门狗可以使程序失控时迅速复位；模拟比较器进行模拟电压的比较，配合定时器，可设计出 A/D 转换器； 16 位定时器（ Timer_A 和 Timer_B ）具有捕获 / 比较功能，大量的捕获 / 比较寄存器，可用于事件计数、时序发生、 PWM 等；有的器件更具有可实现异步、同步及多址访问串行通信接口可方便的实现多机通信等应用；具有较多的 I/O 端口，最多达 6</em>8 条 I/O 口线； P0 、 P1 、 P2 端口能够接收外部上升沿或下降沿的中断输入； 12/14 位硬件 A/D 转换器有较高的转换速率，最高可达 200kbps ，能够满足大多数数据采集应用；能直接驱动液晶多达 160 段；实现两路的 12 位 D/A 转换；硬件 I 2 C 串行总线接口实现存储器串行扩展；以及为了增加数据传输速度，而采用直接数据传输（ DMA ）模块。 MSP430 系列单片机的这些片内外设为系统的单片解决方案提供了极大的方便。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->方便高效的开发环境 目前 MSP430 系列有 OPT 型、 FLASH 型和 ROM 型三种类型的器件，这些器件的开发手段不同。对于 OPT 型和 ROM 型的器件是使用仿真器开发成功之后在烧写或掩膜芯片；对于 FLASH 型则有十分方便的开发调试环境，因为器件片内有 JTAG 调试接口，还有可电擦写的 FLASH 存储器，因此采用先下载程序到 FLASH 内，再在器件内通过软件控制程序的运行，由 JTAG 接口读取片内信息供设计者调试使用的方法进行开发。这种方式只需要一台 PC 机和一个 JTAG 调试器，而不需要仿真器和编程器。开发语言有汇编语言和 C 语言。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->MSP430 单片机目前主要以 FLASH 型为主。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->===============================================<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->32-BIT 单片机<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->32 位单片机的字长为32 位，是单片机的顶级产品，具有极高的运算速度。近年来，随着家用电子系统的新发展，32 位单片机的市场前景看好。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->继16 位单片机出现后不久，几大公司先后推出了代表当前最高性能和技术水平的32 位单片微机系列。32 位单片机具有极高的集成度，内部采用新颖的RISC（精简指令系统计算机）结构，CPU 可与其他微控制器兼容，主频频率可达33MHz 以上，指令系统进一步优化，运算速度可动态改变，设有高级语言编译器，具有性能强大的中断控制系统、定时/事件控制系统、同步/异步通信控制系统。代表产品有Intel 公司的MCS-80960 系列、Motorola 公司的M68300 系列、Hitachi 公司的Super H(简称SH)系列等等。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->这类单片机主要应用于汽车、航空航天、高级机器人、军事装备等方面。它代表着单片机发展中的高、新技术水平。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->ARM在32位MCU中的主流地位是毫无疑问的。ARM公司于1991年成立于英国剑桥，主要出售芯片设计技术的授权。目前，采用ARM技术智能财产（IP）核心的处理器，即我们通常所说的ARM处理器，已遍及工业控制、消费类电子产品、通信系统、网络系统、无线系统等各类产品市场，基于ARM技术的处理器应用约占据了32位RISC微处理器75％以上的市场，ARM技术不止逐步渗入到我们生活的各个方面，我们甚至可以说，ARM于人类的生活环境中，已经是不可或缺的一环。　<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->目前市面上常见的ARM处理器架构，可分为ARM7、ARM9以及ARM11，新推出的Cortex系列尚在进行开发验证，市面上还未有相关产品推出。ARM也是嵌入式处理器中首先推出多核心架构的厂商。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->ARM首个多核心架构为ARM11 MPCore，架构于原先的ARM11处理器核心之上。ARM11核心是发布于2002年10月份，为了进一步提升效能，其管线长度扩展到8阶，处理单元则增加为预取、译码、发送、转换　／MAC1、执行／MAC2、内存存取／MAC3和写入等八个单元，体系上属于ARM V6指令集架构。ARM11采用当时最先进的0.13μm制造制程，运行频率最高可达500到700MHz。如果采用90nm制程，ARM11核心的工作频率能够轻松达到1GHz以上—对于嵌入式处理器来说，这显然是个相当惊人的程度，不过显然1GHz在ARM11体系中不算是个均衡的设定，因此几乎没有厂商推出达到1GHz的ARM11架构处理器。嵌入式、单片机技术实训Q754634522　<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->ARM11的逻辑核心也经过大量的改进，其中最重要的当属“静／动态组合转换的预测功能”。ARM11的执行单元包含一个64位、4种状态的地址转换缓冲，它主要用来储存最近使用过的转换地址。当采用动态转换预测机制而无法在寻址缓冲内找到正确的地址时，静态转换预测功能就会立刻接替它的位置。在实际测试中，单纯采用动态预测的准确率为88％，单纯采用静态预测机制的准确率　只有77％，而ARM11的静／动态预测组合机制可实现92％的高准确率。针对高时脉速度带来功耗增加的问题，ARM11采用一项名为“IEM　（Intelligent Energy Manager）”的智能电源管理技术，该技术可根据任务负荷情况动态调节处理器的电压，进而有效降低自身的功耗。这一系列改进让ARM11的功耗效能比得以继续提高，平均每MHz只需消耗0.6mW（有快取时为0.8mW）的电力，处理器的最高效能可达到660 Dhrystone MIPS，远超过上一代产品。<!-- raw HTML omitted --></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2014-10-31-chrome%E8%B0%83%E8%AF%95js/" data-toggle="tooltip" data-placement="top" title="chrome调试js">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2014-11-13-%E5%AD%A6%E5%8D%95%E7%89%87%E6%9C%BA%E9%9C%80%E8%A6%81%E5%AD%A6%E7%9A%84%E8%AF%AD%E8%A8%80/" data-toggle="tooltip" data-placement="top" title="学单片机需要学的语言">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Nov 13, 2014</h4>
+    </section>
+    <h5 id="wc">11700 Words|Read in about 24 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

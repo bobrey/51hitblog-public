@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> CALayer简单教程 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="CALayer简单教程" />
+  <meta name="twitter:title" content="CALayer简单教程" />
+  <meta name="description" content="前一阵子读到一篇介绍CALayer（这里简单地称其为层）的教程，比较简单易懂，适合初学者，我在这里就不完全翻译了，只是把要点说明一下。 首先要">
+  <meta property="og:description" content="前一阵子读到一篇介绍CALayer（这里简单地称其为层）的教程，比较简单易懂，适合初学者，我在这里就不完全翻译了，只是把要点说明一下。 首先要">
+  <meta name="twitter:description" content="前一阵子读到一篇介绍CALayer（这里简单地称其为层）的教程，比较简单易懂，适合初学者，我在这里就不完全翻译了，只是把要点说明一下。 首先要">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-06-01-calayer%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-06-01-calayer%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">CALayer简单教程</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jun 1, 2011</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>前一阵子读到一篇介绍CALayer（这里简单地称其为层）的教程，比较简单易懂，适合初学者，我在这里就不完全翻译了，只是把要点说明一下。</p>
+<p>首先要说的是CALayers 是屏幕上的一个具有可见内容的矩形区域，每个UIView都有一个根CALayer，其所有的绘制（视觉效果）都是在这个layer上进行的。</p>
+<p> </p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>CALayer的可以影响其外观的特性有：</p>
+<ul>
+<li>层的大小尺寸</li>
+<li>背景色</li>
+<li>内容（比如图像或是使用<a href="http://www.raywenderlich.com/tag/core-graphics">Core Graphics</a>绘制的内容）</li>
+<li>是否使用圆角</li>
+<li>是否使用阴影</li>
+<li>等等</li>
+</ul>
+<p>需要说明的是CALayer的大部分属性都可以用来实现动画效果。</p>
+<p>另外，你可以直接使用CALayer，也可以使用其子类，如CAGradientLayer，CATextLayer， CAShapeLayer等等。</p>
+<p> </p>
+<p><!-- raw HTML omitted -->CALayer是属于QuartzCore framework的，所以需要引入QuartzCore framework，另外在程序中包括QuartzCore.h<!-- raw HTML omitted --><!-- raw HTML omitted -->。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p> </p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->自绘图型的实现，其要点是要设置所绘制层的delegate。比如在我们的例子中使用ViewController作为delegate，那么就需要在ViewController中实现drawLayer:inContext方法，对层进行绘制工作。另外，还需要调用setNeedsDisplay，来通知层需要进行绘制了，于是层才会通过对delegate的drawLayer:inContext方法进行调用。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p> </p>
+<p>///sample code *<strong>*</strong>*<strong>*</strong>*<strong>*</strong>*</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;pre&gt;// CATransaction というクラスを使用して, 一時的にレイヤーのアニメーションの時間を変化させます&lt;br /&gt;[CATransaction begin];&lt;br /&gt;[CATransaction setValue:[NSNumber numberWithFloat:10.0f]&lt;br /&gt;                          forKey:kCATransactionAnimationDuration];&lt;br /&gt;theLayer.zPosition=200.0;&lt;br /&gt;theLayer.opacity=0.0;&lt;/pre&gt;
+
+
+&lt;pre&gt;&lt;span&gt;
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;/span&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;
+   
+&lt;/p&gt;
+
+
+&lt;p class=&quot;p5&quot;&gt;
+   
+&lt;/p&gt;
+
+
+&lt;p class=&quot;p5&quot;&gt;
+   
+&lt;/p&gt;
+
+
+&lt;p class=&quot;p5&quot;&gt;
+  &lt;span style=&quot;color: #000000;&quot;&gt;参考：http://www.iphone-geek.cn/%E7%BC%96%E7%A8%8B/calayer%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B&lt;/span&gt;
+&lt;/p&gt;
+
+
+&lt;p&gt;
+   
+&lt;/p&gt;
+
+
+&lt;p&gt;
+   
+&lt;/p&gt;
+</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-05-30-class%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8selector%E4%BB%A5%E5%8F%8A%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0-selimp/" data-toggle="tooltip" data-placement="top" title="Class类型，选择器Selector以及指针函数    [SEL,IMP]">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-06-02-xcode%E4%B8%AD%E4%BD%BF%E7%94%A8svn-scm-%E7%AE%A1%E7%90%86%E8%87%AA%E5%B7%B1%E7%9A%84source-code/" data-toggle="tooltip" data-placement="top" title="Xcode中使用SVN (SCM) 管理自己的source code">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2011-05-30-class%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8selector%E4%BB%A5%E5%8F%8A%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0-selimp/">Class类型，选择器Selector以及指针函数    [SEL,IMP]</a></li>
+                    
+                    <li><a href="/posts/2011-05-26-video-camera/">video camera</a></li>
+                    
+                    <li><a href="/posts/2011-05-26-socket-2/">socket</a></li>
+                    
+                    <li><a href="/posts/2011-05-25-%E6%B7%BB%E5%8A%A0%E6%89%8B%E5%8A%BF/">添加手势</a></li>
+                    
+                    <li><a href="/posts/2011-04-14-regexfkitlit/">RegexfKitLit</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jun 1, 2011</h4>
+    </section>
+    <h5 id="wc">800 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/objective-c/">objective-c</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

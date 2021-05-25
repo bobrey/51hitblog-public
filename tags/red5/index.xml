@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>red5 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/red5/</link>
+    <description>Recent content in red5 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Oct 2012 06:00:33 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/red5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建</title>
+      <link>https://www.51hint.com/posts/2012-10-03-%E5%9F%BA%E4%BA%8Ertmp%E5%8D%8F%E8%AE%AE-%E9%87%87%E7%94%A8red5%E4%BB%A5%E5%8F%8Aflowplayer%E7%9A%84%E6%B5%81%E5%AA%92%E4%BD%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Wed, 03 Oct 2012 06:00:33 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-10-03-%E5%9F%BA%E4%BA%8Ertmp%E5%8D%8F%E8%AE%AE-%E9%87%87%E7%94%A8red5%E4%BB%A5%E5%8F%8Aflowplayer%E7%9A%84%E6%B5%81%E5%AA%92%E4%BD%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</guid>
+      <description>基于rtmp协议 采用red5以及flowplayer的流媒体服务器搭建 此套网站使用red5提供的rtmp流媒体服务，用户前端使用FlowPl</description>
+    </item>
+    
+  </channel>
+</rss>

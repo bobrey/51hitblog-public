@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lotus on IT技术分享</title>
+    <link>https://www.51hint.com/tags/lotus/</link>
+    <description>Recent content in lotus on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Jun 2012 06:48:23 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/lotus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>lotus 安装等</title>
+      <link>https://www.51hint.com/posts/2012-06-21-lotus-%E5%AE%89%E8%A3%85%E7%AD%89/</link>
+      <pubDate>Thu, 21 Jun 2012 06:48:23 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-21-lotus-%E5%AE%89%E8%A3%85%E7%AD%89/</guid>
+      <description>Lotus Domino 8.5安装专题视频教程合集 http://g.lotusoa.com/thread-798-1-1.html 如何注册批量notes用户的视频教程 http://bbs.lotusoa.com/thread-531-1-1.html ///////////////////////////////////////////////////////////////// Domino_Web_Access_配置 Domino8安装与配置手册</description>
+    </item>
+    
+  </channel>
+</rss>

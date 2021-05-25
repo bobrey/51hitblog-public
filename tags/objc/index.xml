@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>objc on IT技术分享</title>
+    <link>https://www.51hint.com/tags/objc/</link>
+    <description>Recent content in objc on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Nov 2013 06:31:09 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/objc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从storyboard生成本地化字符串</title>
+      <link>https://www.51hint.com/posts/2013-11-06-%E4%BB%8Estoryboard%E7%94%9F%E6%88%90%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Wed, 06 Nov 2013 06:31:09 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-11-06-%E4%BB%8Estoryboard%E7%94%9F%E6%88%90%E6%9C%AC%E5%9C%B0%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>从NewStuff.strings 拷贝 字符串到 Main.strings(English), Main.strings(Chinese Simplified)等。</description>
+    </item>
+    
+    <item>
+      <title>Object-C与标准C/C&#43;&#43;混合编程</title>
+      <link>https://www.51hint.com/posts/2013-03-01-object-c%E4%B8%8E%E6%A0%87%E5%87%86cc%E6%B7%B7%E5%90%88%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Fri, 01 Mar 2013 07:46:26 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-03-01-object-c%E4%B8%8E%E6%A0%87%E5%87%86cc%E6%B7%B7%E5%90%88%E7%BC%96%E7%A8%8B/</guid>
+      <description>objective-C/C++开发语言了。除了Cocoa相关框架和库之外，像Boost、STL以及标准ANSI C运行时库均可使用 方式: using namespace std;</description>
+    </item>
+    
+    <item>
+      <title>ASIHttpRequest所需要的FrameWork</title>
+      <link>https://www.51hint.com/posts/2012-06-06-asihttprequest%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84framework/</link>
+      <pubDate>Wed, 06 Jun 2012 05:53:29 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-06-asihttprequest%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84framework/</guid>
+      <description>每次在工程中添加ASIHttpRequest都记不住要加哪些库 libz.dylib SystemConfiguration.framework CFNetwork.framework MobileCoreServices.framework 添加之后，项目可以编译通过。</description>
+    </item>
+    
+  </channel>
+</rss>

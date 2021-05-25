@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fiddler on IT技术分享</title>
+    <link>https://www.51hint.com/tags/fiddler/</link>
+    <description>Recent content in fiddler on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Jan 2014 09:39:25 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/fiddler/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fiddler抓包</title>
+      <link>https://www.51hint.com/posts/2014-01-14-fiddler%E6%8A%93%E5%8C%85/</link>
+      <pubDate>Tue, 14 Jan 2014 09:39:25 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-14-fiddler%E6%8A%93%E5%8C%85/</guid>
+      <description>Fiddler是最强大最好用的Web调试工具之一，它能记录所有客户端和服务器的http和https请求，允许你监视，设置断点，甚至修改输入输</description>
+    </item>
+    
+  </channel>
+</rss>

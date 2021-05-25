@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> goagent 快速搭建 教程 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="goagent 快速搭建 教程" />
+  <meta name="twitter:title" content="goagent 快速搭建 教程" />
+  <meta name="description" content="Facebook都已经上市了，大陆百姓还是上不去！对于有关部门的不作为，谷歌为大家带来了一把梯子，可以用来翻出那堵墙。所以，要想拓宽眼界，畅">
+  <meta property="og:description" content="Facebook都已经上市了，大陆百姓还是上不去！对于有关部门的不作为，谷歌为大家带来了一把梯子，可以用来翻出那堵墙。所以，要想拓宽眼界，畅">
+  <meta name="twitter:description" content="Facebook都已经上市了，大陆百姓还是上不去！对于有关部门的不作为，谷歌为大家带来了一把梯子，可以用来翻出那堵墙。所以，要想拓宽眼界，畅">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2013-08-03-goagent-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA-%E6%95%99%E7%A8%8B/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2013-08-03-goagent-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA-%E6%95%99%E7%A8%8B/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">goagent 快速搭建 教程</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sat Aug 3, 2013</h4>
+    </section>
+    <h5 id="wc">3200 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/goagent/">goagent</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/goagent-%E6%90%AD%E5%BB%BA/">goagent 搭建</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>Facebook都已经上市了，大陆百姓还是上不去！对于有关部门的不作为，谷歌为大家带来了一把梯子，可以用来翻出那堵墙。所以，要想拓宽眼界，畅享自由的互联网，就跟着下面的goagent教程做吧！（如果实在学不会，那就用免费的<!-- raw HTML omitted -->51vpn<!-- raw HTML omitted -->，可一键傻瓜式翻墙）</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>申请Google App Engine账号（其实就是申请Gmail账号，两者通用。<!-- raw HTML omitted -->强烈建议申请一个全新的Gmail账号，以方便后续操作。<!-- raw HTML omitted -->）</p>
+<p>网址是<!-- raw HTML omitted --><a href="http://appengine.google.com">http://appengine.google.com</a><!-- raw HTML omitted --></p>
+<p>如果已有谷歌账号，那就直接登录吧。</p>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>1：顺利登录后，点击Creat Application</p>
+<p><!-- raw HTML omitted --></p>
+<p>2：接着输入你的手机号码，国家选择中国，输入手机号，几秒后，谷歌会发来短信，填上其中的数字即可</p>
+<p><!-- raw HTML omitted --></p>
+<p>3：点击send后，Google App Engine账号即被激活，然后就可以创建新的应用程序了。页面会自动转入“My Applications”页面，点击“Create Application”新建应用，如下图：</p>
+<p><!-- raw HTML omitted --></p>
+<p>下面填写新应用的必要信息，如下图：</p>
+<p><!-- raw HTML omitted --></p>
+<p>在上图中第一处添加一个应用名称，如amiaomiao,接着验证一下是否可用，如果可用那么amiaomiao就是你的appid（一定要记住这个id！等会上传时要用到的）第二个空格就是给你的应用取个名字，可以随便填，最后点击提交按钮，如果能看到下图这个页面，就说明你成功创建了一个新的应用</p>
+<p><!-- raw HTML omitted --></p>
+<p>登录<!-- raw HTML omitted --><a href="https://appengine.google.com/">https://appengine.google.com/</a><!-- raw HTML omitted -->也可查看ID,如下图</p>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>下载地址：<!-- raw HTML omitted --><a href="http://code.google.com/p/goagent/">http://code.google.com/p/goagent/</a><!-- raw HTML omitted --> 备用下载地址：<!-- raw HTML omitted -->goagent百度网盘<!-- raw HTML omitted --></p>
+<p>1.把下载下来的压缩包先解压！然后打开server文件夹中的uploader.bat 接着依次输入id,Gmail邮箱和密码(输入密码时可能看不到任何符号，这是正常的，输完后按回车即可),稍等片刻，程序会自动上传至谷歌服务器（有时可能会失败，多试几次就可以了）</p>
+<p><!-- raw HTML omitted --></p>
+<p>2:最后看见【上传成功】字样就可以了，否则请重新上传</p>
+<p><!-- raw HTML omitted --></p>
+<p>3.将local文件夹中的 proxy.ini 拖入到记事本中即可打开，打开后在[gae]下方的appid=goagent修改成appid=你的id(备注:每个人的id都不同，不要写图上的abcmaolihui，因为这只是个例子(注意修改时不要删除空格)。</p>
+<p><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --></p>
+<p>4.设置浏览器代理，下面以猎豹浏览器(<!-- raw HTML omitted -->官方下载<!-- raw HTML omitted -->)为例。为什么用猎豹？因为目前为止，会长觉得猎豹无论从自带的屏蔽广告功能、鼠标手势、同步收藏夹、还是配合屏蔽优酷土豆广告插件的使用，都爽爽的，比菜鸟都喜欢用的360浏览器好10万倍。</p>
+<ul>
+<li>
+<p>下载并安装猎豹浏览器后，打开猎豹应用商店→<!-- raw HTML omitted --><a href="http://store.liebao.cn/">http://store.liebao.cn/</a><!-- raw HTML omitted --></p>
+<p>在页面下方，点击安装著名的代理插件Proxy SwitchySharp<a href="https://i2.wp.com/ww1.sinaimg.cn/large/9ed5c127jw1e65f2llfp9j20bg0epta5.jpg"><!-- raw HTML omitted --></a></p>
+</li>
+<li>
+<p>插件安装完毕后，在浏览器地址栏会看到一个灰色的地球，单击后选择【选项】<a href="https://i2.wp.com/ww3.sinaimg.cn/large/9ed5c127jw1e65f8yxux7j205r080glv.jpg"><!-- raw HTML omitted --></a></p>
+</li>
+<li>
+<p>切换到【导入/导出】选项卡，于【在线恢复备份】处粘贴以下网址https://raw.github.com/phus/phus-config/master/SwitchyOptions.bak最后单击【在线恢复备份】(点击图片可放大)<a href="https://i2.wp.com/ww4.sinaimg.cn/large/9ed5c127jw1e1qmc4kfq7j.jpg"><!-- raw HTML omitted --></a></p>
+</li>
+</ul>
+<p>5.大功告成，现在打开local文件夹里的goagent.exe，并在浏览器里选择GoAgent</p>
+<p><!-- raw HTML omitted --></p>
+<p>打开www.youtube.com看看战果吧。不翻的时候，请选回【直接连接】</p>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="常见问答总结">常见问答总结：</h4>
+<ol>
+<li>问：出现Error response Error code 502.Message: [‘HTTP Error 500: Internal Server Error’, ‘HTTP Error 500: Internal Server Error’, ‘HTTP Error 500: Internal Server Error’].Error code explanation: 502 = Invalid responses from another server/proxy怎么办？</li>
+</ol>
+<pre><code>1:检查id是否上传成功。2：检查你电脑是否用了ipv6(如果是ipv6,http://www.kame.net该站的乌龟会动)，是的话，参见下面第8问。3：很不巧，你正好碰到谷歌服务器抽风的时候，过几天再来弄4：建个新id,重新弄一遍
+</code></pre>
+<ol start="2">
+<li>问：全部按教程配置完成，还是不能用</li>
+</ol>
+<pre><code>·你确定你先彻底关闭了杀软，才进行上述操作的？如若不然，请重做。
+
+·代理未生效（很多人都是这里出了问题），换用opera或火狐设代理去翻（&lt;a href=&quot;http://t.cn/zOdWJbR&quot; target=&quot;_blank&quot;&gt;opera设代理方法&lt;/a&gt; |&lt;a href=&quot;http://t.cn/zOdWEtx&quot; target=&quot;_blank&quot;&gt;火狐设代理方法&lt;/a&gt;）。
+
+·改过host的把host还原
+
+·卸载掉你电脑上的所有360产品
+</code></pre>
+<ol start="3">
+<li>问:提示Error code 502错误怎么办？</li>
+</ol>
+<pre><code>404: Not Found 一般是proxy.ini里面appid没有填对，或者服务端没有部署成功。
+
+503: Service Unavailable 流量用完了，请更换appid
+</code></pre>
+<ol start="4">
+<li>问：关闭goagent后无法上网</li>
+</ol>
+<pre><code>不仅要关闭goagent,还要取消之前的代理设置。另外如果你没用路由器，而是直接拨号上网的话，再次连接是要点选“为下面用户保存用户名和密码”的所有用户。
+</code></pre>
+<ol start="5">
+<li>系统找不到指定路径，怎么办？</li>
+</ol>
+<pre><code>把下载下来的压缩包先解压！如果是win7用户，请用右键的管理员模式运行
+</code></pre>
+<ol start="6">
+<li>问：twitter,g+,facebook,youtube注册后无法登录。提示网站的安全证书不受信任?</li>
+</ol>
+<pre><code>这是证书问题造成，导入local文件夹下的ca.crt证书文件即可（ie/chrome导入方法点击此图&lt;a href=&quot;http://t.cn/zOlnHnX&quot; target=&quot;_blank&quot;&gt;http://t.cn/zOlnHnX&lt;/a&gt;）opera浏览器导入方法点击此图&lt;a href=&quot;http://t.cn/zl2AkEA&quot; target=&quot;_blank&quot;&gt;http://t.cn/zl2AkEA&lt;/a&gt;
+</code></pre>
+<ol start="7">
+<li>问：启动uploader.bat一闪而过</li>
+</ol>
+<pre><code>把压缩包先解压再进行后续的配置！
+</code></pre>
+<ol start="8">
+<li>问：goagent支持IPv6网络吗？</li>
+</ol>
+<pre><code>将local文件夹下proxy.ini的appspot = cn和hosts = cn改成appspot=ipv6和hosts=ipv6即可。
+</code></pre>
+<ol start="9">
+<li>问：uploader上传失败？</li>
+</ol>
+<pre><code>400: Bad Request 请新建一个新appid再上传。
+
+404: Not Found 对应的appid没有创建。
+
+10060 连接服务器超时，请在VPN环境中上传，或过段时间再重试(&lt;a href=&quot;http://maolihui.com/recommend-a-free-vpncup.html&quot; target=&quot;_blank&quot;&gt;如何布置vpn环境？&lt;/a&gt;)
+
+10054 连接被重置，请在VPN环境中上传，或过段时间再重试(&lt;a href=&quot;http://maolihui.com/recommend-a-free-vpncup.html&quot; target=&quot;_blank&quot;&gt;如何布置vpn环境？&lt;/a&gt;)
+</code></pre>
+<ol start="10">
+<li>问:输完id后,出现10038错误怎么办?</li>
+</ol>
+<pre><code>引用网友的回答:貌似是有线上网用户可能会出现的问题，因为我是大学生，用的是学校宿舍的有线闪讯客户端上网，刚刚换成无线上网一下子就上传成功了！所以换成无线的试试把,或者换个网络环境呗.
+</code></pre>
+<ol start="11">
+<li>问：怎么删除id?</li>
+</ol>
+<pre><code>见此图→http://ww1.sinaimg.cn/large/9ed5c127gw1drx4orsgzhj.jpg
+</code></pre>
+<ol start="12">
+<li>问：能看到还剩多少流量吗？</li>
+</ol>
+<pre><code>进入https://appengine.google.com，点击对应appid后，在页面下方找到Outgoing Bandwidth，对应的数字就是已消耗流量。每日下午4点重置，每日免费流量1GB
+</code></pre>
+<ol start="13">
+<li>问：出现application:your_appid</li>
+</ol>
+<pre><code>please add your_appid to app.yaml first!!!怎么办？
+
+用记事本修改serverapp.yaml下的your_appid为你的appid(注意修改时不要删除空格)
+</code></pre>
+<ol start="14">
+<li>问：上传时，发现一行网址https://www.google.com/accounts/displayunlockcaptcha是什么意思？</li>
+</ol>
+<pre><code>打开该网址，登录后点击继续，然后再次上传id
+</code></pre>
+<ol start="15">
+<li>问:出现Error 10054</li>
+</ol>
+<pre><code>重启路由器和猫
+</code></pre>
+<ol start="16">
+<li>问：我想看youtube直播怎么办?</li>
+</ol>
+<pre><code>目前goagent还不支持直播，但是你可以用[51vpn][4]去看
+</code></pre>
+<ol start="17">
+<li>问：我是电脑小白，上面的东西我都看不懂，有没有傻瓜化的翻墙软件呢？</li>
+</ol>
+<pre><code>有免费的vpn，输入账号密码即可翻蔷
+</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2013-08-01-micro_httpd-%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%88%AB%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-toggle="tooltip" data-placement="top" title="micro_httpd 轻量级别服务器">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2013-08-15-some-thing-about-mobileconfig-file/" data-toggle="tooltip" data-placement="top" title="some thing about .mobileconfig file">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sat Aug 3, 2013</h4>
+    </section>
+    <h5 id="wc">3200 Words|Read in about 7 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/goagent/">goagent</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/goagent-%E6%90%AD%E5%BB%BA/">goagent 搭建</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

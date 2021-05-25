@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>.乱码 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/.%E4%B9%B1%E7%A0%81/</link>
+    <description>Recent content in .乱码 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Jun 2014 03:27:10 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/.%E4%B9%B1%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xampp phpmyadmin 乱码</title>
+      <link>https://www.51hint.com/posts/2014-06-09-xampp-phpmyadmin-%E4%B9%B1%E7%A0%81/</link>
+      <pubDate>Mon, 09 Jun 2014 03:27:10 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-06-09-xampp-phpmyadmin-%E4%B9%B1%E7%A0%81/</guid>
+      <description>修改 //xampp/mysql/bin/my.ini</description>
+    </item>
+    
+  </channel>
+</rss>

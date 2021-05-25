@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> ios 图片特效 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="ios 图片特效" />
+  <meta name="twitter:title" content="ios 图片特效" />
+  <meta name="description" content="１．图像的逆反处理算法 逆反处理的算法如下： 设r，g，b分别为源图像像素f（i，j）的红，绿，蓝分量值，rr，gg，bb分别为处理后像素g（i">
+  <meta property="og:description" content="１．图像的逆反处理算法 逆反处理的算法如下： 设r，g，b分别为源图像像素f（i，j）的红，绿，蓝分量值，rr，gg，bb分别为处理后像素g（i">
+  <meta name="twitter:description" content="１．图像的逆反处理算法 逆反处理的算法如下： 设r，g，b分别为源图像像素f（i，j）的红，绿，蓝分量值，rr，gg，bb分别为处理后像素g（i">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-07-18-ios-%E5%9B%BE%E7%89%87%E7%89%B9%E6%95%88/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-07-18-ios-%E5%9B%BE%E7%89%87%E7%89%B9%E6%95%88/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">ios 图片特效</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jul 18, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>１．图像的逆反处理算法</p>
+<p>逆反处理的算法如下：</p>
+<p>设r，g，b分别为源图像像素f（i，j）的红，绿，蓝分量值，rr，gg，bb分别为处理后像素g（i，j）的红，绿，蓝分量值。则</p>
+<p>rr=255-r</p>
+<p>gg=255-g</p>
+<p>bb=255-b</p>
+<p>２.图像的平滑处理</p>
+<p>算法如下：</p>
+<p>平滑处理是指将源图像的每一个像素的颜色值由其相邻n*n个像素的平均值来代替。</p>
+<p>例如，对于3*3点阵而言，设原图像某像素的值为f（i，j），平滑处理后该像素的值为g（i，j），则：</p>
+<p>g(i,j)=(f(i,j)+f(i-1,j)+f(i+1,j)+f(i-1,j-1)+f(i,j-1)+f(i+1,j-1)+</p>
+<p>f(i-1,j+1)+f(i,j+1)+f(i+1,j+1))/9</p>
+<p>注意：该算法不能平滑图像边界的像素。</p>
+<p>３. 图象的霓虹处理</p>
+<p>算法：</p>
+<p>对于3*3点阵，首先计算原图象像素f(i,j)的红，绿，蓝分量与相同行f（i+1，j）及同列f(i,j+1)相邻象素的梯度，即差的平方之和的平方根，然后将梯度值作为处理后的象素g(i,j)的红，绿，蓝分量值。</p>
+<p>设 r1,g1,b1分别为原图象象素f(i,j)的红，绿，蓝分量值，r2,g2,b2分别为相同行相邻象素f(i+1,j)的红，绿，蓝分量 值，r3,g3,b3分别为同列相邻象素f(i,j+1)的红，绿，蓝分量值，rr,gg,bb为处理后象素g(i,j)的红，绿，蓝分量值，则：</p>
+<p>rr1=(r1-r2)^2  rr2=(r1-r3)^2</p>
+<p>gg1=(g1-g2)^2  gg2=(g1-g3)^2</p>
+<p>bb1=(b1-b2)^2  bb2(b1-b3)^2</p>
+<p>rr=2*(rr1+rr2)^0.5</p>
+<p>gg=2*(gg1+gg2)^0.5</p>
+<p>bb=2*(bb1+bb2)^0.5</p>
+<p>４.图象的锐化处理</p>
+<p>锐化处理的算法：</p>
+<p>计算原图像像素f(i,j)的像素值与该像素与相邻像素f(i-1,j-1)像素值之差的绝对值得百分比之和，作为处理后 图像像素g(i,j)的像素值。例如，设r1,g1,b1分别为f(i,j)的红、绿、蓝分量值，r2,g2,b2分别为f(i-1,j-1)的红、绿、 蓝分量值，rr,gg,bb分别为g(i,j)的红、绿、蓝分量值，则：</p>
+<p>rr=r1+0.25*abs(r1-r2)</p>
+<p>gg=g1+0.25*abs(g1-g2)</p>
+<p>bb=b1+0.25*abs(b1-b2)</p>
+<p>５. 图像的浮雕处理</p>
+<p>算法：</p>
+<p>位图图像的浮雕处理的算法是：</p>
+<p>g(i,j)=f(i,j)-f(i-1,j)+常数</p>
+<p>式中，g(i,j)为处理后图像的像素值，f(i,j)为原图像的像素值，f(i-1,j)为前一个相邻像素的值。常数一般取128，即</p>
+<p>rr=r1-r2+128</p>
+<p>gg=g1-g2+128</p>
+<p>bb=b1-b2+128</p>
+<p>式中，r1,g1,b1分别为原图像的像素f(i,j)的红、绿、蓝分量值；r2,g2,b2分别为前一个相邻像素f(i-1,j)的红、绿、蓝分量值，rr,gg,bb,分别为处理后图像的像素g(i,j)的红、绿、蓝分量值.</p>
+<p>６.图像的镶嵌处理</p>
+<p>镶嵌处理算法如下：</p>
+<p>镶嵌处理后的图像每一小矩阵内的所有像素值都取此矩阵内原图像各像素值之和的平均值。例如，对于3*3的子域：</p>
+<p>g(i,j)=(f(i,j)+f(i-1,j)+f(i+1,j)+f(i-1,j-1)+f(i+1,j-1)+f(i-1,j+1)+f(i,j+1)+f(i+1,j+1))/9</p>
+<p>则取：</p>
+<p>g(i-1,j)=g(i,j)</p>
+<p>g(i+1,j)=g(i,j)</p>
+<p>g（i,j-1）=g(i,j)</p>
+<p>g(i,j+1)=g(i,j)</p>
+<p>g(i,j+1)=g(i,j)</p>
+<p>g(i-1,j-1)=g(i,j)</p>
+<p>g(i-1,j+1)=g(i,j)</p>
+<p>g(i+1,j-1)=g(i,j)</p>
+<p>g(i+1,j+1)=g(i,j)</p>
+<p>７.图像的灰度处理</p>
+<p>彩色图像灰度处理的算法如下：</p>
+<p>c=tuxing.GetPixel(i,j)</p>
+<p>r=c.R</p>
+<p>g=c.G</p>
+<p>b=c.B</p>
+<p>rr=g(r 64)*64</p>
+<p>gg=(g 64)*64</p>
+<p>bb=(b 64)*64</p>
+<p>８.图像缩小处理</p>
+<p>以坐标原点为中心，将图像个像素坐标的X分量和Y分量分别乘以Sx，Sy，则可使图像进行整体放大和缩小。这时，</p>
+<p>X’=X*Sx</p>
+<p>Y’=Y*Sy</p>
+<p>当Sx=Sy时，作相似变换;</p>
+<p>当Sx!=Sy时，产生变形。</p>
+<p>９.图像的平移处理</p>
+<p>图像的平移变换是将图形上的点（x,y)在x方向（水平方向）和y方向（垂直方向）</p>
+<p>分别移动dx和dy,则变换后点(x’,y’)坐标值为：</p>
+<p>x’=x+dx</p>
+<p>y’=y+dy</p>
+<p>１０.图像的旋转变换</p>
+<p>二维图像的旋转变换是以原点为中心，将点（x,y）旋转a角度而得到新的坐标（x’,y’）的变换称为旋转变换。其数学表达式为：</p>
+<p>x’=x*cosa-y*sina</p>
+<p>y’=x*sina+y*cosa</p>
+<p>１１.二维图像的对称变换</p>
+<p>二维图像对称变换有以下几种情况.</p>
+<p>1.以x轴为对称得对称变换。</p>
+<p>以x轴为对称得点(x,y)的对称点(x’,y’)坐标为：</p>
+<p>x’=x</p>
+<p>y’=-y</p>
+<p>2.以y轴为对称得对称变换。</p>
+<p>以y轴为对称的点（x,y）的对称点(x’,y’)坐标为：</p>
+<p>x’=-x</p>
+<p>y’=y</p>
+<p>3.以原点为对称的对称变换。</p>
+<p>以原点为对称得点（x,y）的对称点（x’,y’）坐标为：</p>
+<p>x’=-x</p>
+<p>y’=-y</p>
+<p>对图像的每一个像素依据二维图形几何变换公式进行计算后，在进行图像显示，则可得到图像的几何变换</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p> </p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/%E5%88%86%E4%BA%AB%E7%B1%BB/" data-toggle="tooltip" data-placement="top" title="分享类">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-07-19-%E5%A6%82%E4%BD%95%E5%9C%A8%E9%9D%99%E6%80%81%E5%BA%93%E4%B8%AD%E4%BD%BF%E7%94%A8xib%E7%AD%89%E8%B5%84%E6%BA%90/" data-toggle="tooltip" data-placement="top" title="如何在静态库中使用XIB等资源">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Wed Jul 18, 2012</h4>
+    </section>
+    <h5 id="wc">1600 Words|Read in about 4 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

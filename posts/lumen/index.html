@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> lumen - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="lumen" />
+  <meta name="twitter:title" content="lumen" />
+  <meta name="description" content="Lumen The micro framework for build REST API, it&rsquo;s very smart and very easy to use.
+Configuration  composer create-project laravel/lumen --prefer-dist edit app.php  Dotenv::load(__DIR__.&#39;/../&#39;); $app-&gt;withFacades(); $app-&gt;withEloquent(); rename .env.example to .env  APP_ENV=local APP_DEBUG=true APP_KEY=SomeRandomKey!!! APP_LOCALE=en APP_FALLBACK_LOCALE=en DB_CONNECTION=mysql DB_HOST=localhost:3306 DB_DATABASE=tutorial1 DB_USERNAME=tutorial1 DB_PASSWORD=tutorial1 CACHE_DRIVER=memcached SESSION_DRIVER=memcached QUEUE_DRIVER=database Model    artisan make:migration create_articles_table --create=articles
+  create migration file
+&lt;?php use Illuminate\Database\Schema\Blueprint; use Illuminate\Database\Migrations\Migration; class CreateArticlesTable extends Migration { /** * Run the migrations.">
+  <meta property="og:description" content="Lumen The micro framework for build REST API, it&rsquo;s very smart and very easy to use.
+Configuration  composer create-project laravel/lumen --prefer-dist edit app.php  Dotenv::load(__DIR__.&#39;/../&#39;); $app-&gt;withFacades(); $app-&gt;withEloquent(); rename .env.example to .env  APP_ENV=local APP_DEBUG=true APP_KEY=SomeRandomKey!!! APP_LOCALE=en APP_FALLBACK_LOCALE=en DB_CONNECTION=mysql DB_HOST=localhost:3306 DB_DATABASE=tutorial1 DB_USERNAME=tutorial1 DB_PASSWORD=tutorial1 CACHE_DRIVER=memcached SESSION_DRIVER=memcached QUEUE_DRIVER=database Model    artisan make:migration create_articles_table --create=articles
+  create migration file
+&lt;?php use Illuminate\Database\Schema\Blueprint; use Illuminate\Database\Migrations\Migration; class CreateArticlesTable extends Migration { /** * Run the migrations.">
+  <meta name="twitter:description" content="Lumen The micro framework for build REST API, it&rsquo;s very smart and very easy to use.
+Configuration  composer create-project laravel/lumen --prefer-dist edit app.php  Dotenv::load(__DIR__.&#39;/../&#39;); …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/lumen/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/lumen/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">lumen</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Feb 16, 2017</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/php/">php</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+
+
+                <h1 id="lumen">Lumen</h1>
+<p>The micro framework for build REST API, it&rsquo;s very smart and very easy to use.</p>
+<h2 id="configuration">Configuration</h2>
+<ol>
+<li><code>composer create-project laravel/lumen --prefer-dist</code></li>
+<li>edit <strong>app.php</strong></li>
+</ol>
+<pre><code class="language-language-markup" data-lang="language-markup">    Dotenv::load(__DIR__.'/../'); 
+    $app-&gt;withFacades(); 
+    $app-&gt;withEloquent();
+</code></pre><ol start="3">
+<li>rename <strong>.env.example</strong> to <strong>.env</strong></li>
+</ol>
+<pre><code class="language-language-php" data-lang="language-php">    APP_ENV=local
+    APP_DEBUG=true
+    APP_KEY=SomeRandomKey!!!
+     
+    APP_LOCALE=en
+    APP_FALLBACK_LOCALE=en
+     
+    DB_CONNECTION=mysql
+    DB_HOST=localhost:3306
+    DB_DATABASE=tutorial1
+    DB_USERNAME=tutorial1
+    DB_PASSWORD=tutorial1
+     
+    CACHE_DRIVER=memcached
+    SESSION_DRIVER=memcached
+    QUEUE_DRIVER=database
+</code></pre><h2 id="model">Model</h2>
+<ol>
+<li></li>
+</ol>
+<p><code>artisan make:migration create_articles_table --create=articles</code></p>
+<ol start="2">
+<li></li>
+</ol>
+<p>create migration file</p>
+<pre><code class="language-language-php" data-lang="language-php">  &lt;?php     
+  use Illuminate\Database\Schema\Blueprint;
+  use Illuminate\Database\Migrations\Migration;
+   
+  class CreateArticlesTable extends Migration {     
+  	/**
+  	 * Run the migrations.
+  	 *
+  	 * @return void
+  	 */
+  	public function up()
+  	{
+  		Schema::create('articles', function(Blueprint $table)
+  		{
+  			$table-&gt;increments('id');
+  			$table-&gt;string('title');
+  			$table-&gt;string('content');
+  			$table-&gt;timestamps();
+  		});
+  	}
+   
+  	/**
+  	 * Reverse the migrations.
+  	 *
+  	 * @return void
+  	 */
+  	public function down()
+  	{
+  		Schema::drop('articles');
+  	}
+   
+  }
+</code></pre><ol start="3">
+<li></li>
+</ol>
+<p><strong>php artisan migrate</strong></p>
+<ol start="4">
+<li></li>
+</ol>
+<p>create <code>Article.php</code></p>
+<pre><code class="language-language-php" data-lang="language-php"> &lt;?php namespace App;   
+ use Illuminate\Database\Eloquent\Model;
+ class Article extends Model{       
+     protected $fillable = ['title', 'content'];       
+ } 
+</code></pre><h2 id="controller">Controller</h2>
+<p>in the <code>Http/Controllers</code>folder create a new file <strong>ArticleController.php</strong></p>
+<pre><code class="language-language-php" data-lang="language-php">&lt;?php 
+namespace App\Http\Controllers;
+ 
+use App\Article;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+  
+class ArticleController extends Controller{ 
+    public function index(){ 
+        $articles  = Article::all(); 
+        return response()-&gt;json($articles); 
+    }
+ 
+    public function getArticle($id){ 
+        $article  = Article::find($id); 
+        return response()-&gt;json($article);
+    }
+ 
+    public function saveArticle(Request $request){ 
+        $article = Article::create($request-&gt;all()); 
+        return response()-&gt;json($article); 
+    }
+ 
+    public function deleteArticle($id){
+        $article  = Article::find($id); 
+        $article-&gt;delete(); 
+        return response()-&gt;json('success');
+    }
+ 
+    public function updateArticle(Request $request,$id){
+        $article  = Article::find($id); 
+        $article-&gt;title = $request-&gt;input('title');
+        $article-&gt;content = $request-&gt;input('content'); 
+        $article-&gt;save(); 
+        return response()-&gt;json($article);
+    } 
+}
+</code></pre><h2 id="routing">Routing</h2>
+<p>vim <strong>routes.php</strong></p>
+<pre><code class="language-language-php" data-lang="language-php">&lt;?php 
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the controller to call when that URI is requested.
+|
+*/
+ 
+$app-&gt;get('/', function() use ($app) {
+    return $app-&gt;welcome();
+});
+  
+$app-&gt;get('api/article','App\Http\Controllers\ArticleController@index'); 
+$app-&gt;get('api/article/{id}','App\Http\Controllers\ArticleController@getArticle'); 
+$app-&gt;post('api/article','App\Http\Controllers\ArticleController@saveArticle'); 
+$app-&gt;put('api/article/{id}','App\Http\Controllers\ArticleController@updateArticle'); 
+$app-&gt;delete('api/article/{id}','App\Http\Controllers\ArticleController@deleteArticle');  
+</code></pre>
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/shi-yong-fan-xing-lai-you-hua-tableview-cells-de-shi-yong-ti-yan/" data-toggle="tooltip" data-placement="top" title="使用泛型来优化 TableView Cells 的使用体验">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/laravel-homestead/" data-toggle="tooltip" data-placement="top" title="Laravel Homestead">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/2014-07-12-cakephp-%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%8A%80%E5%B7%A7/">cakephp 必须掌握的技巧</a></li>
+                    
+                    <li><a href="/posts/2014-07-08-php-show-imagepicture/">php show image,picture</a></li>
+                    
+                    <li><a href="/posts/2014-06-11-php-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AD%89/">php 开发环境等</a></li>
+                    
+                    <li><a href="/posts/2014-06-02-%E9%85%8D%E7%BD%AEphpstorm%E4%B8%8Exampp-xdebug/">配置Phpstorm与xampp, xdebug</a></li>
+                    
+                    <li><a href="/posts/2014-01-27-phpmyadmin-max-upload-file-size/">phpmyadmin max upload file size</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Feb 16, 2017</h4>
+    </section>
+    <h5 id="wc">300 Words|Read in about 2 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/php/">php</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

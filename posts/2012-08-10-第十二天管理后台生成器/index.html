@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第十二天：管理后台生成器 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第十二天：管理后台生成器" />
+  <meta name="twitter:title" content="第十二天：管理后台生成器" />
+  <meta name="description" content="目录 12.1 创建管理后台 12.2 后台模块 12.3 后台外观和体验 12.4 symfony缓存 12.5 配置后台 12.6 配置标题 12.7 配置字段 12.8 列表视图配置 12.8.1 display 12.8.2 layout 12.8.3 虚拟列 12.8.4 sort 12.8.5 max_per_page 12.8.6 batch_actions 12.8.7 object_actions">
+  <meta property="og:description" content="目录 12.1 创建管理后台 12.2 后台模块 12.3 后台外观和体验 12.4 symfony缓存 12.5 配置后台 12.6 配置标题 12.7 配置字段 12.8 列表视图配置 12.8.1 display 12.8.2 layout 12.8.3 虚拟列 12.8.4 sort 12.8.5 max_per_page 12.8.6 batch_actions 12.8.7 object_actions">
+  <meta name="twitter:description" content="目录 12.1 创建管理后台 12.2 后台模块 12.3 后台外观和体验 12.4 symfony缓存 12.5 配置后台 12.6 配置标题 12.7 配置字段 12.8 列表视图配置 12.8.1 display 12.8.2 layout 12.8.3 虚拟列 12.8.4 sort 12.8.5 max_per_page 12.8.6 batch_actions 12.8.7 …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%A4%A9%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%99%A8/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%A4%A9%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E7%94%9F%E6%88%90%E5%99%A8/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第十二天：管理后台生成器</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">5400 Words|Read in about 11 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#chapter_12_backend_creation"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.1 创建管理后台</a></a></li>
+    <li><a href="#chapter_12_backend_modules"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.2 后台模块</a></a></li>
+    <li><a href="#chapter_12_backend_look_and_feel"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.3 后台外观和体验</a></a></li>
+    <li><a href="#chapter_12_the_symfony_cache"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.4 symfony缓存</a></a></li>
+    <li><a href="#chapter_12_backend_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.5 配置后台</a></a></li>
+    <li><a href="#chapter_12_title_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.6 配置标题</a></a></li>
+    <li><a href="#chapter_12_fields_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.7 配置字段</a></a></li>
+    <li><a href="#chapter_12_list_view_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8 列表视图配置</a></a>
+      <ul>
+        <li><a href="#chapter_12_sub_display"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.1 <code>display</code></a></a></li>
+        <li><a href="#chapter_12_sub_layout"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.2 <code>layout</code></a></a></li>
+        <li><a href="#chapter_12_sub_virtual_columns"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.3 “虚拟（virtual）”列</a></a></li>
+        <li><a href="#chapter_12_sub_sort"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.4 <code>sort</code></a></a></li>
+        <li><a href="#chapter_12_sub_max_per_page"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.5 <code>max_per_page</code></a></a></li>
+        <li><a href="#chapter_12_sub_batch_actions"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.6 <code>batch_actions</code></a></a></li>
+        <li><a href="#chapter_12_sub_object_actions"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.7 <code>object_actions</code></a></a></li>
+        <li><a href="#chapter_12_sub_actions"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.8 <code>actions</code></a></a></li>
+        <li><a href="#chapter_12_sub_table_method"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.9 <code>table_method</code></a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_12_form_views_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.9 表单视图配置</a></a>
+      <ul>
+        <li><a href="#chapter_12_sub_display"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.9.1 <code>display</code></a></a></li>
+        <li><a href="#chapter_12_sub_virtual_columns"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.9.2 “虚拟（Virtual）”列</a></a></li>
+        <li><a href="#chapter_12_sub_class"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.9.3 <code>class</code></a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_12_filters_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.10 过滤器配置</a></a></li>
+    <li><a href="#chapter_12_actions_customization"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.11 行为自定义</a></a></li>
+    <li><a href="#chapter_12_templates_customization"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.12 模板自定义</a></a></li>
+    <li><a href="#chapter_12_final_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.13 最终配置</a></a></li>
+    <li><a href="#chapter_12_final_thoughts"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.14 结语</a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_backend_creation">12.1 创建管理后台</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_backend_modules">12.2 后台模块</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_backend_look_and_feel">12.3 后台外观和体验</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_the_symfony_cache">12.4 symfony缓存</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_backend_configuration">12.5 配置后台</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_title_configuration">12.6 配置标题</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_fields_configuration">12.7 配置字段</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_list_view_configuration">12.8 列表视图配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_display">12.8.1 display</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_layout">12.8.2 layout</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_virtual_columns">12.8.3 虚拟列</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_sort">12.8.4 sort</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_max_per_page">12.8.5 max_per_page</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_batch_actions">12.8.6 batch_actions</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_object_actions">12.8.7 object_actions</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_actions">12.8.8 actions</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_table_method">12.8.9 table_method</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_form_views_configuration">12.9 表单视图配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_display">12.9.1 display</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_virtual_columns">12.9.2 虚拟列</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_sub_class">12.9.3 class</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_filters_configuration">12.10 过滤器配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_actions_customization">12.11 行为自定义</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_templates_customization">12.12 模板自定义</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_final_configuration">12.13 最终配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#chapter_12_final_thoughts">12.14 结语</a></li>
+<li></li>
+</ul>
+<p>经过昨天的修改，前台应用已经可以满足招聘和求职者的需要。接下来我们讨论后台应用。今天，我们的目标是用一小时时间，给jobeet开发一个完整的管理后台。这都要感谢symfony管理后台生成器。</p>
+<h2 id="chapter_12_backend_creation"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.1 创建管理后台</a></h2>
+<p>我们首先要创建后台应用。你应该还记得如何使用 <code>generate:app</code> 来创建新应用：</p>
+<!-- raw HTML omitted -->
+<p>现在后台应用已经可以使用了，<code>http://jobeet.localhost/backend.php</code> 用于 <code>prod</code> 环境，<code>http://jobeet.localhost/backend_dev.php</code> 用于 <code>dev</code> 环境。</p>
+<!-- raw HTML omitted -->
+<p>如果你尝试用 <code>doctrine:data-load</code> 重新导入测试数据的话，它不会正常工作。因为 <code>JobeetJob::save()</code> 方法需要从前台应用访问 <code>app.yml</code> 配置文件。而现在我们有两个应用，symfony会使用它最先找到应用，<code>backend</code> 应用。</p>
+<p>通过<!-- raw HTML omitted -->第<!-- raw HTML omitted -->八天的学习我们知道，yml配置是可以分为不同的级别。如果将 <code>apps/frontend/config/app.yml</code> 移动到 <code>config/app.yml</code> ，那么 <code>app.yml</code> 便成为应用级的配置，可以被所有应用共享，从而解决这个问题。因为管理后台中将广泛地用到模型类，因此我们也需要 <code>app.yml</code> 中的变量。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_12_backend_modules"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.2 后台模块</a></h2>
+<p>前台应用中创建模块时，我们使用 <code>doctrine:generate-module</code> 命令，生成一个基于模型类的基本的CRUD模块。在后台应用中创建模块，我们使用 <code>doctrine:generate-admin</code> 命令，这个命令可以为一个模型类生成完整的后台界面：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>上面两个命令为 <code>JobeetJob</code> 类和 <code>JobeetCategory</code> 类分别创建 <code>job</code> 和 <code>category</code> 两个模块。</p>
+<p>这里的 <code>-–module</code> 选项作用是，使用指定的模块名称替换自动生成的默认名称（如果没有指定，<code>JobeetJob</code> 类将默认生成名称为 <code>jobeet_job</code> 模块）。</p>
+<p>这个命令同时会为每个模块生成一个定制的路由规则：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>我们发现路由规则中class项使用 <code>sfPropelRouteCollection</code> 类，这并不不奇怪，因为管理界面主要目的是管理模型对象。</p>
+<p>路由配置中还定义了一些我们以前没有见过的选项：</p>
+<ul>
+<li><code>prefix_path</code>：为生成的路由规则定义前缀路径（例如，edit页面类似于 <code>/job/1/edit</code>）。</li>
+<li><code>column</code>：定义用在URL中的数据表字段，用于引用一个对象。</li>
+<li><code>with_wildcard_routes</code>：与标准的CRUD相比，管理界面有更多的操作，这个选项可以不编辑路由的情况下，定义更多对象和行为集。</li>
+</ul>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_12_backend_look_and_feel"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.3 后台外观和体验</a></h2>
+<p>你马上就可以使用生成的模块：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>与前几天生成的简单模块相比，管理模块有更多的功能。即使我们一行PHP代码也不写，仍然可以得打功能强大的模块：</p>
+<ul>
+<li>对象列表是<strong>分页</strong>显示的</li>
+<li>这个列表可<strong>排序</strong></li>
+<li>这个列表可<strong>筛选</strong></li>
+<li>对象可以被<strong>创建</strong>、<strong>编辑</strong>和<strong>删除</strong></li>
+<li>选中的这些对象可以<strong>批量</strong>删除</li>
+<li>表单可以<strong>验证</strong></li>
+<li><strong>Flash messages</strong> 给用户即时的消息反馈</li>
+<li>还有很多…</li>
+</ul>
+<p>管理后台生成器提供创建后台界面需要的所有功能。</p>
+<p>If you have a look at our two generated modules,</p>
+<p>you will notice there is no activated webdesign whereas the symfony built-in admin generator feature has a basic graphic interface by default.</p>
+<p>For now, assets from the <code>sfDoctrinePlugin</code> are not located under the <code>web/</code> folder.</p>
+<p>We need to publish them under the <code>web/</code> folder thanks to the <code>plugin:publish-assets</code> task:</p>
+<!-- raw HTML omitted -->
+<p>为了获得良好的用户体验，我们需要定制默认的后台。我还要添加一个简单的导航菜单。</p>
+<p>用下面的代码替换默认的 <code>layout</code> 文件内容：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>这个布局使用 <code>admin.css</code> 样式表。这个文件已经在<!-- raw HTML omitted -->第<!-- raw HTML omitted -->四天被安装在 <code>web/css</code> 目录下了。</p>
+<p><img src="res/look_and_feel.png" alt="The admin generator look and feel"></p>
+<p>最后在 <code>routing.yml</code> 修改后台默认主页：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_12_the_symfony_cache"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.4 symfony缓存</a></h2>
+<p>如果你已经迫不及待地打开了 <code>apps/backend/modules/</code> 目录中的文件，你会惊奇的发现 <code>templates</code> 目录中竟然没有任何模板文件，<code>actions.class.php</code> 文件中也没有任何行为：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>什么都没有，那它是如何工作的？其实，如果你仔细观察就会注意到 <code>jobActions</code> 继承了 <code>autoJobActions</code> 类。<code>autoJobActions</code> 类由symfony自动生成，在 <code>cache/backend/dev/modules/autoJob/</code> 目录下，它包含后台使用的“真正”模块：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>我们对管理后台这种工作方式可能似曾相识。事实上，它与模型和表单类非常相似，基于schema模型定义，symfony生成模型类和表单类。对于后台生成器，可以编辑 <code>config/generator.yml</code> 文件 来配置生成的模块：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>每次更新 <code>generator.yml</code> 文件，symfony都会重新生成缓存。我们今天将看到，自定义后台管理模块是件非常简单、快速而有意思的事情。</p>
+<!-- raw HTML omitted -->
+<p>—</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_12_backend_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.5 配置后台</a></h2>
+<p>管理模块可以通过编 <code>generator.yml</code> 配置文件中的 <code>config</code> 键来配置。配置由7部分组成：</p>
+<ul>
+<li><code>actions</code>：行为默认配置，建立在列表和表单上</li>
+<li><code>fields</code>：字段默认配置</li>
+<li><code>list</code>：列表配置</li>
+<li><code>filter</code>：过滤配置</li>
+<li><code>form</code>：表单配置</li>
+<li><code>edit</code>：edit页特殊配置</li>
+<li><code>new</code>：new页特殊配置</li>
+</ul>
+<p>让我们开始配置吧。</p>
+<h2 id="chapter_12_title_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.6 配置标题</a></h2>
+<p><code>category</code> 模块的 <code>list</code>、<code>edit</code> 和 <code>new</code> 的标题，都可以通过定义 <code>title</code> 选项来设置：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>edit</code> 的 <code>title</code> 选项包含变量：所有被包围在 <code>%%</code> 中的字符串都会被替换成对应的对象列。</p>
+<p><img src="res/title.png" alt="Titles"></p>
+<p><code>job</code> 模块的配置也非常相似：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_12_fields_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.7 配置字段</a></h2>
+<p>视图（<code>list</code>、<code>new</code> 和 <code>edit</code>）由字段组成。一个字段可以是模型类的一个列，也可以是一个自定义列，稍后我们会看到自定义列。</p>
+<p>默认字段配置可以在 <code>fields</code> 部分定义：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="res/fields.png" alt="Fields Configuration"></p>
+<p>The <code>fields</code> section overrides the fields configuration for all views,</p>
+<p>which means the <code>label</code> for the <code>is_activated</code> field will be changed for the <code>list</code>, <code>edit</code>, and <code>new</code> views.</p>
+<p>The admin generator configuration is based on a configuration cascade principle.</p>
+<p>For instance, if you want to change a label for the <code>list</code> view only, define a <code>fields</code> option under the <code>list</code> section:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>任何主 <code>fields</code> 部分下的配置都可以被特殊配置覆盖。覆盖规则如下：</p>
+<ul>
+<li><code>new</code> 和 <code>edit</code> 继承 <code>form</code>，<code>form</code> 再继承 <code>fields</code></li>
+<li><code>list</code> 继承 <code>fields</code></li>
+<li><code>filter</code> 继承 <code>fields</code></li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="chapter_12_list_view_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8 列表视图配置</a></h2>
+<h3 id="chapter_12_sub_display"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.1 <code>display</code></a></h3>
+<p>默认情况下，列表中显示的模型类的所有列。可以使用 <code>display</code> 选项自定义定义显示哪些列：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>上面表示只显示 <code>name</code> 和 <code>slug</code> 两列值。<code>name</code> 列前的 <code>=</code> 表示，<code>name</code> 将以链接的形式显示。</p>
+<p><img src="res/list_columns.png" alt="Table list"></p>
+<p>同样设置 <code>job</code> 模块来使它更可读：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_12_sub_layout"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.2 <code>layout</code></a></h3>
+<p>列表可以通过不同的布局显示。默认，布局的显示方式为平板式（<code>tabular</code>），这意味着所有值都是按列显示的。但是对于 <code>job</code> 模块，最好用堆叠式（<code>stacked</code>）的布局，我们使用另一个内建的布局：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在堆叠式（<code>stacked</code>）布局，每个对象显示为单独一行，通过 <code>params</code> 选项定义。</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_12_sub_virtual_columns"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.3 “虚拟（virtual）”列</a></h3>
+<p>这个配置中 <code>%%category_id%%</code> 部分显示category主键，显示分类名会更直观。</p>
+<p>其实 <code>%%</code> 标记中的变量不必对应数据库的字段，只要模型类中存在相应getter方法就可以正确显示。</p>
+<p>所以，要显示分类名，我们可以在 <code>JobeetJob</code> 类中定义 <code>getCategoryName()</code> 方法，并将 <code>%%category_id%%</code> 替换为 <code>%%category_name%%</code> 来实现。</p>
+<p>不过，我们也可以通过 <code>JobeetJob</code> 类中 <code>getJobeetCategory()</code> 方法来实现显示分类名，这个类返回相关的category对象。如果你用 <code>%%jobeet_category%%</code>，它会像 <code>JobeetCategory</code> 类 <code>__toString()</code> 方法一样将对象转换为字符串。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="res/stacked_layout.png" alt="Stacked layout"></p>
+<h3 id="chapter_12_sub_sort"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.4 <code>sort</code></a></h3>
+<p>作为管理员，你可能对最近发表的招聘信息感兴趣。你可以通过 <code>sort</code> 选项设置默认用来排序的字段：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_12_sub_max_per_page"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.5 <code>max_per_page</code></a></h3>
+<p>默认情况下列表页每页最多显示20条记录，这可以通过 <code>max_per_page</code> 选项修改：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="res/max_per_page.png" alt="Max per page"></p>
+<h3 id="chapter_12_sub_batch_actions"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.6 <code>batch_actions</code></a></h3>
+<p>在列表页中，一个行为可以运行在几个对象上。<code>category</code> 模块不需要这些批处理行为，删除它们：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="res/no_batch_actions.png" alt="Remove the batch actions"></p>
+<p><code>batch_actions</code> 选项定义了批处理的清单。空表示禁用批处理功能。</p>
+<p>默认情况下，框架为每个模块定义一个 <code>delete</code> 批处理行为 ，但对于 <code>job</code> 模块，我们需要一个将一些选中的招聘信息的有效期延长30天的方法：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>这些以下划线（<code>_</code>）开头的行为都是框架内建行为。如果你现在刷新浏览器，并选择extend批处理行为，symfony将提示你需要创建 <code>executeBatchExtend()</code> 方法：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>这些选中的主键被存储到请求参 <code>ids</code> 中。通过传递给 <code>JobeetJob::extend()</code> 方法一个额外的参数，绕开方法中的一些检查。</p>
+<p>我们需要更新 <code>extend()</code> 让它接受新参数：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>执行完extend批处理行为后，页面将跳转到 <code>job</code> 模块主页。</p>
+<p><img src="res/custom_batch_actions.png" alt="Custom batch actions"></p>
+<h3 id="chapter_12_sub_object_actions"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.7 <code>object_actions</code></a></h3>
+<p>在列表中有一个额外的列，这个列中包含用于控制某一对象的行为。对于 <code>category</code> 模块来说，我们已经有在名字加上了edit链接，并且我们不需要从列表中直接删除某个对象，所以可以删除这些行为：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>对于 <code>job</code> 模块，我们则要保留现有的行为，并添加一个新的 <code>extend</code> 行为，与我们添加的批处理行为相似：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>同批处理行为一样，<code>_delete</code> 和 <code>_edit</code> 行为是框架内建行为。我们需要定义 <code>listExtend()</code> 方法使 <code>extend</code> 链接工作：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="res/custom_object_actions.png" alt="Custom object action"></p>
+<h3 id="chapter_12_sub_actions"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.8 <code>actions</code></a></h3>
+<p>我们已经看到，如何将一个行为与一个对象或多个对象建立联系。而 <code>actions</code> 选项则没有将行为与任何现有的对象相联系，它更像创建了一个新对象。现在让我们移除默认的 <code>new</code> 行为，并添加一个新行为，用来删除过期60天的所有招聘信息：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>到现在为止，我们已经把所有的action定义了 <code>~</code>，这意味着使用symfony自动生成的action。每个行为都可以通过定义一个自定义的参数数组。<code>label</code> 选项将覆盖symfony默认产生的label标签。</p>
+<p>默认情况下，执行该操作时，您点击链接的action都有 <code>list</code> 做前缀。</p>
+<p>在 <code>job</code> 模块建立 <code>listDeleteNeverActivated</code> 行动。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>我们重用了昨天定义的 <code>JobeetJobTable::cleanup()</code> 方法。这是MVC模式提供重用的一个很好例子。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><img src="res/actions.png" alt="Actions"></p>
+<h3 id="chapter_12_sub_table_method"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.8.9 <code>table_method</code></a></h3>
+<p>通过调试工具栏我们可以看到，显示一次招聘列表页面需要请求数据库14次。</p>
+<p>如果你点击这个数字，可以看到大部分请求都是为每个招聘信息获取分类名。</p>
+<p><img src="res/web_debug_before.png" alt="Number of requests before"></p>
+<p>要减少请求次数，我们可以改变默认获取信息方法，使用 <code>table_method</code> 选项：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>retrieveBackendJobList()</code> 方法在 <code>job</code> 表和 <code>category</code> 表间添加一个join，自动生成category对象关联到每条招聘记录。</p>
+<p>现在，您需要在 <code>lib/model/doctrine/JobeetJobTable.class.php</code> 的 <code>JobeetJobTable</code> 里面创建 <code>retrieveBackendJobList</code> 方法。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>retrieveBackendJobList()</code> 方法在 <code>job</code> 表和 <code>category</code> 表间添加一个join，自动生成category对象关联到每条招聘信息。</p>
+<p>现在数据库请求数变为4次：</p>
+<p><img src="res/web_debug_after.png" alt="Number of requests after"></p>
+<h2 id="chapter_12_form_views_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.9 表单视图配置</a></h2>
+<p>表单视图配置包括3部分：<code>form</code>、<code>edit</code> 和 <code>new</code>。它们可以进行同样的配置，<code>form</code> 部分只作为 <code>edit</code> 部分和 <code>new</code> 部分回调存在。</p>
+<h3 id="chapter_12_sub_display"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.9.1 <code>display</code></a></h3>
+<p>像 <code>list</code> 部分一样，你可以使用 <code>display</code> 选项改变字段的显示顺序。但是因为显示的 <code>form</code> 是在类中定义的，不要试图删除任何一个表单元素，这将导致意外验证错误。</p>
+<p><code>display</code> 选项也可以将表单字段分成不同的组：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>上面定义了2个组（<code>Content</code> 和 <code>Admin</code>），每组里都包含几个字段，显示如下：</p>
+<p><img src="res/fields_grouping.png" alt="Fields grouping"></p>
+<!-- raw HTML omitted -->
+<p>后台管理生成器默认支持数据表之间的多对多关系。所有在category表单中，除了有name、slug输入框外，还有一个下拉框，里面是与 <code>category</code> 对应的所有 <code>affiliates</code>。在这个页面修改 <code>category</code> 与 <code>affiliates</code> 之间管理没有意义，删除它：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_12_sub_virtual_columns"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.9.2 “虚拟（Virtual）”列</a></h3>
+<p>在招聘信息表单的 <code>display</code> 选项中，<code>_generated_token</code> 字段前面带有下滑线（<code>_</code>）。这意味着这个字段的处理是自定义的。</p>
+<p>使用下面内容创建局部模板:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在局部模板中调用了当前表单对象（<code>$form</code>），并通过 <code>getObject()</code> 方法访问关联的对象。</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_12_sub_class"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.9.3 <code>class</code></a></h3>
+<p>后台的表单是给管理员使用的，我们希望它比用户招聘信息表单显示更多的内容。但是现在并非如此，因为我们曾经在 <code>JobeetJobForm</code> 类中将一些当时不需要的表单元素删除了。</p>
+<p>为让前台和后台使用不同的表单，我们需要再创建一个 <code>BackendJobeetJobForm</code> 表单类，它继承 <code>JobeetJobForm</code> 类。我们重构一下 <code>JobeetJobForm</code> 类，将 <code>unset()</code> 语句放到到一个方法中，这样我们可以通过重载 <code>BackendJobeetJobForm</code> 中的方法来重设被删除的表单元素：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>配置文件中的 <code>class</code> 选项可以覆盖管理后台生成器的默认表单类：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>目前，编辑表单还有些问题：上传的logo不显示，也无法删除。<code>sfWidgetFormInputFileEditable</code> 控件可以生成一个文件上传框控件：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>sfWidgetFormInputFileEditable</code> 控件有以下几个选项：</p>
+<ul>
+<li><code>file_src</code>：当前上传文件的web路径</li>
+<li><code>is_image</code>：如果是 <code>true</code>，文件将作为图片处理</li>
+<li><code>edit_mode</code>：表单是不是在编辑模式下</li>
+<li><code>with_delete</code>：是否显示删除当前文件选框</li>
+<li><code>template</code>：显示用的模板</li>
+</ul>
+<p><img src="res/file_upload.png" alt="File upload"></p>
+<!-- raw HTML omitted -->
+<p><code>edit_mode</code> 选项使用了 <code>sfDoctrineRecord::isNew()</code> 方法。</p>
+<p>如果表单的模型对象是新的，将返回 <code>true</code>，否则返回 <code>false</code>。当需要根据对象状态来使用不同的控件或验证器时，这个很有用。</p>
+<h2 id="chapter_12_filters_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.10 过滤器配置</a></h2>
+<p>配置过滤器和配置表单视图完全一样。事实上，过滤器就是表单。表单类是由 <code>doctrine:build --all</code> 命令生成的。你也可以用 <code>doctrine:build --filters</code> 命令重新生成它们。</p>
+<p>表单过滤类位于 <code>lib/filter/</code> 目录下，每个模型类都有一个对应的过滤器类（<code>JobeetJobFormFilter</code> 对应 <code>JobeetJobForm</code>）。</p>
+<p>我们为 <code>category</code> 模块移除所有过滤字段：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在 <code>job</code> 模块中，我们删除一些过滤用的字段：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>因为过滤器总是可选的，不需要覆盖过滤器表单类配置显示的字段。</p>
+<p><img src="res/filters.png" alt="Filters"></p>
+<h2 id="chapter_12_actions_customization"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.11 行为自定义</a></h2>
+<p>当配置不够用时，你可以在行为类中添加新方法，也可以覆盖生成的行为方法：</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  描述
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;code&gt;list&lt;/code&gt; 视图行为
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  更新过滤器
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;code&gt;new&lt;/code&gt; 视图行为
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  创建一个新招聘信息
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;code&gt;edit&lt;/code&gt; 视图行为
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  更新一个招聘信息
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  删除一个招聘信息
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  执行一个批量行为
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  执行 &lt;code&gt;_delete&lt;/code&gt; 批量行为
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  处理招聘信息表单
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  返回当前的过滤器
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  设置过滤器
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  返回列表分页器
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  取得分页器页数
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  设置分页器页数
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  建立列表 &lt;code&gt;Criteria&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  添加列表排序 &lt;code&gt;Criteria&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  返回当前的排序列
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  设置当前的排序列
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>因为这里每个方法只做一件事，所有不需要大量修改就可以改变它们的功能。</p>
+<h2 id="chapter_12_templates_customization"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.12 模板自定义</a></h2>
+<p>我们已经看到，如何自定义生成的模板，得益于 <code>class</code> 和 <code>id</code> 属性。</p>
+<p>至于这些类，你也可以覆盖原来的模板。因为模板是纯PHP文件并且不是PHP类，一个模板可以被模块里的同名模板所覆盖（例如，<code>apps/backend/modules/job/templates/</code> 目录对应 <code>job</code> 管理模块）：</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  描述
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  呈现用于模板的CSS和JS
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  呈现过滤器
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  呈现单个字段过滤器
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  呈现flash messages
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示表单
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示表单行为
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示单个表单字段
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示表单fieldset
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示表单页脚
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示表单页头
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示列表
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示列表行为
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示列表的批量行为
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  在列表里面显示单个布尔值字段
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示列表页脚
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示列表页头
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示行的对象行为
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示行的复选框
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示行的堆视图（stacked layout）
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示列的单个字段
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示头部的单个列名
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示头部的单个列名
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示列表分页
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示 &lt;code&gt;edit&lt;/code&gt; 视图
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示 &lt;code&gt;list&lt;/code&gt; 视图
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  显示 &lt;code&gt;new&lt;/code&gt; 视图
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="chapter_12_final_configuration"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.13 最终配置</a></h2>
+<p>这是Jobeet后台最后的配置文件内容：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>通过这两个配置文件，我们在很短的时间内已经开发了很好的Jobeet后台界面。</p>
+<!-- raw HTML omitted -->
+<h2 id="chapter_12_final_thoughts"><a href="forum.php?mod=viewthread&amp;tid=77&amp;extra=page%3D1#">12.14 结语</a></h2>
+<p>只用了1个小时时间，我们已经创建一个功能完整的后台界面。我们只写了不到50行PHP代码。对于这么多功能来说，不算太糟糕。</p>
+<p>明天，我们经看到如何使用用户名和密码，保证后台安全。是时候讨论symfony的User类了。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E4%B9%9D%E5%A4%A9%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/" data-toggle="tooltip" data-placement="top" title="第九天：功能测试">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%9B%9B%E5%A4%A9feed/" data-toggle="tooltip" data-placement="top" title="第十四天：Feed">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">5400 Words|Read in about 11 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aws on IT技术分享</title>
+    <link>https://www.51hint.com/tags/aws/</link>
+    <description>Recent content in aws on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Apr 2020 17:18:27 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用AWS Elastic Beanstalk架設WordPress</title>
+      <link>https://www.51hint.com/posts/aws_elastic/</link>
+      <pubDate>Sun, 19 Apr 2020 17:18:27 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/aws_elastic/</guid>
+      <description>用AWS Elastic Beanstalk架設WordPress https://medium.com/@sebastianhsu/%E7%94%A8aws-elastic-beanstalk%E6%9E%B6%E8%A8%ADwordpress%E5%85%A8%E6%94%BB%E7%95%A5-%E4%B8%80-%E8%AA%AA%E8%AA%AA-64cd2ca6a0b9 利用 AWS Elastic Beanstalk 部署 Wordpress 环境 https://www.cnblogs.com/sammyliu/p/9025039.html</description>
+    </item>
+    
+  </channel>
+</rss>

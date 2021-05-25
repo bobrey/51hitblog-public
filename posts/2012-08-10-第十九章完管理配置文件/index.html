@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 第十九章（完）：管理配置文件 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="第十九章（完）：管理配置文件" />
+  <meta name="twitter:title" content="第十九章（完）：管理配置文件" />
+  <meta name="description" content="目录 19.1 Symfony配置参数 19.1.1 默认的模块和行为 19.1.2 激活可选特性 19.1.3 功能特性配置 19.2 扩展自动载入特性 19.3 定制文件结构 19.3.1 基本的文件结构 19.3.2 定制文件结构 19.3.3 修">
+  <meta property="og:description" content="目录 19.1 Symfony配置参数 19.1.1 默认的模块和行为 19.1.2 激活可选特性 19.1.3 功能特性配置 19.2 扩展自动载入特性 19.3 定制文件结构 19.3.1 基本的文件结构 19.3.2 定制文件结构 19.3.3 修">
+  <meta name="twitter:description" content="目录 19.1 Symfony配置参数 19.1.1 默认的模块和行为 19.1.2 激活可选特性 19.1.3 功能特性配置 19.2 扩展自动载入特性 19.3 定制文件结构 19.3.1 基本的文件结构 19.3.2 定制文件结构 19.3.3 修">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B9%9D%E7%AB%A0%E5%AE%8C%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B9%9D%E7%AB%A0%E5%AE%8C%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">第十九章（完）：管理配置文件</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">7900 Words|Read in about 16 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#chapter_19_sub_optional_feature_activation"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.1.2 激活可选特性</a></a></li>
+        <li><a href="#chapter_19_sub_feature_configuration"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.1.3 功能特性配置</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_19_extending_the_autoloading_feature"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.2 扩展自动载入特性</a></a></li>
+    <li><a href="#chapter_19_custom_file_structure"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.3 定制文件结构</a></a>
+      <ul>
+        <li><a href="#chapter_19_sub_the_basic_file_structure"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.3.1 基本的文件结构</a></a></li>
+        <li><a href="#chapter_19_sub_customizing_the_file_structure"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.3.2 定制文件结构</a></a></li>
+        <li><a href="#chapter_19_sub_modifying_the_project_web_root"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.3.3 修改项目的Web根目录</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_19_understanding_configuration_handlers"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.4 理解配置处理器</a></a>
+      <ul>
+        <li><a href="#chapter_19_sub_default_configuration_handlers"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.4.1 默认的配置处理器</a></a></li>
+        <li><a href="#chapter_19_sub_adding_your_own_handler"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.4.2 加入你自己的处理器</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#chapter_19_summary"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.5 总结</a></a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <ul>
+<li>目录</li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_symfony_settings">19.1 Symfony配置参数</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_sub_default_modules_and_actions">19.1.1 默认的模块和行为</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_sub_optional_feature_activation">19.1.2 激活可选特性</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_sub_feature_configuration">19.1.3 功能特性配置</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_extending_the_autoloading_feature">19.2 扩展自动载入特性</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_custom_file_structure">19.3 定制文件结构</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_sub_the_basic_file_structure">19.3.1 基本的文件结构</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_sub_customizing_the_file_structure">19.3.2 定制文件结构</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_sub_modifying_the_project_web_root">19.3.3 修改项目的Web根目录</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_understanding_configuration_handlers">19.4 理解配置处理器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_sub_default_configuration_handlers">19.4.1 默认的配置处理器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_sub_adding_your_own_handler">19.4.2 加入你自己的处理器</a></li>
+<li><a href="http://www.php-sf.com/forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#chapter_19_summary">19.5 总结</a></li>
+<li></li>
+</ul>
+<p>default/error404<!-- raw HTML omitted -->。<!-- raw HTML omitted --></p>
+<ul>
+<li><code>login_module</code> 和 <code>login_action</code>：当一个未经授权的用户试图访问由 <code>security.yml</code> 中定义为 <code>secure</code> 的页面时（请参考第六章的解释），这个行为将被调用。默认值是 <code>default/login</code>。</li>
+<li><code>secure_module</code> 和 <code>secure_action</code>：当一个用户不具备某个行为所需的信任证书时，这个行为将被调用。 默认值是 <code>default/secure</code>。</li>
+<li><code>module_disabled_module</code> 和 <code>module_disabled_action</code>：当一个用户请求一个被 <code>module.yml</code> 定义为关闭的模块时，这个行为将被调用。 默认值是 <code>default/disabled</code>。<!-- raw HTML omitted --></li>
+</ul>
+<p>在将一个应用部署到生产环境中之前，你需要定制这些行为，因为 <code>default</code> 模块的模板页面中都含有symfony的logo。图19-1是页面之一的404错误页面的截屏。</p>
+<!-- raw HTML omitted -->
+<p><img src="res/F1901.jpg" alt="默认的404错误页面"></p>
+<p>你可以通过两种方法重载这些默认页：</p>
+<ul>
+<li>对于 <code>settings.yml</code> 文件中定义的所有行为（<code>index</code>、<code>error404</code>、<code>login</code>、<code>secure</code>、<code>disabled</code>）和所有相应的模板（<code>indexSuccess.php</code>、<code>error404Success.php</code>、 <code>loginSuccess.php</code>、<code>secureSuccess.php</code>、<code>disabledSuccess.php</code>），你可以在应用的 <code>modules/</code> 目录中创建自己的 <code>default</code> 模块。</li>
+<li>你可以将 <code>settings.yml</code> 文件中的默认模块和行为参数设置为你的应用的页面。</li>
+</ul>
+<p>另外，有两个页面支撑symfony的外观和体验，所以它们在部署到产品服务器之前需要重新定制。这两个页面不在 <code>default</code> 模块中，因为只有当symfony不能正常运行时，才会被调用。你可以在 <code>sfConfig::get('sf_symfony_lib_dir')/exception/data/</code> 目录中看到这些页面：</p>
+<ul>
+<li><code>error.html.php</code>：当生产环境中出现内部服务器错误时，在其他环境里面（调试模式为 <code>true</code>），当出现一个错误时，symfony会显示所有的执行栈和精确的错误信息（请参看第十六章的介绍）。</li>
+<li><code>unavailable.php</code>：当用户请求一个页面时，而该应用被禁用（用 <code>project:disable</code> 命令）。当用户请求一个缓存已被清除的页面时（也就是在调用symfony的 <code>clear-cache</code> 任务和该任务结束之间请求时），该页面被调用。对于一个有着很大缓存的系统，清除缓存可能需要几秒。symfony在部分清除缓存的情况下不能正常工作，所以在清除缓存完成之前接收到的请求都会被重定向到这个页面。</li>
+</ul>
+<p>要定制这些页面，只需在你的项目里面或应用的 <code>config/</code> 目录里面创建 <code>error/error.html.php</code> 和 <code>unavailable.php</code> 即可。symfony将用这些页面代替默认页面。</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_19_sub_optional_feature_activation"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.1.2 激活可选特性</a></h3>
+<p>设置或取消 <code>settings.yml</code> 文件中的一些参数就可以设置或取消某些框架特性。取消不会用到的特性可以提高系统性能，所以在部署应用之前，你应该确保已经检查了例19-1中列出的参数值。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;th&gt;
+  描述
+&lt;/th&gt;
+
+&lt;th&gt;
+  默认值
+&lt;/th&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  激活数据库管理。如果设置为 &lt;code&gt;false&lt;/code&gt;，你将不能使用数据。
+&lt;/td&gt;
+
+&lt;td&gt;
+  &lt;code&gt;true&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  激活接口翻译特性（请参看第六章）。如果你的应用是多种语言的，将它设为 &lt;code&gt;true&lt;/code&gt;。
+&lt;/td&gt;
+
+&lt;td&gt;
+  &lt;code&gt;false&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  激活symfony事件日志。如果你要将symfony日志完全关闭，就将它设为 &lt;code&gt;false&lt;/code&gt;。
+&lt;/td&gt;
+
+&lt;td&gt;
+  &lt;code&gt;true&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  激活输出转义特性并定义输出转义的策略（请参看第七章）。如果在你的模板中不会用到 $sf_data容器的话，就将它设为 &lt;code&gt;true&lt;/code&gt;。
+&lt;/td&gt;
+
+&lt;td&gt;
+  &lt;code&gt;true&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  激活模板缓存（请参看第十二章）。如果你的模块中包括 &lt;code&gt;cache.yml&lt;/code&gt; 文件，就将它设为 &lt;code&gt;true&lt;/code&gt;。只有在 &lt;code&gt;true&lt;/code&gt; 的状态下，才能用缓存过滤器（sfCacheFilter）。
+&lt;/td&gt;
+
+&lt;td&gt;
+  在开发环境中是 &lt;code&gt;false&lt;/code&gt;，在产品环境中是 &lt;code&gt;true&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  允许使用web调试工具栏，以便于调试（请参看第十六章）。如果你想在每一页中都显示工具栏， 就将它设为 &lt;code&gt;true&lt;/code&gt;。
+&lt;/td&gt;
+
+&lt;td&gt;
+  在开发环境中 &lt;code&gt;true&lt;/code&gt;，在产品环境中 &lt;code&gt;false&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  允许每次请求都检查symfony的版本。如果为 &lt;code&gt;true&lt;/code&gt;，框架升级后能自动清除缓存；如果为 &lt;code&gt;false&lt;/code&gt;，升级后总是需要你清除缓存。
+&lt;/td&gt;
+
+&lt;td&gt;
+  &lt;code&gt;false&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  允许clear-cache和disable任务触发应用去锁定系统（请参看前面部分的内容）。如果相让被禁用的应用的所有请求都被转向至$sf_symfony_data_dir/web/errors/unavailable.php页面的话，就将它设为on。&lt;br /&gt; Enables the application lock system, triggered by the &lt;code&gt;cache:clear&lt;/code&gt; and &lt;code&gt;project:disable&lt;/code&gt; tasks (see the previous section). Set it to &lt;code&gt;true&lt;/code&gt; to have all requests to disabled applications redirected to the &lt;code&gt;sfConfig::get('sf_symfony_lib_dir')/exception/data/unavailable.php&lt;/code&gt; page.
+&lt;/td&gt;
+
+&lt;td&gt;
+  &lt;code&gt;false&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  激活PHP应答压缩特性。如果你想通过PHP压缩处理器压缩出现的HTML页时，就将它设为 &lt;code&gt;true&lt;/code&gt;。
+&lt;/td&gt;
+
+&lt;td&gt;
+  &lt;code&gt;false&lt;/code&gt;
+&lt;/td&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<h3 id="chapter_19_sub_feature_configuration"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.1.3 功能特性配置</a></h3>
+<p>设置 <code>setting.yml</code> 中的某些参数可以改变内置特性的行为，比如表单验证、缓存和第三方模块等。</p>
+<h4 id="设置输出转义参数">设置输出转义参数</h4>
+<p>设置输出转义参数可以控制模板中的变量可存取的方法（请参看第七章）。<code>setting.yml</code> 中包括两个与这个特性有关的参数：</p>
+<ul>
+<li><code>escaping_strategy</code> 参数可取 <code>true</code> 或 <code>false</code> 值</li>
+<li>The <code>escaping_method</code> 参数可取 <code>ESC_RAW</code>、<code>ESC_SPECIALCHARS</code>、<code>ESC_ENTITIES</code>、<code>ESC_JS</code> 或 <code>ESC_JS_NO_ENTITIES</code>。</li>
+</ul>
+<h4 id="设置路由参数">设置路由参数</h4>
+<p>路由设置（查看第9章）是在 <code>factories.yml</code> 文件的 <code>routing</code> 键下。例19-1展示了默认的路由设置。</p>
+<!-- raw HTML omitted -->
+<pre><code>routing:
+  class: sfPatternRouting
+  param:
+    load_configuration: true
+    suffix:             .
+    default_module:     default
+    default_action:     index
+    variable_prefixes:  [':']
+    segment_separators: ['/', '.']
+    variable_regex:     '[\w\d_]+'
+    debug:              %SF_DEBUG%
+    logging:            %SF_LOGGING_ENABLED%
+    cache:
+      class: sfFileCache
+      param:
+        automatic_cleaning_factor: 0
+        cache_dir:                 %SF_CONFIG_CACHE_DIR%/routing
+        lifetime:                  31556926
+        prefix:                    %SF_APP_DIR%
+</code></pre>
+<ul>
+<li><code>suffix</code> 参数为生成的URL设置默认的后缀。suffix的默认值是句号（<code>.</code>），对应于没有后缀。如果设置为 <code>.html</code>，则所有生成的URL就都像静态页面。</li>
+<li>当路由规则没有定义 <code>module</code> 和 <code>action</code> 参数时，使用 <code>factories.yml</code> 中的值代替：<!-- raw HTML omitted -->
+<ul>
+<li><code>default_module</code>：默认的 <code>module</code> 请求参数。默认值是 <code>default</code> 模块。</li>
+<li><code>default_action</code>：默认的 <code>action</code> 请求参数。默认值是 <code>index</code> 行为。</li>
+</ul>
+</li>
+<li>默认情况下，路由样式通过冒号（<code>:</code>）标识变量通配符。但是如果你想使用类PHP的语法，你可以把 <code>$</code> 加入到变量前缀数组中。这么做你可以使用一个这样的路由样式 <code>'/article/$year/$month/$day/$title'</code> 代替 <code>'/article/:year/:month/:day/:title'</code>。</li>
+<li>路由模型会根据分隔符标识变量。默认的分隔符是斜线和点。但是如果你想添加更多的 <code>segment_separators</code> 参数。例如，你可以添加（<code>-</code>），你就可以使用下面的样式 <code>'/article/:year-:month-:day/:title'</code>。</li>
+<li>路由模型使用自己的缓存，在生产模式下，可以加快转换外部URL和内部URI的速度。默认下，缓存使用文件系统，但你可以使用任意的缓存类，在设置中的 <code>cache</code> 参数中设置。看第十五章中可用的缓存类列表。要在生产环境中解除路由缓存，设置 <code>debug</code> 参数为 <code>true</code>。</li>
+</ul>
+<p>关于 <code>sfPatternRouting</code> 类只有一项设置。你可以在你的程序中使用另一个类，不论你自己的还是symfony提供的（<code>sfNoRouting</code> 和 <code>sfPathInfoRouting</code>）。使用这两个中任意的，所有的外部URL就会象这样：<code>module/action?key1=param1</code>。没有定制的可能性-但速度更快。不同之处是第一个使用PHP人 <code>GET</code>，第二个使用 <code>PATH_INFO</code>。在后台应该这么使用。</p>
+<p>面是一个附加的路由参数，但是是存储在 <code>settings.yml</code> 里面：</p>
+<ul>
+<li><code>no_script_name</code> 参数可以让前端控制器的名字出现在生成的URL中。除非你将前端控制器存放在不同的目录中并且修改了默认的URL重写规则。在项目的主应用的生产环境中一般设置为 <code>true</code>，其他情况下则设置为 <code>false</code>。</li>
+</ul>
+<h4 id="设置表单验证参数">设置表单验证参数</h4>
+<!-- raw HTML omitted -->
+<p>表单验证参数控制由 <code>Validation</code> 辅助函数产生的错误信息的输出方式（请参看第十章）。这些错误包括在 <code>&lt;div&gt;</code> 标记中，它们将 <code>validation_error_class</code> 参数作为classs属性，将 <code>validation_error_id_prefix</code> 参数作为 <code>id</code> 属性，默认值是 <code>form_error</code> 和 <code>error_for_</code>，因此，对于一个名为 <code>foobar</code> 的输入来说，调用 <code>form_error()</code> 而输出的属性将会是 <code>class=&quot;form_error&quot; id=&quot;error_for_foobar&quot;</code>。</p>
+<p><code>validation_error_prefix</code> 和 <code>validation_error_suffix</code> 参数分别确定了每条错误信息的前缀字符和后缀字符。你可以根据需要定制你自己的错误信息。</p>
+<h4 id="设置缓存参数">设置缓存参数</h4>
+<p>缓存参数大多数在 <code>cache.yml</code> 中定义，只有 <code>cache</code> 和 <code>etag</code> 在 <code>settings.yml</code> 中定义，前者打开模板缓存机制，后者允许ETAG在服务器端操作（请参看第十五章）。你也可以针对每个缓存使用这两项（视图缓存、路由缓存和i18n缓存）在文件 <code>factories.yml</code> 中。例19-2展示了默认的视图缓存factory配置。</p>
+<!-- raw HTML omitted -->
+<pre><code>view_cache:
+  class: sfFileCache
+  param:
+    automatic_cleaning_factor: 0
+    cache_dir:                 %SF_TEMPLATE_CACHE_DIR%
+    lifetime:                  86400
+    prefix:                    %SF_APP_DIR%/template
+</code></pre>
+<p><code>class</code> 参数可以是 <code>sfFileCache</code>、<code>sfAPCCache</code>、<code>sfEAcceleratorCache</code>、<code>sfXCacheCache</code>、<code>sfMemcacheCache</code> 和 <code>sfSQLiteCache</code> 中任何一个。也可以是你自己定义的类，这个类需要扩展自 <code>sfCache</code> 并且提供了相同通用的设置方法，取得和删除设置项。factory参数根据你选择的类不同，但是有共同的：</p>
+<ul>
+<li><code>lifetime</code> 定义缓存保存的时间。</li>
+<li><code>prefix</code> 每个缓存关键字的前缀（使用环境作为前缀）。可以使用用相同的前缀使两个应用共享缓存。</li>
+</ul>
+<p>Then, for each particular factory, you have to define the location of the cache storage.</p>
+<ul>
+<li>对于 <code>sfFileCache</code>，<code>cache_dir</code> 参数存储缓存目录的绝对路径。</li>
+<li><code>sfAPCCache</code>`sfEAcceleratorCache<code>和</code>sfXCacheCache` 不实用任何的定位参数，因为它们使用PHP函数实现与APC, EAccelerator 或XCache缓存系统通信。</li>
+<li>对于 <code>sfMemcacheCache</code>，通过 <code>host</code> 参数设置Memcached服务器的主机名，或者在 <code>servers</code> 参数中的一个主机名数组。</li>
+<li>对于 <code>sfSQLiteCache</code>，<code>database</code> 参数设置SQLite文件的绝对路径。</li>
+</ul>
+<p>其它的参数，可以查看每个类的API文档。</p>
+<p>视图不是唯一一个可以使用缓存的组件，<code>routing</code> 和 <code>I18N</code> 都提供了 <code>cache</code> 参数让你可以像设置视图那样设置它们的缓存。例如，例19-1展示了默认情况下路由使用文件缓存实现加速效果，但你可以设置任何你需要的缓存类。</p>
+<h4 id="设置日志参数">设置日志参数</h4>
+<p><code>settings.yml</code> 中包括以下两个日志参数（请参看第十六章）：</p>
+<ul>
+<li><code>error_reporting</code> 指明在php日志中记录哪些事件。默认，产品环境被设置成 <code>E_PARSE | E_COMPILE_ERROR | E_ERROR | E_CORE_ERROR | E_USER_ERROR</code>（那么，记录的事件则是 <code>E_PARSE</code>、<code>E_COMPILE_ERROR</code>、<code>E_ERROR</code>、<code>E_CORE_ERROR</code> 和 <code>E_USER_ERROR</code>），还有，开发环境被设置成 <code>E_ALL | E_STRICT</code>。</li>
+<li><code>web_debug</code> 激活web调试工具条。仅在开发环境和测试环境中才需要设置这个参数。</li>
+</ul>
+<h4 id="设置网页资源assets的路径">设置网页资源（Assets）的路径</h4>
+<p><code>settings.yml</code> 中还包括指向网页资源的路径的参数。如果你想用与symfony设置的路径不同的路径值，你可以改变以下路径参数的设置：</p>
+<ul>
+<li><code>admin_web_dir</code>：管理生成器所需文件的存放路径</li>
+<li><code>web_debug_web_dir</code>：网页调试工具条所需文件的存放路径</li>
+</ul>
+<h4 id="默认的助手">默认的助手</h4>
+<p><code>standard_helpers</code> 参数指明每个模板都会导入的默认辅助函数（请参看第七章），默认有 <code>Partial</code> 和 <code>Cache</code> 辅助助手组。如果你要在一个应用中的所有模板里面使用一个助手组，就将这个组的名字加入到 <code>standard_helpers</code> 中，这样就可以避免在每个模板中都用 <code>use_helper()</code> 去声明。</p>
+<h4 id="激活的模块">激活的模块</h4>
+<p><code>enabled_modules</code> 参数指明从插件或symfony核心激活的模块。即使某个插件绑定了一个模块，如果没有预先在 <code>enabled_modules</code> 中声明，用户也不能请求这个模块。默认情况下，提供默认的symfony页（成功页，未发现页等）的 <code>default</code> 模块是唯一被激活的模块。</p>
+<h4 id="字符集设置">字符集设置</h4>
+<p>字符集是应用的一项常用设置，因为框架的许多部分都会用到字符集（如模板、输出转义和助手等）。<code>charset</code> 参数用于定义字符集，默认（并建议）值是 <code>utf-8</code>。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_19_extending_the_autoloading_feature"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.2 扩展自动载入特性</a></h2>
+<p>在第二章中我们介绍了自动载入特性，如果类在某些特定的目录中，该特性可以让你无需在你的代码中用require语句 。也就是说，框架会在你需要的适当时候替你完成这些工作。</p>
+<p><code>autoload.yml</code> 文件中列出了所有可以自动载入类的路径。这个配置文件第一次被处理时，symfony就会编译该文件中引用的所有路径。一旦在这些目录中发现有 <code>.php</code> 文件，那么这个文件的路径和类名就会被加进一个存放自动载入类的内部列表。这个列表放在缓存的 <code>config/config_autoload.yml.php</code> 文件中。系统运行的时候，如果需要用到一个类，symfony就会在这个列表中自动查找类的路径，并将找到的 <code>.php</code> 文件包括进去。</p>
+<p>所有包含类或接口的 <code>.php</code> 文件都是自动载入的对象。</p>
+<p>默认情况下，在项目的以下目录中的类都能被自动加载：</p>
+<ul>
+<li><code>myproject/lib/</code></li>
+<li><code>myproject/lib/model</code></li>
+<li><code>myproject/apps/frontend/lib/</code></li>
+<li><code>myproject/apps/frontend/modules/mymodule/lib</code></li>
+</ul>
+<p>在默认的应用配置目录中，并没有 <code>autoload.yml</code> 文件。如果你想修改框架参数——比如，你希望你的文件结构中某些目录中的类也能被自动载入——你可以创建一个空的 <code>autoload.yml</code> 文件，并重载 <code>sfConfig::get('sf_symfony_lib_dir')/config/config/autoload.yml</code> 或增加自己的定义。</p>
+<p><code>autoload.yml</code> 文件必须以 <code>autoload:</code> 关键字开头，然后列出symfony要找的所有类的位置。每个位置需要一个label标签，这个label标签可以让你重载symfony的定义。每个位置还需要提供一个名字（它以注释形式出现在 <code>config_autoload.yml.php</code> 中）和一个绝对路径。然后还需要用 <code>recursive</code> 参数确定是否需要递归，也就是说symfony是否需要在所有的子目录中查找 <code>.php</code> 文件。最后用 <code>exclude</code> 参数排除无需查找的子目录。例19-2列出了默认的位置和定义方法。</p>
+<!-- raw HTML omitted -->
+<pre><code>autoload:
+  # plugins
+  plugins_lib:
+    name:           plugins lib
+    path:           %SF_PLUGINS_DIR%/*/lib
+    recursive:      true
+
+  plugins_module_lib:
+    name:           plugins module lib
+    path:           %SF_PLUGINS_DIR%/*/modules/*/lib
+    prefix:         2
+    recursive:      true
+
+  # project
+  project:
+    name:           project
+    path:           %SF_LIB_DIR%
+    recursive:      true
+    exclude:        [model, symfony]
+
+  project_model:
+    name:           project model
+    path:           %SF_LIB_DIR%/model
+    recursive:      true
+
+  # application
+  application:
+    name:           application
+    path:           %SF_APP_LIB_DIR%
+    recursive:      true
+
+  modules:
+    name:           module
+    path:           %SF_APP_DIR%/modules/*/lib
+    prefix:         1
+    recursive:      true
+</code></pre>
+<p>路径中可以包括通配符，还可以使用在配置类里面定义的路径参数（见下节）。如果在配置文件中用到这些参数，它们必须用大写字母并以 <code>%</code> 开头和结尾。</p>
+<p>编辑你自己的 <code>autoload.yml</code> 就可以增加新的位置，但你可能还想扩展这个机制，并把你自己的自动载入处理器添加到symfony的处理器中。这可以通过在 <code>settings.yml</code> 文件中的 <code>spl_autoload_register()</code> 参数来实现。这个配置需要一个以可调用方法为元素的数组作为参数，示例如下：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>当symfony遇到一个新的类，它首先用自己的自动载入机制（和 <code>autoload.yml</code> 中定义的位置）。如果没有找到类的定义，all the other callables registered with <code>spl_autoload_register()</code> will be called，一直到类被找到为止。所以你可以任意添加你想要的自动载入功能，例如在第十七章中介绍过的桥接其他框架组件。</p>
+<h2 id="chapter_19_custom_file_structure"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.3 定制文件结构</a></h2>
+<p>每当框架利用一条路径搜索核心类、模板、插件或配置文件等的时候，它用的都是路径变量而不是实际路径。通过改变这些变量，你可以遵照客户的需要完全改变symfony项目的目录结构，搭配出任何客户所要求的文件组织。</p>
+<!-- raw HTML omitted -->
+<h3 id="chapter_19_sub_the_basic_file_structure"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.3.1 基本的文件结构</a></h3>
+<p>在应用被启动时，<code>sfProjectConfiguration</code> 和 <code>sfApplicationConfiguration</code> 文件中定义的路径变量就被载入。这些变量存放在 <code>sfConfig</code> 对象中，所以很容易被重载。例19-3列出了路径变量和对应的路径。</p>
+<!-- raw HTML omitted -->
+<pre><code>sf_root_dir           # myproject/
+sf_apps_dir           #   apps/
+sf_app_dir            #     frontend/
+sf_app_config_dir     #       config/
+sf_app_i18n_dir       #       i18n/
+sf_app_lib_dir        #       lib/
+sf_app_module_dir     #       modules/
+sf_app_template_dir   #       templates/
+sf_cache_dir          #   cache/
+sf_app_base_cache_dir #     frontend/
+sf_app_cache_dir      #       prod/
+sf_template_cache_dir #         templates/
+sf_i18n_cache_dir     #         i18n/
+sf_config_cache_dir   #         config/
+sf_test_cache_dir     #         test/
+sf_module_cache_dir   #         modules/
+sf_config_dir         #   config/
+sf_data_dir           #   data/
+sf_lib_dir            #   lib/
+sf_log_dir            #   log/
+sf_test_dir           #   test/
+sf_plugins_dir        #   plugins/
+sf_web_dir            #   web/
+sf_upload_dir         #     uploads/
+</code></pre>
+<p>以 <code>_dir</code> 结尾的参数定义了这些关键目录的路径。为了以后可以改变路径变量值，用路径变量而不要用真实（无论是绝对或相对）文件路径。例如，如果想将一个文件移动到项目的 <code>uploads/</code> 目录中，你应该用 <code>sfConfig::get('sf_upload_dir')</code> 来取得路径，而不应该使用 <code>sfConfig::get('sf_root_dir').'/web/uploads/'</code>。</p>
+<h3 id="chapter_19_sub_customizing_the_file_structure"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.3.2 定制文件结构</a></h3>
+<p>如果用户的应用已经有了一个目录结构或者不想采用symfony的目录结构，你可以修改默认的项目文件结构。只要用 <code>sfConfig</code> 覆盖 <code>sf_XXX_dir</code>，就可以获得一个与默认结构完全不同的文件结构。最适合修改的地方是项目的 <code>ProjectConfiguration</code> 类或应用的 <code>XXXConfiguration</code> 类。</p>
+<p>例如，如果你想所有的应用共享一个公用的布局模板目录，在 <code>ProjectConfiguration</code> 类中的 <code>setup()</code> 方法中的这几行代码会改写 <code>sf_app_template_dir</code> 设置：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="chapter_19_sub_modifying_the_project_web_root"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.3.3 修改项目的Web根目录</a></h3>
+<p>假如你的主要目录结构由例19-5的两个目录组成，就象在一个共享主机上部署项目一样，包括一个公用目录和一个私有目录。在前端控制器中用常量 <code>ProjectConfiguration</code> 定义了项目根目录，而constants.php中的所有路径都和这个根目录有关。配置类里面的所有路径都依赖于项目根目录，这是由前端控制器里面的 <code>ProjectConfiguration</code> 文件所调用的。通常根目录是 <code>web/</code> 目录的上一级目录，但是你可以用不同的目录结构。假如你的主要目录结构由两个目录组成，一个公用目录和一个私有目录，如例19-5所示。就象在一个共享主机上部署项目一样。.</p>
+<!-- raw HTML omitted -->
+<pre><code>symfony/    # 私有区域
+  apps/
+  config/
+  ...
+www/        # 公有区域
+  images/
+  css/
+  js/
+  index.php
+</code></pre>
+<p>在这个例子中，<code>symfony/</code> 是根目录，所以在前端控制器 <code>index.php</code> 只需要调用 <code>config/ProjectConfiguration.class.php</code> 文件 ，如下：</p>
+<!-- raw HTML omitted -->
+<p>使用 <code>setWebDir()</code> 方法来改变公共区域从平常的 <code>web/</code> 到 <code>wwww/</code>，如下：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_19_understanding_configuration_handlers"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.4 理解配置处理器</a></h2>
+<p>每个配置文件都有一个处理器。配置处理器的任务就是管理配置的级联，并且在配置文件和在运行时优化的PHP可执行代码之间进行转换。</p>
+<h3 id="chapter_19_sub_default_configuration_handlers"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.4.1 默认的配置处理器</a></h3>
+<p><code>sfConfig::get('sf_symfony_lib_dir')/config/config/config_handlers.yml</code> 里面存放默认的配置处理器。该文件根据文件路径来连接配置文件的处理器。例19-6显示了这个文件的摘要。</p>
+<!-- raw HTML omitted -->
+<pre><code>config/settings.yml:
+  class:    sfDefineEnvironmentConfigHandler
+  param:
+    prefix: sf_
+
+config/app.yml:
+  class:    sfDefineEnvironmentConfigHandler
+  param:
+    prefix: app_
+
+config/filters.yml:
+  class:    sfFilterConfigHandler
+
+modules/*/config/module.yml:
+  class:    sfDefineEnvironmentConfigHandler
+  param:
+    prefix: mod_
+    module: yes
+</code></pre>
+<p>每个配置文件（用一个带通配符的文件路径来标识），在 <code>class</code> 关键字下指明处理器类。</p>
+<p>在程序中，由 <code>sfDefineEnvironmentConfigHandler</code> 处理的配置文件参数，可以直接由 <code>sfConfig</code> 类和包含一个前缀值的参数键来直接访问。</p>
+<p>你可以增加和修改用于处理每一个配置文件的处理器，例如，可以用INI或XML文件，而不用YML文件。</p>
+<!-- raw HTML omitted -->
+<p>如果你想改变编译配置的方法，可以在 <code>config/</code> 目录下创建一个空 <code>config_handlers.yml</code> 文件，然后将你自己写的类替换到 <code>class</code> 行里即可。</p>
+<h3 id="chapter_19_sub_adding_your_own_handler"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.4.2 加入你自己的处理器</a></h3>
+<p>用一个处理器来处理一个配置文件有以下两个重要的好处：</p>
+<ul>
+<li>配置文件转化为可执行的PHP代码后存放在缓存里。也就是说，在生产环境中配置仅被编译一次，因而性能可以达到最优。</li>
+<li>配置文件可以在不同的级别（项目或应用）上定义，并且最终将从不同级别的定义中级联后得到参数。因此，你可以在项目一级定义参数，然后在应用的级别上重新设置这些参数。</li>
+</ul>
+<p>如果你想写你自己的配置处理器，在 <code>sfConfig::get('sf_symfony_lib_dir')/config/</code> 目录中有一个用于框架的结构示例可供参考。</p>
+<p>我们假设你的应用中包含一个 <code>myMapAPI</code> 类，用于为第三方的发送地图web服务提供接口。这个类需要用一个URL和一个用户名去初始化，如例19-7所示。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>在应用的 <code>config</code> 目录下有一个定制的配置文件 <code>map.yml</code>，你也许想将这两个参数存放在该文件中，那么文件将包含以下内容：</p>
+<pre><code>api:
+  url:  map.api.example.com
+  user: foobar
+</code></pre>
+<p>为了将这些参数设置转化为等同于例19-7的代码，你必须构造一个配置处理器。每个配置处理器必须继承 <code>sfConfigHandler</code> 并且实现一个 <code>execute()</code> 方法，这个方法的参数是一个元素为配置文件路径的数组，并返回写入缓存文件的数据。YAML文件的处理器必须继承 <code>sfYamlConfigHandler</code> 类，该类提供了编译YAML的附加的功能。对于 <code>map.yml</code> 文件，典型的配置处理器应该如下例19-8所示：</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>symfony传递 <code>$configFiles</code> 数组给 <code>execute()</code> 方法，该数组包含一个指向 <code>config/</code> 目录中的所有 <code>map.yml</code> 文件的路径。<code>parseYamls()</code> 方法则处理配置级联。</p>
+<p>为了让这个新的处理器能与 <code>map.yml</code> 协同工作，你必须用下面的内容创建一个 <code>config_handlers.yml</code> 配置文件：</p>
+<pre><code>config/map.yml:
+  class: myMapConfigHandler
+</code></pre>
+<!-- raw HTML omitted -->
+<p>As with many other symfony configuration files, you can also register a configuration handler directly in your PHP code:</p>
+<pre><code>sfContext::getInstance()-&gt;getConfigCache()-&gt;registerConfigHandler('config/map.yml', 'myMapConfigHandler', array());
+</code></pre>
+<p>当你需要在应用中基于 <code>map.yml</code>文件并由 <code>myMapConfigHandler</code> 处理器生成代码的时候。执行下面的代码：</p>
+<!-- raw HTML omitted -->
+<p>调用 <code>checkConfig()</code> 方法时，如果缓存里没有 <code>map.yml.php</code>，或者如果 <code>map.yml</code> 比缓存中的更新，那么，symfony在配置目录中寻找存在的 <code>map.yml</code> 文件，并用 <code>config_handlers.yml</code> 中指明的处理器来处理这些文件。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="chapter_19_summary"><a href="forum.php?mod=viewthread&amp;tid=58&amp;extra=page%3D1#">19.5 总结</a></h2>
+<p>配置文件对框架的运行有重要的影响。因为symfony的核心特性和文件导入都依赖于配置，所以它能适应许多不同的环境，而不仅仅是标准环境。symfony的重要特点就是它的高可配置性。尽管这么多配置文件和一大堆规定会吓坏初学者，但是它确实可以让symfony应用适用于大量的平台和环境。一旦你掌握了symfony配置，你的应用将可运行在任意服务器上。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%E6%80%A7%E8%83%BD/" data-toggle="tooltip" data-placement="top" title="第十八章：性能">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-10-%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%E9%82%AE%E4%BB%B6/" data-toggle="tooltip" data-placement="top" title="第十一章：邮件">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Fri Aug 10, 2012</h4>
+    </section>
+    <h5 id="wc">7900 Words|Read in about 16 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> arduino 控制门锁 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="arduino 控制门锁" />
+  <meta name="twitter:title" content="arduino 控制门锁" />
+  <meta name="description" content="Servo motor (I used the HS-322HD) 4. Arduino Uno &#43; Programming Cable Prepare Your System Download and install the Arduino IDE from http://arduino.cc/en/Main/Software. Install node.js from http://nodejs.org/ Install the ngrok utility from https://ngrok.com/download https://www.twilio.com/blog/2014/03/build-your-own-lockitron-with-twilio-arduino-and-node-js.html http://developer.51cto.com/art/201404/435187.htm Parts A lock Duct tape &#43; Cardboard Servo motor (I used the HS-322HD) 4. Arduino Uno &#43; Programming Cable Prepare Your System Download and install the Arduino IDE from http://arduino.cc/en/Main/Software. Install node.js from http://nodejs.org/ Install">
+  <meta property="og:description" content="Servo motor (I used the HS-322HD) 4. Arduino Uno &#43; Programming Cable Prepare Your System Download and install the Arduino IDE from http://arduino.cc/en/Main/Software. Install node.js from http://nodejs.org/ Install the ngrok utility from https://ngrok.com/download https://www.twilio.com/blog/2014/03/build-your-own-lockitron-with-twilio-arduino-and-node-js.html http://developer.51cto.com/art/201404/435187.htm Parts A lock Duct tape &#43; Cardboard Servo motor (I used the HS-322HD) 4. Arduino Uno &#43; Programming Cable Prepare Your System Download and install the Arduino IDE from http://arduino.cc/en/Main/Software. Install node.js from http://nodejs.org/ Install">
+  <meta name="twitter:description" content="Servo motor (I used the HS-322HD) 4. Arduino Uno &#43; Programming Cable Prepare Your System Download and install the Arduino IDE from http://arduino.cc/en/Main/Software. Install node.js from …">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2014-11-15-arduino-%E6%8E%A7%E5%88%B6%E9%97%A8%E9%94%81/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2014-11-15-arduino-%E6%8E%A7%E5%88%B6%E9%97%A8%E9%94%81/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">arduino 控制门锁</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sat Nov 15, 2014</h4>
+    </section>
+    <h5 id="wc">2300 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <ol start="3">
+<li>Servo motor (I used the <a href="http://www.amazon.com/Hitec-33322S-HS-322HD-Standard-Karbonite/dp/B0006O3XEA">HS-322HD</a>)</li>
+</ol>
+<p>4. <a href="https://www.sparkfun.com/products/11021">Arduino Uno</a> + <a href="https://www.sparkfun.com/products/512">Programming Cable</a></p>
+<p><strong>Prepare Your System</strong></p>
+<ol>
+<li>
+<p>Download and install the Arduino IDE from <a href="http://arduino.cc/en/Main/Software">http://arduino.cc/en/Main/Software</a>.</p>
+</li>
+<li>
+<p>Install node.js from <a href="http://nodejs.org/">http://nodejs.org/</a></p>
+</li>
+<li>
+<p>Install the ngrok utility from <a href="https://ngrok.com/download">https://ngrok.com/download</a></p>
+</li>
+</ol>
+<p> </p>
+<p> </p>
+<p> </p>
+<p><a href="https://www.twilio.com/blog/2014/03/build-your-own-lockitron-with-twilio-arduino-and-node-js.html">https://www.twilio.com/blog/2014/03/build-your-own-lockitron-with-twilio-arduino-and-node-js.html</a></p>
+<p> </p>
+<p><a href="http://developer.51cto.com/art/201404/435187.htm">http://developer.51cto.com/art/201404/435187.htm</a></p>
+<p> </p>
+<!-- raw HTML omitted -->
+<p>Parts</p>
+<ol>
+<li>
+<p>A lock</p>
+</li>
+<li>
+<p>Duct tape + Cardboard</p>
+</li>
+<li>
+<p>Servo motor (I used the <a href="http://www.amazon.com/Hitec-33322S-HS-322HD-Standard-Karbonite/dp/B0006O3XEA">HS-322HD</a>)</p>
+</li>
+</ol>
+<p>4. <a href="https://www.sparkfun.com/products/11021">Arduino Uno</a> + <a href="https://www.sparkfun.com/products/512">Programming Cable</a></p>
+<p><strong>Prepare Your System</strong></p>
+<ol>
+<li>
+<p>Download and install the Arduino IDE from <a href="http://arduino.cc/en/Main/Software">http://arduino.cc/en/Main/Software</a>.</p>
+</li>
+<li>
+<p>Install node.js from <a href="http://nodejs.org/">http://nodejs.org/</a></p>
+</li>
+<li>
+<p>Install the ngrok utility from <a href="https://ngrok.com/download">https://ngrok.com/download</a></p>
+</li>
+</ol>
+<p>We will be using the Arduino IDE to write and upload code to your Arduino board. We will then use a node.js script to communicate with your Arduino over a Serial connection and respond to Twilio requests using the express web server. And lastly, we will be using ngrok to expose your express web server to the world so that Twilio can send incoming SMS messages to your application.</p>
+<p>Now we’re ready to dive in and start wiring up our Arduino and connect it to our lock.</p>
+<!-- raw HTML omitted -->
+<p>We will be using a servo to control our lock. A servo is a type of motor that typically has a 180 degree movement radius, which makes it perfect for a lock which only turns back and forth.</p>
+<p>A servo motor has three wires – power (red), ground (black), and control (frequently yellow or white). Connect the power wire to the 5V pinout on the Arduino and the ground wire to the GND pinout next to it. We can then connect the control wire to Digital Pin 12 on our Arduino as in the following diagram:</p>
+<p>That’s it! Now that our servo is wired to our Arduino, we can mount it to our lock.</p>
+<p>I prefer to use household items when prototyping these types of applications, though if you have access to a 3D printer I would recommend designing and printing your own lock mount.</p>
+<p>For the purpose of prototyping, we will be using cardboard and duct tape to mount our servo to our lock – just like astronauts do!</p>
+<p>Attach the two metal rods (or some other tall object) to your servo with screws and washers.</p>
+<p>Now use a piece of cardboard (or other stiff material) to make a tighter bond between the servo and the lock:</p>
+<p>Now you can tape the servo to the deadbolt lock. Make sure it is positioned on the correct side so that the direction that the servo turns in is aligned with the direction that the lock turns in:</p>
+<p>And last but not least, we will tape our servo’s arms to the deadbolt itself:</p>
+<p>Now you have your fully mounted (and fully impermanent) servo-controlled deadbolt:</p>
+<!-- raw HTML omitted -->
+<p>Once you have your Arduino wired up and your initial software installed (Node.js and Arduino), you can run the following command to install the necessary node.js modules for your script. Note that if you are on Windows, you will need to follow the node-serialport <a href="https://github.com/voodootikigod/node-serialport#windows">Windows installation instructions</a>.</p>
+<p>npm install serialport twilio express</p>
+<p>Node-Serialport makes it easy to communicate with your Arduino via a Serial connection from a Node.js program. We will be using it to receive HTTP request for incoming text messages from Twilio, and passing instructions along to the Arduino to lock or unlock your deadbolt.</p>
+<p>Express is a simple node.js web framework. And the twilio module makes it easy to communicate with the Twilio API.</p>
+<p>First things first, we can set up our new Arduino sketch by opening the Arduino IDE.</p>
+<p>To begin with, we need to open a 9600-baud Serial connection and attach to your servo (on pin 12).</p>
+<!-- raw HTML omitted -->
+<pre><code>  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-2&quot;&gt;
+    2
+  &lt;/p&gt;
+  
+  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-3&quot;&gt;
+    3
+  &lt;/p&gt;
+  
+  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-4&quot;&gt;
+    4
+  &lt;/p&gt;
+  
+  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-5&quot;&gt;
+    5
+  &lt;/p&gt;
+  
+  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-6&quot;&gt;
+    6
+  &lt;/p&gt;
+  
+  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-7&quot;&gt;
+    7
+  &lt;/p&gt;
+  
+  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-8&quot;&gt;
+    8
+  &lt;/p&gt;
+  
+  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-9&quot;&gt;
+    9
+  &lt;/p&gt;
+  
+  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-10&quot;&gt;
+    10
+  &lt;/p&gt;
+  
+  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-11&quot;&gt;
+    11
+  &lt;/p&gt;
+  
+  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-12&quot;&gt;
+    12
+  &lt;/p&gt;
+  
+  &lt;p data-line=&quot;crayon-5466fd7aeef53919471364-13&quot;&gt;
+    13
+  &lt;/p&gt;
+&lt;/td&gt;
+
+&lt;td&gt;
+  #include&lt;/p&gt; 
+  
+  &lt;p&gt;
+    &amp;nbsp;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Servo myservo;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;int&lt;/b&gt;servoPin=12;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;int&lt;/b&gt;lock=0;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;int&lt;/b&gt;unlock=180;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &amp;nbsp;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;b&gt;void&lt;/b&gt;setup(){
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    &lt;i&gt;// initialize serial:&lt;/i&gt;
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    Serial.begin(9600);
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    myservo.attach(servoPin);
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    myservo.write(lock);
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    }&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+    
+    &lt;p&gt;
+      We also tell the Arduino that servo position 0 is ‘locked’ and servo position 180 is ‘unlocked’. You may need to reverse these depending on how you mounted your servo to your lock. When the Arduino starts up, we tell the servo to move to the ‘locked’ position.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      Next we will read in a character from the Serial connection to determine whether or not we should move the servo motor.
+    &lt;/p&gt;
+    
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td data-settings=&quot;show&quot;&gt;
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-1&quot;&gt;
+            1
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-2&quot;&gt;
+            2
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-3&quot;&gt;
+            3
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-4&quot;&gt;
+            4
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-5&quot;&gt;
+            5
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-6&quot;&gt;
+            6
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-7&quot;&gt;
+            7
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-8&quot;&gt;
+            8
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-9&quot;&gt;
+            9
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-10&quot;&gt;
+            10
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-11&quot;&gt;
+            11
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-12&quot;&gt;
+            12
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-13&quot;&gt;
+            13
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-14&quot;&gt;
+            14
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-15&quot;&gt;
+            15
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-16&quot;&gt;
+            16
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-17&quot;&gt;
+            17
+          &lt;/p&gt;
+          
+          &lt;p data-line=&quot;crayon-5466fd7aeef5e246701665-18&quot;&gt;
+            18
+          &lt;/p&gt;
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;b&gt;void&lt;/b&gt;loop(){&lt;/p&gt; 
+          
+          &lt;p&gt;
+            &lt;i&gt;// Recieve data from Node and write it to a String&lt;/i&gt;
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;b&gt;while&lt;/b&gt;(Serial.available()){
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;b&gt;char&lt;/b&gt;inChar=(&lt;b&gt;char&lt;/b&gt;)Serial.read();
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;b&gt;if&lt;/b&gt;(inChar==&amp;#8217;V&amp;#8217;){&lt;i&gt;// end character for locking&lt;/i&gt;
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;b&gt;if&lt;/b&gt;(myservo.read()&gt;=90){
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            Serial.println(&amp;#8220;L&amp;#8221;);
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            myservo.write(lock);
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            delay(3000);
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            }
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            &lt;b&gt;else&lt;/b&gt;{
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            Serial.println(&amp;#8220;U&amp;#8221;);
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            myservo.write(unlock);
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            delay(3000);
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            }
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            }
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            }
+          &lt;/p&gt;
+          
+          &lt;p&gt;
+            }&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+            
+            &lt;p&gt;
+              The Serial input that the Arduino is parsing is coming from our node.js script, which we will write in the next section.
+            &lt;/p&gt;
+            
+            &lt;p&gt;
+              Outside of the Arduino IDE, create a new file in your editor of choice called nodelock.js and start off the file by requiring the modules that we installed earlier using npm:
+            &lt;/p&gt;
+            
+            &lt;p&gt;
+              Java
+            &lt;/p&gt;
+            
+            &lt;table&gt;
+              &lt;tr&gt;
+                &lt;td data-settings=&quot;show&quot;&gt;
+                  &lt;p data-line=&quot;crayon-5466fd7aeef68489732906-1&quot;&gt;
+                    1
+                  &lt;/p&gt;
+                  
+                  &lt;p data-line=&quot;crayon-5466fd7aeef68489732906-2&quot;&gt;
+                    2
+                  &lt;/p&gt;
+                  
+                  &lt;p data-line=&quot;crayon-5466fd7aeef68489732906-3&quot;&gt;
+                    3
+                  &lt;/p&gt;
+                &lt;/td&gt;
+                
+                &lt;td&gt;
+                  &lt;b&gt;var&lt;/b&gt;twilio=require(&amp;#8216;twilio&amp;#8217;),&lt;/p&gt; 
+                  
+                  &lt;p&gt;
+                    SerialPort=require(&amp;#8220;serialport&amp;#8221;).SerialPort,
+                  &lt;/p&gt;
+                  
+                  &lt;p&gt;
+                    express=require(&amp;#8216;express&amp;#8217;);&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+                    
+                    &lt;p&gt;
+                      Next we will want to set up our new &lt;a href=&quot;http://expressjs.com/&quot;&gt;express web server&lt;/a&gt; and our &lt;a href=&quot;https://github.com/voodootikigod/node-serialport&quot;&gt;serialPort connection&lt;/a&gt;:
+                    &lt;/p&gt;
+                    
+                    &lt;p&gt;
+                      Java
+                    &lt;/p&gt;
+                    
+                    &lt;table&gt;
+                      &lt;tr&gt;
+                        &lt;td data-settings=&quot;show&quot;&gt;
+                          &lt;p data-line=&quot;crayon-5466fd7aeef81097944782-1&quot;&gt;
+                            1
+                          &lt;/p&gt;
+                          
+                          &lt;p data-line=&quot;crayon-5466fd7aeef81097944782-2&quot;&gt;
+                            2
+                          &lt;/p&gt;
+                          
+                          &lt;p data-line=&quot;crayon-5466fd7aeef81097944782-3&quot;&gt;
+                            3
+                          &lt;/p&gt;
+                          
+                          &lt;p data-line=&quot;crayon-5466fd7aeef81097944782-4&quot;&gt;
+                            4
+                          &lt;/p&gt;
+                        &lt;/td&gt;
+                        
+                        &lt;td&gt;
+                          &lt;b&gt;var&lt;/b&gt;app=express();&lt;/p&gt; 
+                          
+                          &lt;p&gt;
+                            &lt;b&gt;var&lt;/b&gt;serialPort=&lt;b&gt;new&lt;/b&gt;SerialPort(&amp;#8220;/dev/tty.usbmodem1411&amp;#8221;,{
+                          &lt;/p&gt;
+                          
+                          &lt;p&gt;
+                            baudrate:9600
+                          &lt;/p&gt;
+                          
+                          &lt;p&gt;
+                            });&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+                            
+                            &lt;p&gt;
+                              Note that we are specifying which USB port to connect to and the baud rate. You may need to change the value of the USB port on your own computer. You can find the name of your active USB port in the Arduino-&gt;Tools-&gt;Port menu.
+                            &lt;/p&gt;
+                            
+                            &lt;p&gt;
+                              Next we will set up our HTTP route, called /sms
+                            &lt;/p&gt;
+                            
+                            &lt;p&gt;
+                              Java
+                            &lt;/p&gt;
+                            
+                            &lt;table&gt;
+                              &lt;tr&gt;
+                                &lt;td data-settings=&quot;show&quot;&gt;
+                                  &lt;p data-line=&quot;crayon-5466fd7aeef95100953918-1&quot;&gt;
+                                    1
+                                  &lt;/p&gt;
+                                  
+                                  &lt;p data-line=&quot;crayon-5466fd7aeef95100953918-2&quot;&gt;
+                                    2
+                                  &lt;/p&gt;
+                                  
+                                  &lt;p data-line=&quot;crayon-5466fd7aeef95100953918-3&quot;&gt;
+                                    3
+                                  &lt;/p&gt;
+                                  
+                                  &lt;p data-line=&quot;crayon-5466fd7aeef95100953918-4&quot;&gt;
+                                    4
+                                  &lt;/p&gt;
+                                &lt;/td&gt;
+                                
+                                &lt;td&gt;
+                                  app.&lt;b&gt;use&lt;/b&gt;(express.bodyParser());&lt;/p&gt; 
+                                  
+                                  &lt;p&gt;
+                                    &amp;nbsp;
+                                  &lt;/p&gt;
+                                  
+                                  &lt;p&gt;
+                                    app.post(&amp;#8216;/sms&amp;#8217;,twilio.webhook(&amp;#8216;your auth token&amp;#8217;,{host:&amp;#8217;foo.herokuapp.com&amp;#8217;,protocol:&amp;#8217;https&amp;#8217;}),&lt;b&gt;function&lt;/b&gt;(req,res){
+                                  &lt;/p&gt;
+                                  
+                                  &lt;p&gt;
+                                    });&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+                                    
+                                    &lt;p&gt;
+                                      We are telling express to accept POST requests at the /sms route, and to parse the POST body using its bodyParser, which will make it easier to access the parameters sent by Twilio’s incoming SMS. We add in the twilio webhook middleware to validate that the request is actually from Twilio (since it is a security-necessary use case)
+                                    &lt;/p&gt;
+                                    
+                                    &lt;p&gt;
+                                      Now that we have our route to accept an incoming SMS, we will want to check if the number the message is from has permission to lock and unlock the door.
+                                    &lt;/p&gt;
+                                    
+                                    &lt;p&gt;
+                                      Java
+                                    &lt;/p&gt;
+                                    
+                                    &lt;table&gt;
+                                      &lt;tr&gt;
+                                        &lt;td data-settings=&quot;show&quot;&gt;
+                                          &lt;p data-line=&quot;crayon-5466fd7aeefb0153441919-1&quot;&gt;
+                                            1
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p data-line=&quot;crayon-5466fd7aeefb0153441919-2&quot;&gt;
+                                            2
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p data-line=&quot;crayon-5466fd7aeefb0153441919-3&quot;&gt;
+                                            3
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p data-line=&quot;crayon-5466fd7aeefb0153441919-4&quot;&gt;
+                                            4
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p data-line=&quot;crayon-5466fd7aeefb0153441919-5&quot;&gt;
+                                            5
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p data-line=&quot;crayon-5466fd7aeefb0153441919-6&quot;&gt;
+                                            6
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p data-line=&quot;crayon-5466fd7aeefb0153441919-7&quot;&gt;
+                                            7
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p data-line=&quot;crayon-5466fd7aeefb0153441919-8&quot;&gt;
+                                            8
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p data-line=&quot;crayon-5466fd7aeefb0153441919-9&quot;&gt;
+                                            9
+                                          &lt;/p&gt;
+                                        &lt;/td&gt;
+                                        
+                                        &lt;td&gt;
+                                          app.post(&amp;#8216;/sms&amp;#8217;,twilio.webhook(&amp;#8216;your auth token&amp;#8217;,{host:&amp;#8217;foo.herokuapp.com&amp;#8217;,protocol:&amp;#8217;https&amp;#8217;}),&lt;b&gt;function&lt;/b&gt;(req,res){&lt;/p&gt; 
+                                          
+                                          &lt;p&gt;
+                                            &lt;b&gt;if&lt;/b&gt;(req.body.From==&amp;#8221;+12128675309&amp;#8243;&amp;&amp;req.body.Body==&amp;#8221;ABC123&amp;#8243;){
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p&gt;
+                                            console.log(&amp;#8220;verified number!&amp;#8221;);
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p&gt;
+                                            }&lt;b&gt;else&lt;/b&gt;{
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p&gt;
+                                            console.log(&amp;#8220;Wrong number!&amp;#8221;);
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p&gt;
+                                            sendMessage(res,&amp;#8221;Invalid number!&amp;#8221;);
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p&gt;
+                                            }
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p&gt;
+                                            &amp;nbsp;
+                                          &lt;/p&gt;
+                                          
+                                          &lt;p&gt;
+                                            });&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+                                            
+                                            &lt;p&gt;
+                                              We are checking the From POST parameter and logging whether or not it is verified. We verify not only the phone number the message is From, but also the Body of the message to make sure it includes our unique code (in this case it is ABC123)&lt;br /&gt; In the block for a verified number, we can now add the handler to send and respond to data from the Arduino’s Serial connection.
+                                            &lt;/p&gt;
+                                            
+                                            &lt;p&gt;
+                                              Java
+                                            &lt;/p&gt;
+                                            
+                                            &lt;table&gt;
+                                              &lt;tr&gt;
+                                                &lt;td data-settings=&quot;show&quot;&gt;
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-1&quot;&gt;
+                                                    1
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-2&quot;&gt;
+                                                    2
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-3&quot;&gt;
+                                                    3
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-4&quot;&gt;
+                                                    4
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-5&quot;&gt;
+                                                    5
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-6&quot;&gt;
+                                                    6
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-7&quot;&gt;
+                                                    7
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-8&quot;&gt;
+                                                    8
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-9&quot;&gt;
+                                                    9
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-10&quot;&gt;
+                                                    10
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-11&quot;&gt;
+                                                    11
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-12&quot;&gt;
+                                                    12
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-13&quot;&gt;
+                                                    13
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-14&quot;&gt;
+                                                    14
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-15&quot;&gt;
+                                                    15
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-16&quot;&gt;
+                                                    16
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-17&quot;&gt;
+                                                    17
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-18&quot;&gt;
+                                                    18
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p data-line=&quot;crayon-5466fd7aeefba281479343-19&quot;&gt;
+                                                    19
+                                                  &lt;/p&gt;
+                                                &lt;/td&gt;
+                                                
+                                                &lt;td&gt;
+                                                    serialPort.once(&amp;#8216;data&amp;#8217;,&lt;b&gt;function&lt;/b&gt;(data){&lt;/p&gt; 
+                                                  
+                                                  &lt;p&gt;
+                                                    &lt;b&gt;if&lt;/b&gt;(data.toString().indexOf(&amp;#8216;U&amp;#8217;)&gt;-1){&lt;i&gt;//check if the Arduino returned a U for unlocking&lt;/i&gt;
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    sendMessage(res,&amp;#8217;Unlocking!&amp;#8217;);
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    }
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    &lt;b&gt;else&lt;/b&gt;&lt;b&gt;if&lt;/b&gt;(data.toString().indexOf(&amp;#8216;L&amp;#8217;)&gt;-1){
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    sendMessage(res,&amp;#8217;Locking!&amp;#8217;);
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    }
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    &lt;b&gt;else&lt;/b&gt;{
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    sendMessage(res,&amp;#8217;ERROR&amp;#8217;);
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    }
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    console.log(&amp;#8216;data received: &amp;#8216;+data);
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    });
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    &amp;nbsp;
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    serialPort.write(&amp;#8220;V&amp;#8221;,&lt;b&gt;function&lt;/b&gt;(err,results){
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    &lt;b&gt;if&lt;/b&gt;(err){
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    console.log(&amp;#8216;err &amp;#8216;+err);
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    }
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    console.log(&amp;#8216;results &amp;#8216;+results);
+                                                  &lt;/p&gt;
+                                                  
+                                                  &lt;p&gt;
+                                                    });&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+                                                    
+                                                    &lt;p&gt;
+                                                      This looks fairly meaty, but what is really going on is fairly straightforward. We set up an event handler to receive Serial data from the Arduino. This event handler checks if the Arduino has sent “U” or “L” – we then take this value and return an SMS response to the user using the sendMessage function (which we will write shortly).
+                                                    &lt;/p&gt;
+                                                    
+                                                    &lt;p&gt;
+                                                      After setting up our event handler, we write “V” to the Arduino’s serial connection to tell it that a verified SMS has been received, and it should now lock/unlock the door.
+                                                    &lt;/p&gt;
+                                                    
+                                                    &lt;p&gt;
+                                                      Towards the top of the file we can now create our sendMessage function, which takes two arguments – res and message:
+                                                    &lt;/p&gt;
+                                                    
+                                                    &lt;p&gt;
+                                                      Java
+                                                    &lt;/p&gt;
+                                                    
+                                                    &lt;table&gt;
+                                                      &lt;tr&gt;
+                                                        &lt;td data-settings=&quot;show&quot;&gt;
+                                                          &lt;p data-line=&quot;crayon-5466fd7aeefc4949061788-1&quot;&gt;
+                                                            1
+                                                          &lt;/p&gt;
+                                                          
+                                                          &lt;p data-line=&quot;crayon-5466fd7aeefc4949061788-2&quot;&gt;
+                                                            2
+                                                          &lt;/p&gt;
+                                                          
+                                                          &lt;p data-line=&quot;crayon-5466fd7aeefc4949061788-3&quot;&gt;
+                                                            3
+                                                          &lt;/p&gt;
+                                                          
+                                                          &lt;p data-line=&quot;crayon-5466fd7aeefc4949061788-4&quot;&gt;
+                                                            4
+                                                          &lt;/p&gt;
+                                                          
+                                                          &lt;p data-line=&quot;crayon-5466fd7aeefc4949061788-5&quot;&gt;
+                                                            5
+                                                          &lt;/p&gt;
+                                                          
+                                                          &lt;p data-line=&quot;crayon-5466fd7aeefc4949061788-6&quot;&gt;
+                                                            6
+                                                          &lt;/p&gt;
+                                                        &lt;/td&gt;
+                                                        
+                                                        &lt;td&gt;
+                                                          &lt;b&gt;function&lt;/b&gt;sendMessage(res,message){&lt;/p&gt; 
+                                                          
+                                                          &lt;p&gt;
+                                                            &lt;b&gt;var&lt;/b&gt;resp=&lt;b&gt;new&lt;/b&gt;twilio.TwimlResponse();
+                                                          &lt;/p&gt;
+                                                          
+                                                          &lt;p&gt;
+                                                            resp.message(message);
+                                                          &lt;/p&gt;
+                                                          
+                                                          &lt;p&gt;
+                                                            res.type(&amp;#8216;text/xml&amp;#8217;);
+                                                          &lt;/p&gt;
+                                                          
+                                                          &lt;p&gt;
+                                                            res.send(resp.toString());
+                                                          &lt;/p&gt;
+                                                          
+                                                          &lt;p&gt;
+                                                            }&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+                                                            
+                                                            &lt;p&gt;
+                                                              sendMessage is called to generate a TwiML response for the user. TwiML is the subset of XML that Twilio uses to pass around instructions. In this case, we are telling Twilio to respond to the SMS message we have received with another SMS message. So the user might send in “unlock” and we might send back “Unlocking!” via Twilio SMS.
+                                                            &lt;/p&gt;
+                                                            
+                                                            &lt;p&gt;
+                                                              Now that our SMS handler is configured, we can finish up our application by opening our SerialPort and starting up our Express web server:
+                                                            &lt;/p&gt;
+                                                            
+                                                            &lt;p&gt;
+                                                              Java
+                                                            &lt;/p&gt;
+                                                            
+                                                            &lt;table&gt;
+                                                              &lt;tr&gt;
+                                                                &lt;td data-settings=&quot;show&quot;&gt;
+                                                                  &lt;p data-line=&quot;crayon-5466fd7aeefd7790523697-1&quot;&gt;
+                                                                    1
+                                                                  &lt;/p&gt;
+                                                                  
+                                                                  &lt;p data-line=&quot;crayon-5466fd7aeefd7790523697-2&quot;&gt;
+                                                                    2
+                                                                  &lt;/p&gt;
+                                                                  
+                                                                  &lt;p data-line=&quot;crayon-5466fd7aeefd7790523697-3&quot;&gt;
+                                                                    3
+                                                                  &lt;/p&gt;
+                                                                  
+                                                                  &lt;p data-line=&quot;crayon-5466fd7aeefd7790523697-4&quot;&gt;
+                                                                    4
+                                                                  &lt;/p&gt;
+                                                                &lt;/td&gt;
+                                                                
+                                                                &lt;td&gt;
+                                                                  serialPort.open(&lt;b&gt;function&lt;/b&gt;(){&lt;/p&gt; 
+                                                                  
+                                                                  &lt;p&gt;
+                                                                    app.listen(3000);
+                                                                  &lt;/p&gt;
+                                                                  
+                                                                  &lt;p&gt;
+                                                                    console.log(&amp;#8216;Listening on port 3000&amp;#8217;);
+                                                                  &lt;/p&gt;
+                                                                  
+                                                                  &lt;p&gt;
+                                                                    });&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; 
+                                                                    
+                                                                    &lt;p&gt;
+                                                                      And that’s all of our code. Now, if you Upload the sketch we wrote to your Arduino and run your nodelock.js script by typing node nodelock.js into your Terminal we will be good to go.
+                                                                    &lt;/p&gt;
+                                                                    
+                                                                    &lt;p&gt;
+                                                                      If you have run into errors and would like to compare with the solution, you can check it out &lt;a href=&quot;https://gist.github.com/jonmarkgo/9061701&quot;&gt;here&lt;/a&gt;.
+                                                                    &lt;/p&gt;
+                                                                    
+                                                                    &lt;p&gt;
+                                                                      Once you have created or logged into your Twilio account, we can head over to our &lt;a href=&quot;https://www.twilio.com/user/account&quot;&gt;Twilio dashboard&lt;/a&gt; and click on the Numbers tab. Then click on the number you wish to send messages to for control of your lock.&lt;br /&gt; Here, there are two fields: Voice Request URL and Messaging Request URL. We will be using the Messaging Request URL to tell Twilio where to send data about incoming text messages.
+                                                                    &lt;/p&gt;
+                                                                    
+                                                                    &lt;p&gt;
+                                                                      But since Twilio communicates via HTTP requests, we will need a publicly accessible web URL for it to POST to when it receives an SMS to your number. For this, we will be using ngrok – the utility you installed earlier.
+                                                                    &lt;/p&gt;
+                                                                    
+                                                                    &lt;p&gt;
+                                                                      Once you have started up your node.js server with node nodelock.js, open a new Terminal window and type ./ngrok 3000 from the directory you installed ngrok to. Here you will be given a forwarding URL that allows external websites to securely access your local running web server. Take this forwarding URL, append /sms to it, and put it into your Twilio Messaging Request URL in your dashboard. Save your Number’s settings, and try sending an SMS to it! Your lock should lock and unlock as long as you set the verified number to be yours.
+                                                                    &lt;/p&gt;
+</code></pre>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2014-11-15-%E4%BB%A3%E7%A0%81%E6%98%AF%E5%A6%82%E4%BD%95%E6%8E%A7%E5%88%B6%E7%A1%AC%E4%BB%B6%E7%9A%84/" data-toggle="tooltip" data-placement="top" title="代码是如何控制硬件的">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2014-11-16-%E5%9C%A8%E6%97%A5%E6%9C%AC%E8%BD%A6%E6%A3%80%E5%8E%9F%E6%9D%A5%E5%A6%82%E6%AD%A4%E7%AE%80%E5%8D%95/" data-toggle="tooltip" data-placement="top" title="在日本车检原来如此简单">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Sat Nov 15, 2014</h4>
+    </section>
+    <h5 id="wc">2300 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

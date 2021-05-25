@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>activity回收 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/activity%E5%9B%9E%E6%94%B6/</link>
+    <description>Recent content in activity回收 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Jun 2012 08:05:38 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/activity%E5%9B%9E%E6%94%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>后台的Activity被系统回收怎么办：onSaveInstanceState</title>
+      <link>https://www.51hint.com/posts/2012-06-04-%E5%90%8E%E5%8F%B0%E7%9A%84activity%E8%A2%AB%E7%B3%BB%E7%BB%9F%E5%9B%9E%E6%94%B6%E6%80%8E%E4%B9%88%E5%8A%9Eonsaveinstancestate/</link>
+      <pubDate>Mon, 04 Jun 2012 08:05:38 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-06-04-%E5%90%8E%E5%8F%B0%E7%9A%84activity%E8%A2%AB%E7%B3%BB%E7%BB%9F%E5%9B%9E%E6%94%B6%E6%80%8E%E4%B9%88%E5%8A%9Eonsaveinstancestate/</guid>
+      <description>当你的程序中某一个Activity A 在运行时中，主动或被动地运行另一个新的Activity B 这个时候A会执行 B 完成以后又会来找A, 这个时候就</description>
+    </item>
+    
+  </channel>
+</rss>

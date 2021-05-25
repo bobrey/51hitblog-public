@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git-flow on IT技术分享</title>
+    <link>https://www.51hint.com/tags/git-flow/</link>
+    <description>Recent content in git-flow on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Apr 2015 14:46:49 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/git-flow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git-flow</title>
+      <link>https://www.51hint.com/posts/2015-04-26-git-flow/</link>
+      <pubDate>Sun, 26 Apr 2015 14:46:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-04-26-git-flow/</guid>
+      <description>http://fann.im/blog/2012/03/12/git-flow-notes/
+http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html</description>
+    </item>
+    
+  </channel>
+</rss>

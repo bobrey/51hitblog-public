@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>flutter on IT技术分享</title>
+    <link>https://www.51hint.com/tags/flutter/</link>
+    <description>Recent content in flutter on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Apr 2019 22:43:18 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/flutter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flutter安装</title>
+      <link>https://www.51hint.com/posts/flutter%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 01 Apr 2019 22:43:18 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/flutter%E5%AE%89%E8%A3%85/</guid>
+      <description>$ brew install --HEAD libimobiledeviceを試すが、以下のエラーが出る。 ==&amp;gt; Installing dependencies for libimobiledevice: libplist ==&amp;gt; Installing libimobiledevice dependency: libplist ==&amp;gt; Downloading https://homebrew.bintray.com/bottles/libplist-2.0.0_1.sierra.bottle.tar.gz ######################################################################## 100.0% ==&amp;gt; Pouring libplist-2.0.0_1.sierra.bottle.tar.gz /usr/local/Cellar/libplist/2.0.0_1: 29 files, 347.4KB ==&amp;gt; Installing libimobiledevice --HEAD ==&amp;gt; Cloning https://git.libimobiledevice.org/libimobiledevice.git Cloning into &#39;/Users/deni/Library/Caches/Homebrew/libimobiledevice--git&#39;... ==&amp;gt; Checking</description>
+    </item>
+    
+  </channel>
+</rss>

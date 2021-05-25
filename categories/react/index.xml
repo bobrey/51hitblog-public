@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react on IT技术分享</title>
+    <link>https://www.51hint.com/categories/react/</link>
+    <description>Recent content in react on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Apr 2017 15:56:13 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>react-native-training/redux-4-ways</title>
+      <link>https://www.51hint.com/posts/react-native-training-redux-4-ways/</link>
+      <pubDate>Mon, 24 Apr 2017 15:56:13 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react-native-training-redux-4-ways/</guid>
+      <description>https://github.com/react-native-training/redux-4-ways/tree/thunk
+Redux Implementation - Thunk vs Saga vs Observable vs Redux Promise Middleware https://medium.com/p/95a130da0cdc
+ Redux Saga Redux Thunk </description>
+    </item>
+    
+    <item>
+      <title>eslint</title>
+      <link>https://www.51hint.com/posts/eslint/</link>
+      <pubDate>Mon, 10 Apr 2017 16:58:48 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/eslint/</guid>
+      <description>eslint 程式碼的風格和規範問題 eslint-plugin-react Setup npm install --save-dev eslint eslint-plugin-react eslint-plugin-react-native eslint-config-airbnb .eslintrc eslint —init edit 加入 extends airbnb 和 react plugin 就可以了 /* .eslintrc.js */ module.exports = { &amp;#34;extends&amp;#34;: &amp;#34;airbnb&amp;#34;, &amp;#34;plugins&amp;#34;: [ &amp;#34;react&amp;#34;, &amp;#34;eslint-plugin-react-native&amp;#34; ], &amp;#34;parser&amp;#34;: &amp;#34;babel-eslint&amp;#34;, &amp;#34;rules&amp;#34;: { &amp;#34;strict&amp;#34;: 0 }, };</description>
+    </item>
+    
+    <item>
+      <title>React Native 中组件的生命周期</title>
+      <link>https://www.51hint.com/posts/react-native-zhong-zu-jian-de-sheng-ming-zhou-qi/</link>
+      <pubDate>Mon, 10 Apr 2017 16:24:02 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react-native-zhong-zu-jian-de-sheng-ming-zhou-qi/</guid>
+      <description>概述 RN 组件的生命周期整理如下图 如图，可以把组件生命周期大致分为三个阶段： 第一阶段：是组件第一次绘制阶段 第二阶段：是组件在运行和交互阶段 第三阶</description>
+    </item>
+    
+    <item>
+      <title>React-Redux用法</title>
+      <link>https://www.51hint.com/posts/react-reduxyong-fa/</link>
+      <pubDate>Tue, 07 Mar 2017 16:49:04 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react-reduxyong-fa/</guid>
+      <description>React-Redux用法 为了方便使用，Redux 的作者封装了一个 React 专用的库 React-Redux，本文主要介绍它。 这个库是可以选用的。实际</description>
+    </item>
+    
+    <item>
+      <title>Code Push 热更新使用</title>
+      <link>https://www.51hint.com/posts/code-push-re-geng-xin-shi-yong/</link>
+      <pubDate>Mon, 06 Mar 2017 23:37:27 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/code-push-re-geng-xin-shi-yong/</guid>
+      <description>Code push CodePush是一个微软开发的云服务器。通过它，开发者可以直接在用户的设备上部署手机应用更新。 CodePush相当于一个中心仓库，开发</description>
+    </item>
+    
+    <item>
+      <title>redux</title>
+      <link>https://www.51hint.com/posts/redux/</link>
+      <pubDate>Mon, 06 Mar 2017 17:33:11 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/redux/</guid>
+      <description>Redux Redux 的设计思想很简单，就两句话。 1）Web 应用是一个状态机，视图与状态是一一对应的。 2）所有的状态，保存在一个对象里面。 基本概念和 API Store Store 就是</description>
+    </item>
+    
+    <item>
+      <title>React &#43; Webpack &#43; Babel</title>
+      <link>https://www.51hint.com/posts/react/</link>
+      <pubDate>Tue, 28 Feb 2017 21:28:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/react/</guid>
+      <description>React React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。 React Install npm install --save react react-dom jsx file app.jsx import React from &#39;react&#39;; import ReactDOM from &#39;react-dom&#39;; //</description>
+    </item>
+    
+  </channel>
+</rss>

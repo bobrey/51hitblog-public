@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ec2 on IT技术分享</title>
+    <link>https://www.51hint.com/tags/ec2/</link>
+    <description>Recent content in ec2 on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 May 2015 13:06:59 +0000</lastBuildDate><atom:link href="https://www.51hint.com/tags/ec2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>amazon ec2 绑定多ip</title>
+      <link>https://www.51hint.com/posts/2015-05-19-amazon-ec2-%E7%BB%91%E5%AE%9A%E5%A4%9Aip/</link>
+      <pubDate>Tue, 19 May 2015 13:06:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-05-19-amazon-ec2-%E7%BB%91%E5%AE%9A%E5%A4%9Aip/</guid>
+      <description>&amp;lt;p class=&amp;quot;p4&amp;quot;&amp;gt; &amp;lt;p class=&amp;quot;p2&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt;&amp;lt;b&amp;gt;Step 3:&amp;lt;/b&amp;gt; Now navigate to &amp;amp;#8220;Network Interfaces&amp;amp;#8221; from the menu on left. Right-click on the network interface of your new instance, and select &amp;amp;#8220;Manage Private IP Addresses&amp;amp;#8221;.&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p4&amp;quot;&amp;gt; &amp;lt;p class=&amp;quot;p2&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt;&amp;lt;b&amp;gt;Step 4:&amp;lt;/b&amp;gt; Click on the &amp;amp;#8220;Assign new IP&amp;amp;#8221; link in the &amp;amp;#8220;Manage Private IP Addresses&amp;amp;#8221; window. A new line should appear which says &amp;amp;#8220;Auto-assign&amp;amp;#8221;. Now click on &amp;amp;#8220;Yes, Update&amp;amp;#8221;. Take a note</description>
+    </item>
+    
+  </channel>
+</rss>

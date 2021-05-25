@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> net2ftp安装 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="net2ftp安装" />
+  <meta name="twitter:title" content="net2ftp安装" />
+  <meta name="description" content="**大家在往自己的FTP服务器里上传文件的时候，常常使用一些FTP客户端软件，例如CuteFTP或者flashFTP，他们都受到你的网络连接">
+  <meta property="og:description" content="**大家在往自己的FTP服务器里上传文件的时候，常常使用一些FTP客户端软件，例如CuteFTP或者flashFTP，他们都受到你的网络连接">
+  <meta name="twitter:description" content="**大家在往自己的FTP服务器里上传文件的时候，常常使用一些FTP客户端软件，例如CuteFTP或者flashFTP，他们都受到你的网络连接">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2011-09-19-net2ftp%E5%AE%89%E8%A3%85/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2011-09-19-net2ftp%E5%AE%89%E8%A3%85/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">net2ftp安装</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Sep 19, 2011</h4>
+    </section>
+    <h5 id="wc">2300 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>**大家在往自己的FTP服务器里上传文件的时候，常常使用一些FTP客户端软件，例如<!-- raw HTML omitted -->CuteFTP<!-- raw HTML omitted -->或者<!-- raw HTML omitted -->flashFTP<!-- raw HTML omitted -->，他们都受到你的网络连接速度的限 制，如果你的服务器在国外，很有可能上传一个BBS原程序会浪费你一天时间，其实它们也不大，但为什么就是上传的慢呢？因为每上传一个文件程序就会连接远 程服务器的端口（socket），有时候因为网络的延时，端口常常连接失败，但如果你上传一个同样大小的文件（例如一个ZIP压缩包），也许很快就会上传 过去，所以今天给大家介绍一个很好用的基于网络的FTP客户端软件<!-- raw HTML omitted -->NET2FTP<!-- raw HTML omitted -->，以后再介绍一个简单点的程序。</p>
+<p><!-- raw HTML omitted -->NET2FTP<!-- raw HTML omitted -->的原理是把你要上传的文件先上传到NET2FTP所在的服务器，然后通过服务器再向远程的FTP服务器传送文件，大家要知道服务器的带宽很大，所以服务器对服务器的传输速度就会快的多，这样的话大家就可以通过别人架设好的NET2FTP传送文件。这里先给大家一个网站<!-- raw HTML omitted --><!-- raw HTML omitted --><a href="http://www.net2ftp.com">http://www.net2ftp.com</a><!-- raw HTML omitted --><!-- raw HTML omitted -->，通过它你可以向一些封了IP的服务器传送自己的文件。还有个更方便的方法，你直接把软件安装到自己的FTP服务器上，这样速度会更快。</p>
+<p>NET2FTP的一个<!-- raw HTML omitted -->最大的优点就是可以把zip, tar, tgz, gz结尾的压缩包在线解压缩<!-- raw HTML omitted -->， 这样你只需要把要上传的大量文件先用压缩软件如WINRAR或者WINZIP压缩成ZIP包，然后把压缩包上传，NET2FTP会自动把它在服务器上解压 缩然后发送到远程FTP上，如果NET2FTP安装到自己的服务器上那就更好了，可以直接解压缩到服务器上，省掉了一个服务器到服务器的传输过程。<!-- raw HTML omitted --></p>
+<p>#################################################################################</p>
+<p>NET2FTP之安装</p>
+<p><!-- raw HTML omitted -->建议先看使用再看安装<!-- raw HTML omitted --></p>
+<p>1.先看看你自己的服务器是否符合条件，<!-- raw HTML omitted -->支持PHP<!-- raw HTML omitted -->，版本至少是4.2.3（安全模式也没有问题），当然最好是版本越高越好，可以支持一些高级命令。</p>
+<p>2.要有一定的空间，完整版的NET2FTP（包括全部的官方皮肤和插件）需要将近8Mb大小，还有个简化版的，3Mb左右（只有英语，皮肤一个，好象没有插件）。</p>
+<p>如果你符合上面两个条件，恭喜你可以在自己的服务器上安装NET2FTP了。</p>
+<p>3.下载安装包。我这里安装的是完全版。官方下载地址是<!-- raw HTML omitted --><!-- raw HTML omitted --><a href="http://www.net2ftp.com">http://www.net2ftp.com</a><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>4.解压缩所有的文件，在<!-- raw HTML omitted -->\files_to_upload里面<!-- raw HTML omitted -->找到<!-- raw HTML omitted -->settings.inc.php<!-- raw HTML omitted --><!-- raw HTML omitted -->，这个是配置文件，用记事本打开它，<!-- raw HTML omitted --><!-- raw HTML omitted -->我们来进行简单的设置。找到<!-- raw HTML omitted --></p>
+<p>$net2ftp_settings[“default_language”] = “<!-- raw HTML omitted -->en<!-- raw HTML omitted -->“;（默认的语言英语，汉语版本有问题，不建议使用）</p>
+<p>$net2ftp_settings[“default_skin”] ; ; ; ;= “<!-- raw HTML omitted -->india<!-- raw HTML omitted -->“;（皮肤，建议改成<!-- raw HTML omitted -->blue<!-- raw HTML omitted -->，因为这个皮肤做的很完美）</p>
+<p>$net2ftp_settings[“admin_username”] = “<!-- raw HTML omitted -->admin<!-- raw HTML omitted -->“;（默认的管理员名称，可以修改）</p>
+<p>$net2ftp_settings[“admin_password”] = “”;（默认为空，如果你要记录程序使用日志，添加密码即可）</p>
+<p>$net2ftp_settings[“max_upload_filesize”] ; ;= “<!-- raw HTML omitted -->2000000<!-- raw HTML omitted -->“; ; ;（文件最大上传大小，默认2M，根据需要修改）</p>
+<p>$net2ftp_settings[“use_database”] = “<!-- raw HTML omitted -->no<!-- raw HTML omitted -->“; （是否记录登陆日志，默认NO，可修改为YES，别忘了把create_tables.sql导入到你的MySQL里面）</p>
+<p>// Enter your MySQL settings（这里的几个要在上面那个选项为YES时填写）</p>
+<p>$net2ftp_settings[“dbusername”] = “”;用户名</p>
+<p>$net2ftp_settings[“dbpassword”] = “”;密码</p>
+<p>$net2ftp_settings[“dbname”] ; ; ; ;= “”;数据库名</p>
+<p>$net2ftp_settings[“dbserver”] ; ;= “localhost”; 地址</p>
+<p>$net2ftp_settings[“max_consumption_ipaddress_dataTransfer”] = <!-- raw HTML omitted -->20000000<!-- raw HTML omitted -->; // 每个IP每天最多传输文件字节$net2ftp_settings[“max_consumption_ftpserver_dataTransfer”] = <!-- raw HTML omitted -->50000000<!-- raw HTML omitted -->; // 每个FTP服务器最多接受字节</p>
+<p>5.把文件上传到服务器上，<!-- raw HTML omitted -->/temp<!-- raw HTML omitted --><!-- raw HTML omitted -->文件夹属性设置成777<!-- raw HTML omitted --></p>
+<p>6.（可选）如果你要记录登陆日志，导入create_tables.sql</p>
+<!-- raw HTML omitted -->
+<p>**</p>
+<p>NET2FTP之使用<!-- raw HTML omitted --></p>
+<p>大家配置好文件上传过后就可以开始使用NET2FTP了。</p>
+<p>1.登陆FTP</p>
+<p>填写FTP server（服务器地址），Username（用户名），PASSWORD（密码），点击login进入你的ftp服务器</p>
+<p>2.主界面.大家可以简要的看一下，跟FTP软件有什么区别。</p>
+<p>3.最右上角的四个分别是 添加到收藏夹/刷新/帮助/登出</p>
+<p>4下面分别是 新建文件夹/新建文件/上传文件/JAVA上传/高级属性</p>
+<p>5这几个大家都认识了 复制/移动/删除/重命名/属性/下载/压缩/大小/搜索</p>
+<p>6.下面重点讲上传，点UPLOAD，出现这个画面</p>
+<p>7.点右边的archives（存档），然后再点那个对号，等他上传吧。</p>
+<p>8.上传完成后程序会自动解压缩并发送到你FTP上去</p>
+<p>至此，大功告成<!-- raw HTML omitted --></p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2011-09-16-%E8%BE%93%E5%85%A5%E5%85%B3%E8%81%94%E8%BD%AF%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/" data-toggle="tooltip" data-placement="top" title="输入关联软键盘事件">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2011-09-20-nsdatenscalendar%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E4%B9%8B%E5%B7%AE/" data-toggle="tooltip" data-placement="top" title="NSDate、NSCalendar获取时间之差">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Mon Sep 19, 2011</h4>
+    </section>
+    <h5 id="wc">2300 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

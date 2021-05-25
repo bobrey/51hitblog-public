@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 六大实用的移动开发辅助工具 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="六大实用的移动开发辅助工具" />
+  <meta name="twitter:title" content="六大实用的移动开发辅助工具" />
+  <meta name="description" content="Easy APNS – 基于PHP&amp;MySQL的苹果推送网络服务 假如你是一个iPhone开发人员，可能听过Apple Push Notification service (APNs)。Easy APN">
+  <meta property="og:description" content="Easy APNS – 基于PHP&amp;MySQL的苹果推送网络服务 假如你是一个iPhone开发人员，可能听过Apple Push Notification service (APNs)。Easy APN">
+  <meta name="twitter:description" content="Easy APNS – 基于PHP&amp;MySQL的苹果推送网络服务 假如你是一个iPhone开发人员，可能听过Apple Push Notification service (APNs)。Easy APN">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-06-21-%E5%85%AD%E5%A4%A7%E5%AE%9E%E7%94%A8%E7%9A%84%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-06-21-%E5%85%AD%E5%A4%A7%E5%AE%9E%E7%94%A8%E7%9A%84%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">六大实用的移动开发辅助工具</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Jun 21, 2012</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/apns/">apns</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/socketbug/">socketbug</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <ol>
+<li>Easy APNS – 基于PHP&amp;MySQL的苹果推送网络服务</li>
+</ol>
+<p>假如你是一个iPhone开发人员，可能听过Apple Push Notification service (APNs)。Easy APNS是一个基于PHP-MySQL应用程序，能够让用户从MySQL表发送推送信息，并能够定时重复发送。</p>
+<p>网站建设</p>
+<ol start="2">
+<li>Adaptive Images — 为小屏幕设备提供小图像</li>
+</ol>
+<p>　　Adaptive Images提供了一个解决方案能够根据客户端浏览器屏幕大小对图片进行裁剪。</p>
+<p>　　它基于JavaScript+PHP-powered 实现，它首先利用一个轻量级的JS文件来探测浏览器的屏幕大小，然后将这个参数发送到服务器端的PHP脚本来对图片进行尺寸调整。</p>
+<p>　　Adaptive Images还内置一个缓存系统，实现尽能对同一张图片同一尺寸只调整一次。</p>
+<p>　　此还它提供一些可自定义的选项如.JPG质量等。</p>
+<p>　　环境要求: PHP 5+with GD lib enabed</p>
+<p>网站建设</p>
+<ol start="3">
+<li>Socketbug — 移动Web应用程序调试工具</li>
+</ol>
+<p>　　开发移动Web应用程序并没有比开发标准网站更难和很大的区别。即使要考虑更好地支持新的HTML和CSS标签，有时甚至更简单。然而，调试移动Web应用程序是相当困难的，因为有些用于过程调试的功能根本不存在，比如：查看源代码或查看由移动浏览器所产生的JS错误等。</p>
+<p>　　Socketbug是一个利用Node.js与Socket.io构建的一个远程调试工具，正好能够解决这些问题。它能够自动探测使用了什么通信传输并让你的移动应用程序从其它连接设备接收和发送消息到你的桌面浏览器。</p>
+<p>　　Socketbug使用并不复杂，只需安装Socketbug服务器并连接到它（有一个控制台可用于连接），然后在你的移动应用程序中插入一段JavaScript代码就能够调试移动应用程序。</p>
+<p>网站建设</p>
+<ol start="4">
+<li>Mobilizer — 移动开发的预览工具</li>
+</ol>
+<p>　　Mobilezer是一个开源的Adobe Air应用程序能够让开发人员在不同的移动手机上预览移动内容。可以任意指定URL或本地HTML、Flash或图片文件。它让用户在多种设备上访问同一个网站并且用户还可以导出网站的PNG预览图片。Mobilezer支持iPhone 4、HTC evo、Palm Pre和Blackberry。</p>
+<p>网站建设</p>
+<ol start="5">
+<li>Detect Mobile Browser — 开源的探测工具</li>
+</ol>
+<p>　　Detect Mobile Browser是一个开源的应用程序，用于帮助开发人员探测在一个特定的网站上当前访问者是使用移动Web浏览器还是桌面Web浏览器。它提供了大量的脚本语言代码，因此开发人员能够很方便在它们程序中使用比如：Apache、Asp、 Asp. Net、C#、 IIS、 Jsp、 jQuery、 Java Script、Php、Pearl、Python等。</p>
+<p>网站建设</p>
+<ol start="6">
+<li>PhotoSwipe – 针对移动设备和触屏设备的图像集</li>
+</ol>
+<p>　　PhotoSwipe是一个开发用于手机和Touch设备、功能强大的图片/照片集展示控件。它采用HTML、CSS、JavaScript实现，没有依赖任何JavaScript框架。</p>
+<p>　　可以设置淡入/淡出的效果、激活放大功能、缩放图片等。PhotoSwipe支持的设备包括：iPhone、iPad、Android、Blackberry和桌面浏览器。它还有一个可选的基于jQuery实现的版本。</p>
+<p>网站建设</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-06-18-windows-2003-key/" data-toggle="tooltip" data-placement="top" title="windows 2003 key">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-06-21-ios-%E9%95%BF%E6%8C%89%E5%AE%9E%E7%8E%B0%E5%9B%BE%E6%A0%87%E6%8A%96%E5%8A%A8%E5%92%8C%E5%88%A0%E9%99%A4%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BE%8B%E5%AD%90/" data-toggle="tooltip" data-placement="top" title="ios-长按实现图标抖动和删除的代码例子">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Jun 21, 2012</h4>
+    </section>
+    <h5 id="wc">1300 Words|Read in about 3 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/apns/">apns</a> &nbsp;
+        
+        <a href="https://www.51hint.com/tags/socketbug/">socketbug</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

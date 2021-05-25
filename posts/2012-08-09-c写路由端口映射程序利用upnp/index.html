@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> C#写路由端口映射程序（利用UPNP） - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="C#写路由端口映射程序（利用UPNP）" />
+  <meta name="twitter:title" content="C#写路由端口映射程序（利用UPNP）" />
+  <meta name="description" content="前段时间，想写个聊天程序，后来测试的时候，外网不能访问内网。百度了一下，只能做端口映射，朋友给了我个软件，叫什么Port，还蛮好用的，我突然">
+  <meta property="og:description" content="前段时间，想写个聊天程序，后来测试的时候，外网不能访问内网。百度了一下，只能做端口映射，朋友给了我个软件，叫什么Port，还蛮好用的，我突然">
+  <meta name="twitter:description" content="前段时间，想写个聊天程序，后来测试的时候，外网不能访问内网。百度了一下，只能做端口映射，朋友给了我个软件，叫什么Port，还蛮好用的，我突然">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/2012-08-09-c%E5%86%99%E8%B7%AF%E7%94%B1%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E7%A8%8B%E5%BA%8F%E5%88%A9%E7%94%A8upnp/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/2012-08-09-c%E5%86%99%E8%B7%AF%E7%94%B1%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E7%A8%8B%E5%BA%8F%E5%88%A9%E7%94%A8upnp/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="post-heading">
+                <h1 align="center">C#写路由端口映射程序（利用UPNP）</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 9, 2012</h4>
+    </section>
+    <h5 id="wc">2200 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents"></nav>
+  </aside>
+  
+
+
+                <p>前段时间，想写个聊天程序，后来测试的时候，外网不能访问内网。百度了一下，只能做端口映射，朋友给了我个软件，叫什么Port，还蛮好用的，我突然想自己写一个，费了好几天弄了个大概的模样</p>
+<p>using System; using System.Collections.Generic; using System.ComponentModel; using System.Linq; using System.Text; using System.Windows.Forms; using System.IO; using System.Net; using System.Net.Sockets; using System.Net.NetworkInformation; using System.Runtime.InteropServices; using System.Xml; using NATUPNPLib; using UPNPLib;</p>
+<p>namespace RoutMap {     public partial class RoutMap : Form     {         static NATUPNPLib.IUPnPNAT nat = (NATUPNPLib.UPnPNAT)new NATUPNPLib.UPnPNATClass();         static string locIP = Dns.GetHostAddresses(Environment.MachineName)[0].ToString();         static string locPort = “80”;         static string exPort = “80”;         static string protocal = “”;         static bool searchRes = false;         public RoutMap()         {</p>
+<p>InitializeComponent();             radioButton1.Checked = true;             textBox1.Text = locIP;             textBox2.Text = locPort;             textBox3.Text = GetExternalIP();             textBox4.Text = exPort;             protocal = radioButton1.Text;             ShowMap();</p>
+<p>}         //查找设备         public void FindDevice()         {             UPNPLib.UPnPDeviceFinder f = new UPNPLib.UPnPDeviceFinderClass();             string deviceType = “upnp:rootdevice”;             UPNPLib.IUPnPDevices allDevice = new UPNPLib.UPnPDevicesClass();             allDevice = f.FindByType(deviceType, 0);             UPNPLib.IUPnPDevice device = new UPNPLib.UPnPDeviceClass();             foreach (UPNPLib.UPnPDevice p in allDevice)             {                 if (p.Type.Equals(“urn:schemas-upnp-org:device:InternetGatewayDevice:1”))                 {                     device = p;                     timer1.Stop();                     break;                 }             }             if (device != null)             {                 this.label5.Text = “找到设备:” + device.FriendlyName;                 progressBar1.Value = progressBar1.Maximum;                 MessageBox.Show(“搜索成功！”);                 progressBar1.Value = 0;                 label7.Text = “时间：0s”;                 searchRes = true;</p>
+<p>}             else             {                 this.label5.Text = “未搜索到路由设备！”;                 progressBar1.Value = progressBar1.Maximum;                 MessageBox.Show(“搜索失败！”);                 progressBar1.Value = 0;                 label7.Text = “时间：0s”;                 searchRes = false;             }         }         //增加端口映射         public void AddPortMap(string exPort, string inPort, string locIP, string protocal)         {             try             {                 NATUPNPLib.IStaticPortMappingCollection mapping = nat.StaticPortMappingCollection;                 mapping.Add(Convert.ToInt32(exPort), protocal, Convert.ToInt32(inPort), locIP, true, “”);                 this.listBox1.Items.Add(exPort + “/t” + locIP + “/t” + protocal + “/t” + inPort);                 MessageBox.Show(“添加成功”);</p>
+<p>}             catch (Exception x)             {                 MessageBox.Show(x.Message);             }         }         //删除端口映射         private void RemovePort()         {             try             {</p>
+<p>NATUPNPLib.IStaticPortMappingCollection mapping = nat.StaticPortMappingCollection;                 if (listBox1.SelectedIndex &gt; -1)                 {                     string[] select = this.listBox1.SelectedItem.ToString().Split(‘/t’);                     mapping.Remove(Convert.ToInt32(select[0]), select[2]);                     this.listBox1.Items.RemoveAt(listBox1.SelectedIndex);                 }                 MessageBox.Show(“删除成功！”);</p>
+<p>}             catch (Exception ex)             {                 MessageBox.Show(ex.Message);             }</p>
+<p>}         //获取外网IP         private static string GetExternalIP()         {</p>
+<p>string pubIP = “”;</p>
+<p>try             {                   System.Net.WebClient client = new System.Net.WebClient();                 client.Encoding = System.Text.Encoding.Default;                 string reply = client.DownloadString(“<a href="http://www.ip138.com/ip2city.asp">http://www.ip138.com/ip2city.asp</a>“);                 string[] ipStr = reply.Split(new char[] { ‘[‘, ‘]’ });                 pubIP = ipStr[1];             }             catch (Exception ex)             {                 System.Windows.Forms.MessageBox.Show(ex.Message);             }</p>
+<p>return pubIP;</p>
+<p>}         private static string GetServiceUrl(string resp)         {             try             {                 XmlDocument desc = new XmlDocument();                 desc.Load(WebRequest.Create(resp).GetResponse().GetResponseStream());                 XmlNamespaceManager nsMgr = new XmlNamespaceManager(desc.NameTable);                 nsMgr.AddNamespace(“tns”, “urn:schemas-upnp-org:device-1-0”);                 XmlNode typen = desc.SelectSingleNode(“//tns:device/tns:deviceType/text()”, nsMgr);                 if (!typen.Value.Contains(“InternetGatewayDevice”))                     return null;                 XmlNode node = desc.SelectSingleNode(“//tns:service[tns:serviceType=/”urn:schemas-upnp-org:service:WANIPConnection:1/”]/tns:controlURL/text()”, nsMgr);                 if (node == null)                     return null;                 XmlNode eventnode = desc.SelectSingleNode(“//tns:service[tns:serviceType=/”urn:schemas-upnp-org:service:WANIPConnection:1/”]/tns:eventSubURL/text()”, nsMgr);                 int n = resp.IndexOf(“://”);                 n = resp.IndexOf(‘/’, n + 3);                 string surl = resp.Substring(0, n) + eventnode.Value;                 return surl;             }             catch             {                 return null;             }         }</p>
+<p>//显示已设置的端口映射         private void ShowMap()         {             try             {                 NATUPNPLib.IStaticPortMappingCollection mapping = nat.StaticPortMappingCollection;                 int mapcount = mapping.Count;                 int i = 0;                 NATUPNPLib.IStaticPortMapping smap;                 System.Collections.IEnumerator mapEm = mapping.GetEnumerator();                 mapEm.Reset();                 while (i &lt; mapcount)                 {                     mapEm.MoveNext();                     smap = mapEm.Current as IStaticPortMapping;                     if (smap != null)                     {                         this.listBox1.Items.Add(smap.ExternalPort + “/t” + smap.InternalClient + “/t” + smap.Protocol + “/t” + smap.InternalPort);</p>
+<p>}                     if (smap == null)                         break;                     i++;                 }                 //直接使用foreach循环，当MoveNext移到Count位置时，会产生异常，故采用变量i和mapcount进行控制                 //foreach (object n in mapping)                 //{                 //    NATUPNPLib.IStaticPortMapping i = n as NATUPNPLib.IStaticPortMapping;                 //    if (i != null)                 //    {                 //        this.listBox1.Items.Add(i.ExternalPort + “/t” + i.InternalClient + “/t” + i.Protocol + “/t” + i.InternalPort);                 //    }                 //    if (i == null)                 //        break;                 //}</p>
+<p>}             catch (Exception e)             {                 MessageBox.Show(e.Message);             }</p>
+<p>}         //         //按钮单击事件         //         private void button1_Click(object sender, EventArgs e)         {</p>
+<p>if (listBox1.Items.Count &gt; 0 &amp;&amp; listBox1.SelectedItem != null)             {                 RemovePort();             }             else             {                 MessageBox.Show(“请确保有可删除项，且已被选中！”);             }</p>
+<p>}         //         private void button2_Click(object sender, EventArgs e)         {             if (searchRes == true)             {                 string[] itemArr = new string[listBox1.Items.Count];                 listBox1.Items.CopyTo(itemArr, 0);                 int i = itemArr.Count<!-- raw HTML omitted -->(s =&gt; s.Split(‘/t’)[0].Equals(exPort) &amp;&amp; s.Split(‘/t’)[1].Equals(locIP) &amp;&amp; s.Split(‘/t’)[3].Equals(locPort));                 if (i == 0)                 {                     AddPortMap(exPort, locPort, locIP, protocal);                 }                 else                     MessageBox.Show(“该端口映射已存在，请重新输入！”);             }             else             {                 MessageBox.Show(“未搜索路由设备，无法添加端口映射”);             }         }         //         private void button3_Click(object sender, EventArgs e)         {             this.label5.Text = “正在搜索，请稍后…”;             progressBar1.Value = 0;             progressBar1.Step = 8;             progressBar1.Maximum = 100;             timer1.Start();             FindDevice();         }         private void button4_Click(object sender, EventArgs e)         {             this.Close();         }         //         //文本改变事件         //         private void textBox1_TextChanged(object sender, EventArgs e)         {             locIP = textBox1.Text;         }         //         private void textBox2_TextChanged(object sender, EventArgs e)         {             locPort = textBox2.Text;         }</p>
+<p>//         private void textBox4_TextChanged(object sender, EventArgs e)         {             exPort = textBox4.Text;         }         //         //单选按钮         //         private void radioButton1_CheckedChanged(object sender, EventArgs e)         {</p>
+<p>protocal = radioButton1.Text;</p>
+<p>}</p>
+<p>private void radioButton2_CheckedChanged(object sender, EventArgs e)         {</p>
+<p>protocal = radioButton2.Text;</p>
+<p>}</p>
+<p>//listBox选项改变         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)         {             NATUPNPLib.IStaticPortMappingCollection mapping = nat.StaticPortMappingCollection;</p>
+<p>if (mapping.Count &gt; 0 &amp;&amp; listBox1.SelectedIndex &gt; -1)</p>
+<p>{</p>
+<p>string[] s = listBox1.SelectedItem.ToString().Split(‘/t’);</p>
+<p>textBox1.Text = mapping[Convert.ToInt32(s[0]), s[2]].InternalClient;</p>
+<p>textBox2.Text = mapping[Convert.ToInt32(s[0]), s[2]].InternalPort.ToString();</p>
+<p>textBox3.Text = mapping[Convert.ToInt32(s[0]), s[2]].ExternalIPAddress;</p>
+<p>textBox4.Text = mapping[Convert.ToInt32(s[0]), s[2]].ExternalPort.ToString();</p>
+<p>if (mapping[Convert.ToInt32(s[0]), s[2]].Protocol.Equals(“TCP”))</p>
+<p>radioButton1.Checked = true;</p>
+<p>else if (mapping[Convert.ToInt32(s[0]), s[2]].Protocol.Equals(“UDP”))</p>
+<p>radioButton2.Checked = true;             }         }</p>
+<p>//timer_Tick         private void timer1_Tick(object sender, EventArgs e)         {</p>
+<p>if (progressBar1.Value &gt;= 100)                 progressBar1.Value = 100;</p>
+<p>else</p>
+<p>{</p>
+<p>progressBar1.Value += progressBar1.Step;</p>
+<p>label7.Text = “时间:” + (progressBar1.Value / 8).ToString() + “s”;</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p> </p>
+<p>NATUPNPLib 和 UPNPLib 包含在 hnetcfg.dll 中,hnetcfg.dll 在网络上可以下载.</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/2012-08-09-touchxml/" data-toggle="tooltip" data-placement="top" title="TouchXML">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/2012-08-09-nibxib%E6%96%87%E4%BB%B6%E7%9A%84%E4%BA%A7%E7%94%9F%E7%BC%96%E8%AF%91%E5%92%8C%E8%BF%90%E8%A1%8C%E6%9C%AC%E8%B4%A8/" data-toggle="tooltip" data-placement="top" title="Nib/Xib文件的产生，编译和运行本质">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Thu Aug 9, 2012</h4>
+    </section>
+    <h5 id="wc">2200 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

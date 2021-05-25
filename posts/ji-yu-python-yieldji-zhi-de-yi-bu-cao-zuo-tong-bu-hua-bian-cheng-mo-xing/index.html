@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title> 基于python yield机制的异步操作同步化编程模型 - </title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="基于python yield机制的异步操作同步化编程模型" />
+  <meta name="twitter:title" content="基于python yield机制的异步操作同步化编程模型" />
+  <meta name="description" content="游戏引擎一般都采用分布式框架，通过一定的策略来均衡服务器集群的资源负载，从而保证服务器运算的高并发性和CPU高利用率，最终提高游戏的性能和负">
+  <meta property="og:description" content="游戏引擎一般都采用分布式框架，通过一定的策略来均衡服务器集群的资源负载，从而保证服务器运算的高并发性和CPU高利用率，最终提高游戏的性能和负">
+  <meta name="twitter:description" content="游戏引擎一般都采用分布式框架，通过一定的策略来均衡服务器集群的资源负载，从而保证服务器运算的高并发性和CPU高利用率，最终提高游戏的性能和负">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://www.51hint.com/posts/ji-yu-python-yieldji-zhi-de-yi-bu-cao-zuo-tong-bu-hua-bian-cheng-mo-xing/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IT技术分享" />
+
+  <meta name="generator" content="Hugo 0.81.0" />
+  <link rel="canonical" href="https://www.51hint.com/posts/ji-yu-python-yieldji-zhi-de-yi-bu-cao-zuo-tong-bu-hua-bian-cheng-mo-xing/" />
+  <link rel="alternate" href="https://www.51hint.com/index.xml" type="application/rss+xml" title="IT技术分享">
+  
+  
+  <script src="https://www.51hint.com/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="https://www.51hint.com/css/katex.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://www.51hint.com/css/bootstrap.min.css" />
+  
+  
+  
+  <link rel="stylesheet" href="https://www.51hint.com/css/main.css" />
+  
+  
+  
+  
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/photoswipe.css" />
+<link rel="stylesheet" href="https://www.51hint.com/css/default-skin/default-skin.css" />
+
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="https://www.51hint.com/css/styles/atom-one-dark.css" />
+<script src="https://www.51hint.com/js/highlight.pack.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.51hint.com/">IT技术分享</a>
+    </div>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+        
+          <li>
+            <a id="mSearch" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="hidden-sm hidden-md hidden-lg">Search</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-md-offset-0">
+            <div class="posts-heading">
+                <h1 align="center">基于python yield机制的异步操作同步化编程模型</h1>
+                
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+<div id="fastSearch">
+  <input id="searchInput" tabindex="0">
+  <ul id="searchResults">
+  </ul>
+</div>
+
+<script src="/js/fuse.min.js"></script>
+<script src="/js/fastsearch.js"></script>
+<link rel="stylesheet" href="https://www.51hint.com/css/fast.css" />
+    
+<div class="container" role="main" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">2500 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/python/">python</a> &nbsp;
+    </h5>
+</div>
+
+            
+            <article role="main" class="blog-post" itemprop="articleBody" id="content">
+                
+  
+  <aside class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#异步逻辑">异步逻辑</a></li>
+        <li><a href="#同步逻辑">同步逻辑</a></li>
+        <li><a href="#yield-关键字">yield 关键字</a></li>
+        <li><a href="#同步化实现">同步化实现</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+
+                <p>游戏引擎一般都采用分布式框架，通过一定的策略来均衡服务器集群的资源负载，从而保证服务器运算的高并发性和CPU高利用率，最终提高游戏的性能和负载。由于引擎的逻辑层调用是非抢占式的，服务器之间都是通过异步调用来进行通讯，导致游戏逻辑无法同步执行，所以在代码层不得不人为地添加很多回调函数，使一个原本完整的功能碎片化地分布在各个回调函数中。</p>
+<h3 id="异步逻辑">异步逻辑</h3>
+<p>以游戏中的副本评分逻辑为例，在副本结束时副本管理进程需要收集副本中每个玩家的战斗信息，再结合管理进程内部的统计信息最终给出一个副本评分，发放相应奖励。因为每个玩家实体都随机分布在不同进程中，所以管理进程需要通过异步调用来获取玩家身上的战斗信息。</p>
+<p>实现代码如下所示：</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: gbk -*-</span>
+<span class="kn">import</span> <span class="nn">random</span>
+  
+<span class="c1"># 玩家实体类</span>
+<span class="k">class</span> <span class="nc">Player</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entityId</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Player</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># 玩家标识</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entityId</span> <span class="o">=</span> <span class="n">entityId</span>
+  
+    <span class="k">def</span> <span class="nf">onFubenEnd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mailBox</span><span class="p">):</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s2">&#34;onFubenEnd player </span><span class="si">%d</span><span class="s2"> score </span><span class="si">%d</span><span class="s2">&#34;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entityId</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+  
+        <span class="c1"># 向副本管理进程发送自己的id和战斗信息</span>
+        <span class="n">mailBox</span><span class="o">.</span><span class="n">onEvalFubenScore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entityId</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+  
+<span class="c1"># 副本管理类</span>
+<span class="k">class</span> <span class="nc">FubenStub</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">players</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FubenStub</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span> <span class="o">=</span> <span class="n">players</span>
+  
+    <span class="k">def</span> <span class="nf">evalFubenScore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playerRelayCnt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalScore</span> <span class="o">=</span> <span class="mi">0</span>
+  
+        <span class="c1"># 通知每个注册的玩家，副本已经结束，索取战斗信息</span>
+        <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="p">:</span>
+            <span class="n">player</span><span class="o">.</span><span class="n">onFubenEnd</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+  
+    <span class="k">def</span> <span class="nf">onEvalFubenScore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entityId</span><span class="p">,</span> <span class="n">score</span><span class="p">):</span>
+        <span class="c1"># 收到其中一个玩家的战斗信息</span>
+        <span class="k">print</span> <span class="s2">&#34;onEvalFubenScore player </span><span class="si">%d</span><span class="s2"> score </span><span class="si">%d</span><span class="s2">&#34;</span><span class="o">%</span><span class="p">(</span><span class="n">entityId</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playerRelayCnt</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">totalScore</span> <span class="o">+=</span> <span class="n">score</span>
+  
+        <span class="c1"># 当收集完所有玩家的信息后，打印评分</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">playerRelayCnt</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s1">&#39;The fuben totalScore is </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">totalScore</span>
+  
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># 模拟创建玩家实体</span>
+    <span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="n">Player</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+  
+    <span class="c1"># 副本开始时，每个玩家将自己的MailBox注册到副本管理进程</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="n">FubenStub</span><span class="p">(</span><span class="n">players</span><span class="p">)</span>
+  
+    <span class="c1"># 副本进行中</span>
+    <span class="c1"># ....</span>
+  
+    <span class="c1"># 副本结束，开始评分</span>
+    <span class="n">fs</span><span class="o">.</span><span class="n">evalFubenScore</span><span class="p">()</span>
+</code></pre></div><p>代码简化了副本评分逻辑的实现，其中Player类表示游戏的玩家实体，在游戏运行时无缝地在不同服务器中切换，FubenStub表示副本的管理进程，在副本刚开始的时候该副本内所有玩家会将自己的MailBox注册到管理进程中，其中MailBox表示各个实体的远程调用句柄。在副本结束时，FubenStub首先向各个玩家发送副本结束消息，同时请求玩家的战斗信息，玩家在得到消息后，将自己的战斗信息发送给FubenStub；然后当FubenStub收集完所有玩家的信息后，最终打印副本评分。</p>
+<h3 id="同步逻辑">同步逻辑</h3>
+<p>如果Player和FubenStub在同一进程中的话，那所有的操作都可以同步完成，在FubenStub向玩家发送副本结束消息的同时可以马上得到该玩家的战斗信息，实现代码如下所示：</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: gbk -*-</span>
+  
+<span class="kn">import</span> <span class="nn">random</span>
+  
+<span class="k">class</span> <span class="nc">Player</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entityId</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Player</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entityId</span> <span class="o">=</span> <span class="n">entityId</span>
+  
+    <span class="k">def</span> <span class="nf">onFubenEnd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mailBox</span><span class="p">):</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s2">&#34;onFubenEnd player </span><span class="si">%d</span><span class="s2"> score </span><span class="si">%d</span><span class="s2">&#34;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entityId</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">entityId</span><span class="p">,</span> <span class="n">score</span>
+  
+<span class="k">class</span> <span class="nc">FubenStub</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">players</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FubenStub</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span> <span class="o">=</span> <span class="n">players</span>
+  
+    <span class="k">def</span> <span class="nf">evalFubenScore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">totalScore</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="p">:</span>
+            <span class="n">entityId</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">onFubenEnd</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">print</span> <span class="s2">&#34;onEvalFubenScore player </span><span class="si">%d</span><span class="s2"> score </span><span class="si">%d</span><span class="s2">&#34;</span><span class="o">%</span><span class="p">(</span><span class="n">entityId</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+            <span class="n">totalScore</span> <span class="o">+=</span> <span class="n">score</span>
+  
+        <span class="k">print</span> <span class="s1">&#39;The fuben totalScore is </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">totalScore</span>
+  
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="n">Player</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+  
+    <span class="n">fs</span> <span class="o">=</span> <span class="n">FubenStub</span><span class="p">(</span><span class="n">players</span><span class="p">)</span>
+    <span class="n">fs</span><span class="o">.</span><span class="n">evalFubenScore</span><span class="p">()</span>
+</code></pre></div><p>从以上两份代码可以看到由于异步操作，FubenStub中的评分逻辑人为地分成两个功能点：1）向玩家发送副本结束消息；2）接受玩家的战斗信息；并且两个功能点分布在两个不同的函数中。如果游戏逻辑一旦复杂，势必会造成功能点分散，出现过多onXXX异步回调函数，最终导致代码的开发成本和维护成本提高，可读性和可扩展性下降。</p>
+<p>如果有一种方法，可以让函数在异步调用时暂时挂起，并且在回调函数得到返回值后恢复执行，那么就可以用同步化的编程模式开发异步逻辑。</p>
+<h3 id="yield-关键字">yield 关键字</h3>
+<p>yield 是 Python中的一个关键字,凡是函数体中出现了 yield 关键字, Python将改变整个函数的上下文，调用该函数不再返回值, 而是一个生成器对象。只有调用这个生成器的迭代函数next才能开始执行生成器对象，当生成器对象执行到包含 yield 表达式时, 函数将暂时挂起，等待下一次next调用来恢复执行，具体机制如下：</p>
+<pre><code>     1）调用生成器对象的next方法，启动函数执行；
+     2）当生成器对象执行到包含 yield 表达式时, 函数挂起；
+     3）下一次 next 函数调用又会驱动该生成器对象继续执行此后的语句, 直到遇见下一个 yield 再次挂起；
+     4）如果某次 next 调用驱动了生成器继续执行, 而此后函数正常结束,生成器会抛出 StopIteration 异常；
+</code></pre>
+<p>如下代码所示:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s2">&#34;Before first yield&#34;</span>
+    <span class="k">yield</span> <span class="mi">1</span>
+    <span class="k">print</span> <span class="s2">&#34;Before second yield&#34;</span>
+    <span class="k">yield</span> <span class="mi">2</span>
+    <span class="k">print</span> <span class="s2">&#34;After second yield&#34;</span>
+  
+<span class="n">g</span> <span class="o">=</span> <span class="n">f</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&#34;Before first next&#34;</span>
+<span class="n">g</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&#34;Before second next&#34;</span>
+<span class="n">g</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&#34;Before third yield&#34;</span>
+<span class="n">g</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+</code></pre></div><p>执行结果为：</p>
+<pre><code>Before first next
+Before first yield
+Before second next
+Before second yield
+Before third yield
+After second yield
+StopIteration
+</code></pre><p>哈，有了让函数暂时挂起的机制，最后就剩下如何传递异步调用的返回值问题了。其实生成器的next函数已经实现了将参数从生成器对象内部向外传递的机制，并且python还提供了一个send函数将参数从外向生成器对象内部传递的机制，具体机制如下：</p>
+<pre><code>     1） 调用next 函数驱动生成器时, next会同时等待生成器中下一个 yield 挂起，并将该yield后面的参数返回给next；
+
+     2）往生成器中传递参数，需要将next函数替换成send，此时send的功能与next相同（驱动生成器执行，等待返回值），同时send将后面的参数传递给生成器内部之前挂起的yield；
+</code></pre>
+<p>如下代码所示：</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="k">yield</span> <span class="s1">&#39;first yield msg&#39;</span>
+    <span class="k">print</span> <span class="s2">&#34;generator inner receive:&#34;</span><span class="p">,</span> <span class="n">msg</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="k">yield</span> <span class="s1">&#39;second yield msg&#39;</span>
+    <span class="k">print</span> <span class="s2">&#34;generator inner receive:&#34;</span><span class="p">,</span> <span class="n">msg</span>
+  
+<span class="n">g</span> <span class="o">=</span> <span class="n">f</span><span class="p">()</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&#34;generator outer receive:&#34;</span><span class="p">,</span> <span class="n">msg</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;first send msg&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&#34;generator outer receive:&#34;</span><span class="p">,</span> <span class="n">msg</span>
+<span class="n">g</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;second send msg&#39;</span><span class="p">)</span>
+</code></pre></div><p>执行结果为：</p>
+<pre><code>generator outer receive: first yield msg
+generator inner receive: first send msg
+generator outer receive: second yield msg
+generator inner receive: second send msg
+StopIteration
+</code></pre><h3 id="同步化实现">同步化实现</h3>
+<pre><code> 好了，万事俱备只欠东风，下面就是简单对yield机制进行工程上封装以方便之后开发。下面的代码提供了一个叫IFakeSyncCall的interface，所有包含异步操作的逻辑类都可以继承这个接口：
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">IFakeSyncCall</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">IFakeSyncCall</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generators</span> <span class="o">=</span> <span class="p">{}</span>
+  
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">FAKE_SYNCALL</span><span class="p">():</span>
+        <span class="k">def</span> <span class="nf">fwrap</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">fakeSyncCall</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="n">instance</span><span class="o">.</span><span class="n">generators</span><span class="p">[</span><span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="n">func</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">generators</span><span class="p">[</span><span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+                <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">fakeSyncCall</span>
+        <span class="k">return</span> <span class="n">fwrap</span>
+  
+    <span class="k">def</span> <span class="nf">onFakeSyncCall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identify</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">func</span><span class="p">,</span> <span class="n">args</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generators</span><span class="p">[</span><span class="n">identify</span><span class="p">]</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">identify</span><span class="p">)</span>
+</code></pre></div><p>其中interface中属性generators用来保存类中已经开始执行的生成器对象；函数FAKE_SYNCALL是一个decorator，装饰类中包含有yield的函数，改变函数的调用上下文，在fakeSyncCall内部封装了对生成器对象的next调用；函数onFakeSyncCall封装了所有onXXX函数的逻辑，其他实体通过调用这个函数传递异步回调的返回值。</p>
+<p>下面就是经过同步化改进后的异步副本评分逻辑代码：</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: gbk -*-</span>
+<span class="kn">import</span> <span class="nn">random</span>
+  
+<span class="k">class</span> <span class="nc">Player</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entityId</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Player</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entityId</span> <span class="o">=</span> <span class="n">entityId</span>
+  
+    <span class="k">def</span> <span class="nf">onFubenEnd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mailBox</span><span class="p">):</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s2">&#34;onFubenEnd player </span><span class="si">%d</span><span class="s2"> score </span><span class="si">%d</span><span class="s2">&#34;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entityId</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+        <span class="n">mailBox</span><span class="o">.</span><span class="n">onFakeSyncCall</span><span class="p">(</span><span class="s1">&#39;evalFubenScore&#39;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entityId</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
+  
+<span class="k">class</span> <span class="nc">FubenStub</span><span class="p">(</span><span class="n">IFakeSyncCall</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">players</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FubenStub</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">players</span> <span class="o">=</span> <span class="n">players</span>
+  
+    <span class="nd">@IFakeSyncCall.FAKE_SYNCALL</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">evalFubenScore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">totalScore</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="p">:</span>
+            <span class="n">entityId</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="k">yield</span> <span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">onFubenEnd</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="p">,))</span>
+            <span class="k">print</span> <span class="s2">&#34;onEvalFubenScore player </span><span class="si">%d</span><span class="s2"> score </span><span class="si">%d</span><span class="s2">&#34;</span><span class="o">%</span><span class="p">(</span><span class="n">entityId</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+            <span class="n">totalScore</span> <span class="o">+=</span> <span class="n">score</span>
+  
+        <span class="k">print</span> <span class="s1">&#39;the totalScore is </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">totalScore</span>
+  
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="n">Player</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+  
+    <span class="n">fs</span> <span class="o">=</span> <span class="n">FubenStub</span><span class="p">(</span><span class="n">players</span><span class="p">)</span>
+    <span class="n">fs</span><span class="o">.</span><span class="n">evalFubenScore</span><span class="p">()</span>
+</code></pre></div><p>比较evalFubenScore函数，基本已经和原本的同步逻辑代码相差无几。</p>
+<p>利用yield机制实现同步化编程模型的另外一个优点是可以保证所有异步调用的逻辑串行化，从而保证数据的一致性和有效性，特别是在各种异步初始化流程中可以摒弃传统的timer sleep机制，从源头上扼杀一些隐藏很深的由于数据不一致性所导致的bug。</p>
+
+            </article>
+
+            <ul class="pager blog-pager">
+                
+                <li class="previous">
+                    <a href="https://www.51hint.com/posts/python-jin-jie-functoolsmo-kuai-xiao-jie/" data-toggle="tooltip" data-placement="top" title="PYTHON-进阶-FUNCTOOLS模块小结">&larr; Previous Post</a>
+                </li>
+                 
+                <li class="next">
+                    <a href="https://www.51hint.com/posts/commit-amend-gai-xie-ti-jiao/" data-toggle="tooltip" data-placement="top" title="commit --amend 改写提交！">Next Post &rarr;</a>
+                </li>
+                
+            </ul>
+            
+            <div>
+                 
+                <h2>See Also</h2>
+                <ul>
+                    
+                    <li><a href="/posts/python-jin-jie-functoolsmo-kuai-xiao-jie/">PYTHON-进阶-FUNCTOOLS模块小结</a></li>
+                    
+                    <li><a href="/posts/pythonzhuang-shi-qi-he-fu-hao/">Python装饰器和符号@</a></li>
+                    
+                    <li><a href="/posts/2012-12-21-opencv-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/">opencv 人脸识别</a></li>
+                    
+                    <li><a href="/posts/2012-11-28-python-%E5%BC%80%E5%8F%91web%E6%A1%86%E6%9E%B6-django%E6%A1%86%E6%9E%B6/">python 开发web框架  【Django框架】</a></li>
+                    
+                </ul>
+                
+            </div>
+            
+            
+            
+            
+<div>
+    <section id="datecount">
+        <h4 id="date"> Tue Feb 28, 2017</h4>
+    </section>
+    <h5 id="wc">2500 Words|Read in about 5 Min</h5>
+    <h5 id="tags">Tags: 
+        
+        <a href="https://www.51hint.com/tags/python/">python</a> &nbsp;
+    </h5>
+</div>
+
+            
+            </div>
+            
+            
+        </div>
+    </div>
+    </section>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+        
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+        &copy;2017-2018
+          
+          
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.51hint.com/">IT技术分享</a>
+          
+        </p>
+        <p class="credits theme-by text-muted">
+          
+        </p>
+
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.81.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/rootsongjc/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://www.51hint.com/js/bootstrap.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe-ui-default.min.js"></script>
+<script src="https://www.51hint.com/js/photoswipe.min.js"></script>
+<script src="https://www.51hint.com/js/auto-render.min.js"></script>
+<script src="https://www.51hint.com/js/main.js"></script>
+<script src="https://www.51hint.com/js/prism.js"></script>
+<script src="https://www.51hint.com/js/katex.min.js"></script>
+
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xcode_error on IT技术分享</title>
+    <link>https://www.51hint.com/categories/xcode_error/</link>
+    <description>Recent content in xcode_error on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Jun 2011 05:29:00 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/xcode_error/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iphone 调试日志</title>
+      <link>https://www.51hint.com/posts/2011-06-20-iphone-%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Mon, 20 Jun 2011 05:29:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-20-iphone-%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/</guid>
+      <description>大部分人调试程序都是看日志吧，这里我就给大家总结一下iphone程序中添加保存日志的方法。 Objective-C开发程序的时候，有专门的日志</description>
+    </item>
+    
+    <item>
+      <title>set a breakpoint in malloc_error_break to debug</title>
+      <link>https://www.51hint.com/posts/2011-06-08-set-a-breakpoint-in-malloc_error_break-to-debug/</link>
+      <pubDate>Wed, 08 Jun 2011 08:42:00 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2011-06-08-set-a-breakpoint-in-malloc_error_break-to-debug/</guid>
+      <description>NSData* data = [NSData dataWithBytes:&amp;ldquo;asklaskdxjgr&amp;rdquo; length:12]; [data release]; [pool release]; autorelease pool 自动释放 ，我们又手工释放，所以crash掉了； Here”s what we do: Click on the “Targets” tab, open “Executables</description>
+    </item>
+    
+  </channel>
+</rss>

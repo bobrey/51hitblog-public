@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>typescript on IT技术分享</title>
+    <link>https://www.51hint.com/tags/typescript/</link>
+    <description>Recent content in typescript on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Mar 2019 15:01:42 +0800</lastBuildDate><atom:link href="https://www.51hint.com/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Typescript多种import</title>
+      <link>https://www.51hint.com/posts/typescript%E5%A4%9A%E7%A7%8Dimport/</link>
+      <pubDate>Fri, 01 Mar 2019 15:01:42 +0800</pubDate>
+      
+      <guid>https://www.51hint.com/posts/typescript%E5%A4%9A%E7%A7%8Dimport/</guid>
+      <description>1.创建a.ts文件 export function whatsYourName(name: string) { console.log(name); } export interface StringValidator { isAcceptable(s: string): boolean; } export const numberRegexp = /^[0-9]+$/; class ZipCodeValidator implements StringValidator { isAcceptable(s: string) { return s.length === 5 &amp;amp;&amp;amp; numberRegexp.test(s); } } export { ZipCodeValidator }; export { ZipCodeValidator as mainValidator }; 其实ts跟es6导出基本一致</description>
+    </item>
+    
+  </channel>
+</rss>

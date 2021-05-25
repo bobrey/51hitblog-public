@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>smartphone on IT技术分享</title>
+    <link>https://www.51hint.com/categories/smartphone/</link>
+    <description>Recent content in smartphone on IT技术分享</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Jan 2016 00:21:49 +0000</lastBuildDate><atom:link href="https://www.51hint.com/categories/smartphone/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ios,android bug，访问工具</title>
+      <link>https://www.51hint.com/posts/2016-01-06-iosandroid-bug%E8%AE%BF%E9%97%AE%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 06 Jan 2016 00:21:49 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2016-01-06-iosandroid-bug%E8%AE%BF%E9%97%AE%E5%B7%A5%E5%85%B7/</guid>
+      <description>instabug https://instabug.com/applications/airapp/sdk/ Fabric[ https://www.fabric.io]1</description>
+    </item>
+    
+    <item>
+      <title>格安通話アプリ</title>
+      <link>https://www.51hint.com/posts/2015-02-22-%E6%A0%BC%E5%AE%89%E9%80%9A%E8%A9%B1%E3%82%A2%E3%83%97%E3%83%AA/</link>
+      <pubDate>Sun, 22 Feb 2015 14:17:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2015-02-22-%E6%A0%BC%E5%AE%89%E9%80%9A%E8%A9%B1%E3%82%A2%E3%83%97%E3%83%AA/</guid>
+      <description>LINE(ライン)電話 line電話画像 line電話 NAVER Japan Corporation LINE電話は2014年3月より日本・アメリカを含む世界6カ国で提供開始されたサービ</description>
+    </item>
+    
+    <item>
+      <title>双模卡</title>
+      <link>https://www.51hint.com/posts/2014-04-11-%E5%8F%8C%E6%A8%A1%E5%8D%A1/</link>
+      <pubDate>Fri, 11 Apr 2014 03:25:20 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-11-%E5%8F%8C%E6%A8%A1%E5%8D%A1/</guid>
+      <description>包括2012年的【SIM卡破解】爆卡复活，以及合卡之教程。 后面两天要开那个SAP的会，国家会议中心。这个文章在之后再来完善吧。 基本步骤和原理</description>
+    </item>
+    
+    <item>
+      <title>apn不能上网的解决办法</title>
+      <link>https://www.51hint.com/posts/2014-04-11-apn%E4%B8%8D%E8%83%BD%E4%B8%8A%E7%BD%91%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Fri, 11 Apr 2014 02:42:38 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-04-11-apn%E4%B8%8D%E8%83%BD%E4%B8%8A%E7%BD%91%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>apn没有编辑的地方，我从网上弄了一个描述文件装上，E网正常了。附上我的方法：safari打开网址http://www.unlockit.c</description>
+    </item>
+    
+    <item>
+      <title>20 Useful Mobile Frameworks for Developers</title>
+      <link>https://www.51hint.com/posts/2014-01-27-20-useful-mobile-frameworks-for-developers/</link>
+      <pubDate>Mon, 27 Jan 2014 07:40:46 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2014-01-27-20-useful-mobile-frameworks-for-developers/</guid>
+      <description>1. Fries 
+Fries is a solid HTML-CSS-JS framework for creating Android-like UIsboth for real-world usage and prototyping. The framework has all the major components like forms, action bars, lists, buttons, spinners or tabs. It is also optimized for PhoneGap and can be easily converted to a native app.
+Source2. Appium 
+Appium is an open source framework which helps automating mobile app testing from any language and any test framework, with full access to back-end APIs and DBs from test code.</description>
+    </item>
+    
+    <item>
+      <title>对于CallBack的简单阐述</title>
+      <link>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</link>
+      <pubDate>Wed, 30 Oct 2013 06:00:37 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2013-10-30-%E5%AF%B9%E4%BA%8Ecallback%E7%9A%84%E7%AE%80%E5%8D%95%E9%98%90%E8%BF%B0/</guid>
+      <description>一哥们被callback整得晕晕乎乎，解释了半天好像还是不太懂就整理一个微型例子。 逻辑页面处理，调用接口的方法 //一些调用UI页面啥之类的，</description>
+    </item>
+    
+    <item>
+      <title>cocos2d-x 一些编辑器</title>
+      <link>https://www.51hint.com/posts/2012-11-05-cocos2d-x-%E4%B8%80%E4%BA%9B%E7%BC%96%E8%BE%91%E5%99%A8/</link>
+      <pubDate>Mon, 05 Nov 2012 05:12:59 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-11-05-cocos2d-x-%E4%B8%80%E4%BA%9B%E7%BC%96%E8%BE%91%E5%99%A8/</guid>
+      <description>Action Editor SpriteHelper &amp;amp; LevelHelper Author’s blog Download from Mac Store SpriteHelperFree SpriteHelper LevelHelper “Video” Youtube: http://www.youtube.com/watch?v=YoVMSuwsATk Youku: http://v.youku.com/v_show/id_XMjU2NjU1OTIw.html News on cocos2d-x: http://www.cocos2d-x.org/news/14 CocosBuilder: http://cocosbuilder.com/ (can only be used in ios games) SceneDesigner: https://github.com/andrew0/SceneDesigner CocoShop: http://www.cocos2d-iphone.org/forum/topic/15668 (can only be used in ios games) – Abandoned project Map Editor Tiled Map Editor , free, cross platform, based on</description>
+    </item>
+    
+    <item>
+      <title>Comet (web技术)</title>
+      <link>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Fri, 20 Jul 2012 01:57:19 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-20-comet-web%E6%8A%80%E6%9C%AF/</guid>
+      <description>Comet是一种用于web的技术，能使服务器能实时地将更新的信息传送到客户端，而无须客户端发出请求，目前有两种实现方式，长轮询和流。 实现方式</description>
+    </item>
+    
+    <item>
+      <title>像google一样加一个两步密码验证</title>
+      <link>https://www.51hint.com/posts/2012-07-02-%E5%83%8Fgoogle%E4%B8%80%E6%A0%B7%E5%8A%A0%E4%B8%80%E4%B8%AA%E4%B8%A4%E6%AD%A5%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81/</link>
+      <pubDate>Mon, 02 Jul 2012 05:47:47 +0000</pubDate>
+      
+      <guid>https://www.51hint.com/posts/2012-07-02-%E5%83%8Fgoogle%E4%B8%80%E6%A0%B7%E5%8A%A0%E4%B8%80%E4%B8%AA%E4%B8%A4%E6%AD%A5%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81/</guid>
+      <description>&amp;lt;p&amp;gt; &amp;lt;a title=&amp;quot;google 两步验证&amp;quot; href=&amp;quot;http://support.google.com/accounts/bin/topic.py?hl=zh-Hans&amp;amp;topic=28786&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;google的两步密码验证&amp;lt;/a&amp;gt;出来已经</description>
+    </item>
+    
+  </channel>
+</rss>
